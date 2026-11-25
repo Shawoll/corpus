@@ -18,7 +18,9 @@
       "structures": [
         "@cranium",
         "brain",
-        "temporalis"
+        "temporalis",
+        "trigeminal-nerve",
+        "common-carotid-artery"
       ],
       "causes": [
         {
@@ -81,7 +83,10 @@
         "ethmoid",
         "tmj",
         "masseter",
-        "temporalis"
+        "temporalis",
+        "trigeminal-nerve",
+        "facial-nerve",
+        "common-carotid-artery"
       ],
       "causes": [
         {
@@ -117,7 +122,17 @@
           "title": "Trigeminal neuralgia",
           "signs": "Brief electric-shock pains in the face set off by touch, eating or wind.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "trigeminal-nerve"
+          ]
+        },
+        {
+          "title": "Bell’s palsy",
+          "signs": "One side of the face droops or won’t move, including the forehead, coming on over a day or two, sometimes with pain behind the ear. Sudden facial weakness can also be a stroke, so get seen the same day.",
+          "urgency": "urgent",
+          "related": [
+            "facial-nerve"
+          ]
         },
         {
           "title": "Facial fracture",
@@ -148,7 +163,17 @@
         "sternocleidomastoid",
         "trapezius",
         "suprahyoid",
-        "infrahyoid"
+        "infrahyoid",
+        "spinal-cord",
+        "common-carotid-artery",
+        "vertebral-artery",
+        "internal-jugular-vein",
+        "external-jugular-vein",
+        "vagus-nerve",
+        "accessory-nerve",
+        "cervical-plexus",
+        "phrenic-nerve",
+        "brachial-plexus"
       ],
       "causes": [
         {
@@ -166,7 +191,9 @@
           "signs": "Neck pain shooting into the arm with tingling, numbness or weakness.",
           "urgency": "doctor",
           "related": [
-            "intervertebral"
+            "intervertebral",
+            "spinal-nerves",
+            "brachial-plexus"
           ]
         },
         {
@@ -213,7 +240,14 @@
         "rotator-cuff",
         "trapezius",
         "pectoralis-major",
-        "biceps"
+        "biceps",
+        "brachial-plexus",
+        "axillary-nerve",
+        "subclavian-artery",
+        "axillary-artery",
+        "subclavian-vein",
+        "axillary-vein",
+        "cephalic-vein"
       ],
       "causes": [
         {
@@ -260,7 +294,8 @@
           "related": [
             "@cervical",
             "gallbladder",
-            "heart"
+            "heart",
+            "phrenic-nerve"
           ]
         }
       ],
@@ -280,7 +315,13 @@
         "trachea",
         "sternocostal",
         "pectoralis-major",
-        "diaphragm"
+        "diaphragm",
+        "aorta",
+        "pulmonary-trunk",
+        "coronary-arteries",
+        "superior-vena-cava",
+        "vagus-nerve",
+        "phrenic-nerve"
       ],
       "causes": [
         {
@@ -288,7 +329,8 @@
           "signs": "Pressure, tightness or heaviness that may spread to the arm, neck, jaw or back, with breathlessness, sweating or nausea.",
           "urgency": "urgent",
           "related": [
-            "heart"
+            "heart",
+            "coronary-arteries"
           ]
         },
         {
@@ -339,7 +381,10 @@
         "clavicle",
         "pectoralis-major",
         "serratus-anterior",
-        "intercostals"
+        "intercostals",
+        "intercostal-nerves",
+        "phrenic-nerve",
+        "pulmonary-veins"
       ],
       "causes": [
         {
@@ -365,7 +410,8 @@
           "signs": "Sudden sharp pain and breathlessness, maybe with a swollen calf or coughing blood.",
           "urgency": "urgent",
           "related": [
-            "lung"
+            "lung",
+            "pulmonary-trunk"
           ]
         },
         {
@@ -380,7 +426,9 @@
           "title": "Shingles",
           "signs": "A burning band of pain on one side, followed by a blistering rash. Early treatment helps.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "intercostal-nerves"
+          ]
         },
         {
           "title": "Gallbladder pain",
@@ -404,7 +452,11 @@
         "clavicle",
         "pectoralis-major",
         "serratus-anterior",
-        "intercostals"
+        "intercostals",
+        "intercostal-nerves",
+        "phrenic-nerve",
+        "pulmonary-veins",
+        "coronary-arteries"
       ],
       "causes": [
         {
@@ -412,7 +464,8 @@
           "signs": "Pressure or tightness that may spread to the left arm, neck or jaw, with breathlessness or sweating.",
           "urgency": "urgent",
           "related": [
-            "heart"
+            "heart",
+            "coronary-arteries"
           ]
         },
         {
@@ -438,7 +491,8 @@
           "signs": "Sudden sharp pain and breathlessness, maybe with a swollen calf or coughing blood.",
           "urgency": "urgent",
           "related": [
-            "lung"
+            "lung",
+            "pulmonary-trunk"
           ]
         },
         {
@@ -453,7 +507,9 @@
           "title": "Shingles",
           "signs": "A burning band of pain on one side, followed by a blistering rash.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "intercostal-nerves"
+          ]
         }
       ]
     },
@@ -466,7 +522,14 @@
         "biceps",
         "triceps",
         "brachialis",
-        "deltoid"
+        "deltoid",
+        "brachial-artery",
+        "median-nerve",
+        "ulnar-nerve",
+        "radial-nerve",
+        "musculocutaneous-nerve",
+        "cephalic-vein",
+        "basilic-vein"
       ],
       "causes": [
         {
@@ -502,7 +565,9 @@
           "signs": "Arm pain with tingling that follows a strip of skin, often with neck stiffness.",
           "urgency": "doctor",
           "related": [
-            "@cervical"
+            "@cervical",
+            "spinal-nerves",
+            "brachial-plexus"
           ]
         }
       ],
@@ -525,7 +590,12 @@
         "brachioradialis",
         "biceps",
         "brachialis",
-        "triceps"
+        "triceps",
+        "brachial-artery",
+        "median-cubital-vein",
+        "ulnar-nerve",
+        "median-nerve",
+        "radial-nerve"
       ],
       "causes": [
         {
@@ -561,7 +631,8 @@
           "signs": "Tingling in the ring and little fingers, worse with the elbow bent.",
           "urgency": "doctor",
           "related": [
-            "humerus"
+            "humerus",
+            "ulnar-nerve"
           ]
         },
         {
@@ -586,7 +657,14 @@
         "distal-radioulnar",
         "forearm-flexors",
         "forearm-extensors",
-        "brachioradialis"
+        "brachioradialis",
+        "radial-artery",
+        "ulnar-artery",
+        "median-nerve",
+        "ulnar-nerve",
+        "radial-nerve",
+        "cephalic-vein",
+        "basilic-vein"
       ],
       "causes": [
         {
@@ -612,7 +690,11 @@
           "title": "Compartment syndrome",
           "signs": "Severe, increasing pain after a crush or fracture, worse when moving the fingers.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "radial-artery",
+            "ulnar-artery",
+            "median-nerve"
+          ]
         }
       ]
     },
@@ -633,7 +715,13 @@
         "thenar",
         "hypothenar",
         "forearm-flexors",
-        "forearm-extensors"
+        "forearm-extensors",
+        "median-nerve",
+        "ulnar-nerve",
+        "radial-nerve",
+        "radial-artery",
+        "ulnar-artery",
+        "palmar-arches"
       ],
       "causes": [
         {
@@ -644,7 +732,8 @@
             "carpals",
             "wrist",
             "forearm-flexors",
-            "thenar"
+            "thenar",
+            "median-nerve"
           ]
         },
         {
@@ -721,7 +810,10 @@
         "large-intestine",
         "rectus-abdominis",
         "external-oblique",
-        "diaphragm"
+        "diaphragm",
+        "inferior-vena-cava",
+        "hepatic-portal-vein",
+        "intercostal-nerves"
       ],
       "causes": [
         {
@@ -763,7 +855,9 @@
           "title": "Shingles",
           "signs": "A burning band of pain followed by a blistering rash on one side.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "intercostal-nerves"
+          ]
         }
       ]
     },
@@ -778,7 +872,12 @@
         "small-intestine",
         "sternum",
         "rectus-abdominis",
-        "diaphragm"
+        "diaphragm",
+        "aorta",
+        "celiac-trunk",
+        "superior-mesenteric-artery",
+        "hepatic-portal-vein",
+        "inferior-vena-cava"
       ],
       "causes": [
         {
@@ -819,7 +918,8 @@
           "signs": "Can feel like indigestion, especially in women, older people and people with diabetes.",
           "urgency": "urgent",
           "related": [
-            "heart"
+            "heart",
+            "coronary-arteries"
           ]
         }
       ],
@@ -846,7 +946,10 @@
         "rib-11",
         "rectus-abdominis",
         "external-oblique",
-        "diaphragm"
+        "diaphragm",
+        "celiac-trunk",
+        "hepatic-portal-vein",
+        "intercostal-nerves"
       ],
       "causes": [
         {
@@ -914,7 +1017,10 @@
         "l2",
         "external-oblique",
         "deep-abdominals",
-        "quadratus-lumborum"
+        "quadratus-lumborum",
+        "renal-artery",
+        "renal-vein",
+        "inferior-vena-cava"
       ],
       "causes": [
         {
@@ -954,7 +1060,9 @@
           "title": "Shingles",
           "signs": "A burning band of pain followed by a rash on one side.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "intercostal-nerves"
+          ]
         }
       ]
     },
@@ -965,7 +1073,11 @@
         "small-intestine",
         "large-intestine",
         "@lumbar",
-        "rectus-abdominis"
+        "rectus-abdominis",
+        "aorta",
+        "inferior-vena-cava",
+        "superior-mesenteric-artery",
+        "inferior-mesenteric-artery"
       ],
       "causes": [
         {
@@ -1011,7 +1123,9 @@
           "title": "Abdominal aortic aneurysm",
           "signs": "In older adults, especially smokers: a pulsing feeling, or sudden severe pain going to the back.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "aorta"
+          ]
         }
       ]
     },
@@ -1029,7 +1143,9 @@
         "l2",
         "external-oblique",
         "deep-abdominals",
-        "quadratus-lumborum"
+        "quadratus-lumborum",
+        "renal-artery",
+        "renal-vein"
       ],
       "causes": [
         {
@@ -1078,7 +1194,10 @@
         "hip-bone",
         "rectus-abdominis",
         "external-oblique",
-        "iliopsoas"
+        "iliopsoas",
+        "iliac-artery",
+        "iliac-vein",
+        "lumbar-plexus"
       ],
       "causes": [
         {
@@ -1139,7 +1258,10 @@
         "hip-bone",
         "pubic-symphysis",
         "rectus-abdominis",
-        "pelvic-floor"
+        "pelvic-floor",
+        "iliac-artery",
+        "iliac-vein",
+        "sacral-plexus"
       ],
       "causes": [
         {
@@ -1196,7 +1318,11 @@
         "hip-bone",
         "rectus-abdominis",
         "external-oblique",
-        "iliopsoas"
+        "iliopsoas",
+        "iliac-artery",
+        "iliac-vein",
+        "inferior-mesenteric-artery",
+        "lumbar-plexus"
       ],
       "causes": [
         {
@@ -1261,7 +1387,13 @@
         "sartorius",
         "tensor-fasciae-latae",
         "gluteus-medius",
-        "rectus-femoris"
+        "rectus-femoris",
+        "femoral-artery",
+        "femoral-vein",
+        "femoral-nerve",
+        "great-saphenous-vein",
+        "obturator-nerve",
+        "lumbar-plexus"
       ],
       "causes": [
         {
@@ -1314,7 +1446,9 @@
           "urgency": "doctor",
           "related": [
             "@lumbar",
-            "sacroiliac"
+            "sacroiliac",
+            "lumbar-plexus",
+            "femoral-nerve"
           ]
         }
       ],
@@ -1336,7 +1470,14 @@
         "sartorius",
         "adductors",
         "hamstrings",
-        "tensor-fasciae-latae"
+        "tensor-fasciae-latae",
+        "femoral-artery",
+        "femoral-vein",
+        "femoral-nerve",
+        "great-saphenous-vein",
+        "sciatic-nerve",
+        "obturator-nerve",
+        "lumbar-plexus"
       ],
       "causes": [
         {
@@ -1353,13 +1494,18 @@
           "title": "Meralgia paresthetica",
           "signs": "Burning or numbness on the outer thigh from a squeezed skin nerve.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "lumbar-plexus"
+          ]
         },
         {
           "title": "Deep vein thrombosis (DVT)",
           "signs": "A swollen, warm, painful leg, often after travel, surgery or immobility.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "femoral-vein",
+            "popliteal-vein"
+          ]
         },
         {
           "title": "Femur fracture",
@@ -1375,7 +1521,9 @@
           "urgency": "doctor",
           "related": [
             "hip",
-            "@lumbar"
+            "@lumbar",
+            "femoral-nerve",
+            "obturator-nerve"
           ]
         }
       ]
@@ -1397,7 +1545,12 @@
         "sartorius",
         "tensor-fasciae-latae",
         "hamstrings",
-        "gastrocnemius"
+        "gastrocnemius",
+        "popliteal-artery",
+        "popliteal-vein",
+        "great-saphenous-vein",
+        "common-fibular-nerve",
+        "tibial-nerve"
       ],
       "causes": [
         {
@@ -1476,7 +1629,14 @@
         "toe-extensors",
         "fibularis",
         "gastrocnemius",
-        "soleus"
+        "soleus",
+        "anterior-tibial-artery",
+        "posterior-tibial-artery",
+        "popliteal-vein",
+        "great-saphenous-vein",
+        "tibial-nerve",
+        "deep-fibular-nerve",
+        "superficial-fibular-nerve"
       ],
       "causes": [
         {
@@ -1511,7 +1671,9 @@
           "title": "Deep vein thrombosis (DVT)",
           "signs": "A swollen, warm, tender calf, especially after travel, surgery or immobility.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "popliteal-vein"
+          ]
         },
         {
           "title": "Cramp",
@@ -1526,7 +1688,10 @@
           "title": "Poor circulation (claudication)",
           "signs": "Cramping calf pain on walking that eases with rest.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "femoral-artery",
+            "popliteal-artery"
+          ]
         }
       ],
       "redFlags": [
@@ -1552,7 +1717,13 @@
         "toe-extensors",
         "fibularis",
         "gastrocnemius",
-        "soleus"
+        "soleus",
+        "anterior-tibial-artery",
+        "posterior-tibial-artery",
+        "great-saphenous-vein",
+        "tibial-nerve",
+        "deep-fibular-nerve",
+        "superficial-fibular-nerve"
       ],
       "causes": [
         {
@@ -1606,14 +1777,19 @@
           "urgency": "doctor",
           "related": [
             "metatarsophalangeal",
-            "metatarsals"
+            "metatarsals",
+            "tibial-nerve"
           ]
         },
         {
           "title": "Diabetic foot problems",
           "signs": "Any wound, colour change or swelling on the foot of someone with diabetes needs prompt review.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "tibial-nerve",
+            "anterior-tibial-artery",
+            "posterior-tibial-artery"
+          ]
         }
       ],
       "redFlags": [
@@ -1636,7 +1812,11 @@
         "rhomboids",
         "latissimus-dorsi",
         "erector-spinae",
-        "rotator-cuff"
+        "rotator-cuff",
+        "spinal-cord",
+        "spinal-nerves",
+        "intercostal-nerves",
+        "aorta"
       ],
       "causes": [
         {
@@ -1670,7 +1850,10 @@
           "title": "Shingles",
           "signs": "A burning band of pain followed by a rash on one side.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "intercostal-nerves",
+            "spinal-nerves"
+          ]
         },
         {
           "title": "Referred pain",
@@ -1702,7 +1885,12 @@
         "erector-spinae",
         "quadratus-lumborum",
         "gluteus-maximus",
-        "latissimus-dorsi"
+        "latissimus-dorsi",
+        "spinal-cord",
+        "spinal-nerves",
+        "sciatic-nerve",
+        "sacral-plexus",
+        "lumbar-plexus"
       ],
       "causes": [
         {
@@ -1720,7 +1908,10 @@
           "signs": "Pain shooting down the back of the leg, often with tingling.",
           "urgency": "doctor",
           "related": [
-            "intervertebral"
+            "intervertebral",
+            "sciatic-nerve",
+            "sacral-plexus",
+            "spinal-nerves"
           ]
         },
         {
@@ -1744,7 +1935,9 @@
           "signs": "Leg pain or heaviness on walking, relieved by sitting or bending forward.",
           "urgency": "doctor",
           "related": [
-            "@lumbar"
+            "@lumbar",
+            "spinal-cord",
+            "spinal-nerves"
           ]
         },
         {

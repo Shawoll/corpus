@@ -233,8 +233,7 @@
       ],
       "to": [
         "internal-jugular-vein"
-      ],
-      "note": "blood"
+      ]
     },
     {
       "type": "drains",
@@ -244,8 +243,7 @@
       "to": [
         "internal-jugular-vein",
         "brachiocephalic-vein"
-      ],
-      "note": "blood"
+      ]
     },
     {
       "type": "drains",
@@ -264,22 +262,13 @@
         "spleen",
         "small-intestine",
         "large-intestine",
-        "appendix"
-      ],
-      "to": [
-        "hepatic-portal-vein"
-      ]
-    },
-    {
-      "type": "drains",
-      "from": [
+        "appendix",
         "pancreas",
         "gallbladder"
       ],
       "to": [
         "hepatic-portal-vein"
-      ],
-      "note": "blood"
+      ]
     },
     {
       "type": "drains",
@@ -298,8 +287,7 @@
       ],
       "to": [
         "renal-vein"
-      ],
-      "note": "blood"
+      ]
     },
     {
       "type": "drains",

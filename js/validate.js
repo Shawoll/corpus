@@ -28,6 +28,17 @@ export function validate({ graph, map }) {
   }
   if (bones !== 206) problems.push(`Bone count is ${bones}, expected 206`);
 
+  // once a nerves or vessels layer exists, every muscle needs a nerve supply and a blood supply, and every organ a blood supply
+  const types = new Set([...graph.nodes.values()].map((n) => n.type));
+  const has = (k, type, dir) => graph.edges(k).some((e) => e.type === type && e.dir === dir);
+  for (const n of graph.nodes.values()) {
+    for (const k of graph.instances(n.id)) {
+      if ((n.type === 'nerve' || n.type === 'vessel') && !graph.edges(k).length) problems.push(`${n.type === 'nerve' ? 'Nerve' : 'Vessel'} "${k}" connects nothing`);
+      if (n.type === 'muscle' && types.has('nerve') && !has(k, 'innervates', 'in')) problems.push(`Muscle "${k}" has no nerve supply`);
+      if ((n.type === 'muscle' || n.type === 'organ') && types.has('vessel') && !has(k, 'supplies', 'in')) problems.push(`${n.type === 'muscle' ? 'Muscle' : 'Organ'} "${k}" has no blood supply`);
+    }
+  }
+
   for (const k of regionShapes) if (!graph.regions.get(parseKey(k).id)) problems.push(`Region shape "${k}" has no entry in regions.json`);
   for (const r of graph.regions.values()) {
     if (r.view !== 'back') for (const k of graph.regionKeys(r.id)) if (!regionShapes.has(k)) problems.push(`Region "${k}" has no shape`);

@@ -5,6 +5,10 @@ import { parseKey, normalize } from './graph.js';
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
 const KIND = { long: 'Long bone', short: 'Short bone', flat: 'Flat bone', irregular: 'Irregular bone', sesamoid: 'Sesamoid bone' };
+const NERVE_KIND = { cranial: 'Cranial nerve', 'spinal-cord': 'Central nervous system', spinal: 'Spinal nerves', plexus: 'Nerve plexus', peripheral: 'Peripheral nerve' };
+const CARRIES = { artery: 'Oxygen-rich blood away from the heart', vein: 'Oxygen-poor blood back to the heart' };
+// read flow links upstream first: where it comes from, then where it goes
+const UPSTREAM_FIRST = new Set(['pumps', 'continues', 'branches', 'drains']);
 const URG = { 'self-care': 'Self-care', doctor: 'See a doctor', urgent: 'Urgent' };
 const REGION_GROUPS = [
   ['Head & neck', ['head', 'face', 'neck']],
@@ -100,30 +104,39 @@ export function createPanel(graph) {
       for (const e of graph.edges(k)) {
         if (e.type === 'articulates') continue;
         const t = `${e.type}|${e.dir}`;
-        if (!byType.has(t)) byType.set(t, { type: e.type, dir: e.dir, keys: [], notes: new Set() });
+        if (!byType.has(t)) byType.set(t, { type: e.type, dir: e.dir, keys: [], byNote: new Map() });
         const b = byType.get(t);
         b.keys.push(e.to);
-        if (e.note) b.notes.add(e.note);
+        const nk = e.note || '';
+        if (!b.byNote.has(nk)) b.byNote.set(nk, []);
+        b.byNote.get(nk).push(e.to);
       }
     }
     // a structure field with a note but no links (e.g. the diaphragm inserts into its own tendon)
     for (const [type, lt] of Object.entries(graph.linkTypes)) {
-      if (lt.field && n[lt.field + 'Note'] && !byType.has(`${type}|out`) && Array.isArray(n[lt.field])) byType.set(`${type}|out`, { type, dir: 'out', keys: [], notes: new Set() });
+      if (lt.field && n[lt.field + 'Note'] && !byType.has(`${type}|out`) && Array.isArray(n[lt.field])) byType.set(`${type}|out`, { type, dir: 'out', keys: [], byNote: new Map() });
     }
     if (!byType.size) return '';
-    const order = ['origin', 'insertion', 'protects', 'continues', 'drains', 'attached'];
+    const order = ['origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'innervates', 'supplies', 'attached'];
     const rank = (t) => (order.includes(t) ? order.indexOf(t) : order.length);
-    const items = [...byType.values()].sort((a, b) => rank(a.type) - rank(b.type) || (a.dir === 'out' ? -1 : 1));
+    const dirRank = (b) => ((b.dir === 'out') !== UPSTREAM_FIRST.has(b.type) ? 0 : 1);
+    const items = [...byType.values()].sort((a, b) => rank(a.type) - rank(b.type) || dirRank(a) - dirRank(b));
     return items.map((b) => {
       const lt = graph.linkTypes[b.type] || {};
       const label = b.dir === 'in' ? lt.reverse : lt.forward;
-      const note = b.notes.size ? `<span class="lnote"> · ${esc([...b.notes].join('; '))}</span>` : '';
+      // one shared note goes in the title; different notes (urine vs blood from the kidney) each label their own chips
+      const groups = [...b.byNote.entries()].sort((x, y) => (x[0] ? 1 : 0) - (y[0] ? 1 : 0));
+      const shared = groups.length === 1 ? groups[0][0] : '';
+      const note = shared ? `<span class="lnote"> · ${esc(shared)}</span>` : '';
+      const list = groups.length > 1
+        ? groups.map(([nt, ks]) => `<div class="lgroup">${nt ? `<p class="section-note">${esc(cap(nt))}</p>` : ''}${chips(lift(ks, ctx, n.id), ctx)}</div>`).join('')
+        : chips(lift(b.keys, ctx, n.id), ctx);
       const where = b.dir === 'out' && lt.field && n[lt.field + 'Note'] ? `<p class="section-note">${esc(n[lt.field + 'Note'])}</p>` : '';
       const count = b.dir === 'in' && b.keys.length > 2 ? ` <span class="n">${new Set(lift(b.keys, ctx, n.id)).size}</span>` : '';
       // offer to reveal targets that live on a hidden layer
       const hidden = [...new Set(b.keys.map((k) => graph.node(parseKey(k).id)).filter((t) => t && !t.listOnly).map((t) => t.layer))].filter((l) => st?.visible && !st.visible.has(l));
       const reveal = hidden.map((l) => `<button class="show-layer" data-layer-on="${esc(l)}">Show ${esc((graph.layer(l)?.name || l).toLowerCase())} on the map</button>`).join('');
-      return section(esc(label || b.type), where + chips(lift(b.keys, ctx, n.id), ctx) + reveal, note + count);
+      return section(esc(label || b.type), where + list + reveal, note + count);
     }).join('');
   }
 
@@ -191,6 +204,14 @@ export function createPanel(graph) {
     } else if (n.type === 'muscle') {
       f.push(['Type', n.members?.length ? `Group of ${n.members.length} muscles` : 'Skeletal muscle']);
       if (n.nerve) f.push(['Nerve supply', n.nerve]);
+    } else if (n.type === 'nerve') {
+      f.push(['Type', NERVE_KIND[n.kind] || cap(n.kind)]);
+      if (n.roots) f.push(['Roots', n.roots]);
+      if (n.carries) f.push(['Carries', n.carries]);
+    } else if (n.type === 'vessel') {
+      f.push(['Type', cap(n.kind)]);
+      f.push(['Carries', n.carries || CARRIES[n.kind]]);
+      if (n.pulse) f.push(['Pulse', n.pulse]);
     } else {
       f.push(['System', graph.group(n.group)?.name]);
       if (n.paired) f.push(['Count', 'One on each side']);
@@ -292,22 +313,27 @@ export function createPanel(graph) {
     const bones = [...graph.nodes.values()].filter((n) => n.type === 'bone').reduce((s, n) => s + (n.count || 0), 0);
     const joints = [...graph.nodes.values()].filter((n) => n.type === 'joint').length;
     const organs = [...graph.nodes.values()].filter((n) => n.type === 'organ').length;
-    const muscles = [...graph.nodes.values()].filter((n) => n.type === 'muscle').length;
+    const count = (type) => [...graph.nodes.values()].filter((n) => n.type === type).length;
+    const muscles = count('muscle'), nerves = count('nerve'), vessels = count('vessel');
+    const stat = (v, label) => (v ? `<div class="stat"><b>${v}</b><span>${label}</span></div>` : '');
     let edges = 0;
     for (const list of graph.adj.values()) edges += list.length;
     let h = eyebrow(['A connected map of the body']);
-    h += `<p class="home-lede">The human body as one system. Tap any bone, joint, muscle or organ to see what it is, what it connects to and what commonly goes wrong.</p>`;
-    h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${muscles ? `<div class="stat"><b>${muscles}</b><span>muscles</span></div>` : ''}<div class="stat"><b>${organs}</b><span>organs</span></div><div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
+    h += `<p class="home-lede">The human body as one system. Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, what it connects to and what commonly goes wrong.</p>`;
+    h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${stat(muscles, 'muscles')}<div class="stat"><b>${organs}</b><span>organs</span></div>${stat(nerves, 'nerves')}${stat(vessels, 'vessels')}<div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
     h += section('How to use it', `<ul class="howto">
       <li><span class="k">i</span><span><b>Tap</b> a structure. It turns red, everything it connects to turns teal, and the joints between them pulse.</span></li>
-      <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles or Organs. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
-      <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
+      <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles, Organs, Vessels or Nerves. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
+      <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, nerve, blood vessel, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
       <li><span class="k">v</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);
     h += section('Legend', `<div class="legend">
       <div><span class="sq sel"></span>Selected</div>
       <div><span class="sq rel"></span>Connected to the selection</div>
+      <div><span class="ln artery"></span>Artery</div>
+      <div><span class="ln vein"></span>Vein</div>
+      <div><span class="ln nerve"></span>Nerve</div>
       <div><span class="jdot" data-c="synovial"></span>Synovial joint (freely moving)</div>
       <div><span class="jdot" data-c="cartilaginous"></span>Cartilaginous joint (slightly moving)</div>
       <div><span class="jdot" data-c="fibrous"></span>Fibrous joint (fixed)</div>

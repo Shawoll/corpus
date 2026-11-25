@@ -15,6 +15,8 @@ One SVG per layer and view (`<layer>-anterior.svg`), all in the same `viewBox="0
 | `.d` path | detail lines (fibres, sutures). Hidden for muscles when that layer is in the background or in hurt mode |
 | `s deep` | a structure lying under others. Darker fill, still tappable |
 | `s back` | a structure behind the body (e.g. the back half of the ribs). Muted fill, and its `.hit` is disabled, so it can't be tapped |
+| `s a` / `s v` / `s n` | an artery, vein or nerve (vessels and nerves layers). Drawn as thin filled bands |
+| `.c` path in `s a` / `s v` / `s n` | a stretch that runs behind bone (the radial nerve's spiral groove, the deep femoral artery). Drawn faint, not part of the tap target |
 | `s jt` | joint tissue drawn as a shape (e.g. intervertebral discs). Its `data-id` is a joint id |
 | `<g class="joints"><circle class="jm" data-id=<joint id> …>` | joint markers, coloured by the joint's `class` and hidden by the Joints toggle |
 | `class="deco …"` | non-interactive decoration (no `data-id`) |

@@ -23,9 +23,18 @@ The structures and links behind the map. The JSON shapes are in the root `README
 
 `origin` and `insertion` are arrays of structure ids. They become edges because their link types in `manifest.json` declare `"field"`. An optional `<field>Note` (`originNote`, `insertionNote`) is shown as the attachment detail. It is also shown when the array is empty, e.g. the diaphragm inserting into its own central tendon. Every muscle needs at least one origin or insertion.
 
+## Vessels and nerves (`vessels.json`, `nerves.json`)
+
+- Their links are field links too: `supplies` (artery → what it feeds), `innervates` (nerve → muscle or organ), `branches` (parent → branch, shown as "Gives rise to" / "Arises from"), `continues` (the same vessel under a new name, e.g. axillary → brachial artery) and `drains` (vein → the vein or heart it empties into). Each can carry a `<field>Note`.
+- Use a side in a reference when only one side is meant: the aorta gives rise to `subclavian-artery:left` while the brachiocephalic trunk gives rise to `subclavian-artery:right`.
+- Organ → vein drainage and the heart's `pumps` links live in `links.json`, because the organ is the source.
+- `kind` is `artery` or `vein` for vessels and `cranial`, `spinal-cord`, `spinal`, `plexus` or `peripheral` for nerves. Optional `carries`, `pulse` and `roots` are shown as facts.
+- Keep `aka` to true synonyms. Branch names belong in `members`, which search already indexes; the panel shows the first `aka` that isn't a member as "also: …".
+- `?debug` requires every muscle to have a nerve supply (`innervates`) and a blood supply (`supplies`), and every organ a blood supply, so a new muscle or organ needs both.
+
 ## Links (`links.json`)
 
-`type` must be a key of `manifest.json` → `linkTypes`, whose `forward` / `reverse` labels are the panel section titles. `"side": "right"` keeps only right-side (and midline) matches. `note` is shown next to the section title.
+`type` must be a key of `manifest.json` → `linkTypes`, whose `forward` / `reverse` labels are the panel section titles. `"side": "right"` keeps only right-side (and midline) matches. `note` is shown next to the section title, or above its own chips when a section mixes links with different notes, so only annotate a link when the note tells it apart from others in the same section.
 
 ## Regions (`regions.json`)
 
