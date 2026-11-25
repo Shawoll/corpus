@@ -94,7 +94,7 @@ export function createPanel(graph) {
     return [...new Set(keys.map((k) => parseKey(k).id))].filter((id) => id !== selfId);
   }
 
-  function linksSection(n, keys, ctx) {
+  function linksSection(n, keys, ctx, st) {
     const byType = new Map();
     for (const k of keys) {
       for (const e of graph.edges(k)) {
@@ -106,14 +106,24 @@ export function createPanel(graph) {
         if (e.note) b.notes.add(e.note);
       }
     }
+    // a structure field with a note but no links (e.g. the diaphragm inserts into its own tendon)
+    for (const [type, lt] of Object.entries(graph.linkTypes)) {
+      if (lt.field && n[lt.field + 'Note'] && !byType.has(`${type}|out`) && Array.isArray(n[lt.field])) byType.set(`${type}|out`, { type, dir: 'out', keys: [], notes: new Set() });
+    }
     if (!byType.size) return '';
-    const order = ['protects', 'continues', 'drains', 'attached'];
-    const items = [...byType.values()].sort((a, b) => order.indexOf(a.type) - order.indexOf(b.type));
+    const order = ['origin', 'insertion', 'protects', 'continues', 'drains', 'attached'];
+    const rank = (t) => (order.includes(t) ? order.indexOf(t) : order.length);
+    const items = [...byType.values()].sort((a, b) => rank(a.type) - rank(b.type) || (a.dir === 'out' ? -1 : 1));
     return items.map((b) => {
       const lt = graph.linkTypes[b.type] || {};
       const label = b.dir === 'in' ? lt.reverse : lt.forward;
       const note = b.notes.size ? `<span class="lnote"> · ${esc([...b.notes].join('; '))}</span>` : '';
-      return section(esc(label || b.type), chips(lift(b.keys, ctx, n.id), ctx), note);
+      const where = b.dir === 'out' && lt.field && n[lt.field + 'Note'] ? `<p class="section-note">${esc(n[lt.field + 'Note'])}</p>` : '';
+      const count = b.dir === 'in' && b.keys.length > 2 ? ` <span class="n">${new Set(lift(b.keys, ctx, n.id)).size}</span>` : '';
+      // offer to reveal targets that live on a hidden layer
+      const hidden = [...new Set(b.keys.map((k) => graph.node(parseKey(k).id)).filter((t) => t && !t.listOnly).map((t) => t.layer))].filter((l) => st?.visible && !st.visible.has(l));
+      const reveal = hidden.map((l) => `<button class="show-layer" data-layer-on="${esc(l)}">Show ${esc((graph.layer(l)?.name || l).toLowerCase())} on the map</button>`).join('');
+      return section(esc(label || b.type), where + chips(lift(b.keys, ctx, n.id), ctx) + reveal, note + count);
     }).join('');
   }
 
@@ -178,6 +188,9 @@ export function createPanel(graph) {
     } else if (n.type === 'joint') {
       f.push(['Class', cap(n.class)]);
       f.push(['Type', n.subtype]);
+    } else if (n.type === 'muscle') {
+      f.push(['Type', n.members?.length ? `Group of ${n.members.length} muscles` : 'Skeletal muscle']);
+      if (n.nerve) f.push(['Nerve supply', n.nerve]);
     } else {
       f.push(['System', graph.group(n.group)?.name]);
       if (n.paired) f.push(['Count', 'One on each side']);
@@ -199,8 +212,9 @@ export function createPanel(graph) {
     } else {
       h += connectsSection(n, keys, ctx);
     }
-    h += linksSection(n, keys, ctx);
-    if (n.functions?.length) h += section('What it does', `<ul class="issues">${n.functions.map((x) => `<li><span>${esc(x)}</span></li>`).join('')}</ul>`);
+    h += linksSection(n, keys, ctx, st);
+    const does = n.functions || n.actions;
+    if (does?.length) h += section('What it does', `<ul class="issues">${does.map((x) => `<li><span>${esc(x)}</span></li>`).join('')}</ul>`);
     if (n.members?.length) {
       const focus = route.member ? normalize(route.member) : null;
       h += section(esc(n.membersLabel || 'Includes'), `<ul class="members">${n.members.map((m) => `<li class="${focus && normalize(m.name) === focus ? 'focus' : ''}"><div><span class="mn">${esc(m.name)}</span>${m.latin && m.latin !== m.name ? `<span class="ml">${esc(m.latin)}</span>` : ''}</div>${m.note ? `<div class="mt">${esc(m.note)}</div>` : ''}</li>`).join('')}</ul>`, ` <span class="n">${n.members.length}</span>`);
@@ -278,15 +292,16 @@ export function createPanel(graph) {
     const bones = [...graph.nodes.values()].filter((n) => n.type === 'bone').reduce((s, n) => s + (n.count || 0), 0);
     const joints = [...graph.nodes.values()].filter((n) => n.type === 'joint').length;
     const organs = [...graph.nodes.values()].filter((n) => n.type === 'organ').length;
+    const muscles = [...graph.nodes.values()].filter((n) => n.type === 'muscle').length;
     let edges = 0;
     for (const list of graph.adj.values()) edges += list.length;
     let h = eyebrow(['A connected map of the body']);
-    h += `<p class="home-lede">The human body as one system. Tap any bone, joint or organ to see what it is, what it connects to and what commonly goes wrong.</p>`;
-    h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div><div class="stat"><b>${organs}</b><span>organs</span></div><div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
+    h += `<p class="home-lede">The human body as one system. Tap any bone, joint, muscle or organ to see what it is, what it connects to and what commonly goes wrong.</p>`;
+    h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${muscles ? `<div class="stat"><b>${muscles}</b><span>muscles</span></div>` : ''}<div class="stat"><b>${organs}</b><span>organs</span></div><div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
     h += section('How to use it', `<ul class="howto">
       <li><span class="k">i</span><span><b>Tap</b> a structure. It turns red, everything it connects to turns teal, and the joints between them pulse.</span></li>
-      <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Organs. The layer you touched last is in focus, and the other stays faintly visible behind it.</span></li>
-      <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, joint, organ or body area, or open <b>Browse</b> for the full list.</span></li>
+      <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles or Organs. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
+      <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
       <li><span class="k">v</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);

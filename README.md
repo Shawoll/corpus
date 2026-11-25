@@ -1,7 +1,7 @@
 # Corpus: a connected map of the human body
 
 An interactive front-view map of the human body, treated as one connected system.
-Tap a bone, joint or organ to see what it is, what it connects to and what commonly
+Tap a bone, joint, muscle or organ to see what it is, what it connects to and what commonly
 goes wrong. In **Where does it hurt?** mode you tap a body area to see what lies there,
 the usual causes of pain and when to get help.
 
@@ -15,8 +15,9 @@ no dependencies, no external requests. It runs as-is on GitHub Pages.
 | Layer | Contents |
 | --- | --- |
 | Skeleton | All **206** bones: 71 entries, with tiny bones grouped (carpals, metacarpals, phalanges, tarsals, metatarsals), plus **33 joints** classified as synovial, cartilaginous or fibrous |
+| Muscles | 45 entries: 35 drawn from the front, plus back and deep muscles such as the hamstrings, rotator cuff and erector spinae in the list. Small muscles that work together (forearm flexors, adductors…) are grouped, with their members listed |
 | Organs | 16 major organs: brain, thyroid, trachea, esophagus, lungs, heart, liver, gallbladder, stomach, spleen, pancreas, kidneys, small and large intestine, appendix, bladder |
-| Links | Bone ↔ bone (through joints), bone → organ ("protects"), organ → organ ("continues into", "drains into") |
+| Links | Bone ↔ bone (through joints), muscle → bone (origin and insertion), bone → organ ("protects"), organ → organ ("continues into", "drains into") |
 | Regions | 25 front body areas and 2 back areas (list only), each with likely causes, urgency and red flags |
 
 ## Run it locally
@@ -59,6 +60,7 @@ js/state.js             tiny observable store
 js/validate.js          ?debug data checks
 data/manifest.json      layers, link types, region files
 data/skeleton.json      bone groups, bones, joints
+data/muscles.json       muscle groups and muscles (origin, insertion, nerve, actions)
 data/organs.json        organs
 data/links.json         cross-layer and organ-to-organ links
 data/regions.json       "Where does it hurt?" areas, causes, red flags
@@ -75,6 +77,10 @@ At startup every layer's data is merged into one graph:
 - **Joints** create `articulates` edges between bones, and are clickable nodes themselves.
 - **Links** (`data/links.json`) add typed edges such as `protects`, `continues` and `drains`.
   `"@ribs"` refers to every structure in a group.
+- **Field links**: a link type in the manifest can name a `field`. Every structure with that field
+  then links to what it lists. This is how a muscle's `"origin": ["scapula"]` and
+  `"insertion": ["radius"]` become edges, and why each bone panel lists the muscles that start
+  or insert on it.
 - **Side rules**: paired ↔ paired links same side to same side, a midline structure links to
   both sides, and `"side": "right"` narrows a link (the liver is protected only by the right ribs).
 
@@ -96,6 +102,11 @@ it to their own body.
 { "id": "knee", "name": "Knee joint", "class": "synovial", "subtype": "Modified hinge",
   "paired": true, "pairs": [["femur", "tibia"], ["femur", "patella"]], "summary": "…" }
 
+// a muscle: origin / insertion become links (field links, see manifest linkTypes)
+{ "id": "biceps", "name": "Biceps brachii", "kind": "muscle", "group": "arm-muscles", "paired": true,
+  "origin": ["scapula"], "originNote": "Coracoid process and supraglenoid tubercle",
+  "insertion": ["radius"], "nerve": "Musculocutaneous nerve", "actions": ["Turns the palm up", "Bends the elbow"] }
+
 // a link
 { "type": "protects", "from": ["rib-7", "rib-8"], "to": ["liver"], "side": "right" }
 
@@ -105,19 +116,20 @@ it to their own body.
   "redFlags": ["…"] }
 ```
 
-## Adding a layer (muscles, nerves, vessels…)
+## Adding a layer (nerves, vessels…)
 
 1. **Draw** `assets/svg/<layer>-anterior.svg` with `viewBox="0 0 480 1200"`, aligned to the skeleton.
    Put the shapes inside `<g class="structures">`. Each structure is a
    `<g class="s" data-id="biceps" data-side="right"><path class="b" d="…"/></g>`, where
-   `.b` is the body shape and an optional `.d` path holds detail lines. Use `class="deco"` for
+   `.b` is the body shape, an optional `.c` path holds tendon or cartilage, and an optional `.d` path holds
+   detail lines (fibres, sutures). Use `class="deco"` for
    non-interactive decoration. Don't hard-code fill colours: style the layer in `css/app.css`.
 2. **Describe** it in `data/<layer>.json`: `{ "layer": "<layer>", "groups": [...], "structures": [...] }`.
 3. **Register** it in `data/manifest.json` under `layers` (the order is the drawing order, bottom first).
-4. **Connect** it in `data/links.json`. The link types `attaches` (muscle ↔ bone), `innervates`
-   and `supplies` are already defined in the manifest. For example:
-   `{ "type": "attaches", "from": ["biceps"], "to": ["scapula", "radius"] }`.
-   Once that exists, the hyoid finally gets its muscles.
+4. **Connect** it, either with entries in `data/links.json` or with a field on each structure.
+   The `innervates` and `supplies` link types are already in the manifest. Add `"field": "innervates"` to
+   one and a nerve such as `{ "id": "radial-nerve", "innervates": ["triceps", "brachioradialis"] }`
+   links itself. The muscles layer works this way with `origin` and `insertion`.
 5. Open `/?debug` and fix anything the check reports.
 
 A back view works the same way: draw `*-posterior.svg` files in the same coordinate space.

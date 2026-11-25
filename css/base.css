@@ -70,6 +70,14 @@
   --o-bladder: #e8c88f;
   --o-line: rgba(70, 30, 20, 0.55);
 
+  /* muscles */
+  --muscle: #b65a4e;
+  --muscle-deep: #9a4a40;
+  --muscle-line: #6d2c23;
+  --muscle-fibre: rgba(255, 228, 218, 0.34);
+  --tendon: #ece3d1;
+  --tendon-line: #a7967b;
+
   /* type */
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -135,6 +143,12 @@
     --o-appendix: #ab7c69;
     --o-bladder: #c2a46f;
     --o-line: rgba(0, 0, 0, 0.55);
+    --muscle: #a64e43;
+    --muscle-deep: #8a4037;
+    --muscle-line: #3c1712;
+    --muscle-fibre: rgba(255, 220, 210, 0.22);
+    --tendon: #cbc1ae;
+    --tendon-line: #6f6553;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 }
@@ -194,6 +208,12 @@
   --o-appendix: #ab7c69;
   --o-bladder: #c2a46f;
   --o-line: rgba(0, 0, 0, 0.55);
+  --muscle: #a64e43;
+  --muscle-deep: #8a4037;
+  --muscle-line: #3c1712;
+  --muscle-fibre: rgba(255, 220, 210, 0.22);
+  --tendon: #cbc1ae;
+  --tendon-line: #6f6553;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 

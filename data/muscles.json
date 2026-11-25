@@ -1,0 +1,2023 @@
+{
+  "layer": "muscles",
+  "name": "Muscles",
+  "type": "muscle",
+  "note": "Major skeletal muscles. \"origin\" and \"insertion\" become links to the skeleton (see linkTypes in manifest.json). Ids match data-id attributes in assets/svg/muscles-anterior.svg.",
+  "groups": [
+    {
+      "id": "head-muscles",
+      "name": "Head & jaw",
+      "summary": "The chewing muscles that close and grind the jaw."
+    },
+    {
+      "id": "neck-muscles",
+      "name": "Neck",
+      "summary": "Muscles that turn and steady the head and move the hyoid and larynx for swallowing."
+    },
+    {
+      "id": "shoulder-muscles",
+      "name": "Shoulder & upper back",
+      "summary": "Muscles that move the shoulder blade and the arm at the shoulder."
+    },
+    {
+      "id": "chest-muscles",
+      "name": "Chest wall & breathing",
+      "summary": "Muscles on and between the ribs, plus the diaphragm, the main muscle of breathing."
+    },
+    {
+      "id": "abdomen-muscles",
+      "name": "Abdomen & core",
+      "summary": "The layered abdominal wall and pelvic floor that brace the trunk and support the organs."
+    },
+    {
+      "id": "back-muscles",
+      "name": "Back",
+      "summary": "Deep muscles that hold the spine upright. They sit behind the spine, so they are listed but not drawn in the front view."
+    },
+    {
+      "id": "arm-muscles",
+      "name": "Upper arm",
+      "summary": "Muscles that bend and straighten the elbow."
+    },
+    {
+      "id": "forearm-muscles",
+      "name": "Forearm & hand",
+      "summary": "Muscles that move the wrist, fingers and thumb."
+    },
+    {
+      "id": "hip-muscles",
+      "name": "Hip & buttock",
+      "summary": "Muscles that flex, extend and steady the hip."
+    },
+    {
+      "id": "thigh-muscles",
+      "name": "Thigh",
+      "summary": "The quadriceps in front, the adductors on the inside and the hamstrings behind."
+    },
+    {
+      "id": "quadriceps",
+      "name": "Quadriceps",
+      "parent": "thigh-muscles",
+      "summary": "Four muscles on the front of the thigh joining in one tendon over the kneecap. They are the only muscles that straighten the knee.",
+      "issues": [
+        {
+          "name": "Quadriceps strain",
+          "note": "Sudden pain at the front of the thigh when sprinting or kicking."
+        },
+        {
+          "name": "Quadriceps tendon rupture",
+          "note": "Usually an older adult falling with the knee bent, then unable to straighten the leg. It is urgent."
+        }
+      ]
+    },
+    {
+      "id": "leg-muscles",
+      "name": "Lower leg",
+      "summary": "Muscles that lift, point and tilt the foot and move the toes."
+    }
+  ],
+  "structures": [
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "temporalis",
+      "name": "Temporalis",
+      "latin": "Musculus temporalis",
+      "group": "head-muscles",
+      "origin": [
+        "temporal",
+        "parietal",
+        "frontal",
+        "sphenoid"
+      ],
+      "originNote": "The temporal fossa on the side of the skull",
+      "insertion": [
+        "mandible"
+      ],
+      "insertionNote": "Coronoid process of the mandible",
+      "nerve": "Mandibular nerve (trigeminal, V3)",
+      "actions": [
+        "Closes the jaw",
+        "Pulls the jaw back"
+      ],
+      "summary": "A fan-shaped chewing muscle filling the temple. You can feel it tighten when you clench your teeth.",
+      "issues": [
+        {
+          "name": "Tension headache",
+          "note": "Tight, tender temples from clenching or stress."
+        },
+        {
+          "name": "Teeth grinding (bruxism)",
+          "note": "Grinding at night overworks it, causing a morning jaw ache and headache."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "masseter",
+      "name": "Masseter",
+      "latin": "Musculus masseter",
+      "group": "head-muscles",
+      "origin": [
+        "zygomatic",
+        "maxilla",
+        "temporal"
+      ],
+      "originNote": "The zygomatic arch",
+      "insertion": [
+        "mandible"
+      ],
+      "insertionNote": "Outer surface of the ramus and angle of the jaw",
+      "nerve": "Mandibular nerve (trigeminal, V3)",
+      "actions": [
+        "Closes the jaw powerfully",
+        "Pushes the jaw forward"
+      ],
+      "summary": "The main chewing muscle, from the cheekbone to the angle of the jaw. For its size it is one of the strongest muscles in the body.",
+      "issues": [
+        {
+          "name": "Jaw muscle pain",
+          "note": "Aching cheeks and jaw from clenching, grinding or chewing gum; often part of a TMJ disorder."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "sternocleidomastoid",
+      "name": "Sternocleidomastoid",
+      "latin": "Musculus sternocleidomastoideus",
+      "aka": [
+        "SCM"
+      ],
+      "group": "neck-muscles",
+      "origin": [
+        "sternum",
+        "clavicle"
+      ],
+      "originNote": "Top of the sternum (sternal head) and inner clavicle (clavicular head)",
+      "insertion": [
+        "temporal",
+        "occipital"
+      ],
+      "insertionNote": "Mastoid process behind the ear and the base of the skull",
+      "nerve": "Accessory nerve (XI)",
+      "actions": [
+        "Turns the head to the opposite side",
+        "Tilts the head toward the same shoulder",
+        "Bends the neck forward (both sides together)",
+        "Helps lift the ribcage in hard breathing"
+      ],
+      "summary": "The prominent diagonal strap at the side of the neck, from behind the ear to the top of the breastbone. It divides the neck into front and back triangles.",
+      "issues": [
+        {
+          "name": "Wry neck (torticollis)",
+          "note": "Spasm pulls the head to one side. In babies it can be present from birth."
+        },
+        {
+          "name": "Neck strain",
+          "note": "Pain and stiffness after a jolt or sleeping awkwardly."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "suprahyoid",
+      "name": "Suprahyoid muscles",
+      "latin": "Musculi suprahyoidei",
+      "group": "neck-muscles",
+      "origin": [
+        "mandible",
+        "temporal"
+      ],
+      "originNote": "Inner jaw, chin and the mastoid and styloid processes of the temporal bone",
+      "insertion": [
+        "hyoid"
+      ],
+      "nerve": "Trigeminal (V3), facial (VII) and C1 fibres",
+      "actions": [
+        "Lift the hyoid and larynx when you swallow",
+        "Help open the jaw"
+      ],
+      "summary": "Four small muscles forming the floor of the mouth, slinging the hyoid up toward the jaw and skull.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Digastric",
+          "note": "Two bellies joined by a tendon that loops through a sling on the hyoid.",
+          "latin": "Musculus digastricus"
+        },
+        {
+          "name": "Mylohyoid",
+          "note": "A thin sheet forming the floor of the mouth.",
+          "latin": "Musculus mylohyoideus"
+        },
+        {
+          "name": "Geniohyoid",
+          "note": "From the inside of the chin to the hyoid.",
+          "latin": "Musculus geniohyoideus"
+        },
+        {
+          "name": "Stylohyoid",
+          "note": "From the styloid process of the temporal bone.",
+          "latin": "Musculus stylohyoideus"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Swallowing problems",
+          "note": "Weakness after a stroke or with nerve conditions can make swallowing unsafe. Coughing or choking on food needs assessment."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "infrahyoid",
+      "name": "Infrahyoid (strap) muscles",
+      "latin": "Musculi infrahyoidei",
+      "aka": [
+        "strap muscles"
+      ],
+      "group": "neck-muscles",
+      "origin": [
+        "sternum",
+        "scapula"
+      ],
+      "originNote": "Back of the manubrium, and the top edge of the shoulder blade (omohyoid)",
+      "insertion": [
+        "hyoid"
+      ],
+      "nerve": "Ansa cervicalis (C1–C3)",
+      "actions": [
+        "Pull the hyoid and larynx back down after swallowing",
+        "Steady the hyoid so the tongue and jaw can work"
+      ],
+      "summary": "Thin strap muscles running down the front of the neck from the hyoid to the sternum and shoulder blade, covering the thyroid and windpipe.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Sternohyoid",
+          "note": "From the sternum to the hyoid.",
+          "latin": "Musculus sternohyoideus"
+        },
+        {
+          "name": "Sternothyroid",
+          "note": "From the sternum to the thyroid cartilage.",
+          "latin": "Musculus sternothyroideus"
+        },
+        {
+          "name": "Thyrohyoid",
+          "note": "From the thyroid cartilage to the hyoid.",
+          "latin": "Musculus thyrohyoideus"
+        },
+        {
+          "name": "Omohyoid",
+          "note": "Two bellies; it slips under the sternocleidomastoid to the top of the shoulder blade.",
+          "latin": "Musculus omohyoideus"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Tightness after neck surgery",
+          "note": "They are parted in thyroid surgery and can feel tight while healing."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "trapezius",
+      "name": "Trapezius",
+      "latin": "Musculus trapezius",
+      "aka": [
+        "traps"
+      ],
+      "group": "shoulder-muscles",
+      "origin": [
+        "occipital",
+        "@cervical",
+        "@thoracic"
+      ],
+      "originNote": "Base of the skull, the nuchal ligament and the spinous processes of C7–T12",
+      "insertion": [
+        "clavicle",
+        "scapula"
+      ],
+      "insertionNote": "Outer third of the clavicle, the acromion and the spine of the scapula",
+      "nerve": "Accessory nerve (XI)",
+      "actions": [
+        "Shrugs the shoulders",
+        "Rotates the shoulder blade so the arm can reach overhead",
+        "Pulls the shoulder blades together",
+        "Steadies the head"
+      ],
+      "summary": "A large diamond-shaped muscle of the upper back and neck. From the front you only see its upper fibres, which form the slope from neck to shoulder.",
+      "issues": [
+        {
+          "name": "Neck and shoulder tension",
+          "note": "Tight, tender knots between the neck and shoulder, often from desk work and stress."
+        },
+        {
+          "name": "Tension headache",
+          "note": "A tight trapezius and neck can refer pain to the back of the head."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "deltoid",
+      "name": "Deltoid",
+      "latin": "Musculus deltoideus",
+      "group": "shoulder-muscles",
+      "origin": [
+        "clavicle",
+        "scapula"
+      ],
+      "originNote": "Outer third of the clavicle, the acromion and the spine of the scapula",
+      "insertion": [
+        "humerus"
+      ],
+      "insertionNote": "Deltoid tuberosity, halfway down the outer humerus",
+      "nerve": "Axillary nerve (C5–C6)",
+      "actions": [
+        "Lifts the arm out to the side",
+        "Front fibres raise the arm forward",
+        "Back fibres pull it backward"
+      ],
+      "summary": "The rounded cap of the shoulder, shaped like the Greek letter delta (Δ). A common site for vaccinations.",
+      "issues": [
+        {
+          "name": "Deltoid strain",
+          "note": "Pain on lifting after heavy or repetitive overhead work."
+        },
+        {
+          "name": "Axillary nerve injury",
+          "note": "After a shoulder dislocation: a numb patch on the outer shoulder and weakness lifting the arm."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "rotator-cuff",
+      "name": "Rotator cuff",
+      "latin": "Musculi rotatores",
+      "group": "shoulder-muscles",
+      "listOnly": true,
+      "origin": [
+        "scapula"
+      ],
+      "originNote": "Front and back surfaces of the shoulder blade",
+      "insertion": [
+        "humerus"
+      ],
+      "insertionNote": "Greater and lesser tubercles at the top of the humerus",
+      "nerve": "Suprascapular, axillary and subscapular nerves",
+      "actions": [
+        "Hold the ball of the humerus in its shallow socket",
+        "Rotate and help lift the arm"
+      ],
+      "summary": "Four muscles from the shoulder blade whose tendons merge into a cuff around the head of the humerus. Most of them lie on the back of the shoulder blade.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Supraspinatus",
+          "note": "Starts lifting the arm out to the side. The most commonly torn.",
+          "latin": "Musculus supraspinatus"
+        },
+        {
+          "name": "Infraspinatus",
+          "note": "Turns the arm outward.",
+          "latin": "Musculus infraspinatus"
+        },
+        {
+          "name": "Teres minor",
+          "note": "Turns the arm outward.",
+          "latin": "Musculus teres minor"
+        },
+        {
+          "name": "Subscapularis",
+          "note": "On the front of the shoulder blade, against the ribs. Turns the arm inward.",
+          "latin": "Musculus subscapularis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Rotator cuff tendinopathy",
+          "note": "Pain on the outer shoulder when lifting the arm, worse at night."
+        },
+        {
+          "name": "Rotator cuff tear",
+          "note": "Weakness lifting the arm after a fall, or gradually with age. It may need imaging."
+        },
+        {
+          "name": "Impingement",
+          "note": "A painful arc when raising the arm, roughly between shoulder height and overhead."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "rhomboids",
+      "name": "Rhomboids",
+      "latin": "Musculi rhomboidei",
+      "group": "shoulder-muscles",
+      "listOnly": true,
+      "origin": [
+        "c7",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5"
+      ],
+      "originNote": "Spinous processes of C7–T5",
+      "insertion": [
+        "scapula"
+      ],
+      "insertionNote": "Inner (medial) border of the shoulder blade",
+      "nerve": "Dorsal scapular nerve (C5)",
+      "actions": [
+        "Pull the shoulder blades together",
+        "Rotate them downward"
+      ],
+      "summary": "Two flat muscles between the spine and the shoulder blade, under the trapezius.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Rhomboid major",
+          "note": "From T2–T5.",
+          "latin": "Musculus rhomboideus major"
+        },
+        {
+          "name": "Rhomboid minor",
+          "note": "From C7–T1.",
+          "latin": "Musculus rhomboideus minor"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Pain between the shoulder blades",
+          "note": "Aching from posture or a sudden strain. Pain here can also come from the neck, the heart or the gallbladder."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "latissimus-dorsi",
+      "name": "Latissimus dorsi",
+      "latin": "Musculus latissimus dorsi",
+      "aka": [
+        "lats"
+      ],
+      "group": "shoulder-muscles",
+      "origin": [
+        "t7",
+        "t8",
+        "t9",
+        "t10",
+        "t11",
+        "t12",
+        "@lumbar",
+        "sacrum",
+        "hip-bone",
+        "rib-10",
+        "rib-11",
+        "rib-12"
+      ],
+      "originNote": "Lower thoracic spine, the thoracolumbar fascia, the iliac crest and the lowest ribs",
+      "insertion": [
+        "humerus"
+      ],
+      "insertionNote": "Floor of the groove at the front of the upper humerus",
+      "nerve": "Thoracodorsal nerve (C6–C8)",
+      "actions": [
+        "Pulls the arm down and back",
+        "Turns the arm inward",
+        "Powers pull-ups, rowing and swimming"
+      ],
+      "summary": "The broadest muscle of the back, sweeping from the lower spine and pelvis up into the armpit. From the front only its edge shows along the side of the chest.",
+      "issues": [
+        {
+          "name": "Lat strain",
+          "note": "Pain along the side of the back or in the armpit after pulling or throwing."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "pectoralis-major",
+      "name": "Pectoralis major",
+      "latin": "Musculus pectoralis major",
+      "aka": [
+        "pecs",
+        "chest muscle"
+      ],
+      "group": "chest-muscles",
+      "origin": [
+        "clavicle",
+        "sternum",
+        "rib-1",
+        "rib-2",
+        "rib-3",
+        "rib-4",
+        "rib-5",
+        "rib-6"
+      ],
+      "originNote": "Inner clavicle, the sternum and the upper six costal cartilages",
+      "insertion": [
+        "humerus"
+      ],
+      "insertionNote": "Outer lip of the groove at the front of the upper humerus",
+      "nerve": "Medial and lateral pectoral nerves",
+      "actions": [
+        "Brings the arm across the chest",
+        "Turns the arm inward",
+        "Pushes, as in press-ups"
+      ],
+      "summary": "The large fan-shaped muscle of the chest, converging on the upper humerus. Its lower edge forms the front fold of the armpit.",
+      "issues": [
+        {
+          "name": "Pec strain or tear",
+          "note": "Sudden pain and bruising at the front of the armpit during a heavy press."
+        },
+        {
+          "name": "Chest wall pain",
+          "note": "A sore chest muscle after exertion, tender to press. If unsure, get chest pain checked."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "pectoralis-minor",
+      "name": "Pectoralis minor",
+      "latin": "Musculus pectoralis minor",
+      "group": "chest-muscles",
+      "origin": [
+        "rib-3",
+        "rib-4",
+        "rib-5"
+      ],
+      "insertion": [
+        "scapula"
+      ],
+      "insertionNote": "Coracoid process of the shoulder blade",
+      "nerve": "Medial pectoral nerve",
+      "actions": [
+        "Pulls the shoulder blade forward and down",
+        "Helps lift the ribs in deep breathing"
+      ],
+      "summary": "A thin triangular muscle hidden under pectoralis major.",
+      "issues": [
+        {
+          "name": "Tight pectoralis minor",
+          "note": "Rounded shoulders. It can squeeze the nerves and vessels going to the arm (thoracic outlet)."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "serratus-anterior",
+      "name": "Serratus anterior",
+      "latin": "Musculus serratus anterior",
+      "aka": [
+        "boxer’s muscle"
+      ],
+      "group": "chest-muscles",
+      "origin": [
+        "rib-1",
+        "rib-2",
+        "rib-3",
+        "rib-4",
+        "rib-5",
+        "rib-6",
+        "rib-7",
+        "rib-8"
+      ],
+      "originNote": "Outer surfaces of ribs 1–8, in saw-tooth slips",
+      "insertion": [
+        "scapula"
+      ],
+      "insertionNote": "The inner border of the shoulder blade (front surface)",
+      "nerve": "Long thoracic nerve (C5–C7)",
+      "actions": [
+        "Pulls the shoulder blade forward around the ribs, as in punching",
+        "Holds the shoulder blade flat against the chest wall",
+        "Rotates it upward for reaching overhead"
+      ],
+      "summary": "Saw-toothed slips on the side of the chest that wrap around to the shoulder blade.",
+      "issues": [
+        {
+          "name": "Winged scapula",
+          "note": "If its nerve is injured, the shoulder blade sticks out when you push against a wall."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "intercostals",
+      "name": "Intercostal muscles",
+      "latin": "Musculi intercostales",
+      "group": "chest-muscles",
+      "listOnly": true,
+      "origin": [
+        "@ribs"
+      ],
+      "originNote": "Each rib, to the rib below it",
+      "insertion": [],
+      "nerve": "Intercostal nerves (T1–T11)",
+      "actions": [
+        "Lift and lower the ribs during breathing",
+        "Stiffen the chest wall"
+      ],
+      "summary": "Three thin layers of muscle filling each space between the ribs.",
+      "membersLabel": "Layers",
+      "members": [
+        {
+          "name": "External intercostals",
+          "note": "Lift the ribs as you breathe in.",
+          "latin": "Musculi intercostales externi"
+        },
+        {
+          "name": "Internal intercostals",
+          "note": "Pull the ribs down when you breathe out hard.",
+          "latin": "Musculi intercostales interni"
+        },
+        {
+          "name": "Innermost intercostals",
+          "note": "The deepest layer, with the nerves and vessels running between.",
+          "latin": "Musculi intercostales intimi"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Intercostal strain",
+          "note": "Sharp pain between the ribs after coughing fits, twisting or lifting."
+        },
+        {
+          "name": "Intercostal nerve pain or shingles",
+          "note": "Burning pain along one rib space. A blistering rash suggests shingles."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": false,
+      "id": "diaphragm",
+      "name": "Diaphragm",
+      "latin": "Diaphragma",
+      "group": "chest-muscles",
+      "origin": [
+        "sternum",
+        "rib-7",
+        "rib-8",
+        "rib-9",
+        "rib-10",
+        "rib-11",
+        "rib-12",
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "originNote": "Xiphoid process, the inner surfaces of the lower six ribs and the lumbar vertebrae (the crura)",
+      "insertion": [],
+      "insertionNote": "Its own central tendon at the top of the dome",
+      "nerve": "Phrenic nerve (C3–C5)",
+      "actions": [
+        "The main muscle of breathing: contracting flattens the dome and draws air in",
+        "Helps raise abdominal pressure for coughing, lifting and childbirth"
+      ],
+      "summary": "A dome-shaped sheet separating the chest from the abdomen. The esophagus, aorta and inferior vena cava pass through it.",
+      "issues": [
+        {
+          "name": "Hiatus hernia",
+          "note": "Part of the stomach slides up through the diaphragm, causing reflux."
+        },
+        {
+          "name": "Hiccups",
+          "note": "Involuntary spasms. Hiccups lasting more than two days should be checked."
+        },
+        {
+          "name": "Shoulder-tip pain",
+          "note": "Irritation under the diaphragm (blood, infection, gallbladder) is often felt at the tip of the shoulder."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "rectus-abdominis",
+      "name": "Rectus abdominis",
+      "latin": "Musculus rectus abdominis",
+      "aka": [
+        "abs",
+        "six-pack"
+      ],
+      "group": "abdomen-muscles",
+      "origin": [
+        "hip-bone",
+        "pubic-symphysis"
+      ],
+      "originNote": "Pubic crest and pubic symphysis",
+      "insertion": [
+        "sternum",
+        "rib-5",
+        "rib-6",
+        "rib-7"
+      ],
+      "insertionNote": "Xiphoid process and the cartilages of ribs 5–7",
+      "nerve": "Lower intercostal nerves (T7–T12)",
+      "actions": [
+        "Bends the trunk forward, as in sit-ups",
+        "Tilts the pelvis",
+        "Raises abdominal pressure"
+      ],
+      "summary": "The paired “six-pack” running down the front of the abdomen, crossed by tendinous bands and joined in the midline by the linea alba.",
+      "issues": [
+        {
+          "name": "Diastasis recti",
+          "note": "The two halves separate along the midline, common after pregnancy: a ridge or bulge appears when sitting up."
+        },
+        {
+          "name": "Abdominal strain",
+          "note": "Pain on coughing, laughing or sitting up after a sudden twist or overtraining."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "external-oblique",
+      "name": "External oblique",
+      "latin": "Musculus obliquus externus abdominis",
+      "group": "abdomen-muscles",
+      "origin": [
+        "rib-5",
+        "rib-6",
+        "rib-7",
+        "rib-8",
+        "rib-9",
+        "rib-10",
+        "rib-11",
+        "rib-12"
+      ],
+      "originNote": "Outer surfaces of ribs 5–12",
+      "insertion": [
+        "hip-bone"
+      ],
+      "insertionNote": "Iliac crest and pubic tubercle, and the linea alba through its broad tendon sheet",
+      "nerve": "Lower intercostal and subcostal nerves (T7–T12)",
+      "actions": [
+        "Twists the trunk to the opposite side",
+        "Bends it sideways",
+        "Squeezes the abdomen"
+      ],
+      "summary": "The outermost flat muscle on the side of the abdomen. Its fibres run down and inward like hands in pockets, and its tendon sheet forms the inguinal ligament.",
+      "issues": [
+        {
+          "name": "Side strain",
+          "note": "Pain at the side of the waist after twisting sports."
+        },
+        {
+          "name": "Inguinal hernia",
+          "note": "A weak spot in the groin wall formed by its tendon sheet can let a bulge through."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "deep-abdominals",
+      "name": "Internal oblique & transversus abdominis",
+      "latin": "Musculus obliquus internus et transversus abdominis",
+      "aka": [
+        "core",
+        "transversus",
+        "internal oblique"
+      ],
+      "group": "abdomen-muscles",
+      "listOnly": true,
+      "origin": [
+        "hip-bone",
+        "@lumbar"
+      ],
+      "originNote": "Iliac crest, the inguinal ligament and the thoracolumbar fascia",
+      "insertion": [
+        "rib-10",
+        "rib-11",
+        "rib-12"
+      ],
+      "insertionNote": "The lowest ribs and the linea alba",
+      "nerve": "Lower intercostal, iliohypogastric and ilioinguinal nerves",
+      "actions": [
+        "Brace the trunk and spine",
+        "Squeeze the abdomen",
+        "Twist the trunk (internal oblique)"
+      ],
+      "summary": "The two deeper layers of the abdominal wall, hidden under the external oblique.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Internal oblique",
+          "note": "Fibres run up and inward, at right angles to the external oblique.",
+          "latin": "Musculus obliquus internus abdominis"
+        },
+        {
+          "name": "Transversus abdominis",
+          "note": "Horizontal fibres that wrap the abdomen like a corset.",
+          "latin": "Musculus transversus abdominis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Weak core",
+          "note": "Linked with low back pain. Targeted strengthening helps many people."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "pelvic-floor",
+      "name": "Pelvic floor muscles",
+      "latin": "Diaphragma pelvis",
+      "group": "abdomen-muscles",
+      "listOnly": true,
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Inside of the pubis, the side walls of the pelvis and the ischial spines",
+      "insertion": [
+        "coccyx",
+        "sacrum"
+      ],
+      "insertionNote": "The coccyx and the tissue around the anus and urethra",
+      "nerve": "Sacral nerves (S3–S4) and the pudendal nerve",
+      "actions": [
+        "Support the bladder, bowel and (in women) the uterus",
+        "Help keep continence",
+        "Relax to let you pass urine and stool"
+      ],
+      "summary": "A muscular hammock across the bottom of the pelvis.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Levator ani",
+          "note": "The main sling: puborectalis, pubococcygeus and iliococcygeus.",
+          "latin": "Musculus levator ani"
+        },
+        {
+          "name": "Coccygeus",
+          "note": "A small muscle at the back, to the coccyx.",
+          "latin": "Musculus coccygeus"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Stress incontinence",
+          "note": "Leaking when coughing, sneezing or jumping. Pelvic floor exercises help."
+        },
+        {
+          "name": "Pelvic organ prolapse",
+          "note": "A heavy, dragging feeling or a bulge in the vagina."
+        },
+        {
+          "name": "Pelvic floor tension",
+          "note": "Pelvic pain, painful sex or difficulty emptying when the muscles can’t relax."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "erector-spinae",
+      "name": "Erector spinae",
+      "latin": "Musculus erector spinae",
+      "aka": [
+        "back extensors",
+        "paraspinal muscles"
+      ],
+      "group": "back-muscles",
+      "listOnly": true,
+      "origin": [
+        "sacrum",
+        "hip-bone",
+        "@lumbar"
+      ],
+      "originNote": "Sacrum, the back of the iliac crest and the lumbar spinous processes",
+      "insertion": [
+        "@ribs",
+        "@thoracic",
+        "@cervical",
+        "temporal"
+      ],
+      "insertionNote": "Ribs, thoracic and cervical vertebrae, and the mastoid process",
+      "nerve": "Back (dorsal) branches of the spinal nerves",
+      "actions": [
+        "Straightens and arches the back",
+        "Bends the spine sideways",
+        "Holds you upright against gravity"
+      ],
+      "summary": "Three columns of muscle running either side of the spine from the pelvis to the skull.",
+      "membersLabel": "Columns",
+      "members": [
+        {
+          "name": "Iliocostalis",
+          "note": "The outer column, to the ribs."
+        },
+        {
+          "name": "Longissimus",
+          "note": "The middle and longest column, reaching the skull."
+        },
+        {
+          "name": "Spinalis",
+          "note": "The inner column, next to the spinous processes."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Low back strain",
+          "note": "Spasm and pain on bending or lifting. It usually settles within weeks, and staying gently active helps."
+        },
+        {
+          "name": "Postural back pain",
+          "note": "Ache from long periods of sitting or standing."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "quadratus-lumborum",
+      "name": "Quadratus lumborum",
+      "latin": "Musculus quadratus lumborum",
+      "aka": [
+        "QL"
+      ],
+      "group": "back-muscles",
+      "listOnly": true,
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Back of the iliac crest",
+      "insertion": [
+        "rib-12",
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "insertionNote": "The 12th rib and the lumbar transverse processes",
+      "nerve": "Subcostal nerve and L1–L4",
+      "actions": [
+        "Bends the trunk sideways",
+        "Hitches the hip up",
+        "Steadies the 12th rib during breathing"
+      ],
+      "summary": "A deep, square muscle of the lower back between the pelvis, the lowest rib and the lumbar spine.",
+      "issues": [
+        {
+          "name": "One-sided low back pain",
+          "note": "Deep pain on one side, worse turning in bed or standing up from sitting."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "biceps",
+      "name": "Biceps brachii",
+      "latin": "Musculus biceps brachii",
+      "aka": [
+        "biceps"
+      ],
+      "group": "arm-muscles",
+      "origin": [
+        "scapula"
+      ],
+      "originNote": "Coracoid process (short head) and the bump above the shoulder socket (long head)",
+      "insertion": [
+        "radius"
+      ],
+      "insertionNote": "Radial tuberosity, plus a tendon sheet onto the forearm",
+      "nerve": "Musculocutaneous nerve (C5–C6)",
+      "actions": [
+        "Turns the palm up, its strongest action",
+        "Bends the elbow",
+        "Helps raise the arm forward"
+      ],
+      "summary": "The two-headed muscle on the front of the upper arm. It crosses both the shoulder and the elbow.",
+      "issues": [
+        {
+          "name": "Biceps tendinopathy",
+          "note": "Pain at the front of the shoulder, worse lifting or reaching."
+        },
+        {
+          "name": "Distal biceps rupture",
+          "note": "A pop at the elbow when lifting, then bruising and a weak twist (as with a screwdriver). See a doctor within days, because repair works best early."
+        },
+        {
+          "name": "Long-head rupture",
+          "note": "A “Popeye” bulge in the upper arm, often in older adults. Usually little loss of function."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "brachialis",
+      "name": "Brachialis",
+      "latin": "Musculus brachialis",
+      "group": "arm-muscles",
+      "origin": [
+        "humerus"
+      ],
+      "originNote": "Lower half of the front of the humerus",
+      "insertion": [
+        "ulna"
+      ],
+      "insertionNote": "Coronoid process and tuberosity of the ulna",
+      "nerve": "Musculocutaneous nerve",
+      "actions": [
+        "The main elbow bender, whichever way the palm faces"
+      ],
+      "summary": "It lies under the biceps and does most of the work of bending the elbow.",
+      "issues": [
+        {
+          "name": "Brachialis strain",
+          "note": "A deep ache at the front of the elbow after heavy lifting or climbing."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "triceps",
+      "name": "Triceps brachii",
+      "latin": "Musculus triceps brachii",
+      "aka": [
+        "triceps"
+      ],
+      "group": "arm-muscles",
+      "origin": [
+        "scapula",
+        "humerus"
+      ],
+      "originNote": "Just below the shoulder socket (long head) and the back of the humerus (lateral and medial heads)",
+      "insertion": [
+        "ulna"
+      ],
+      "insertionNote": "Olecranon, the point of the elbow",
+      "nerve": "Radial nerve (C6–C8)",
+      "actions": [
+        "Straightens the elbow",
+        "Helps pull the arm back (long head)"
+      ],
+      "summary": "The three-headed muscle on the back of the upper arm. From the front only its inner edge shows.",
+      "issues": [
+        {
+          "name": "Triceps tendinopathy",
+          "note": "Pain at the back of the elbow with pushing exercises."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "brachioradialis",
+      "name": "Brachioradialis",
+      "latin": "Musculus brachioradialis",
+      "group": "forearm-muscles",
+      "origin": [
+        "humerus"
+      ],
+      "originNote": "Outer ridge of the humerus just above the elbow",
+      "insertion": [
+        "radius"
+      ],
+      "insertionNote": "Styloid process of the radius at the wrist",
+      "nerve": "Radial nerve",
+      "actions": [
+        "Bends the elbow, especially with the thumb pointing up (hammer grip)"
+      ],
+      "summary": "The muscle forming the outer edge of the forearm, from just above the elbow to the wrist.",
+      "issues": [
+        {
+          "name": "Forearm strain",
+          "note": "Ache along the outer forearm after repetitive lifting with a hammer grip."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "forearm-flexors",
+      "name": "Forearm flexors",
+      "latin": "Musculi flexores antebrachii",
+      "aka": [
+        "wrist flexors",
+        "finger flexors"
+      ],
+      "group": "forearm-muscles",
+      "origin": [
+        "humerus",
+        "ulna",
+        "radius"
+      ],
+      "originNote": "Inner elbow (medial epicondyle) and the front of the radius and ulna",
+      "insertion": [
+        "carpals",
+        "metacarpals",
+        "hand-phalanges",
+        "radius"
+      ],
+      "insertionNote": "Wrist, palm and finger bones; pronator teres to the middle of the radius",
+      "nerve": "Median and ulnar nerves",
+      "actions": [
+        "Bend the wrist and fingers",
+        "Grip",
+        "Turn the palm down (pronator teres)"
+      ],
+      "summary": "The muscles on the palm side of the forearm, mostly starting from the inner elbow. Their tendons pass through the carpal tunnel.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Pronator teres",
+          "note": "Turns the palm down; runs to the middle of the radius.",
+          "latin": "Musculus pronator teres"
+        },
+        {
+          "name": "Flexor carpi radialis",
+          "note": "Bends the wrist toward the thumb side.",
+          "latin": "Musculus flexor carpi radialis"
+        },
+        {
+          "name": "Palmaris longus",
+          "note": "A thin tendon at the centre of the wrist; absent in roughly 1 in 7 people.",
+          "latin": "Musculus palmaris longus"
+        },
+        {
+          "name": "Flexor carpi ulnaris",
+          "note": "Bends the wrist toward the little-finger side.",
+          "latin": "Musculus flexor carpi ulnaris"
+        },
+        {
+          "name": "Flexor digitorum superficialis",
+          "note": "Bends the middle joints of the fingers.",
+          "latin": "Musculus flexor digitorum superficialis"
+        },
+        {
+          "name": "Flexor digitorum profundus",
+          "note": "Bends the fingertips.",
+          "latin": "Musculus flexor digitorum profundus"
+        },
+        {
+          "name": "Flexor pollicis longus",
+          "note": "Bends the tip of the thumb.",
+          "latin": "Musculus flexor pollicis longus"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Golfer’s elbow",
+          "note": "Pain at the inner elbow with gripping and lifting."
+        },
+        {
+          "name": "Trigger finger",
+          "note": "A flexor tendon catches in its sheath, making a finger lock."
+        },
+        {
+          "name": "Carpal tunnel syndrome",
+          "note": "Swollen flexor tendon sheaths can squeeze the median nerve at the wrist."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "forearm-extensors",
+      "name": "Forearm extensors",
+      "latin": "Musculi extensores antebrachii",
+      "aka": [
+        "wrist extensors",
+        "finger extensors"
+      ],
+      "group": "forearm-muscles",
+      "origin": [
+        "humerus",
+        "ulna",
+        "radius"
+      ],
+      "originNote": "Outer elbow (lateral epicondyle) and the back of the radius and ulna",
+      "insertion": [
+        "metacarpals",
+        "hand-phalanges"
+      ],
+      "insertionNote": "Backs of the hand and finger bones",
+      "nerve": "Radial nerve (posterior interosseous branch)",
+      "actions": [
+        "Straighten and cock back the wrist and fingers",
+        "Steady the wrist so you can grip",
+        "Turn the palm up (supinator)",
+        "Move the thumb outward"
+      ],
+      "summary": "The muscles on the back of the forearm, mostly starting from the outer elbow. In the front view only their outer edge shows.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Extensor carpi radialis longus & brevis",
+          "note": "Cock the wrist back. ECRB is the usual source of tennis elbow."
+        },
+        {
+          "name": "Extensor digitorum",
+          "note": "Straightens the fingers.",
+          "latin": "Musculus extensor digitorum"
+        },
+        {
+          "name": "Extensor digiti minimi",
+          "note": "Straightens the little finger.",
+          "latin": "Musculus extensor digiti minimi"
+        },
+        {
+          "name": "Extensor carpi ulnaris",
+          "note": "Cocks the wrist toward the little-finger side.",
+          "latin": "Musculus extensor carpi ulnaris"
+        },
+        {
+          "name": "Supinator",
+          "note": "Turns the palm up.",
+          "latin": "Musculus supinator"
+        },
+        {
+          "name": "Thumb muscles",
+          "note": "Abductor pollicis longus and extensor pollicis longus & brevis move the thumb out and back."
+        },
+        {
+          "name": "Extensor indicis",
+          "note": "Straightens the index finger for pointing.",
+          "latin": "Musculus extensor indicis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Tennis elbow",
+          "note": "Pain on the outer elbow when gripping, lifting a kettle or turning a handle."
+        },
+        {
+          "name": "De Quervain’s tenosynovitis",
+          "note": "Pain on the thumb side of the wrist from two thumb tendons in this group."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "thenar",
+      "name": "Thenar muscles",
+      "latin": "Musculi thenaris",
+      "aka": [
+        "ball of the thumb"
+      ],
+      "group": "forearm-muscles",
+      "origin": [
+        "carpals"
+      ],
+      "originNote": "Scaphoid, trapezium and the ligament roofing the carpal tunnel",
+      "insertion": [
+        "metacarpals",
+        "hand-phalanges"
+      ],
+      "insertionNote": "First metacarpal and the base of the thumb",
+      "nerve": "Median nerve (adductor pollicis: ulnar nerve)",
+      "actions": [
+        "Bring the thumb across the palm to touch the fingertips (opposition)",
+        "Bend and spread the thumb"
+      ],
+      "summary": "The fleshy mound at the base of the thumb.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Abductor pollicis brevis",
+          "note": "Moves the thumb away from the palm."
+        },
+        {
+          "name": "Flexor pollicis brevis",
+          "note": "Bends the thumb."
+        },
+        {
+          "name": "Opponens pollicis",
+          "note": "Rolls the thumb across to meet the fingers."
+        },
+        {
+          "name": "Adductor pollicis",
+          "note": "Deep; pulls the thumb in, as in pinch grip."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Thenar wasting",
+          "note": "A flattened thumb mound with a clumsy pinch can be a sign of advanced carpal tunnel syndrome."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "hypothenar",
+      "name": "Hypothenar muscles",
+      "latin": "Musculi hypothenaris",
+      "group": "forearm-muscles",
+      "origin": [
+        "carpals"
+      ],
+      "originNote": "Pisiform and hamate",
+      "insertion": [
+        "metacarpals",
+        "hand-phalanges"
+      ],
+      "insertionNote": "Fifth metacarpal and the base of the little finger",
+      "nerve": "Ulnar nerve",
+      "actions": [
+        "Move and cup the little finger"
+      ],
+      "summary": "The mound on the little-finger side of the palm.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Abductor digiti minimi",
+          "note": "Spreads the little finger."
+        },
+        {
+          "name": "Flexor digiti minimi brevis",
+          "note": "Bends the little finger."
+        },
+        {
+          "name": "Opponens digiti minimi",
+          "note": "Cups the palm."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Ulnar nerve compression",
+          "note": "Numbness of the little and ring fingers with weak hand muscles, from pressure at the elbow or the wrist (for example in cyclists)."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "iliopsoas",
+      "name": "Iliopsoas",
+      "latin": "Musculus iliopsoas",
+      "aka": [
+        "hip flexor",
+        "psoas",
+        "iliacus"
+      ],
+      "group": "hip-muscles",
+      "origin": [
+        "t12",
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "hip-bone"
+      ],
+      "originNote": "Lumbar vertebrae (psoas) and the inside of the pelvic wing (iliacus)",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "Lesser trochanter of the femur",
+      "nerve": "Lumbar plexus (L1–L3) and the femoral nerve",
+      "actions": [
+        "The strongest hip flexor: lifts the thigh",
+        "Bends the trunk forward when the legs are fixed, as in sitting up"
+      ],
+      "summary": "A deep muscle running from the spine and inner pelvis over the front of the hip to the femur. It is the main muscular link between the spine and the legs.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Psoas major",
+          "note": "From the lumbar spine.",
+          "latin": "Musculus psoas major"
+        },
+        {
+          "name": "Iliacus",
+          "note": "From the inside of the pelvic wing.",
+          "latin": "Musculus iliacus"
+        },
+        {
+          "name": "Psoas minor",
+          "note": "Small, absent in about half of people.",
+          "latin": "Musculus psoas minor"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Hip flexor strain",
+          "note": "Deep groin pain when lifting the knee, after sprinting or kicking."
+        },
+        {
+          "name": "Snapping hip",
+          "note": "A clunk at the front of the hip as the tendon flicks over the pelvis."
+        },
+        {
+          "name": "Psoas abscess",
+          "note": "Rare: infection here causes fever, back or groin pain and a limp. It needs urgent care."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "gluteus-maximus",
+      "name": "Gluteus maximus",
+      "latin": "Musculus gluteus maximus",
+      "aka": [
+        "glutes",
+        "buttock"
+      ],
+      "group": "hip-muscles",
+      "listOnly": true,
+      "origin": [
+        "hip-bone",
+        "sacrum",
+        "coccyx"
+      ],
+      "originNote": "Back of the ilium, the sacrum and the coccyx",
+      "insertion": [
+        "femur",
+        "tibia"
+      ],
+      "insertionNote": "The gluteal tuberosity of the femur and, through the IT band, the tibia",
+      "nerve": "Inferior gluteal nerve (L5–S2)",
+      "actions": [
+        "Extends the hip: standing up, climbing, running",
+        "Turns the thigh outward"
+      ],
+      "summary": "The largest muscle in the body, forming the buttock.",
+      "issues": [
+        {
+          "name": "Buttock pain",
+          "note": "Often referred from the lower back or the sacroiliac joint; a true muscle strain is less common."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "gluteus-medius",
+      "name": "Gluteus medius",
+      "latin": "Musculus gluteus medius",
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Outer surface of the ilium",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "Greater trochanter",
+      "nerve": "Superior gluteal nerve (L4–S1)",
+      "actions": [
+        "Lifts the leg out to the side",
+        "Keeps the pelvis level when you stand on one leg"
+      ],
+      "summary": "A fan-shaped hip muscle, mostly hidden behind gluteus maximus, that is vital for walking without a limp.",
+      "issues": [
+        {
+          "name": "Gluteal tendinopathy",
+          "note": "Pain on the outer hip, worse lying on that side, on stairs or standing on one leg. Common in women over 40."
+        },
+        {
+          "name": "Hip drop when walking",
+          "note": "If it is weak, the pelvis drops on the opposite side with each step (Trendelenburg gait)."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "tensor-fasciae-latae",
+      "name": "Tensor fasciae latae",
+      "latin": "Musculus tensor fasciae latae",
+      "aka": [
+        "TFL",
+        "IT band",
+        "iliotibial band"
+      ],
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Anterior superior iliac spine, the front point of the hip bone",
+      "insertion": [
+        "tibia"
+      ],
+      "insertionNote": "Through the iliotibial (IT) band onto the outer tibia",
+      "nerve": "Superior gluteal nerve",
+      "actions": [
+        "Helps flex the hip and lift it outward",
+        "Tightens the IT band to steady the knee"
+      ],
+      "summary": "A short hip muscle that tightens the iliotibial band, the tough strip running down the outside of the thigh to the knee.",
+      "issues": [
+        {
+          "name": "IT band syndrome",
+          "note": "Sharp pain on the outer knee in runners and cyclists, worse going downhill."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "sartorius",
+      "name": "Sartorius",
+      "latin": "Musculus sartorius",
+      "aka": [
+        "tailor’s muscle"
+      ],
+      "group": "thigh-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Anterior superior iliac spine",
+      "insertion": [
+        "tibia"
+      ],
+      "insertionNote": "Upper inner tibia (pes anserinus)",
+      "nerve": "Femoral nerve",
+      "actions": [
+        "Flexes the hip, turns it outward and bends the knee: the cross-legged “tailor” position"
+      ],
+      "summary": "The longest muscle in the body: a strap crossing the thigh diagonally from the hip to the inner knee.",
+      "issues": [
+        {
+          "name": "Pes anserine bursitis",
+          "note": "Pain on the inner knee just below the joint, common with knee arthritis and in runners."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "adductors",
+      "name": "Adductors",
+      "latin": "Musculi adductores",
+      "aka": [
+        "groin muscles",
+        "inner thigh"
+      ],
+      "group": "thigh-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Pubis and ischium",
+      "insertion": [
+        "femur",
+        "tibia"
+      ],
+      "insertionNote": "Back of the femur and, for gracilis, the upper inner tibia",
+      "nerve": "Mostly the obturator nerve",
+      "actions": [
+        "Bring the legs together",
+        "Steady the pelvis when walking",
+        "Help flex and rotate the hip"
+      ],
+      "summary": "The muscles of the inner thigh, fanning from the pubic bone to the femur.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Pectineus",
+          "note": "The highest, next to the hip flexors.",
+          "latin": "Musculus pectineus"
+        },
+        {
+          "name": "Adductor longus",
+          "note": "The one most often strained.",
+          "latin": "Musculus adductor longus"
+        },
+        {
+          "name": "Adductor brevis",
+          "note": "Lies under adductor longus.",
+          "latin": "Musculus adductor brevis"
+        },
+        {
+          "name": "Adductor magnus",
+          "note": "The largest, reaching down to the knee.",
+          "latin": "Musculus adductor magnus"
+        },
+        {
+          "name": "Gracilis",
+          "note": "A long strap down to the inner knee.",
+          "latin": "Musculus gracilis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Groin strain",
+          "note": "Sudden inner-thigh pain during kicking, sprinting or changing direction."
+        },
+        {
+          "name": "Long-standing groin pain",
+          "note": "Persistent pain where the adductors attach to the pubis, common in football and hockey."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "rectus-femoris",
+      "name": "Rectus femoris",
+      "latin": "Musculus rectus femoris",
+      "group": "quadriceps",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Anterior inferior iliac spine and just above the hip socket",
+      "insertion": [
+        "patella",
+        "tibia"
+      ],
+      "insertionNote": "The patella through the quadriceps tendon, then the tibial tuberosity through the patellar ligament",
+      "nerve": "Femoral nerve (L2–L4)",
+      "actions": [
+        "Straightens the knee",
+        "Flexes the hip (the only quadriceps muscle that crosses it)"
+      ],
+      "summary": "The middle muscle of the quadriceps, running straight down the front of the thigh.",
+      "issues": [
+        {
+          "name": "Quad strain",
+          "note": "Sudden pain at the front of the thigh when sprinting or kicking."
+        },
+        {
+          "name": "Jumper’s knee",
+          "note": "Pain just below the kneecap with jumping and squatting (patellar tendinopathy)."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "vastus-lateralis",
+      "name": "Vastus lateralis",
+      "latin": "Musculus vastus lateralis",
+      "group": "quadriceps",
+      "origin": [
+        "femur"
+      ],
+      "originNote": "Greater trochanter and the outer back ridge of the femur",
+      "insertion": [
+        "patella",
+        "tibia"
+      ],
+      "nerve": "Femoral nerve",
+      "actions": [
+        "Straightens the knee"
+      ],
+      "summary": "The largest quadriceps muscle, forming the outer thigh.",
+      "issues": [
+        {
+          "name": "Dead leg",
+          "note": "A hard knock causes painful bruising in the thigh. Heavy, worsening swelling needs checking."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "vastus-medialis",
+      "name": "Vastus medialis",
+      "latin": "Musculus vastus medialis",
+      "aka": [
+        "VMO"
+      ],
+      "group": "quadriceps",
+      "origin": [
+        "femur"
+      ],
+      "originNote": "Inner back ridge of the femur",
+      "insertion": [
+        "patella",
+        "tibia"
+      ],
+      "nerve": "Femoral nerve",
+      "actions": [
+        "Straightens the knee",
+        "Its lowest fibres help the kneecap track straight"
+      ],
+      "summary": "The teardrop-shaped quadriceps muscle just above the inner knee.",
+      "issues": [
+        {
+          "name": "Kneecap tracking pain",
+          "note": "Weakness here is linked with pain around the kneecap."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "vastus-intermedius",
+      "name": "Vastus intermedius",
+      "latin": "Musculus vastus intermedius",
+      "group": "quadriceps",
+      "listOnly": true,
+      "origin": [
+        "femur"
+      ],
+      "originNote": "Front and outer surface of the femoral shaft",
+      "insertion": [
+        "patella",
+        "tibia"
+      ],
+      "nerve": "Femoral nerve",
+      "actions": [
+        "Straightens the knee"
+      ],
+      "summary": "The deep quadriceps muscle, lying on the femur under rectus femoris."
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "hamstrings",
+      "name": "Hamstrings",
+      "latin": "Musculi ischiocrurales",
+      "aka": [
+        "biceps femoris",
+        "semitendinosus",
+        "semimembranosus"
+      ],
+      "group": "thigh-muscles",
+      "listOnly": true,
+      "origin": [
+        "hip-bone",
+        "femur"
+      ],
+      "originNote": "Ischial tuberosity (the sitting bone); the short head of biceps from the femur",
+      "insertion": [
+        "tibia",
+        "fibula"
+      ],
+      "insertionNote": "Head of the fibula and the upper inner tibia",
+      "nerve": "Sciatic nerve",
+      "actions": [
+        "Bend the knee",
+        "Straighten the hip, swinging the leg back"
+      ],
+      "summary": "Three muscles on the back of the thigh, from the sitting bone to just below the knee.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Biceps femoris",
+          "note": "The outer hamstring, with long and short heads.",
+          "latin": "Musculus biceps femoris"
+        },
+        {
+          "name": "Semitendinosus",
+          "note": "The inner, with a long cord-like tendon.",
+          "latin": "Musculus semitendinosus"
+        },
+        {
+          "name": "Semimembranosus",
+          "note": "The deepest inner hamstring.",
+          "latin": "Musculus semimembranosus"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Hamstring strain",
+          "note": "Sudden pain at the back of the thigh while sprinting; bruising may follow."
+        },
+        {
+          "name": "Hamstring tendinopathy",
+          "note": "Deep pain at the sitting bone, worse sitting or running uphill."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "tibialis-anterior",
+      "name": "Tibialis anterior",
+      "latin": "Musculus tibialis anterior",
+      "group": "leg-muscles",
+      "origin": [
+        "tibia"
+      ],
+      "originNote": "Outer surface of the upper two-thirds of the tibia",
+      "insertion": [
+        "tarsals",
+        "metatarsals"
+      ],
+      "insertionNote": "Medial cuneiform and the base of the first metatarsal",
+      "nerve": "Deep fibular (peroneal) nerve (L4–L5)",
+      "actions": [
+        "Lifts the foot (dorsiflexion)",
+        "Turns the sole inward",
+        "Supports the arch"
+      ],
+      "summary": "The muscle just outside the shinbone. You can feel its tendon at the front of the ankle when you lift your toes.",
+      "issues": [
+        {
+          "name": "Shin splints (front)",
+          "note": "Pain along the front-outer shin, worse at the start of a run."
+        },
+        {
+          "name": "Foot drop",
+          "note": "If its nerve is damaged, the foot slaps or the toes catch when walking."
+        },
+        {
+          "name": "Compartment syndrome",
+          "note": "Severe, rising pain and tightness in the front of the shin after an injury or hard exercise. It is urgent."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "toe-extensors",
+      "name": "Long toe extensors",
+      "latin": "Musculi extensores digitorum et hallucis longi",
+      "aka": [
+        "extensor digitorum longus",
+        "extensor hallucis longus",
+        "EDL",
+        "EHL"
+      ],
+      "group": "leg-muscles",
+      "origin": [
+        "tibia",
+        "fibula"
+      ],
+      "originNote": "Outer tibial condyle and the front of the fibula",
+      "insertion": [
+        "foot-phalanges",
+        "metatarsals"
+      ],
+      "insertionNote": "Tops of the toe bones",
+      "nerve": "Deep fibular (peroneal) nerve",
+      "actions": [
+        "Lift the toes",
+        "Help lift the foot"
+      ],
+      "summary": "Long muscles on the front of the leg whose tendons fan out over the top of the foot to the toes.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Extensor digitorum longus",
+          "note": "Lifts the four small toes.",
+          "latin": "Musculus extensor digitorum longus"
+        },
+        {
+          "name": "Extensor hallucis longus",
+          "note": "Lifts the big toe.",
+          "latin": "Musculus extensor hallucis longus"
+        },
+        {
+          "name": "Fibularis tertius",
+          "note": "A small slip that lifts the outer foot.",
+          "latin": "Musculus fibularis tertius"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Extensor tendinopathy",
+          "note": "Pain on the top of the foot, often from tight laces or a sudden increase in running."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "fibularis",
+      "name": "Fibularis (peroneal) muscles",
+      "latin": "Musculi fibulares",
+      "aka": [
+        "peroneals",
+        "peroneus longus",
+        "peroneus brevis"
+      ],
+      "group": "leg-muscles",
+      "origin": [
+        "fibula"
+      ],
+      "originNote": "Outer surface of the fibula",
+      "insertion": [
+        "metatarsals",
+        "tarsals"
+      ],
+      "insertionNote": "Bases of the first and fifth metatarsals and the medial cuneiform",
+      "nerve": "Superficial fibular (peroneal) nerve",
+      "actions": [
+        "Turn the sole outward (eversion)",
+        "Protect the ankle from rolling",
+        "Support the arches"
+      ],
+      "summary": "Muscles along the outside of the leg whose tendons run behind the outer ankle bone.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Fibularis longus",
+          "note": "Its tendon crosses under the foot to the first metatarsal.",
+          "latin": "Musculus fibularis longus"
+        },
+        {
+          "name": "Fibularis brevis",
+          "note": "Inserts on the fifth metatarsal.",
+          "latin": "Musculus fibularis brevis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Peroneal tendinopathy",
+          "note": "Pain and swelling behind the outer ankle, often after sprains."
+        },
+        {
+          "name": "Fifth metatarsal avulsion",
+          "note": "Rolling the ankle can make fibularis brevis pull off a piece of bone."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "gastrocnemius",
+      "name": "Gastrocnemius",
+      "latin": "Musculus gastrocnemius",
+      "aka": [
+        "calf muscle",
+        "Achilles tendon"
+      ],
+      "group": "leg-muscles",
+      "origin": [
+        "femur"
+      ],
+      "originNote": "Both femoral condyles, just above the knee",
+      "insertion": [
+        "tarsals"
+      ],
+      "insertionNote": "The heel bone (calcaneus), through the Achilles tendon",
+      "nerve": "Tibial nerve (S1–S2)",
+      "actions": [
+        "Points the foot: rising on tiptoe and pushing off",
+        "Helps bend the knee"
+      ],
+      "summary": "The two-headed muscle forming the bulk of the calf. From the front only its inner edge shows.",
+      "issues": [
+        {
+          "name": "Calf strain (tennis leg)",
+          "note": "Sudden pain in the upper calf, as if kicked, during a push-off."
+        },
+        {
+          "name": "Achilles tendinopathy",
+          "note": "Pain and stiffness above the heel, worst in the morning."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "soleus",
+      "name": "Soleus",
+      "latin": "Musculus soleus",
+      "group": "leg-muscles",
+      "origin": [
+        "tibia",
+        "fibula"
+      ],
+      "originNote": "Back of the upper tibia and fibula",
+      "insertion": [
+        "tarsals"
+      ],
+      "insertionNote": "The heel bone (calcaneus), through the Achilles tendon",
+      "nerve": "Tibial nerve",
+      "actions": [
+        "Points the foot, especially with the knee bent",
+        "Pumps blood back up from the legs while walking"
+      ],
+      "summary": "A broad, flat calf muscle under gastrocnemius. Together they form the triceps surae.",
+      "issues": [
+        {
+          "name": "Soleus strain",
+          "note": "Gradually tightening lower-calf pain in runners."
+        },
+        {
+          "name": "Shin splints (inner)",
+          "note": "Pain along the inner edge of the shin where soleus and the deep calf muscles attach."
+        }
+      ]
+    }
+  ]
+}

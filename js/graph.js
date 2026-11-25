@@ -30,6 +30,14 @@ export class Graph {
     for (const g of this.groups.values()) if (g.parent) this.groups.get(g.parent)?.children.push(g.id);
     for (const n of this.nodes.values()) if (n.group && n.type !== 'joint') this.groups.get(n.group)?.members.push(n.id);
     for (const L of layers) for (const j of L.data.joints || []) this.#addJoint(j);
+    // link types with a "field" (e.g. a muscle's origin/insertion) generate links from structure data
+    for (const [type, lt] of Object.entries(linkTypes)) {
+      if (!lt.field) continue;
+      for (const n of [...this.nodes.values()]) {
+        const refs = n[lt.field];
+        if (Array.isArray(refs) && refs.length) this.#addLink({ type, from: [n.id], to: refs });
+      }
+    }
     for (const l of links) this.#addLink(l);
 
     this.regionsData = regions;
@@ -43,7 +51,7 @@ export class Graph {
     for (const g of d.groups || []) this.groups.set(g.id, { ...g, layer: L.id, children: [], members: [] });
     for (const s of d.structures || []) {
       if (this.nodes.has(s.id)) this.problems.push(`Duplicate id "${s.id}"`);
-      this.nodes.set(s.id, { ...s, layer: L.id, type: s.kind === 'organ' ? 'organ' : 'bone' });
+      this.nodes.set(s.id, { ...s, layer: L.id, type: s.type || d.type || (s.kind === 'organ' ? 'organ' : 'bone') });
     }
     for (const j of d.joints || []) {
       if (this.nodes.has(j.id)) this.problems.push(`Duplicate id "${j.id}"`);
@@ -225,6 +233,16 @@ export class Graph {
     }
     for (const g of this.groups.values()) idx.push({ kind: 'group', id: g.id, label: g.name, meta: 'Group', terms: [[g.name, 1]], weight: 1 });
     for (const r of this.regions.values()) idx.push({ kind: 'region', id: r.id, label: r.name, meta: 'Where does it hurt?', terms: [[r.name, 1]], weight: -8 });
+    // conditions are searchable too: "tennis elbow" finds the forearm extensors, "appendicitis" the area and organ
+    for (const n of this.nodes.values()) {
+      for (const i of n.issues || []) idx.push({ kind: 'issue', id: n.id, label: i.name, meta: `in ${n.name}`, terms: [[i.name, 0.9]], weight: -2 });
+    }
+    for (const g of this.groups.values()) {
+      for (const i of g.issues || []) idx.push({ kind: 'group', id: g.id, label: i.name, meta: `in ${g.name}`, terms: [[i.name, 0.9]], weight: -3 });
+    }
+    for (const r of this.regions.values()) {
+      for (const c of r.causes || []) idx.push({ kind: 'region', id: r.id, label: c.title, meta: `Pain: ${r.name}`, terms: [[c.title, 0.9]], weight: -4 });
+    }
     for (const e of idx) e.norm = e.terms.filter(([t]) => t).map(([t, f]) => [normalize(t), f]);
     return idx;
   }
@@ -254,7 +272,7 @@ export class Graph {
     const seen = new Set();
     const out = [];
     for (const { e } of scored) {
-      const sig = `${e.kind}|${e.id}|${e.member || ''}`;
+      const sig = `${e.kind}|${e.id}|${e.member || ''}|${e.label}`;
       if (seen.has(sig)) continue;
       seen.add(sig);
       out.push(e);

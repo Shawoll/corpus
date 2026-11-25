@@ -208,6 +208,12 @@ body { display: grid; grid-template-rows: auto 1fr; }
 }
 .section > h3 .n { font-weight: 400; letter-spacing: 0; text-transform: none; }
 
+.show-layer {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
+  font-size: 13px; color: var(--rel); text-decoration: underline; text-underline-offset: 3px;
+}
+.show-layer::before { content: "+"; font-weight: 700; text-decoration: none; }
+.show-layer:hover { color: var(--ink); }
 .section-note { font-size: 12.5px; color: var(--ink-3); margin: -4px 0 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
@@ -280,9 +286,9 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .region-list h4 { font-size: 12px; color: var(--ink-3); font-weight: 600; margin-bottom: 6px; }
 
 .home-lede { font-family: var(--serif); font-size: 21px; line-height: 1.4; text-wrap: pretty; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 20px 0 6px; }
-.stat { border: 1px solid var(--line); border-radius: 12px; padding: 10px 10px 8px; background: var(--paper); }
-.stat b { display: block; font-family: var(--serif); font-size: 24px; line-height: 1; font-weight: 600; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(62px, 1fr)); gap: 6px; margin: 20px 0 6px; }
+.stat { border: 1px solid var(--line); border-radius: 12px; padding: 10px 9px 8px; background: var(--paper); min-width: 0; }
+.stat b { display: block; font-family: var(--serif); font-size: 22px; line-height: 1; font-weight: 600; }
 .stat span { font-size: 11.5px; color: var(--ink-3); }
 .howto { list-style: none; display: grid; gap: 10px; }
 .howto li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; font-size: 14.5px; color: var(--ink-2); }
@@ -350,6 +356,22 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.o[data-id="appendix"] { --organ: var(--o-appendix); }
 #map .s.o[data-id="bladder"] { --organ: var(--o-bladder); }
 #map .deco.ureter path { fill: var(--o-bladder); stroke: var(--o-line); stroke-width: 0.6; vector-effect: non-scaling-stroke; }
+
+/* muscles */
+#map .s.m .b { fill: var(--muscle); stroke: var(--muscle-line); stroke-width: 0.9; }
+#map .s.m.deep .b { fill: var(--muscle-deep); }
+#map .s.m .d { stroke: var(--muscle-fibre); stroke-width: 0.6; }
+#map .s.m .c { fill: var(--tendon); stroke: var(--tendon-line); stroke-width: 0.7; }
+#map .s.m:hover .b, #map .s.m.is-hover .b { fill: color-mix(in srgb, var(--muscle) 72%, #fff); }
+#map .s.m.is-rel .b { fill: color-mix(in srgb, var(--muscle) 40%, var(--rel-fill)); stroke: var(--rel); stroke-width: 1.4; }
+#map .s.m.is-sel .b { fill: var(--sel-fill); stroke: var(--sel); stroke-width: 1.8; }
+#map .s.m.is-sel .d { stroke: color-mix(in srgb, var(--sel) 45%, transparent); }
+#map .layer.context[data-layer="muscles"] .s { opacity: 0.18; }
+#map .layer.context[data-layer="muscles"] .s .d { display: none; }
+#map .layer.context[data-layer="muscles"] .s.is-sel, #map .layer.context[data-layer="muscles"] .s.is-rel { opacity: 0.9; }
+#map.mode-hurt .layer[data-layer="muscles"] .s.m { opacity: 0.2; }
+#map.mode-hurt .layer[data-layer="muscles"] .s.m .d { display: none; }
+#map.mode-hurt .layer[data-layer="muscles"] .s.m.is-rel { opacity: 0.8; }
 
 /* joint markers */
 #map .jm {
@@ -454,10 +476,11 @@ body { display: grid; grid-template-rows: auto 1fr; }
   #panel-body { overflow: auto; overscroll-behavior: contain; flex: 1; }
   .panel-inner { padding: 4px 16px 40px; }
   .title { font-size: 26px; }
-  .stats { grid-template-columns: repeat(2, 1fr); }
   .map-controls { bottom: calc(92px + 14px); left: 12px; }
   .map-hint { display: none; }
-  .layerbar { top: 10px; left: 10px; }
+  .layerbar { top: 10px; left: 10px; gap: 4px; }
+  .layer-chip { height: 30px; padding: 0 9px 0 8px; gap: 6px; font-size: 12.5px; }
+  .layer-chip .sw { width: 10px; height: 10px; }
   .side-label { top: 42%; width: 48px; }
   .side-label small { display: none; }
   .side-label.l { left: 2px; }

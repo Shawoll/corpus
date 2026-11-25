@@ -21,6 +21,13 @@
       "svg": "assets/svg/skeleton-anterior.svg",
       "data": "data/skeleton.json",
       "visible": true
+    },
+    {
+      "id": "muscles",
+      "name": "Muscles",
+      "svg": "assets/svg/muscles-anterior.svg",
+      "data": "data/muscles.json",
+      "visible": false
     }
   ],
   "links": [
@@ -51,10 +58,15 @@
       "forward": "Has attached",
       "reverse": "Attached to"
     },
-    "attaches": {
-      "forward": "Anchors",
-      "reverse": "Attaches to",
-      "future": "muscles"
+    "origin": {
+      "forward": "Origin",
+      "reverse": "Muscles that start here",
+      "field": "origin"
+    },
+    "insertion": {
+      "forward": "Insertion",
+      "reverse": "Muscles that insert here",
+      "field": "insertion"
     },
     "innervates": {
       "forward": "Supplies nerves to",

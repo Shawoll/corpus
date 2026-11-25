@@ -24,6 +24,7 @@ export function validate({ graph, map }) {
       for (const k of graph.instances(n.id)) if (!graph.jointsOf(k).length && !n.noJoints) problems.push(`Bone "${k}" has no joints`);
     }
     if (n.type === 'joint') for (const k of graph.instances(n.id)) if (!graph.membersOfJoint(k).length) problems.push(`Joint "${k}" connects nothing`);
+    if (n.type === 'muscle') for (const k of graph.instances(n.id)) if (!graph.edges(k).some((e) => e.type === 'origin' || e.type === 'insertion')) problems.push(`Muscle "${k}" has no origin or insertion`);
   }
   if (bones !== 206) problems.push(`Bone count is ${bones}, expected 206`);
 

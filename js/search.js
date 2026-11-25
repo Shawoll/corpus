@@ -10,6 +10,7 @@ export function createSearch({ input, list, graph, onChoose }) {
     if (e.kind === 'member') return `s/${id}?m=${encodeURIComponent(e.member)}`;
     if (e.kind === 'group') return `g/${id}`;
     if (e.kind === 'region') return `r/${id}`;
+    if (e.kind === 'issue') return `s/${id}`;
     return `s/${id}`;
   };
   const mark = (label, q) => {

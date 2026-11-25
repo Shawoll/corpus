@@ -1,6 +1,7 @@
 {
   "layer": "skeleton",
   "name": "Skeleton",
+  "type": "bone",
   "note": "Bones, groups and joints of the adult human skeleton. Ids match data-id attributes in assets/svg/skeleton-anterior.svg.",
   "groups": [
     {
@@ -494,7 +495,7 @@
       "kind": "irregular",
       "group": "skull",
       "summary": "A U-shaped bone in the front of the neck, just above the larynx. It anchors the tongue and the muscles of swallowing.",
-      "noJoints": "The hyoid is the only bone in the body that doesn’t articulate with any other bone. Muscles and ligaments sling it from the skull, jaw and larynx. Those connections will appear when a muscle layer is added.",
+      "noJoints": "The hyoid is the only bone in the body that doesn’t articulate with any other bone. Instead it hangs in a sling of muscles from the jaw, skull, sternum and shoulder blade (listed below), which raise and lower it every time you swallow.",
       "issues": [
         {
           "name": "Fracture",

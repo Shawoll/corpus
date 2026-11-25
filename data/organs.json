@@ -1,6 +1,7 @@
 {
   "layer": "organs",
   "name": "Organs",
+  "type": "organ",
   "note": "Sixteen major organs. Ids match data-id attributes in assets/svg/organs-anterior.svg.",
   "groups": [
     {

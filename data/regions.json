@@ -17,14 +17,18 @@
       "name": "Head",
       "structures": [
         "@cranium",
-        "brain"
+        "brain",
+        "temporalis"
       ],
       "causes": [
         {
           "title": "Tension-type headache",
           "signs": "Band-like pressure on both sides, often with stress, poor sleep, dehydration or long screen time.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "temporalis",
+            "trapezius"
+          ]
         },
         {
           "title": "Migraine",
@@ -75,7 +79,9 @@
         "zygomatic",
         "nasal",
         "ethmoid",
-        "tmj"
+        "tmj",
+        "masseter",
+        "temporalis"
       ],
       "causes": [
         {
@@ -84,7 +90,9 @@
           "urgency": "self-care",
           "related": [
             "tmj",
-            "mandible"
+            "mandible",
+            "masseter",
+            "temporalis"
           ]
         },
         {
@@ -136,7 +144,11 @@
         "hyoid",
         "thyroid",
         "trachea",
-        "esophagus"
+        "esophagus",
+        "sternocleidomastoid",
+        "trapezius",
+        "suprahyoid",
+        "infrahyoid"
       ],
       "causes": [
         {
@@ -144,7 +156,9 @@
           "signs": "Stiffness and pain after sleeping awkwardly, long desk work or a jolt.",
           "urgency": "self-care",
           "related": [
-            "@cervical"
+            "@cervical",
+            "sternocleidomastoid",
+            "trapezius"
           ]
         },
         {
@@ -194,7 +208,12 @@
         "scapula",
         "humerus",
         "shoulder",
-        "acromioclavicular"
+        "acromioclavicular",
+        "deltoid",
+        "rotator-cuff",
+        "trapezius",
+        "pectoralis-major",
+        "biceps"
       ],
       "causes": [
         {
@@ -203,7 +222,8 @@
           "urgency": "doctor",
           "related": [
             "shoulder",
-            "scapula"
+            "scapula",
+            "rotator-cuff"
           ]
         },
         {
@@ -258,7 +278,9 @@
         "heart",
         "esophagus",
         "trachea",
-        "sternocostal"
+        "sternocostal",
+        "pectoralis-major",
+        "diaphragm"
       ],
       "causes": [
         {
@@ -314,7 +336,10 @@
       "structures": [
         "@ribs",
         "lung",
-        "clavicle"
+        "clavicle",
+        "pectoralis-major",
+        "serratus-anterior",
+        "intercostals"
       ],
       "causes": [
         {
@@ -322,7 +347,9 @@
           "signs": "Pain on twisting, coughing or pressing one spot, often after exertion or a fall.",
           "urgency": "self-care",
           "related": [
-            "@ribs"
+            "@ribs",
+            "intercostals",
+            "pectoralis-major"
           ]
         },
         {
@@ -374,7 +401,10 @@
         "@ribs",
         "lung",
         "heart",
-        "clavicle"
+        "clavicle",
+        "pectoralis-major",
+        "serratus-anterior",
+        "intercostals"
       ],
       "causes": [
         {
@@ -390,7 +420,9 @@
           "signs": "Pain on twisting, coughing or pressing one spot.",
           "urgency": "self-care",
           "related": [
-            "@ribs"
+            "@ribs",
+            "intercostals",
+            "pectoralis-major"
           ]
         },
         {
@@ -430,14 +462,22 @@
       "name": "Upper arm",
       "paired": true,
       "structures": [
-        "humerus"
+        "humerus",
+        "biceps",
+        "triceps",
+        "brachialis",
+        "deltoid"
       ],
       "causes": [
         {
           "title": "Muscle strain",
           "signs": "Ache after lifting or unaccustomed exercise, easing over days.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "biceps",
+            "triceps",
+            "deltoid"
+          ]
         },
         {
           "title": "Biceps tendon problem",
@@ -445,7 +485,8 @@
           "urgency": "doctor",
           "related": [
             "humerus",
-            "shoulder"
+            "shoulder",
+            "biceps"
           ]
         },
         {
@@ -478,7 +519,13 @@
         "radius",
         "ulna",
         "elbow",
-        "proximal-radioulnar"
+        "proximal-radioulnar",
+        "forearm-extensors",
+        "forearm-flexors",
+        "brachioradialis",
+        "biceps",
+        "brachialis",
+        "triceps"
       ],
       "causes": [
         {
@@ -487,7 +534,8 @@
           "urgency": "self-care",
           "related": [
             "elbow",
-            "humerus"
+            "humerus",
+            "forearm-extensors"
           ]
         },
         {
@@ -496,7 +544,8 @@
           "urgency": "self-care",
           "related": [
             "elbow",
-            "humerus"
+            "humerus",
+            "forearm-flexors"
           ]
         },
         {
@@ -534,14 +583,21 @@
       "structures": [
         "radius",
         "ulna",
-        "distal-radioulnar"
+        "distal-radioulnar",
+        "forearm-flexors",
+        "forearm-extensors",
+        "brachioradialis"
       ],
       "causes": [
         {
           "title": "Overuse / tendon strain",
           "signs": "Aching along the forearm after repetitive gripping, typing or tools.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "forearm-flexors",
+            "forearm-extensors",
+            "brachioradialis"
+          ]
         },
         {
           "title": "Fracture",
@@ -573,7 +629,11 @@
         "metacarpophalangeal",
         "hand-interphalangeal",
         "radius",
-        "ulna"
+        "ulna",
+        "thenar",
+        "hypothenar",
+        "forearm-flexors",
+        "forearm-extensors"
       ],
       "causes": [
         {
@@ -582,7 +642,9 @@
           "urgency": "doctor",
           "related": [
             "carpals",
-            "wrist"
+            "wrist",
+            "forearm-flexors",
+            "thenar"
           ]
         },
         {
@@ -606,7 +668,8 @@
           "signs": "Pain on the thumb side of the wrist when gripping or lifting.",
           "urgency": "self-care",
           "related": [
-            "wrist"
+            "wrist",
+            "forearm-extensors"
           ]
         },
         {
@@ -622,7 +685,8 @@
           "signs": "A finger catches or locks when bending.",
           "urgency": "doctor",
           "related": [
-            "metacarpophalangeal"
+            "metacarpophalangeal",
+            "forearm-flexors"
           ]
         },
         {
@@ -654,7 +718,10 @@
         "rib-10",
         "rib-11",
         "kidney",
-        "large-intestine"
+        "large-intestine",
+        "rectus-abdominis",
+        "external-oblique",
+        "diaphragm"
       ],
       "causes": [
         {
@@ -687,7 +754,9 @@
           "urgency": "self-care",
           "related": [
             "rib-9",
-            "rib-10"
+            "rib-10",
+            "external-oblique",
+            "rectus-abdominis"
           ]
         },
         {
@@ -707,7 +776,9 @@
         "liver",
         "esophagus",
         "small-intestine",
-        "sternum"
+        "sternum",
+        "rectus-abdominis",
+        "diaphragm"
       ],
       "causes": [
         {
@@ -772,7 +843,10 @@
         "rib-8",
         "rib-9",
         "rib-10",
-        "rib-11"
+        "rib-11",
+        "rectus-abdominis",
+        "external-oblique",
+        "diaphragm"
       ],
       "causes": [
         {
@@ -819,7 +893,10 @@
           "title": "Muscle or rib strain",
           "signs": "Pain on movement or pressing one spot.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "external-oblique",
+            "rectus-abdominis"
+          ]
         }
       ]
     },
@@ -834,7 +911,10 @@
         "rib-11",
         "rib-12",
         "l1",
-        "l2"
+        "l2",
+        "external-oblique",
+        "deep-abdominals",
+        "quadratus-lumborum"
       ],
       "causes": [
         {
@@ -857,7 +937,10 @@
           "title": "Muscle strain",
           "signs": "Pain on bending or twisting, eased by rest.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "external-oblique",
+            "quadratus-lumborum"
+          ]
         },
         {
           "title": "Constipation",
@@ -881,7 +964,8 @@
       "structures": [
         "small-intestine",
         "large-intestine",
-        "@lumbar"
+        "@lumbar",
+        "rectus-abdominis"
       ],
       "causes": [
         {
@@ -942,7 +1026,10 @@
         "rib-11",
         "rib-12",
         "l1",
-        "l2"
+        "l2",
+        "external-oblique",
+        "deep-abdominals",
+        "quadratus-lumborum"
       ],
       "causes": [
         {
@@ -965,7 +1052,10 @@
           "title": "Muscle strain",
           "signs": "Pain on bending or twisting, eased by rest.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "external-oblique",
+            "quadratus-lumborum"
+          ]
         },
         {
           "title": "Constipation / IBS",
@@ -985,7 +1075,10 @@
         "appendix",
         "large-intestine",
         "small-intestine",
-        "hip-bone"
+        "hip-bone",
+        "rectus-abdominis",
+        "external-oblique",
+        "iliopsoas"
       ],
       "causes": [
         {
@@ -1000,7 +1093,9 @@
           "title": "Inguinal hernia",
           "signs": "A bulge in the groin that appears when standing or straining. A painful, hard bulge that won’t go back is urgent.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "external-oblique"
+          ]
         },
         {
           "title": "Kidney stone",
@@ -1042,7 +1137,9 @@
         "large-intestine",
         "small-intestine",
         "hip-bone",
-        "pubic-symphysis"
+        "pubic-symphysis",
+        "rectus-abdominis",
+        "pelvic-floor"
       ],
       "causes": [
         {
@@ -1096,7 +1193,10 @@
       "structures": [
         "large-intestine",
         "small-intestine",
-        "hip-bone"
+        "hip-bone",
+        "rectus-abdominis",
+        "external-oblique",
+        "iliopsoas"
       ],
       "causes": [
         {
@@ -1119,7 +1219,9 @@
           "title": "Inguinal hernia",
           "signs": "A groin bulge when standing or straining.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "external-oblique"
+          ]
         },
         {
           "title": "Kidney stone",
@@ -1153,7 +1255,13 @@
         "hip-bone",
         "femur",
         "hip",
-        "pubic-symphysis"
+        "pubic-symphysis",
+        "iliopsoas",
+        "adductors",
+        "sartorius",
+        "tensor-fasciae-latae",
+        "gluteus-medius",
+        "rectus-femoris"
       ],
       "causes": [
         {
@@ -1168,7 +1276,10 @@
           "title": "Groin strain",
           "signs": "Pain on the inner thigh after kicking, sprinting or changing direction.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "adductors",
+            "iliopsoas"
+          ]
         },
         {
           "title": "Hip fracture",
@@ -1184,14 +1295,18 @@
           "signs": "Pain on the outer hip, worse lying on that side or climbing stairs.",
           "urgency": "self-care",
           "related": [
-            "femur"
+            "femur",
+            "gluteus-medius",
+            "tensor-fasciae-latae"
           ]
         },
         {
           "title": "Inguinal hernia",
           "signs": "A groin bulge when standing or straining.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "external-oblique"
+          ]
         },
         {
           "title": "Pain from the back",
@@ -1213,14 +1328,26 @@
       "name": "Thigh",
       "paired": true,
       "structures": [
-        "femur"
+        "femur",
+        "rectus-femoris",
+        "vastus-lateralis",
+        "vastus-medialis",
+        "vastus-intermedius",
+        "sartorius",
+        "adductors",
+        "hamstrings",
+        "tensor-fasciae-latae"
       ],
       "causes": [
         {
           "title": "Muscle strain",
           "signs": "Sudden pain at the back (hamstring) or front (quadriceps) of the thigh during sport.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "rectus-femoris",
+            "hamstrings",
+            "adductors"
+          ]
         },
         {
           "title": "Meralgia paresthetica",
@@ -1263,7 +1390,14 @@
         "fibula",
         "patella",
         "knee",
-        "proximal-tibiofibular"
+        "proximal-tibiofibular",
+        "rectus-femoris",
+        "vastus-medialis",
+        "vastus-lateralis",
+        "sartorius",
+        "tensor-fasciae-latae",
+        "hamstrings",
+        "gastrocnemius"
       ],
       "causes": [
         {
@@ -1272,7 +1406,8 @@
           "urgency": "self-care",
           "related": [
             "patella",
-            "knee"
+            "knee",
+            "vastus-medialis"
           ]
         },
         {
@@ -1297,6 +1432,14 @@
           "urgency": "doctor",
           "related": [
             "knee"
+          ]
+        },
+        {
+          "title": "IT band syndrome",
+          "signs": "Sharp pain on the outer knee in runners and cyclists, worse going downhill.",
+          "urgency": "self-care",
+          "related": [
+            "tensor-fasciae-latae"
           ]
         },
         {
@@ -1328,7 +1471,12 @@
       "structures": [
         "tibia",
         "fibula",
-        "distal-tibiofibular"
+        "distal-tibiofibular",
+        "tibialis-anterior",
+        "toe-extensors",
+        "fibularis",
+        "gastrocnemius",
+        "soleus"
       ],
       "causes": [
         {
@@ -1336,7 +1484,9 @@
           "signs": "Diffuse pain along the inner shin with running.",
           "urgency": "self-care",
           "related": [
-            "tibia"
+            "tibia",
+            "tibialis-anterior",
+            "soleus"
           ]
         },
         {
@@ -1352,7 +1502,10 @@
           "title": "Calf strain",
           "signs": "A sudden pull in the calf when pushing off.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "gastrocnemius",
+            "soleus"
+          ]
         },
         {
           "title": "Deep vein thrombosis (DVT)",
@@ -1364,7 +1517,10 @@
           "title": "Cramp",
           "signs": "Brief, intense tightening, often at night.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "gastrocnemius",
+            "soleus"
+          ]
         },
         {
           "title": "Poor circulation (claudication)",
@@ -1391,7 +1547,12 @@
         "ankle",
         "subtalar-midfoot",
         "tarsometatarsal",
-        "metatarsophalangeal"
+        "metatarsophalangeal",
+        "tibialis-anterior",
+        "toe-extensors",
+        "fibularis",
+        "gastrocnemius",
+        "soleus"
       ],
       "causes": [
         {
@@ -1426,7 +1587,9 @@
           "signs": "Pain or thickening above the heel. A sudden snap means a possible rupture and is urgent.",
           "urgency": "doctor",
           "related": [
-            "tarsals"
+            "tarsals",
+            "gastrocnemius",
+            "soleus"
           ]
         },
         {
@@ -1468,7 +1631,12 @@
         "@ribs",
         "scapula",
         "lung",
-        "costovertebral"
+        "costovertebral",
+        "trapezius",
+        "rhomboids",
+        "latissimus-dorsi",
+        "erector-spinae",
+        "rotator-cuff"
       ],
       "causes": [
         {
@@ -1476,7 +1644,10 @@
           "signs": "Aching between the shoulder blades after long sitting.",
           "urgency": "self-care",
           "related": [
-            "@thoracic"
+            "@thoracic",
+            "trapezius",
+            "rhomboids",
+            "erector-spinae"
           ]
         },
         {
@@ -1527,7 +1698,11 @@
         "coccyx",
         "kidney",
         "sacroiliac",
-        "intervertebral"
+        "intervertebral",
+        "erector-spinae",
+        "quadratus-lumborum",
+        "gluteus-maximus",
+        "latissimus-dorsi"
       ],
       "causes": [
         {
@@ -1535,7 +1710,9 @@
           "signs": "Pain and stiffness after lifting, bending or nothing in particular. Usually settles within weeks, and staying active helps.",
           "urgency": "self-care",
           "related": [
-            "@lumbar"
+            "@lumbar",
+            "erector-spinae",
+            "quadratus-lumborum"
           ]
         },
         {

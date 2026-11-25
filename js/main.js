@@ -17,7 +17,7 @@ const applyTheme = (t) => { if (t) document.documentElement.dataset.theme = t; e
 applyTheme(prefs.get('theme', null));
 
 async function load(url, as = 'json') {
-  const r = await fetch(url);
+  const r = await fetch(url, { cache: 'no-cache' }); // revalidate data/SVG so edits show up straight away
   if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
   return as === 'json' ? r.json() : r.text();
 }
@@ -200,7 +200,7 @@ async function boot() {
     if (top) { panelBody.scrollTop = 0; panelEl.scrollTop = 0; }
   }
   store.subscribe((st, prev) => {
-    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion) renderPanel(st, st.route !== prev.route);
+    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible) renderPanel(st, st.route !== prev.route);
     renderMap(st);
     renderControls(st);
   });
@@ -269,6 +269,13 @@ async function boot() {
       const more = exp.nextElementSibling;
       more.hidden = false;
       more.querySelector('button')?.focus();
+      return;
+    }
+    const show = e.target.closest('[data-layer-on]');
+    if (show) {
+      const vis = new Set(store.get().visible);
+      vis.add(show.dataset.layerOn);
+      store.set({ visible: vis });
       return;
     }
     if (e.target.closest('[data-back]')) {
