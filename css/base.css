@@ -1,0 +1,242 @@
+/* Corpus — design tokens, themes, reset, typography */
+
+:root {
+  color-scheme: light;
+
+  /* surfaces & ink */
+  --paper: #f3eee4;
+  --paper-2: #f8f4ec;
+  --paper-3: #e9e2d4;
+  --ink: #2a231c;
+  --ink-2: #5b5044;
+  --ink-3: #6f6456;
+  --line: #d9cfbe;
+  --line-2: #c7bba7;
+  --focus: #1f6f75;
+
+  /* bone drawing */
+  --bone: #fbf7ee;
+  --bone-line: #6b5a48;
+  --bone-back: #e6ddcc;
+  --bone-back-line: #a39279;
+  --bone-deep: #9a8b74;
+  --bone-detail: #b5a48c;
+  --cart: #dbe4e0;
+  --cart-line: #889c96;
+  --cavity: #3b322b;
+  --tooth: #fffdf7;
+
+  /* states */
+  --sel: #c8402a;
+  --sel-fill: #f4b9a9;
+  --sel-soft: rgba(200, 64, 42, 0.1);
+  --rel: #1f7a80;
+  --rel-fill: #bfe1df;
+  --rel-soft: rgba(31, 122, 128, 0.1);
+  --hover-fill: #fff3d6;
+
+  /* joint classes */
+  --j-synovial: #1f7a80;
+  --j-cartilaginous: #b07a1f;
+  --j-fibrous: #7d6754;
+
+  /* urgency */
+  --u-self: #4e7a4b;
+  --u-doctor: #9a6a12;
+  --u-urgent: #b8361f;
+
+  /* regions */
+  --rg-fill: rgba(200, 64, 42, 0.05);
+  --rg-line: rgba(200, 64, 42, 0.45);
+  --rg-hover: rgba(200, 64, 42, 0.16);
+  --rg-sel: rgba(200, 64, 42, 0.28);
+
+  /* organs (muted, watercolour) */
+  --o-brain: #e3c3bb;
+  --o-thyroid: #c97c6c;
+  --o-trachea: #e2d6c4;
+  --o-esophagus: #cf948b;
+  --o-lung: #eab0aa;
+  --o-heart: #b8483f;
+  --o-liver: #93463a;
+  --o-gallbladder: #7d9653;
+  --o-stomach: #dfa293;
+  --o-spleen: #85404d;
+  --o-pancreas: #e6c592;
+  --o-kidney: #a5503f;
+  --o-small-intestine: #edbba8;
+  --o-large-intestine: #cf9a84;
+  --o-appendix: #cf9a84;
+  --o-bladder: #e8c88f;
+  --o-line: rgba(70, 30, 20, 0.55);
+
+  /* type */
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(40, 30, 20, 0.06), 0 8px 24px rgba(40, 30, 20, 0.08);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #121417;
+    --paper-2: #181b1f;
+    --paper-3: #20252a;
+    --ink: #ece6da;
+    --ink-2: #c2b9aa;
+    --ink-3: #a1988a;
+    --line: #2b3036;
+    --line-2: #3a4047;
+    --focus: #6fd0d4;
+    --bone: #e7e0d2;
+    --bone-line: #5a4d3f;
+    --bone-back: #8d8576;
+    --bone-back-line: #4d463d;
+    --bone-deep: #6e6557;
+    --bone-detail: #a69983;
+    --cart: #a9b9b5;
+    --cart-line: #5c6e69;
+    --cavity: #0b0c0e;
+    --tooth: #f2ede2;
+    --sel: #ff7a5c;
+    --sel-fill: #ff9d85;
+    --sel-soft: rgba(255, 122, 92, 0.14);
+    --rel: #5cc8cc;
+    --rel-fill: #7fd3d4;
+    --rel-soft: rgba(92, 200, 204, 0.14);
+    --hover-fill: #fff6df;
+    --j-synovial: #5cc8cc;
+    --j-cartilaginous: #e3b056;
+    --j-fibrous: #b89f86;
+    --u-self: #8cc287;
+    --u-doctor: #e3b056;
+    --u-urgent: #ff7a5c;
+    --rg-fill: rgba(255, 122, 92, 0.06);
+    --rg-line: rgba(255, 122, 92, 0.5);
+    --rg-hover: rgba(255, 122, 92, 0.2);
+    --rg-sel: rgba(255, 122, 92, 0.32);
+    --o-brain: #b9978f;
+    --o-thyroid: #a8604f;
+    --o-trachea: #b8ac9a;
+    --o-esophagus: #a8716a;
+    --o-lung: #c98a85;
+    --o-heart: #a63a33;
+    --o-liver: #7d3a30;
+    --o-gallbladder: #6b8446;
+    --o-stomach: #bd8274;
+    --o-spleen: #73384a;
+    --o-pancreas: #c4a674;
+    --o-kidney: #8e4334;
+    --o-small-intestine: #c99a88;
+    --o-large-intestine: #ab7c69;
+    --o-appendix: #ab7c69;
+    --o-bladder: #c2a46f;
+    --o-line: rgba(0, 0, 0, 0.55);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121417;
+  --paper-2: #181b1f;
+  --paper-3: #20252a;
+  --ink: #ece6da;
+  --ink-2: #c2b9aa;
+  --ink-3: #a1988a;
+  --line: #2b3036;
+  --line-2: #3a4047;
+  --focus: #6fd0d4;
+  --bone: #e7e0d2;
+  --bone-line: #5a4d3f;
+  --bone-back: #8d8576;
+  --bone-back-line: #4d463d;
+  --bone-deep: #6e6557;
+  --bone-detail: #a69983;
+  --cart: #a9b9b5;
+  --cart-line: #5c6e69;
+  --cavity: #0b0c0e;
+  --tooth: #f2ede2;
+  --sel: #ff7a5c;
+  --sel-fill: #ff9d85;
+  --sel-soft: rgba(255, 122, 92, 0.14);
+  --rel: #5cc8cc;
+  --rel-fill: #7fd3d4;
+  --rel-soft: rgba(92, 200, 204, 0.14);
+  --hover-fill: #fff6df;
+  --j-synovial: #5cc8cc;
+  --j-cartilaginous: #e3b056;
+  --j-fibrous: #b89f86;
+  --u-self: #8cc287;
+  --u-doctor: #e3b056;
+  --u-urgent: #ff7a5c;
+  --rg-fill: rgba(255, 122, 92, 0.06);
+  --rg-line: rgba(255, 122, 92, 0.5);
+  --rg-hover: rgba(255, 122, 92, 0.2);
+  --rg-sel: rgba(255, 122, 92, 0.32);
+  --o-brain: #b9978f;
+  --o-thyroid: #a8604f;
+  --o-trachea: #b8ac9a;
+  --o-esophagus: #a8716a;
+  --o-lung: #c98a85;
+  --o-heart: #a63a33;
+  --o-liver: #7d3a30;
+  --o-gallbladder: #6b8446;
+  --o-stomach: #bd8274;
+  --o-spleen: #73384a;
+  --o-pancreas: #c4a674;
+  --o-kidney: #8e4334;
+  --o-small-intestine: #c99a88;
+  --o-large-intestine: #ab7c69;
+  --o-appendix: #ab7c69;
+  --o-bladder: #c2a46f;
+  --o-line: rgba(0, 0, 0, 0.55);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.2; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+a { color: inherit; }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+
+.serif { font-family: var(--serif); }
+.latin { font-family: var(--serif); font-style: italic; color: var(--ink-2); }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+.skip {
+  position: absolute; left: 12px; top: -48px; z-index: 50;
+  background: var(--ink); color: var(--paper); padding: 8px 12px; border-radius: 8px; text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,2813 @@
+{
+  "layer": "skeleton",
+  "name": "Skeleton",
+  "note": "Bones, groups and joints of the adult human skeleton. Ids match data-id attributes in assets/svg/skeleton-anterior.svg.",
+  "groups": [
+    {
+      "id": "axial",
+      "name": "Axial skeleton",
+      "summary": "The central axis of the body: skull, spine, ribs and sternum. It protects the brain, spinal cord and the organs of the chest."
+    },
+    {
+      "id": "skull",
+      "name": "Skull",
+      "parent": "axial",
+      "summary": "22 bones that protect the brain and form the face, plus the six tiny ear ossicles and the hyoid in the neck."
+    },
+    {
+      "id": "cranium",
+      "name": "Cranial bones",
+      "parent": "skull",
+      "summary": "Eight bones forming the vault and base of the skull that enclose the brain."
+    },
+    {
+      "id": "face",
+      "name": "Facial bones",
+      "parent": "skull",
+      "summary": "Fourteen bones forming the face, the eye sockets, the nose and the jaws."
+    },
+    {
+      "id": "spine",
+      "name": "Vertebral column",
+      "parent": "axial",
+      "summary": "26 bones stacked from skull to tailbone: 7 cervical, 12 thoracic and 5 lumbar vertebrae, plus the sacrum and coccyx. It carries the body’s weight and shelters the spinal cord."
+    },
+    {
+      "id": "cervical",
+      "name": "Cervical spine (C1–C7)",
+      "parent": "spine",
+      "rangeLabel": "{r}",
+      "rangePrefix": "C",
+      "summary": "The seven small, mobile vertebrae of the neck. Holes in their transverse processes carry the vertebral arteries to the brain.",
+      "issues": [
+        {
+          "name": "Neck strain / whiplash",
+          "note": "Pain and stiffness after a sudden jolt or awkward posture; usually improves over a few weeks."
+        },
+        {
+          "name": "Pinched nerve (cervical radiculopathy)",
+          "note": "Neck pain radiating into the arm with tingling, numbness or weakness, from a disc or bone spur pressing on a nerve root."
+        },
+        {
+          "name": "Cervical spondylosis",
+          "note": "Age-related wear of the discs and facet joints: stiffness, grinding, sometimes headaches at the back of the head."
+        }
+      ]
+    },
+    {
+      "id": "thoracic",
+      "name": "Thoracic spine (T1–T12)",
+      "parent": "spine",
+      "rangeLabel": "{r}",
+      "rangePrefix": "T",
+      "summary": "Twelve vertebrae that carry the ribs. Linked to the rib cage, this is the stiffest part of the spine.",
+      "issues": [
+        {
+          "name": "Postural back pain",
+          "note": "An ache between the shoulder blades from long periods of sitting or slouching."
+        },
+        {
+          "name": "Osteoporotic compression fracture",
+          "note": "Sudden mid-back pain, sometimes after only minor strain, in people with thin bones; height loss and rounding (kyphosis) can follow."
+        },
+        {
+          "name": "Scoliosis",
+          "note": "A sideways curve of the spine, most often noticed in adolescence as uneven shoulders or hips."
+        }
+      ]
+    },
+    {
+      "id": "lumbar",
+      "name": "Lumbar spine (L1–L5)",
+      "parent": "spine",
+      "rangeLabel": "{r}",
+      "rangePrefix": "L",
+      "summary": "The five largest vertebrae, in the lower back. They carry the weight of the upper body and allow bending and arching.",
+      "issues": [
+        {
+          "name": "Lower back pain",
+          "note": "Very common and usually from muscles, ligaments and joints. It normally settles within weeks, and staying gently active helps."
+        },
+        {
+          "name": "Herniated disc / sciatica",
+          "note": "Disc material presses on a nerve root, causing pain shooting down the leg, sometimes with numbness or weakness."
+        },
+        {
+          "name": "Spinal stenosis",
+          "note": "Narrowing of the spinal canal in older adults: leg pain or heaviness when walking, eased by sitting or bending forward."
+        }
+      ]
+    },
+    {
+      "id": "sacral",
+      "name": "Sacrum & coccyx",
+      "parent": "spine",
+      "summary": "Fused vertebrae at the base of the spine that lock it into the pelvis."
+    },
+    {
+      "id": "thorax",
+      "name": "Thoracic cage",
+      "parent": "axial",
+      "summary": "The sternum, 12 pairs of ribs and the thoracic vertebrae: a flexible cage that protects the heart and lungs and expands with every breath."
+    },
+    {
+      "id": "ribs",
+      "name": "Ribs",
+      "parent": "thorax",
+      "rangeLabel": "Ribs {r}",
+      "summary": "12 pairs. Ribs 1–7 are “true” ribs, each joining the sternum through its own cartilage. Ribs 8–10 are “false” ribs, joining the cartilage above. Ribs 11–12 are “floating” ribs that end free in the flank.",
+      "issues": [
+        {
+          "name": "Rib fracture or bruise",
+          "note": "Sharp pain on breathing, coughing or twisting after a fall or blow. Breathlessness or coughing blood needs urgent care."
+        },
+        {
+          "name": "Costochondritis",
+          "note": "Inflammation where the ribs meet their cartilage: the chest wall is tender to press. Chest pain should always be checked to rule out heart causes."
+        },
+        {
+          "name": "Intercostal muscle strain",
+          "note": "Pain between the ribs after coughing fits, lifting or twisting sports."
+        }
+      ]
+    },
+    {
+      "id": "appendicular",
+      "name": "Appendicular skeleton",
+      "summary": "The limbs and the girdles that attach them to the trunk: 126 bones built for movement."
+    },
+    {
+      "id": "shoulder-girdle",
+      "name": "Shoulder girdle",
+      "parent": "appendicular",
+      "summary": "The clavicle and scapula on each side. Together they hang the arm from the trunk."
+    },
+    {
+      "id": "upper-limb",
+      "name": "Upper limb",
+      "parent": "appendicular",
+      "summary": "Arm, forearm and hand: 30 bones on each side."
+    },
+    {
+      "id": "hand",
+      "name": "Wrist & hand",
+      "parent": "upper-limb",
+      "summary": "27 bones per hand: 8 carpals, 5 metacarpals and 14 phalanges."
+    },
+    {
+      "id": "pelvic-girdle",
+      "name": "Pelvic girdle",
+      "parent": "appendicular",
+      "summary": "The two hip bones. Joined to the sacrum at the back and to each other at the front, they form the pelvic ring."
+    },
+    {
+      "id": "lower-limb",
+      "name": "Lower limb",
+      "parent": "appendicular",
+      "summary": "Thigh, knee, leg and foot: 30 bones on each side."
+    },
+    {
+      "id": "foot",
+      "name": "Ankle & foot",
+      "parent": "lower-limb",
+      "summary": "26 bones per foot: 7 tarsals, 5 metatarsals and 14 phalanges."
+    }
+  ],
+  "structures": [
+    {
+      "paired": false,
+      "count": 1,
+      "id": "frontal",
+      "name": "Frontal bone",
+      "latin": "Os frontale",
+      "kind": "flat",
+      "group": "cranium",
+      "summary": "Forms the forehead, the roofs of the eye sockets and the front of the skull vault. The frontal sinuses sit just above the brows.",
+      "issues": [
+        {
+          "name": "Frontal sinusitis",
+          "note": "Pressure or pain over the forehead and brows, worse when bending forward, often after a cold."
+        },
+        {
+          "name": "Fracture",
+          "note": "Usually from a direct blow. A dent, swelling or clear fluid from the nose needs urgent care."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "parietal",
+      "name": "Parietal bone",
+      "latin": "Os parietale",
+      "kind": "flat",
+      "group": "cranium",
+      "summary": "The two parietal bones form the roof and upper sides of the skull, meeting each other at the sagittal suture along the top of the head.",
+      "issues": [
+        {
+          "name": "Skull fracture",
+          "note": "A common site of fracture after head injury. The middle meningeal artery runs beneath the nearby temple region, so worsening headache, vomiting or drowsiness after a blow is an emergency."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "temporal",
+      "name": "Temporal bone",
+      "latin": "Os temporale",
+      "kind": "irregular",
+      "group": "cranium",
+      "summary": "Forms the lower side of the skull around the ear. It houses the ear canal, the hearing and balance organs and the mastoid air cells, and provides the socket of the jaw joint.",
+      "issues": [
+        {
+          "name": "Ear and balance problems",
+          "note": "The inner ear lives inside this bone, so vertigo, hearing loss and tinnitus often start here."
+        },
+        {
+          "name": "Mastoiditis",
+          "note": "Infection spreading from the middle ear: pain, redness and swelling behind the ear with fever."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "occipital",
+      "name": "Occipital bone",
+      "latin": "Os occipitale",
+      "kind": "flat",
+      "group": "cranium",
+      "listOnly": true,
+      "summary": "Forms the back and base of the skull. The spinal cord passes through its large opening (foramen magnum), and its condyles rest on the atlas.",
+      "issues": [
+        {
+          "name": "Occipital headache",
+          "note": "Muscles and nerves around the base of the skull often cause pain at the back of the head, sometimes spreading over the scalp."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "sphenoid",
+      "name": "Sphenoid bone",
+      "latin": "Os sphenoidale",
+      "kind": "irregular",
+      "group": "cranium",
+      "summary": "A butterfly-shaped bone at the centre of the skull base, visible at the temples and at the back of the eye sockets. It cradles the pituitary gland in a pocket called the sella turcica.",
+      "issues": [
+        {
+          "name": "Sphenoid sinusitis",
+          "note": "A deep headache behind the eyes or at the top of the head that is hard to pin down."
+        },
+        {
+          "name": "Pituitary tumour",
+          "note": "Grows in the sella turcica and can press on the optic nerves, narrowing side vision."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "ethmoid",
+      "name": "Ethmoid bone",
+      "latin": "Os ethmoidale",
+      "kind": "irregular",
+      "group": "cranium",
+      "summary": "A light, honeycombed bone between the eye sockets. It forms the upper nasal septum, the inner walls of the orbits and the roof of the nose, where its sieve-like plate lets the nerves of smell through to the brain.",
+      "issues": [
+        {
+          "name": "Ethmoid sinusitis",
+          "note": "Pain and pressure between the eyes and across the bridge of the nose."
+        },
+        {
+          "name": "Loss of smell after head injury",
+          "note": "The thin cribriform plate can fracture and tear the olfactory nerves."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "nasal",
+      "name": "Nasal bone",
+      "latin": "Os nasale",
+      "kind": "flat",
+      "group": "face",
+      "summary": "Two small oblong bones forming the bony bridge of the nose. The lower part of the nose is cartilage.",
+      "issues": [
+        {
+          "name": "Broken nose",
+          "note": "The most commonly fractured facial bone: swelling, bruising, a crooked bridge, nosebleed."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "maxilla",
+      "name": "Maxilla",
+      "latin": "Maxilla",
+      "aka": [
+        "upper jaw"
+      ],
+      "kind": "irregular",
+      "group": "face",
+      "summary": "The two maxillae form the upper jaw and hold the upper teeth. They also form the floor of the eye sockets, the sides of the nose and most of the hard palate. Each contains a large maxillary sinus.",
+      "issues": [
+        {
+          "name": "Maxillary sinusitis",
+          "note": "Cheek pain and pressure, sometimes felt as an upper toothache."
+        },
+        {
+          "name": "Dental abscess",
+          "note": "Infection at a tooth root: throbbing pain and cheek swelling. Spreading swelling or fever needs prompt care."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "zygomatic",
+      "name": "Zygomatic bone",
+      "latin": "Os zygomaticum",
+      "aka": [
+        "cheekbone"
+      ],
+      "kind": "irregular",
+      "group": "face",
+      "summary": "The cheekbone. It forms the prominence of the cheek and the outer rim of the eye socket, and joins the temporal bone through the zygomatic arch.",
+      "issues": [
+        {
+          "name": "Cheekbone fracture",
+          "note": "After a punch or fall: a flattened cheek, numbness of the cheek or upper lip, double vision."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "lacrimal",
+      "name": "Lacrimal bone",
+      "latin": "Os lacrimale",
+      "kind": "flat",
+      "group": "face",
+      "summary": "The smallest facial bone, on the inner wall of each eye socket. It holds the tear sac and begins the tear duct that drains into the nose.",
+      "issues": [
+        {
+          "name": "Blocked tear duct",
+          "note": "A constantly watery eye or sticky discharge; common in babies."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "palatine",
+      "name": "Palatine bone",
+      "latin": "Os palatinum",
+      "kind": "irregular",
+      "group": "face",
+      "listOnly": true,
+      "summary": "L-shaped bones at the back of the nasal cavity that form the rear of the hard palate.",
+      "issues": [
+        {
+          "name": "Cleft palate",
+          "note": "If the palate does not fuse before birth, a gap is left in the roof of the mouth."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "inferior-concha",
+      "name": "Inferior nasal concha",
+      "latin": "Concha nasalis inferior",
+      "aka": [
+        "turbinate"
+      ],
+      "kind": "irregular",
+      "group": "face",
+      "summary": "A scroll-shaped bone on the side wall of each nasal cavity. It warms, humidifies and filters the air you breathe in.",
+      "issues": [
+        {
+          "name": "Turbinate swelling",
+          "note": "The lining over these bones swells with allergies or colds, causing a blocked nose."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "vomer",
+      "name": "Vomer",
+      "latin": "Vomer",
+      "kind": "flat",
+      "group": "face",
+      "summary": "A thin, plough-shaped bone forming the lower back part of the nasal septum.",
+      "issues": [
+        {
+          "name": "Deviated septum",
+          "note": "A bent septum narrows one nostril, causing blockage, snoring or nosebleeds."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "mandible",
+      "name": "Mandible",
+      "latin": "Mandibula",
+      "aka": [
+        "lower jaw",
+        "jawbone"
+      ],
+      "kind": "irregular",
+      "group": "face",
+      "summary": "The lower jaw: the largest and strongest facial bone and the only skull bone that moves. It holds the lower teeth and hinges at the two jaw joints.",
+      "issues": [
+        {
+          "name": "Jaw fracture",
+          "note": "Often breaks in two places: pain, a misaligned bite, a numb lower lip."
+        },
+        {
+          "name": "Jaw joint pain",
+          "note": "Clicking, aching or locking when chewing. See the temporomandibular joint."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 6,
+      "id": "ossicles",
+      "name": "Auditory ossicles",
+      "latin": "Ossicula auditus",
+      "aka": [
+        "ear bones",
+        "malleus",
+        "incus",
+        "stapes",
+        "hammer",
+        "anvil",
+        "stirrup"
+      ],
+      "kind": "irregular",
+      "group": "skull",
+      "listOnly": true,
+      "summary": "Three tiny bones in each middle ear that pass sound vibrations from the eardrum to the inner ear, amplifying them on the way.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "Malleus",
+          "latin": "Malleus",
+          "note": "The “hammer”, attached to the eardrum."
+        },
+        {
+          "name": "Incus",
+          "latin": "Incus",
+          "note": "The “anvil”, the middle link of the chain."
+        },
+        {
+          "name": "Stapes",
+          "latin": "Stapes",
+          "note": "The “stirrup” and the smallest bone in the body. Its footplate sits in the oval window of the inner ear."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Otosclerosis",
+          "note": "Abnormal bone growth fixes the stapes in place, causing slowly worsening hearing loss."
+        },
+        {
+          "name": "Middle ear infection",
+          "note": "Fluid around the ossicles muffles hearing and causes ear pain, especially in children."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "hyoid",
+      "name": "Hyoid bone",
+      "latin": "Os hyoideum",
+      "kind": "irregular",
+      "group": "skull",
+      "summary": "A U-shaped bone in the front of the neck, just above the larynx. It anchors the tongue and the muscles of swallowing.",
+      "noJoints": "The hyoid is the only bone in the body that doesn’t articulate with any other bone. Muscles and ligaments sling it from the skull, jaw and larynx. Those connections will appear when a muscle layer is added.",
+      "issues": [
+        {
+          "name": "Fracture",
+          "note": "Rare. It can follow strangulation or severe neck trauma and is always an emergency."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c1",
+      "name": "Atlas (C1)",
+      "latin": "Atlas",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 1,
+      "summary": "The ring-shaped first vertebra, which has no body. It carries the skull on its two lateral masses, and the nodding “yes” joint sits between them.",
+      "issues": [
+        {
+          "name": "Jefferson fracture",
+          "note": "A burst fracture from a heavy blow to the top of the head, such as diving into shallow water. It is an emergency."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c2",
+      "name": "Axis (C2)",
+      "latin": "Axis",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 2,
+      "summary": "The second vertebra. A tooth-like peg (the dens) projects up into the atlas and acts as the pivot for turning the head (“no”).",
+      "issues": [
+        {
+          "name": "Dens fracture",
+          "note": "A common neck fracture in older adults after a fall. Neck pain after any fall in an older person should be checked."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c3",
+      "name": "C3 vertebra",
+      "latin": "Vertebra cervicalis III",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 3,
+      "summary": "A typical cervical vertebra: a small body and transverse processes pierced by holes for the vertebral arteries."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c4",
+      "name": "C4 vertebra",
+      "latin": "Vertebra cervicalis IV",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 4,
+      "summary": "A typical cervical vertebra. Nerve roots from C3–C5 form the phrenic nerve that drives the diaphragm (“C3, 4, 5 keep the diaphragm alive”)."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c5",
+      "name": "C5 vertebra",
+      "latin": "Vertebra cervicalis V",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 5,
+      "summary": "A typical cervical vertebra. C5–C6 is the most common level for disc wear and pinched nerves in the neck."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c6",
+      "name": "C6 vertebra",
+      "latin": "Vertebra cervicalis VI",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 6,
+      "summary": "Its transverse process has a prominent front bump (the carotid tubercle) beside the carotid artery. The larynx becomes the trachea at about this level."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "c7",
+      "name": "C7 vertebra (vertebra prominens)",
+      "latin": "Vertebra prominens",
+      "kind": "irregular",
+      "group": "cervical",
+      "ordinal": 7,
+      "summary": "It has the longest spinous process of the neck: the bump you can feel at the base of your neck when you bend your head forward."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t1",
+      "name": "T1 vertebra",
+      "latin": "Vertebra thoracica I",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 1,
+      "summary": "The first thoracic vertebra. It carries the first pair of ribs."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t2",
+      "name": "T2 vertebra",
+      "latin": "Vertebra thoracica II",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 2,
+      "summary": "A thoracic vertebra. The notch at the top of the sternum lines up with T2."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t3",
+      "name": "T3 vertebra",
+      "latin": "Vertebra thoracica III",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 3,
+      "summary": "A thoracic vertebra. Each rib attaches to the side of the vertebral body and to the transverse process, so the spine and rib cage move together."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t4",
+      "name": "T4 vertebra",
+      "latin": "Vertebra thoracica IV",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 4,
+      "summary": "The sternal angle, and the split of the trachea into the two main bronchi, lie at about the level of T4–T5."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t5",
+      "name": "T5 vertebra",
+      "latin": "Vertebra thoracica V",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 5,
+      "summary": "A thoracic vertebra. Each rib attaches to the side of the vertebral body and to the transverse process, so the spine and rib cage move together."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t6",
+      "name": "T6 vertebra",
+      "latin": "Vertebra thoracica VI",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 6,
+      "summary": "A typical thoracic vertebra: a heart-shaped body with facets for the ribs, and a long spinous process angled steeply down."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t7",
+      "name": "T7 vertebra",
+      "latin": "Vertebra thoracica VII",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 7,
+      "summary": "A thoracic vertebra. Each rib attaches to the side of the vertebral body and to the transverse process, so the spine and rib cage move together."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t8",
+      "name": "T8 vertebra",
+      "latin": "Vertebra thoracica VIII",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 8,
+      "summary": "A thoracic vertebra. The inferior vena cava passes through the diaphragm at about this level."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t9",
+      "name": "T9 vertebra",
+      "latin": "Vertebra thoracica IX",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 9,
+      "summary": "A thoracic vertebra. Each rib attaches to the side of the vertebral body and to the transverse process, so the spine and rib cage move together."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t10",
+      "name": "T10 vertebra",
+      "latin": "Vertebra thoracica X",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 10,
+      "summary": "A thoracic vertebra. The esophagus passes through the diaphragm at about this level."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t11",
+      "name": "T11 vertebra",
+      "latin": "Vertebra thoracica XI",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 11,
+      "summary": "Carries the 11th ribs, the first of the two floating pairs."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "t12",
+      "name": "T12 vertebra",
+      "latin": "Vertebra thoracica XII",
+      "kind": "irregular",
+      "group": "thoracic",
+      "ordinal": 12,
+      "summary": "The last rib-bearing vertebra. The junction with the lumbar spine (T12–L1) is the most common site of spinal compression fractures."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "l1",
+      "name": "L1 vertebra",
+      "latin": "Vertebra lumbalis I",
+      "kind": "irregular",
+      "group": "lumbar",
+      "ordinal": 1,
+      "summary": "The spinal cord itself ends at about L1–L2. Below this, nerve roots continue down as the cauda equina (“horse’s tail”)."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "l2",
+      "name": "L2 vertebra",
+      "latin": "Vertebra lumbalis II",
+      "kind": "irregular",
+      "group": "lumbar",
+      "ordinal": 2,
+      "summary": "A lumbar vertebra with a large, kidney-shaped body built to carry the weight of the upper body."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "l3",
+      "name": "L3 vertebra",
+      "latin": "Vertebra lumbalis III",
+      "kind": "irregular",
+      "group": "lumbar",
+      "ordinal": 3,
+      "summary": "Usually the most mobile lumbar level, with the longest transverse processes. The navel lies at about L3–L4."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "l4",
+      "name": "L4 vertebra",
+      "latin": "Vertebra lumbalis IV",
+      "kind": "irregular",
+      "group": "lumbar",
+      "ordinal": 4,
+      "summary": "The tops of the iliac crests line up with L4, the landmark doctors use for a lumbar puncture."
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "l5",
+      "name": "L5 vertebra",
+      "latin": "Vertebra lumbalis V",
+      "kind": "irregular",
+      "group": "lumbar",
+      "ordinal": 5,
+      "summary": "The largest vertebra, wedge-shaped where it sits on the sacrum. The L4–L5 and L5–S1 discs carry the most load and are the most common sites of disc herniation.",
+      "issues": [
+        {
+          "name": "Spondylolisthesis",
+          "note": "L5 can slip forward on the sacrum, causing low back pain and tight hamstrings. It is common in young gymnasts and fast bowlers."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "sacrum",
+      "name": "Sacrum",
+      "latin": "Os sacrum",
+      "kind": "irregular",
+      "group": "sacral",
+      "summary": "Five vertebrae fused into a triangular wedge that locks the spine into the pelvis between the two hip bones. Nerve roots leave through its four pairs of holes (foramina).",
+      "issues": [
+        {
+          "name": "Sacroiliac pain",
+          "note": "Low-back or buttock pain, often on one side. See the sacroiliac joint."
+        },
+        {
+          "name": "Sacral stress fracture",
+          "note": "Deep low-back or buttock pain on weight-bearing in runners and in people with osteoporosis."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "coccyx",
+      "name": "Coccyx",
+      "latin": "Os coccygis",
+      "aka": [
+        "tailbone"
+      ],
+      "kind": "irregular",
+      "group": "sacral",
+      "summary": "The tailbone: 3–5 small fused vertebrae at the bottom of the spine, which anchor pelvic-floor muscles and ligaments.",
+      "issues": [
+        {
+          "name": "Tailbone pain (coccydynia)",
+          "note": "Pain when sitting, often after a fall onto the bottom or after childbirth."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "count": 1,
+      "id": "sternum",
+      "name": "Sternum",
+      "latin": "Sternum",
+      "aka": [
+        "breastbone"
+      ],
+      "kind": "flat",
+      "group": "thorax",
+      "summary": "The breastbone. The collarbones and the first seven pairs of ribs attach to it, and it shields the heart.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Manubrium",
+          "latin": "Manubrium sterni",
+          "note": "The top part. The clavicles and first ribs attach here, and the jugular notch sits above it."
+        },
+        {
+          "name": "Body",
+          "latin": "Corpus sterni",
+          "note": "The long middle part, which carries ribs 2–7. Its joint with the manubrium forms the sternal angle."
+        },
+        {
+          "name": "Xiphoid process",
+          "latin": "Processus xiphoideus",
+          "note": "The small tip at the bottom, cartilage in youth and slowly turning to bone."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Sternal fracture",
+          "note": "Usually from a seat-belt or steering-wheel impact. The heart underneath can be bruised too."
+        },
+        {
+          "name": "Costochondritis",
+          "note": "Tender spots along the edges of the sternum where the rib cartilages attach."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-1",
+      "name": "Rib 1",
+      "latin": "Costa I",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 1,
+      "ribType": "true",
+      "summary": "The shortest, broadest and most curved rib, tucked under the collarbone. The subclavian artery and the nerves to the arm cross over it."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-2",
+      "name": "Rib 2",
+      "latin": "Costa II",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 2,
+      "ribType": "true",
+      "summary": "Joins the sternum at the sternal angle, the bump used as the starting point for counting ribs."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-3",
+      "name": "Rib 3",
+      "latin": "Costa III",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 3,
+      "ribType": "true",
+      "summary": "A true rib: its costal cartilage joins the sternum directly."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-4",
+      "name": "Rib 4",
+      "latin": "Costa IV",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 4,
+      "ribType": "true",
+      "summary": "A true rib. The nipple usually lies near the space below this rib."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-5",
+      "name": "Rib 5",
+      "latin": "Costa V",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 5,
+      "ribType": "true",
+      "summary": "A true rib. The tip (apex) of the heart lies behind the space just below it, on the left."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-6",
+      "name": "Rib 6",
+      "latin": "Costa VI",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 6,
+      "ribType": "true",
+      "summary": "A true rib. The lower edge of the lungs crosses this rib at the front."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-7",
+      "name": "Rib 7",
+      "latin": "Costa VII",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 7,
+      "ribType": "true",
+      "summary": "The last true rib. Its long cartilage reaches the sternum beside the xiphoid process."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-8",
+      "name": "Rib 8",
+      "latin": "Costa VIII",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 8,
+      "ribType": "false",
+      "summary": "A false rib: its cartilage joins the cartilage of the rib above instead of the sternum, helping form the costal margin."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-9",
+      "name": "Rib 9",
+      "latin": "Costa IX",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 9,
+      "ribType": "false",
+      "summary": "A false rib, joined to the cartilage of rib 8. Its cartilage marks the usual position of the gallbladder fundus on the right."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-10",
+      "name": "Rib 10",
+      "latin": "Costa X",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 10,
+      "ribType": "false",
+      "summary": "The last false rib, forming the lowest point of the costal margin at the side."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-11",
+      "name": "Rib 11",
+      "latin": "Costa XI",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 11,
+      "ribType": "floating",
+      "summary": "A floating rib: it ends free in the muscles of the flank with no attachment at the front."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "rib-12",
+      "name": "Rib 12",
+      "latin": "Costa XII",
+      "kind": "flat",
+      "group": "ribs",
+      "ordinal": 12,
+      "ribType": "floating",
+      "summary": "The shortest rib and a floating rib. The upper pole of the kidney lies behind it."
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "clavicle",
+      "name": "Clavicle",
+      "latin": "Clavicula",
+      "aka": [
+        "collarbone"
+      ],
+      "kind": "long",
+      "group": "shoulder-girdle",
+      "summary": "The collarbone: an S-shaped strut that holds the shoulder out from the chest. It is the only bony link between the arm and the trunk.",
+      "issues": [
+        {
+          "name": "Clavicle fracture",
+          "note": "One of the most common fractures, usually from a fall onto the shoulder or an outstretched hand: a bump and pain over the bone."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "scapula",
+      "name": "Scapula",
+      "latin": "Scapula",
+      "aka": [
+        "shoulder blade"
+      ],
+      "kind": "flat",
+      "group": "shoulder-girdle",
+      "summary": "The shoulder blade: a triangular plate that glides over the back of the rib cage. Its shallow socket (the glenoid) holds the head of the humerus, and 17 muscles attach to it.",
+      "issues": [
+        {
+          "name": "Rotator cuff problems",
+          "note": "The cuff muscles start on the scapula: shoulder pain when lifting the arm, and pain at night."
+        },
+        {
+          "name": "Winged scapula",
+          "note": "The shoulder blade sticks out when you push, usually from a nerve problem affecting serratus anterior."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "humerus",
+      "name": "Humerus",
+      "latin": "Humerus",
+      "aka": [
+        "upper arm bone"
+      ],
+      "kind": "long",
+      "group": "upper-limb",
+      "summary": "The upper arm bone. Its ball-shaped head fits the shoulder socket, and at the elbow it widens into the trochlea and capitulum. The ulnar nerve runs behind its inner knob, the “funny bone”.",
+      "issues": [
+        {
+          "name": "Upper humerus fracture",
+          "note": "Common in older adults after a fall: shoulder pain and bruising that spreads down the arm."
+        },
+        {
+          "name": "Supracondylar fracture",
+          "note": "Just above the elbow, typical in children. It can injure nearby vessels and nerves and is urgent."
+        },
+        {
+          "name": "Shaft fracture",
+          "note": "Can injure the radial nerve, causing wrist drop."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "radius",
+      "name": "Radius",
+      "latin": "Radius",
+      "kind": "long",
+      "group": "upper-limb",
+      "summary": "The forearm bone on the thumb side. It rotates around the ulna to turn the palm up and down, and carries most of the load at the wrist.",
+      "issues": [
+        {
+          "name": "Distal radius (Colles’) fracture",
+          "note": "The most common fracture in adults, from a fall on an outstretched hand: wrist pain, swelling and a “dinner-fork” bend."
+        },
+        {
+          "name": "Pulled elbow",
+          "note": "In toddlers, a sudden pull on the arm can slip the radial head out of its ligament ring."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "ulna",
+      "name": "Ulna",
+      "latin": "Ulna",
+      "kind": "long",
+      "group": "upper-limb",
+      "summary": "The forearm bone on the little-finger side. Its hooked upper end (the olecranon) forms the point of the elbow and grips the humerus like a wrench.",
+      "issues": [
+        {
+          "name": "Olecranon fracture",
+          "note": "From a fall directly onto the point of the elbow."
+        },
+        {
+          "name": "Olecranon bursitis",
+          "note": "A soft swelling over the point of the elbow after pressure or a minor knock. A red, hot one may be infected."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 16,
+      "id": "carpals",
+      "name": "Carpal bones",
+      "latin": "Ossa carpi",
+      "aka": [
+        "wrist bones",
+        "scaphoid",
+        "lunate",
+        "triquetrum",
+        "pisiform",
+        "trapezium",
+        "trapezoid",
+        "capitate",
+        "hamate"
+      ],
+      "kind": "short",
+      "group": "hand",
+      "summary": "Eight small bones in two rows that form the flexible wrist. Their arch makes the floor of the carpal tunnel, which carries the median nerve and the finger tendons.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "Scaphoid",
+          "latin": "Os scaphoideum",
+          "note": "Boat-shaped and on the thumb side, bridging both rows. The most commonly broken carpal bone."
+        },
+        {
+          "name": "Lunate",
+          "latin": "Os lunatum",
+          "note": "Crescent-shaped, in the centre of the first row. The carpal most often dislocated."
+        },
+        {
+          "name": "Triquetrum",
+          "latin": "Os triquetrum",
+          "note": "Pyramid-shaped, on the little-finger side."
+        },
+        {
+          "name": "Pisiform",
+          "latin": "Os pisiforme",
+          "note": "A pea-sized sesamoid bone within a tendon, sitting in front of the triquetrum."
+        },
+        {
+          "name": "Trapezium",
+          "latin": "Os trapezium",
+          "note": "Forms the saddle joint at the base of the thumb."
+        },
+        {
+          "name": "Trapezoid",
+          "latin": "Os trapezoideum",
+          "note": "A small wedge at the base of the index finger."
+        },
+        {
+          "name": "Capitate",
+          "latin": "Os capitatum",
+          "note": "The largest carpal bone, at the centre of the wrist."
+        },
+        {
+          "name": "Hamate",
+          "latin": "Os hamatum",
+          "note": "Has a hook that helps form Guyon’s canal for the ulnar nerve."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Scaphoid fracture",
+          "note": "After a fall on an outstretched hand: pain in the hollow at the base of the thumb (the “anatomical snuffbox”). Easy to miss on X-ray and slow to heal, so get it checked."
+        },
+        {
+          "name": "Carpal tunnel syndrome",
+          "note": "Pressure on the median nerve: tingling and numbness in the thumb, index and middle fingers, often worse at night."
+        },
+        {
+          "name": "Scapholunate ligament tear",
+          "note": "Wrist pain and clicking after a fall. Left untreated it can lead to arthritis."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 10,
+      "id": "metacarpals",
+      "name": "Metacarpals",
+      "latin": "Ossa metacarpi",
+      "aka": [
+        "palm bones",
+        "knuckles"
+      ],
+      "kind": "long",
+      "group": "hand",
+      "summary": "Five long bones forming the palm, numbered I (thumb) to V (little finger). Their heads are the knuckles.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "First metacarpal",
+          "latin": "Os metacarpi I",
+          "note": "The thumb: short, thick and very mobile."
+        },
+        {
+          "name": "Second metacarpal",
+          "latin": "Os metacarpi II",
+          "note": "The index finger, the longest metacarpal."
+        },
+        {
+          "name": "Third metacarpal",
+          "latin": "Os metacarpi III",
+          "note": "The middle finger, with a small styloid process at its base."
+        },
+        {
+          "name": "Fourth metacarpal",
+          "latin": "Os metacarpi IV",
+          "note": "The ring finger."
+        },
+        {
+          "name": "Fifth metacarpal",
+          "latin": "Os metacarpi V",
+          "note": "The little finger. Its neck breaks in a “boxer’s fracture”."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Boxer’s fracture",
+          "note": "Fracture of the fifth metacarpal neck from punching a hard object."
+        },
+        {
+          "name": "Bennett fracture",
+          "note": "A fracture at the base of the thumb metacarpal that runs into the joint."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 28,
+      "id": "hand-phalanges",
+      "name": "Phalanges of the hand",
+      "latin": "Phalanges manus",
+      "aka": [
+        "finger bones"
+      ],
+      "kind": "long",
+      "group": "hand",
+      "summary": "The finger bones: three in each finger (proximal, middle and distal) and two in the thumb, 14 per hand.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "Proximal phalanges (5)",
+          "latin": "Phalanges proximales",
+          "note": "The longest, next to the knuckles."
+        },
+        {
+          "name": "Middle phalanges (4)",
+          "latin": "Phalanges mediae",
+          "note": "Absent in the thumb."
+        },
+        {
+          "name": "Distal phalanges (5)",
+          "latin": "Phalanges distales",
+          "note": "The fingertips, each with a rough tuft under the nail bed."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Jammed or broken finger",
+          "note": "Common in ball sports. A finger that looks rotated or crooked needs assessment."
+        },
+        {
+          "name": "Mallet finger",
+          "note": "The fingertip droops and can’t straighten after a blow to its tip, because the extensor tendon has torn."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "hip-bone",
+      "name": "Hip bone",
+      "latin": "Os coxae",
+      "aka": [
+        "pelvic bone",
+        "innominate bone",
+        "ilium",
+        "ischium",
+        "pubis"
+      ],
+      "kind": "irregular",
+      "group": "pelvic-girdle",
+      "summary": "Each hip bone is three bones (ilium, ischium and pubis) fused at the hip socket, the acetabulum. With the sacrum they form the pelvic ring that carries the weight of the trunk to the legs.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Ilium",
+          "latin": "Os ilium",
+          "note": "The broad wing. Its crest is the “hip” you rest your hands on."
+        },
+        {
+          "name": "Ischium",
+          "latin": "Os ischii",
+          "note": "The lower back part. You sit on its tuberosity, the “sitting bone”."
+        },
+        {
+          "name": "Pubis",
+          "latin": "Os pubis",
+          "note": "The front part, joined to its partner at the pubic symphysis."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Pelvic fracture",
+          "note": "High-energy injuries such as road accidents can bleed heavily and are an emergency. In older people, a pubic ramus fracture after a minor fall causes groin pain."
+        },
+        {
+          "name": "Hip pointer",
+          "note": "A bruise of the iliac crest from a direct blow in sport."
+        },
+        {
+          "name": "Avulsion fracture",
+          "note": "In teenage athletes, a strong muscle pull can tear off a fragment of bone at the front of the pelvis or at the sitting bone."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "femur",
+      "name": "Femur",
+      "latin": "Femur",
+      "aka": [
+        "thigh bone"
+      ],
+      "kind": "long",
+      "group": "lower-limb",
+      "summary": "The longest and strongest bone in the body, about a quarter of your height. Its ball-shaped head sits in the hip socket, and at the knee it ends in two rounded condyles.",
+      "issues": [
+        {
+          "name": "Hip fracture (femoral neck)",
+          "note": "A common, serious injury in older people after a fall: hip or groin pain, unable to bear weight, the leg shortened and turned out. It needs emergency care."
+        },
+        {
+          "name": "Femoral shaft fracture",
+          "note": "Takes great force and can cause major blood loss."
+        },
+        {
+          "name": "Avascular necrosis",
+          "note": "Loss of blood supply to the femoral head (for example with long-term steroids or heavy alcohol use): deep groin pain."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "patella",
+      "name": "Patella",
+      "latin": "Patella",
+      "aka": [
+        "kneecap"
+      ],
+      "kind": "sesamoid",
+      "group": "lower-limb",
+      "summary": "The kneecap: the body’s largest sesamoid bone, embedded in the quadriceps tendon. It increases the leverage of the thigh muscles and shields the front of the knee.",
+      "issues": [
+        {
+          "name": "Patellofemoral pain",
+          "note": "An ache around or behind the kneecap on stairs, when squatting or after sitting. Common in runners and teenagers."
+        },
+        {
+          "name": "Patellar dislocation",
+          "note": "The kneecap slips out sideways during a twist. It usually pops back but can damage cartilage."
+        },
+        {
+          "name": "Patellar fracture",
+          "note": "From a fall straight onto the knee: you can’t straighten the leg."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "tibia",
+      "name": "Tibia",
+      "latin": "Tibia",
+      "aka": [
+        "shinbone"
+      ],
+      "kind": "long",
+      "group": "lower-limb",
+      "summary": "The shinbone, which carries nearly all of the body’s weight from the knee to the ankle. Its flat top (the tibial plateau) forms the knee, and its lower inner end is the bump of the inner ankle, the medial malleolus.",
+      "issues": [
+        {
+          "name": "Shin splints",
+          "note": "A diffuse pain along the inner shin with running. A very focused, worsening sore spot may be a stress fracture."
+        },
+        {
+          "name": "Tibial fracture",
+          "note": "The most common long-bone fracture. If bone breaks through the skin, it is an emergency."
+        },
+        {
+          "name": "Osgood–Schlatter disease",
+          "note": "A painful bump below the kneecap in active adolescents."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 2,
+      "id": "fibula",
+      "name": "Fibula",
+      "latin": "Fibula",
+      "kind": "long",
+      "group": "lower-limb",
+      "summary": "The slender bone on the outer side of the leg. It carries little weight but anchors muscles and forms the bump of the outer ankle (lateral malleolus), which steadies the ankle.",
+      "issues": [
+        {
+          "name": "Ankle fracture (lateral malleolus)",
+          "note": "Often from rolling the ankle: the bony bump is tender and it is hard to put weight on the foot."
+        },
+        {
+          "name": "Peroneal nerve injury",
+          "note": "The nerve wraps around the neck of the fibula, and a blow there can cause foot drop."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 14,
+      "id": "tarsals",
+      "name": "Tarsal bones",
+      "latin": "Ossa tarsi",
+      "aka": [
+        "ankle bones",
+        "talus",
+        "calcaneus",
+        "heel bone",
+        "navicular",
+        "cuboid",
+        "cuneiform"
+      ],
+      "kind": "short",
+      "group": "foot",
+      "summary": "Seven bones forming the ankle and the back half of the foot. The talus links the leg to the foot, and the calcaneus forms the heel.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "Talus",
+          "latin": "Talus",
+          "note": "Sits in the ankle socket between the tibia and fibula and passes body weight to the foot. No muscles attach to it."
+        },
+        {
+          "name": "Calcaneus",
+          "latin": "Calcaneus",
+          "note": "The heel bone, the largest tarsal. The Achilles tendon attaches to it."
+        },
+        {
+          "name": "Navicular",
+          "latin": "Os naviculare",
+          "note": "Boat-shaped, on the inner side of the midfoot."
+        },
+        {
+          "name": "Cuboid",
+          "latin": "Os cuboideum",
+          "note": "On the outer side of the midfoot."
+        },
+        {
+          "name": "Medial cuneiform",
+          "latin": "Os cuneiforme mediale",
+          "note": "The largest cuneiform, at the base of the big toe."
+        },
+        {
+          "name": "Intermediate cuneiform",
+          "latin": "Os cuneiforme intermedium",
+          "note": "The smallest cuneiform."
+        },
+        {
+          "name": "Lateral cuneiform",
+          "latin": "Os cuneiforme laterale",
+          "note": "Together the three cuneiforms form the transverse arch of the foot."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Plantar fasciitis",
+          "note": "Stabbing heel pain with the first steps in the morning, where the plantar fascia attaches to the calcaneus."
+        },
+        {
+          "name": "Calcaneus fracture",
+          "note": "From a fall from height onto the heels. The spine should be checked too."
+        },
+        {
+          "name": "Talar dome injury",
+          "note": "A deep ankle ache that doesn’t settle after a sprain."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 10,
+      "id": "metatarsals",
+      "name": "Metatarsals",
+      "latin": "Ossa metatarsi",
+      "kind": "long",
+      "group": "foot",
+      "summary": "Five long bones of the forefoot, numbered from the big toe (I) to the little toe (V). Their heads form the ball of the foot.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "First metatarsal",
+          "latin": "Os metatarsi I",
+          "note": "Short and thick; carries the most weight when you push off."
+        },
+        {
+          "name": "Second metatarsal",
+          "latin": "Os metatarsi II",
+          "note": "The longest, and the most common site of stress fractures."
+        },
+        {
+          "name": "Third metatarsal",
+          "latin": "Os metatarsi III",
+          "note": ""
+        },
+        {
+          "name": "Fourth metatarsal",
+          "latin": "Os metatarsi IV",
+          "note": ""
+        },
+        {
+          "name": "Fifth metatarsal",
+          "latin": "Os metatarsi V",
+          "note": "Has a bump at its base (tuberosity) that can break when the ankle rolls."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Stress fracture",
+          "note": "Gradual forefoot pain when walking or running more than usual, usually in the second or third metatarsal."
+        },
+        {
+          "name": "Fifth metatarsal fracture",
+          "note": "Pain on the outer edge of the foot after rolling the ankle."
+        },
+        {
+          "name": "Metatarsalgia / Morton’s neuroma",
+          "note": "Burning pain in the ball of the foot. A neuroma between the third and fourth toes can cause numbness."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "count": 28,
+      "id": "foot-phalanges",
+      "name": "Phalanges of the foot",
+      "latin": "Phalanges pedis",
+      "aka": [
+        "toe bones"
+      ],
+      "kind": "long",
+      "group": "foot",
+      "summary": "The toe bones: two in the big toe and three in each of the others, 14 per foot.",
+      "membersLabel": "Bones",
+      "members": [
+        {
+          "name": "Proximal phalanges (5)",
+          "latin": "Phalanges proximales",
+          "note": ""
+        },
+        {
+          "name": "Middle phalanges (4)",
+          "latin": "Phalanges mediae",
+          "note": "Absent in the big toe."
+        },
+        {
+          "name": "Distal phalanges (5)",
+          "latin": "Phalanges distales",
+          "note": "The toe tips."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Stubbed or broken toe",
+          "note": "Very common. Most heal with buddy-taping, but a deformed big toe needs checking."
+        },
+        {
+          "name": "Hammer toe",
+          "note": "A toe bent at its middle joint, often from tight shoes."
+        }
+      ]
+    }
+  ],
+  "joints": [
+    {
+      "paired": false,
+      "id": "cranial-sutures",
+      "name": "Cranial sutures",
+      "latin": "Suturae cranii",
+      "class": "fibrous",
+      "subtype": "Suture",
+      "movements": [
+        "None in adults"
+      ],
+      "pairs": [
+        [
+          "frontal",
+          "parietal"
+        ],
+        [
+          "parietal:right",
+          "parietal:left"
+        ],
+        [
+          "parietal",
+          "occipital"
+        ],
+        [
+          "parietal",
+          "temporal"
+        ],
+        [
+          "occipital",
+          "temporal"
+        ],
+        [
+          "frontal",
+          "sphenoid"
+        ],
+        [
+          "sphenoid",
+          "temporal"
+        ],
+        [
+          "sphenoid",
+          "parietal"
+        ],
+        [
+          "sphenoid",
+          "occipital"
+        ],
+        [
+          "frontal",
+          "ethmoid"
+        ],
+        [
+          "sphenoid",
+          "ethmoid"
+        ]
+      ],
+      "summary": "Interlocking fibrous seams that bind the skull bones: coronal (frontal–parietal), sagittal (between the parietals), lambdoid (parietal–occipital) and squamous (parietal–temporal). In babies they are flexible and leave soft spots (fontanelles). They fuse gradually through adult life.",
+      "issues": [
+        {
+          "name": "Craniosynostosis",
+          "note": "A suture closes too early in infancy, giving an unusual head shape."
+        },
+        {
+          "name": "Fontanelle changes in babies",
+          "note": "A sunken soft spot can signal dehydration. A tense, bulging one in an unwell baby needs urgent care."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "id": "facial-sutures",
+      "name": "Facial sutures",
+      "latin": "Suturae faciei",
+      "class": "fibrous",
+      "subtype": "Suture",
+      "movements": [
+        "None"
+      ],
+      "pairs": [
+        [
+          "nasal:right",
+          "nasal:left"
+        ],
+        [
+          "nasal",
+          "frontal"
+        ],
+        [
+          "nasal",
+          "maxilla"
+        ],
+        [
+          "maxilla:right",
+          "maxilla:left"
+        ],
+        [
+          "maxilla",
+          "frontal"
+        ],
+        [
+          "maxilla",
+          "zygomatic"
+        ],
+        [
+          "zygomatic",
+          "frontal"
+        ],
+        [
+          "zygomatic",
+          "temporal"
+        ],
+        [
+          "zygomatic",
+          "sphenoid"
+        ],
+        [
+          "lacrimal",
+          "maxilla"
+        ],
+        [
+          "lacrimal",
+          "frontal"
+        ],
+        [
+          "lacrimal",
+          "ethmoid"
+        ],
+        [
+          "ethmoid",
+          "maxilla"
+        ],
+        [
+          "vomer",
+          "sphenoid"
+        ],
+        [
+          "vomer",
+          "ethmoid"
+        ],
+        [
+          "vomer",
+          "maxilla"
+        ],
+        [
+          "vomer",
+          "palatine"
+        ],
+        [
+          "palatine",
+          "maxilla"
+        ],
+        [
+          "palatine",
+          "sphenoid"
+        ],
+        [
+          "palatine:right",
+          "palatine:left"
+        ],
+        [
+          "inferior-concha",
+          "maxilla"
+        ],
+        [
+          "inferior-concha",
+          "ethmoid"
+        ],
+        [
+          "inferior-concha",
+          "lacrimal"
+        ],
+        [
+          "inferior-concha",
+          "palatine"
+        ]
+      ],
+      "summary": "Fixed fibrous joints that knit the 14 facial bones to each other and to the cranium. Examples are the zygomatic arch (zygomatic to temporal) and the midline seam between the two maxillae.",
+      "issues": [
+        {
+          "name": "Facial fractures",
+          "note": "Breaks often run along suture lines after high-energy impacts (the Le Fort patterns)."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "tmj",
+      "name": "Temporomandibular joint",
+      "latin": "Articulatio temporomandibularis",
+      "aka": [
+        "TMJ",
+        "jaw joint"
+      ],
+      "class": "synovial",
+      "subtype": "Modified hinge with a gliding disc",
+      "bones": [
+        "temporal",
+        "mandible"
+      ],
+      "movements": [
+        "Opening and closing",
+        "Side-to-side grinding",
+        "Jutting forward"
+      ],
+      "summary": "Where the condyle of the jaw meets the temporal bone, just in front of each ear. A cartilage disc lets it both hinge and slide. Put a finger in front of your ear and open your mouth to feel it move.",
+      "issues": [
+        {
+          "name": "TMJ disorder",
+          "note": "Jaw pain, clicking, headaches or limited opening, linked to clenching, grinding and stress."
+        },
+        {
+          "name": "Dislocated jaw",
+          "note": "The jaw gets stuck open after a big yawn or a blow and needs prompt reduction."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "ossicular",
+      "name": "Ossicular joints",
+      "latin": "Articulationes ossiculorum auditus",
+      "class": "synovial",
+      "subtype": "Tiny synovial joints, with the stapes footplate held in a ligament ring",
+      "bones": [
+        "ossicles",
+        "temporal"
+      ],
+      "movements": [
+        "Rocking that passes sound along the chain"
+      ],
+      "summary": "The three ear ossicles hinge on each other through tiny synovial joints. The footplate of the stapes is held in the oval window of the temporal bone, delivering sound into the inner ear.",
+      "issues": [
+        {
+          "name": "Otosclerosis",
+          "note": "Bone growth fixes the stapes footplate, causing conductive hearing loss."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "id": "atlanto-occipital",
+      "name": "Atlanto-occipital joint",
+      "latin": "Articulatio atlantooccipitalis",
+      "class": "synovial",
+      "subtype": "Condyloid (ellipsoid)",
+      "bones": [
+        "occipital",
+        "c1"
+      ],
+      "movements": [
+        "Nodding",
+        "Slight side tilt"
+      ],
+      "summary": "The “yes” joint: the occipital condyles rock in the cupped upper surfaces of the atlas.",
+      "issues": [
+        {
+          "name": "Upper neck injury",
+          "note": "Severe neck trauma can disrupt this joint. Neck pain with any tingling, weakness or numbness after an injury is an emergency."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "id": "atlanto-axial",
+      "name": "Atlanto-axial joint",
+      "latin": "Articulatio atlantoaxialis",
+      "class": "synovial",
+      "subtype": "Pivot",
+      "bones": [
+        "c1",
+        "c2"
+      ],
+      "movements": [
+        "Turning the head (“no”)"
+      ],
+      "summary": "The “no” joint: the atlas swivels around the dens of the axis. About half of all head rotation happens here.",
+      "issues": [
+        {
+          "name": "Atlanto-axial instability",
+          "note": "Loose ligaments (for example in rheumatoid arthritis or Down syndrome) let the dens shift and press on the spinal cord."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "id": "intervertebral",
+      "name": "Intervertebral joints",
+      "latin": "Symphyses intervertebrales",
+      "aka": [
+        "discs",
+        "spinal discs",
+        "facet joints"
+      ],
+      "class": "cartilaginous",
+      "subtype": "Symphysis (discs) with paired synovial facet joints",
+      "chain": [
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8",
+        "t9",
+        "t10",
+        "t11",
+        "t12",
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "sacrum"
+      ],
+      "movements": [
+        "A little movement at each level, adding up to bending, arching, side-bending and twisting"
+      ],
+      "summary": "Between each pair of vertebrae from C2 down to the sacrum sits an intervertebral disc: a tough fibrous ring around a gel-like core that absorbs shock. Two small facet joints sit behind it. The 23 discs make up about a quarter of the spine’s length.",
+      "issues": [
+        {
+          "name": "Herniated (slipped) disc",
+          "note": "The core bulges through the ring and can press on a nerve root: arm or leg pain with tingling or weakness."
+        },
+        {
+          "name": "Degenerative disc disease",
+          "note": "Discs lose water and height with age, causing stiffness and back pain."
+        },
+        {
+          "name": "Facet joint arthritis",
+          "note": "Back or neck pain that is worse when you lean backwards."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "id": "sacrococcygeal",
+      "name": "Sacrococcygeal joint",
+      "latin": "Symphysis sacrococcygea",
+      "class": "cartilaginous",
+      "subtype": "Symphysis (often partly fused)",
+      "bones": [
+        "sacrum",
+        "coccyx"
+      ],
+      "movements": [
+        "Slight backward bending, for example in childbirth"
+      ],
+      "summary": "A small cartilaginous joint between the sacrum and the tailbone.",
+      "issues": [
+        {
+          "name": "Coccyx injury",
+          "note": "A fall onto the bottom can bruise, sprain or break the joint."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "sacroiliac",
+      "name": "Sacroiliac joint",
+      "latin": "Articulatio sacroiliaca",
+      "aka": [
+        "SI joint"
+      ],
+      "class": "synovial",
+      "subtype": "Plane, braced by very strong ligaments",
+      "bones": [
+        "sacrum",
+        "hip-bone"
+      ],
+      "movements": [
+        "A few degrees of nodding and gliding"
+      ],
+      "summary": "Links the spine to the pelvis on each side, passing the weight of the upper body into the legs. It is built for stability rather than movement.",
+      "issues": [
+        {
+          "name": "Sacroiliac joint pain",
+          "note": "Low-back and buttock pain on one side, worse standing on one leg, on stairs or rolling over in bed. Common in pregnancy."
+        },
+        {
+          "name": "Sacroiliitis",
+          "note": "Inflammation, for example in ankylosing spondylitis: low-back stiffness in young adults that is worst in the morning and improves with exercise."
+        }
+      ]
+    },
+    {
+      "paired": false,
+      "id": "pubic-symphysis",
+      "name": "Pubic symphysis",
+      "latin": "Symphysis pubica",
+      "class": "cartilaginous",
+      "subtype": "Symphysis",
+      "bones": [
+        "hip-bone"
+      ],
+      "movements": [
+        "Very slight; loosens in pregnancy"
+      ],
+      "summary": "A disc of fibrocartilage joining the two pubic bones at the front of the pelvis. It loosens during pregnancy to help with childbirth.",
+      "issues": [
+        {
+          "name": "Pelvic girdle pain in pregnancy",
+          "note": "Pain at the front of the pelvis, worse when walking, on stairs or when parting the legs."
+        },
+        {
+          "name": "Osteitis pubis",
+          "note": "Groin pain in athletes who kick and run a lot, from overload."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "sternoclavicular",
+      "name": "Sternoclavicular joint",
+      "latin": "Articulatio sternoclavicularis",
+      "aka": [
+        "SC joint"
+      ],
+      "class": "synovial",
+      "subtype": "Saddle, with a disc",
+      "bones": [
+        "sternum",
+        "clavicle"
+      ],
+      "movements": [
+        "Raising and lowering the shoulder",
+        "Forward and back",
+        "Rotation of the clavicle"
+      ],
+      "summary": "The only joint that connects the arm to the trunk. A disc inside makes it surprisingly mobile but very stable.",
+      "issues": [
+        {
+          "name": "Dislocation",
+          "note": "Rare. A backward dislocation can press on the large vessels and the windpipe and is an emergency."
+        },
+        {
+          "name": "Arthritis",
+          "note": "A swollen, tender bump at the inner end of the collarbone."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "acromioclavicular",
+      "name": "Acromioclavicular joint",
+      "latin": "Articulatio acromioclavicularis",
+      "aka": [
+        "AC joint"
+      ],
+      "class": "synovial",
+      "subtype": "Plane",
+      "bones": [
+        "clavicle",
+        "scapula"
+      ],
+      "movements": [
+        "Gliding and rotation as the shoulder blade moves"
+      ],
+      "summary": "A small joint at the top of the shoulder, where the collarbone meets the acromion of the shoulder blade.",
+      "issues": [
+        {
+          "name": "AC joint separation",
+          "note": "After a fall onto the point of the shoulder: pain and a step or bump at the top of the shoulder."
+        },
+        {
+          "name": "AC joint arthritis",
+          "note": "Pain at the top of the shoulder when reaching across the body."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "shoulder",
+      "name": "Shoulder joint",
+      "latin": "Articulatio humeri",
+      "aka": [
+        "glenohumeral joint"
+      ],
+      "class": "synovial",
+      "subtype": "Ball-and-socket",
+      "bones": [
+        "scapula",
+        "humerus"
+      ],
+      "movements": [
+        "Flexion and extension",
+        "Abduction and adduction",
+        "Rotation",
+        "Circumduction"
+      ],
+      "summary": "The most mobile joint in the body: a large humeral head on a shallow socket, held in place mainly by the rotator cuff muscles. Its mobility comes at the cost of stability.",
+      "issues": [
+        {
+          "name": "Dislocation",
+          "note": "Usually forward, after a fall or tackle. The shoulder looks squared off and needs prompt reduction."
+        },
+        {
+          "name": "Rotator cuff tendinopathy or tear",
+          "note": "Pain when lifting the arm sideways or overhead, and pain at night lying on that side."
+        },
+        {
+          "name": "Frozen shoulder",
+          "note": "Gradual, painful stiffening in every direction, most often between 40 and 60 or with diabetes."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "sternocostal",
+      "name": "Sternocostal joints",
+      "latin": "Articulationes sternocostales",
+      "class": "synovial",
+      "subtype": "Plane (the first is a fixed cartilaginous joint)",
+      "pairs": [
+        [
+          "sternum",
+          "rib-1"
+        ],
+        [
+          "sternum",
+          "rib-2"
+        ],
+        [
+          "sternum",
+          "rib-3"
+        ],
+        [
+          "sternum",
+          "rib-4"
+        ],
+        [
+          "sternum",
+          "rib-5"
+        ],
+        [
+          "sternum",
+          "rib-6"
+        ],
+        [
+          "sternum",
+          "rib-7"
+        ]
+      ],
+      "movements": [
+        "Small gliding movements that let the chest expand"
+      ],
+      "summary": "Where the costal cartilages of ribs 1–7 meet the sternum. The first is fixed. The others are small gliding joints that move with each breath.",
+      "issues": [
+        {
+          "name": "Costochondritis",
+          "note": "Tender chest wall where the ribs meet the breastbone, worse on pressing or deep breathing. Always get chest pain checked to rule out heart problems."
+        },
+        {
+          "name": "Tietze syndrome",
+          "note": "Like costochondritis but with visible swelling, usually at the second or third rib."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "interchondral",
+      "name": "Interchondral joints",
+      "latin": "Articulationes interchondrales",
+      "class": "synovial",
+      "subtype": "Plane",
+      "pairs": [
+        [
+          "rib-7",
+          "rib-8"
+        ],
+        [
+          "rib-8",
+          "rib-9"
+        ],
+        [
+          "rib-9",
+          "rib-10"
+        ]
+      ],
+      "movements": [
+        "Slight gliding"
+      ],
+      "summary": "Joins the costal cartilages of the false ribs (8–10) to the cartilage above, forming the curved lower border of the rib cage, the costal margin.",
+      "issues": [
+        {
+          "name": "Slipping rib syndrome",
+          "note": "A loose lower-rib cartilage clicks and causes sharp pain in the upper abdomen or lower chest."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "costovertebral",
+      "name": "Costovertebral joints",
+      "latin": "Articulationes costovertebrales",
+      "class": "synovial",
+      "subtype": "Plane",
+      "pairs": [
+        [
+          "rib-1",
+          "t1"
+        ],
+        [
+          "rib-2",
+          "t1"
+        ],
+        [
+          "rib-2",
+          "t2"
+        ],
+        [
+          "rib-3",
+          "t2"
+        ],
+        [
+          "rib-3",
+          "t3"
+        ],
+        [
+          "rib-4",
+          "t3"
+        ],
+        [
+          "rib-4",
+          "t4"
+        ],
+        [
+          "rib-5",
+          "t4"
+        ],
+        [
+          "rib-5",
+          "t5"
+        ],
+        [
+          "rib-6",
+          "t5"
+        ],
+        [
+          "rib-6",
+          "t6"
+        ],
+        [
+          "rib-7",
+          "t6"
+        ],
+        [
+          "rib-7",
+          "t7"
+        ],
+        [
+          "rib-8",
+          "t7"
+        ],
+        [
+          "rib-8",
+          "t8"
+        ],
+        [
+          "rib-9",
+          "t8"
+        ],
+        [
+          "rib-9",
+          "t9"
+        ],
+        [
+          "rib-10",
+          "t10"
+        ],
+        [
+          "rib-11",
+          "t11"
+        ],
+        [
+          "rib-12",
+          "t12"
+        ]
+      ],
+      "movements": [
+        "“Bucket-handle” and “pump-handle” movements of breathing"
+      ],
+      "summary": "At the back, each rib attaches to the vertebral bodies and, for ribs 1–10, to the transverse processes too. They work like bucket handles, so the chest widens when you breathe in.",
+      "issues": [
+        {
+          "name": "Rib joint sprain",
+          "note": "Sharp pain beside the spine when breathing or twisting, often after awkward lifting."
+        },
+        {
+          "name": "Ankylosing spondylitis",
+          "note": "Inflammation can stiffen these joints and limit how far the chest can expand."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "elbow",
+      "name": "Elbow joint",
+      "latin": "Articulatio cubiti",
+      "class": "synovial",
+      "subtype": "Hinge",
+      "pairs": [
+        [
+          "humerus",
+          "ulna"
+        ],
+        [
+          "humerus",
+          "radius"
+        ]
+      ],
+      "movements": [
+        "Flexion",
+        "Extension"
+      ],
+      "summary": "A hinge formed by the humerus with the ulna (at the trochlea) and the radius (at the capitulum). It shares a capsule with the proximal radioulnar joint.",
+      "issues": [
+        {
+          "name": "Tennis elbow",
+          "note": "Pain on the outer elbow with gripping and lifting (lateral epicondylitis)."
+        },
+        {
+          "name": "Golfer’s elbow",
+          "note": "Pain on the inner elbow with gripping (medial epicondylitis)."
+        },
+        {
+          "name": "Dislocation or fracture",
+          "note": "After a fall on an outstretched hand: deformity, unable to move the elbow. It is urgent."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "proximal-radioulnar",
+      "name": "Proximal radioulnar joint",
+      "latin": "Articulatio radioulnaris proximalis",
+      "class": "synovial",
+      "subtype": "Pivot",
+      "bones": [
+        "radius",
+        "ulna"
+      ],
+      "movements": [
+        "Turning the palm down (pronation)",
+        "Turning the palm up (supination)"
+      ],
+      "summary": "The head of the radius spins inside a ligament ring on the ulna, letting you turn your palm up and down.",
+      "issues": [
+        {
+          "name": "Pulled elbow",
+          "note": "A toddler suddenly won’t use the arm after being pulled by the hand."
+        },
+        {
+          "name": "Radial head fracture",
+          "note": "Pain on the outer elbow, worse when turning the forearm, after a fall."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "distal-radioulnar",
+      "name": "Distal radioulnar joint",
+      "latin": "Articulatio radioulnaris distalis",
+      "aka": [
+        "DRUJ",
+        "TFCC"
+      ],
+      "class": "synovial",
+      "subtype": "Pivot",
+      "bones": [
+        "radius",
+        "ulna"
+      ],
+      "movements": [
+        "Pronation",
+        "Supination"
+      ],
+      "summary": "At the wrist, the radius rotates around the head of the ulna. A cartilage cushion, the triangular fibrocartilage complex (TFCC), steadies it.",
+      "issues": [
+        {
+          "name": "TFCC tear",
+          "note": "Pain on the little-finger side of the wrist and clicking when you rotate it, for example turning a key."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "wrist",
+      "name": "Wrist joint",
+      "latin": "Articulatio radiocarpalis",
+      "aka": [
+        "radiocarpal joint"
+      ],
+      "class": "synovial",
+      "subtype": "Condyloid (ellipsoid)",
+      "bones": [
+        "radius",
+        "carpals"
+      ],
+      "movements": [
+        "Flexion and extension",
+        "Side-to-side tilt (radial and ulnar deviation)"
+      ],
+      "summary": "The end of the radius cradles the scaphoid and lunate. The ulna doesn’t touch the carpals directly: a cartilage disc sits between them.",
+      "issues": [
+        {
+          "name": "Wrist sprain",
+          "note": "A ligament injury after a fall. A “sprain” that doesn’t settle may hide a scaphoid fracture."
+        },
+        {
+          "name": "Ganglion cyst",
+          "note": "A smooth, often painless lump on the back of the wrist."
+        },
+        {
+          "name": "De Quervain’s tenosynovitis",
+          "note": "Pain on the thumb side of the wrist when gripping, common in new parents."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "intercarpal",
+      "name": "Intercarpal & midcarpal joints",
+      "latin": "Articulationes intercarpales",
+      "class": "synovial",
+      "subtype": "Plane",
+      "bones": [
+        "carpals"
+      ],
+      "movements": [
+        "Gliding that adds range to wrist movement"
+      ],
+      "summary": "Gliding joints between the eight carpal bones, held together by a dense web of ligaments.",
+      "issues": [
+        {
+          "name": "Carpal instability",
+          "note": "Torn ligaments (for example scapholunate) cause pain, clicking and weakness."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "carpometacarpal",
+      "name": "Carpometacarpal joints",
+      "latin": "Articulationes carpometacarpales",
+      "aka": [
+        "CMC joint",
+        "thumb base"
+      ],
+      "class": "synovial",
+      "subtype": "Saddle (thumb), plane (fingers)",
+      "bones": [
+        "carpals",
+        "metacarpals"
+      ],
+      "movements": [
+        "Thumb: opposition, flexion, extension, abduction",
+        "Fingers: slight gliding"
+      ],
+      "summary": "Join the carpals to the metacarpals. The thumb’s saddle joint (trapezium to first metacarpal) allows opposition, touching the thumb to the fingertips, which makes a precise grip possible.",
+      "issues": [
+        {
+          "name": "Thumb-base arthritis",
+          "note": "Aching at the base of the thumb when pinching, opening jars or turning keys. Very common after 50."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "metacarpophalangeal",
+      "name": "Knuckle joints (MCP)",
+      "latin": "Articulationes metacarpophalangeae",
+      "aka": [
+        "knuckles"
+      ],
+      "class": "synovial",
+      "subtype": "Condyloid",
+      "bones": [
+        "metacarpals",
+        "hand-phalanges"
+      ],
+      "movements": [
+        "Flexion and extension",
+        "Spreading and closing the fingers"
+      ],
+      "summary": "The knuckles, where the heads of the metacarpals meet the proximal phalanges.",
+      "issues": [
+        {
+          "name": "Rheumatoid arthritis",
+          "note": "Swelling and stiffness of the knuckles on both hands, worse in the morning. See a doctor early."
+        },
+        {
+          "name": "Trigger finger",
+          "note": "A finger catches or locks when bending, from a thickened tendon sheath at the base of the finger."
+        },
+        {
+          "name": "Skier’s thumb",
+          "note": "A torn ligament on the inner side of the thumb knuckle after a fall onto the thumb."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "hand-interphalangeal",
+      "name": "Finger joints (IP)",
+      "latin": "Articulationes interphalangeae manus",
+      "class": "synovial",
+      "subtype": "Hinge",
+      "bones": [
+        "hand-phalanges"
+      ],
+      "movements": [
+        "Flexion",
+        "Extension"
+      ],
+      "summary": "Hinge joints between the phalanges: two in each finger (PIP and DIP) and one in the thumb.",
+      "issues": [
+        {
+          "name": "Osteoarthritis",
+          "note": "Bony swellings at the end and middle joints of the fingers (Heberden’s and Bouchard’s nodes)."
+        },
+        {
+          "name": "Jammed finger",
+          "note": "A sprain of the middle finger joint in ball sports. A joint that stays swollen or bent needs checking."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "hip",
+      "name": "Hip joint",
+      "latin": "Articulatio coxae",
+      "class": "synovial",
+      "subtype": "Ball-and-socket",
+      "bones": [
+        "hip-bone",
+        "femur"
+      ],
+      "movements": [
+        "Flexion and extension",
+        "Abduction and adduction",
+        "Rotation"
+      ],
+      "summary": "A deep ball-and-socket joint: the head of the femur sits in the acetabulum, deepened by a cartilage rim (the labrum). Built for stability and weight-bearing.",
+      "issues": [
+        {
+          "name": "Osteoarthritis",
+          "note": "Groin or thigh pain and stiffness, worse with walking; trouble putting on socks."
+        },
+        {
+          "name": "Hip fracture",
+          "note": "After a fall in an older person: unable to bear weight. It is an emergency."
+        },
+        {
+          "name": "Labral tear or impingement",
+          "note": "Deep groin pain and catching in active young adults."
+        },
+        {
+          "name": "A limping child",
+          "note": "Hip or knee pain or a limp in a child needs assessment, urgently if there is fever."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "knee",
+      "name": "Knee joint",
+      "latin": "Articulatio genus",
+      "class": "synovial",
+      "subtype": "Modified hinge",
+      "pairs": [
+        [
+          "femur",
+          "tibia"
+        ],
+        [
+          "femur",
+          "patella"
+        ]
+      ],
+      "movements": [
+        "Flexion and extension",
+        "Slight rotation when bent"
+      ],
+      "summary": "The largest joint in the body. The femoral condyles roll and glide on the tibial plateau, cushioned by two crescent-shaped menisci and held by four main ligaments (ACL, PCL, MCL and LCL). The kneecap glides in a groove at the front.",
+      "issues": [
+        {
+          "name": "ACL tear",
+          "note": "A pop during a twist or landing, rapid swelling, and a knee that feels unstable."
+        },
+        {
+          "name": "Meniscus tear",
+          "note": "Pain along the joint line, catching or locking, and swelling the next day."
+        },
+        {
+          "name": "Osteoarthritis",
+          "note": "Pain and stiffness, worse with activity, and creaking. Common in older adults."
+        },
+        {
+          "name": "Hot, swollen knee",
+          "note": "A red, hot, swollen joint with fever may be infected. It is urgent."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "proximal-tibiofibular",
+      "name": "Proximal tibiofibular joint",
+      "latin": "Articulatio tibiofibularis",
+      "class": "synovial",
+      "subtype": "Plane",
+      "bones": [
+        "tibia",
+        "fibula"
+      ],
+      "movements": [
+        "Slight gliding as the ankle moves"
+      ],
+      "summary": "A small gliding joint just below the outer knee, between the head of the fibula and the tibia.",
+      "issues": [
+        {
+          "name": "Instability",
+          "note": "Rare: pain and clicking on the outer knee after a twisting injury."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "distal-tibiofibular",
+      "name": "Distal tibiofibular joint",
+      "latin": "Syndesmosis tibiofibularis",
+      "aka": [
+        "syndesmosis"
+      ],
+      "class": "fibrous",
+      "subtype": "Syndesmosis",
+      "bones": [
+        "tibia",
+        "fibula"
+      ],
+      "movements": [
+        "Slight give as the ankle flexes"
+      ],
+      "summary": "Strong ligaments bind the lower ends of the tibia and fibula into a socket (the mortise) that grips the talus.",
+      "issues": [
+        {
+          "name": "High ankle sprain",
+          "note": "Pain above the ankle after the foot is twisted outward. It heals more slowly than a common sprain."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "ankle",
+      "name": "Ankle joint",
+      "latin": "Articulatio talocruralis",
+      "aka": [
+        "talocrural joint"
+      ],
+      "class": "synovial",
+      "subtype": "Hinge",
+      "pairs": [
+        [
+          "tibia",
+          "tarsals"
+        ],
+        [
+          "fibula",
+          "tarsals"
+        ]
+      ],
+      "movements": [
+        "Toes up (dorsiflexion)",
+        "Toes down (plantarflexion)"
+      ],
+      "summary": "The talus sits in a socket formed by the tibia and fibula. Tilting the foot side to side happens just below, at the subtalar joint.",
+      "issues": [
+        {
+          "name": "Ankle sprain",
+          "note": "Rolling the foot inward tears the outer ligaments: swelling and bruising. Not being able to take four steps, or tenderness on the bone, suggests a fracture."
+        },
+        {
+          "name": "Ankle fracture",
+          "note": "Pain on the ankle bumps (malleoli) and unable to bear weight."
+        },
+        {
+          "name": "Achilles tendon rupture",
+          "note": "Feels like being kicked in the back of the heel, and you can’t push off. It is urgent."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "subtalar-midfoot",
+      "name": "Subtalar & midfoot joints",
+      "latin": "Articulationes intertarsales",
+      "class": "synovial",
+      "subtype": "Plane and modified joints",
+      "bones": [
+        "tarsals"
+      ],
+      "movements": [
+        "Tilting the sole inward (inversion)",
+        "Tilting it outward (eversion)"
+      ],
+      "summary": "Joints among the tarsal bones, chiefly the subtalar joint under the talus, that let the foot tilt and adapt to uneven ground.",
+      "issues": [
+        {
+          "name": "Flat feet",
+          "note": "A collapsed arch, usually painless. A newly flattening, painful foot needs checking for a tibialis posterior tendon problem."
+        },
+        {
+          "name": "Midfoot arthritis",
+          "note": "Aching on top of the midfoot with walking."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "tarsometatarsal",
+      "name": "Tarsometatarsal joints",
+      "latin": "Articulationes tarsometatarsales",
+      "aka": [
+        "Lisfranc joint"
+      ],
+      "class": "synovial",
+      "subtype": "Plane",
+      "bones": [
+        "tarsals",
+        "metatarsals"
+      ],
+      "movements": [
+        "Slight gliding that stiffens the arch"
+      ],
+      "summary": "Where the tarsals meet the metatarsals across the midfoot. They are a keystone of the foot’s arch.",
+      "issues": [
+        {
+          "name": "Lisfranc injury",
+          "note": "Midfoot pain, and bruising on the sole, after a twist or crush. Easily missed and serious."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "metatarsophalangeal",
+      "name": "Toe joints (MTP)",
+      "latin": "Articulationes metatarsophalangeae",
+      "aka": [
+        "ball of the foot",
+        "big toe joint"
+      ],
+      "class": "synovial",
+      "subtype": "Condyloid",
+      "bones": [
+        "metatarsals",
+        "foot-phalanges"
+      ],
+      "movements": [
+        "Flexion and extension",
+        "Slight spreading"
+      ],
+      "summary": "The joints at the ball of the foot. The big-toe joint bends with every step as you push off.",
+      "issues": [
+        {
+          "name": "Gout",
+          "note": "Sudden, severe pain with redness and swelling of the big-toe joint, often at night."
+        },
+        {
+          "name": "Bunion (hallux valgus)",
+          "note": "The big toe angles toward the others, with a bony bump on the inner side."
+        },
+        {
+          "name": "Hallux rigidus",
+          "note": "A stiff, painful big toe from arthritis."
+        }
+      ]
+    },
+    {
+      "paired": true,
+      "id": "foot-interphalangeal",
+      "name": "Toe joints (IP)",
+      "latin": "Articulationes interphalangeae pedis",
+      "class": "synovial",
+      "subtype": "Hinge",
+      "bones": [
+        "foot-phalanges"
+      ],
+      "movements": [
+        "Flexion",
+        "Extension"
+      ],
+      "summary": "Small hinge joints between the toe bones: one in the big toe and two in each of the other toes.",
+      "issues": [
+        {
+          "name": "Hammer and claw toes",
+          "note": "Fixed bends at these joints that rub on shoes and cause corns."
+        }
+      ]
+    }
+  ]
+}

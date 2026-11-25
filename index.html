@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Corpus: a connected map of the human body</title>
+  <meta name="description" content="An interactive map of the human body as one connected system: tap any bone, joint or organ to see what it is, what it connects to, and what commonly goes wrong.">
+  <meta name="theme-color" content="#f3eee4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#search">Skip to search</a>
+
+  <header class="topbar">
+    <button class="icon-btn" id="browse-toggle" aria-controls="browse" aria-expanded="false" title="Browse everything">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      <span class="label">Browse</span>
+    </button>
+    <a class="brand" href="#/" aria-label="Corpus, home">
+      <span class="brand-name">Corpus</span>
+      <span class="brand-sub">a connected map of the body</span>
+    </a>
+    <div class="search" role="search">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10.5 10.5 14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <label for="search" class="visually-hidden">Search the body</label>
+      <input id="search" type="search" placeholder="Search bones, joints, organs, areas…" autocomplete="off" spellcheck="false"
+             role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
+      <ul id="search-results" role="listbox" aria-label="Search results" hidden></ul>
+    </div>
+    <div class="seg modes" role="group" aria-label="Mode">
+      <button data-mode="explore" aria-pressed="true">Explore</button>
+      <button data-mode="hurt" aria-pressed="false"><span class="long">Where does it hurt?</span><span class="short">Where it hurts</span></button>
+    </div>
+    <button class="icon-btn" id="theme-toggle" title="Switch light / dark" aria-label="Switch light or dark theme">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg>
+    </button>
+  </header>
+
+  <main class="stage">
+    <nav id="browse" class="browse" aria-label="Browse all structures" hidden></nav>
+
+    <section class="map-wrap" aria-label="Body map">
+      <div id="layerbar" class="layerbar" role="group" aria-label="Layers"></div>
+      <p id="hurt-banner" class="hurt-banner" hidden>Tap the area that hurts</p>
+
+      <svg id="map" viewBox="-20 -12 520 1244" preserveAspectRatio="xMidYMid meet" role="img"
+           aria-label="Front view of the human body. Use search or Browse to reach every structure by keyboard.">
+        <g id="world">
+          <g id="layers"></g>
+          <g id="overlay"></g>
+        </g>
+      </svg>
+
+      <span class="side-label l" id="side-left" title="As you face the figure"><b>R</b><small>body’s right</small></span>
+      <span class="side-label r" id="side-right" title="As you face the figure"><b>L</b><small>body’s left</small></span>
+
+      <div class="tooltip" id="tooltip" hidden></div>
+
+      <div class="map-controls">
+        <div class="group" role="group" aria-label="Zoom">
+          <button id="zoom-in" title="Zoom in (+)" aria-label="Zoom in"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <button id="zoom-out" title="Zoom out (−)" aria-label="Zoom out"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <button id="zoom-fit" title="Fit the whole body (0)" aria-label="Fit the whole body"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="group">
+          <button id="mirror" aria-pressed="false" title="Mirror: flip the figure so it matches your own body" aria-label="Mirror view">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v13" stroke="currentColor" stroke-width="1.3" stroke-dasharray="1.6 1.6"/><path d="M6 4 2.5 8 6 12z" fill="currentColor"/><path d="M10 4 13.5 8 10 12z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <p id="map-hint" class="map-hint">Tap a bone · scroll or pinch to zoom · drag to pan</p>
+    </section>
+
+    <aside id="panel" class="panel" data-sheet="peek" aria-label="Details">
+      <div class="sheet-handle" role="button" tabindex="-1" aria-label="Resize details panel"></div>
+      <div id="panel-body" aria-live="polite">
+        <div class="panel-inner"><p class="eyebrow">Loading the body…</p></div>
+      </div>
+    </aside>
+  </main>
+
+  <noscript><p style="padding:16px">Corpus needs JavaScript to draw the interactive map.</p></noscript>
+</body>
+</html>

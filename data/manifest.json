@@ -1,0 +1,70 @@
+{
+  "title": "Corpus",
+  "view": "anterior",
+  "viewBox": [
+    0,
+    0,
+    480,
+    1200
+  ],
+  "layers": [
+    {
+      "id": "organs",
+      "name": "Organs",
+      "svg": "assets/svg/organs-anterior.svg",
+      "data": "data/organs.json",
+      "visible": false
+    },
+    {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "svg": "assets/svg/skeleton-anterior.svg",
+      "data": "data/skeleton.json",
+      "visible": true
+    }
+  ],
+  "links": [
+    "data/links.json"
+  ],
+  "regions": {
+    "svg": "assets/svg/regions-anterior.svg",
+    "data": "data/regions.json"
+  },
+  "linkTypes": {
+    "articulates": {
+      "forward": "Articulates with",
+      "reverse": "Articulates with"
+    },
+    "protects": {
+      "forward": "Protects",
+      "reverse": "Protected by"
+    },
+    "continues": {
+      "forward": "Continues into",
+      "reverse": "Continues from"
+    },
+    "drains": {
+      "forward": "Drains into",
+      "reverse": "Receives from"
+    },
+    "attached": {
+      "forward": "Has attached",
+      "reverse": "Attached to"
+    },
+    "attaches": {
+      "forward": "Anchors",
+      "reverse": "Attaches to",
+      "future": "muscles"
+    },
+    "innervates": {
+      "forward": "Supplies nerves to",
+      "reverse": "Nerve supply",
+      "future": "nerves"
+    },
+    "supplies": {
+      "forward": "Supplies blood to",
+      "reverse": "Blood supply",
+      "future": "vessels"
+    }
+  }
+}

@@ -1,0 +1,530 @@
+{
+  "layer": "organs",
+  "name": "Organs",
+  "note": "Sixteen major organs. Ids match data-id attributes in assets/svg/organs-anterior.svg.",
+  "groups": [
+    {
+      "id": "nervous",
+      "name": "Nervous system"
+    },
+    {
+      "id": "endocrine",
+      "name": "Endocrine glands"
+    },
+    {
+      "id": "respiratory",
+      "name": "Respiratory system"
+    },
+    {
+      "id": "cardiovascular",
+      "name": "Heart & circulation"
+    },
+    {
+      "id": "digestive",
+      "name": "Digestive system"
+    },
+    {
+      "id": "lymphatic",
+      "name": "Immune & lymphatic"
+    },
+    {
+      "id": "urinary",
+      "name": "Urinary system"
+    }
+  ],
+  "structures": [
+    {
+      "id": "brain",
+      "name": "Brain",
+      "latin": "Encephalon",
+      "kind": "organ",
+      "group": "nervous",
+      "paired": false,
+      "location": "Inside the cranium, above and behind the eyes.",
+      "summary": "The control centre of the nervous system: about 1.4 kg of neurons and support cells that process the senses, control movement and generate thought, memory and emotion.",
+      "functions": [
+        "Interprets the senses and controls movement",
+        "Regulates breathing, heart rate and hormones through the brainstem and hypothalamus",
+        "Memory, language, emotion and reasoning"
+      ],
+      "issues": [
+        {
+          "name": "Stroke",
+          "note": "Sudden face drooping, arm weakness or slurred speech. Call emergency services immediately (think FAST)."
+        },
+        {
+          "name": "Migraine",
+          "note": "A throbbing, often one-sided headache with nausea and sensitivity to light, sometimes after a visual aura."
+        },
+        {
+          "name": "Concussion",
+          "note": "Headache, confusion or dizziness after a head injury. Vomiting, a worsening headache or drowsiness needs urgent care."
+        },
+        {
+          "name": "Meningitis",
+          "note": "Fever, severe headache, stiff neck, light sensitivity or a rash that doesn’t fade under a glass. It is an emergency."
+        }
+      ]
+    },
+    {
+      "id": "thyroid",
+      "name": "Thyroid gland",
+      "latin": "Glandula thyroidea",
+      "kind": "organ",
+      "group": "endocrine",
+      "paired": false,
+      "location": "Front of the neck, wrapped around the windpipe below the Adam’s apple.",
+      "summary": "A butterfly-shaped gland whose hormones set the pace of the body’s metabolism.",
+      "functions": [
+        "Produces thyroxine (T4) and triiodothyronine (T3)",
+        "Sets metabolic rate, heart rate and body temperature",
+        "Makes calcitonin, which helps regulate calcium"
+      ],
+      "issues": [
+        {
+          "name": "Underactive thyroid (hypothyroidism)",
+          "note": "Tiredness, weight gain, feeling cold, constipation, dry skin."
+        },
+        {
+          "name": "Overactive thyroid (hyperthyroidism)",
+          "note": "Weight loss, a racing heart, tremor, heat intolerance, anxiety."
+        },
+        {
+          "name": "Goitre or nodule",
+          "note": "A swelling or lump at the front of the neck that moves when you swallow. Get it checked."
+        }
+      ]
+    },
+    {
+      "id": "trachea",
+      "name": "Trachea",
+      "latin": "Trachea",
+      "aka": [
+        "windpipe",
+        "bronchi"
+      ],
+      "kind": "organ",
+      "group": "respiratory",
+      "paired": false,
+      "location": "From the front of the neck to the middle of the chest, where it splits into the left and right main bronchi.",
+      "summary": "The windpipe: a tube about 10–12 cm long, held open by C-shaped rings of cartilage, that carries air from the larynx to the lungs.",
+      "functions": [
+        "Carries air to and from the lungs",
+        "Mucus and tiny hairs (cilia) sweep trapped particles upward",
+        "Coughing clears and protects the airway"
+      ],
+      "issues": [
+        {
+          "name": "Bronchitis",
+          "note": "A chesty cough and soreness behind the breastbone after a cold."
+        },
+        {
+          "name": "Choking",
+          "note": "Unable to speak, cough or breathe. Act immediately with back blows and abdominal thrusts, and call emergency services."
+        },
+        {
+          "name": "Inhaled object",
+          "note": "Small objects usually lodge in the right main bronchus, which is wider and more vertical."
+        }
+      ]
+    },
+    {
+      "id": "esophagus",
+      "name": "Esophagus",
+      "latin": "Oesophagus",
+      "aka": [
+        "oesophagus",
+        "food pipe",
+        "gullet"
+      ],
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Behind the trachea and heart, passing through the diaphragm to the stomach.",
+      "summary": "A muscular tube about 25 cm long that pushes swallowed food down to the stomach in waves (peristalsis).",
+      "functions": [
+        "Moves food and drink to the stomach",
+        "A lower sphincter stops stomach acid flowing back up"
+      ],
+      "issues": [
+        {
+          "name": "Acid reflux (GERD)",
+          "note": "Heartburn and an acid taste, worse lying down or after large meals."
+        },
+        {
+          "name": "Difficulty swallowing",
+          "note": "Food sticking on the way down, especially if it is getting worse or comes with weight loss, needs prompt assessment."
+        }
+      ]
+    },
+    {
+      "id": "lung",
+      "name": "Lung",
+      "latin": "Pulmo",
+      "aka": [
+        "lungs"
+      ],
+      "kind": "organ",
+      "group": "respiratory",
+      "paired": true,
+      "location": "Either side of the heart inside the rib cage, from just above the collarbone down to the diaphragm.",
+      "summary": "Spongy organs where oxygen enters the blood and carbon dioxide leaves, across hundreds of millions of tiny air sacs (alveoli).",
+      "sideNotes": {
+        "right": "The right lung has three lobes (upper, middle and lower) and is shorter and wider, because the liver sits below it.",
+        "left": "The left lung has two lobes (upper and lower) and a notch where the heart sits."
+      },
+      "functions": [
+        "Gas exchange: oxygen in, carbon dioxide out",
+        "Helps control the acidity of the blood",
+        "Filters small clots out of the circulation"
+      ],
+      "issues": [
+        {
+          "name": "Pneumonia",
+          "note": "Fever, cough with phlegm, breathlessness, and sharp chest pain when breathing in."
+        },
+        {
+          "name": "Asthma / COPD",
+          "note": "Wheezing, coughing and breathlessness from narrowed airways."
+        },
+        {
+          "name": "Collapsed lung (pneumothorax)",
+          "note": "Sudden one-sided chest pain and breathlessness. It is urgent."
+        },
+        {
+          "name": "Pulmonary embolism",
+          "note": "Sudden breathlessness, chest pain or coughing blood, often with a swollen calf. It is an emergency."
+        }
+      ]
+    },
+    {
+      "id": "heart",
+      "name": "Heart",
+      "latin": "Cor",
+      "kind": "organ",
+      "group": "cardiovascular",
+      "paired": false,
+      "location": "Middle of the chest behind the sternum, tilted to the left. Its tip (apex) lies near the fifth rib space.",
+      "summary": "A fist-sized, four-chambered muscular pump. The right side sends blood through the lungs and the left side pumps it around the body, about 100,000 beats a day.",
+      "functions": [
+        "Pumps about 5 litres of blood a minute at rest",
+        "Its own electrical system sets the rhythm",
+        "Four valves keep blood flowing one way"
+      ],
+      "issues": [
+        {
+          "name": "Heart attack",
+          "note": "Crushing or tight chest pain, possibly spreading to the arm, jaw or back, with sweating or breathlessness. Call emergency services."
+        },
+        {
+          "name": "Angina",
+          "note": "Chest tightness on exertion that eases with rest. It needs medical assessment."
+        },
+        {
+          "name": "Arrhythmia",
+          "note": "Palpitations, fluttering, or a racing or irregular pulse. With fainting or chest pain, get urgent care."
+        },
+        {
+          "name": "Heart failure",
+          "note": "Breathlessness, swollen ankles and tiredness."
+        }
+      ]
+    },
+    {
+      "id": "liver",
+      "name": "Liver",
+      "latin": "Hepar",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Upper right abdomen under the right ribs, reaching across the midline.",
+      "summary": "The largest internal organ (about 1.5 kg). It processes everything absorbed from the gut, makes bile and many proteins, stores energy and clears toxins.",
+      "functions": [
+        "Makes bile to digest fats",
+        "Stores glycogen, vitamins and iron",
+        "Breaks down drugs and alcohol",
+        "Produces clotting factors and albumin"
+      ],
+      "issues": [
+        {
+          "name": "Fatty liver disease",
+          "note": "Often silent, and linked to weight, diabetes and alcohol."
+        },
+        {
+          "name": "Hepatitis",
+          "note": "Inflammation from viruses, alcohol or drugs: tiredness, yellow skin or eyes (jaundice), dark urine."
+        },
+        {
+          "name": "Cirrhosis",
+          "note": "Long-term scarring: a swollen belly, easy bruising, confusion."
+        }
+      ]
+    },
+    {
+      "id": "gallbladder",
+      "name": "Gallbladder",
+      "latin": "Vesica biliaris",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Under the lower edge of the liver, where the right costal margin meets the midclavicular line.",
+      "summary": "A small pear-shaped pouch that stores and concentrates bile, squeezing it into the duodenum after fatty meals.",
+      "functions": [
+        "Stores and concentrates bile",
+        "Releases bile to help digest fats"
+      ],
+      "issues": [
+        {
+          "name": "Gallstones (biliary colic)",
+          "note": "Severe pain under the right ribs or in the upper middle, often after fatty food, lasting minutes to hours. It can spread to the right shoulder blade."
+        },
+        {
+          "name": "Cholecystitis",
+          "note": "Persistent pain under the right ribs with fever. It needs medical care."
+        },
+        {
+          "name": "Jaundice",
+          "note": "Yellow skin or eyes with pale stools and dark urine may mean a stone is blocking the bile duct."
+        }
+      ]
+    },
+    {
+      "id": "stomach",
+      "name": "Stomach",
+      "latin": "Gaster",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Upper left and central abdomen, just under the diaphragm.",
+      "summary": "A stretchy, J-shaped bag that stores food, churns it and starts protein digestion with acid and enzymes.",
+      "functions": [
+        "Stores and mixes food",
+        "Secretes acid and pepsin",
+        "Releases food gradually into the small intestine"
+      ],
+      "issues": [
+        {
+          "name": "Indigestion / gastritis",
+          "note": "Burning pain in the upper abdomen, bloating, nausea."
+        },
+        {
+          "name": "Peptic ulcer",
+          "note": "Gnawing upper-abdominal pain, sometimes eased or worsened by food. Black stools or vomiting blood is an emergency."
+        },
+        {
+          "name": "Gastroenteritis",
+          "note": "Vomiting and diarrhoea, usually viral. Watch for dehydration."
+        }
+      ]
+    },
+    {
+      "id": "spleen",
+      "name": "Spleen",
+      "latin": "Splen",
+      "kind": "organ",
+      "group": "lymphatic",
+      "paired": false,
+      "location": "Upper left abdomen behind the stomach, sheltered by ribs 9–11.",
+      "summary": "A fist-sized organ that filters the blood, removes old red cells and stores immune cells that fight infection.",
+      "functions": [
+        "Filters blood and recycles old red blood cells",
+        "Immune defence against bacteria",
+        "Stores platelets and white cells"
+      ],
+      "issues": [
+        {
+          "name": "Ruptured spleen",
+          "note": "After a blow to the left side: left upper pain, sometimes pain at the tip of the left shoulder, and dizziness. It is an emergency."
+        },
+        {
+          "name": "Enlarged spleen",
+          "note": "From infections such as glandular fever (avoid contact sports while it is enlarged), or from liver or blood conditions."
+        }
+      ]
+    },
+    {
+      "id": "pancreas",
+      "name": "Pancreas",
+      "latin": "Pancreas",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Deep in the upper abdomen behind the stomach, its head tucked into the curve of the duodenum.",
+      "summary": "A long gland with two jobs: it releases digestive enzymes into the gut, and hormones (insulin and glucagon) into the blood.",
+      "functions": [
+        "Digestive enzymes for fats, proteins and carbohydrates",
+        "Insulin and glucagon control blood sugar",
+        "Bicarbonate neutralises stomach acid"
+      ],
+      "issues": [
+        {
+          "name": "Pancreatitis",
+          "note": "Severe upper-abdominal pain boring through to the back, with vomiting. Often from gallstones or alcohol, and urgent."
+        },
+        {
+          "name": "Diabetes",
+          "note": "Thirst, passing a lot of urine, weight loss and tiredness."
+        },
+        {
+          "name": "Pancreatic cancer",
+          "note": "Painless jaundice, back pain and weight loss. See a doctor promptly."
+        }
+      ]
+    },
+    {
+      "id": "kidney",
+      "name": "Kidney",
+      "latin": "Ren",
+      "aka": [
+        "kidneys"
+      ],
+      "kind": "organ",
+      "group": "urinary",
+      "paired": true,
+      "location": "High at the back of the abdomen either side of the spine (about T12–L3), partly behind the lowest ribs. The right one sits a little lower.",
+      "summary": "Bean-shaped filters that process about 180 litres of blood plasma a day into 1–2 litres of urine, balancing water, salts and blood pressure.",
+      "functions": [
+        "Filters waste from the blood into urine",
+        "Balances fluids, salts and acidity",
+        "Makes hormones for blood pressure (renin) and red-cell production (EPO)",
+        "Activates vitamin D"
+      ],
+      "issues": [
+        {
+          "name": "Kidney stone",
+          "note": "Waves of severe pain in the flank spreading to the groin, sometimes with blood in the urine."
+        },
+        {
+          "name": "Kidney infection (pyelonephritis)",
+          "note": "Flank pain, fever, shivering and urinary symptoms. See a doctor the same day."
+        },
+        {
+          "name": "Chronic kidney disease",
+          "note": "Usually silent, and found with blood and urine tests. Worth checking with diabetes or high blood pressure."
+        }
+      ]
+    },
+    {
+      "id": "small-intestine",
+      "name": "Small intestine",
+      "latin": "Intestinum tenue",
+      "aka": [
+        "small bowel",
+        "duodenum",
+        "jejunum",
+        "ileum"
+      ],
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Coiled in the centre of the abdomen, framed by the large intestine.",
+      "summary": "About 6 metres of coiled tube (duodenum, jejunum and ileum) where most digestion and nutrient absorption happen, across millions of finger-like villi.",
+      "functions": [
+        "Digests food with enzymes and bile",
+        "Absorbs nutrients, water and vitamins",
+        "Hosts a large part of the immune system"
+      ],
+      "issues": [
+        {
+          "name": "Coeliac disease",
+          "note": "Gluten triggers inflammation: bloating, diarrhoea, weight loss, anaemia."
+        },
+        {
+          "name": "Bowel obstruction",
+          "note": "Colicky pain, a swollen belly, vomiting and no wind or stools. It is an emergency."
+        },
+        {
+          "name": "Crohn’s disease",
+          "note": "Inflammation causing pain, diarrhoea and weight loss, often at the end of the ileum in the lower right."
+        }
+      ]
+    },
+    {
+      "id": "large-intestine",
+      "name": "Large intestine",
+      "latin": "Intestinum crassum",
+      "aka": [
+        "colon",
+        "bowel",
+        "rectum",
+        "caecum",
+        "cecum"
+      ],
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Frames the abdomen: up the right side, across under the stomach, then down the left side to the rectum.",
+      "summary": "About 1.5 m long (caecum, colon and rectum). It absorbs water and salts, hosts trillions of gut bacteria and stores stool.",
+      "functions": [
+        "Absorbs water and salts",
+        "Gut bacteria ferment fibre and make vitamins",
+        "Stores and expels stool"
+      ],
+      "issues": [
+        {
+          "name": "Constipation / IBS",
+          "note": "Cramping, bloating and a change in bowel habit. Very common."
+        },
+        {
+          "name": "Diverticulitis",
+          "note": "Pain in the lower left abdomen with fever, mostly in older adults."
+        },
+        {
+          "name": "Bowel cancer warning signs",
+          "note": "Blood in the stool, a lasting change in bowel habit, unexplained weight loss or anaemia. See a doctor."
+        }
+      ]
+    },
+    {
+      "id": "appendix",
+      "name": "Appendix",
+      "latin": "Appendix vermiformis",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Lower right abdomen, hanging from the caecum.",
+      "summary": "A finger-sized pouch off the start of the large intestine. It holds lymphoid tissue and may act as a reservoir for helpful gut bacteria.",
+      "functions": [
+        "Lymphoid (immune) tissue",
+        "A possible reservoir of gut bacteria"
+      ],
+      "issues": [
+        {
+          "name": "Appendicitis",
+          "note": "Pain that starts around the navel and moves to the lower right, worse with movement or coughing, with loss of appetite, nausea and fever. It is urgent."
+        }
+      ]
+    },
+    {
+      "id": "bladder",
+      "name": "Urinary bladder",
+      "latin": "Vesica urinaria",
+      "aka": [
+        "bladder"
+      ],
+      "kind": "organ",
+      "group": "urinary",
+      "paired": false,
+      "location": "Low in the pelvis, behind the pubic bones.",
+      "summary": "A muscular, stretchy reservoir that holds urine from the kidneys (around 400–500 ml) until it is convenient to empty.",
+      "functions": [
+        "Stores urine",
+        "Empties under control of sphincters and the pelvic floor"
+      ],
+      "issues": [
+        {
+          "name": "Urinary tract infection (cystitis)",
+          "note": "Burning, urgency, passing urine often, and low central pain."
+        },
+        {
+          "name": "Urinary retention",
+          "note": "Unable to pass urine, with a painful, full lower belly. It is urgent."
+        },
+        {
+          "name": "Incontinence",
+          "note": "Leaking when coughing (stress) or with a sudden urge. Common and treatable."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "note": "Cross-layer and organ-to-organ connections. \"@group\" expands to every structure in a group. Paired items link same side to same side; \"side\" restricts a link to one side. Joint (articulates) connections live in skeleton.json.",
+  "links": [
+    {
+      "type": "protects",
+      "from": [
+        "@cranium"
+      ],
+      "to": [
+        "brain"
+      ]
+    },
+    {
+      "type": "protects",
+      "from": [
+        "rib-1",
+        "rib-2",
+        "rib-3",
+        "rib-4",
+        "rib-5",
+        "rib-6",
+        "rib-7",
+        "rib-8",
+        "rib-9",
+        "rib-10",
+        "sternum",
+        "@thoracic"
+      ],
+      "to": [
+        "lung"
+      ]
+    },
+    {
+      "type": "protects",
+      "from": [
+        "sternum",
+        "rib-2",
+        "rib-3",
+        "rib-4",
+        "rib-5",
+        "rib-6",
+        "t5",
+        "t6",
+        "t7",
+        "t8"
+      ],
+      "to": [
+        "heart"
+      ]
+    },
+    {
+      "type": "protects",
+      "from": [
+        "rib-7",
+        "rib-8",
+        "rib-9",
+        "rib-10",
+        "rib-11"
+      ],
+      "to": [
+        "liver"
+      ],
+      "side": "right"
+    },
+    {
+      "type": "protects",
+      "from": [
+        "rib-7",
+        "rib-8",
+        "rib-9"
+      ],
+      "to": [
+        "stomach"
+      ],
+      "side": "left"
+    },
+    {
+      "type": "protects",
+      "from": [
+        "rib-9",
+        "rib-10",
+        "rib-11"
+      ],
+      "to": [
+        "spleen"
+      ],
+      "side": "left"
+    },
+    {
+      "type": "protects",
+      "from": [
+        "rib-11",
+        "rib-12"
+      ],
+      "to": [
+        "kidney"
+      ]
+    },
+    {
+      "type": "protects",
+      "from": [
+        "hip-bone",
+        "pubic-symphysis"
+      ],
+      "to": [
+        "bladder"
+      ]
+    },
+    {
+      "type": "continues",
+      "from": [
+        "trachea"
+      ],
+      "to": [
+        "lung"
+      ],
+      "note": "via the left and right main bronchi"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "esophagus"
+      ],
+      "to": [
+        "stomach"
+      ]
+    },
+    {
+      "type": "continues",
+      "from": [
+        "stomach"
+      ],
+      "to": [
+        "small-intestine"
+      ],
+      "note": "through the pylorus into the duodenum"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "small-intestine"
+      ],
+      "to": [
+        "large-intestine"
+      ],
+      "note": "at the ileocaecal valve"
+    },
+    {
+      "type": "attached",
+      "from": [
+        "large-intestine"
+      ],
+      "to": [
+        "appendix"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "liver"
+      ],
+      "to": [
+        "gallbladder"
+      ],
+      "note": "bile"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "gallbladder"
+      ],
+      "to": [
+        "small-intestine"
+      ],
+      "note": "bile, via the common bile duct"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "pancreas"
+      ],
+      "to": [
+        "small-intestine"
+      ],
+      "note": "digestive enzymes, into the duodenum"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "kidney"
+      ],
+      "to": [
+        "bladder"
+      ],
+      "note": "urine, via the ureter"
+    }
+  ]
+}

@@ -1,0 +1,1589 @@
+{
+  "note": "Body areas for “Where does it hurt?”. Ids match data-id attributes in assets/svg/regions-anterior.svg. Urgency: self-care | doctor | urgent.",
+  "disclaimer": "Corpus is an educational map, not a diagnosis. It can’t examine you or know your history. If you are worried about a symptom, talk to a doctor or pharmacist.",
+  "emergency": "In an emergency call your local emergency number: 112 (EU), 999 (UK), 911 (US).",
+  "redFlags": [
+    "Chest pain or pressure, especially with breathlessness, sweating, nausea, or pain spreading to the arm, neck or jaw",
+    "Signs of stroke: face drooping, arm weakness, slurred speech",
+    "A sudden, severe headache, or a headache with fever, stiff neck or rash",
+    "Difficulty breathing, choking, or blue lips",
+    "Heavy bleeding, vomiting blood, or black tarry stools",
+    "Severe abdominal pain with a rigid belly or fainting, or abdominal pain in pregnancy",
+    "Fainting, confusion or a seizure"
+  ],
+  "regions": [
+    {
+      "id": "head",
+      "name": "Head",
+      "structures": [
+        "@cranium",
+        "brain"
+      ],
+      "causes": [
+        {
+          "title": "Tension-type headache",
+          "signs": "Band-like pressure on both sides, often with stress, poor sleep, dehydration or long screen time.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Migraine",
+          "signs": "Throbbing, often one-sided, with nausea and sensitivity to light or sound; sometimes a visual aura first.",
+          "urgency": "doctor",
+          "related": [
+            "brain"
+          ]
+        },
+        {
+          "title": "Sinus pain",
+          "signs": "Pressure over the forehead or cheeks with a blocked nose after a cold, worse bending forward.",
+          "urgency": "self-care",
+          "related": [
+            "frontal",
+            "ethmoid"
+          ]
+        },
+        {
+          "title": "Concussion",
+          "signs": "Headache, dizziness, nausea or confusion after a knock to the head.",
+          "urgency": "doctor",
+          "related": [
+            "brain"
+          ]
+        },
+        {
+          "title": "Medication-overuse headache",
+          "signs": "Near-daily headaches in someone taking painkillers on most days.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ],
+      "redFlags": [
+        "A sudden “thunderclap” headache, the worst you’ve ever had",
+        "Headache with fever, a stiff neck, a rash or confusion",
+        "Headache after a head injury with vomiting, drowsiness or worsening pain",
+        "Headache with weakness, numbness, or trouble speaking or seeing",
+        "A new headache after 50 with scalp tenderness or jaw pain when chewing"
+      ]
+    },
+    {
+      "id": "face",
+      "name": "Face & jaw",
+      "structures": [
+        "maxilla",
+        "mandible",
+        "zygomatic",
+        "nasal",
+        "ethmoid",
+        "tmj"
+      ],
+      "causes": [
+        {
+          "title": "Jaw joint (TMJ) pain",
+          "signs": "Aching in front of the ear, clicking, pain when chewing, often with clenching or grinding.",
+          "urgency": "self-care",
+          "related": [
+            "tmj",
+            "mandible"
+          ]
+        },
+        {
+          "title": "Dental pain or abscess",
+          "signs": "Toothache, sensitivity, or a swollen gum or cheek. Swelling or fever needs prompt dental care.",
+          "urgency": "doctor",
+          "related": [
+            "maxilla",
+            "mandible"
+          ]
+        },
+        {
+          "title": "Sinusitis",
+          "signs": "Pressure in the cheeks or forehead, blocked nose, thick discharge.",
+          "urgency": "self-care",
+          "related": [
+            "maxilla",
+            "ethmoid"
+          ]
+        },
+        {
+          "title": "Trigeminal neuralgia",
+          "signs": "Brief electric-shock pains in the face set off by touch, eating or wind.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Facial fracture",
+          "signs": "After a blow: swelling, numbness, a bite that doesn’t meet, or double vision.",
+          "urgency": "urgent",
+          "related": [
+            "zygomatic",
+            "nasal",
+            "mandible"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Facial swelling that is spreading fast, or swelling with difficulty swallowing or breathing",
+        "Sudden drooping of one side of the face (possible stroke)",
+        "A red, painful eye with blurred or lost vision"
+      ]
+    },
+    {
+      "id": "neck",
+      "name": "Neck",
+      "structures": [
+        "@cervical",
+        "hyoid",
+        "thyroid",
+        "trachea",
+        "esophagus"
+      ],
+      "causes": [
+        {
+          "title": "Neck strain",
+          "signs": "Stiffness and pain after sleeping awkwardly, long desk work or a jolt.",
+          "urgency": "self-care",
+          "related": [
+            "@cervical"
+          ]
+        },
+        {
+          "title": "Pinched nerve",
+          "signs": "Neck pain shooting into the arm with tingling, numbness or weakness.",
+          "urgency": "doctor",
+          "related": [
+            "intervertebral"
+          ]
+        },
+        {
+          "title": "Sore throat / swollen glands",
+          "signs": "Pain on swallowing and tender lumps under the jaw during a cold or tonsillitis.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Thyroid lump or swelling",
+          "signs": "A lump at the front of the neck that moves when you swallow.",
+          "urgency": "doctor",
+          "related": [
+            "thyroid"
+          ]
+        },
+        {
+          "title": "Reflux",
+          "signs": "Burning in the throat and a sour taste, worse lying down.",
+          "urgency": "self-care",
+          "related": [
+            "esophagus"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Neck pain after a significant injury such as a fall or car crash: keep still and get help",
+        "Fever with a stiff neck, headache or rash",
+        "Difficulty breathing or swallowing, drooling or a muffled voice",
+        "Neck pain with arm weakness or clumsy hands"
+      ]
+    },
+    {
+      "id": "shoulder",
+      "name": "Shoulder",
+      "paired": true,
+      "structures": [
+        "clavicle",
+        "scapula",
+        "humerus",
+        "shoulder",
+        "acromioclavicular"
+      ],
+      "causes": [
+        {
+          "title": "Rotator cuff problem",
+          "signs": "Pain on the outer shoulder when lifting the arm, and pain at night lying on it.",
+          "urgency": "doctor",
+          "related": [
+            "shoulder",
+            "scapula"
+          ]
+        },
+        {
+          "title": "Frozen shoulder",
+          "signs": "Gradually increasing pain and stiffness in every direction.",
+          "urgency": "doctor",
+          "related": [
+            "shoulder"
+          ]
+        },
+        {
+          "title": "AC joint injury",
+          "signs": "Pain at the top of the shoulder after falling onto it; a bump may appear.",
+          "urgency": "doctor",
+          "related": [
+            "acromioclavicular",
+            "clavicle"
+          ]
+        },
+        {
+          "title": "Dislocation or fracture",
+          "signs": "After a fall: deformity and unable to move the arm.",
+          "urgency": "urgent",
+          "related": [
+            "shoulder",
+            "humerus",
+            "clavicle"
+          ]
+        },
+        {
+          "title": "Referred pain",
+          "signs": "Shoulder pain can come from the neck, or from the diaphragm, gallbladder or heart irritating shared nerves.",
+          "urgency": "doctor",
+          "related": [
+            "@cervical",
+            "gallbladder",
+            "heart"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Shoulder or arm pain with chest pressure, breathlessness or sweating: call emergency services",
+        "Deformity after an injury, or a cold, numb arm",
+        "Shoulder-tip pain after a blow to the abdomen (possible internal bleeding)"
+      ]
+    },
+    {
+      "id": "chest-center",
+      "name": "Centre of the chest",
+      "structures": [
+        "sternum",
+        "heart",
+        "esophagus",
+        "trachea",
+        "sternocostal"
+      ],
+      "causes": [
+        {
+          "title": "Heart attack or angina",
+          "signs": "Pressure, tightness or heaviness that may spread to the arm, neck, jaw or back, with breathlessness, sweating or nausea.",
+          "urgency": "urgent",
+          "related": [
+            "heart"
+          ]
+        },
+        {
+          "title": "Heartburn / reflux",
+          "signs": "Burning behind the breastbone after meals or lying down, with a sour taste.",
+          "urgency": "self-care",
+          "related": [
+            "esophagus",
+            "stomach"
+          ]
+        },
+        {
+          "title": "Costochondritis",
+          "signs": "Sharp pain where the ribs meet the breastbone, tender to press and worse with movement.",
+          "urgency": "self-care",
+          "related": [
+            "sternocostal",
+            "sternum"
+          ]
+        },
+        {
+          "title": "Pericarditis",
+          "signs": "Sharp central pain, worse lying flat and better leaning forward, often after a viral illness.",
+          "urgency": "urgent",
+          "related": [
+            "heart"
+          ]
+        },
+        {
+          "title": "Anxiety or panic",
+          "signs": "Chest tightness with a racing heart, fast breathing and tingling. Get chest pain checked before assuming this.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ],
+      "redFlags": [
+        "Chest pain that lasts more than a few minutes, or comes with breathlessness, sweating, nausea or fainting: call emergency services now",
+        "Sudden tearing pain going through to the back"
+      ]
+    },
+    {
+      "id": "chest-right",
+      "name": "Right side of the chest",
+      "side": "right",
+      "structures": [
+        "@ribs",
+        "lung",
+        "clavicle"
+      ],
+      "causes": [
+        {
+          "title": "Muscle strain or rib injury",
+          "signs": "Pain on twisting, coughing or pressing one spot, often after exertion or a fall.",
+          "urgency": "self-care",
+          "related": [
+            "@ribs"
+          ]
+        },
+        {
+          "title": "Pneumonia or pleurisy",
+          "signs": "Sharp pain on breathing in, with fever and cough.",
+          "urgency": "doctor",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Pulmonary embolism",
+          "signs": "Sudden sharp pain and breathlessness, maybe with a swollen calf or coughing blood.",
+          "urgency": "urgent",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Collapsed lung",
+          "signs": "Sudden one-sided chest pain and breathlessness.",
+          "urgency": "urgent",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Shingles",
+          "signs": "A burning band of pain on one side, followed by a blistering rash. Early treatment helps.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Gallbladder pain",
+          "signs": "Pain under the lower right ribs after fatty meals, sometimes felt in the back.",
+          "urgency": "doctor",
+          "related": [
+            "gallbladder",
+            "liver"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chest-left",
+      "name": "Left side of the chest",
+      "side": "left",
+      "structures": [
+        "@ribs",
+        "lung",
+        "heart",
+        "clavicle"
+      ],
+      "causes": [
+        {
+          "title": "Heart attack or angina",
+          "signs": "Pressure or tightness that may spread to the left arm, neck or jaw, with breathlessness or sweating.",
+          "urgency": "urgent",
+          "related": [
+            "heart"
+          ]
+        },
+        {
+          "title": "Muscle strain or rib injury",
+          "signs": "Pain on twisting, coughing or pressing one spot.",
+          "urgency": "self-care",
+          "related": [
+            "@ribs"
+          ]
+        },
+        {
+          "title": "Pneumonia or pleurisy",
+          "signs": "Sharp pain on breathing in, with fever and cough.",
+          "urgency": "doctor",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Pulmonary embolism",
+          "signs": "Sudden sharp pain and breathlessness, maybe with a swollen calf or coughing blood.",
+          "urgency": "urgent",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Collapsed lung",
+          "signs": "Sudden one-sided chest pain and breathlessness.",
+          "urgency": "urgent",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Shingles",
+          "signs": "A burning band of pain on one side, followed by a blistering rash.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "upper-arm",
+      "name": "Upper arm",
+      "paired": true,
+      "structures": [
+        "humerus"
+      ],
+      "causes": [
+        {
+          "title": "Muscle strain",
+          "signs": "Ache after lifting or unaccustomed exercise, easing over days.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Biceps tendon problem",
+          "signs": "Pain at the front of the shoulder or upper arm. A sudden snap followed by a bulge in the arm suggests a rupture.",
+          "urgency": "doctor",
+          "related": [
+            "humerus",
+            "shoulder"
+          ]
+        },
+        {
+          "title": "Fracture",
+          "signs": "After a fall: severe pain, swelling, unable to use the arm.",
+          "urgency": "urgent",
+          "related": [
+            "humerus"
+          ]
+        },
+        {
+          "title": "Referred pain from the neck",
+          "signs": "Arm pain with tingling that follows a strip of skin, often with neck stiffness.",
+          "urgency": "doctor",
+          "related": [
+            "@cervical"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Left arm pain with chest discomfort, breathlessness or sweating: call emergency services"
+      ]
+    },
+    {
+      "id": "elbow",
+      "name": "Elbow",
+      "paired": true,
+      "structures": [
+        "humerus",
+        "radius",
+        "ulna",
+        "elbow",
+        "proximal-radioulnar"
+      ],
+      "causes": [
+        {
+          "title": "Tennis elbow",
+          "signs": "Pain on the outer elbow when gripping, lifting or turning a handle.",
+          "urgency": "self-care",
+          "related": [
+            "elbow",
+            "humerus"
+          ]
+        },
+        {
+          "title": "Golfer’s elbow",
+          "signs": "Pain on the inner elbow with gripping.",
+          "urgency": "self-care",
+          "related": [
+            "elbow",
+            "humerus"
+          ]
+        },
+        {
+          "title": "Olecranon bursitis",
+          "signs": "A soft swelling on the point of the elbow. A red, hot one may be infected.",
+          "urgency": "self-care",
+          "related": [
+            "ulna"
+          ]
+        },
+        {
+          "title": "Ulnar nerve irritation",
+          "signs": "Tingling in the ring and little fingers, worse with the elbow bent.",
+          "urgency": "doctor",
+          "related": [
+            "humerus"
+          ]
+        },
+        {
+          "title": "Fracture or dislocation",
+          "signs": "After a fall: deformity, swelling, can’t bend or straighten the elbow.",
+          "urgency": "urgent",
+          "related": [
+            "elbow",
+            "radius",
+            "ulna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forearm",
+      "name": "Forearm",
+      "paired": true,
+      "structures": [
+        "radius",
+        "ulna",
+        "distal-radioulnar"
+      ],
+      "causes": [
+        {
+          "title": "Overuse / tendon strain",
+          "signs": "Aching along the forearm after repetitive gripping, typing or tools.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Fracture",
+          "signs": "After a fall: pain, swelling, a bend in the forearm.",
+          "urgency": "urgent",
+          "related": [
+            "radius",
+            "ulna"
+          ]
+        },
+        {
+          "title": "Compartment syndrome",
+          "signs": "Severe, increasing pain after a crush or fracture, worse when moving the fingers.",
+          "urgency": "urgent",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "wrist-hand",
+      "name": "Wrist & hand",
+      "paired": true,
+      "structures": [
+        "carpals",
+        "metacarpals",
+        "hand-phalanges",
+        "wrist",
+        "carpometacarpal",
+        "metacarpophalangeal",
+        "hand-interphalangeal",
+        "radius",
+        "ulna"
+      ],
+      "causes": [
+        {
+          "title": "Carpal tunnel syndrome",
+          "signs": "Tingling or numbness in the thumb, index and middle fingers, often at night.",
+          "urgency": "doctor",
+          "related": [
+            "carpals",
+            "wrist"
+          ]
+        },
+        {
+          "title": "Scaphoid fracture",
+          "signs": "Pain at the base of the thumb after a fall on an outstretched hand, even if it seems only sprained. Needs an X-ray.",
+          "urgency": "doctor",
+          "related": [
+            "carpals"
+          ]
+        },
+        {
+          "title": "Sprain",
+          "signs": "Pain and swelling after a twist, improving over days.",
+          "urgency": "self-care",
+          "related": [
+            "wrist"
+          ]
+        },
+        {
+          "title": "De Quervain’s tenosynovitis",
+          "signs": "Pain on the thumb side of the wrist when gripping or lifting.",
+          "urgency": "self-care",
+          "related": [
+            "wrist"
+          ]
+        },
+        {
+          "title": "Thumb-base arthritis",
+          "signs": "Aching at the base of the thumb when pinching or opening jars.",
+          "urgency": "doctor",
+          "related": [
+            "carpometacarpal"
+          ]
+        },
+        {
+          "title": "Trigger finger",
+          "signs": "A finger catches or locks when bending.",
+          "urgency": "doctor",
+          "related": [
+            "metacarpophalangeal"
+          ]
+        },
+        {
+          "title": "Rheumatoid arthritis",
+          "signs": "Swollen, stiff knuckles on both hands, worse in the morning.",
+          "urgency": "doctor",
+          "related": [
+            "metacarpophalangeal"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A hand that is cold, pale or numb after an injury",
+        "A red, hot, swollen joint with fever",
+        "A deep cut with loss of movement or feeling in a finger",
+        "Redness spreading quickly from a bite or wound"
+      ]
+    },
+    {
+      "id": "upper-right-abdomen",
+      "name": "Upper right abdomen",
+      "side": "right",
+      "structures": [
+        "liver",
+        "gallbladder",
+        "rib-7",
+        "rib-8",
+        "rib-9",
+        "rib-10",
+        "rib-11",
+        "kidney",
+        "large-intestine"
+      ],
+      "causes": [
+        {
+          "title": "Gallstones or gallbladder inflammation",
+          "signs": "Severe pain under the right ribs, often after fatty food, maybe spreading to the right shoulder blade. Fever or yellow skin makes it urgent.",
+          "urgency": "doctor",
+          "related": [
+            "gallbladder"
+          ]
+        },
+        {
+          "title": "Liver inflammation (hepatitis)",
+          "signs": "A dull ache with tiredness, nausea, yellow eyes or dark urine.",
+          "urgency": "doctor",
+          "related": [
+            "liver"
+          ]
+        },
+        {
+          "title": "Kidney stone or infection",
+          "signs": "Pain in the back or side that may wrap round to the front, with fever or urinary symptoms.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Muscle or rib strain",
+          "signs": "Pain on movement or pressing one spot, after exertion or coughing.",
+          "urgency": "self-care",
+          "related": [
+            "rib-9",
+            "rib-10"
+          ]
+        },
+        {
+          "title": "Shingles",
+          "signs": "A burning band of pain followed by a blistering rash on one side.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "upper-middle-abdomen",
+      "name": "Upper middle abdomen",
+      "structures": [
+        "stomach",
+        "pancreas",
+        "liver",
+        "esophagus",
+        "small-intestine",
+        "sternum"
+      ],
+      "causes": [
+        {
+          "title": "Indigestion / gastritis",
+          "signs": "Burning or gnawing pain under the breastbone, bloating, often linked to meals, alcohol or anti-inflammatory painkillers.",
+          "urgency": "self-care",
+          "related": [
+            "stomach"
+          ]
+        },
+        {
+          "title": "Peptic ulcer",
+          "signs": "Recurring gnawing pain, sometimes at night or when hungry.",
+          "urgency": "doctor",
+          "related": [
+            "stomach",
+            "small-intestine"
+          ]
+        },
+        {
+          "title": "Gallstones",
+          "signs": "Severe pain in the upper middle or right, lasting minutes to hours after food.",
+          "urgency": "doctor",
+          "related": [
+            "gallbladder"
+          ]
+        },
+        {
+          "title": "Pancreatitis",
+          "signs": "Severe pain boring through to the back, with vomiting.",
+          "urgency": "urgent",
+          "related": [
+            "pancreas"
+          ]
+        },
+        {
+          "title": "Heart attack",
+          "signs": "Can feel like indigestion, especially in women, older people and people with diabetes.",
+          "urgency": "urgent",
+          "related": [
+            "heart"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Vomiting blood or “coffee grounds”, or black tarry stools",
+        "Severe pain boring through to the back with vomiting",
+        "Indigestion-like pain with sweating, breathlessness, or pain spreading to the arm or jaw"
+      ]
+    },
+    {
+      "id": "upper-left-abdomen",
+      "name": "Upper left abdomen",
+      "side": "left",
+      "structures": [
+        "stomach",
+        "spleen",
+        "pancreas",
+        "large-intestine",
+        "kidney",
+        "rib-7",
+        "rib-8",
+        "rib-9",
+        "rib-10",
+        "rib-11"
+      ],
+      "causes": [
+        {
+          "title": "Indigestion / gastritis",
+          "signs": "Burning pain and bloating after meals.",
+          "urgency": "self-care",
+          "related": [
+            "stomach"
+          ]
+        },
+        {
+          "title": "Trapped wind / IBS",
+          "signs": "Crampy pain under the left ribs that comes and goes, eased by passing wind.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Spleen injury or enlargement",
+          "signs": "Pain after a blow to the left side, or a dragging ache after glandular fever.",
+          "urgency": "urgent",
+          "related": [
+            "spleen"
+          ]
+        },
+        {
+          "title": "Pancreatitis",
+          "signs": "Severe pain going through to the back, with vomiting.",
+          "urgency": "urgent",
+          "related": [
+            "pancreas"
+          ]
+        },
+        {
+          "title": "Kidney stone or infection",
+          "signs": "Flank pain wrapping to the front, with fever or urinary symptoms.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Muscle or rib strain",
+          "signs": "Pain on movement or pressing one spot.",
+          "urgency": "self-care",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "right-flank",
+      "name": "Right side (flank)",
+      "side": "right",
+      "structures": [
+        "kidney",
+        "large-intestine",
+        "liver",
+        "rib-11",
+        "rib-12",
+        "l1",
+        "l2"
+      ],
+      "causes": [
+        {
+          "title": "Kidney stone",
+          "signs": "Waves of severe pain from the back or side down toward the groin; can’t get comfortable.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Kidney infection",
+          "signs": "Side or back pain with fever, shivering and burning when passing urine.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Muscle strain",
+          "signs": "Pain on bending or twisting, eased by rest.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Constipation",
+          "signs": "Crampy, bloated feeling with infrequent or hard stools.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Shingles",
+          "signs": "A burning band of pain followed by a rash on one side.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "around-navel",
+      "name": "Around the navel",
+      "structures": [
+        "small-intestine",
+        "large-intestine",
+        "@lumbar"
+      ],
+      "causes": [
+        {
+          "title": "Early appendicitis",
+          "signs": "Pain often starts here before moving to the lower right, with loss of appetite and nausea.",
+          "urgency": "urgent",
+          "related": [
+            "appendix"
+          ]
+        },
+        {
+          "title": "Gastroenteritis",
+          "signs": "Cramps with vomiting or diarrhoea.",
+          "urgency": "self-care",
+          "related": [
+            "small-intestine"
+          ]
+        },
+        {
+          "title": "Constipation / trapped wind / IBS",
+          "signs": "Bloating and cramps that come and go.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Umbilical hernia",
+          "signs": "A soft bulge at or near the belly button, more obvious when coughing. A painful, hard bulge that won’t go back is urgent.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Bowel obstruction",
+          "signs": "Colicky pain, a swollen belly, vomiting, and no wind or stools.",
+          "urgency": "urgent",
+          "related": [
+            "small-intestine",
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Abdominal aortic aneurysm",
+          "signs": "In older adults, especially smokers: a pulsing feeling, or sudden severe pain going to the back.",
+          "urgency": "urgent",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "left-flank",
+      "name": "Left side (flank)",
+      "side": "left",
+      "structures": [
+        "kidney",
+        "large-intestine",
+        "spleen",
+        "rib-11",
+        "rib-12",
+        "l1",
+        "l2"
+      ],
+      "causes": [
+        {
+          "title": "Kidney stone",
+          "signs": "Waves of severe pain from the back or side down toward the groin.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Kidney infection",
+          "signs": "Side or back pain with fever, shivering and burning when passing urine.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Muscle strain",
+          "signs": "Pain on bending or twisting, eased by rest.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Constipation / IBS",
+          "signs": "Crampy pain on the left with bloating and changed bowel habit.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lower-right-abdomen",
+      "name": "Lower right abdomen",
+      "side": "right",
+      "structures": [
+        "appendix",
+        "large-intestine",
+        "small-intestine",
+        "hip-bone"
+      ],
+      "causes": [
+        {
+          "title": "Appendicitis",
+          "signs": "Pain that starts around the navel and moves here, worse with movement, coughing or bumps in the road, with nausea, loss of appetite and fever.",
+          "urgency": "urgent",
+          "related": [
+            "appendix"
+          ]
+        },
+        {
+          "title": "Inguinal hernia",
+          "signs": "A bulge in the groin that appears when standing or straining. A painful, hard bulge that won’t go back is urgent.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Kidney stone",
+          "signs": "Severe pain moving from the side down toward the groin.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Crohn’s disease",
+          "signs": "Recurring pain with diarrhoea and weight loss.",
+          "urgency": "doctor",
+          "related": [
+            "small-intestine"
+          ]
+        },
+        {
+          "title": "Ovarian cyst or ectopic pregnancy",
+          "signs": "One-sided lower pain. In anyone who could be pregnant, pain with bleeding, dizziness or fainting is an emergency.",
+          "urgency": "urgent",
+          "related": []
+        },
+        {
+          "title": "Trapped wind / constipation",
+          "signs": "Cramping that comes and goes and eases after a bowel movement.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lower-middle-abdomen",
+      "name": "Lower middle abdomen",
+      "structures": [
+        "bladder",
+        "large-intestine",
+        "small-intestine",
+        "hip-bone",
+        "pubic-symphysis"
+      ],
+      "causes": [
+        {
+          "title": "Bladder infection (cystitis)",
+          "signs": "Low central pain with burning, urgency and passing urine often.",
+          "urgency": "doctor",
+          "related": [
+            "bladder"
+          ]
+        },
+        {
+          "title": "Urinary retention",
+          "signs": "Unable to pass urine, with a tender, full lower belly.",
+          "urgency": "urgent",
+          "related": [
+            "bladder"
+          ]
+        },
+        {
+          "title": "Period pain",
+          "signs": "Cramping low central pain around periods.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Pelvic infection",
+          "signs": "Low pain with fever, unusual discharge or pain during sex.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Constipation",
+          "signs": "Cramps and bloating with hard or infrequent stools.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Pregnancy-related pain",
+          "signs": "Any significant lower abdominal pain in pregnancy, or with a missed period, should be assessed promptly.",
+          "urgency": "urgent",
+          "related": []
+        }
+      ]
+    },
+    {
+      "id": "lower-left-abdomen",
+      "name": "Lower left abdomen",
+      "side": "left",
+      "structures": [
+        "large-intestine",
+        "small-intestine",
+        "hip-bone"
+      ],
+      "causes": [
+        {
+          "title": "Diverticulitis",
+          "signs": "Pain here with fever and tenderness, mostly in older adults.",
+          "urgency": "doctor",
+          "related": [
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Constipation / IBS",
+          "signs": "Cramping and bloating linked to bowel habit.",
+          "urgency": "self-care",
+          "related": [
+            "large-intestine"
+          ]
+        },
+        {
+          "title": "Inguinal hernia",
+          "signs": "A groin bulge when standing or straining.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Kidney stone",
+          "signs": "Severe pain moving from the side down toward the groin.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Ovarian cyst or ectopic pregnancy",
+          "signs": "One-sided lower pain. In anyone who could be pregnant, pain with bleeding or fainting is an emergency.",
+          "urgency": "urgent",
+          "related": []
+        },
+        {
+          "title": "Inflammatory bowel disease",
+          "signs": "Recurring pain with bloody diarrhoea or urgency.",
+          "urgency": "doctor",
+          "related": [
+            "large-intestine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hip-groin",
+      "name": "Hip & groin",
+      "paired": true,
+      "structures": [
+        "hip-bone",
+        "femur",
+        "hip",
+        "pubic-symphysis"
+      ],
+      "causes": [
+        {
+          "title": "Hip osteoarthritis",
+          "signs": "Groin or thigh pain and stiffness, worse with walking, trouble with shoes and socks.",
+          "urgency": "doctor",
+          "related": [
+            "hip"
+          ]
+        },
+        {
+          "title": "Groin strain",
+          "signs": "Pain on the inner thigh after kicking, sprinting or changing direction.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Hip fracture",
+          "signs": "An older person who can’t bear weight after a fall.",
+          "urgency": "urgent",
+          "related": [
+            "femur",
+            "hip"
+          ]
+        },
+        {
+          "title": "Outer hip pain (gluteal tendinopathy)",
+          "signs": "Pain on the outer hip, worse lying on that side or climbing stairs.",
+          "urgency": "self-care",
+          "related": [
+            "femur"
+          ]
+        },
+        {
+          "title": "Inguinal hernia",
+          "signs": "A groin bulge when standing or straining.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Pain from the back",
+          "signs": "Hip or buttock pain with back stiffness, sometimes running down the leg.",
+          "urgency": "doctor",
+          "related": [
+            "@lumbar",
+            "sacroiliac"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A child with a limp and fever, or who refuses to walk",
+        "An older person who can’t bear weight after a fall"
+      ]
+    },
+    {
+      "id": "thigh",
+      "name": "Thigh",
+      "paired": true,
+      "structures": [
+        "femur"
+      ],
+      "causes": [
+        {
+          "title": "Muscle strain",
+          "signs": "Sudden pain at the back (hamstring) or front (quadriceps) of the thigh during sport.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Meralgia paresthetica",
+          "signs": "Burning or numbness on the outer thigh from a squeezed skin nerve.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Deep vein thrombosis (DVT)",
+          "signs": "A swollen, warm, painful leg, often after travel, surgery or immobility.",
+          "urgency": "urgent",
+          "related": []
+        },
+        {
+          "title": "Femur fracture",
+          "signs": "Severe pain and deformity after major trauma.",
+          "urgency": "urgent",
+          "related": [
+            "femur"
+          ]
+        },
+        {
+          "title": "Referred pain",
+          "signs": "Thigh pain can come from the hip or the lower back.",
+          "urgency": "doctor",
+          "related": [
+            "hip",
+            "@lumbar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knee",
+      "name": "Knee",
+      "paired": true,
+      "structures": [
+        "femur",
+        "tibia",
+        "fibula",
+        "patella",
+        "knee",
+        "proximal-tibiofibular"
+      ],
+      "causes": [
+        {
+          "title": "Patellofemoral pain",
+          "signs": "Ache around the kneecap on stairs, squatting or after sitting.",
+          "urgency": "self-care",
+          "related": [
+            "patella",
+            "knee"
+          ]
+        },
+        {
+          "title": "Ligament injury (ACL / MCL)",
+          "signs": "A twist or pop with swelling and a knee that gives way.",
+          "urgency": "doctor",
+          "related": [
+            "knee"
+          ]
+        },
+        {
+          "title": "Meniscus tear",
+          "signs": "Joint-line pain, catching or locking after a twist.",
+          "urgency": "doctor",
+          "related": [
+            "knee"
+          ]
+        },
+        {
+          "title": "Osteoarthritis",
+          "signs": "Pain and stiffness in older adults, worse with activity.",
+          "urgency": "doctor",
+          "related": [
+            "knee"
+          ]
+        },
+        {
+          "title": "Bursitis",
+          "signs": "A swelling over or below the kneecap after kneeling a lot.",
+          "urgency": "self-care",
+          "related": [
+            "patella"
+          ]
+        },
+        {
+          "title": "Hot, swollen knee",
+          "signs": "A red, hot, swollen knee, with or without fever, can be gout or infection.",
+          "urgency": "urgent",
+          "related": [
+            "knee"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A hot, swollen joint with fever",
+        "Unable to bear weight or straighten the knee after an injury"
+      ]
+    },
+    {
+      "id": "lower-leg",
+      "name": "Shin & calf",
+      "paired": true,
+      "structures": [
+        "tibia",
+        "fibula",
+        "distal-tibiofibular"
+      ],
+      "causes": [
+        {
+          "title": "Shin splints",
+          "signs": "Diffuse pain along the inner shin with running.",
+          "urgency": "self-care",
+          "related": [
+            "tibia"
+          ]
+        },
+        {
+          "title": "Stress fracture",
+          "signs": "One very tender spot on the shin that is getting worse.",
+          "urgency": "doctor",
+          "related": [
+            "tibia",
+            "fibula"
+          ]
+        },
+        {
+          "title": "Calf strain",
+          "signs": "A sudden pull in the calf when pushing off.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Deep vein thrombosis (DVT)",
+          "signs": "A swollen, warm, tender calf, especially after travel, surgery or immobility.",
+          "urgency": "urgent",
+          "related": []
+        },
+        {
+          "title": "Cramp",
+          "signs": "Brief, intense tightening, often at night.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Poor circulation (claudication)",
+          "signs": "Cramping calf pain on walking that eases with rest.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ],
+      "redFlags": [
+        "A swollen, painful calf with breathlessness or chest pain",
+        "Severe, increasing pain after an injury or a tight cast"
+      ]
+    },
+    {
+      "id": "ankle-foot",
+      "name": "Ankle & foot",
+      "paired": true,
+      "structures": [
+        "tibia",
+        "fibula",
+        "tarsals",
+        "metatarsals",
+        "foot-phalanges",
+        "ankle",
+        "subtalar-midfoot",
+        "tarsometatarsal",
+        "metatarsophalangeal"
+      ],
+      "causes": [
+        {
+          "title": "Ankle sprain",
+          "signs": "Swelling and bruising after rolling the ankle. If you can’t take four steps or the bone is tender, get it checked.",
+          "urgency": "self-care",
+          "related": [
+            "ankle",
+            "fibula"
+          ]
+        },
+        {
+          "title": "Fracture",
+          "signs": "Unable to bear weight, or tenderness right on the bone.",
+          "urgency": "urgent",
+          "related": [
+            "fibula",
+            "tibia",
+            "metatarsals"
+          ]
+        },
+        {
+          "title": "Plantar fasciitis",
+          "signs": "Heel pain with the first steps in the morning.",
+          "urgency": "self-care",
+          "related": [
+            "tarsals"
+          ]
+        },
+        {
+          "title": "Achilles tendon problem",
+          "signs": "Pain or thickening above the heel. A sudden snap means a possible rupture and is urgent.",
+          "urgency": "doctor",
+          "related": [
+            "tarsals"
+          ]
+        },
+        {
+          "title": "Gout",
+          "signs": "A sudden, very painful, red, hot big-toe joint.",
+          "urgency": "doctor",
+          "related": [
+            "metatarsophalangeal"
+          ]
+        },
+        {
+          "title": "Bunion / Morton’s neuroma",
+          "signs": "A bump at the big-toe joint, or burning pain between the toes.",
+          "urgency": "doctor",
+          "related": [
+            "metatarsophalangeal",
+            "metatarsals"
+          ]
+        },
+        {
+          "title": "Diabetic foot problems",
+          "signs": "Any wound, colour change or swelling on the foot of someone with diabetes needs prompt review.",
+          "urgency": "doctor",
+          "related": []
+        }
+      ],
+      "redFlags": [
+        "A cold, pale or blue foot",
+        "A hot, swollen joint with fever",
+        "An open wound over a broken bone"
+      ]
+    },
+    {
+      "id": "upper-back",
+      "name": "Upper back",
+      "view": "back",
+      "structures": [
+        "@thoracic",
+        "@ribs",
+        "scapula",
+        "lung",
+        "costovertebral"
+      ],
+      "causes": [
+        {
+          "title": "Postural strain",
+          "signs": "Aching between the shoulder blades after long sitting.",
+          "urgency": "self-care",
+          "related": [
+            "@thoracic"
+          ]
+        },
+        {
+          "title": "Rib joint sprain",
+          "signs": "Sharp pain beside the spine when breathing or twisting.",
+          "urgency": "self-care",
+          "related": [
+            "costovertebral"
+          ]
+        },
+        {
+          "title": "Osteoporotic fracture",
+          "signs": "Sudden mid-back pain after minor strain in someone with thin bones.",
+          "urgency": "doctor",
+          "related": [
+            "@thoracic"
+          ]
+        },
+        {
+          "title": "Shingles",
+          "signs": "A burning band of pain followed by a rash on one side.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Referred pain",
+          "signs": "The heart, aorta, gallbladder or pancreas can cause upper-back pain.",
+          "urgency": "urgent",
+          "related": [
+            "heart",
+            "gallbladder",
+            "pancreas"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Sudden, severe tearing pain between the shoulder blades",
+        "Back pain with chest pain or breathlessness"
+      ]
+    },
+    {
+      "id": "lower-back",
+      "name": "Lower back",
+      "view": "back",
+      "structures": [
+        "@lumbar",
+        "sacrum",
+        "coccyx",
+        "kidney",
+        "sacroiliac",
+        "intervertebral"
+      ],
+      "causes": [
+        {
+          "title": "Lower back pain",
+          "signs": "Pain and stiffness after lifting, bending or nothing in particular. Usually settles within weeks, and staying active helps.",
+          "urgency": "self-care",
+          "related": [
+            "@lumbar"
+          ]
+        },
+        {
+          "title": "Sciatica",
+          "signs": "Pain shooting down the back of the leg, often with tingling.",
+          "urgency": "doctor",
+          "related": [
+            "intervertebral"
+          ]
+        },
+        {
+          "title": "Sacroiliac joint pain",
+          "signs": "One-sided low-back and buttock pain, worse on stairs or rolling in bed.",
+          "urgency": "self-care",
+          "related": [
+            "sacroiliac"
+          ]
+        },
+        {
+          "title": "Kidney stone or infection",
+          "signs": "Pain higher up in the side or back, with fever or urinary symptoms.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Spinal stenosis",
+          "signs": "Leg pain or heaviness on walking, relieved by sitting or bending forward.",
+          "urgency": "doctor",
+          "related": [
+            "@lumbar"
+          ]
+        },
+        {
+          "title": "Inflammatory back pain",
+          "signs": "Stiffness worst in the morning, lasting over 30 minutes and easing with exercise, starting before 40.",
+          "urgency": "doctor",
+          "related": [
+            "sacroiliac"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
+        "Back pain with fever, unexplained weight loss, a history of cancer, or after significant trauma",
+        "Severe pain that is worse at night and doesn’t ease with rest"
+      ]
+    }
+  ]
+}
