@@ -1,21 +1,28 @@
-// Data integrity check, loaded only with ?debug in the URL. Helps when adding layers or editing data.
+// Data integrity check. Runs in the browser with ?debug in the URL, and headless with `node tools/check.mjs`.
+// check() is pure (no DOM) so both can share it; validate() is the browser wrapper that logs and shows a badge.
 import { parseKey } from './graph.js';
 
-export function validate({ graph, map }) {
+// drawn: Map(view -> Set(structure key)), regionShapes: Map(view -> Set(region key))
+export function check({ graph, drawn, regionShapes }) {
   const problems = [...graph.problems];
-  const drawn = new Set(map.keys());
-  const regionShapes = new Set(map.regionKeys());
+  const views = [...drawn.keys()];
+  const all = new Set([...drawn.values()].flatMap((s) => [...s]));
+  const allRegions = new Set([...regionShapes.values()].flatMap((s) => [...s]));
 
-  for (const k of drawn) {
-    const { id, side } = parseKey(k);
-    const n = graph.node(id);
-    if (!n) { problems.push(`SVG shape "${k}" has no entry in the data`); continue; }
-    if (n.paired && !side) problems.push(`"${id}" is paired but a shape has no data-side`);
-    if (!n.paired && side) problems.push(`"${id}" is not paired but a shape has data-side="${side}"`);
+  for (const [view, keys] of drawn) {
+    for (const k of keys) {
+      const { id, side } = parseKey(k);
+      const n = graph.node(id);
+      if (!n) { problems.push(`SVG shape "${k}" (${view}) has no entry in the data`); continue; }
+      if (n.paired && !side) problems.push(`"${id}" is paired but a ${view} shape has no data-side`);
+      if (!n.paired && side) problems.push(`"${id}" is not paired but a ${view} shape has data-side="${side}"`);
+    }
   }
   for (const n of graph.nodes.values()) {
-    if (n.type === 'joint' || n.listOnly) continue;
-    for (const k of graph.instances(n.id)) if (!drawn.has(k)) problems.push(`"${k}" is not drawn (add a shape or set "listOnly": true)`);
+    if (n.type === 'joint') continue;
+    const keys = graph.instances(n.id);
+    if (n.listOnly) { if (keys.some((k) => all.has(k))) problems.push(`"${n.id}" is drawn, so it shouldn't be "listOnly"`); continue; }
+    for (const k of keys) if (!all.has(k)) problems.push(`"${k}" is not drawn in any view (add a shape or set "listOnly": true)`);
   }
   let bones = 0;
   for (const n of graph.nodes.values()) {
@@ -39,23 +46,33 @@ export function validate({ graph, map }) {
     }
   }
 
-  for (const k of regionShapes) if (!graph.regions.get(parseKey(k).id)) problems.push(`Region shape "${k}" has no entry in regions.json`);
+  // regions: a back area ("view": "back") needs a shape in the back view, every other area one in the front view
+  for (const k of allRegions) if (!graph.regions.get(parseKey(k).id)) problems.push(`Region shape "${k}" has no entry in regions.json`);
+  const backView = views.includes('posterior') ? 'posterior' : null;
   for (const r of graph.regions.values()) {
-    if (r.view !== 'back') for (const k of graph.regionKeys(r.id)) if (!regionShapes.has(k)) problems.push(`Region "${k}" has no shape`);
+    const home = r.view === 'back' ? backView : views[0];
+    if (!home) problems.push(`Region "${r.id}" is on the back, but there is no posterior view`);
+    else for (const k of graph.regionKeys(r.id)) if (!regionShapes.get(home)?.has(k)) problems.push(`Region "${k}" has no shape in the ${home} view`);
     const refs = [...graph.expandRefs(r.structures), ...r.causes.flatMap((c) => graph.expandRefs(c.related || []))];
     for (const ref of refs) if (!graph.node(parseKey(ref).id)) problems.push(`Region "${r.id}" references unknown "${ref}"`);
   }
 
   const unique = [...new Set(problems)];
   const edges = [...graph.adj.values()].reduce((s, l) => s + l.length, 0) / 2;
-  const summary = `${unique.length} issue${unique.length === 1 ? '' : 's'} · ${bones} bones · ${graph.nodes.size} structures · ${edges} connections · ${drawn.size} drawn keys`;
+  const perView = [...drawn].map(([v, s]) => `${s.size} ${v}`).join(', ');
+  const summary = `${unique.length} issue${unique.length === 1 ? '' : 's'} · ${bones} bones · ${graph.nodes.size} structures · ${edges} connections · drawn keys: ${perView}`;
+  return { problems: unique, summary };
+}
+
+export function validate({ graph, map }) {
+  const { problems, summary } = check({ graph, drawn: map.drawnByView(), regionShapes: map.regionsByView() });
   console.group(`[Corpus] data check: ${summary}`);
-  if (unique.length) console.table(unique.map((p) => ({ problem: p })));
+  if (problems.length) console.table(problems.map((p) => ({ problem: p })));
   else console.info('All references resolve.');
   console.groupEnd();
   const badge = document.createElement('div');
   badge.className = 'debug-badge';
   badge.textContent = `debug: ${summary}`;
   document.body.appendChild(badge);
-  return unique;
+  return problems;
 }

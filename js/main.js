@@ -24,14 +24,18 @@ async function load(url, as = 'json') {
 
 async function boot() {
   const manifest = await load('data/manifest.json');
-  const [datas, svgs, linkFiles, regionsData, regionsSvg] = await Promise.all([
+  const views = manifest.views?.length ? manifest.views : [{ id: 'anterior', name: 'Front' }];
+  // a layer's "svg" maps view id -> file; a plain string means the first view only
+  const svgMap = (spec) => (typeof spec === 'string' ? { [views[0].id]: spec } : spec || {});
+  const loadSvgs = async (spec) => Object.fromEntries(await Promise.all(Object.entries(svgMap(spec)).map(async ([v, url]) => [v, await load(url, 'text')])));
+  const [datas, svgs, linkFiles, regionsData, regionSvgs] = await Promise.all([
     Promise.all(manifest.layers.map((l) => load(l.data))),
-    Promise.all(manifest.layers.map((l) => load(l.svg, 'text'))),
+    Promise.all(manifest.layers.map((l) => loadSvgs(l.svg))),
     Promise.all((manifest.links || []).map((u) => load(u))),
     manifest.regions ? load(manifest.regions.data) : { regions: [] },
-    manifest.regions ? load(manifest.regions.svg, 'text') : '',
+    manifest.regions ? loadSvgs(manifest.regions.svg) : {},
   ]);
-  const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgText: svgs[i] }));
+  const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i] }));
   const graph = new Graph({ layers, links: linkFiles.flatMap((f) => f.links || []), linkTypes: manifest.linkTypes, regions: regionsData });
 
   const svg = $('#map');
@@ -42,8 +46,11 @@ async function boot() {
   const hint = $('#map-hint');
   const panel = createPanel(graph);
 
+  const viewById = new Map(views.map((v) => [v.id, v]));
+  const savedView = prefs.get('view', views[0].id);
   const store = createStore({
     route: { view: 'home' },
+    view: viewById.has(savedView) ? savedView : views[0].id, // front / back (not part of the route)
     visible: new Set(manifest.layers.filter((l) => l.visible).map((l) => l.id)),
     active: [...manifest.layers].reverse().find((l) => l.visible)?.id,
     joints: prefs.get('joints', true),
@@ -53,8 +60,43 @@ async function boot() {
   });
 
   const map = createMap({ svg, graph, onPick, onHover });
-  map.mount(layers, regionsSvg);
+  map.mount(layers, regionSvgs, views);
   const zoom = createZoom(svg, { onChange: () => {} });
+
+  // ------------------------------------------------------------------ views (front / back)
+  const layersIn = (v) => manifest.layers.filter((l) => svgMap(l.svg)[v]).map((l) => l.id);
+  // the back view is drawn in the front's frame and shown flipped; Mirror only applies to views that aren't flipped
+  const flipOf = (st) => (viewById.get(st.view)?.flip ? true : st.mirror);
+  // the layer in focus, falling back to the top-most visible layer this view has a drawing for
+  const activeIn = (st) => {
+    const here = layersIn(st.view);
+    if (here.includes(st.active) && st.visible.has(st.active)) return st.active;
+    return [...here].reverse().find((id) => st.visible.has(id)) || null;
+  };
+  // patch that switches to view v, keeping at least one layer that is drawn there visible
+  function viewPatch(st, v) {
+    if (!viewById.has(v) || v === st.view) return {};
+    prefs.set('view', v);
+    const patch = { view: v };
+    const here = layersIn(v);
+    const visible = st.visible;
+    if (here.length && !here.some((id) => visible.has(id))) patch.visible = new Set([...visible, here[0]]);
+    return patch;
+  }
+  // keys a route points at, and the views where they are drawn: switch only when the current view doesn't show them
+  function viewFor(route, current) {
+    let found = [];
+    if (route.view === 'node') {
+      const n = graph.node(route.id);
+      if (n) found = map.viewsOf(graph.keysFor(n.id, n.paired ? route.side : null));
+    } else if (route.view === 'group') found = map.viewsOf(graph.groupKeys(route.id));
+    else if (route.view === 'region') {
+      const r = graph.regions.get(route.id);
+      if (r) found = map.viewsOf(graph.regionKeys(r.id, r.paired ? route.side : null), { regions: true });
+    }
+    return !found.length || found.includes(current) ? current : found[0];
+  }
+  const setView = (v) => store.set(viewPatch(store.get(), v));
 
   // ------------------------------------------------------------------ navigation
   let zoomNext = false;
@@ -64,11 +106,11 @@ async function boot() {
   function onRoute() {
     const prev = store.get();
     const route = Router.parse();
-    const patch = { route };
+    const patch = { route, ...viewPatch(prev, viewFor(route, prev.view)) };
     if (route.view === 'node') {
       const n = graph.node(route.id);
       if (n && !n.listOnly && !Router.isHurt(route)) {
-        const vis = new Set(prev.visible);
+        const vis = new Set(patch.visible || prev.visible);
         vis.add(n.layer);
         patch.visible = vis;
         patch.active = n.layer;
@@ -165,33 +207,50 @@ async function boot() {
   function renderControls(st) {
     const hurt = Router.isHurt(st.route);
     for (const b of document.querySelectorAll('.modes button')) b.setAttribute('aria-pressed', String((b.dataset.mode === 'hurt') === hurt));
+    const here = layersIn(st.view);
+    const active = activeIn(st);
+    const vname = viewById.get(st.view)?.name || st.view;
     for (const b of document.querySelectorAll('.layer-chip[data-layer]')) {
       const id = b.dataset.layer;
-      const state = !st.visible.has(id) ? 'off' : st.active === id ? 'active' : 'context';
-      b.dataset.state = state;
-      b.setAttribute('aria-pressed', String(state !== 'off'));
       const name = b.dataset.name;
-      b.title = state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
+      const drawnHere = here.includes(id);
+      const state = !drawnHere ? 'na' : !st.visible.has(id) ? 'off' : active === id ? 'active' : 'context';
+      b.dataset.state = state;
+      b.disabled = !drawnHere;
+      b.setAttribute('aria-pressed', String(state === 'active' || state === 'context'));
+      b.title = state === 'na' ? `${name} aren’t drawn in the ${vname.toLowerCase()} view yet` : state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
     }
+    for (const b of document.querySelectorAll('.views button')) b.setAttribute('aria-pressed', String(b.dataset.view === st.view));
+    svg.setAttribute('aria-label', `${vname} view of the human body. Use search or Browse to reach every structure by keyboard.`);
     const jb = $('.layer-chip[data-toggle="joints"]');
     jb.dataset.state = st.joints ? 'active' : 'off';
     jb.setAttribute('aria-pressed', String(st.joints));
-    $('#mirror').setAttribute('aria-pressed', String(st.mirror));
+    const fixedFlip = !!viewById.get(st.view)?.flip;
+    const mb = $('#mirror');
+    mb.disabled = fixedFlip;
+    mb.setAttribute('aria-pressed', String(!fixedFlip && st.mirror));
+    mb.title = fixedFlip ? 'Seen from behind, the figure already matches your own body' : 'Mirror: flip the figure so it matches your own body';
+    const flip = flipOf(st);
     const lab = (s) => `<b>${s === 'right' ? 'R' : 'L'}</b><small>body’s ${s}</small>`;
-    $('#side-left').innerHTML = lab(st.mirror ? 'left' : 'right');
-    $('#side-right').innerHTML = lab(st.mirror ? 'right' : 'left');
+    $('#side-left').innerHTML = lab(flip ? 'left' : 'right');
+    $('#side-right').innerHTML = lab(flip ? 'right' : 'left');
     $('#hurt-banner').hidden = st.route.view !== 'hurt';
     const t = panel.title(st);
     document.title = t ? `${t} · Corpus` : 'Corpus: a connected map of the human body';
   }
+  let lastFlip = null;
   function renderMap(st) {
+    const flip = flipOf(st);
+    if (lastFlip !== null && flip !== lastFlip) zoom.mirrorX(); // keep the same body part in frame
+    lastFlip = flip;
     map.render({
       ...highlights(st),
+      view: st.view,
       visible: st.visible,
-      active: st.active,
+      active: activeIn(st),
       hurt: Router.isHurt(st.route),
       joints: st.joints,
-      mirror: st.mirror,
+      flip,
       probePoint: st.route.view === 'region' && st.probe ? st.probe.point : null,
     });
   }
@@ -200,7 +259,7 @@ async function boot() {
     if (top) { panelBody.scrollTop = 0; panelEl.scrollTop = 0; }
   }
   store.subscribe((st, prev) => {
-    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible) renderPanel(st, st.route !== prev.route);
+    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible || st.view !== prev.view) renderPanel(st, st.route !== prev.route);
     renderMap(st);
     renderControls(st);
   });
@@ -216,11 +275,14 @@ async function boot() {
     const st = store.get();
     if (b.dataset.toggle === 'joints') { prefs.set('joints', !st.joints); store.set({ joints: !st.joints }); return; }
     const id = b.dataset.layer;
+    if (!layersIn(st.view).includes(id)) return;
     const vis = new Set(st.visible);
+    const active = activeIn(st);
     if (!vis.has(id)) { vis.add(id); store.set({ visible: vis, active: id }); }
-    else if (st.active !== id) store.set({ active: id });
+    else if (active !== id) store.set({ active: id });
     else {
-      const others = [...vis].filter((x) => x !== id);
+      // hide it, but keep at least one layer of this view on
+      const others = layersIn(st.view).filter((x) => x !== id && vis.has(x));
       if (!others.length) return;
       vis.delete(id);
       store.set({ visible: vis, active: others[others.length - 1] });
@@ -238,6 +300,11 @@ async function boot() {
   $('#zoom-out').addEventListener('click', () => zoom.zoomBy(1.4));
   $('#zoom-fit').addEventListener('click', () => zoom.home());
   $('#mirror').addEventListener('click', () => { const m = !store.get().mirror; prefs.set('mirror', m); store.set({ mirror: m }); });
+  const viewsEl = $('#views');
+  viewsEl.innerHTML = views.map((v) => `<button data-view="${escapeHtml(v.id)}" aria-pressed="false" title="${escapeHtml(v.name)} view (B)">${escapeHtml(v.name)}</button>`).join('');
+  viewsEl.hidden = views.length < 2;
+  viewsEl.addEventListener('click', (e) => { const b = e.target.closest('[data-view]'); if (b) { hideHint(); setView(b.dataset.view); } });
+  const toggleView = () => { const i = views.findIndex((v) => v.id === store.get().view); setView(views[(i + 1) % views.length].id); };
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
 
   $('#theme-toggle').addEventListener('click', () => {
@@ -273,9 +340,14 @@ async function boot() {
     }
     const show = e.target.closest('[data-layer-on]');
     if (show) {
-      const vis = new Set(store.get().visible);
-      vis.add(show.dataset.layerOn);
-      store.set({ visible: vis });
+      const id = show.dataset.layerOn;
+      const st = store.get();
+      // a layer this view has no drawing for: switch to the first view that has one
+      const v = layersIn(st.view).includes(id) ? st.view : views.find((x) => layersIn(x.id).includes(id))?.id;
+      const patch = v ? viewPatch(st, v) : {};
+      const vis = new Set(patch.visible || st.visible);
+      vis.add(id);
+      store.set({ ...patch, visible: vis });
       return;
     }
     if (e.target.closest('[data-back]')) {
@@ -324,6 +396,7 @@ async function boot() {
     } else if (e.key === '+' || e.key === '=') zoom.zoomBy(0.7);
     else if (e.key === '-' || e.key === '_') zoom.zoomBy(1.4);
     else if (e.key === '0') zoom.home();
+    else if (e.key === 'b' || e.key === 'B') toggleView();
   });
 
   window.addEventListener('hashchange', onRoute);

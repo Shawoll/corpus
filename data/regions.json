@@ -1,5 +1,5 @@
 {
-  "note": "Body areas for “Where does it hurt?”. Ids match data-id attributes in assets/svg/regions-anterior.svg. Urgency: self-care | doctor | urgent.",
+  "note": "Body areas for “Where does it hurt?”. Ids match data-id attributes in assets/svg/regions-anterior.svg and, for areas also seen from behind, regions-posterior.svg. \"view\": \"back\" marks an area on the back of the body, which needs a shape in the posterior drawing. Urgency: self-care | doctor | urgent.",
   "disclaimer": "Corpus is an educational map, not a diagnosis. It can’t examine you or know your history. If you are worried about a symptom, talk to a doctor or pharmacist.",
   "emergency": "In an emergency call your local emergency number: 112 (EU), 999 (UK), 911 (US).",
   "redFlags": [
@@ -1604,6 +1604,16 @@
           ]
         },
         {
+          "title": "Baker’s cyst",
+          "signs": "A swelling or tight feeling behind the knee, often alongside arthritis. A suddenly swollen, painful calf needs checking for a clot (DVT).",
+          "urgency": "doctor",
+          "related": [
+            "knee",
+            "gastrocnemius",
+            "popliteal-vein"
+          ]
+        },
+        {
           "title": "Hot, swollen knee",
           "signs": "A red, hot, swollen knee, with or without fever, can be gout or infection.",
           "urgency": "urgent",
@@ -1953,6 +1963,91 @@
         "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
         "Back pain with fever, unexplained weight loss, a history of cancer, or after significant trauma",
         "Severe pain that is worse at night and doesn’t ease with rest"
+      ]
+    },
+    {
+      "id": "buttock",
+      "name": "Buttock",
+      "paired": true,
+      "view": "back",
+      "structures": [
+        "hip-bone",
+        "sacrum",
+        "coccyx",
+        "sacroiliac",
+        "sacrococcygeal",
+        "hip",
+        "femur",
+        "gluteus-maximus",
+        "gluteus-medius",
+        "hamstrings",
+        "sciatic-nerve",
+        "sacral-plexus",
+        "iliac-artery"
+      ],
+      "causes": [
+        {
+          "title": "Sciatica",
+          "signs": "Pain from the buttock shooting down the back of the leg, often with tingling or numbness. It usually comes from an irritated nerve root in the lower back.",
+          "urgency": "doctor",
+          "related": [
+            "sciatic-nerve",
+            "sacral-plexus",
+            "intervertebral",
+            "@lumbar"
+          ]
+        },
+        {
+          "title": "Sacroiliac joint pain",
+          "signs": "One-sided pain over the dimple at the top of the buttock, worse on stairs, standing up or rolling in bed.",
+          "urgency": "self-care",
+          "related": [
+            "sacroiliac",
+            "sacrum"
+          ]
+        },
+        {
+          "title": "Gluteal muscle strain",
+          "signs": "Aching or tightness in the buttock after running, climbing or a sudden effort, easing over days to weeks.",
+          "urgency": "self-care",
+          "related": [
+            "gluteus-maximus",
+            "gluteus-medius"
+          ]
+        },
+        {
+          "title": "Sitting-bone pain (high hamstring tendinopathy)",
+          "signs": "Deep pain at the bottom of the buttock, worse sitting on hard chairs or running uphill.",
+          "urgency": "self-care",
+          "related": [
+            "hamstrings",
+            "hip-bone"
+          ]
+        },
+        {
+          "title": "Tailbone pain (coccydynia)",
+          "signs": "Pain at the very bottom of the spine, worse sitting or getting up from a chair, often after a fall or childbirth.",
+          "urgency": "self-care",
+          "related": [
+            "coccyx",
+            "sacrococcygeal"
+          ]
+        },
+        {
+          "title": "Pain from the hip",
+          "signs": "Hip arthritis can ache in the buttock as well as the groin, with stiffness putting on shoes and socks.",
+          "urgency": "doctor",
+          "related": [
+            "hip",
+            "femur",
+            "hip-bone"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
+        "A leg that is getting weaker, or buttock pain with fever or feeling very unwell",
+        "Unable to bear weight after a fall"
       ]
     }
   ]

@@ -129,6 +129,8 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
     home() { animateTo({ x: home[0], y: home[1], w: home[2], h: home[3] }); },
     zoomBy(f) { const c = { x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 }; cancelAnimationFrame(raf); const t = { ...vb }; const w = Math.min(MAX_W, Math.max(MIN_W, vb.w * f)); f = w / vb.w; animateTo({ x: c.x - (c.x - t.x) * f, y: c.y - (c.y - t.y) * f, w: t.w * f, h: t.h * f }, 220); },
     pan(dx, dy) { animateTo({ ...vb, x: vb.x + dx * vb.w, y: vb.y + dy * vb.h }, 180); },
+    // the figure was just flipped (Mirror, or front ↔ back): mirror the box about x = 240 so the same body part stays in frame
+    mirrorX() { cancelAnimationFrame(raf); vb = { ...vb, x: 480 - vb.x - vb.w }; clamp(); apply(); },
     // Bring a box (svg units) into view; zoom in on small targets, leave large visible ones alone.
     reveal(b, { force = false, parts = null } = {}) {
       // a paired structure whose instances are each tiny (both hands' carpals): zoom into the first one

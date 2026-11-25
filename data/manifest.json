@@ -1,6 +1,16 @@
 {
   "title": "Corpus",
-  "view": "anterior",
+  "views": [
+    {
+      "id": "anterior",
+      "name": "Front"
+    },
+    {
+      "id": "posterior",
+      "name": "Back",
+      "flip": true
+    }
+  ],
   "viewBox": [
     0,
     0,
@@ -11,35 +21,46 @@
     {
       "id": "organs",
       "name": "Organs",
-      "svg": "assets/svg/organs-anterior.svg",
+      "svg": {
+        "anterior": "assets/svg/organs-anterior.svg"
+      },
       "data": "data/organs.json",
       "visible": false
     },
     {
       "id": "skeleton",
       "name": "Skeleton",
-      "svg": "assets/svg/skeleton-anterior.svg",
+      "svg": {
+        "anterior": "assets/svg/skeleton-anterior.svg",
+        "posterior": "assets/svg/skeleton-posterior.svg"
+      },
       "data": "data/skeleton.json",
       "visible": true
     },
     {
       "id": "muscles",
       "name": "Muscles",
-      "svg": "assets/svg/muscles-anterior.svg",
+      "svg": {
+        "anterior": "assets/svg/muscles-anterior.svg"
+      },
       "data": "data/muscles.json",
       "visible": false
     },
     {
       "id": "vessels",
       "name": "Vessels",
-      "svg": "assets/svg/vessels-anterior.svg",
+      "svg": {
+        "anterior": "assets/svg/vessels-anterior.svg"
+      },
       "data": "data/vessels.json",
       "visible": false
     },
     {
       "id": "nerves",
       "name": "Nerves",
-      "svg": "assets/svg/nerves-anterior.svg",
+      "svg": {
+        "anterior": "assets/svg/nerves-anterior.svg"
+      },
       "data": "data/nerves.json",
       "visible": false
     }
@@ -48,7 +69,10 @@
     "data/links.json"
   ],
   "regions": {
-    "svg": "assets/svg/regions-anterior.svg",
+    "svg": {
+      "anterior": "assets/svg/regions-anterior.svg",
+      "posterior": "assets/svg/regions-posterior.svg"
+    },
     "data": "data/regions.json"
   },
   "linkTypes": {

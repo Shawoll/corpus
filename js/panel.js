@@ -16,7 +16,7 @@ const REGION_GROUPS = [
   ['Abdomen', ['upper-right-abdomen', 'upper-middle-abdomen', 'upper-left-abdomen', 'right-flank', 'around-navel', 'left-flank', 'lower-right-abdomen', 'lower-middle-abdomen', 'lower-left-abdomen']],
   ['Arms', ['shoulder', 'upper-arm', 'elbow', 'forearm', 'wrist-hand']],
   ['Legs', ['hip-groin', 'thigh', 'knee', 'lower-leg', 'ankle-foot']],
-  ['Back (list only for now)', ['upper-back', 'lower-back']],
+  ['Back', ['upper-back', 'lower-back', 'buttock']],
 ];
 
 export function createPanel(graph) {
@@ -163,10 +163,11 @@ export function createPanel(graph) {
     return `<p class="eyebrow">${parts.filter(Boolean).join(' · ')}</p>`;
   }
 
-  function sideSwitch(n, side, mirror) {
+  // flip: the figure is shown flipped (Mirror on, or the back view); back: seen from behind
+  function sideSwitch(n, side, { flip, back }) {
     const btn = (s) => `<button data-nav="s/${encodeURIComponent(n.id)}${s ? '/' + s : ''}" aria-pressed="${(s || null) === (side || null)}">${s ? cap(s) : 'Both'}</button>`;
-    const where = side ? ((side === 'right') !== !!mirror ? 'left' : 'right') : null;
-    const note = side ? `<p class="side-note">The body’s ${side} side, on the ${where} of the figure${mirror ? ' in mirror view' : ''}.</p>` : '';
+    const where = side ? ((side === 'right') !== !!flip ? 'left' : 'right') : null;
+    const note = side ? `<p class="side-note">The body’s ${side} side, on the ${where} of the figure${back ? ' seen from behind' : flip ? ' in mirror view' : ''}.</p>` : '';
     return `<div class="side-switch"><div class="seg" role="group" aria-label="Side">${btn('right')}${btn('left')}${btn(null)}</div>${note}</div>`;
   }
 
@@ -191,7 +192,7 @@ export function createPanel(graph) {
     h += eyebrow(crumbs);
     h += `<h2 class="title">${esc(n.name)}</h2>`;
     h += `<div class="subline">${n.latin && n.latin !== n.name ? `<span class="latin">${esc(n.latin)}</span>` : ''}${aka ? `<span class="aka">also: ${esc(aka)}</span>` : ''}</div>`;
-    if (n.paired) h += sideSwitch(n, side, st.mirror);
+    if (n.paired) h += sideSwitch(n, side, { flip: st.view === 'posterior' || st.mirror, back: st.view === 'posterior' });
 
     const f = [];
     if (n.type === 'bone') {
@@ -224,7 +225,7 @@ export function createPanel(graph) {
       h += `<div class="note-card">${notes.map(esc).join('<br>')}</div>`;
     }
     if (n.noJoints) h += `<div class="note-card">${esc(n.noJoints)}</div>`;
-    if (n.listOnly) h += `<div class="note-card">Not visible in the front view, so it isn’t drawn on the map. You can still reach it through search, the browse list and its connections.</div>`;
+    if (n.listOnly) h += `<div class="note-card">Not drawn on the map yet: it lies deep inside, or on the back, where only the skeleton is drawn so far. You can still reach it through search, the browse list and its connections.</div>`;
 
     if (n.type === 'joint') {
       const members = lift(keys.flatMap((k) => graph.membersOfJoint(k)), ctx, null);
@@ -277,7 +278,6 @@ export function createPanel(graph) {
     let h = `<button class="crumb" data-nav="hurt">← All areas</button>`;
     h += eyebrow(['Where does it hurt?', r.view === 'back' ? 'Back' : null, side ? `${cap(side)} side` : null]);
     h += `<h2 class="title">${esc(r.name)}${side ? ` <span class="latin" style="font-size:18px">(${side})</span>` : ''}</h2>`;
-    if (r.view === 'back') h += `<div class="note-card">This area is on the back of the body, which isn’t drawn yet. The structures below are still linked to the map.</div>`;
     if (st.probe && st.probe.rkey === (side ? `${r.id}:${side}` : r.id) && st.probe.keys.length) {
       h += section('Under this spot', `<p class="section-note">Everything beneath where you tapped, in every layer.</p>${chips(st.probe.keys, { side: ctxSide })}`);
     }
@@ -296,7 +296,9 @@ export function createPanel(graph) {
     let h = eyebrow(['Where does it hurt?']);
     h += `<h2 class="title">Tap where it hurts</h2>`;
     h += `<p class="summary">Pick the area on the figure, or from the list below. Each area lists what lies there, the common causes of pain and when to get help.</p>`;
-    h += `<div class="note-card">The figure faces you, so its right side is on your left. ${st.mirror ? 'Mirror is on: the figure now matches your own body like a mirror.' : 'Turn on <b>Mirror</b> (bottom left of the map) to match it to your own body.'}</div>`;
+    h += st.view === 'posterior'
+      ? `<div class="note-card">You’re looking at the figure from behind, so its right side is on your right, like your own body. Switch to <b>Front</b> (bottom left of the map) for the chest, belly and face.</div>`
+      : `<div class="note-card">The figure faces you, so its right side is on your left. ${st.mirror ? 'Mirror is on: the figure now matches your own body like a mirror.' : 'Turn on <b>Mirror</b> (bottom left of the map) to match it to your own body.'} Switch to <b>Back</b> for the back and buttocks.</div>`;
     h += section('How urgent', `<div class="legend-urg">${Object.entries(URG).map(([k, v]) => `<span class="urg" data-u="${k}">${v}</span>`).join('')}</div>`);
     const lists = REGION_GROUPS.map(([name, ids]) => {
       const items = ids.map((id) => graph.regions.get(id)).filter(Boolean);
@@ -326,7 +328,8 @@ export function createPanel(graph) {
       <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles, Organs, Vessels or Nerves. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
       <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, nerve, blood vessel, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
-      <li><span class="k">v</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
+      <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the skeleton and the “Where does it hurt?” areas so far.</span></li>
+      <li><span class="k">vi</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);
     h += section('Legend', `<div class="legend">
       <div><span class="sq sel"></span>Selected</div>
@@ -338,7 +341,7 @@ export function createPanel(graph) {
       <div><span class="jdot" data-c="cartilaginous"></span>Cartilaginous joint (slightly moving)</div>
       <div><span class="jdot" data-c="fibrous"></span>Fibrous joint (fixed)</div>
     </div>`);
-    h += `<p class="disclaimer">The figure is drawn from the front in the anatomical position (palms forward), so the body’s right is on your left. ${esc(graph.regionsData.disclaimer || '')}</p>`;
+    h += `<p class="disclaimer">The figure stands in the anatomical position (palms forward). From the front the body’s right is on your left; from the back it is on your right. ${esc(graph.regionsData.disclaimer || '')}</p>`;
     return h;
   }
 

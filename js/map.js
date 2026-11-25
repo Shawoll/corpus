@@ -1,4 +1,6 @@
 // The body map: mounts each layer's SVG into one <svg>, indexes shapes by key, and renders highlight state.
+// Every view (front, back) gets its own <g class="view">; only the current one is displayed. All drawings share
+// one frame (body's right at x < 240), so a view with "flip" is shown through the mirror transform on #world.
 const NS = 'http://www.w3.org/2000/svg';
 const el = (tag, attrs = {}) => {
   const e = document.createElementNS(NS, tag);
@@ -11,9 +13,17 @@ export function createMap({ svg, graph, onPick, onHover }) {
   const layersG = svg.querySelector('#layers');
   const overlay = svg.querySelector('#overlay');
   const world = svg.querySelector('#world');
-  const index = new Map(); // structure key -> elements
-  const rindex = new Map(); // region key -> elements
-  const layerEls = new Map();
+  const index = new Map(); // structure key -> elements (all views)
+  const rindex = new Map(); // region key -> elements (all views)
+  const keyViews = new Map(); // structure key -> Set(view) where it is drawn and tappable (not .back)
+  const regionViews = new Map(); // region key -> Set(view)
+  const drawn = new Map(); // view -> Set(structure key), including .back shapes
+  const regionDrawn = new Map(); // view -> Set(region key)
+  const layerEls = new Map(); // layer id -> [<g class="layer">] (one per view it is drawn in)
+  const viewEls = new Map(); // view id -> <g class="view">
+  let viewIds = [];
+  const add = (m, k, v) => { if (!m.has(k)) m.set(k, new Set()); m.get(k).add(v); };
+  const shown = (e) => !e.closest('.layer.off, .view.off');
   let marked = [];
   let hovered = [];
 
@@ -27,35 +37,58 @@ export function createMap({ svg, graph, onPick, onHover }) {
     }
   }
 
-  function mount(layers, regionsSvgText) {
-    for (const L of layers) {
-      const g = el('g', { class: 'layer', 'data-layer': L.id });
-      importSvg(L.svgText, g);
-      layersG.appendChild(g);
-      layerEls.set(L.id, g);
-    }
-    const rg = el('g', { class: 'layer regions-layer', 'data-layer': 'regions' });
-    if (regionsSvgText) importSvg(regionsSvgText, rg);
-    layersG.appendChild(rg);
+  // layers: [{ id, svgs: { <view>: svgText } }], regionSvgs: { <view>: svgText }, views: [{ id }] (drawing order: first is bottom)
+  function mount(layers, regionSvgs = {}, views = [{ id: 'anterior' }]) {
+    viewIds = views.map((v) => v.id);
+    for (const V of views) {
+      const vg = el('g', { class: 'view', 'data-view': V.id });
+      layersG.appendChild(vg);
+      viewEls.set(V.id, vg);
+      drawn.set(V.id, new Set());
+      regionDrawn.set(V.id, new Set());
+      for (const L of layers) {
+        if (!L.svgs?.[V.id]) continue;
+        const g = el('g', { class: 'layer', 'data-layer': L.id });
+        importSvg(L.svgs[V.id], g);
+        vg.appendChild(g);
+        if (!layerEls.has(L.id)) layerEls.set(L.id, []);
+        layerEls.get(L.id).push(g);
+      }
+      const rg = el('g', { class: 'layer regions-layer', 'data-layer': 'regions' });
+      if (regionSvgs[V.id]) importSvg(regionSvgs[V.id], rg);
+      vg.appendChild(rg);
 
-    for (const e of layersG.querySelectorAll('.layer:not(.regions-layer) [data-id]')) {
-      const k = keyOf(e);
-      e.dataset.key = k;
-      if (!index.has(k)) index.set(k, []);
-      index.get(k).push(e);
-      const b = e.querySelector(':scope > .b');
-      if (b) { const hit = b.cloneNode(false); hit.setAttribute('class', 'hit'); e.appendChild(hit); }
-      if (e.classList.contains('jm')) {
-        const n = graph.node(e.dataset.id);
-        if (n?.class) e.dataset.jclass = n.class;
+      for (const e of vg.querySelectorAll('.layer:not(.regions-layer) [data-id]')) {
+        const k = keyOf(e);
+        e.dataset.key = k;
+        if (!index.has(k)) index.set(k, []);
+        index.get(k).push(e);
+        drawn.get(V.id).add(k);
+        if (!e.classList.contains('back')) add(keyViews, k, V.id);
+        const b = e.querySelector(':scope > .b');
+        if (b) { const hit = b.cloneNode(false); hit.setAttribute('class', 'hit'); e.appendChild(hit); }
+        if (e.classList.contains('jm')) {
+          const n = graph.node(e.dataset.id);
+          if (n?.class) e.dataset.jclass = n.class;
+        }
+      }
+      for (const e of rg.querySelectorAll('[data-id]')) {
+        const k = keyOf(e);
+        e.dataset.rkey = k;
+        if (!rindex.has(k)) rindex.set(k, []);
+        rindex.get(k).push(e);
+        regionDrawn.get(V.id).add(k);
+        add(regionViews, k, V.id);
       }
     }
-    for (const e of rg.querySelectorAll('[data-id]')) {
-      const k = keyOf(e);
-      e.dataset.rkey = k;
-      if (!rindex.has(k)) rindex.set(k, []);
-      rindex.get(k).push(e);
-    }
+  }
+
+  // Views (in manifest order) where any of these keys is drawn; regions: true looks at "Where does it hurt?" areas.
+  function viewsOf(keys, { regions = false } = {}) {
+    const m = regions ? regionViews : keyViews;
+    const hit = new Set();
+    for (const k of keys) for (const v of m.get(k) || []) hit.add(v);
+    return viewIds.filter((v) => hit.has(v));
   }
 
   // ---- events
@@ -88,20 +121,23 @@ export function createMap({ svg, graph, onPick, onHover }) {
     svg.classList.toggle('has-sel', v.sel.size > 0 || v.rsel.size > 0);
     svg.classList.toggle('mode-hurt', !!v.hurt);
     svg.classList.toggle('no-joints', !v.joints);
-    for (const [id, g] of layerEls) {
+    for (const [id, g] of viewEls) g.classList.toggle('off', id !== v.view);
+    for (const [id, gs] of layerEls) {
       const on = v.visible.has(id);
-      g.classList.toggle('off', !on);
-      g.classList.toggle('active', on && v.active === id);
-      g.classList.toggle('context', on && v.active !== id);
+      for (const g of gs) {
+        g.classList.toggle('off', !on);
+        g.classList.toggle('active', on && v.active === id);
+        g.classList.toggle('context', on && v.active !== id);
+      }
     }
-    world.setAttribute('transform', v.mirror ? 'matrix(-1 0 0 1 480 0)' : 'matrix(1 0 0 1 0 0)');
+    world.setAttribute('transform', v.flip ? 'matrix(-1 0 0 1 480 0)' : 'matrix(1 0 0 1 0 0)');
 
     // outline overlay for the selection (makes hidden-behind structures visible)
     overlay.replaceChildren();
     const ov = el('g', { class: 'ov' });
     for (const k of v.sel) {
       for (const e of index.get(k) || []) {
-        if (e.closest('.layer.off')) continue;
+        if (!shown(e)) continue;
         const shape = e.matches('circle') ? e : e.querySelector('.b');
         if (shape) ov.appendChild(shape.cloneNode(false)).removeAttribute('class');
       }
@@ -110,7 +146,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     const ovr = el('g', { class: 'ov-rel' });
     for (const k of v.rel) {
       for (const e of index.get(k) || []) {
-        if (e.closest('.layer.off') || e.matches('circle') || e.classList.contains('jt')) continue;
+        if (!shown(e) || e.matches('circle') || e.classList.contains('jt')) continue;
         const shape = e.querySelector('.b');
         if (shape) ovr.appendChild(shape.cloneNode(false)).removeAttribute('class');
       }
@@ -127,7 +163,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     for (const k of rkeys) for (const e of rindex.get(k) || []) { e.classList.add('is-hover'); hovered.push(e); }
   }
 
-  // Everything under a screen point, across all layers (even hidden ones), top-most first.
+  // Everything under a screen point, across all layers of the current view (even hidden ones), top-most first.
   function probe(clientX, clientY) {
     svg.classList.add('probing');
     const hits = document.elementsFromPoint(clientX, clientY);
@@ -155,7 +191,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     for (const k of keys) {
       for (const e of idx.get(k) || []) {
-        if (e.closest('.layer.off')) continue;
+        if (!shown(e)) continue;
         let b;
         try { b = e.getBBox(); } catch { continue; }
         const m = e.getScreenCTM();
@@ -171,10 +207,12 @@ export function createMap({ svg, graph, onPick, onHover }) {
   }
 
   return {
-    mount, render, setHover, probe, bbox, toSvgPoint,
+    mount, render, setHover, probe, bbox, toSvgPoint, viewsOf,
     has: (k) => index.has(k),
     keys: () => [...index.keys()],
     regionKeys: () => [...rindex.keys()],
+    drawnByView: () => drawn, // view -> Set(structure key), for the ?debug check
+    regionsByView: () => regionDrawn,
     elements: (k) => index.get(k) || [],
   };
 }

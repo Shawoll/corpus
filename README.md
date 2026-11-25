@@ -1,6 +1,6 @@
 # Corpus: a connected map of the human body
 
-An interactive front-view map of the human body, treated as one connected system.
+An interactive map of the human body, seen from the front and the back, treated as one connected system.
 Tap a bone, joint, muscle, organ, nerve or blood vessel to see what it is, what it connects to
 and what commonly goes wrong. In **Where does it hurt?** mode you tap a body area to see what lies there,
 the usual causes of pain and when to get help.
@@ -20,7 +20,8 @@ no dependencies, no external requests. It runs as-is on GitHub Pages.
 | Vessels | 38 major arteries and veins, from the aorta and venae cavae to the palmar arches and the great saphenous vein, with pulse points |
 | Nerves | 24 entries: the spinal cord and spinal nerves, four cranial nerves (trigeminal, facial, vagus, accessory), the cervical, brachial, lumbar and sacral plexuses and the main nerves of the arms and legs |
 | Links | Bone ↔ bone (through joints), muscle → bone (origin and insertion), bone → organ ("protects"), organ → organ ("continues into", "drains into"), nerve → muscle or organ ("supplies nerves to"), artery → muscle, organ or bone ("supplies blood to"), vessel and nerve branching ("gives rise to"), vein → vein or heart ("drains into"), heart → aorta ("pumps blood into") |
-| Regions | 25 front body areas and 2 back areas (list only), each with likely causes, urgency and red flags |
+| Views | **Front** and **Back**. The back view has the skeleton (back of the skull with the occipital bone, spinous processes, shoulder blades, sacrum) and the body areas; the other layers are drawn from the front only so far |
+| Regions | 25 front body areas and 3 back areas (upper back, lower back, buttock), each with likely causes, urgency and red flags. Limb, head and neck areas can be tapped from both sides |
 
 ## Run it locally
 
@@ -31,7 +32,9 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-Add `?debug` to the URL (`http://localhost:8000/?debug`) to run a data check. It logs to the
+Add `?debug` to the URL (`http://localhost:8000/?debug`) to run a data check, or run the same
+check without a browser with `node tools/check.mjs` (Node 22+, no packages; GitHub Actions runs it
+on every push). The browser version logs to the
 console and shows a badge: every SVG shape has data, every reference resolves, the
 bones add up to 206, every bone except the hyoid has a joint, and every muscle has a nerve
 and blood supply.
@@ -69,7 +72,8 @@ data/vessels.json       arteries and veins (supplies, branches, continues, drain
 data/nerves.json        spinal cord and nerves (innervates, branches)
 data/links.json         cross-layer and organ-to-organ links
 data/regions.json       "Where does it hurt?" areas, causes, red flags
-assets/svg/*.svg        one drawing per layer, all in the same 480 × 1200 coordinate space
+assets/svg/*.svg        one drawing per layer and view (*-anterior, *-posterior), all in the same 480 × 1200 frame
+tools/check.mjs         the ?debug data check, headless (node tools/check.mjs)
 ```
 
 ## How the pieces connect
@@ -102,7 +106,7 @@ it to their own body.
   "kind": "long", "group": "lower-limb", "paired": true, "count": 2,
   "summary": "…", "issues": [{ "name": "Hip fracture", "note": "…" }],
   "members": [ … ],     // optional: bones drawn as one group (carpals)
-  "listOnly": true }    // optional: not drawn in this view
+  "listOnly": true }    // optional: not drawn in any view
 
 // a joint: connect bones with "bones" (every pair), "chain" (each to the next) or "pairs"
 { "id": "knee", "name": "Knee joint", "class": "synovial", "subtype": "Modified hinge",
@@ -122,7 +126,7 @@ it to their own body.
   "redFlags": ["…"] }
 ```
 
-## Adding a layer (lymphatics, a back view…)
+## Adding a layer (lymphatics…)
 
 1. **Draw** `assets/svg/<layer>-anterior.svg` with `viewBox="0 0 480 1200"`, aligned to the skeleton.
    Put the shapes inside `<g class="structures">`. Each structure is a
@@ -131,16 +135,23 @@ it to their own body.
    detail lines (fibres, sutures). Use `class="deco"` for
    non-interactive decoration. Don't hard-code fill colours: style the layer in `css/app.css`.
 2. **Describe** it in `data/<layer>.json`: `{ "layer": "<layer>", "groups": [...], "structures": [...] }`.
-3. **Register** it in `data/manifest.json` under `layers` (the order is the drawing order, bottom first).
+3. **Register** it in `data/manifest.json` under `layers`, with `"svg": { "anterior": "assets/svg/<layer>-anterior.svg" }`
+   (the order is the drawing order, bottom first).
 4. **Connect** it, either with entries in `data/links.json` or with a field on each structure.
    A link type with a `field` links every structure that has that field: a nerve such as
    `{ "id": "radial-nerve", "innervates": ["triceps", "brachioradialis"] }` links itself. To add a
    new kind of relationship, add a link type with `forward` / `reverse` labels (and a `field` if it
    lives on the structures).
-5. Open `/?debug` and fix anything the check reports.
+5. Run `node tools/check.mjs` (or open `/?debug`) and fix anything the check reports.
 
-A back view works the same way: draw `*-posterior.svg` files in the same coordinate space.
-Structures marked `listOnly` (occipital bone, ossicles, palatine) can then be drawn.
+### Drawing a layer from the back
+
+List the file under the layer's `svg` in the manifest (`"svg": { "anterior": "…", "posterior": "…-posterior.svg" }`).
+Posterior files use the **front frame** (body's right at x < 240); the app flips the back view when it
+shows it. Seen from behind, an outline is the mirror image of the front one, so in this frame the
+outlines are the same in both files: reuse them and change the draw order, the `back` class (hidden
+structures) and the detail lines. Remove `"listOnly"` from anything you newly draw (the hamstrings,
+gluteus maximus, erector spinae… once there is a posterior muscles drawing).
 
 ## About the drawings
 

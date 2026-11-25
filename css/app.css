@@ -94,6 +94,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .layer-chip[data-state="context"] { color: var(--ink); }
 .layer-chip[data-state="context"] .sw { background: color-mix(in srgb, currentColor 35%, transparent); opacity: 1; }
 .layer-chip[data-state="off"] { color: var(--ink-3); }
+.layer-chip[data-state="na"] { color: var(--ink-3); opacity: 0.45; cursor: not-allowed; border-style: dashed; }
+.layer-chip[data-state="na"]:hover { border-color: var(--line-2); }
 .layer-chip:hover { border-color: var(--ink-3); }
 
 .side-label {
@@ -119,6 +121,9 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .map-controls .group button + button { border-top: 1px solid var(--line); }
 .map-controls .group button:hover { color: var(--ink); background: var(--paper-3); }
 .map-controls .group button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.map-controls .group button:disabled { color: var(--ink-3); opacity: 0.45; cursor: not-allowed; background: none; }
+.map-controls .views[hidden] { display: none; }
+.map-controls .views button { font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em; }
 
 .map-hint {
   position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 4;
@@ -432,6 +437,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .layer.context .s.is-sel .c, #map .layer.context .s.is-rel .c { fill-opacity: 0.85; }
 #map .layer.context .jm { display: none; }
 #map .layer.off { display: none; }
+#map .view.off { display: none; } /* stays hidden while probing, so "Under this spot" only lists the current view */
 
 /* selection outline overlay (also reveals structures hidden behind others) */
 #map .ov path, #map .ov circle {

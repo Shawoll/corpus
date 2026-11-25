@@ -1,6 +1,8 @@
 # Layer drawings
 
-One SVG per layer and view (`<layer>-anterior.svg`), all in the same `viewBox="0 0 480 1200"` and aligned to the skeleton. Shapes are joined to data **only** by `data-id` (plus `data-side="right|left"` for paired structures), so a renamed id must change in both the SVG and the JSON. The figure faces the viewer: the body's right side has x < 240.
+One SVG per layer and view (`<layer>-anterior.svg`, `<layer>-posterior.svg`), listed per view in `data/manifest.json`, all in the same `viewBox="0 0 480 1200"` and aligned to the skeleton. Shapes are joined to data **only** by `data-id` (plus `data-side="right|left"` for paired structures), so a renamed id must change in both the SVG and the JSON.
+
+**Every file uses the front frame: the body's right side has x < 240, posterior files included.** The app shows a view with `"flip": true` (the back) through the mirror transform, so seen from behind the right side ends up on the viewer's right. An outline seen from behind is the mirror image of the front one, so in this frame bone and limb outlines are identical in both views: copy them, then change the draw order (what is on top from behind), the `back` class (what is hidden) and the `.d` detail lines. A structure drawn in a view only as `s back` doesn't count as shown there, so selecting it switches to a view where it is tappable.
 
 `js/map.js` imports only the root's child elements and **drops `<title>`, `<style>` and `<script>`**. Inline styles and fill colours are therefore lost or fight the theme. Style everything in `css/app.css` using tokens from `css/base.css`.
 
@@ -20,6 +22,6 @@ One SVG per layer and view (`<layer>-anterior.svg`), all in the same `viewBox="0
 | `s jt` | joint tissue drawn as a shape (e.g. intervertebral discs). Its `data-id` is a joint id |
 | `<g class="joints"><circle class="jm" data-id=<joint id> …>` | joint markers, coloured by the joint's `class` and hidden by the Joints toggle |
 | `class="deco …"` | non-interactive decoration (no `data-id`) |
-| `regions-anterior.svg`: `<g class="regions"><g class="rg" data-id=<region id>>` | "Where does it hurt?" areas. Ids match `data/regions.json` |
+| `regions-<view>.svg`: `<g class="regions"><g class="rg" data-id=<region id>>` | "Where does it hurt?" areas. Ids match `data/regions.json`; the same id may appear in both views |
 
 The drawings are schematic, not illustration. They were generated once from landmark coordinates (rounded shapes, left and right mirrored about x = 240) and are now ordinary SVG files to edit by hand.

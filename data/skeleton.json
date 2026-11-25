@@ -239,7 +239,6 @@
       "latin": "Os occipitale",
       "kind": "flat",
       "group": "cranium",
-      "listOnly": true,
       "summary": "Forms the back and base of the skull. The spinal cord passes through its large opening (foramen magnum), and its condyles rest on the atlas.",
       "issues": [
         {

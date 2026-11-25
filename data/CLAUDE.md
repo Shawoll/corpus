@@ -1,12 +1,12 @@
 # Data files
 
-The structures and links behind the map. The JSON shapes are in the root `README.md` ("Data shapes"). This file covers the rules that aren't obvious from the shapes. Run `/?debug` after every edit (see the root `CLAUDE.md`).
+The structures and links behind the map. The JSON shapes are in the root `README.md` ("Data shapes"). This file covers the rules that aren't obvious from the shapes. Run `node tools/check.mjs` (or `/?debug`) after every edit (see the root `CLAUDE.md`).
 
 ## Ids and sides
 
 - `id`s are global across **all** layers and joints. If two entries share an id, the later one overwrites the earlier one, and only `?debug` reports it (`Duplicate id`). Ids are kebab-case and appear in URLs (`#/s/<id>`).
 - `"paired": true` means the structure exists as `id:right` and `id:left`. The data has one entry, and the SVG draws both sides with `data-side`. Use `"id:right"` in a reference only to point at one side. Otherwise the side rules in `graph.js` (`resolvePair`) choose sides.
-- A structure that isn't drawn in the front view needs `"listOnly": true`, or the check reports it as not drawn.
+- A structure that isn't drawn in any view (front or back) needs `"listOnly": true`, or the check reports it as not drawn. Remove the flag once it is drawn: the check also reports a drawn structure that is still `listOnly`.
 
 ## Skeleton (`skeleton.json`)
 
@@ -39,6 +39,6 @@ The structures and links behind the map. The JSON shapes are in the root `README
 ## Regions (`regions.json`)
 
 - Region ids are separate from structure ids (`knee` can be both a region and a joint).
-- Each region that isn't `"view": "back"` needs a shape in `assets/svg/regions-anterior.svg`.
+- Each region needs a shape in `assets/svg/regions-anterior.svg`, or, when it is `"view": "back"` (an area on the back of the body), in `regions-posterior.svg`. Areas seen from both sides (limbs, head, neck) can also have a shape with the same id in the other drawing.
 - A new region also has to be added to `REGION_GROUPS` in `js/panel.js`, or it won't appear in the "Where does it hurt?" list.
 - `urgency` is `self-care`, `doctor` or `urgent`. Keep `redFlags` pointed at emergency care, and keep content general rather than diagnostic.
