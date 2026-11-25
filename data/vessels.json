@@ -1,0 +1,674 @@
+{
+  "layer": "vessels",
+  "name": "Vessels",
+  "type": "vessel",
+  "note": "Major arteries and veins. \"supplies\", \"branches\", \"continues\" and \"drains\" become links (see linkTypes in manifest.json). \"kind\" is artery or vein. Ids match data-id attributes in assets/svg/vessels-anterior.svg.",
+  "groups": [
+    {
+      "id": "arteries",
+      "name": "Arteries",
+      "summary": "Vessels that carry blood away from the heart under pressure. Their walls are thick and muscular, and you can feel a pulse wherever one runs close to the surface over bone.",
+      "issues": [
+        { "name": "Atherosclerosis", "note": "Fatty plaques narrow and stiffen arteries over many years. Smoking, high blood pressure, high cholesterol and diabetes speed it up. It underlies most heart attacks and strokes." },
+        { "name": "Sudden blockage", "note": "A limb that suddenly turns cold, pale, painful or numb, or signs of a stroke or heart attack, need emergency care." }
+      ]
+    },
+    { "id": "arteries-chest", "name": "Heart & chest", "parent": "arteries", "summary": "The aorta, the arteries of the heart and lungs, and the first branches of the aortic arch." },
+    { "id": "arteries-head-arm", "name": "Head, neck & arm", "parent": "arteries", "summary": "The carotid and vertebral arteries to the head, and the chain of arteries that runs down each arm to the hand." },
+    { "id": "arteries-abdomen", "name": "Abdomen & pelvis", "parent": "arteries", "summary": "The branches of the abdominal aorta to the gut, kidneys and pelvis." },
+    {
+      "id": "arteries-leg",
+      "name": "Leg",
+      "parent": "arteries",
+      "summary": "The femoral artery and its continuations down to the foot.",
+      "issues": [
+        { "name": "Peripheral arterial disease", "note": "Narrowed leg arteries cause cramping pain in the calf, thigh or buttock when walking, easing within minutes of rest (claudication). Stopping smoking and regular walking help. See a doctor." },
+        { "name": "Acutely blocked artery", "note": "A leg that suddenly turns cold, pale, painful or numb needs emergency care." }
+      ]
+    },
+    {
+      "id": "veins",
+      "name": "Veins",
+      "summary": "Vessels that bring blood back to the heart at low pressure. Many have one-way valves, and in the legs the squeeze of the calf muscles pumps the blood upward.",
+      "issues": [
+        { "name": "Blood clot (thrombosis)", "note": "A clot blocking a vein makes the area it drains swollen, painful and sometimes discoloured. A swollen, painful limb needs urgent assessment." }
+      ]
+    },
+    { "id": "veins-chest", "name": "Heart & chest", "parent": "veins", "summary": "The veins that empty into the heart." },
+    {
+      "id": "veins-head-arm",
+      "name": "Head, neck & arm",
+      "parent": "veins",
+      "summary": "The jugular veins from the head and neck, and the deep and surface veins of the arm.",
+      "issues": [
+        { "name": "Blood clot in the arm", "note": "Less common than in the legs. It can follow a drip or central line, or heavy repeated arm use. A swollen, painful or bluish arm needs prompt assessment." },
+        { "name": "Phlebitis", "note": "An inflamed surface vein, often after a drip: a tender, red cord under the skin. It usually settles. See a doctor if it spreads or you have a fever." }
+      ]
+    },
+    { "id": "veins-abdomen", "name": "Abdomen & pelvis", "parent": "veins", "summary": "The inferior vena cava, the veins of the kidneys and pelvis, and the portal vein that takes blood from the gut to the liver." },
+    {
+      "id": "veins-leg",
+      "name": "Leg",
+      "parent": "veins",
+      "summary": "The deep veins that run with the arteries, and the great saphenous vein just under the skin.",
+      "issues": [
+        { "name": "Deep vein thrombosis (DVT)", "note": "A clot in a deep leg vein: a swollen, painful, warm calf or thigh. It needs urgent assessment the same day. Sudden breathlessness or chest pain can mean a clot has moved to the lungs. Call emergency services." },
+        { "name": "Varicose veins", "note": "Leaky valves let blood pool, so surface veins swell and twist. Mostly harmless. Walking and raising the legs help. See a doctor for skin changes, ulcers or bleeding." }
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "aorta",
+      "name": "Aorta",
+      "latin": "Aorta",
+      "aka": ["main artery", "aortic arch"],
+      "kind": "artery",
+      "group": "arteries-chest",
+      "paired": false,
+      "summary": "The body’s main artery, about as wide as a garden hose. It rises from the left ventricle, arches over the heart, runs down beside the spine through the chest and the diaphragm, and divides into the two iliac arteries in front of the fourth lumbar vertebra.",
+      "branches": ["coronary-arteries", "brachiocephalic-trunk", "common-carotid-artery:left", "subclavian-artery:left", "celiac-trunk", "superior-mesenteric-artery", "renal-artery", "inferior-mesenteric-artery", "iliac-artery"],
+      "supplies": ["lung", "esophagus", "spinal-cord", "diaphragm", "intercostals", "external-oblique", "deep-abdominals", "quadratus-lumborum", "erector-spinae", "iliopsoas"],
+      "suppliesNote": "Directly, through small paired branches along its length: the bronchial, oesophageal, intercostal, lumbar and phrenic arteries. Its big named branches have their own pages.",
+      "membersLabel": "Parts",
+      "members": [
+        { "name": "Ascending aorta", "note": "Rises from the heart. The coronary arteries leave its root." },
+        { "name": "Aortic arch", "note": "Curves over the heart and gives off the arteries to the head and arms." },
+        { "name": "Thoracic aorta", "note": "Runs down beside the spine through the chest." },
+        { "name": "Abdominal aorta", "note": "From the diaphragm to its split at the fourth lumbar vertebra." }
+      ],
+      "issues": [
+        { "name": "Abdominal aortic aneurysm", "note": "A bulge in the abdominal aorta, most common in older men who smoke. It is usually silent and found by screening. Sudden severe belly or back pain with collapse can mean it has burst. Call emergency services." },
+        { "name": "Aortic dissection", "note": "A tear in the aortic wall: sudden, severe, tearing pain in the chest or back. Call emergency services." }
+      ]
+    },
+    {
+      "id": "pulmonary-trunk",
+      "name": "Pulmonary trunk",
+      "latin": "Truncus pulmonalis",
+      "aka": ["pulmonary arteries", "pulmonary artery"],
+      "kind": "artery",
+      "group": "arteries-chest",
+      "paired": false,
+      "carries": "Oxygen-poor blood to the lungs",
+      "summary": "Leaves the right ventricle and splits under the aortic arch into the right and left pulmonary arteries. They are the only arteries that carry oxygen-poor blood, which goes to the lungs to pick up oxygen.",
+      "supplies": ["lung"],
+      "suppliesNote": "Carries blood through the lungs to be oxygenated. The lung tissue itself is fed by small bronchial arteries from the aorta.",
+      "members": [
+        { "name": "Right pulmonary artery", "latin": "Arteria pulmonalis dextra", "note": "Passes behind the aorta and superior vena cava to the right lung." },
+        { "name": "Left pulmonary artery", "latin": "Arteria pulmonalis sinistra", "note": "Shorter, to the left lung." }
+      ],
+      "issues": [
+        { "name": "Pulmonary embolism", "note": "A clot, usually from a leg vein, lodges in the lung arteries: sudden breathlessness, sharp chest pain that is worse on breathing in, sometimes coughing up blood. Call emergency services." },
+        { "name": "Pulmonary hypertension", "note": "High pressure in the lung arteries causes breathlessness on exertion and tiredness. It needs specialist assessment." }
+      ]
+    },
+    {
+      "id": "coronary-arteries",
+      "name": "Coronary arteries",
+      "latin": "Arteriae coronariae",
+      "aka": ["heart arteries", "LAD"],
+      "kind": "artery",
+      "group": "arteries-chest",
+      "paired": false,
+      "summary": "The heart’s own blood supply: two arteries that leave the very start of the aorta and run in the grooves on the heart’s surface. The left one splits early into the front (LAD) and circumflex branches.",
+      "supplies": ["heart"],
+      "membersLabel": "Arteries",
+      "members": [
+        { "name": "Right coronary artery", "note": "The right side of the heart, and in most people the heart’s natural pacemaker." },
+        { "name": "Left anterior descending artery (LAD)", "note": "The front of the heart and the wall between the ventricles." },
+        { "name": "Circumflex artery", "note": "The left side and back of the heart." }
+      ],
+      "issues": [
+        { "name": "Coronary heart disease", "note": "Narrowing by fatty plaques causes angina: chest tightness on exertion that eases with rest. It needs medical assessment." },
+        { "name": "Heart attack", "note": "A clot blocks a coronary artery: crushing chest pain, possibly spreading to the arm, jaw or back, with sweating or breathlessness. Call emergency services." }
+      ]
+    },
+    {
+      "id": "brachiocephalic-trunk",
+      "name": "Brachiocephalic trunk",
+      "latin": "Truncus brachiocephalicus",
+      "aka": ["innominate artery"],
+      "kind": "artery",
+      "group": "arteries-chest",
+      "paired": false,
+      "summary": "The first and largest branch of the aortic arch. It runs up and to the right behind the breastbone and divides behind the right sternoclavicular joint into the right common carotid and right subclavian arteries. There is no left one: on the left, those two arteries come straight off the arch.",
+      "branches": ["common-carotid-artery:right", "subclavian-artery:right"]
+    },
+    {
+      "id": "common-carotid-artery",
+      "name": "Common carotid artery",
+      "latin": "Arteria carotis communis",
+      "aka": ["carotid artery", "carotid", "internal carotid artery", "external carotid artery", "facial artery", "superficial temporal artery"],
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "pulse": "Side of the neck, beside the windpipe",
+      "summary": "Runs up the neck beside the windpipe, under the front edge of the sternocleidomastoid, and divides at the level of the top of the voice box. The internal carotid enters the skull to feed the brain and eye; the external carotid feeds the face, scalp, jaw and thyroid.",
+      "supplies": ["brain", "thyroid", "trachea", "temporalis", "masseter", "sternocleidomastoid", "suprahyoid", "infrahyoid"],
+      "suppliesNote": "The brain through the internal carotid (its upper part drawn faint, behind the jaw). The thyroid, face, scalp and chewing muscles through the external carotid and its branches.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Internal carotid artery", "latin": "Arteria carotis interna", "note": "Into the skull, to the front and middle of the brain and the eye." },
+        { "name": "External carotid artery", "latin": "Arteria carotis externa", "note": "To the thyroid, tongue, face, scalp and jaw." },
+        { "name": "Facial artery", "latin": "Arteria facialis", "note": "Crosses the jaw in front of the masseter, where you can feel its pulse, then winds up to the corner of the eye." },
+        { "name": "Superficial temporal artery", "latin": "Arteria temporalis superficialis", "note": "Pulse just in front of the ear." }
+      ],
+      "issues": [
+        { "name": "Carotid artery disease", "note": "Narrowing at the fork can shed clots to the brain. A mini-stroke (TIA), with brief weakness, numbness, loss of speech or loss of vision in one eye, is a warning: get seen urgently the same day." },
+        { "name": "Stroke", "note": "A drooping face, arm weakness or trouble speaking: call emergency services straight away." }
+      ]
+    },
+    {
+      "id": "vertebral-artery",
+      "name": "Vertebral artery",
+      "latin": "Arteria vertebralis",
+      "aka": ["basilar artery"],
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "summary": "Rises from the subclavian artery and climbs through holes in the side processes of the neck vertebrae into the skull. The two join at the base of the brain into the basilar artery, which feeds the brainstem, the cerebellum and the back of the brain. Drawn faint because it runs inside the vertebrae.",
+      "supplies": ["brain", "spinal-cord"],
+      "issues": [
+        { "name": "Vertebral artery dissection", "note": "A tear in the wall, sometimes after neck injury or a sudden neck movement: neck pain or headache followed by dizziness, unsteadiness, double vision or slurred speech. Call emergency services." }
+      ]
+    },
+    {
+      "id": "subclavian-artery",
+      "name": "Subclavian artery",
+      "latin": "Arteria subclavia",
+      "aka": ["internal thoracic artery", "internal mammary artery", "thyrocervical trunk"],
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "summary": "Arches over the first rib just above the collarbone, carrying blood to the arm. On the right it comes from the brachiocephalic trunk, on the left straight from the aortic arch. At the outer edge of the first rib it becomes the axillary artery.",
+      "branches": ["vertebral-artery"],
+      "continues": ["axillary-artery"],
+      "supplies": ["thyroid", "trachea", "trapezius", "rhomboids", "rotator-cuff", "intercostals", "diaphragm", "rectus-abdominis", "pectoralis-major"],
+      "suppliesNote": "Through the thyrocervical trunk (thyroid, neck and shoulder muscles), the dorsal scapular artery, and the internal thoracic artery, which runs down inside the front of the chest beside the breastbone.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Thyrocervical trunk", "latin": "Truncus thyrocervicalis", "note": "The lower thyroid and the neck and shoulder muscles." },
+        { "name": "Internal thoracic artery", "latin": "Arteria thoracica interna", "note": "Runs down beside the breastbone to the chest wall and the rectus abdominis. Surgeons often use it for heart bypasses." },
+        { "name": "Dorsal scapular artery", "note": "The rhomboids and the muscles over the shoulder blade." }
+      ],
+      "issues": [
+        { "name": "Subclavian steal", "note": "A narrowed subclavian artery can make the arm ache with use and cause dizziness. A big difference in blood pressure between the two arms needs checking." }
+      ]
+    },
+    {
+      "id": "axillary-artery",
+      "name": "Axillary artery",
+      "latin": "Arteria axillaris",
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "summary": "The artery of the armpit, from the first rib to the lower edge of the teres major, where it becomes the brachial artery. It runs behind the pectoralis minor with the cords of the brachial plexus around it.",
+      "continues": ["brachial-artery"],
+      "supplies": ["pectoralis-major", "pectoralis-minor", "serratus-anterior", "latissimus-dorsi", "deltoid", "rotator-cuff", "humerus"],
+      "suppliesNote": "Through the thoracoacromial, lateral thoracic, subscapular and circumflex humeral arteries.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Thoracoacromial artery", "note": "The pectoral muscles, the deltoid and the top of the shoulder." },
+        { "name": "Lateral thoracic artery", "note": "The serratus anterior and the side of the chest wall." },
+        { "name": "Subscapular artery", "note": "The shoulder-blade muscles and the latissimus dorsi." },
+        { "name": "Circumflex humeral arteries", "note": "Wrap around the neck of the humerus to the deltoid and the shoulder joint." }
+      ]
+    },
+    {
+      "id": "brachial-artery",
+      "name": "Brachial artery",
+      "latin": "Arteria brachialis",
+      "aka": ["profunda brachii"],
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "pulse": "Inside of the elbow crease, where blood pressure is measured",
+      "summary": "The main artery of the upper arm. It runs down the inner side of the biceps into the elbow crease, where a blood-pressure cuff listens to it, and divides just below the elbow into the radial and ulnar arteries.",
+      "branches": ["radial-artery", "ulnar-artery"],
+      "supplies": ["biceps", "brachialis", "triceps", "humerus", "elbow"],
+      "suppliesNote": "The triceps and the humerus through its deep branch (profunda brachii).",
+      "members": [
+        { "name": "Deep brachial artery", "latin": "Arteria profunda brachii", "note": "Runs with the radial nerve around the back of the humerus." }
+      ],
+      "issues": [
+        { "name": "Injury with an elbow fracture", "note": "A badly displaced elbow fracture, especially in children, can pinch it. A cold, pale hand or severe forearm pain after an elbow injury needs emergency care." }
+      ]
+    },
+    {
+      "id": "radial-artery",
+      "name": "Radial artery",
+      "latin": "Arteria radialis",
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "pulse": "Wrist, at the base of the thumb",
+      "summary": "Runs down the thumb side of the forearm under the brachioradialis. At the wrist it lies just under the skin, where you take a pulse, then turns around the base of the thumb into the hand and forms the deep palmar arch.",
+      "continues": ["palmar-arches"],
+      "supplies": ["brachioradialis", "forearm-flexors", "forearm-extensors", "thenar", "radius", "carpals"],
+      "suppliesNote": "Its branches reach the scaphoid mainly from the far end, which is why a break through the middle of the scaphoid can cut off the blood to the near half."
+    },
+    {
+      "id": "ulnar-artery",
+      "name": "Ulnar artery",
+      "latin": "Arteria ulnaris",
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "pulse": "Wrist, on the little-finger side (weaker)",
+      "summary": "The larger of the two forearm arteries. It runs down the little-finger side of the forearm beside the ulnar nerve and enters the palm next to the pisiform bone, where it forms the superficial palmar arch.",
+      "continues": ["palmar-arches"],
+      "supplies": ["forearm-flexors", "forearm-extensors", "hypothenar", "ulna"],
+      "suppliesNote": "The back of the forearm through its interosseous branches."
+    },
+    {
+      "id": "palmar-arches",
+      "name": "Palmar arches",
+      "latin": "Arcus palmares",
+      "aka": ["digital arteries"],
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "summary": "Two loops of artery across the palm that join the radial and ulnar arteries, so the hand has two supplies. The superficial arch lies under the skin of the palm, the deep arch against the bones. Together they send an artery along each side of every finger.",
+      "supplies": ["thenar", "hypothenar", "metacarpals", "hand-phalanges"],
+      "membersLabel": "Parts",
+      "members": [
+        { "name": "Superficial palmar arch", "latin": "Arcus palmaris superficialis", "note": "Mainly from the ulnar artery." },
+        { "name": "Deep palmar arch", "latin": "Arcus palmaris profundus", "note": "Mainly from the radial artery." },
+        { "name": "Digital arteries", "note": "Run along both sides of each finger." }
+      ],
+      "issues": [
+        { "name": "Raynaud’s phenomenon", "note": "In the cold, the fingers turn white, then blue, then red as they warm up, as the small arteries clamp down. Keep the hands warm. See a doctor if it affects one side only, is severe, or causes sores." }
+      ]
+    },
+    {
+      "id": "celiac-trunk",
+      "name": "Coeliac trunk",
+      "latin": "Truncus coeliacus",
+      "aka": ["celiac trunk", "celiac artery", "splenic artery", "hepatic artery"],
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": false,
+      "summary": "A short, wide artery leaving the front of the aorta just below the diaphragm. Within a centimetre it splits three ways to feed the organs of the upper abdomen: the stomach, liver, gallbladder, spleen and pancreas.",
+      "supplies": ["stomach", "liver", "gallbladder", "spleen", "pancreas", "esophagus"],
+      "suppliesNote": "Through its three branches. The lowest part of the oesophagus is fed by the left gastric artery.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Left gastric artery", "note": "The top of the stomach and the lower oesophagus." },
+        { "name": "Splenic artery", "note": "Winds along the top of the pancreas to the spleen." },
+        { "name": "Common hepatic artery", "note": "The liver, the gallbladder (through the cystic artery) and the first part of the small intestine." }
+      ]
+    },
+    {
+      "id": "superior-mesenteric-artery",
+      "name": "Superior mesenteric artery",
+      "latin": "Arteria mesenterica superior",
+      "aka": ["SMA"],
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": false,
+      "summary": "Leaves the front of the aorta just below the coeliac trunk and runs down into the mesentery, the fan of tissue that holds the small intestine. It feeds the whole small intestine, the appendix and the large intestine about two-thirds of the way across.",
+      "supplies": ["small-intestine", "pancreas", "large-intestine", "appendix"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Jejunal and ileal arteries", "note": "A fan of 15 or more branches to the small intestine." },
+        { "name": "Ileocolic artery", "note": "The end of the small intestine, the caecum and the appendix." },
+        { "name": "Right colic artery", "note": "The ascending colon." },
+        { "name": "Middle colic artery", "note": "Most of the transverse colon." }
+      ],
+      "issues": [
+        { "name": "Mesenteric ischaemia", "note": "A blocked gut artery: sudden, severe belly pain that seems out of proportion to what a doctor finds, often in older people with an irregular heartbeat. Call emergency services." }
+      ]
+    },
+    {
+      "id": "inferior-mesenteric-artery",
+      "name": "Inferior mesenteric artery",
+      "latin": "Arteria mesenterica inferior",
+      "aka": ["IMA"],
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": false,
+      "summary": "The smallest of the three gut arteries, leaving the aorta low in the abdomen. It runs down and to the left to feed the last third of the large intestine and the rectum.",
+      "supplies": ["large-intestine"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Left colic artery", "note": "The descending colon." },
+        { "name": "Sigmoid arteries", "note": "The S-shaped sigmoid colon." },
+        { "name": "Superior rectal artery", "note": "The rectum." }
+      ],
+      "issues": [
+        { "name": "Ischaemic colitis", "note": "Reduced blood flow to the left side of the colon: sudden cramping pain on the left with bloody diarrhoea. See a doctor urgently." }
+      ]
+    },
+    {
+      "id": "renal-artery",
+      "name": "Renal artery",
+      "latin": "Arteria renalis",
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": true,
+      "summary": "Leaves the side of the aorta just below the superior mesenteric artery and enters the kidney at its notch (the hilum). The right one is longer and passes behind the inferior vena cava. Together they carry about a fifth of all the blood the heart pumps.",
+      "supplies": ["kidney"],
+      "issues": [
+        { "name": "Renal artery stenosis", "note": "A narrowed kidney artery can cause high blood pressure that is hard to control, and slowly reduce kidney function. It needs specialist assessment." }
+      ]
+    },
+    {
+      "id": "iliac-artery",
+      "name": "Iliac arteries",
+      "latin": "Arteriae iliacae",
+      "aka": ["common iliac artery", "external iliac artery", "internal iliac artery", "inferior epigastric artery"],
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": true,
+      "summary": "The aorta ends by splitting into the two common iliac arteries. Each divides in front of the sacroiliac joint: the internal iliac goes down into the pelvis, and the external iliac runs along the rim of the pelvis to the groin, where it becomes the femoral artery.",
+      "continues": ["femoral-artery"],
+      "supplies": ["bladder", "pelvic-floor", "gluteus-maximus", "gluteus-medius", "iliopsoas", "rectus-abdominis", "adductors", "hip-bone"],
+      "suppliesNote": "The pelvic organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
+      "membersLabel": "Parts",
+      "members": [
+        { "name": "Common iliac artery", "latin": "Arteria iliaca communis", "note": "From the end of the aorta to the sacroiliac joint." },
+        { "name": "Internal iliac artery", "latin": "Arteria iliaca interna", "note": "The bladder, the pelvic floor, the buttock and the reproductive organs." },
+        { "name": "External iliac artery", "latin": "Arteria iliaca externa", "note": "Along the rim of the pelvis to the groin." },
+        { "name": "Inferior epigastric artery", "latin": "Arteria epigastrica inferior", "note": "Runs up behind the rectus abdominis." }
+      ]
+    },
+    {
+      "id": "femoral-artery",
+      "name": "Femoral artery",
+      "latin": "Arteria femoralis",
+      "aka": ["profunda femoris", "deep femoral artery"],
+      "kind": "artery",
+      "group": "arteries-leg",
+      "paired": true,
+      "pulse": "Groin, halfway between the bony point of the hip and the pubic bone",
+      "summary": "The main artery of the thigh. It enters under the inguinal ligament in the middle of the groin, where its pulse is easy to feel, runs down the inner front of the thigh under the sartorius, and passes through a gap in the adductors to the back of the knee.",
+      "continues": ["popliteal-artery"],
+      "supplies": ["sartorius", "@quadriceps", "adductors", "hamstrings", "tensor-fasciae-latae", "femur", "hip"],
+      "suppliesNote": "Most of the thigh through its deep branch (profunda femoris, drawn faint), whose circumflex branches also feed the head of the femur. A broken femoral neck can tear them.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Deep femoral artery", "latin": "Arteria profunda femoris", "note": "The main supply of the thigh muscles, running deep near the femur." },
+        { "name": "Lateral circumflex femoral artery", "note": "The outer thigh muscles and the hip." },
+        { "name": "Medial circumflex femoral artery", "note": "The main supply of the head of the femur." }
+      ]
+    },
+    {
+      "id": "popliteal-artery",
+      "name": "Popliteal artery",
+      "latin": "Arteria poplitea",
+      "aka": ["genicular arteries"],
+      "kind": "artery",
+      "group": "arteries-leg",
+      "paired": true,
+      "pulse": "Deep behind the knee (hard to feel)",
+      "summary": "Continues the femoral artery behind the knee, deep in the hollow there. It sends branches around the knee joint and divides below it into the anterior and posterior tibial arteries. Drawn faint because it lies behind the knee.",
+      "branches": ["anterior-tibial-artery", "posterior-tibial-artery"],
+      "supplies": ["knee", "gastrocnemius", "soleus", "hamstrings"],
+      "suppliesNote": "The knee through the genicular arteries, and the calf muscles through the sural arteries.",
+      "issues": [
+        { "name": "Popliteal aneurysm", "note": "A widening of the artery behind the knee, often on both sides. It can form clots that block the blood to the lower leg. A pulsing lump behind the knee needs checking." }
+      ]
+    },
+    {
+      "id": "anterior-tibial-artery",
+      "name": "Anterior tibial artery",
+      "latin": "Arteria tibialis anterior",
+      "aka": ["dorsalis pedis artery"],
+      "kind": "artery",
+      "group": "arteries-leg",
+      "paired": true,
+      "pulse": "Top of the foot, as the dorsalis pedis artery",
+      "summary": "Passes forward between the tibia and fibula and runs down the front of the leg with the deep fibular nerve. In front of the ankle it becomes the dorsalis pedis artery, whose pulse you can feel on the top of the foot.",
+      "supplies": ["tibialis-anterior", "toe-extensors", "tarsals", "metatarsals", "foot-phalanges"],
+      "members": [
+        { "name": "Dorsalis pedis artery", "latin": "Arteria dorsalis pedis", "note": "Runs over the top of the foot toward the gap between the first two toes." }
+      ]
+    },
+    {
+      "id": "posterior-tibial-artery",
+      "name": "Posterior tibial artery",
+      "latin": "Arteria tibialis posterior",
+      "aka": ["fibular artery", "peroneal artery", "plantar arteries"],
+      "kind": "artery",
+      "group": "arteries-leg",
+      "paired": true,
+      "pulse": "Behind the inner ankle bone",
+      "summary": "The larger branch of the popliteal artery. It runs deep in the calf, then behind the inner ankle bone into the sole, where it divides into the plantar arteries. Its fibular branch feeds the outer side of the leg. Drawn faint because it lies behind the bones.",
+      "supplies": ["soleus", "gastrocnemius", "fibularis", "tibia", "fibula", "tarsals"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Fibular artery", "latin": "Arteria fibularis", "note": "Runs down behind the fibula to the outer leg and ankle." },
+        { "name": "Plantar arteries", "note": "The sole of the foot and the toes." }
+      ]
+    },
+    {
+      "id": "superior-vena-cava",
+      "name": "Superior vena cava",
+      "latin": "Vena cava superior",
+      "aka": ["SVC"],
+      "kind": "vein",
+      "group": "veins-chest",
+      "paired": false,
+      "summary": "A short, wide vein that collects all the blood from the head, neck and arms and empties it into the right atrium. It forms behind the right side of the breastbone, where the two brachiocephalic veins meet.",
+      "drains": ["heart"],
+      "issues": [
+        { "name": "Superior vena cava obstruction", "note": "A blockage, usually from a tumour or a clot, makes the face, neck and arms swell, with breathlessness. It needs urgent medical care." }
+      ]
+    },
+    {
+      "id": "pulmonary-veins",
+      "name": "Pulmonary veins",
+      "latin": "Venae pulmonales",
+      "kind": "vein",
+      "group": "veins-chest",
+      "paired": true,
+      "carries": "Oxygen-rich blood from the lungs to the heart",
+      "summary": "Two veins from each lung that bring freshly oxygenated blood into the left atrium. They are the only veins that carry oxygen-rich blood. Drawn faint because they enter the back of the heart.",
+      "drains": ["heart"],
+      "issues": [
+        { "name": "Atrial fibrillation", "note": "The most common irregular heartbeat often starts in the muscle around the openings of the pulmonary veins. Palpitations or an irregular pulse need a doctor. With chest pain or fainting, get urgent care." }
+      ]
+    },
+    {
+      "id": "brachiocephalic-vein",
+      "name": "Brachiocephalic vein",
+      "latin": "Vena brachiocephalica",
+      "aka": ["innominate vein"],
+      "kind": "vein",
+      "group": "veins-chest",
+      "paired": true,
+      "summary": "Formed on each side behind the inner end of the collarbone, where the internal jugular and subclavian veins meet. The left one is about twice as long and crosses in front of the branches of the aortic arch. The two join to form the superior vena cava.",
+      "drains": ["superior-vena-cava"]
+    },
+    {
+      "id": "internal-jugular-vein",
+      "name": "Internal jugular vein",
+      "latin": "Vena jugularis interna",
+      "aka": ["jugular vein", "jugular"],
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "Drains the brain, face and neck. It leaves the skull through the jugular foramen (its top drawn faint, behind the jaw) and runs down the neck in a sheath with the carotid artery and vagus nerve, deep to the sternocleidomastoid.",
+      "drains": ["brachiocephalic-vein"],
+      "issues": [
+        { "name": "Raised neck-vein pressure", "note": "Visibly swollen neck veins when sitting upright can be a sign of heart failure. A doctor checks for it as part of an examination." }
+      ]
+    },
+    {
+      "id": "external-jugular-vein",
+      "name": "External jugular vein",
+      "latin": "Vena jugularis externa",
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "A surface vein that runs from behind the angle of the jaw down across the sternocleidomastoid to just above the middle of the collarbone. You can often see it stand out when someone strains, sings or shouts.",
+      "drains": ["subclavian-vein"]
+    },
+    {
+      "id": "subclavian-vein",
+      "name": "Subclavian vein",
+      "latin": "Vena subclavia",
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "Continues the axillary vein over the first rib, just behind the collarbone and in front of the subclavian artery. It joins the internal jugular vein to form the brachiocephalic vein, and is a common site for central lines.",
+      "drains": ["brachiocephalic-vein"],
+      "issues": [
+        { "name": "Effort thrombosis", "note": "A clot after repeated heavy arm use, where the vein is squeezed between the collarbone and the first rib: a swollen, heavy, bluish arm. It needs urgent assessment." }
+      ]
+    },
+    {
+      "id": "axillary-vein",
+      "name": "Axillary vein",
+      "latin": "Vena axillaris",
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "The vein of the armpit, formed where the basilic vein meets the deep veins of the arm. It runs beside the axillary artery and becomes the subclavian vein at the outer edge of the first rib.",
+      "continues": ["subclavian-vein"]
+    },
+    {
+      "id": "cephalic-vein",
+      "name": "Cephalic vein",
+      "latin": "Vena cephalica",
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "A surface vein that runs from the thumb side of the back of the hand up the outer forearm and arm, then in the groove between the deltoid and pectoralis major to the axillary vein. It is often used for drips.",
+      "drains": ["axillary-vein", "median-cubital-vein"]
+    },
+    {
+      "id": "basilic-vein",
+      "name": "Basilic vein",
+      "latin": "Vena basilica",
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "A surface vein that runs from the little-finger side of the back of the hand up the inner forearm. Halfway up the arm it dives deep and joins the brachial veins to become the axillary vein.",
+      "continues": ["axillary-vein"]
+    },
+    {
+      "id": "median-cubital-vein",
+      "name": "Median cubital vein",
+      "latin": "Vena mediana cubiti",
+      "aka": ["blood test vein"],
+      "kind": "vein",
+      "group": "veins-head-arm",
+      "paired": true,
+      "summary": "A short surface vein crossing the front of the elbow from the cephalic to the basilic vein. It is the usual vein for blood tests, because it is wide, close to the skin and held steady.",
+      "drains": ["basilic-vein"],
+      "issues": [
+        { "name": "Bruising after a blood test", "note": "Common and harmless. Press firmly for a few minutes afterwards. A hard, hot, red area that spreads, or a fever, needs a doctor." }
+      ]
+    },
+    {
+      "id": "inferior-vena-cava",
+      "name": "Inferior vena cava",
+      "latin": "Vena cava inferior",
+      "aka": ["IVC"],
+      "kind": "vein",
+      "group": "veins-abdomen",
+      "paired": false,
+      "summary": "The largest vein in the body. It forms in front of the fifth lumbar vertebra from the two iliac veins, rises on the right of the aorta, collects the veins of the kidneys and liver, and passes through the diaphragm into the right atrium.",
+      "drains": ["heart"],
+      "issues": [
+        { "name": "Pressure in late pregnancy", "note": "Lying flat on the back late in pregnancy can squash it and cause dizziness or faintness. Lying on the left side relieves it." }
+      ]
+    },
+    {
+      "id": "hepatic-portal-vein",
+      "name": "Hepatic portal vein",
+      "latin": "Vena portae hepatis",
+      "aka": ["portal vein", "splenic vein", "superior mesenteric vein"],
+      "kind": "vein",
+      "group": "veins-abdomen",
+      "paired": false,
+      "carries": "Nutrient-rich blood from the gut to the liver",
+      "summary": "Formed behind the neck of the pancreas where the splenic and superior mesenteric veins meet. It carries blood from the stomach, intestines, spleen and pancreas to the liver, which processes nutrients and clears toxins before the blood reaches the rest of the body.",
+      "drains": ["liver"],
+      "membersLabel": "Veins that join it",
+      "members": [
+        { "name": "Splenic vein", "latin": "Vena splenica", "note": "From the spleen, along the back of the pancreas." },
+        { "name": "Superior mesenteric vein", "latin": "Vena mesenterica superior", "note": "From the small intestine and the right half of the colon." },
+        { "name": "Inferior mesenteric vein", "latin": "Vena mesenterica inferior", "note": "From the left colon and rectum, into the splenic vein." }
+      ],
+      "issues": [
+        { "name": "Portal hypertension", "note": "Scarring of the liver (cirrhosis) raises the pressure in the portal vein, causing fluid in the belly, a large spleen and swollen veins in the oesophagus that can bleed. Vomiting blood or passing black stools needs emergency care." }
+      ]
+    },
+    {
+      "id": "renal-vein",
+      "name": "Renal vein",
+      "latin": "Vena renalis",
+      "kind": "vein",
+      "group": "veins-abdomen",
+      "paired": true,
+      "summary": "Carries filtered blood from each kidney to the inferior vena cava. The left one is longer and crosses in front of the aorta, just below the superior mesenteric artery.",
+      "drains": ["inferior-vena-cava"]
+    },
+    {
+      "id": "iliac-vein",
+      "name": "Iliac veins",
+      "latin": "Venae iliacae",
+      "aka": ["common iliac vein", "external iliac vein", "internal iliac vein"],
+      "kind": "vein",
+      "group": "veins-abdomen",
+      "paired": true,
+      "summary": "The external iliac vein continues the femoral vein from the groin along the rim of the pelvis, and the internal iliac vein drains the pelvis. They join into the common iliac vein, and the two common iliac veins form the inferior vena cava. The left one passes behind the right common iliac artery.",
+      "drains": ["inferior-vena-cava"],
+      "membersLabel": "Parts",
+      "members": [
+        { "name": "Common iliac vein", "latin": "Vena iliaca communis", "note": "From the sacroiliac joint to the inferior vena cava." },
+        { "name": "Internal iliac vein", "latin": "Vena iliaca interna", "note": "The bladder, pelvic floor, buttock and reproductive organs." },
+        { "name": "External iliac vein", "latin": "Vena iliaca externa", "note": "From the groin along the rim of the pelvis." }
+      ]
+    },
+    {
+      "id": "femoral-vein",
+      "name": "Femoral vein",
+      "latin": "Vena femoralis",
+      "kind": "vein",
+      "group": "veins-leg",
+      "paired": true,
+      "summary": "The main deep vein of the thigh. It continues the popliteal vein and runs up beside the femoral artery, on its inner side at the groin, where it receives the great saphenous vein.",
+      "continues": ["iliac-vein"]
+    },
+    {
+      "id": "popliteal-vein",
+      "name": "Popliteal vein",
+      "latin": "Vena poplitea",
+      "aka": ["deep calf veins", "posterior tibial veins", "small saphenous vein"],
+      "kind": "vein",
+      "group": "veins-leg",
+      "paired": true,
+      "summary": "Formed below the knee by the deep veins of the calf, which run in pairs beside the arteries. It runs up behind the knee and becomes the femoral vein. Each squeeze of the calf muscles pumps blood up through these veins. Drawn faint because it lies behind the bones.",
+      "continues": ["femoral-vein"],
+      "membersLabel": "Veins that join it",
+      "members": [
+        { "name": "Posterior tibial veins", "note": "From the sole and the back of the calf." },
+        { "name": "Fibular veins", "note": "From the outer side of the calf." },
+        { "name": "Anterior tibial veins", "note": "From the front of the leg and the top of the foot." },
+        { "name": "Small saphenous vein", "latin": "Vena saphena parva", "note": "A surface vein from the back of the calf that joins it behind the knee." }
+      ],
+      "issues": [
+        { "name": "Calf DVT", "note": "Most leg clots start in these deep calf veins, after long journeys, surgery, bed rest, pregnancy or with some medicines. A swollen, painful calf needs urgent assessment the same day." }
+      ]
+    },
+    {
+      "id": "great-saphenous-vein",
+      "name": "Great saphenous vein",
+      "latin": "Vena saphena magna",
+      "aka": ["long saphenous vein", "saphenous vein"],
+      "kind": "vein",
+      "group": "veins-leg",
+      "paired": true,
+      "summary": "The longest vein in the body. It starts at the inner end of the arch of veins on the top of the foot, passes in front of the inner ankle bone and runs up the inner leg and thigh, just under the skin, to join the femoral vein below the groin.",
+      "drains": ["femoral-vein"],
+      "issues": [
+        { "name": "Varicose veins", "note": "Leaky valves let blood pool, so the vein and its branches swell and twist. Mostly harmless. Walking and raising the legs help. See a doctor for skin changes, ulcers or bleeding." },
+        { "name": "Superficial thrombophlebitis", "note": "A tender, red, hard cord along the vein. It usually settles, but see a doctor, because it can extend into the deep veins." }
+      ]
+    }
+  ]
+}

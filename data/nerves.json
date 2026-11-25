@@ -1,0 +1,528 @@
+{
+  "layer": "nerves",
+  "name": "Nerves",
+  "type": "nerve",
+  "note": "The spinal cord and major nerves. \"innervates\" becomes \"Supplies nerves to\" links and \"branches\" becomes \"Gives rise to\" links (see linkTypes in manifest.json). Ids match data-id attributes in assets/svg/nerves-anterior.svg.",
+  "groups": [
+    {
+      "id": "spinal",
+      "name": "Spinal cord & spinal nerves",
+      "summary": "The cord inside the spine and the 31 pairs of nerves that leave it, one pair at each level."
+    },
+    {
+      "id": "cranial-nerves",
+      "name": "Cranial nerves",
+      "summary": "Nerves that leave the brain directly, through openings in the skull. Four of the twelve pairs are drawn here."
+    },
+    {
+      "id": "trunk-nerves",
+      "name": "Neck & trunk",
+      "summary": "Nerves of the neck, the diaphragm, and the chest and belly wall.",
+      "issues": [
+        {
+          "name": "Shingles",
+          "note": "The chickenpox virus wakes up in one nerve root and causes a painful, blistering rash in a band on one side of the body. See a doctor early, as treatment works best in the first three days."
+        }
+      ]
+    },
+    {
+      "id": "arm-nerves",
+      "name": "Shoulder & arm",
+      "summary": "The brachial plexus and the five nerves it ends in, which run the whole arm and hand.",
+      "issues": [
+        {
+          "name": "Trapped nerve",
+          "note": "Pressure on a nerve causes tingling, numbness or weakness in the area it supplies. Most cases settle once the pressure is taken off. Weakness that persists or gets worse needs a doctor."
+        }
+      ]
+    },
+    {
+      "id": "leg-nerves",
+      "name": "Lower back & leg",
+      "summary": "The lumbar and sacral plexuses and the nerves they send into the leg, including the sciatic nerve, the largest in the body.",
+      "issues": [
+        {
+          "name": "Trapped nerve",
+          "note": "Pressure on a nerve causes tingling, numbness or weakness in the area it supplies. Most cases settle once the pressure is taken off. Weakness that persists or gets worse needs a doctor."
+        }
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "spinal-cord",
+      "name": "Spinal cord",
+      "latin": "Medulla spinalis",
+      "aka": ["cord", "cauda equina"],
+      "kind": "spinal-cord",
+      "group": "spinal",
+      "paired": false,
+      "carries": "Messages between the brain and the body",
+      "summary": "A finger-thick cable of nerve tissue running down the canal inside the spine, from the base of the skull to about the first lumbar vertebra. Below that, its nerve roots carry on down the canal as the cauda equina. Drawn faint because it lies behind the vertebral bodies.",
+      "branches": ["spinal-nerves"],
+      "membersLabel": "Parts",
+      "members": [
+        { "name": "Cervical enlargement", "note": "Thicker in the neck, where the nerves to the arms leave." },
+        { "name": "Lumbar enlargement", "note": "Thicker again low in the back, where the nerves to the legs leave." },
+        { "name": "Conus medullaris", "latin": "Conus medullaris", "note": "The tapered end, at about the L1–L2 level." },
+        { "name": "Cauda equina", "latin": "Cauda equina", "note": "The “horse’s tail”: the bundle of lower nerve roots that runs on down the canal to the sacrum." }
+      ],
+      "issues": [
+        { "name": "Spinal cord injury", "note": "Damage from a fall, crash or diving accident can cause weakness or loss of feeling below the injured level. Don’t move someone with a suspected neck or back injury. Call emergency services." },
+        { "name": "Cauda equina syndrome", "note": "Squashed nerve roots at the bottom of the spine cause numbness around the bottom or genitals, new trouble passing urine or controlling the bowel, or weakness in both legs. It needs emergency care." },
+        { "name": "Spinal stenosis", "note": "Narrowing of the canal, usually with age, can cause leg pain, numbness or heaviness on walking that eases on sitting or bending forward." }
+      ]
+    },
+    {
+      "id": "spinal-nerves",
+      "name": "Spinal nerves",
+      "latin": "Nervi spinales",
+      "aka": ["nerve roots"],
+      "kind": "spinal",
+      "group": "spinal",
+      "paired": true,
+      "roots": "C1–Co1, 31 pairs",
+      "carries": "Movement and sensation",
+      "summary": "Thirty-one pairs of nerves, one pair leaving the spine at each level through the gap between two vertebrae. Each soon splits into a back branch for the muscles and skin of the back, and a front branch that joins a plexus or runs around the body wall.",
+      "innervates": ["erector-spinae"],
+      "innervatesNote": "Through their back (dorsal) branches. Their front branches form the plexuses and the intercostal nerves.",
+      "branches": ["cervical-plexus", "brachial-plexus", "intercostal-nerves", "lumbar-plexus", "sacral-plexus"],
+      "membersLabel": "Levels",
+      "members": [
+        { "name": "Cervical nerves", "note": "8 pairs, C1–C8: neck, shoulders and arms." },
+        { "name": "Thoracic nerves", "note": "12 pairs, T1–T12: chest and belly wall." },
+        { "name": "Lumbar nerves", "note": "5 pairs, L1–L5: lower belly wall and legs." },
+        { "name": "Sacral nerves", "note": "5 pairs, S1–S5: buttocks, legs, pelvic floor, bladder and bowel." },
+        { "name": "Coccygeal nerve", "note": "1 pair: the skin around the tailbone." }
+      ],
+      "issues": [
+        { "name": "Pinched nerve (radiculopathy)", "note": "A bulging disc or bony narrowing presses on a nerve as it leaves the spine, causing pain, tingling or weakness along that nerve’s path. Most cases settle within weeks." },
+        { "name": "Shingles", "note": "The chickenpox virus wakes up in one nerve root and causes a painful, blistering rash in a band on one side of the body. See a doctor early, as treatment works best in the first three days." }
+      ]
+    },
+    {
+      "id": "trigeminal-nerve",
+      "name": "Trigeminal nerve",
+      "latin": "Nervus trigeminus",
+      "aka": ["fifth cranial nerve", "cranial nerve V"],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Feeling in the face, and chewing",
+      "summary": "The main nerve of feeling for the face, scalp, eyes, teeth and inside of the mouth. Its three divisions come out through small holes above the eye, below the eye and on the chin, and the third division also works the chewing muscles.",
+      "innervates": ["temporalis", "masseter", "suprahyoid"],
+      "innervatesNote": "Through the mandibular division (V3): the chewing muscles, and the mylohyoid and front of the digastric above the hyoid.",
+      "membersLabel": "Divisions",
+      "members": [
+        { "name": "Ophthalmic nerve (V1)", "latin": "Nervus ophthalmicus", "note": "Forehead, scalp, upper eyelid, eye and nose." },
+        { "name": "Maxillary nerve (V2)", "latin": "Nervus maxillaris", "note": "Cheek, lower eyelid, upper lip, upper teeth and gums." },
+        { "name": "Mandibular nerve (V3)", "latin": "Nervus mandibularis", "note": "Lower lip, chin, lower teeth, jaw and the chewing muscles." }
+      ],
+      "issues": [
+        { "name": "Trigeminal neuralgia", "note": "Sudden, severe, electric-shock pains in the face, set off by touch, chewing or brushing the teeth. A doctor can confirm it, and treatment usually helps." },
+        { "name": "Shingles of the face", "note": "A painful rash on the forehead or near the eye needs a doctor the same day, because it can affect the eye." }
+      ]
+    },
+    {
+      "id": "facial-nerve",
+      "name": "Facial nerve",
+      "latin": "Nervus facialis",
+      "aka": ["seventh cranial nerve", "cranial nerve VII"],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Facial expression, and taste",
+      "summary": "Moves the muscles of facial expression. It leaves the skull just below the ear, passes through the parotid gland and fans out into five branches across the face. It also carries taste from the front of the tongue and runs the tear and saliva glands.",
+      "innervates": ["suprahyoid"],
+      "innervatesNote": "The facial expression muscles (not drawn here), and the back of the digastric and the stylohyoid above the hyoid.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Temporal branch", "note": "Forehead and eyebrow." },
+        { "name": "Zygomatic branch", "note": "Closing the eye." },
+        { "name": "Buccal branch", "note": "Cheek and upper lip." },
+        { "name": "Marginal mandibular branch", "note": "Lower lip and chin." },
+        { "name": "Cervical branch", "note": "The thin platysma muscle in the neck." }
+      ],
+      "issues": [
+        { "name": "Bell’s palsy", "note": "Weakness of one whole side of the face, including the forehead, coming on over a day or two. Get seen the same day: sudden facial weakness can also be a stroke." },
+        { "name": "Ramsay Hunt syndrome", "note": "Shingles of the facial nerve: facial weakness with a painful rash in or around the ear. See a doctor promptly." }
+      ]
+    },
+    {
+      "id": "vagus-nerve",
+      "name": "Vagus nerve",
+      "latin": "Nervus vagus",
+      "aka": ["tenth cranial nerve", "cranial nerve X"],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Organ control (parasympathetic), swallowing and voice",
+      "summary": "The longest cranial nerve. It runs down the neck beside the carotid artery and on into the chest and abdomen. It slows the heart, narrows the airways and drives digestion, and its branches work the throat and voice box.",
+      "innervates": ["heart", "lung", "trachea", "esophagus", "stomach", "liver", "gallbladder", "pancreas", "small-intestine", "large-intestine"],
+      "innervatesNote": "The “rest and digest” (parasympathetic) supply to the organs of the chest and most of the gut, as far as the middle of the large intestine.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Recurrent laryngeal nerve", "latin": "Nervus laryngeus recurrens", "note": "Hooks under the aortic arch on the left and under the subclavian artery on the right, then climbs back up beside the trachea to the voice box." },
+        { "name": "Pharyngeal branches", "note": "The swallowing muscles of the throat." },
+        { "name": "Cardiac branches", "note": "Slow the heart rate." },
+        { "name": "Vagal trunks", "note": "Pass through the diaphragm with the oesophagus to the stomach and gut." }
+      ],
+      "issues": [
+        { "name": "Fainting (vasovagal syncope)", "note": "A surge of vagal activity, set off by pain, standing for a long time or the sight of blood, slows the heart and drops the blood pressure. Lie down with the legs raised. See a doctor if it happens during exercise or without warning." },
+        { "name": "Hoarse voice", "note": "Damage to the recurrent laryngeal branch, for example after thyroid surgery, can weaken the voice. Hoarseness lasting more than three weeks needs checking." }
+      ]
+    },
+    {
+      "id": "accessory-nerve",
+      "name": "Accessory nerve",
+      "latin": "Nervus accessorius",
+      "aka": ["eleventh cranial nerve", "cranial nerve XI", "spinal accessory nerve"],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Movement",
+      "summary": "Starts in the top of the spinal cord, climbs into the skull and leaves it again beside the vagus. It runs through the sternocleidomastoid and across the side of the neck, just under the skin, to the trapezius.",
+      "innervates": ["sternocleidomastoid", "trapezius"],
+      "issues": [
+        { "name": "Injury in the neck", "note": "Because it lies so close to the surface, surgery or a wound in the side of the neck can damage it. This leaves a drooping shoulder and trouble lifting the arm above shoulder height." }
+      ]
+    },
+    {
+      "id": "cervical-plexus",
+      "name": "Cervical plexus",
+      "latin": "Plexus cervicalis",
+      "aka": ["ansa cervicalis"],
+      "kind": "plexus",
+      "group": "trunk-nerves",
+      "paired": true,
+      "roots": "C1–C4",
+      "carries": "Feeling in the neck, and movement",
+      "summary": "A network formed by the top four neck nerves, deep to the sternocleidomastoid. Its skin branches fan out from the middle of that muscle’s back edge to the ear, the neck and the collarbone. Its muscle branches include a loop for the strap muscles (the ansa cervicalis) and the phrenic nerve.",
+      "innervates": ["infrahyoid", "suprahyoid"],
+      "innervatesNote": "The strap muscles below the hyoid through the ansa cervicalis, and the geniohyoid above it through C1 fibres.",
+      "branches": ["phrenic-nerve"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Lesser occipital nerve", "note": "Skin behind the ear." },
+        { "name": "Great auricular nerve", "note": "Skin over the ear and the angle of the jaw." },
+        { "name": "Transverse cervical nerve", "note": "Skin at the front of the neck." },
+        { "name": "Supraclavicular nerves", "note": "Skin over the collarbone and the top of the shoulder." },
+        { "name": "Ansa cervicalis", "latin": "Ansa cervicalis", "note": "A loop in front of the carotid artery that supplies the strap muscles." }
+      ]
+    },
+    {
+      "id": "phrenic-nerve",
+      "name": "Phrenic nerve",
+      "latin": "Nervus phrenicus",
+      "kind": "peripheral",
+      "group": "trunk-nerves",
+      "paired": true,
+      "roots": "C3–C5",
+      "carries": "Movement and sensation",
+      "summary": "The nerve of the diaphragm, from the neck nerves C3 to C5 (“C3, 4 and 5 keep the diaphragm alive”). It runs down the front of the neck muscles into the chest, along the sides of the heart, to the diaphragm, the main muscle of breathing.",
+      "innervates": ["diaphragm"],
+      "innervatesNote": "Its only muscle. It also carries feeling from the coverings of the heart and the centre of the diaphragm.",
+      "issues": [
+        { "name": "Shoulder-tip pain", "note": "Irritation under the diaphragm, from the gallbladder, liver or blood in the abdomen, is felt in the tip of the shoulder, because the phrenic nerve and the shoulder skin share the same spinal levels. Shoulder-tip pain with belly pain needs a doctor." },
+        { "name": "Diaphragm weakness", "note": "Damage to one phrenic nerve, from surgery, a tumour or a neck injury, weakens one side of the diaphragm. It can cause breathlessness, especially when lying flat." }
+      ]
+    },
+    {
+      "id": "intercostal-nerves",
+      "name": "Intercostal nerves",
+      "latin": "Nervi intercostales",
+      "aka": ["subcostal nerve"],
+      "kind": "peripheral",
+      "group": "trunk-nerves",
+      "paired": true,
+      "listOnly": true,
+      "roots": "T1–T12",
+      "carries": "Movement and sensation",
+      "summary": "The front branches of the twelve thoracic nerves. Each runs around the body in the groove under its rib, supplying the muscles between the ribs, the belly wall and a band of skin. The twelfth, below the last rib, is called the subcostal nerve.",
+      "innervates": ["intercostals", "rectus-abdominis", "external-oblique", "deep-abdominals", "quadratus-lumborum"],
+      "innervatesNote": "The upper six stay on the chest wall; the lower six carry on into the muscles of the belly wall. The subcostal nerve also reaches the quadratus lumborum.",
+      "members": [
+        { "name": "Intercostal nerves T1–T11", "note": "One under each rib." },
+        { "name": "Subcostal nerve (T12)", "latin": "Nervus subcostalis", "note": "Below the twelfth rib." }
+      ],
+      "issues": [
+        { "name": "Shingles", "note": "A painful, blistering rash in a band around one side of the chest or belly, along one intercostal nerve. See a doctor early, as treatment works best in the first three days." },
+        { "name": "Intercostal neuralgia", "note": "Burning or stabbing pain in a band around the chest, for example after shingles or chest surgery. Chest pain with breathlessness or sweating, or pain spreading to the arm or jaw, needs emergency care instead." }
+      ]
+    },
+    {
+      "id": "brachial-plexus",
+      "name": "Brachial plexus",
+      "latin": "Plexus brachialis",
+      "aka": ["long thoracic nerve", "suprascapular nerve", "thoracodorsal nerve"],
+      "kind": "plexus",
+      "group": "arm-nerves",
+      "paired": true,
+      "roots": "C5–T1",
+      "carries": "Movement and sensation",
+      "summary": "The network that supplies the whole arm. Its five roots leave the neck between the scalene muscles, merge and divide again behind the collarbone, and regroup in the armpit into the five nerves of the arm. On the way it sends branches to the chest and shoulder-blade muscles.",
+      "innervates": ["pectoralis-major", "pectoralis-minor", "serratus-anterior", "latissimus-dorsi", "rotator-cuff", "rhomboids"],
+      "innervatesNote": "Through short branches that leave before the plexus ends: the pectoral, long thoracic, thoracodorsal, suprascapular, subscapular and dorsal scapular nerves.",
+      "branches": ["musculocutaneous-nerve", "axillary-nerve", "radial-nerve", "median-nerve", "ulnar-nerve"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Long thoracic nerve", "latin": "Nervus thoracicus longus", "note": "Runs down the side of the chest to the serratus anterior. Damage gives a “winged” shoulder blade." },
+        { "name": "Pectoral nerves", "note": "Pectoralis major and minor." },
+        { "name": "Thoracodorsal nerve", "latin": "Nervus thoracodorsalis", "note": "Latissimus dorsi." },
+        { "name": "Suprascapular nerve", "latin": "Nervus suprascapularis", "note": "Supraspinatus and infraspinatus of the rotator cuff." },
+        { "name": "Subscapular nerves", "note": "Subscapularis and teres major." },
+        { "name": "Dorsal scapular nerve", "note": "The rhomboids." }
+      ],
+      "issues": [
+        { "name": "Stinger (burner)", "note": "A hard knock to the head and shoulder in contact sport stretches the plexus: burning pain and tingling down one arm for seconds to minutes. Repeated episodes, or weakness that lasts, need assessment." },
+        { "name": "Thoracic outlet syndrome", "note": "Pressure on the plexus between the collarbone and the first rib causes aching, tingling or weakness in the arm, often worse with the arm raised." },
+        { "name": "Traction injury", "note": "A violent pull on the arm or neck, as in a motorbike fall, can tear the roots and leave the arm weak and numb. It needs specialist assessment." }
+      ]
+    },
+    {
+      "id": "axillary-nerve",
+      "name": "Axillary nerve",
+      "latin": "Nervus axillaris",
+      "kind": "peripheral",
+      "group": "arm-nerves",
+      "paired": true,
+      "roots": "C5–C6",
+      "carries": "Movement and sensation",
+      "summary": "Leaves the back of the armpit and wraps around the neck of the humerus to reach the deltoid and teres minor. It also gives feeling to a patch of skin over the outside of the shoulder.",
+      "innervates": ["deltoid", "rotator-cuff"],
+      "innervatesNote": "The deltoid, and teres minor in the rotator cuff.",
+      "issues": [
+        { "name": "Injury with a shoulder dislocation", "note": "A dislocated shoulder or a broken top of the humerus can stretch it, leaving a numb patch on the outer shoulder and a weak deltoid. Doctors check for this when treating these injuries." }
+      ]
+    },
+    {
+      "id": "musculocutaneous-nerve",
+      "name": "Musculocutaneous nerve",
+      "latin": "Nervus musculocutaneus",
+      "kind": "peripheral",
+      "group": "arm-nerves",
+      "paired": true,
+      "roots": "C5–C7",
+      "carries": "Movement and sensation",
+      "summary": "Runs down the front of the arm between the biceps and the brachialis and supplies both. Below the elbow it becomes the skin nerve of the outer forearm.",
+      "innervates": ["biceps", "brachialis"],
+      "innervatesNote": "And the small coracobrachialis near the armpit (not drawn)."
+    },
+    {
+      "id": "median-nerve",
+      "name": "Median nerve",
+      "latin": "Nervus medianus",
+      "kind": "peripheral",
+      "group": "arm-nerves",
+      "paired": true,
+      "roots": "C5–T1",
+      "carries": "Movement and sensation",
+      "summary": "Runs down the arm beside the brachial artery, through the middle of the forearm and under the band across the wrist (the carpal tunnel) into the palm. It works most forearm flexors and the ball of the thumb, and gives feeling to the thumb, index, middle and half of the ring finger.",
+      "innervates": ["forearm-flexors", "thenar"],
+      "innervatesNote": "All the forearm flexors except the flexor carpi ulnaris and half of the deep finger flexor, and most of the thenar muscles.",
+      "issues": [
+        { "name": "Carpal tunnel syndrome", "note": "Pressure in the carpal tunnel causes tingling, numbness and pain in the thumb and first fingers, often at night. Wrist splints and avoiding long bent-wrist positions help. Constant numbness or a weak thumb needs a doctor." }
+      ]
+    },
+    {
+      "id": "ulnar-nerve",
+      "name": "Ulnar nerve",
+      "latin": "Nervus ulnaris",
+      "aka": ["funny bone"],
+      "kind": "peripheral",
+      "group": "arm-nerves",
+      "paired": true,
+      "roots": "C8–T1",
+      "carries": "Movement and sensation",
+      "summary": "Runs down the inner side of the arm and passes behind the bony bump on the inside of the elbow, the “funny bone”, just under the skin. It carries on down the inner forearm to the little-finger side of the hand, where it works most of the small hand muscles.",
+      "innervates": ["forearm-flexors", "hypothenar", "thenar"],
+      "innervatesNote": "In the forearm, the flexor carpi ulnaris and half of the deep finger flexor. In the hand, the hypothenar muscles, the small muscles between the bones and the adductor of the thumb.",
+      "issues": [
+        { "name": "Hitting your funny bone", "note": "A knock on the inner elbow presses the nerve against bone: a brief electric tingle into the little and ring fingers." },
+        { "name": "Cubital tunnel syndrome", "note": "Pressure at the elbow, often from leaning on it or sleeping with it bent, numbs the little and ring fingers and can later weaken the grip. See a doctor if it persists." }
+      ]
+    },
+    {
+      "id": "radial-nerve",
+      "name": "Radial nerve",
+      "latin": "Nervus radialis",
+      "kind": "peripheral",
+      "group": "arm-nerves",
+      "paired": true,
+      "roots": "C5–T1",
+      "carries": "Movement and sensation",
+      "summary": "The largest branch of the brachial plexus. It spirals around the back of the humerus in a groove (drawn faint), comes forward at the outer elbow and splits: a deep branch to the muscles on the back of the forearm and a skin branch to the back of the hand on the thumb side. It straightens the elbow, wrist and fingers.",
+      "innervates": ["triceps", "brachioradialis", "forearm-extensors"],
+      "issues": [
+        { "name": "Wrist drop", "note": "Pressure in the spiral groove, from a broken humerus or sleeping with an arm hung over a chair back (“Saturday night palsy”), leaves the wrist and fingers unable to lift. Get it checked. Most pressure palsies recover over weeks." }
+      ]
+    },
+    {
+      "id": "lumbar-plexus",
+      "name": "Lumbar plexus",
+      "latin": "Plexus lumbalis",
+      "aka": ["lateral femoral cutaneous nerve", "ilioinguinal nerve", "iliohypogastric nerve"],
+      "kind": "plexus",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "T12–L4",
+      "carries": "Movement and sensation",
+      "summary": "A network formed inside the psoas muscle from the upper lumbar nerves. Its small branches run around the belly wall to the groin and down the outer thigh. Its two big branches, the femoral and obturator nerves, go to the front and inner thigh.",
+      "innervates": ["iliopsoas", "quadratus-lumborum", "deep-abdominals"],
+      "innervatesNote": "Directly to the psoas and quadratus lumborum, and to the lowest belly-wall muscles through the iliohypogastric and ilioinguinal nerves.",
+      "branches": ["femoral-nerve", "obturator-nerve"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Iliohypogastric nerve", "latin": "Nervus iliohypogastricus", "note": "L1: the lowest belly wall and the skin above the pubic bone." },
+        { "name": "Ilioinguinal nerve", "latin": "Nervus ilioinguinalis", "note": "L1: the groin and the skin of the genitals. It can be irritated after hernia repair." },
+        { "name": "Genitofemoral nerve", "latin": "Nervus genitofemoralis", "note": "L1–L2: the groin and the cremaster muscle." },
+        { "name": "Lateral femoral cutaneous nerve", "latin": "Nervus cutaneus femoris lateralis", "note": "L2–L3: skin of the outer thigh. It passes just inside the bony point at the front of the hip." }
+      ],
+      "issues": [
+        { "name": "Meralgia paresthetica", "note": "The lateral femoral cutaneous nerve is pinched where it passes under the inguinal ligament, causing burning, tingling or numbness over the outer thigh. Tight belts, weight gain and pregnancy are common causes. It isn’t dangerous and usually settles." }
+      ]
+    },
+    {
+      "id": "femoral-nerve",
+      "name": "Femoral nerve",
+      "latin": "Nervus femoralis",
+      "aka": ["saphenous nerve"],
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L2–L4",
+      "carries": "Movement and sensation",
+      "summary": "The largest branch of the lumbar plexus. It runs down in the groove between psoas and iliacus, passes under the inguinal ligament on the outer side of the femoral artery, and splits into branches for the front of the thigh. Its longest branch, the saphenous nerve, gives feeling down the inner leg to the foot.",
+      "innervates": ["iliopsoas", "sartorius", "@quadriceps"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Muscular branches", "note": "To the quadriceps, sartorius and iliacus." },
+        { "name": "Anterior cutaneous branches", "note": "Skin over the front of the thigh." },
+        { "name": "Saphenous nerve", "latin": "Nervus saphenus", "note": "Skin of the inner knee, leg and foot, alongside the great saphenous vein." }
+      ],
+      "issues": [
+        { "name": "Femoral nerve injury", "note": "Bleeding into the groin or pelvis, or hip surgery, can weaken knee straightening so the knee buckles, with numbness over the front of the thigh. See a doctor." }
+      ]
+    },
+    {
+      "id": "obturator-nerve",
+      "name": "Obturator nerve",
+      "latin": "Nervus obturatorius",
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L2–L4",
+      "carries": "Movement and sensation",
+      "summary": "Runs down the side wall of the pelvis and through the obturator foramen, the large hole in the hip bone, into the inner thigh. It supplies the adductors that pull the legs together, and a patch of skin on the inner thigh.",
+      "innervates": ["adductors"]
+    },
+    {
+      "id": "sacral-plexus",
+      "name": "Sacral plexus",
+      "latin": "Plexus sacralis",
+      "aka": ["pudendal nerve", "gluteal nerves"],
+      "kind": "plexus",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L4–S4",
+      "carries": "Movement and sensation",
+      "summary": "A network on the back wall of the pelvis, in front of the sacrum, made from the last two lumbar and the first four sacral nerves. It supplies the buttock and the pelvic floor and ends as the sciatic nerve.",
+      "innervates": ["gluteus-maximus", "gluteus-medius", "tensor-fasciae-latae", "pelvic-floor"],
+      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint, behind the hip bone) and the pudendal nerve.",
+      "branches": ["sciatic-nerve"],
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Superior gluteal nerve", "latin": "Nervus gluteus superior", "note": "Gluteus medius and minimus, and tensor fasciae latae." },
+        { "name": "Inferior gluteal nerve", "latin": "Nervus gluteus inferior", "note": "Gluteus maximus." },
+        { "name": "Pudendal nerve", "latin": "Nervus pudendus", "note": "The pelvic floor, the sphincters and the skin of the genitals and perineum." },
+        { "name": "Posterior femoral cutaneous nerve", "note": "Skin of the back of the thigh." }
+      ]
+    },
+    {
+      "id": "sciatic-nerve",
+      "name": "Sciatic nerve",
+      "latin": "Nervus ischiadicus",
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L4–S3",
+      "carries": "Movement and sensation",
+      "summary": "The thickest and longest nerve in the body, about as wide as a thumb. It leaves the pelvis below the piriformis, runs down the back of the thigh and splits above the knee into the tibial and common fibular nerves. Drawn faint because it lies behind the femur in this front view.",
+      "innervates": ["hamstrings", "adductors"],
+      "innervatesNote": "The hamstrings and the hamstring part of adductor magnus. Through its two branches it also runs every muscle below the knee.",
+      "branches": ["tibial-nerve", "common-fibular-nerve"],
+      "issues": [
+        { "name": "Sciatica", "note": "Pain spreading from the lower back or buttock down the back of the leg, often with tingling, usually from a disc pressing on a nerve root. Most cases settle within six weeks with staying active and simple pain relief." },
+        { "name": "Warning signs with sciatica", "note": "Numbness around the bottom or genitals, new trouble with the bladder or bowel, or weakness in both legs can mean cauda equina syndrome. Get emergency care." }
+      ]
+    },
+    {
+      "id": "tibial-nerve",
+      "name": "Tibial nerve",
+      "latin": "Nervus tibialis",
+      "aka": ["plantar nerves"],
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L4–S3",
+      "carries": "Movement and sensation",
+      "summary": "The larger branch of the sciatic nerve. It runs down the middle of the back of the knee and deep in the calf, then curves behind the inner ankle bone into the sole, where it splits into the medial and lateral plantar nerves. Drawn faint because it lies behind the bones.",
+      "innervates": ["gastrocnemius", "soleus"],
+      "innervatesNote": "Every muscle in the back of the calf, and through the plantar nerves the small muscles of the sole.",
+      "membersLabel": "Branches",
+      "members": [
+        { "name": "Medial plantar nerve", "note": "The inner sole and the big toe side." },
+        { "name": "Lateral plantar nerve", "note": "The outer sole and most of the small foot muscles." },
+        { "name": "Sural nerve", "latin": "Nervus suralis", "note": "Skin of the outer ankle and foot, joined by a branch of the common fibular nerve." }
+      ],
+      "issues": [
+        { "name": "Tarsal tunnel syndrome", "note": "Pressure behind the inner ankle bone causes burning, tingling or numbness in the sole. See a doctor if it persists." },
+        { "name": "Morton’s neuroma", "note": "A thickened toe nerve, usually between the third and fourth toes, causing burning pain in the ball of the foot, like standing on a pebble. Wider shoes help." }
+      ]
+    },
+    {
+      "id": "common-fibular-nerve",
+      "name": "Common fibular nerve",
+      "latin": "Nervus fibularis communis",
+      "aka": ["common peroneal nerve"],
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L4–S2",
+      "carries": "Movement and sensation",
+      "summary": "The smaller branch of the sciatic nerve. It follows the outer hamstring tendon behind the knee (drawn faint), winds around the neck of the fibula just under the skin below the outer knee, and splits into the deep and superficial fibular nerves.",
+      "innervates": ["hamstrings"],
+      "innervatesNote": "Only the short head of biceps femoris above the knee. Everything below it goes through its two branches.",
+      "branches": ["deep-fibular-nerve", "superficial-fibular-nerve"],
+      "issues": [
+        { "name": "Foot drop", "note": "Pressure where it crosses the fibula, from crossing the legs for a long time, a tight cast or a knee injury, makes it hard to lift the foot and toes, so the toes catch when walking. See a doctor promptly." }
+      ]
+    },
+    {
+      "id": "deep-fibular-nerve",
+      "name": "Deep fibular nerve",
+      "latin": "Nervus fibularis profundus",
+      "aka": ["deep peroneal nerve"],
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L4–S1",
+      "carries": "Movement and sensation",
+      "summary": "Runs down the front of the leg beside the anterior tibial artery to the top of the foot. It lifts the foot and toes, and gives feeling to the small web of skin between the big and second toes.",
+      "innervates": ["tibialis-anterior", "toe-extensors"]
+    },
+    {
+      "id": "superficial-fibular-nerve",
+      "name": "Superficial fibular nerve",
+      "latin": "Nervus fibularis superficialis",
+      "aka": ["superficial peroneal nerve"],
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "L4–S1",
+      "carries": "Movement and sensation",
+      "summary": "Runs down the outer side of the leg among the fibularis muscles, comes to the surface above the ankle and spreads over the top of the foot. It turns the sole outward and gives feeling to most of the top of the foot.",
+      "innervates": ["fibularis"]
+    }
+  ]
+}

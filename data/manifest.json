@@ -28,6 +28,20 @@
       "svg": "assets/svg/muscles-anterior.svg",
       "data": "data/muscles.json",
       "visible": false
+    },
+    {
+      "id": "vessels",
+      "name": "Vessels",
+      "svg": "assets/svg/vessels-anterior.svg",
+      "data": "data/vessels.json",
+      "visible": false
+    },
+    {
+      "id": "nerves",
+      "name": "Nerves",
+      "svg": "assets/svg/nerves-anterior.svg",
+      "data": "data/nerves.json",
+      "visible": false
     }
   ],
   "links": [
@@ -48,11 +62,22 @@
     },
     "continues": {
       "forward": "Continues into",
-      "reverse": "Continues from"
+      "reverse": "Continues from",
+      "field": "continues"
+    },
+    "branches": {
+      "forward": "Gives rise to",
+      "reverse": "Arises from",
+      "field": "branches"
+    },
+    "pumps": {
+      "forward": "Pumps blood into",
+      "reverse": "Receives blood from"
     },
     "drains": {
       "forward": "Drains into",
-      "reverse": "Receives from"
+      "reverse": "Receives from",
+      "field": "drains"
     },
     "attached": {
       "forward": "Has attached",
@@ -71,12 +96,12 @@
     "innervates": {
       "forward": "Supplies nerves to",
       "reverse": "Nerve supply",
-      "future": "nerves"
+      "field": "innervates"
     },
     "supplies": {
       "forward": "Supplies blood to",
       "reverse": "Blood supply",
-      "future": "vessels"
+      "field": "supplies"
     }
   }
 }

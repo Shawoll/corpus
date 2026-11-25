@@ -373,6 +373,20 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map.mode-hurt .layer[data-layer="muscles"] .s.m .d { display: none; }
 #map.mode-hurt .layer[data-layer="muscles"] .s.m.is-rel { opacity: 0.8; }
 
+/* vessels & nerves: thin bands; .c marks a stretch behind bone, .deep a structure lying behind */
+#map .s.a { --tone: var(--artery); --tone-line: var(--artery-line); }
+#map .s.v { --tone: var(--vein); --tone-line: var(--vein-line); }
+#map .s.n { --tone: var(--nerve); --tone-line: var(--nerve-line); }
+#map .s:is(.a, .v, .n) .b { fill: var(--tone); stroke: var(--tone-line); stroke-width: 0.6; }
+#map .s:is(.a, .v, .n) .c { fill: var(--tone); stroke: none; opacity: 0.4; }
+#map .s:is(.a, .v, .n).deep .b { fill-opacity: 0.5; stroke-opacity: 0.5; }
+#map .s:is(.a, .v, .n):hover .b, #map .s:is(.a, .v, .n).is-hover .b { fill: color-mix(in srgb, var(--tone) 60%, #fff); }
+#map .s:is(.a, .v, .n).is-rel .b { fill: var(--rel-fill); stroke: var(--rel); stroke-width: 1.1; fill-opacity: 1; }
+#map .s:is(.a, .v, .n).is-sel .b { fill: var(--sel-fill); stroke: var(--sel); stroke-width: 1.4; fill-opacity: 1; }
+#map .s:is(.a, .v, .n).is-sel .c { fill: var(--sel); stroke: none; }
+#map.mode-hurt .layer:is([data-layer="vessels"], [data-layer="nerves"]) .s { opacity: 0.22; }
+#map.mode-hurt .layer:is([data-layer="vessels"], [data-layer="nerves"]) .s.is-rel { opacity: 0.85; }
+
 /* joint markers */
 #map .jm {
   fill: var(--j-synovial); stroke: var(--paper); stroke-width: 1.4; vector-effect: non-scaling-stroke;

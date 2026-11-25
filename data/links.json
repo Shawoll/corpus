@@ -1,5 +1,5 @@
 {
-  "note": "Cross-layer and organ-to-organ connections. \"@group\" expands to every structure in a group. Paired items link same side to same side; \"side\" restricts a link to one side. Joint (articulates) connections live in skeleton.json.",
+  "note": "Cross-layer and organ-to-organ connections. \"@group\" expands to every structure in a group. Paired items link same side to same side; \"side\" restricts a link to one side. Joint (articulates) connections live in skeleton.json, and links declared as fields on structures (origin, innervates, supplies…) live in the layer files.",
   "links": [
     {
       "type": "protects",
@@ -193,6 +193,122 @@
         "bladder"
       ],
       "note": "urine, via the ureter"
+    },
+    {
+      "type": "pumps",
+      "from": [
+        "heart"
+      ],
+      "to": [
+        "aorta",
+        "pulmonary-trunk"
+      ]
+    },
+    {
+      "type": "continues",
+      "from": [
+        "brain"
+      ],
+      "to": [
+        "spinal-cord"
+      ],
+      "note": "through the brainstem and the foramen magnum"
+    },
+    {
+      "type": "branches",
+      "from": [
+        "brain"
+      ],
+      "to": [
+        "trigeminal-nerve",
+        "facial-nerve",
+        "vagus-nerve",
+        "accessory-nerve"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "brain"
+      ],
+      "to": [
+        "internal-jugular-vein"
+      ],
+      "note": "blood"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "thyroid"
+      ],
+      "to": [
+        "internal-jugular-vein",
+        "brachiocephalic-vein"
+      ],
+      "note": "blood"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "lung"
+      ],
+      "to": [
+        "pulmonary-veins"
+      ],
+      "note": "oxygen-rich blood"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "stomach",
+        "spleen",
+        "small-intestine",
+        "large-intestine",
+        "appendix"
+      ],
+      "to": [
+        "hepatic-portal-vein"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "pancreas",
+        "gallbladder"
+      ],
+      "to": [
+        "hepatic-portal-vein"
+      ],
+      "note": "blood"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "liver"
+      ],
+      "to": [
+        "inferior-vena-cava"
+      ],
+      "note": "blood, through the hepatic veins"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "kidney"
+      ],
+      "to": [
+        "renal-vein"
+      ],
+      "note": "blood"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "bladder"
+      ],
+      "to": [
+        "iliac-vein"
+      ]
     }
   ]
 }
