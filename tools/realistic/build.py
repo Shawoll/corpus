@@ -4,8 +4,9 @@
     python3 tools/realistic/build.py            # writes assets/svg/skeleton-{anterior,posterior}-realistic.svg
 
 Needs shapely (pip install shapely), for drawing only: the site itself stays dependency-free. The schematic file
-for each view supplies the draw order, the ids and sides, and the joint markers, which are copied unchanged, so a
-realistic file always has exactly the structures of its schematic one (tools/check.mjs verifies this).
+for each view supplies the draw order, the ids and sides, and the joint markers, so a realistic file always has
+exactly the structures of its schematic one (tools/check.mjs verifies this). Joint markers are copied unchanged,
+except the joints in ANATOMIC, which are drawn as anatomy (capsule and joint space) under the same id and side.
 Run `node tools/check.mjs` afterwards.
 """
 import re
@@ -15,9 +16,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 import skeleton as S  # noqa: E402
-from geometry import LIGHTS, Bone, add_contact_shadows, area_d, polys_from_d, unary_union  # noqa: E402
+from geometry import LIGHTS, Bone, add_contact_shadows, area_d, circ, polys_from_d, soften, unary_union  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
+JM = re.compile(r'^<circle class="jm" data-id="([^"]+)"(?: data-side="([^"]+)")? cx="([\d.]+)" cy="([\d.]+)"[^>]*/>')
+# Joints drawn as anatomy rather than a dot (pilot): joint id -> (the bones it joins, radius of the joint region).
+# The capsule is the hull of the bone ends inside that radius; the joint space is the part of the hull no bone covers
+# (cartilage, and the menisci at the knee).
+ANATOMIC = {'anterior': {'shoulder': (('humerus', 'scapula'), 15), 'hip': (('femur', 'hip-bone'), 17),
+                         'knee': (('femur', 'tibia'), 24)}}
 GROUP = re.compile(r'^<g class="((?:s|deco)(?: [^"]*)?)"(?: data-id="([^"]+)")?(?: data-side="([^"]+)")?[^>]*>')
 
 
@@ -47,6 +54,24 @@ def factory(cls, id_, view, line):
     if id_ in by_view:
         return getattr(S, id_.replace('-', '_'))(view)
     return simple[id_]()
+
+
+def joint_svg(id_, side, cx, cy, spec, bones):
+    """A synovial joint as anatomy: the capsule (.cap) around the bone ends and the joint space (.js) between them."""
+    ids, r = spec
+    zone = circ(cx, cy, r)
+    ends = [bones[(b, side)].body.intersection(zone) for b in ids]
+    hull = unary_union(ends).convex_hull
+    space = hull.buffer(-0.3).difference(unary_union([e.buffer(0.15) for e in ends]))
+    space = unary_union([g for g in getattr(space, 'geoms', [space]) if g.area > 1.5])
+    # the capsule is a sleeve over the joint line: the joint space plus a band of each bone end beside it
+    sleeve = unary_union([space] + [e.intersection(space.buffer(min(r * 0.45, 7))) for e in ends]) if not space.is_empty else hull
+    cap = soften(sleeve.convex_hull.buffer(1.2), 2.6)
+    attrs = f'data-id="{id_}"' + (f' data-side="{side}"' if side else '')
+    paths = f'<path class="cap" d="{area_d(cap, 0.1)}"/>'
+    if not space.is_empty:
+        paths += f'<path class="js" d="{area_d(space, 0.08)}"/>'
+    return f'<g class="jm ja" {attrs}>{paths}</g>'
 
 
 def deco(kind, skull):
@@ -97,6 +122,16 @@ def build(view):
             lines[i] = f'<g class="{cls}" aria-hidden="true">{paths}</g>'
         else:
             lines[i] = bone.svg(attrs, cls, light)
+    bones = {}
+    for _, cls, attrs, bone in slots:
+        if bone is not None and 'deep' not in cls:
+            m = re.match(r'data-id="([^"]+)"(?: data-side="([^"]+)")?', attrs)
+            bones.setdefault((m.group(1), m.group(2)), bone)
+    for i, line in enumerate(lines):
+        m = JM.match(line)
+        if m and m.group(1) in ANATOMIC.get(view, {}):
+            id_, side, cx, cy = m.group(1), m.group(2), float(m.group(3)), float(m.group(4))
+            lines[i] = joint_svg(id_, side, cx, cy, ANATOMIC[view][id_], bones)
     text = '\n'.join(lines)
     text = re.sub(r'<title>(.*?)</title>', r'<title>\1 (realistic)</title>', text, count=1)
     dst.write_text(text, encoding='utf8')
