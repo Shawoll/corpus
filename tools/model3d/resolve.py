@@ -35,6 +35,16 @@ def side_of(part):
     return None
 
 
+# "Name | y < 0.905": only the triangles whose centre is on that side of a plane (metres, the output frame), for a
+# part that holds two Corpus structures (the source's sigmoid colon runs on into the rectum).
+CLIP = re.compile(r'^(.*?)\s*\|\s*([xyz])\s*([<>])\s*(-?[0-9.]+)$')
+
+
+def split_clip(name):
+    m = CLIP.match(name)
+    return (m.group(1), (m.group(2), m.group(3), float(m.group(4)))) if m else (name, None)
+
+
 def load():
     index = json.loads((HERE / 'source' / 'index.json').read_text())
     mapping = json.loads((HERE / 'map.json').read_text())
@@ -53,13 +63,14 @@ def resolve(index=None, mapping=None):
         for cid, names in ids.items():
             for n in names:
                 if not n.startswith('@'):
-                    exact[n.lower()] = cid
+                    exact[split_clip(n)[0].lower()] = cid
     out, unknown = {}, []
     for layer, ids in mapping['layers'].items():
         out[layer] = {}
         for cid, names in ids.items():
             got = []
             for n in names:
+                n, clip = split_clip(n)
                 if n.startswith('@'):
                     group = n[1:]
                     g = group.lower()
@@ -70,6 +81,8 @@ def resolve(index=None, mapping=None):
                     hits = by_base.get(n.lower(), [])
                 if not hits:
                     unknown.append((layer, cid, n))
+                if clip:
+                    hits = [{**h, 'clip': clip} for h in hits]
                 got.extend(h for h in hits if h not in got)
             out[layer][cid] = got
     return out, unknown

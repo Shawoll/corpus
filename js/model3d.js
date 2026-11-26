@@ -1,7 +1,8 @@
 // The 3D body: one .glb per layer (assets/3d/, built by tools/model3d/build.py), drawn with three.js into a <canvas>.
 // Its interface mirrors js/map.js where it can (render, setHover, probe, keys), so main.js treats it as another view.
 // Every mesh carries its graph key in userData.key (`femur:right`) and userData.sex when it exists for one sex only;
-// joint markers (in the skeleton file) also carry userData.joint, their class. The skin (skin.glb) is the body you tap
+// joint markers (in the skeleton file) also carry userData.joint, their class, and a stand-in that lies over other
+// organs (the breasts, the scrotum) carries userData.shell: it is drawn see-through unless selected, and taps go through it. The skin (skin.glb) is the body you tap
 // in "Where does it hurt?": its _hurt vertex attribute holds each vertex's place in the 2D drawings' frame and its area.
 // Loaded only when the 3D view is first opened (main.js imports this module dynamically), so three.js and the models
 // cost nothing until then.
@@ -9,10 +10,12 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { freeArea } from './zoom.js';
 
 const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TAP_PX = 6; // a press that moves less than this is a tap, not a drag-to-turn
 const CONTEXT_OPACITY = 0.2; // layers shown for context, as in the 2D map
+const SHELL_OPACITY = 0.35; // a shell, so what it wraps shows through
 const FOV = 30;
 // the skin on a body-area page: the chosen area tinted, the rest nearly clear, so what lies under it shows
 const AREA_ALPHA = 0.55, SKIN_ALPHA = 0.08;
@@ -266,10 +269,10 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
   new ResizeObserver(resize).observe(canvas);
 
   // the distance at which a sphere of radius r fills the view
-  function fitDistance(r) {
-    const v = THREE.MathUtils.degToRad(FOV) / 2;
-    const hz = Math.atan(Math.tan(v) * camera.aspect);
-    return r / Math.sin(Math.min(v, hz));
+  // the distance at which a sphere of radius r fills the view, or the given share of its width (sx) and height (sy)
+  function fitDistance(r, sx = 1, sy = 1) {
+    const t = Math.tan(THREE.MathUtils.degToRad(FOV) / 2);
+    return r / Math.sin(Math.min(Math.atan(t * sy), Math.atan(t * camera.aspect * sx)));
   }
   function moveTo(pos, target, ms = 480) {
     if (reduced()) {
@@ -306,8 +309,9 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     for (const k of keys) for (const m of index.get(k) || []) if (!state || shownFor(m, state.sex)) b.expandByObject(m);
     return b;
   };
-  // bring keys into view, keeping the current direction; a pair of tiny parts (both hands' carpals) frames the first
-  function frameKeys(keys, { parts = null } = {}) {
+  // bring keys into view, keeping the current direction; a pair of tiny parts (both hands' carpals) frames the first.
+  // insets: screen px of the view covered by overlays (the layer chips, a phone's bottom sheet), kept clear
+  function frameKeys(keys, { parts = null, insets = null } = {}) {
     let b = boxOf(keys);
     if (b.isEmpty()) return;
     if (parts?.length > 1) {
@@ -319,7 +323,17 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     const joints = keys.every((k) => (index.get(k) || []).every((m) => m.userData.joint));
     const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, joints ? 0.11 : 0.05);
     const dir = camera.position.clone().sub(controls.target).normalize();
-    moveTo(c.clone().add(dir.multiplyScalar(fitDistance(r) * 1.4)), c);
+    const box = canvas.getBoundingClientRect();
+    const f = freeArea(box, insets);
+    const d = fitDistance(r, (f.right - f.left) / box.width, (f.bottom - f.top) / box.height) * 1.4;
+    // look past the middle of the view so the selection lands in the middle of the free area
+    const perPx = (2 * d * Math.tan(THREE.MathUtils.degToRad(FOV) / 2)) / (box.height || 1);
+    const right = new THREE.Vector3().crossVectors(dir.clone().negate(), camera.up).normalize();
+    const up = new THREE.Vector3().crossVectors(right, dir.clone().negate());
+    const target = c.clone()
+      .addScaledVector(right, -((f.left + f.right) / 2 - (box.left + box.right) / 2) * perPx)
+      .addScaledVector(up, ((f.top + f.bottom) / 2 - (box.top + box.bottom) / 2) * perPx);
+    moveTo(target.clone().add(dir.multiplyScalar(d)), target);
   }
 
   // v: { sel, rel, rsel, visible, active, sex, joints, hurt, probe, regionOk } as map.render gets them: Sets of keys,
@@ -360,7 +374,7 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
       else if (hasSel && !context) c.lerp(colours.paper, 0.35);
       mat.emissive.copy(hovered.has(k) ? colours.hover : colours.sel).multiplyScalar(hovered.has(k) ? 0.22 : sel ? 0.12 : 0);
       const fade = context && !sel && !rel;
-      const opacity = fade ? CONTEXT_OPACITY : context ? 0.85 : 1;
+      const opacity = Math.min(fade ? CONTEXT_OPACITY : context ? 0.85 : 1, m.userData.shell && !sel ? SHELL_OPACITY : 1);
       if (mat.transparent !== opacity < 1) { mat.transparent = opacity < 1; mat.needsUpdate = true; }
       mat.opacity = opacity;
       mat.depthWrite = opacity === 1;
@@ -405,7 +419,9 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     const j = h.find((x) => x.object.userData.joint);
     const solid = h.find((x) => !x.object.userData.joint);
     if (j && (!j.object.material.depthTest || !solid || j.distance <= solid.distance + 0.002)) return j.object.userData.key;
-    return (h.find((x) => x.object.userData.layer === state?.active) || h[0])?.object.userData.key || null;
+    // a shell only when nothing inside it is under the point
+    const hit = h.filter((x) => !x.object.userData.shell).concat(h.filter((x) => x.object.userData.shell));
+    return (hit.find((x) => x.object.userData.layer === state?.active) || hit[0])?.object.userData.key || null;
   };
   // a near miss still counts, so thin nerves and vessels can be tapped (the 2D map's wider .hit strokes):
   // rings of rays around the point, nearest ring first; fingers get wider rings

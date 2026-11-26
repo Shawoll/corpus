@@ -175,11 +175,15 @@ export function createPanel(graph) {
   // flip: the figure is shown flipped (Mirror on, or the back view); back: seen from behind
   // model: the 3D view, which turns, so there is no fixed left or right of the figure
   function sideSwitch(n, side, { flip, back, model }) {
-    const btn = (s) => `<button data-nav="s/${encodeURIComponent(n.id)}${s ? '/' + s : ''}" aria-pressed="${(s || null) === (side || null)}">${s ? cap(s) : 'Both'}</button>`;
+    // a radio group (main.js moves through it with the arrow keys); the chosen side is its one Tab stop
+    const btn = (s) => {
+      const on = (s || null) === (side || null);
+      return `<button type="button" role="radio" data-nav="s/${encodeURIComponent(n.id)}${s ? '/' + s : ''}" aria-checked="${on}" tabindex="${on ? 0 : -1}">${s ? cap(s) : 'Both'}</button>`;
+    };
     const where = side ? ((side === 'right') !== !!flip ? 'left' : 'right') : null;
     const note = !side ? '' : model ? `<p class="side-note">The body’s ${side} side.</p>`
       : `<p class="side-note">The body’s ${side} side, on the ${where} of the figure${back ? ' seen from behind' : flip ? ' in mirror view' : ''}.</p>`;
-    return `<div class="side-switch"><div class="seg" role="group" aria-label="Side">${btn('right')}${btn('left')}${btn(null)}</div>${note}</div>`;
+    return `<div class="side-switch"><div class="seg" role="radiogroup" aria-label="Side">${btn('right')}${btn('left')}${btn(null)}</div>${note}</div>`;
   }
 
   function nodeView(route, st) {

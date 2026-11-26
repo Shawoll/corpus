@@ -1,5 +1,5 @@
 {
-  "about": "Corpus id → Z-Anatomy part names, per layer. A plain name matches that part (and its .r / .l copies); \"@Name\" also takes every part below it, except parts another id names exactly. Paired ids are split by the part's .r / .l suffix, then by \"right\" / \"left\" in its name, then triangle by triangle at x = 0 (the body's right is x < 0). \"missing\" lists ids with no usable part in the source, with the reason; they stay 2D-only. \"generated\" lists ids the source has no part for that tools/model3d/generated.py draws as simple stand-ins (tubes along a course anchored to source meshes).",
+  "about": "Corpus id → Z-Anatomy part names, per layer. A plain name matches that part (and its .r / .l copies); \"Name | y < 0.905\" keeps only its triangles on that side of a plane (metres), for a part that holds two structures; \"@Name\" also takes every part below it, except parts another id names exactly. Paired ids are split by the part's .r / .l suffix, then by \"right\" / \"left\" in its name, then triangle by triangle at x = 0 (the body's right is x < 0). \"missing\" lists ids with no usable part in the source, with the reason; they stay 2D-only. \"generated\" lists ids the source has no part for that tools/model3d/generated.py draws as simple stand-ins (tubes, sacs and folds placed against source meshes).",
   "layers": {
     "skeleton": {
       "frontal": [
@@ -787,7 +787,10 @@
         "Ascending colon",
         "Transverse colon",
         "Descending colon",
-        "Sigmoid colon"
+        "Sigmoid colon | y > 0.905"
+      ],
+      "rectum": [
+        "Sigmoid colon | y < 0.905"
       ],
       "appendix": [
         "Vermiform appendix"
@@ -1148,19 +1151,22 @@
       "rotator-cuff-tendons",
       "common-extensor-tendon",
       "common-flexor-tendon"
+    ],
+    "organs": [
+      "uterus",
+      "vagina",
+      "vulva",
+      "uterine-tube",
+      "ovary",
+      "breast",
+      "scrotum"
+    ],
+    "vessels": [
+      "ovarian-artery",
+      "ovarian-vein"
     ]
   },
   "missing": {
-    "skin": "drawn as the 3D body surface (skin.glb), not as a structure",
-    "rectum": "not in the source",
-    "ovary": "the source is one male body",
-    "uterine-tube": "the source is one male body",
-    "uterus": "the source is one male body",
-    "vagina": "the source is one male body",
-    "vulva": "the source is one male body",
-    "breast": "the source has no breast tissue",
-    "scrotum": "not in the source",
-    "ovarian-artery": "the source is one male body",
-    "ovarian-vein": "the source is one male body"
+    "skin": "drawn as the 3D body surface (skin.glb), not as a structure"
   }
 }

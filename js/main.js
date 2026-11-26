@@ -95,7 +95,24 @@ async function boot() {
 
   const map = createMap({ svg, graph, onPick, onHover });
   map.mount(layers, regionSvgs, svgViews, styles);
-  const zoom = createZoom(svg, { onChange: () => {} });
+  // the screen px of a map element (the SVG, or the 3D canvas) covered by overlays, which framing a selection keeps it
+  // clear of: the layer chips down the left edge, and on phones the bottom sheet (at the height it is moving to, from
+  // its state and the CSS's --peek / --sheet-half, since the slide may still be running)
+  function mapInsets(el) {
+    const r = el.getBoundingClientRect();
+    const out = { left: 0, bottom: 0 };
+    const chips = $('#layerbar').getBoundingClientRect();
+    if (chips.width && chips.right < r.left + r.width * 0.45) out.left = chips.right - r.left + 8;
+    const ps = getComputedStyle(panelEl);
+    if (ps.position === 'fixed') {
+      const h = panelEl.offsetHeight; // px of the sheet in view:
+      const shown = sheet === 'full' ? h : sheet === 'half' ? h * (1 - (parseFloat(ps.getPropertyValue('--sheet-half')) || 0.46))
+        : parseFloat(ps.getPropertyValue('--peek')) || 0;
+      out.bottom = Math.max(0, r.bottom - (innerHeight - shown)) + 8;
+    }
+    return out;
+  }
+  const zoom = createZoom(svg, { onChange: () => {}, insets: () => mapInsets(svg) });
 
   // ------------------------------------------------------------------ the 3D view (js/model3d.js, loaded on first use)
   const canvas = $('#model3d');
@@ -335,7 +352,7 @@ async function boot() {
       if (st.route.view === 'region') { ensureModelLayers(st).then(() => model?.frameRegions([...h.rsel])); return; }
       if (!h.sel.size) return;
       // the model may still be loading the layer: frame once it's there
-      ensureModelLayers(st).then(() => model?.frame([...h.sel], { parts: h.sel.size === 2 ? [...h.sel] : null }));
+      ensureModelLayers(st).then(() => model?.frame([...h.sel], { parts: h.sel.size === 2 ? [...h.sel] : null, insets: mapInsets(canvas) }));
       return;
     }
     if (st.route.view === 'region') { zoom.reveal(map.bbox([...h.rsel], { regions: true })); return; }
@@ -388,7 +405,11 @@ async function boot() {
   // ------------------------------------------------------------------ rendering
   function renderControls(st) {
     const hurt = Router.isHurt(st.route);
-    for (const b of document.querySelectorAll('.modes button')) b.setAttribute('aria-pressed', String((b.dataset.mode === 'hurt') === hurt));
+    for (const b of document.querySelectorAll('.modes button')) {
+      const on = (b.dataset.mode === 'hurt') === hurt;
+      b.setAttribute('aria-checked', String(on));
+      b.tabIndex = on ? 0 : -1;
+    }
     const here = layersIn(st.view);
     const active = activeIn(st);
     const vname = viewById.get(st.view)?.name || st.view;
@@ -457,8 +478,11 @@ async function boot() {
     });
   }
   function renderPanel(st, top) {
+    // the side switch re-renders the panel when it is used: keep the keyboard focus on it
+    const inSwitch = !!document.activeElement?.closest?.('.side-switch') && panelBody.contains(document.activeElement);
     panelBody.innerHTML = panel.render(st);
     if (top) { panelBody.scrollTop = 0; panelEl.scrollTop = 0; }
+    if (inSwitch) panelBody.querySelector('.side-switch [role="radio"][aria-checked="true"]')?.focus({ preventScroll: true });
   }
   store.subscribe((st, prev) => {
     if (st.style !== prev.style || st.view !== prev.view) ensureShown(st);
@@ -700,6 +724,22 @@ async function boot() {
     if (Math.abs(dy) < 8) setSheet(order[(i + 1) % order.length]);
     else if (dy < 0) setSheet(order[Math.min(2, i + 1)]);
     else setSheet(order[Math.max(0, i - 1)]);
+  });
+
+  // the radio groups outside the cog (the Explore / Where does it hurt? switch, the panel's side switch): the arrow
+  // keys, Home and End choose, like the cog's rows (renderPanel keeps the focus on the side switch it redraws)
+  document.addEventListener('keydown', (e) => {
+    const b = e.target instanceof Element ? e.target.closest('[role="radio"]') : null;
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (!b || settingsEl.contains(b) || !(step || e.key === 'Home' || e.key === 'End')) return;
+    e.preventDefault();
+    const btns = [...b.closest('[role="radiogroup"]').querySelectorAll('[role="radio"]')].filter((x) => !x.disabled);
+    let i = btns.indexOf(b);
+    i = e.key === 'Home' ? 0 : e.key === 'End' ? btns.length - 1 : (i + step + btns.length) % btns.length;
+    const next = btns[i];
+    if (!next || next === b) return;
+    next.focus();
+    next.click();
   });
 
   // keyboard

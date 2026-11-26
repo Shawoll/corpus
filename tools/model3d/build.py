@@ -64,6 +64,16 @@ def read_parts(wanted):
     return out
 
 
+def part_geo(p, geo):
+    """A part's (vertices, faces), cut to its map.json clip if it has one (resolve.split_clip)."""
+    v, f = geo[(p['file'], p['i'])]
+    if p.get('clip'):
+        axis, op, at = p['clip']
+        c = v[f].mean(axis=1)[:, 'xyz'.index(axis)]
+        v, f = compact(v, f[(c < at) if op == '<' else (c > at)])
+    return v, f
+
+
 def split_x(v, f, right):
     """Keep the triangles whose centre is on one side of x = 0 (the body's right is x < 0)."""
     cx = v[f].mean(axis=1)[:, 0]
@@ -248,7 +258,7 @@ def key_meshes(layer, res, known, geo):
         if not s:
             sys.exit(f'map.json: "{cid}" is not in the {layer} data')
         for p in parts:
-            v, f = geo[(p['file'], p['i'])]
+            v, f = part_geo(p, geo)
             if not s.get('paired'):
                 pieces.setdefault(cid, []).append((v, f))
                 continue
@@ -323,7 +333,7 @@ def main(only):
         return cache[l][key][0]
 
     def parts(cid, side):
-        return [(p['name'], geo[(p['file'], p['i'])][0]) for p in res[layer_of[cid]][cid] if side_of(p) == side]
+        return [(p['name'], part_geo(p, geo)[0]) for p in res[layer_of[cid]][cid] if side_of(p) == side]
     skin_regions = old.get('skin', [])
     for layer in layers:
         known = structures[layer]
@@ -332,7 +342,11 @@ def main(only):
         for cid in gen.get(layer, []):
             for sd in (['right', 'left'] if known[cid].get('paired') else [None]):
                 key = f'{cid}:{sd}' if sd else cid
-                meshes[key] = generated.make(cid, sd, ctx, parts)
+                got = generated.make(cid, sd, ctx, parts)
+                if isinstance(got, dict):  # one mesh per sex for an id both have (the breast): "key|sex" here
+                    meshes.update({f'{key}|{sex}': m for sex, m in got.items()})
+                else:
+                    meshes[key] = got
                 made.add(key)
         total = sum(len(f) for _, f in meshes.values())
         budget = BUDGET.get(layer, 50_000)
@@ -345,12 +359,16 @@ def main(only):
             f = simplify(v, f, targets[key])
             v2, f2 = compact(v, f)
             v2, f2 = optimise(v2, f2)
-            sex = known[key.split(':')[0]].get('sex')
+            name, _, sex = key.partition('|')
+            cid = name.split(':')[0]
+            sex = sex or known[cid].get('sex')
             # three.js strips ':' from node names, so the key also goes in extras (→ userData)
-            glb.add(key, v2, f2, {'key': key, **({'sex': sex} if sex else {}), **({'generated': True} if key in made else {})})
+            glb.add(name, v2, f2, {'key': name, **({'sex': sex} if sex else {}),
+                                   **({'generated': True} if name in made else {}),
+                                   **({'shell': True} if cid in generated.SHELL else {})})
             final[key] = (v2, f2)
             tris += len(f2)
-        layer_keys = sorted(meshes)
+        layer_keys = sorted({k.partition('|')[0] for k in meshes})
         if layer == 'skeleton':  # joint markers where the bones meet, named with the joint keys
             groups = {cid for cid, s in known.items() if (s.get('count') or 1) / (2 if s.get('paired') else 1) > 1}
             for jk, (v, f, cls) in sorted(joints.build({k: v for k, (v, _) in final.items()}, groups).items()):
@@ -365,11 +383,15 @@ def main(only):
             for cid, ps in res[layer].items():
                 paired = known[cid].get('paired')
                 for p in ps:
-                    v, f = geo[(p['file'], p['i'])]
+                    v, f = part_geo(p, geo)
                     for sd in ([side_of(p)] if side_of(p) else ['right', 'left']) if paired else [None]:
                         piece = (v, f) if not paired or side_of(p) else split_x(v, f, sd == 'right')
                         by_key.setdefault(f'{cid}:{sd}' if sd else cid, []).append(piece)
-            outlines.write(layer, final, skin.flat_fit(bones), by_key)
+            # stand-ins keep their hand-drawn 2D shapes when they are organs (the drawings show more: the cervix, the
+            # labia) or exist for one sex (the ovarian vessels must reach the drawn ovaries, not the model's)
+            keep = {k for k in final if k.partition('|')[0] in made
+                    and (layer == 'organs' or known[k.split(':')[0].partition('|')[0]].get('sex'))}
+            outlines.write(layer, {k: m for k, m in final.items() if k not in keep}, skin.flat_fit(bones), by_key)
         print(f'{layer}: {len(meshes)} keys, {total:,} → {tris:,} triangles, {size / 1e6:.2f} MB', file=sys.stderr)
     if with_skin:
         skin_regions = build_skin(index, res, structures, geo, origin, step)

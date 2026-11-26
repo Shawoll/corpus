@@ -6,7 +6,7 @@ Z-Anatomy is built on **BodyParts3D**, © The Database Center for Life Science, 
 
 ## Changes made
 
-`tools/model3d/build.py` selects and merges the source parts for each Corpus structure (as listed in `tools/model3d/map.json`), splits right from left, simplifies the meshes, quantises them and compresses them with meshoptimizer. No anatomy was redrawn. `tools/model3d/outlines.py` projects the meshes of five layers into the 2D drawings' frame to give the realistic drawings their outlines. `tools/model3d/generated.py` adds simple tubes for a few structures the source lacks; those are Corpus's own.
+`tools/model3d/build.py` selects and merges the source parts for each Corpus structure (as listed in `tools/model3d/map.json`), splits right from left, simplifies the meshes, quantises them and compresses them with meshoptimizer. No anatomy was redrawn. `tools/model3d/outlines.py` projects the meshes of five layers into the 2D drawings' frame to give the realistic drawings their outlines. `tools/model3d/generated.py` adds simple tubes, sacs and folds for the structures the source lacks (ducts, two nerves, five tendons, the breasts, the scrotum and the female reproductive organs and ovarian vessels); those are Corpus's own.
 
 ## Licence of these files
 

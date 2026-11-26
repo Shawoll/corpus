@@ -50,7 +50,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .seg button:hover { color: var(--ink); }
 .seg button[aria-pressed="true"], .seg button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
 .seg button:focus-visible { border-radius: 999px; }
-.modes button[data-mode="hurt"][aria-pressed="true"] { background: var(--sel); color: #fff; }
+.modes button[data-mode="hurt"][aria-checked="true"] { background: var(--sel); color: #fff; }
 .modes .short { display: none; }
 
 .icon-btn {
@@ -626,7 +626,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 
   .stage { grid-template-columns: 1fr; }
   .panel {
-    --peek: 92px;
+    --peek: 92px; --sheet-half: 0.46; /* main.js reads both to keep a revealed selection above the sheet */
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 25;
     height: 86vh; height: 86dvh;
     border-left: 0; border: 1px solid var(--line); border-bottom: 0;
@@ -635,7 +635,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
     transition: transform 0.3s var(--ease);
     overflow: hidden; display: flex; flex-direction: column;
   }
-  .panel[data-sheet="half"] { transform: translateY(46%); }
+  .panel[data-sheet="half"] { transform: translateY(calc(var(--sheet-half) * 100%)); }
   .panel[data-sheet="full"] { transform: translateY(0); }
   .sheet-handle {
     display: grid; place-items: center; flex: none; height: 26px; width: 100%; cursor: grab; touch-action: none;

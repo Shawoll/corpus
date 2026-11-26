@@ -1,7 +1,16 @@
 // Pan & zoom by animating the SVG viewBox. Mouse wheel, trackpad pinch, drag, touch pinch, buttons.
 const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () => {} } = {}) {
+// The part of a rect not covered by the insets, or the whole rect when too little would be left.
+export function freeArea(r, ins) {
+  const i = { left: 0, top: 0, right: 0, bottom: 0, ...(ins || {}) };
+  const f = { left: r.left + i.left, top: r.top + i.top, right: r.right - i.right, bottom: r.bottom - i.bottom };
+  return f.right - f.left < 120 || f.bottom - f.top < 120 ? { left: r.left, top: r.top, right: r.right, bottom: r.bottom } : f;
+}
+
+// insets() → { left, top, right, bottom }: screen px of the map covered by overlays (the layer chips, a phone's bottom
+// sheet), which reveal() keeps the selection clear of.
+export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () => {}, insets = () => null } = {}) {
   let vb = { x: home[0], y: home[1], w: home[2], h: home[3] };
   const MIN_W = 26, MAX_W = 1300;
   let raf = 0;
@@ -138,17 +147,22 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
       if (!b) return;
       const r = svg.getBoundingClientRect();
       if (!r.width || !r.height) return;
-      const tl = toSvg(r.left, r.top), br = toSvg(r.right, r.bottom);
+      const free = freeArea(r, insets());
+      const tl = toSvg(free.left, free.top), br = toSvg(free.right, free.bottom);
       const vis = { x: tl.x, y: tl.y, w: br.x - tl.x, h: br.y - tl.y };
       const inView = b.x >= vis.x && b.y >= vis.y && b.x + b.w <= vis.x + vis.w && b.y + b.h <= vis.y + vis.h;
       const pxSize = Math.max(b.w, b.h) * scale();
       if (!force && inView && pxSize > 46) return;
       const aspect = r.width / r.height;
-      let h = Math.max(b.h * 2.6, (b.w * 2.6) / aspect, 210);
-      if (!inView && pxSize > 46) h = Math.max(h, Math.min(vis.h, home[3]));
+      const fw = free.right - free.left, fh = free.bottom - free.top;
+      // the viewBox height that fits the box (with room around it) into the free part of the map
+      let h = Math.max((b.h * 2.6 * r.height) / fh, ((b.w * 2.6) / aspect) * (r.width / fw), 210);
+      if (!inView && pxSize > 46) h = Math.max(h, Math.min(vb.h, home[3]));
       h = Math.min(h, home[3]);
-      const w = h * aspect;
-      animateTo({ x: b.x + b.w / 2 - w / 2, y: b.y + b.h / 2 - h / 2, w, h });
+      const w = h * aspect, s = r.height / h; // screen px per unit
+      // the box's centre goes to the free area's centre
+      const cx = (free.left + free.right) / 2 - r.left, cy = (free.top + free.bottom) / 2 - r.top;
+      animateTo({ x: b.x + b.w / 2 - cx / s, y: b.y + b.h / 2 - cy / s, w, h });
     },
   };
 }
