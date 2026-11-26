@@ -60,6 +60,10 @@ body { display: grid; grid-template-rows: auto 1fr; }
 }
 .icon-btn:hover { color: var(--ink); border-color: var(--ink-3); }
 .icon-btn[aria-expanded="true"], .icon-btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+/* Ko-fi support link: Ko-fi blue, dark text for contrast */
+.kofi { background: #72a4f2; border-color: #72a4f2; color: #0f1e36; font-weight: 600; text-decoration: none; }
+.kofi:hover { background: #8bb5f5; border-color: #8bb5f5; color: #0f1e36; }
+@media (max-width: 1280px) { .kofi .label { display: none; } .kofi { padding: 0; } }
 
 /* ---------------------------------------------------------------- stage */
 .stage {

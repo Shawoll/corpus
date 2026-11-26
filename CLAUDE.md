@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Corpus is an interactive map of the human body, seen from the front and the back, (bones, joints, muscles, organs, blood vessels, nerves and "Where does it hurt?" regions). It is plain HTML, CSS, ES modules, JSON and SVG. There is no build step, no package manager, no dependencies and no external requests, and it deploys as-is to GitHub Pages from the repository root on `master`. Keep it that way: don't add a bundler, npm packages, CDN scripts or absolute paths.
 
-`README.md` documents the data shapes and the "add a layer" recipe in full. `data/CLAUDE.md` and `assets/svg/CLAUDE.md` hold the rules for editing data and drawings.
+`CONTRIBUTING.md` documents the project layout, the data shapes and the "add a layer" recipe in full. `data/CLAUDE.md` and `assets/svg/CLAUDE.md` hold the rules for editing data and drawings.
 
 ## Commands
 

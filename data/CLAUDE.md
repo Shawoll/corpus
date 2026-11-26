@@ -1,6 +1,6 @@
 # Data files
 
-The structures and links behind the map. The JSON shapes are in the root `README.md` ("Data shapes"). This file covers the rules that aren't obvious from the shapes. Run `node tools/check.mjs` (or `/?debug`) after every edit (see the root `CLAUDE.md`).
+The structures and links behind the map. The JSON shapes are in the root `CONTRIBUTING.md` ("Data shapes"). This file covers the rules that aren't obvious from the shapes. Run `node tools/check.mjs` (or `/?debug`) after every edit (see the root `CLAUDE.md`).
 
 ## Ids and sides
 
