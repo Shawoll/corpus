@@ -1,6 +1,8 @@
 // The body map: mounts each layer's SVG into one <svg>, indexes shapes by key, and renders highlight state.
 // Every view (front, back) gets its own <g class="view">; only the current one is displayed. All drawings share
 // one frame (body's right at x < 240), so a view with "flip" is shown through the mirror transform on #world.
+// A layer may have one drawing per style (schematic, realistic) in a view: each gets its own <g class="layer"
+// data-style=…> with the same ids, and only the current style's group is displayed.
 const NS = 'http://www.w3.org/2000/svg';
 const el = (tag, attrs = {}) => {
   const e = document.createElementNS(NS, tag);
@@ -21,9 +23,11 @@ export function createMap({ svg, graph, onPick, onHover }) {
   const regionDrawn = new Map(); // view -> Set(region key)
   const layerEls = new Map(); // layer id -> [<g class="layer">] (one per view it is drawn in)
   const viewEls = new Map(); // view id -> <g class="view">
+  const styled = []; // [{ g, style }] layer groups that belong to one drawing style
+  const variants = []; // [{ layer, view, style, keys: Set, base: Set }] for the ?debug check
   let viewIds = [];
   const add = (m, k, v) => { if (!m.has(k)) m.set(k, new Set()); m.get(k).add(v); };
-  const shown = (e) => !e.closest('.layer.off, .view.off');
+  const shown = (e) => !e.closest('.layer.off, .layer.style-off, .view.off');
   let marked = [];
   let hovered = [];
 
@@ -37,8 +41,10 @@ export function createMap({ svg, graph, onPick, onHover }) {
     }
   }
 
-  // layers: [{ id, svgs: { <view>: svgText } }], regionSvgs: { <view>: svgText }, views: [{ id }] (drawing order: first is bottom)
-  function mount(layers, regionSvgs = {}, views = [{ id: 'anterior' }]) {
+  // layers: [{ id, svgs: { <view>: svgText }, styleSvgs: { <style>: { <view>: svgText } } }], regionSvgs: { <view>: svgText },
+  // views: [{ id }] (drawing order: first is bottom), styles: [{ id }] (the first is the default drawing, held in svgs)
+  function mount(layers, regionSvgs = {}, views = [{ id: 'anterior' }], styles = [{ id: 'default' }]) {
+    const keysOf = (g) => new Set([...g.querySelectorAll('[data-id]')].map(keyOf));
     viewIds = views.map((v) => v.id);
     for (const V of views) {
       const vg = el('g', { class: 'view', 'data-view': V.id });
@@ -48,11 +54,22 @@ export function createMap({ svg, graph, onPick, onHover }) {
       regionDrawn.set(V.id, new Set());
       for (const L of layers) {
         if (!L.svgs?.[V.id]) continue;
-        const g = el('g', { class: 'layer', 'data-layer': L.id });
-        importSvg(L.svgs[V.id], g);
-        vg.appendChild(g);
+        const alts = styles.slice(1).filter((S) => L.styleSvgs?.[S.id]?.[V.id]);
+        const groups = [{ style: alts.length ? styles[0].id : null, text: L.svgs[V.id] },
+          ...alts.map((S) => ({ style: S.id, text: L.styleSvgs[S.id][V.id] }))];
         if (!layerEls.has(L.id)) layerEls.set(L.id, []);
-        layerEls.get(L.id).push(g);
+        for (const { style, text } of groups) {
+          const g = el('g', { class: 'layer', 'data-layer': L.id });
+          if (style) { g.dataset.style = style; styled.push({ g, style }); }
+          importSvg(text, g);
+          vg.appendChild(g);
+          layerEls.get(L.id).push(g);
+        }
+        if (alts.length) {
+          const [base, ...rest] = layerEls.get(L.id).slice(-groups.length);
+          const baseKeys = keysOf(base);
+          rest.forEach((g, i) => variants.push({ layer: L.id, view: V.id, style: alts[i].id, keys: keysOf(g), base: baseKeys }));
+        }
       }
       const rg = el('g', { class: 'layer regions-layer', 'data-layer': 'regions' });
       if (regionSvgs[V.id]) importSvg(regionSvgs[V.id], rg);
@@ -122,6 +139,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     svg.classList.toggle('mode-hurt', !!v.hurt);
     svg.classList.toggle('no-joints', !v.joints);
     for (const [id, g] of viewEls) g.classList.toggle('off', id !== v.view);
+    for (const { g, style } of styled) g.classList.toggle('style-off', style !== v.style);
     for (const [id, gs] of layerEls) {
       const on = v.visible.has(id);
       for (const g of gs) {
@@ -213,6 +231,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     regionKeys: () => [...rindex.keys()],
     drawnByView: () => drawn, // view -> Set(structure key), for the ?debug check
     regionsByView: () => regionDrawn,
+    variants: () => variants, // per-style drawings of a layer, for the ?debug check (same keys as the default)
     elements: (k) => index.get(k) || [],
   };
 }

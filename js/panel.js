@@ -329,7 +329,8 @@ export function createPanel(graph) {
       <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, nerve, blood vessel, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
       <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the skeleton and the “Where does it hurt?” areas so far.</span></li>
-      <li><span class="k">vi</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
+      <li><span class="k">vi</span><span><b>Simple / Real</b> (bottom left of the map, or <span class="kbd">D</span>) switches between simple diagrams and realistic drawings. The skeleton is drawn both ways; the other layers are simple diagrams for now.</span></li>
+      <li><span class="k">vii</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);
     h += section('Legend', `<div class="legend">
       <div><span class="sq sel"></span>Selected</div>

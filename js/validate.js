@@ -2,8 +2,9 @@
 // check() is pure (no DOM) so both can share it; validate() is the browser wrapper that logs and shows a badge.
 import { parseKey } from './graph.js';
 
-// drawn: Map(view -> Set(structure key)), regionShapes: Map(view -> Set(region key))
-export function check({ graph, drawn, regionShapes }) {
+// drawn: Map(view -> Set(structure key)), regionShapes: Map(view -> Set(region key)),
+// variants: [{ layer, view, style, keys: Set, base: Set }] a layer's drawing in another style and its default drawing's keys
+export function check({ graph, drawn, regionShapes, variants = [] }) {
   const problems = [...graph.problems];
   const views = [...drawn.keys()];
   const all = new Set([...drawn.values()].flatMap((s) => [...s]));
@@ -24,6 +25,12 @@ export function check({ graph, drawn, regionShapes }) {
     if (n.listOnly) { if (keys.some((k) => all.has(k))) problems.push(`"${n.id}" is drawn, so it shouldn't be "listOnly"`); continue; }
     for (const k of keys) if (!all.has(k)) problems.push(`"${k}" is not drawn in any view (add a shape or set "listOnly": true)`);
   }
+  // a drawing in another style must show exactly the structures of the default drawing (same ids and sides)
+  for (const { layer, view, style, keys, base } of variants) {
+    for (const k of base) if (!keys.has(k)) problems.push(`The ${style} ${layer} drawing (${view}) is missing "${k}"`);
+    for (const k of keys) if (!base.has(k)) problems.push(`The ${style} ${layer} drawing (${view}) has "${k}", which the default drawing doesn't`);
+  }
+
   let bones = 0;
   for (const n of graph.nodes.values()) {
     if (n.type === 'bone') {
@@ -65,7 +72,7 @@ export function check({ graph, drawn, regionShapes }) {
 }
 
 export function validate({ graph, map }) {
-  const { problems, summary } = check({ graph, drawn: map.drawnByView(), regionShapes: map.regionsByView() });
+  const { problems, summary } = check({ graph, drawn: map.drawnByView(), regionShapes: map.regionsByView(), variants: map.variants() });
   console.group(`[Corpus] data check: ${summary}`);
   if (problems.length) console.table(problems.map((p) => ({ problem: p })));
   else console.info('All references resolve.');

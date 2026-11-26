@@ -28,14 +28,18 @@ async function boot() {
   // a layer's "svg" maps view id -> file; a plain string means the first view only
   const svgMap = (spec) => (typeof spec === 'string' ? { [views[0].id]: spec } : spec || {});
   const loadSvgs = async (spec) => Object.fromEntries(await Promise.all(Object.entries(svgMap(spec)).map(async ([v, url]) => [v, await load(url, 'text')])));
-  const [datas, svgs, linkFiles, regionsData, regionSvgs] = await Promise.all([
+  // drawing styles: the first is the default drawing in a layer's "svg"; a layer's "styles" adds per-style drawings
+  const styles = manifest.styles?.length ? manifest.styles : [{ id: 'schematic', name: 'Schematic' }];
+  const loadStyles = async (spec = {}) => Object.fromEntries(await Promise.all(Object.entries(spec).map(async ([s, files]) => [s, await loadSvgs(files)])));
+  const [datas, svgs, styleSvgs, linkFiles, regionsData, regionSvgs] = await Promise.all([
     Promise.all(manifest.layers.map((l) => load(l.data))),
     Promise.all(manifest.layers.map((l) => loadSvgs(l.svg))),
+    Promise.all(manifest.layers.map((l) => loadStyles(l.styles))),
     Promise.all((manifest.links || []).map((u) => load(u))),
     manifest.regions ? load(manifest.regions.data) : { regions: [] },
     manifest.regions ? loadSvgs(manifest.regions.svg) : {},
   ]);
-  const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i] }));
+  const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i], styleSvgs: styleSvgs[i] }));
   const graph = new Graph({ layers, links: linkFiles.flatMap((f) => f.links || []), linkTypes: manifest.linkTypes, regions: regionsData });
 
   const svg = $('#map');
@@ -48,9 +52,12 @@ async function boot() {
 
   const viewById = new Map(views.map((v) => [v.id, v]));
   const savedView = prefs.get('view', views[0].id);
+  const styleById = new Map(styles.map((s) => [s.id, s]));
+  const savedStyle = prefs.get('style', styles[0].id);
   const store = createStore({
     route: { view: 'home' },
     view: viewById.has(savedView) ? savedView : views[0].id, // front / back (not part of the route)
+    style: styleById.has(savedStyle) ? savedStyle : styles[0].id, // schematic / realistic drawings (not part of the route)
     visible: new Set(manifest.layers.filter((l) => l.visible).map((l) => l.id)),
     active: [...manifest.layers].reverse().find((l) => l.visible)?.id,
     joints: prefs.get('joints', true),
@@ -60,7 +67,7 @@ async function boot() {
   });
 
   const map = createMap({ svg, graph, onPick, onHover });
-  map.mount(layers, regionSvgs, views);
+  map.mount(layers, regionSvgs, views, styles);
   const zoom = createZoom(svg, { onChange: () => {} });
 
   // ------------------------------------------------------------------ views (front / back)
@@ -97,6 +104,9 @@ async function boot() {
     return !found.length || found.includes(current) ? current : found[0];
   }
   const setView = (v) => store.set(viewPatch(store.get(), v));
+  // a style other than the default only exists where some layer has a drawing for it in this view
+  const styleIn = (s, v) => s === styles[0].id || manifest.layers.some((l) => l.styles?.[s]?.[v]);
+  const setStyle = (s) => { if (!styleById.has(s)) return; prefs.set('style', s); store.set({ style: s }); };
 
   // ------------------------------------------------------------------ navigation
   let zoomNext = false;
@@ -221,6 +231,14 @@ async function boot() {
       b.title = state === 'na' ? `${name} aren’t drawn in the ${vname.toLowerCase()} view yet` : state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
     }
     for (const b of document.querySelectorAll('.views button')) b.setAttribute('aria-pressed', String(b.dataset.view === st.view));
+    const drawnStyle = styleIn(st.style, st.view) ? st.style : styles[0].id;
+    for (const b of document.querySelectorAll('#styles button')) {
+      const s = styleById.get(b.dataset.style);
+      const here = styleIn(s.id, st.view);
+      b.setAttribute('aria-pressed', String(s.id === drawnStyle));
+      b.disabled = !here;
+      b.title = here ? `${s.name} drawings (D)` : `No ${s.name.toLowerCase()} drawings for the ${vname.toLowerCase()} view yet`;
+    }
     svg.setAttribute('aria-label', `${vname} view of the human body. Use search or Browse to reach every structure by keyboard.`);
     const jb = $('.layer-chip[data-toggle="joints"]');
     jb.dataset.state = st.joints ? 'active' : 'off';
@@ -246,6 +264,7 @@ async function boot() {
     map.render({
       ...highlights(st),
       view: st.view,
+      style: st.style,
       visible: st.visible,
       active: activeIn(st),
       hurt: Router.isHurt(st.route),
@@ -305,6 +324,16 @@ async function boot() {
   viewsEl.hidden = views.length < 2;
   viewsEl.addEventListener('click', (e) => { const b = e.target.closest('[data-view]'); if (b) { hideHint(); setView(b.dataset.view); } });
   const toggleView = () => { const i = views.findIndex((v) => v.id === store.get().view); setView(views[(i + 1) % views.length].id); };
+  const stylesEl = $('#styles');
+  stylesEl.innerHTML = styles.map((s) => `<button data-style="${escapeHtml(s.id)}" aria-pressed="false" aria-label="${escapeHtml(s.name)} drawings">${escapeHtml(s.short || s.name)}</button>`).join('');
+  stylesEl.hidden = styles.length < 2;
+  stylesEl.addEventListener('click', (e) => { const b = e.target.closest('[data-style]'); if (b && !b.disabled) { hideHint(); setStyle(b.dataset.style); } });
+  const toggleStyle = () => {
+    const st = store.get();
+    const here = styles.filter((s) => styleIn(s.id, st.view));
+    const i = here.findIndex((s) => s.id === st.style);
+    if (here.length > 1) setStyle(here[(i + 1) % here.length].id);
+  };
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
 
   $('#theme-toggle').addEventListener('click', () => {
@@ -397,6 +426,7 @@ async function boot() {
     else if (e.key === '-' || e.key === '_') zoom.zoomBy(1.4);
     else if (e.key === '0') zoom.home();
     else if (e.key === 'b' || e.key === 'B') toggleView();
+    else if (e.key === 'd' || e.key === 'D') toggleStyle();
   });
 
   window.addEventListener('hashchange', onRoute);

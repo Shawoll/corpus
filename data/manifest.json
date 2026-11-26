@@ -11,6 +11,18 @@
       "flip": true
     }
   ],
+  "styles": [
+    {
+      "id": "schematic",
+      "name": "Schematic",
+      "short": "Simple"
+    },
+    {
+      "id": "realistic",
+      "name": "Realistic",
+      "short": "Real"
+    }
+  ],
   "viewBox": [
     0,
     0,
@@ -33,6 +45,12 @@
       "svg": {
         "anterior": "assets/svg/skeleton-anterior.svg",
         "posterior": "assets/svg/skeleton-posterior.svg"
+      },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/skeleton-anterior-realistic.svg",
+          "posterior": "assets/svg/skeleton-posterior-realistic.svg"
+        }
       },
       "data": "data/skeleton.json",
       "visible": true

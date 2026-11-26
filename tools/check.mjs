@@ -26,18 +26,27 @@ const graph = new Graph({ layers, links, linkTypes: manifest.linkTypes, regions 
 
 const drawn = new Map();
 const regionShapes = new Map();
+const variants = []; // a layer's drawing in another style (realistic…) next to its default drawing
 for (const v of views) {
   const keys = new Set();
   for (const l of manifest.layers) {
     const file = svgMap(l.svg)[v.id];
-    if (file) for (const k of keysIn(await text(file))) keys.add(k);
+    if (!file) continue;
+    const base = keysIn(await text(file));
+    for (const k of base) keys.add(k);
+    for (const [style, files] of Object.entries(l.styles || {})) {
+      if (!files[v.id]) continue;
+      const alt = keysIn(await text(files[v.id]));
+      for (const k of alt) keys.add(k);
+      variants.push({ layer: l.id, view: v.id, style, keys: alt, base });
+    }
   }
   drawn.set(v.id, keys);
   const rfile = manifest.regions && svgMap(manifest.regions.svg)[v.id];
   regionShapes.set(v.id, rfile ? keysIn(await text(rfile)) : new Set());
 }
 
-const { problems, summary } = check({ graph, drawn, regionShapes });
+const { problems, summary } = check({ graph, drawn, regionShapes, variants });
 console.log(`[Corpus] data check: ${summary}`);
 for (const p of problems) console.log(`  - ${p}`);
 process.exit(problems.length ? 1 : 0);

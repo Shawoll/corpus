@@ -349,6 +349,22 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .deco.under path { fill: var(--bone); }
 #map .deco.teeth path { fill: var(--tooth); stroke: var(--bone-line); stroke-width: 0.5; vector-effect: non-scaling-stroke; }
 
+/* realistic drawings: form shading on top of the tissue fill (.sh bands, .hl lit rim, .f recesses) */
+#map .layer[data-layer="skeleton"] { --shade: var(--bone-shade); --lit: var(--bone-light); --pore: var(--bone-pore); }
+#map .s :is(.sh, .hl, .f) { stroke: none; pointer-events: none; transition: opacity 0.16s; }
+#map .s .sh { fill: var(--shade); }
+#map .s .sh1 { fill-opacity: 0.07; }
+#map .s .sh2 { fill-opacity: 0.09; }
+#map .s .sh3 { fill-opacity: 0.11; }
+#map .s .sh4 { fill-opacity: 0.15; }
+#map .s .hl { fill: var(--lit); fill-opacity: 0.75; }
+#map .s .f { fill: var(--pore); fill-opacity: 0.55; }
+#map .layer[data-style="realistic"] .s .b { stroke-width: 0.75; }
+#map .layer[data-style="realistic"] .s .d { stroke-width: 0.6; }
+#map .s.is-sel .sh { fill: color-mix(in srgb, var(--sel) 55%, var(--shade)); }
+#map .s.is-rel .sh { fill: color-mix(in srgb, var(--rel) 55%, var(--shade)); }
+#map .s:is(.is-sel, .is-rel) .hl { opacity: 0.5; }
+
 /* organs */
 #map .s.o { --organ: var(--o-brain); }
 #map .s.o .b { fill: var(--organ); stroke: var(--o-line); stroke-width: 1; }
@@ -436,6 +452,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .layer.context .s.is-sel .b, #map .layer.context .s.is-rel .b,
 #map .layer.context .s.is-sel .c, #map .layer.context .s.is-rel .c { fill-opacity: 0.85; }
 #map .layer.context .jm { display: none; }
+#map .layer.context .s :is(.sh, .hl, .f) { opacity: 0.3; }
+#map .layer.context .s:is(.is-sel, .is-rel) :is(.sh, .hl, .f) { opacity: 0.85; }
 #map .layer.off { display: none; }
 #map .view.off { display: none; } /* stays hidden while probing, so "Under this spot" only lists the current view */
 
@@ -455,6 +473,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map.mode-hurt .layer:not(.regions-layer) .s,
 #map.mode-hurt .layer:not(.regions-layer) .deco { opacity: 0.55; }
 #map.mode-hurt .layer[data-layer="skeleton"] .s .b { fill-opacity: 0.35; }
+#map.mode-hurt .layer[data-layer="skeleton"] .s :is(.sh, .hl, .f) { opacity: 0.4; }
 #map.mode-hurt .layer .s.is-rel { opacity: 0.95; }
 #map.mode-hurt .jm { display: none; }
 #map .rg path {
@@ -520,6 +539,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map.probing .layer.off { display: inline !important; opacity: 0 !important; }
 #map.probing .layer, #map.probing .layer .s { pointer-events: visiblePainted !important; }
 #map.probing .regions-layer, #map.probing .regions-layer *, #map.probing .jm { pointer-events: none !important; }
+/* the drawing style that isn't shown stays hidden, even while probing ("Under this spot" lists each structure once) */
+#map .view .layer.style-off { display: none !important; }
 
 /* range chips expand in place */
 .chipset, .chips-more { display: contents; }

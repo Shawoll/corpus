@@ -24,4 +24,18 @@ One SVG per layer and view (`<layer>-anterior.svg`, `<layer>-posterior.svg`), li
 | `class="deco …"` | non-interactive decoration (no `data-id`) |
 | `regions-<view>.svg`: `<g class="regions"><g class="rg" data-id=<region id>>` | "Where does it hurt?" areas. Ids match `data/regions.json`; the same id may appear in both views |
 
-The drawings are schematic, not illustration. They were generated once from landmark coordinates (rounded shapes, left and right mirrored about x = 240) and are now ordinary SVG files to edit by hand.
+## Realistic drawings
+
+A layer can have a second drawing per view in another style, listed under the layer's `styles` in `data/manifest.json` (`"styles": { "realistic": { "anterior": "assets/svg/skeleton-anterior-realistic.svg" } }`). The app mounts both, shows the one matching the Simple / Real switch, and falls back to the default drawing in views without one. **A realistic file must contain exactly the same `data-id` / `data-side` set as the default file for that view** (the data check reports any difference), in the same frame and draw order, with the same joint markers.
+
+Realistic structures add shading paths inside each `<g class="s">`, all non-interactive and coloured from tokens through the layer's `--shade` / `--lit` / `--pore`:
+
+| Markup | Meaning |
+| --- | --- |
+| `.sh.sh1` … `.sh.sh4` | stacked form-shadow bands on the side away from the light (upper left), widest and faintest first, plus contact shadows from bones lying on top |
+| `.hl` | the lit rim on the upper-left edge |
+| `.f` | recesses drawn dark: foramina, sockets, fovea, notches |
+
+`skeleton-anterior-realistic.svg` and `skeleton-posterior-realistic.svg` are **generated**: don't edit them by hand. `tools/realistic/` builds them from the schematic files (which supply the draw order, ids, sides and joint markers) and its own anatomy (`skeleton.py`, one builder per bone, right side only; the left is mirrored and lit again). To change a realistic bone, edit its builder and run `python3 tools/realistic/build.py`, then `node tools/check.mjs`. It needs shapely (`python3 -m venv ~/.venvs/corpus && ~/.venvs/corpus/bin/pip install shapely`, then run the build with that Python); the site itself stays dependency-free. In the back view the light is mirrored in the frame, so on screen both views are lit from the upper left. A structure added to a schematic skeleton file needs a builder too, or the build stops.
+
+The default drawings are schematic, not illustration. They were generated once from landmark coordinates (rounded shapes, left and right mirrored about x = 240) and are now ordinary SVG files to edit by hand.

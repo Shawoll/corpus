@@ -25,6 +25,10 @@
   --cart-line: #889c96;
   --cavity: #3b322b;
   --tooth: #fffdf7;
+  /* realistic drawings: form shadow, lit rim and recesses (foramina, fossae) */
+  --bone-shade: #6e5238;
+  --bone-light: #fffdf7;
+  --bone-pore: #4a3626;
 
   /* states */
   --sel: #c8402a;
@@ -116,6 +120,9 @@
     --cart-line: #5c6e69;
     --cavity: #0b0c0e;
     --tooth: #f2ede2;
+    --bone-shade: #4a3a2c;
+    --bone-light: #fffaf0;
+    --bone-pore: #2a2018;
     --sel: #ff7a5c;
     --sel-fill: #ff9d85;
     --sel-soft: rgba(255, 122, 92, 0.14);
@@ -193,6 +200,9 @@
   --cart-line: #5c6e69;
   --cavity: #0b0c0e;
   --tooth: #f2ede2;
+  --bone-shade: #4a3a2c;
+  --bone-light: #fffaf0;
+  --bone-pore: #2a2018;
   --sel: #ff7a5c;
   --sel-fill: #ff9d85;
   --sel-soft: rgba(255, 122, 92, 0.14);
