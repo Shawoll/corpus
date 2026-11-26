@@ -6,10 +6,10 @@ Z-Anatomy is built on **BodyParts3D**, © The Database Center for Life Science, 
 
 ## Changes made
 
-`tools/model3d/build.py` selects and merges the source parts for each Corpus structure (as listed in `tools/model3d/map.json`), splits right from left, simplifies the meshes, quantises them and compresses them with meshoptimizer. No anatomy was redrawn.
+`tools/model3d/build.py` selects and merges the source parts for each Corpus structure (as listed in `tools/model3d/map.json`), splits right from left, simplifies the meshes, quantises them and compresses them with meshoptimizer. No anatomy was redrawn. `tools/model3d/outlines.py` projects the meshes of five layers into the 2D drawings' frame to give the realistic drawings their outlines. `tools/model3d/generated.py` adds simple tubes for a few structures the source lacks; those are Corpus's own.
 
 ## Licence of these files
 
 These adapted models are shared under the same licence, **CC BY-SA 4.0**. You may copy, change and share them, including commercially, as long as you credit Z-Anatomy and BodyParts3D as above, say what you changed, and share your version under CC BY-SA 4.0.
 
-This licence covers the files in `assets/3d/` only. The rest of Corpus (code, data and drawings) is not part of the adapted material.
+It also covers the outlines derived from these models: `tools/realistic/outlines3d.json` and the shapes drawn from it in the realistic organ, vessel, nerve, lymphatic and ligament drawings (`assets/svg/{organs,vessels,nerves,lymphatics,ligaments}-*-realistic.svg`). The rest of Corpus (code, data and the other drawings) is not part of the adapted material.

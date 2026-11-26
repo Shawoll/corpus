@@ -31,6 +31,7 @@ sys.path.insert(0, str(HERE))
 import fbx  # noqa: E402
 import generated  # noqa: E402
 import joints  # noqa: E402
+import outlines  # noqa: E402
 import skin  # noqa: E402
 from resolve import ROOT, load, resolve, side_of  # noqa: E402
 
@@ -300,6 +301,8 @@ def main(only):
     wanted = {(p['file'], p['i']) for l in layers for parts in res[l].values() for p in parts}
     if any(gen.values()):  # the stand-ins are anchored to meshes of other layers
         wanted |= {(p['file'], p['i']) for l in res for parts in res[l].values() for p in parts}
+    if with_skin or set(layers) & outlines.LAYERS:  # the bones the 2D fit uses
+        wanted |= {(p['file'], p['i']) for parts in res['skeleton'].values() for p in parts}
     if with_skin:  # the skin's own parts, and the bones its 2D fit uses
         wanted |= {(p['file'], p['i']) for p in skin.skin_parts(index)}
         wanted |= {(p['file'], p['i']) for parts in res['skeleton'].values() for p in parts}
@@ -345,17 +348,28 @@ def main(only):
             sex = known[key.split(':')[0]].get('sex')
             # three.js strips ':' from node names, so the key also goes in extras (→ userData)
             glb.add(key, v2, f2, {'key': key, **({'sex': sex} if sex else {}), **({'generated': True} if key in made else {})})
-            final[key] = v2
+            final[key] = (v2, f2)
             tris += len(f2)
         layer_keys = sorted(meshes)
         if layer == 'skeleton':  # joint markers where the bones meet, named with the joint keys
             groups = {cid for cid, s in known.items() if (s.get('count') or 1) / (2 if s.get('paired') else 1) > 1}
-            for jk, (v, f, cls) in sorted(joints.build(final, groups).items()):
+            for jk, (v, f, cls) in sorted(joints.build({k: v for k, (v, _) in final.items()}, groups).items()):
                 glb.add(jk, v, f, {'key': jk, 'joint': cls})
                 layer_keys.append(jk)
                 tris += len(f)
         size = glb.write(OUT / f'{layer}.glb', layer)
         keys[layer] = layer_keys
+        if layer in outlines.LAYERS:  # the 2D realistic drawing follows the model (tools/realistic/layers.py)
+            bones = {k: bv for k, (bv, _) in key_meshes('skeleton', res, structures['skeleton'], geo).items()}
+            by_key = {}
+            for cid, ps in res[layer].items():
+                paired = known[cid].get('paired')
+                for p in ps:
+                    v, f = geo[(p['file'], p['i'])]
+                    for sd in ([side_of(p)] if side_of(p) else ['right', 'left']) if paired else [None]:
+                        piece = (v, f) if not paired or side_of(p) else split_x(v, f, sd == 'right')
+                        by_key.setdefault(f'{cid}:{sd}' if sd else cid, []).append(piece)
+            outlines.write(layer, final, skin.flat_fit(bones), by_key)
         print(f'{layer}: {len(meshes)} keys, {total:,} → {tris:,} triangles, {size / 1e6:.2f} MB', file=sys.stderr)
     if with_skin:
         skin_regions = build_skin(index, res, structures, geo, origin, step)

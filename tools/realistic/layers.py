@@ -5,7 +5,9 @@
 Unlike the skeleton, these keep the schematic outlines: every structure keeps its shape, id, side, classes and
 paths, so the two styles always line up and the data check finds the same keys. The exception is the muscles: a
 muscle with a builder in muscles.py (front) or muscles_back.py (back) gets that anatomy instead (redraw()), under the
-same id, side and classes. The realistic file adds form:
+same id, side and classes. Likewise a structure with an outline in outlines3d.json (written by
+tools/model3d/build.py: the 3D model's mesh projected into this frame) takes that outline, so the organs follow the 3D
+anatomy; its schematic detail lines, drawn for the old shape, give way to the edges between the model's parts. The realistic file adds form:
 four form-shadow bands away from a light at the upper left and a lit rim (the same shading as the realistic bones,
 coloured per layer through --shade / --lit in css/app.css), plus, per layer,
 
@@ -15,6 +17,7 @@ coloured per layer through --shade / --lit in css/app.css), plus, per layer,
 The shading depth k scales with each shape's thickness (twice its area over its perimeter), so a thin nerve is
 shaded as a round cord and a broad muscle as a gently curved sheet.
 """
+import json
 import re
 from pathlib import Path
 
@@ -24,6 +27,8 @@ from geometry import LIGHTS, Bone, area_d, line_d, polys_from_d, shift, subpaths
 import muscles as MU
 
 ROOT = Path(__file__).resolve().parents[2]
+OUTLINES = Path(__file__).parent / 'outlines3d.json'
+MODEL = json.loads(OUTLINES.read_text()) if OUTLINES.exists() else {}  # layer -> key -> path d (front frame)
 
 # layer -> (k as a share of the shape's thickness, smallest k, largest k, extras)
 LAYERS = {
@@ -96,9 +101,25 @@ def gloss(body, k, light):
     return area_d(soften(sheen, 0.25), 0.3, 0.6)
 
 
-def redraw(line, layer, view):
-    """The group with its outline, tendons and fibres replaced by the anatomy in muscles.py / muscles_back.py."""
+def from_model(line, layer):
+    """The group with its outline replaced by the 3D model's (outlines3d.json), or None if it has none."""
     m = OPEN.match(line)
+    if not m or layer not in MODEL:
+        return None
+    key = f'{m.group(1)}:{m.group(2)}' if m.group(2) else m.group(1)
+    o = MODEL[layer].get(key)
+    if not o or not o.get('b'):
+        return None
+    detail = f'<path class="d" d="{o["d"]}"/>' if o.get('d') else ''
+    return m.group(0) + f'<path class="b" fill-rule="evenodd" d="{o["b"]}"/>{detail}</g>'
+
+
+def redraw(line, layer, view):
+    """The group with its outline, tendons and fibres replaced by the anatomy in muscles.py / muscles_back.py, or
+    by the 3D model's outline."""
+    m = OPEN.match(line)
+    if m and layer in MODEL:
+        return from_model(line, layer) or line
     if layer != 'muscles' or not m:
         return line
     mu = MU.muscle(m.group(1), m.group(2), view)

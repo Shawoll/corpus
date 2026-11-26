@@ -13,7 +13,7 @@ python3 -m http.server 8000      # serve the folder; fetch() fails from file://
 open http://localhost:8000/?debug # run the data check in the browser
 node tools/check.mjs              # the same check headless (Node 22+, no packages); exits 1 on problems
 python3 tools/realistic/build.py  # regenerate every *-realistic.svg (needs shapely; drawing tool only); rerun after editing any schematic SVG
-~/.venvs/corpus/bin/python -I tools/model3d/build.py [layer…]  # rebuild assets/3d/*.glb + keys.json (numpy, meshoptimizer; needs the Z-Anatomy source, see tools/model3d/index_source.py)
+~/.venvs/corpus/bin/python -I tools/model3d/build.py [layer…]  # rebuild assets/3d/*.glb + keys.json, and tools/realistic/outlines3d.json (numpy, meshoptimizer, shapely; needs the Z-Anatomy source, see tools/model3d/index_source.py); then rerun tools/realistic/build.py
 ~/.venvs/corpus/bin/python -I tools/model3d/coverage.py         # which structures have a 3D mesh
 ```
 
