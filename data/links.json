@@ -107,6 +107,17 @@
       ]
     },
     {
+      "type": "protects",
+      "from": [
+        "sacrum",
+        "coccyx",
+        "hip-bone"
+      ],
+      "to": [
+        "rectum"
+      ]
+    },
+    {
       "type": "continues",
       "from": [
         "trachea"
@@ -115,6 +126,35 @@
         "lung"
       ],
       "note": "via the left and right main bronchi"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "pharynx"
+      ],
+      "to": [
+        "esophagus"
+      ],
+      "note": "food"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "pharynx"
+      ],
+      "to": [
+        "larynx"
+      ],
+      "note": "air"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "larynx"
+      ],
+      "to": [
+        "trachea"
+      ]
     },
     {
       "type": "continues",
@@ -131,9 +171,19 @@
         "stomach"
       ],
       "to": [
+        "duodenum"
+      ],
+      "note": "through the pylorus"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "duodenum"
+      ],
+      "to": [
         "small-intestine"
       ],
-      "note": "through the pylorus into the duodenum"
+      "note": "at the duodenojejunal flexure"
     },
     {
       "type": "continues",
@@ -146,6 +196,16 @@
       "note": "at the ileocaecal valve"
     },
     {
+      "type": "continues",
+      "from": [
+        "large-intestine"
+      ],
+      "to": [
+        "rectum"
+      ],
+      "note": "where the sigmoid colon ends"
+    },
+    {
       "type": "attached",
       "from": [
         "large-intestine"
@@ -153,6 +213,25 @@
       "to": [
         "appendix"
       ]
+    },
+    {
+      "type": "attached",
+      "from": [
+        "pharynx"
+      ],
+      "to": [
+        "tonsils"
+      ]
+    },
+    {
+      "type": "attached",
+      "from": [
+        "hyoid"
+      ],
+      "to": [
+        "larynx"
+      ],
+      "note": "hung from it by the thyrohyoid membrane"
     },
     {
       "type": "drains",
@@ -170,7 +249,7 @@
         "gallbladder"
       ],
       "to": [
-        "small-intestine"
+        "duodenum"
       ],
       "note": "bile, via the common bile duct"
     },
@@ -180,9 +259,9 @@
         "pancreas"
       ],
       "to": [
-        "small-intestine"
+        "duodenum"
       ],
-      "note": "digestive enzymes, into the duodenum"
+      "note": "digestive enzymes"
     },
     {
       "type": "drains",
@@ -190,9 +269,19 @@
         "kidney"
       ],
       "to": [
+        "ureter"
+      ],
+      "note": "urine"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "ureter"
+      ],
+      "to": [
         "bladder"
       ],
-      "note": "urine, via the ureter"
+      "note": "urine"
     },
     {
       "type": "pumps",
@@ -259,6 +348,7 @@
       "type": "drains",
       "from": [
         "stomach",
+        "duodenum",
         "spleen",
         "small-intestine",
         "large-intestine",
@@ -296,6 +386,36 @@
       ],
       "to": [
         "iliac-vein"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "rectum"
+      ],
+      "to": [
+        "hepatic-portal-vein"
+      ],
+      "note": "upper part, via the inferior mesenteric vein"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "rectum"
+      ],
+      "to": [
+        "iliac-vein"
+      ],
+      "note": "lower part"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "pharynx",
+        "larynx"
+      ],
+      "to": [
+        "internal-jugular-vein"
       ]
     },
     {

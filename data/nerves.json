@@ -390,7 +390,10 @@
       "group": "cranial-nerves",
       "paired": true,
       "carries": "Taste and feeling at the back of the tongue and throat, and swallowing",
-      "summary": "Leaves the skull with the vagus and runs down to the back of the tongue and throat. It carries taste and touch from the back third of the tongue and the throat (the gag reflex), supplies one swallowing muscle and the parotid salivary gland, and reports blood pressure from the carotid sinus."
+      "summary": "Leaves the skull with the vagus and runs down to the back of the tongue and throat. It carries taste and touch from the back third of the tongue and the throat (the gag reflex), supplies one swallowing muscle and the parotid salivary gland, and reports blood pressure from the carotid sinus.",
+      "innervates": [
+        "pharynx"
+      ]
     },
     {
       "id": "vagus-nerve",
@@ -415,7 +418,10 @@
         "gallbladder",
         "pancreas",
         "small-intestine",
-        "large-intestine"
+        "large-intestine",
+        "pharynx",
+        "larynx",
+        "duodenum"
       ],
       "innervatesNote": "The “rest and digest” (parasympathetic) supply to the organs of the chest and most of the gut, as far as the middle of the large intestine.",
       "membersLabel": "Branches",
@@ -905,9 +911,10 @@
         "gluteus-maximus",
         "gluteus-medius",
         "tensor-fasciae-latae",
-        "pelvic-floor"
+        "pelvic-floor",
+        "rectum"
       ],
-      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone) and the pudendal nerve.",
+      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone) and the pudendal nerve, which also works the external anal sphincter.",
       "branches": [
         "sciatic-nerve"
       ],

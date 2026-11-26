@@ -189,7 +189,9 @@
         "tonsils",
         "external-carotid-artery",
         "hypoglossal-nerve",
-        "glossopharyngeal-nerve"
+        "glossopharyngeal-nerve",
+        "pharynx",
+        "larynx"
       ],
       "causes": [
         {
@@ -218,7 +220,16 @@
           "urgency": "self-care",
           "related": [
             "tonsils",
-            "cervical-lymph-nodes"
+            "cervical-lymph-nodes",
+            "pharynx"
+          ]
+        },
+        {
+          "title": "Hoarse voice (laryngitis)",
+          "signs": "A hoarse, weak or lost voice after a cold or a lot of talking or shouting. See a doctor if it lasts more than 3 weeks.",
+          "urgency": "self-care",
+          "related": [
+            "larynx"
           ]
         },
         {
@@ -918,7 +929,8 @@
         "diaphragm",
         "inferior-vena-cava",
         "hepatic-portal-vein",
-        "intercostal-nerves"
+        "intercostal-nerves",
+        "duodenum"
       ],
       "causes": [
         {
@@ -982,7 +994,8 @@
         "celiac-trunk",
         "superior-mesenteric-artery",
         "hepatic-portal-vein",
-        "inferior-vena-cava"
+        "inferior-vena-cava",
+        "duodenum"
       ],
       "causes": [
         {
@@ -999,7 +1012,7 @@
           "urgency": "doctor",
           "related": [
             "stomach",
-            "small-intestine"
+            "duodenum"
           ]
         },
         {
@@ -1125,7 +1138,8 @@
         "quadratus-lumborum",
         "renal-artery",
         "renal-vein",
-        "inferior-vena-cava"
+        "inferior-vena-cava",
+        "ureter"
       ],
       "causes": [
         {
@@ -1133,7 +1147,8 @@
           "signs": "Waves of severe pain from the back or side down toward the groin; can’t get comfortable.",
           "urgency": "doctor",
           "related": [
-            "kidney"
+            "kidney",
+            "ureter"
           ]
         },
         {
@@ -1250,7 +1265,8 @@
         "deep-abdominals",
         "quadratus-lumborum",
         "renal-artery",
-        "renal-vein"
+        "renal-vein",
+        "ureter"
       ],
       "causes": [
         {
@@ -1258,7 +1274,8 @@
           "signs": "Waves of severe pain from the back or side down toward the groin.",
           "urgency": "doctor",
           "related": [
-            "kidney"
+            "kidney",
+            "ureter"
           ]
         },
         {
@@ -1302,7 +1319,8 @@
         "iliopsoas",
         "iliac-artery",
         "iliac-vein",
-        "lumbar-plexus"
+        "lumbar-plexus",
+        "ureter"
       ],
       "causes": [
         {
@@ -1326,7 +1344,8 @@
           "signs": "Severe pain moving from the side down toward the groin.",
           "urgency": "doctor",
           "related": [
-            "kidney"
+            "kidney",
+            "ureter"
           ]
         },
         {
@@ -1366,7 +1385,8 @@
         "pelvic-floor",
         "iliac-artery",
         "iliac-vein",
-        "sacral-plexus"
+        "sacral-plexus",
+        "rectum"
       ],
       "causes": [
         {
@@ -1402,7 +1422,8 @@
           "signs": "Cramps and bloating with hard or infrequent stools.",
           "urgency": "self-care",
           "related": [
-            "large-intestine"
+            "large-intestine",
+            "rectum"
           ]
         },
         {
@@ -1427,7 +1448,8 @@
         "iliac-artery",
         "iliac-vein",
         "inferior-mesenteric-artery",
-        "lumbar-plexus"
+        "lumbar-plexus",
+        "ureter"
       ],
       "causes": [
         {
@@ -1459,7 +1481,8 @@
           "signs": "Severe pain moving from the side down toward the groin.",
           "urgency": "doctor",
           "related": [
-            "kidney"
+            "kidney",
+            "ureter"
           ]
         },
         {

@@ -420,7 +420,12 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.o[data-id="large-intestine"] { --organ: var(--o-large-intestine); }
 #map .s.o[data-id="appendix"] { --organ: var(--o-appendix); }
 #map .s.o[data-id="bladder"] { --organ: var(--o-bladder); }
-#map .deco.ureter path { fill: var(--o-bladder); stroke: var(--o-line); stroke-width: 0.6; vector-effect: non-scaling-stroke; }
+#map .s.o[data-id="ureter"] { --organ: var(--o-ureter); }
+#map .s.o[data-id="duodenum"] { --organ: var(--o-duodenum); }
+#map .s.o[data-id="rectum"] { --organ: var(--o-rectum); }
+#map .s.o[data-id="pharynx"] { --organ: var(--o-pharynx); }
+#map .s.o[data-id="larynx"] { --organ: var(--o-larynx); }
+#map .s.o[data-id="ureter"] .b { stroke-width: 0.6; vector-effect: non-scaling-stroke; }
 
 /* muscles */
 #map .s.m .b { fill: var(--muscle); stroke: var(--muscle-line); stroke-width: 0.9; }

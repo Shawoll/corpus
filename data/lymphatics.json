@@ -152,7 +152,9 @@
         "thyroid",
         "masseter",
         "temporalis",
-        "sternocleidomastoid"
+        "sternocleidomastoid",
+        "pharynx",
+        "larynx"
       ],
       "issues": [
         {
@@ -230,7 +232,8 @@
       "group": "lymph-nodes",
       "summary": "A chain of nodes on either side of the abdominal aorta, at the back of the abdomen. They collect lymph from the kidneys, the testes or ovaries and, through the iliac nodes, from the pelvis and legs, and pass it to the cisterna chyli.",
       "collects": [
-        "kidney"
+        "kidney",
+        "ureter"
       ],
       "drains": [
         "cisterna-chyli"
@@ -247,7 +250,9 @@
         "small-intestine",
         "large-intestine",
         "appendix",
-        "stomach"
+        "stomach",
+        "duodenum",
+        "rectum"
       ],
       "drains": [
         "cisterna-chyli"
@@ -272,7 +277,9 @@
       "summary": "Nodes along the iliac arteries and veins in the pelvis. They filter lymph from the bladder, the pelvic organs and, through the inguinal nodes, the leg, and pass it up to the para-aortic nodes.",
       "collects": [
         "bladder",
-        "pelvic-floor"
+        "pelvic-floor",
+        "rectum",
+        "ureter"
       ],
       "drains": [
         "para-aortic-lymph-nodes"

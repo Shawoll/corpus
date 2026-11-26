@@ -329,7 +329,9 @@
         "thyroid",
         "masseter",
         "suprahyoid",
-        "infrahyoid"
+        "infrahyoid",
+        "pharynx",
+        "larynx"
       ],
       "membersLabel": "Other branches",
       "members": [
@@ -431,7 +433,8 @@
         "intercostals",
         "diaphragm",
         "rectus-abdominis",
-        "pectoralis-major"
+        "pectoralis-major",
+        "larynx"
       ],
       "suppliesNote": "Through the thyrocervical trunk (thyroid, neck and shoulder muscles), the dorsal scapular artery, and the internal thoracic artery, which runs down inside the front of the chest beside the breastbone.",
       "membersLabel": "Branches",
@@ -633,7 +636,8 @@
         "gallbladder",
         "spleen",
         "pancreas",
-        "esophagus"
+        "esophagus",
+        "duodenum"
       ],
       "suppliesNote": "Through its three branches. The lowest part of the oesophagus is fed by the left gastric artery.",
       "membersLabel": "Branches",
@@ -667,7 +671,8 @@
         "small-intestine",
         "pancreas",
         "large-intestine",
-        "appendix"
+        "appendix",
+        "duodenum"
       ],
       "membersLabel": "Branches",
       "members": [
@@ -707,7 +712,8 @@
       "paired": false,
       "summary": "The smallest of the three gut arteries, leaving the aorta low in the abdomen. It runs down and to the left to feed the last third of the large intestine and the rectum.",
       "supplies": [
-        "large-intestine"
+        "large-intestine",
+        "rectum"
       ],
       "membersLabel": "Branches",
       "members": [
@@ -740,7 +746,8 @@
       "paired": true,
       "summary": "Leaves the side of the aorta just below the superior mesenteric artery and enters the kidney at its notch (the hilum). The right one is longer and passes behind the inferior vena cava. Together they carry about a fifth of all the blood the heart pumps.",
       "supplies": [
-        "kidney"
+        "kidney",
+        "ureter"
       ],
       "issues": [
         {
@@ -768,7 +775,9 @@
         "iliopsoas",
         "rectus-abdominis",
         "adductors",
-        "hip-bone"
+        "hip-bone",
+        "rectum",
+        "ureter"
       ],
       "suppliesNote": "The pelvic organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
       "membersLabel": "Parts",

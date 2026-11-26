@@ -248,8 +248,10 @@
       ],
       "originNote": "Back of the manubrium, and the top edge of the shoulder blade (omohyoid)",
       "insertion": [
-        "hyoid"
+        "hyoid",
+        "larynx"
       ],
+      "insertionNote": "The hyoid, and the thyroid cartilage of the larynx (sternothyroid, thyrohyoid)",
       "nerve": "Ansa cervicalis (C1–C3)",
       "actions": [
         "Pull the hyoid and larynx back down after swallowing",

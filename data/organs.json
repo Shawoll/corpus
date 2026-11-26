@@ -2,7 +2,7 @@
   "layer": "organs",
   "name": "Organs",
   "type": "organ",
-  "note": "Sixteen major organs. Ids match data-id attributes in assets/svg/organs-anterior.svg.",
+  "note": "Major organs. Ids match data-id attributes in assets/svg/organs-anterior.svg and organs-posterior.svg.",
   "groups": [
     {
       "id": "nervous",
@@ -93,6 +93,112 @@
         {
           "name": "Goitre or nodule",
           "note": "A swelling or lump at the front of the neck that moves when you swallow. Get it checked."
+        }
+      ]
+    },
+    {
+      "id": "pharynx",
+      "name": "Pharynx",
+      "latin": "Pharynx",
+      "aka": [
+        "throat"
+      ],
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Behind the nose, mouth and larynx, from the base of the skull down to the sixth cervical vertebra, where it becomes the oesophagus.",
+      "summary": "A muscular funnel about 12–14 cm long, shared by air and food. It carries air on to the larynx and, when you swallow, squeezes food down into the oesophagus.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Nasopharynx",
+          "latin": "Pars nasalis pharyngis",
+          "note": "Behind the nose. Holds the adenoids and the openings of the Eustachian tubes to the middle ears."
+        },
+        {
+          "name": "Oropharynx",
+          "latin": "Pars oralis pharyngis",
+          "note": "Behind the mouth, with the palatine tonsils and the back of the tongue."
+        },
+        {
+          "name": "Laryngopharynx",
+          "latin": "Pars laryngea pharyngis",
+          "note": "Behind the larynx, down to the start of the oesophagus."
+        }
+      ],
+      "functions": [
+        "Carries air from the nose and mouth to the larynx",
+        "Swallowing: its muscles push food down while the airway is sealed off",
+        "Tonsils and adenoids in its walls guard against infection",
+        "Shapes the sound of the voice"
+      ],
+      "issues": [
+        {
+          "name": "Sore throat (pharyngitis)",
+          "note": "Usually viral and better within a week. A severe sore throat with fever, or one side much worse than the other, needs a doctor."
+        },
+        {
+          "name": "Trouble swallowing or breathing",
+          "note": "Drooling, being unable to swallow saliva, or noisy breathing with a sore throat is an emergency."
+        },
+        {
+          "name": "Lump-in-the-throat feeling (globus)",
+          "note": "Common and usually harmless when food goes down normally. Get it checked if it lasts, or if swallowing becomes difficult or painful."
+        }
+      ]
+    },
+    {
+      "id": "larynx",
+      "name": "Larynx",
+      "latin": "Larynx",
+      "aka": [
+        "voice box"
+      ],
+      "kind": "organ",
+      "group": "respiratory",
+      "paired": false,
+      "location": "Front of the neck, between the hyoid bone and the trachea (about C3–C6). The Adam’s apple is the ridge of its thyroid cartilage.",
+      "summary": "The voice box: a framework of cartilages, muscles and vocal folds that guards the entrance to the airway and makes the sound of the voice.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Thyroid cartilage",
+          "latin": "Cartilago thyroidea",
+          "note": "The shield at the front. Its ridge is the Adam’s apple."
+        },
+        {
+          "name": "Cricoid cartilage",
+          "latin": "Cartilago cricoidea",
+          "note": "The only complete ring of cartilage in the airway, just below the thyroid cartilage."
+        },
+        {
+          "name": "Epiglottis",
+          "latin": "Epiglottis",
+          "note": "A leaf-shaped flap that tips back over the airway when you swallow."
+        },
+        {
+          "name": "Vocal folds",
+          "latin": "Plicae vocales",
+          "note": "Two bands that vibrate in the outgoing air to make the voice."
+        }
+      ],
+      "functions": [
+        "Closes the airway when you swallow",
+        "Produces the voice",
+        "Sets off coughing to clear the airway"
+      ],
+      "issues": [
+        {
+          "name": "Laryngitis",
+          "note": "A hoarse or lost voice after a cold or overuse, usually better within 2 weeks."
+        },
+        {
+          "name": "Hoarseness that lasts",
+          "note": "Hoarseness for more than 3 weeks, especially in smokers, needs checking by a doctor."
+        },
+        {
+          "name": "Croup",
+          "note": "A barking cough and noisy breathing in a young child, usually after a cold. Struggling to breathe needs urgent care."
         }
       ]
     },
@@ -319,6 +425,55 @@
       ]
     },
     {
+      "id": "duodenum",
+      "name": "Duodenum",
+      "latin": "Duodenum",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Curves in a C around the head of the pancreas, from the stomach (about L1, right of the midline) to just left of the midline, behind the transverse colon.",
+      "summary": "The first 25 cm or so of the small intestine. It receives food from the stomach and mixes it with bile and pancreatic juice, which enter through a small opening in its wall (the major duodenal papilla).",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Superior part",
+          "latin": "Pars superior",
+          "note": "Starts at the pylorus. Its first, widened stretch (the duodenal cap) is where most duodenal ulcers form."
+        },
+        {
+          "name": "Descending part",
+          "latin": "Pars descendens",
+          "note": "Runs down beside the head of the pancreas. The bile and pancreatic ducts open into it."
+        },
+        {
+          "name": "Horizontal part",
+          "latin": "Pars horizontalis",
+          "note": "Crosses the midline in front of the aorta and the inferior vena cava."
+        },
+        {
+          "name": "Ascending part",
+          "latin": "Pars ascendens",
+          "note": "Rises to the duodenojejunal flexure, where the jejunum begins."
+        }
+      ],
+      "functions": [
+        "Receives bile and pancreatic enzymes",
+        "Neutralises stomach acid with bicarbonate",
+        "Releases hormones (secretin and cholecystokinin) that pace digestion",
+        "Absorbs iron"
+      ],
+      "issues": [
+        {
+          "name": "Duodenal ulcer",
+          "note": "A burning or gnawing pain in the upper middle abdomen, often eased by eating and worse at night. Black stools or vomiting blood is an emergency."
+        },
+        {
+          "name": "Coeliac disease",
+          "note": "Gluten damages the lining here first, so a small sample (biopsy) from the duodenum confirms it."
+        }
+      ]
+    },
+    {
       "id": "spleen",
       "name": "Spleen",
       "latin": "Splen",
@@ -406,12 +561,39 @@
       ]
     },
     {
+      "id": "ureter",
+      "name": "Ureter",
+      "latin": "Ureter",
+      "aka": [
+        "ureters"
+      ],
+      "kind": "organ",
+      "group": "urinary",
+      "paired": true,
+      "location": "From each kidney down the back wall of the abdomen, over the brim of the pelvis, to the back of the bladder.",
+      "summary": "A muscular tube about 25–30 cm long that carries urine from the kidney to the bladder in waves (peristalsis).",
+      "functions": [
+        "Carries urine from the kidney to the bladder",
+        "Squeezes it along in waves, several times a minute",
+        "Enters the bladder at a slant, which stops urine flowing back up"
+      ],
+      "issues": [
+        {
+          "name": "Kidney stone in the ureter (renal colic)",
+          "note": "Waves of severe pain from the flank to the groin as a stone moves down, often with nausea. With fever or shivering, get urgent care."
+        },
+        {
+          "name": "Blockage",
+          "note": "A stone or a narrowing can back urine up and swell the kidney (hydronephrosis), which a scan shows."
+        }
+      ]
+    },
+    {
       "id": "small-intestine",
       "name": "Small intestine",
       "latin": "Intestinum tenue",
       "aka": [
         "small bowel",
-        "duodenum",
         "jejunum",
         "ileum"
       ],
@@ -419,7 +601,7 @@
       "group": "digestive",
       "paired": false,
       "location": "Coiled in the centre of the abdomen, framed by the large intestine.",
-      "summary": "About 6 metres of coiled tube (duodenum, jejunum and ileum) where most digestion and nutrient absorption happen, across millions of finger-like villi.",
+      "summary": "About 6 metres of coiled tube where most digestion and nutrient absorption happen, across millions of finger-like villi. It runs from the duodenum (shown separately) through the jejunum to the ileum.",
       "functions": [
         "Digests food with enzymes and bile",
         "Absorbs nutrients, water and vitamins",
@@ -447,19 +629,18 @@
       "aka": [
         "colon",
         "bowel",
-        "rectum",
         "caecum",
         "cecum"
       ],
       "kind": "organ",
       "group": "digestive",
       "paired": false,
-      "location": "Frames the abdomen: up the right side, across under the stomach, then down the left side to the rectum.",
-      "summary": "About 1.5 m long (caecum, colon and rectum). It absorbs water and salts, hosts trillions of gut bacteria and stores stool.",
+      "location": "Frames the abdomen: up the right side, across under the stomach, then down the left side into the pelvis, where it becomes the rectum.",
+      "summary": "About 1.5 m long (caecum and colon), ending in the rectum. It absorbs water and salts, hosts trillions of gut bacteria and forms stool.",
       "functions": [
         "Absorbs water and salts",
         "Gut bacteria ferment fibre and make vitamins",
-        "Stores and expels stool"
+        "Forms stool and moves it on to the rectum"
       ],
       "issues": [
         {
@@ -493,6 +674,51 @@
         {
           "name": "Appendicitis",
           "note": "Pain that starts around the navel and moves to the lower right, worse with movement or coughing, with loss of appetite, nausea and fever. It is urgent."
+        }
+      ]
+    },
+    {
+      "id": "rectum",
+      "name": "Rectum",
+      "latin": "Rectum",
+      "aka": [
+        "back passage"
+      ],
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "At the back of the pelvis, following the curve of the sacrum and coccyx, from the end of the sigmoid colon (about S3) down to the anus.",
+      "summary": "The last 12 cm or so of the large intestine. It holds stool until it is convenient to pass, and stretch sensors in its wall create the urge to go.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Rectal ampulla",
+          "latin": "Ampulla recti",
+          "note": "The wide lower part where stool waits."
+        },
+        {
+          "name": "Anal canal",
+          "latin": "Canalis analis",
+          "note": "The last 3–4 cm, ringed by the internal (automatic) and external (voluntary) anal sphincters."
+        }
+      ],
+      "functions": [
+        "Holds stool until you pass it",
+        "Senses fullness and triggers the urge to go",
+        "The sphincters and pelvic floor keep it closed"
+      ],
+      "issues": [
+        {
+          "name": "Piles (haemorrhoids)",
+          "note": "Bright red blood on the paper, itching or a soft lump at the anus. Common, and usually manageable at home."
+        },
+        {
+          "name": "Anal fissure",
+          "note": "Sharp pain while passing stool, then a burning ache, with a little bright red blood."
+        },
+        {
+          "name": "Rectal bleeding warning signs",
+          "note": "Dark or mixed-in blood, a lasting change in bowel habit or weight loss needs a doctor. Heavy bleeding needs urgent care."
         }
       ]
     },
