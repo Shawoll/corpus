@@ -224,7 +224,8 @@
         }
       ],
       "innervates": [
-        "eye"
+        "eye",
+        "extraocular-muscles"
       ],
       "innervatesNote": "Four of the six eye muscles and the eyelid lifter, plus the muscles that narrow the pupil and focus the lens."
     },
@@ -248,7 +249,7 @@
         }
       ],
       "innervates": [
-        "eye"
+        "extraocular-muscles"
       ],
       "innervatesNote": "The superior oblique muscle, which turns the eye down and in."
     },
@@ -272,7 +273,7 @@
         }
       ],
       "innervates": [
-        "eye"
+        "extraocular-muscles"
       ],
       "innervatesNote": "The lateral rectus muscle, which turns the eye outwards."
     },
@@ -292,7 +293,8 @@
       "innervates": [
         "temporalis",
         "masseter",
-        "suprahyoid"
+        "suprahyoid",
+        "pterygoids"
       ],
       "innervatesNote": "Through the mandibular division (V3): the chewing muscles, and the mylohyoid and front of the digastric above the hyoid.",
       "membersLabel": "Divisions",
@@ -341,9 +343,11 @@
         "suprahyoid",
         "occipitofrontalis",
         "orbicularis-oculi",
-        "orbicularis-oris"
+        "orbicularis-oris",
+        "platysma",
+        "buccinator"
       ],
-      "innervatesNote": "All the muscles of facial expression (occipitofrontalis and the rings around the eyes and mouth are drawn), and the back of the digastric and the stylohyoid above the hyoid.",
+      "innervatesNote": "All the muscles of facial expression (occipitofrontalis, the rings around the eyes and mouth, the buccinator and the platysma are drawn), and the back of the digastric and the stylohyoid above the hyoid.",
       "membersLabel": "Branches",
       "members": [
         {
@@ -667,7 +671,8 @@
         "rhomboids",
         "teres-major",
         "levator-scapulae",
-        "scalenes"
+        "scalenes",
+        "subclavius"
       ],
       "innervatesNote": "Through short branches that leave before the plexus ends: the pectoral, long thoracic, thoracodorsal, suprascapular, subscapular and dorsal scapular nerves.",
       "branches": [
@@ -937,7 +942,8 @@
       "carries": "Movement and sensation",
       "summary": "Runs down the side wall of the pelvis and through the obturator foramen, the large hole in the hip bone, into the inner thigh. It supplies the adductors that pull the legs together, and a patch of skin on the inner thigh.",
       "innervates": [
-        "adductors"
+        "adductors",
+        "obturator-externus"
       ]
     },
     {
@@ -957,9 +963,12 @@
         "pelvic-floor",
         "rectum",
         "piriformis",
-        "gluteus-minimus"
+        "gluteus-minimus",
+        "gemelli",
+        "obturator-internus",
+        "quadratus-femoris"
       ],
-      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone), short direct branches (piriformis), and the pudendal nerve, which has its own page.",
+      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone), short direct branches (piriformis and the deep hip rotators), and the pudendal nerve, which has its own page.",
       "branches": [
         "sciatic-nerve",
         "pudendal-nerve"

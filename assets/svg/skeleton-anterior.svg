@@ -162,6 +162,8 @@
 <circle class="jm" data-id="facial-sutures" cx="240.0" cy="100.5" r="2.4"/>
 <circle class="jm" data-id="tmj" data-side="right" cx="200.5" cy="129.5" r="2.8"/>
 <circle class="jm" data-id="tmj" data-side="left" cx="279.5" cy="129.5" r="2.8"/>
+<circle class="jm" data-id="ossicular" data-side="right" cx="195.5" cy="121.5" r="2.0"/>
+<circle class="jm" data-id="ossicular" data-side="left" cx="284.5" cy="121.5" r="2.0"/>
 <circle class="jm" data-id="sternoclavicular" data-side="right" cx="224.5" cy="241.5" r="3.2"/>
 <circle class="jm" data-id="sternoclavicular" data-side="left" cx="255.5" cy="241.5" r="3.2"/>
 <circle class="jm" data-id="sternocostal" data-side="right" cx="228.2" cy="289.6" r="2.4"/>

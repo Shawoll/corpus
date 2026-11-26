@@ -120,7 +120,10 @@
         "salivary-glands",
         "orbicularis-oculi",
         "orbicularis-oris",
-        "occipitofrontalis"
+        "occipitofrontalis",
+        "pterygoids",
+        "buccinator",
+        "extraocular-muscles"
       ],
       "causes": [
         {
@@ -131,7 +134,8 @@
             "tmj",
             "mandible",
             "masseter",
-            "temporalis"
+            "temporalis",
+            "pterygoids"
           ]
         },
         {
@@ -185,7 +189,9 @@
           "related": [
             "facial-nerve",
             "orbicularis-oculi",
-            "orbicularis-oris"
+            "orbicularis-oris",
+            "buccinator",
+            "platysma"
           ]
         },
         {
@@ -196,6 +202,18 @@
             "zygomatic",
             "nasal",
             "mandible"
+          ]
+        },
+        {
+          "title": "Double vision",
+          "signs": "Seeing two of things, side by side or one above the other. If it starts suddenly, especially with a droopy eyelid, a headache, or weakness or numbness elsewhere, get emergency care. Double vision that comes and goes over weeks, worse when tired, also needs a doctor.",
+          "urgency": "urgent",
+          "related": [
+            "extraocular-muscles",
+            "oculomotor-nerve",
+            "trochlear-nerve",
+            "abducens-nerve",
+            "eye"
           ]
         }
       ],
@@ -238,7 +256,8 @@
         "parathyroid",
         "levator-scapulae",
         "splenius",
-        "scalenes"
+        "scalenes",
+        "platysma"
       ],
       "causes": [
         {
@@ -330,7 +349,8 @@
         "axillary-vein",
         "cephalic-vein",
         "axillary-lymph-nodes",
-        "rotator-cuff-tendons"
+        "rotator-cuff-tendons",
+        "subclavius"
       ],
       "causes": [
         {
@@ -1795,7 +1815,8 @@
         "vas-deferens",
         "testicular-artery",
         "testicular-vein",
-        "gluteus-minimus"
+        "gluteus-minimus",
+        "obturator-externus"
       ],
       "causes": [
         {
@@ -1812,7 +1833,8 @@
           "urgency": "self-care",
           "related": [
             "adductors",
-            "iliopsoas"
+            "iliopsoas",
+            "obturator-externus"
           ]
         },
         {
@@ -2091,7 +2113,8 @@
         "popliteal-lymph-nodes",
         "pcl",
         "menisci",
-        "popliteus"
+        "popliteus",
+        "sciatic-nerve"
       ],
       "causes": [
         {
@@ -2154,12 +2177,32 @@
             "popliteal-vein",
             "small-saphenous-vein"
           ]
+        },
+        {
+          "title": "Pain from the back (sciatica)",
+          "signs": "Pain behind the knee as part of a line of pain from the buttock down the back of the leg, often with tingling or numbness.",
+          "urgency": "doctor",
+          "related": [
+            "sciatic-nerve",
+            "tibial-nerve",
+            "common-fibular-nerve",
+            "intervertebral"
+          ]
+        },
+        {
+          "title": "Popliteal artery aneurysm or entrapment",
+          "signs": "A pulsing lump behind the knee in an older adult, or calf cramping on exercise in a young athlete that settles at rest.",
+          "urgency": "doctor",
+          "related": [
+            "popliteal-artery"
+          ]
         }
       ],
       "redFlags": [
         "A swollen, warm, painful calf: same-day assessment (possible DVT)",
         "Sudden breathlessness or chest pain with a swollen leg: call emergency services",
-        "A cold, pale, numb or painful foot"
+        "A cold, pale, numb or painful foot",
+        "A badly injured knee that looks out of shape: emergency care (a dislocated knee can tear the artery behind it)"
       ]
     },
     {
@@ -2445,12 +2488,39 @@
           "related": [
             "tibial-nerve"
           ]
+        },
+        {
+          "title": "Heel bump and bursitis (Haglund’s)",
+          "signs": "A tender, sometimes red bump at the back of the heel where the shoe rubs, just below the Achilles tendon.",
+          "urgency": "self-care",
+          "related": [
+            "tarsals",
+            "achilles-tendon"
+          ]
+        },
+        {
+          "title": "Bruised heel pad",
+          "signs": "A deep ache in the middle of the heel pad, worse walking barefoot on hard floors, often after a jump or a landing.",
+          "urgency": "self-care",
+          "related": [
+            "tarsals"
+          ]
+        },
+        {
+          "title": "Inflammatory heel pain",
+          "signs": "Pain in both heels, or at the Achilles and under the heel together, with morning back stiffness, psoriasis or swollen joints elsewhere.",
+          "urgency": "doctor",
+          "related": [
+            "achilles-tendon",
+            "plantar-fascia"
+          ]
         }
       ],
       "redFlags": [
         "A sudden snap at the back of the heel and you can't push off or stand on tiptoe",
         "A hot, red, swollen heel or foot with fever, or a new wound on the foot if you have diabetes",
-        "Heel pain after a fall from a height that stops you bearing weight"
+        "Heel pain after a fall from a height that stops you bearing weight",
+        "A cold, pale or numb foot, or a heel sore that isn't healing"
       ]
     },
     {
@@ -2473,7 +2543,9 @@
         "spinal-nerves",
         "intercostal-nerves",
         "aorta",
-        "levator-scapulae"
+        "levator-scapulae",
+        "@cervical",
+        "intervertebral"
       ],
       "causes": [
         {
@@ -2523,11 +2595,40 @@
             "gallbladder",
             "pancreas"
           ]
+        },
+        {
+          "title": "Pinched nerve in the neck",
+          "signs": "Pain between or over a shoulder blade, often with neck pain and pins and needles, numbness or weakness down one arm.",
+          "urgency": "doctor",
+          "related": [
+            "@cervical",
+            "intervertebral",
+            "spinal-nerves"
+          ]
+        },
+        {
+          "title": "Pleurisy or chest infection",
+          "signs": "Sharp pain on breathing in or coughing, with a cough, fever or breathlessness.",
+          "urgency": "doctor",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Rounded upper back in a teenager (Scheuermann’s disease)",
+          "signs": "An aching, stiff upper back and a curve that doesn't straighten when standing tall, usually noticed in the early teens.",
+          "urgency": "doctor",
+          "related": [
+            "@thoracic",
+            "intervertebral"
+          ]
         }
       ],
       "redFlags": [
         "Sudden, severe tearing pain between the shoulder blades",
-        "Back pain with chest pain or breathlessness"
+        "Back pain with chest pain or breathlessness",
+        "Back pain with fever, unexplained weight loss or a history of cancer",
+        "New numbness or weakness in the arms or legs, or bladder or bowel problems"
       ]
     },
     {
@@ -2553,7 +2654,8 @@
         "stomach",
         "pancreas",
         "gallbladder",
-        "thoracic-duct"
+        "thoracic-duct",
+        "lung"
       ],
       "causes": [
         {
@@ -2611,13 +2713,31 @@
             "stomach",
             "esophagus"
           ]
+        },
+        {
+          "title": "Pleurisy or chest infection",
+          "signs": "Sharp pain in the side of the back on breathing in or coughing, with a cough, fever or breathlessness.",
+          "urgency": "doctor",
+          "related": [
+            "lung"
+          ]
+        },
+        {
+          "title": "Inflammatory back pain",
+          "signs": "Stiffness that is worst in the morning, lasts over 30 minutes and eases with exercise, starting before 40. Sometimes with pain where the ribs meet the spine.",
+          "urgency": "doctor",
+          "related": [
+            "costovertebral",
+            "@thoracic"
+          ]
         }
       ],
       "redFlags": [
         "Sudden, severe tearing pain in the back: call emergency services (possible aortic dissection)",
         "Back pain with chest pain, breathlessness or sweating: call emergency services",
         "Back pain with fever, unexplained weight loss or a history of cancer",
-        "New numbness or weakness in the legs, or bladder or bowel problems"
+        "New numbness or weakness in the legs, or bladder or bowel problems",
+        "Back pain after a serious fall or accident"
       ]
     },
     {
@@ -2639,7 +2759,11 @@
         "spinal-nerves",
         "sciatic-nerve",
         "sacral-plexus",
-        "lumbar-plexus"
+        "lumbar-plexus",
+        "aorta",
+        "uterus",
+        "ovary",
+        "prostate"
       ],
       "causes": [
         {
@@ -2696,12 +2820,48 @@
           "related": [
             "sacroiliac"
           ]
+        },
+        {
+          "title": "Osteoporotic fracture",
+          "signs": "Sudden pain in the lower back after a minor strain, cough or fall in someone over 60 or with thin bones, sometimes with loss of height.",
+          "urgency": "doctor",
+          "related": [
+            "@lumbar"
+          ]
+        },
+        {
+          "title": "Period pain or endometriosis",
+          "signs": "A dull ache in the lower back and lower abdomen around periods. Pain that is severe, getting worse, or there between periods needs a doctor.",
+          "urgency": "doctor",
+          "related": [
+            "uterus",
+            "ovary"
+          ],
+          "sex": "female"
+        },
+        {
+          "title": "Prostate inflammation (prostatitis)",
+          "signs": "Aching in the lower back, between the legs or in the tip of the penis, with painful or frequent passing of urine, sometimes with fever.",
+          "urgency": "doctor",
+          "related": [
+            "prostate"
+          ],
+          "sex": "male"
+        },
+        {
+          "title": "Abdominal aortic aneurysm",
+          "signs": "A widened aorta usually causes no symptoms, but if it leaks it causes sudden, severe pain in the lower back or belly, often with feeling faint. Most likely in men over 65 and smokers. This is an emergency.",
+          "urgency": "urgent",
+          "related": [
+            "aorta"
+          ]
         }
       ],
       "redFlags": [
         "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
         "Back pain with fever, unexplained weight loss, a history of cancer, or after significant trauma",
-        "Severe pain that is worse at night and doesn’t ease with rest"
+        "Severe pain that is worse at night and doesn’t ease with rest",
+        "Sudden, severe lower back or belly pain in an older adult, especially with fainting: call emergency services (possible leaking aortic aneurysm)"
       ]
     },
     {
@@ -2724,7 +2884,10 @@
         "sacral-plexus",
         "iliac-artery",
         "piriformis",
-        "gluteus-minimus"
+        "gluteus-minimus",
+        "gemelli",
+        "obturator-internus",
+        "quadratus-femoris"
       ],
       "causes": [
         {
@@ -2744,7 +2907,10 @@
           "urgency": "self-care",
           "related": [
             "piriformis",
-            "sciatic-nerve"
+            "sciatic-nerve",
+            "gemelli",
+            "obturator-internus",
+            "quadratus-femoris"
           ]
         },
         {
@@ -2793,12 +2959,41 @@
             "femur",
             "hip-bone"
           ]
+        },
+        {
+          "title": "Ischiofemoral impingement",
+          "signs": "A deep ache low in the buttock, worse with long strides or when the thigh is turned in, from the quadratus femoris being pinched between the sitting bone and the femur.",
+          "urgency": "doctor",
+          "related": [
+            "quadratus-femoris",
+            "hip-bone",
+            "femur"
+          ]
+        },
+        {
+          "title": "Hamstring tear at the sitting bone",
+          "signs": "A sudden sharp pain or pop at the bottom of the buttock while sprinting, water-skiing or doing the splits, followed by bruising down the back of the thigh. A complete tear may need surgery within weeks, so see a doctor promptly.",
+          "urgency": "doctor",
+          "related": [
+            "hamstrings",
+            "hip-bone"
+          ]
+        },
+        {
+          "title": "Pilonidal abscess",
+          "signs": "A painful, swollen, sometimes discharging lump in the skin at the top of the buttock crease.",
+          "urgency": "doctor",
+          "related": [
+            "skin",
+            "coccyx"
+          ]
         }
       ],
       "redFlags": [
         "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
         "A leg that is getting weaker, or buttock pain with fever or feeling very unwell",
-        "Unable to bear weight after a fall"
+        "Unable to bear weight after a fall",
+        "Severe pain in the hip or buttock after a fall, with a leg that looks shorter or turned outwards: possible broken hip"
       ]
     }
   ]

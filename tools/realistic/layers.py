@@ -3,7 +3,8 @@
     python3 tools/realistic/build.py            # builds these too: assets/svg/<layer>-<view>-realistic.svg
 
 Unlike the skeleton, these keep the schematic outlines: every structure keeps its shape, id, side, classes and
-paths, so the two styles always line up and the data check finds the same keys. The realistic file adds form:
+paths, so the two styles always line up and the data check finds the same keys. The exception is the front muscles:
+a muscle with a builder in muscles.py gets that anatomy instead (redraw()), under the same id, side and classes. The realistic file adds form:
 four form-shadow bands away from a light at the upper left and a lit rim (the same shading as the realistic bones,
 coloured per layer through --shade / --lit in css/app.css), plus, per layer,
 
@@ -19,6 +20,7 @@ from pathlib import Path
 from shapely.geometry import LineString
 
 from geometry import LIGHTS, Bone, area_d, line_d, polys_from_d, shift, subpaths, soften, unary_union
+import muscles as MU
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -32,6 +34,7 @@ LAYERS = {
     'ligaments': (0.38, 0.25, 2.0, {'fibres'}),
 }
 GROUP = re.compile(r'^<g class="(s(?: [^"]*)?)"')
+OPEN = re.compile(r'^<g class="s[^"]*" data-id="([^"]+)"(?: data-side="([^"]+)")?[^>]*>')
 B_PATH = re.compile(r'<path class="b"[^>]*? d="([^"]*)"/>')
 D_PATH = re.compile(r'<path class="d"[^>]*? d="([^"]*)"/>')
 
@@ -92,6 +95,28 @@ def gloss(body, k, light):
     return area_d(soften(sheen, 0.25), 0.3, 0.6)
 
 
+def redraw(line, layer, view):
+    """The group with its outline, tendons and fibres replaced by the anatomy in muscles.py, when there is one."""
+    m = OPEN.match(line)
+    if layer != 'muscles' or view != 'anterior' or not m:
+        return line
+    mu = MU.muscle(m.group(1), m.group(2))
+    if mu is None:
+        return line
+    body = mu.body
+    parts = []
+    if mu.tendons is not None and not mu.tendons.is_empty:
+        parts.append(('c', area_d(mu.tendons.difference(body.buffer(-0.8)), 0.1)))
+    parts.append(('b', area_d(body, 0.1)))
+    if mu.marks is not None and not mu.marks.is_empty:
+        parts.append(('c', area_d(mu.marks.intersection(body), 0.1)))
+    if mu.lines:
+        parts.append(('d', line_d([l.intersection(body.buffer(-0.3)) for l in mu.lines])))
+    rule = {'b': ' fill-rule="evenodd"'}
+    inner = ''.join(f'<path class="{c}"{rule.get(c, "")} d="{d}"/>' for c, d in parts if d)
+    return m.group(0) + inner + '</g>'
+
+
 def realistic_line(line, layer, light):
     m = GROUP.match(line)
     b = B_PATH.search(line)
@@ -117,7 +142,7 @@ def build(layer, view):
     src = ROOT / f'assets/svg/{layer}-{view}.svg'
     dst = ROOT / f'assets/svg/{layer}-{view}-realistic.svg'
     light = LIGHTS[view]
-    lines = [realistic_line(l, layer, light) for l in src.read_text(encoding='utf8').split('\n')]
+    lines = [realistic_line(redraw(l, layer, view), layer, light) for l in src.read_text(encoding='utf8').split('\n')]
     text = '\n'.join(lines)
     text = re.sub(r'<title>(.*?)</title>', r'<title>\1 (realistic)</title>', text, count=1)
     dst.write_text(text, encoding='utf8')

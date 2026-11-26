@@ -150,6 +150,170 @@
     {
       "kind": "muscle",
       "paired": true,
+      "id": "pterygoids",
+      "name": "Pterygoid muscles",
+      "latin": "Musculi pterygoidei",
+      "aka": [
+        "pterygoid muscles"
+      ],
+      "group": "head-muscles",
+      "listOnly": "Not drawn on the map: they lie inside the jaw, behind the ramus of the mandible, so both views hide them.",
+      "origin": [
+        "sphenoid",
+        "maxilla"
+      ],
+      "originNote": "The pterygoid plates of the sphenoid at the back of the nose, and (medial pterygoid) the back of the upper jaw",
+      "insertion": [
+        "mandible"
+      ],
+      "insertionNote": "Lateral: the neck of the jaw's condyle and the disc of the jaw joint. Medial: the inner surface of the angle of the jaw",
+      "nerve": "Mandibular branch of the trigeminal nerve",
+      "actions": [
+        "Push the jaw forward and open the mouth (lateral pterygoid)",
+        "Close the jaw, with the masseter (medial pterygoid)",
+        "Grind side to side when chewing, one side at a time"
+      ],
+      "summary": "Two chewing muscles inside the jaw. The lateral pterygoid pulls the jaw's condyle and disc forward as the mouth opens; the medial pterygoid mirrors the masseter on the inside of the jaw, forming a sling around its angle.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Lateral pterygoid",
+          "latin": "Musculus pterygoideus lateralis",
+          "note": "Runs back almost horizontally to the condyle and the jaw-joint disc. The only chewing muscle that opens the mouth."
+        },
+        {
+          "name": "Medial pterygoid",
+          "latin": "Musculus pterygoideus medialis",
+          "note": "Runs down and back to the inside of the angle of the jaw. Closes the jaw."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Jaw joint (TMJ) disorder",
+          "note": "Tight or overworked pterygoids, often from clenching or grinding, cause aching in front of the ear, clicking and a jaw that deviates on opening."
+        },
+        {
+          "name": "Trismus",
+          "note": "Spasm that stops the mouth opening fully, for example after a wisdom-tooth extraction or a dental injection. A spreading swelling with fever needs urgent care."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "buccinator",
+      "name": "Buccinator",
+      "latin": "Musculus buccinator",
+      "aka": [
+        "cheek muscle"
+      ],
+      "group": "head-muscles",
+      "origin": [
+        "maxilla",
+        "mandible"
+      ],
+      "originNote": "The outer jaw bones beside the molar teeth, and the pterygomandibular raphe behind them",
+      "insertion": [
+        "orbicularis-oris"
+      ],
+      "insertionNote": "Blends into the orbicularis oris at the corner of the mouth",
+      "nerve": "Buccal branches of the facial nerve",
+      "actions": [
+        "Presses the cheek against the teeth, keeping food between them when chewing",
+        "Blows air out through pursed lips (it is the trumpeter’s muscle)"
+      ],
+      "summary": "The muscle of the cheek, a thin sheet deep to the masseter that forms the side wall of the mouth. Although it helps chewing, it is a muscle of facial expression, supplied by the facial nerve.",
+      "issues": [
+        {
+          "name": "Cheek biting",
+          "note": "With a facial palsy the cheek is slack, so food collects inside it and the cheek is bitten. A sudden one-sided weakness of the face needs emergency care, as it may be a stroke."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "extraocular-muscles",
+      "name": "Eye muscles",
+      "latin": "Musculi bulbi",
+      "aka": [
+        "extraocular muscles",
+        "extrinsic eye muscles"
+      ],
+      "group": "head-muscles",
+      "listOnly": "Not drawn on the map: they lie inside the eye socket, behind and around the eyeball.",
+      "origin": [
+        "sphenoid",
+        "maxilla"
+      ],
+      "originNote": "A common tendon ring at the back of the eye socket around the optic canal (the four recti and the superior oblique); the inferior oblique from the floor of the socket at the front",
+      "insertion": [
+        "eye"
+      ],
+      "insertionNote": "The white of the eye (sclera); the levator into the upper eyelid",
+      "nerve": "Oculomotor nerve (most), trochlear nerve (superior oblique) and abducens nerve (lateral rectus)",
+      "actions": [
+        "Turn the eye up, down, in and out, and rotate it",
+        "Keep both eyes pointing at the same thing, so you see one image",
+        "Lift the upper eyelid (levator palpebrae superioris)"
+      ],
+      "summary": "Six small muscles that aim each eye, plus the muscle that lifts the upper eyelid. They make the fastest movements in the body and keep the two eyes precisely aligned.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Superior rectus",
+          "latin": "Musculus rectus superior",
+          "note": "Turns the eye up (oculomotor nerve)."
+        },
+        {
+          "name": "Inferior rectus",
+          "latin": "Musculus rectus inferior",
+          "note": "Turns the eye down (oculomotor nerve)."
+        },
+        {
+          "name": "Medial rectus",
+          "latin": "Musculus rectus medialis",
+          "note": "Turns the eye in, towards the nose (oculomotor nerve)."
+        },
+        {
+          "name": "Lateral rectus",
+          "latin": "Musculus rectus lateralis",
+          "note": "Turns the eye out (abducens nerve)."
+        },
+        {
+          "name": "Superior oblique",
+          "latin": "Musculus obliquus superior",
+          "note": "Its tendon hooks through a pulley (the trochlea); turns the eye down and in (trochlear nerve)."
+        },
+        {
+          "name": "Inferior oblique",
+          "latin": "Musculus obliquus inferior",
+          "note": "From the floor of the socket; turns the eye up and out (oculomotor nerve)."
+        },
+        {
+          "name": "Levator palpebrae superioris",
+          "latin": "Musculus levator palpebrae superioris",
+          "note": "Lifts the upper eyelid (oculomotor nerve)."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Double vision",
+          "note": "Sudden double vision, especially with a droopy eyelid, a headache or weakness, needs emergency care. It can come from a stroke, an aneurysm pressing on a nerve, or a nerve palsy."
+        },
+        {
+          "name": "Squint (strabismus)",
+          "note": "The eyes point in different directions. In children it needs early assessment to protect the sight of the weaker eye."
+        },
+        {
+          "name": "Thyroid eye disease",
+          "note": "Swollen eye muscles in an overactive thyroid push the eyes forward and limit their movement."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
       "id": "occipitofrontalis",
       "name": "Occipitofrontalis",
       "latin": "Musculus occipitofrontalis",
@@ -268,6 +432,37 @@
         {
           "name": "Neck strain",
           "note": "Pain and stiffness after a jolt or sleeping awkwardly."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "platysma",
+      "name": "Platysma",
+      "latin": "Platysma",
+      "group": "neck-muscles",
+      "origin": [],
+      "originNote": "The skin and fascia over the upper chest and the front of the shoulder",
+      "insertion": [
+        "mandible"
+      ],
+      "insertionNote": "The lower border of the jaw, and the skin and muscles at the corner of the mouth",
+      "nerve": "Cervical branch of the facial nerve",
+      "actions": [
+        "Tenses the skin of the neck into ridges",
+        "Pulls the corners of the mouth down, as in a grimace or fright",
+        "Helps open the jaw against resistance"
+      ],
+      "summary": "A broad, paper-thin sheet just under the skin of the front of the neck, from the upper chest up over the jaw. It is a muscle of facial expression, so the facial nerve supplies it.",
+      "issues": [
+        {
+          "name": "Neck bands with age",
+          "note": "The front edges of the two sheets can show as vertical cords under the chin. This is harmless."
+        },
+        {
+          "name": "Facial palsy",
+          "note": "In Bell’s palsy or a stroke the platysma on one side stops working, along with the other muscles of facial expression. A sudden facial droop needs emergency care."
         }
       ]
     },
@@ -841,6 +1036,34 @@
         {
           "name": "Tight pectoralis minor",
           "note": "Rounded shoulders. It can squeeze the nerves and vessels going to the arm (thoracic outlet)."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "subclavius",
+      "name": "Subclavius",
+      "latin": "Musculus subclavius",
+      "group": "chest-muscles",
+      "origin": [
+        "rib-1"
+      ],
+      "originNote": "The junction of the first rib and its cartilage",
+      "insertion": [
+        "clavicle"
+      ],
+      "insertionNote": "A groove on the underside of the middle of the collarbone",
+      "nerve": "Nerve to subclavius (C5–C6), from the brachial plexus",
+      "actions": [
+        "Pulls the collarbone down and in, steadying it against the breastbone",
+        "Cushions the vessels and nerves beneath a broken collarbone"
+      ],
+      "summary": "A small, rounded muscle under the collarbone, deep to the pectoralis major. It lies just above the subclavian vessels and the brachial plexus as they pass under the collarbone to the arm.",
+      "issues": [
+        {
+          "name": "Thoracic outlet syndrome",
+          "note": "A tight subclavius can narrow the gap between the collarbone and the first rib, pressing on the nerves or vein to the arm: pins and needles or a heavy, swollen arm, worse with the arms raised."
         }
       ]
     },
@@ -1939,6 +2162,136 @@
         {
           "name": "Piriformis syndrome",
           "note": "A deep buttock ache, worse sitting or climbing stairs, sometimes with sciatica-like pain down the back of the leg."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "gemelli",
+      "name": "Gemelli",
+      "latin": "Musculi gemelli",
+      "aka": [
+        "gemellus muscles",
+        "twin muscles"
+      ],
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "The ischial spine (superior gemellus) and the top of the ischial tuberosity (inferior gemellus)",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "With the obturator internus tendon, on the inner side of the greater trochanter",
+      "nerve": "Nerve to obturator internus (superior) and nerve to quadratus femoris (inferior), from the sacral plexus",
+      "actions": [
+        "Turn the thigh outwards",
+        "Hold the head of the femur in the hip socket"
+      ],
+      "summary": "Two small ‘twin’ muscles in the deep buttock, one above and one below the obturator internus tendon, which they join. Together with the piriformis and the quadratus femoris they form the deep hip rotators under the gluteus maximus.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Superior gemellus",
+          "latin": "Musculus gemellus superior",
+          "note": "From the ischial spine, along the top of the obturator internus tendon."
+        },
+        {
+          "name": "Inferior gemellus",
+          "latin": "Musculus gemellus inferior",
+          "note": "From the ischial tuberosity, along the bottom of the obturator internus tendon."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Deep gluteal syndrome",
+          "note": "A deep buttock ache, worse sitting, sometimes with sciatica-like pain, when the sciatic nerve is irritated among the deep rotators."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "obturator-internus",
+      "name": "Obturator internus",
+      "latin": "Musculus obturator internus",
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "The inner surface of the pelvis around the obturator foramen, and the membrane that closes it",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "The inner side of the greater trochanter, above the trochanteric fossa",
+      "nerve": "Nerve to obturator internus (L5–S2), from the sacral plexus",
+      "actions": [
+        "Turns the thigh outwards",
+        "Lifts the bent thigh out to the side",
+        "Steadies the head of the femur in its socket"
+      ],
+      "summary": "A fan of muscle lining the side wall of the pelvis. Its tendon turns a right angle around the lesser sciatic notch, out into the buttock between the gemelli. Only that tendon and the gemelli show from behind; the belly lies inside the pelvis.",
+      "issues": [
+        {
+          "name": "Obturator internus pain",
+          "note": "A deep ache in the buttock, pelvis or pelvic floor, worse sitting. It is often linked with pelvic floor tension."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "quadratus-femoris",
+      "name": "Quadratus femoris",
+      "latin": "Musculus quadratus femoris",
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "The outer edge of the ischial tuberosity",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "The quadrate tubercle on the back of the femur, between the trochanters",
+      "nerve": "Nerve to quadratus femoris (L4–S1), from the sacral plexus",
+      "actions": [
+        "Turns the thigh outwards (the strongest of the deep rotators)",
+        "Holds the head of the femur in its socket"
+      ],
+      "summary": "A flat, square muscle at the bottom of the deep hip rotators, between the sitting bone and the back of the femur, just below the inferior gemellus.",
+      "issues": [
+        {
+          "name": "Ischiofemoral impingement",
+          "note": "The muscle is pinched between the sitting bone and the femur, causing deep buttock or groin pain on long strides or when the thigh is turned in."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "obturator-externus",
+      "name": "Obturator externus",
+      "latin": "Musculus obturator externus",
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "The outer surface of the bone around the obturator foramen, and its membrane",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "The trochanteric fossa, under the neck of the femur",
+      "nerve": "Obturator nerve (L3–L4)",
+      "actions": [
+        "Turns the thigh outwards",
+        "Steadies the head of the femur in its socket"
+      ],
+      "summary": "A flat, triangular muscle over the front of the obturator foramen, deep under the pectineus and the adductors. Its tendon runs back under the neck of the femur to the trochanteric fossa.",
+      "issues": [
+        {
+          "name": "Obturator externus strain",
+          "note": "Deep groin pain in kicking and twisting sports, easily mistaken for an adductor strain or a hip problem."
         }
       ]
     },

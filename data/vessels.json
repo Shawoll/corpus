@@ -293,9 +293,10 @@
         "eye",
         "trachea",
         "sternocleidomastoid",
-        "pituitary"
+        "pituitary",
+        "extraocular-muscles"
       ],
-      "suppliesNote": "The brain, eye and pituitary through the internal carotid (its upper part drawn faint, behind the jaw). The face, scalp, thyroid and jaw through the external carotid.",
+      "suppliesNote": "The brain, eye, eye muscles and pituitary through the internal carotid (its upper part drawn faint, behind the jaw). The face, scalp, thyroid and jaw through the external carotid.",
       "membersLabel": "Branches",
       "members": [
         {
@@ -342,7 +343,8 @@
         "salivary-glands",
         "ear",
         "nose",
-        "splenius"
+        "splenius",
+        "pterygoids"
       ],
       "membersLabel": "Other branches",
       "members": [
@@ -382,7 +384,9 @@
         "nose",
         "salivary-glands",
         "orbicularis-oculi",
-        "orbicularis-oris"
+        "orbicularis-oris",
+        "buccinator",
+        "platysma"
       ],
       "suppliesNote": "The submandibular gland, the nose, the lips and the muscles of facial expression."
     },
@@ -504,7 +508,8 @@
         "rotator-cuff",
         "humerus",
         "teres-major",
-        "breast"
+        "breast",
+        "subclavius"
       ],
       "suppliesNote": "Through the thoracoacromial, lateral thoracic, subscapular and circumflex humeral arteries. The lateral thoracic artery also feeds the outer part of the breast.",
       "membersLabel": "Branches",
@@ -816,7 +821,11 @@
         "vas-deferens",
         "penis",
         "scrotum",
-        "gluteus-minimus"
+        "gluteus-minimus",
+        "gemelli",
+        "obturator-internus",
+        "quadratus-femoris",
+        "obturator-externus"
       ],
       "suppliesNote": "The pelvic organs, reproductive organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator, uterine, vesical and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
       "membersLabel": "Parts",
@@ -902,7 +911,9 @@
         "hamstrings",
         "tensor-fasciae-latae",
         "femur",
-        "hip"
+        "hip",
+        "quadratus-femoris",
+        "obturator-externus"
       ],
       "suppliesNote": "Most of the thigh through its deep branch (profunda femoris, drawn faint), whose circumflex branches also feed the head of the femur. A broken femoral neck can tear them.",
       "membersLabel": "Branches",

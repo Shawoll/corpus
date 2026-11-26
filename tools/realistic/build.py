@@ -2,7 +2,8 @@
 """Build the realistic skeleton drawings from the schematic ones.
 
     python3 tools/realistic/build.py            # writes assets/svg/skeleton-{anterior,posterior}-realistic.svg
-                                                # and the other layers' realistic files (layers.py)
+                                                # and the other layers' realistic files (layers.py; the front
+                                                # muscles redrawn as anatomy by muscles.py)
 
 Needs shapely (pip install shapely), for drawing only: the site itself stays dependency-free. The schematic file
 for each view supplies the draw order, the ids and sides, and the joint markers, so a realistic file always has
