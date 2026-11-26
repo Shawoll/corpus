@@ -322,6 +322,7 @@ export function createPanel(graph) {
     for (const list of graph.adj.values()) edges += list.length;
     let h = eyebrow(['A connected map of the body']);
     h += `<p class="home-lede">The human body as one system. Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, what it connects to and what commonly goes wrong.</p>`;
+    h += `<p class="home-note" role="note"><b>Not a diagnostic tool.</b> ${esc(graph.regionsData.disclaimer || 'Educational only, not medical advice.')} ${esc(graph.regionsData.emergency || '')}</p>`;
     h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${stat(muscles, 'muscles')}<div class="stat"><b>${organs}</b><span>organs</span></div>${stat(nerves, 'nerves')}${stat(vessels, 'vessels')}<div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
     h += section('How to use it', `<ul class="howto">
       <li><span class="k">i</span><span><b>Tap</b> a structure. It turns red, everything it connects to turns teal, and the joints between them pulse.</span></li>
@@ -342,7 +343,7 @@ export function createPanel(graph) {
       <div><span class="jdot" data-c="cartilaginous"></span>Cartilaginous joint (slightly moving)</div>
       <div><span class="jdot" data-c="fibrous"></span>Fibrous joint (fixed)</div>
     </div>`);
-    h += `<p class="disclaimer">The figure stands in the anatomical position (palms forward). From the front the body’s right is on your left; from the back it is on your right. ${esc(graph.regionsData.disclaimer || '')}</p>`;
+    h += `<p class="disclaimer">The figure stands in the anatomical position (palms forward). From the front the body’s right is on your left; from the back it is on your right.</p>`;
     return h;
   }
 

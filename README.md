@@ -4,6 +4,8 @@
 
 ### [▶ Open Corpus → shawoll.github.io/corpus](https://shawoll.github.io/corpus/)
 
+[![Corpus with the right femur selected: the bone is red, and the hip bone, tibia and patella it connects to are teal](assets/social.png)](https://shawoll.github.io/corpus/)
+
 Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, what it connects to and what commonly goes wrong. Switch to **Where does it hurt?**, tap a body area, and see what lies there, the usual causes of pain and when to get help.
 
 > [!WARNING]
