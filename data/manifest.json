@@ -57,6 +57,16 @@
       "visible": true
     },
     {
+      "id": "ligaments",
+      "name": "Ligaments",
+      "svg": {
+        "anterior": "assets/svg/ligaments-anterior.svg",
+        "posterior": "assets/svg/ligaments-posterior.svg"
+      },
+      "data": "data/ligaments.json",
+      "visible": false
+    },
+    {
       "id": "muscles",
       "name": "Muscles",
       "svg": {
@@ -163,6 +173,16 @@
       "forward": "Collects lymph from",
       "reverse": "Lymph drains to",
       "field": "collects"
+    },
+    "stabilises": {
+      "forward": "Stabilises",
+      "reverse": "Stabilised by",
+      "field": "stabilises"
+    },
+    "attaches": {
+      "forward": "Attaches to",
+      "reverse": "Ligaments & tendons attached",
+      "field": "attaches"
     }
   }
 }

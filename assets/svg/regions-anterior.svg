@@ -36,5 +36,7 @@
 <g class="rg" data-id="lower-leg" data-side="left"><path d="M304 960L300 1060L290 1100L254 1100L250 1060L250 960L258 910L296 910Z"/></g>
 <g class="rg" data-id="ankle-foot" data-side="right"><path d="M190 1100L226 1100L236 1120L238 1170L234 1199L176 1199L170 1166L178 1120Z"/></g>
 <g class="rg" data-id="ankle-foot" data-side="left"><path d="M302 1120L310 1166L304 1199L246 1199L242 1170L244 1120L254 1100L290 1100Z"/></g>
+<g class="rg" data-id="armpit" data-side="right"><path d="M136 290L152 290L151 310L150 330L140 332L138 312Z"/></g>
+<g class="rg" data-id="armpit" data-side="left"><path d="M344 290L328 290L329 310L330 330L340 332L342 312Z"/></g>
 </g>
 </svg>

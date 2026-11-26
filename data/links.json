@@ -337,6 +337,16 @@
         "thoracic-duct"
       ],
       "side": "left"
+    },
+    {
+      "type": "branches",
+      "from": [
+        "brain"
+      ],
+      "to": [
+        "@cranial-nerves"
+      ],
+      "note": "from the brain and brainstem"
     }
   ]
 }

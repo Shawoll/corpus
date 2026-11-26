@@ -287,36 +287,16 @@
       "summary": "Runs up the neck beside the windpipe, under the front edge of the sternocleidomastoid, and divides at the level of the top of the voice box. The internal carotid enters the skull to feed the brain and eye; the external carotid feeds the face, scalp, jaw and thyroid.",
       "supplies": [
         "brain",
-        "thyroid",
         "trachea",
-        "temporalis",
-        "masseter",
-        "sternocleidomastoid",
-        "suprahyoid",
-        "infrahyoid"
+        "sternocleidomastoid"
       ],
-      "suppliesNote": "The brain through the internal carotid (its upper part drawn faint, behind the jaw). The thyroid, face, scalp and chewing muscles through the external carotid and its branches.",
+      "suppliesNote": "The brain and eye through the internal carotid (its upper part drawn faint, behind the jaw). The face, scalp, thyroid and jaw through the external carotid.",
       "membersLabel": "Branches",
       "members": [
         {
           "name": "Internal carotid artery",
           "latin": "Arteria carotis interna",
           "note": "Into the skull, to the front and middle of the brain and the eye."
-        },
-        {
-          "name": "External carotid artery",
-          "latin": "Arteria carotis externa",
-          "note": "To the thyroid, tongue, face, scalp and jaw."
-        },
-        {
-          "name": "Facial artery",
-          "latin": "Arteria facialis",
-          "note": "Crosses the jaw in front of the masseter, where you can feel its pulse, then winds up to the corner of the eye."
-        },
-        {
-          "name": "Superficial temporal artery",
-          "latin": "Arteria temporalis superficialis",
-          "note": "Pulse just in front of the ear."
         }
       ],
       "issues": [
@@ -327,6 +307,85 @@
         {
           "name": "Stroke",
           "note": "A drooping face, arm weakness or trouble speaking: call emergency services straight away."
+        }
+      ],
+      "branches": [
+        "external-carotid-artery"
+      ]
+    },
+    {
+      "id": "external-carotid-artery",
+      "name": "External carotid artery",
+      "latin": "Arteria carotis externa",
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "summary": "The branch of the common carotid that feeds everything in the head outside the skull: the thyroid, tongue, face, jaw and scalp. It rises behind the angle of the jaw, inside the parotid gland, and ends just in front of the ear by splitting into the superficial temporal and maxillary arteries.",
+      "branches": [
+        "facial-artery",
+        "superficial-temporal-artery"
+      ],
+      "supplies": [
+        "thyroid",
+        "masseter",
+        "suprahyoid",
+        "infrahyoid"
+      ],
+      "membersLabel": "Other branches",
+      "members": [
+        {
+          "name": "Superior thyroid artery",
+          "latin": "Arteria thyroidea superior",
+          "note": "To the thyroid and the voice box."
+        },
+        {
+          "name": "Lingual artery",
+          "latin": "Arteria lingualis",
+          "note": "To the tongue."
+        },
+        {
+          "name": "Maxillary artery",
+          "latin": "Arteria maxillaris",
+          "note": "Deep in the face: the jaws, teeth, chewing muscles and the lining of the skull (middle meningeal artery)."
+        },
+        {
+          "name": "Occipital artery",
+          "latin": "Arteria occipitalis",
+          "note": "To the back of the scalp."
+        }
+      ]
+    },
+    {
+      "id": "facial-artery",
+      "name": "Facial artery",
+      "latin": "Arteria facialis",
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "pulse": "Lower edge of the jaw, just in front of the masseter muscle",
+      "summary": "Hooks over the lower edge of the jaw just in front of the masseter, where you can feel its pulse, then winds up past the corner of the mouth and the side of the nose to the inner corner of the eye. It feeds the lips, cheek and nose, and is why face cuts bleed so freely.",
+      "supplies": [
+        "masseter"
+      ],
+      "suppliesNote": "And the muscles of facial expression, lips and nose (not drawn here)."
+    },
+    {
+      "id": "superficial-temporal-artery",
+      "name": "Superficial temporal artery",
+      "latin": "Arteria temporalis superficialis",
+      "kind": "artery",
+      "group": "arteries-head-arm",
+      "paired": true,
+      "pulse": "Just in front of the ear, above the jaw joint",
+      "summary": "The end of the external carotid. It climbs just in front of the ear, where its pulse is easy to feel, and branches over the temple and scalp. Its winding branches often show under the skin of the temple in older people.",
+      "supplies": [
+        "temporalis"
+      ],
+      "suppliesNote": "And the skin of the temple and scalp.",
+      "issues": [
+        {
+          "name": "Giant cell arteritis",
+          "note": "Inflamed temple arteries, almost only over 50: a new headache, a tender scalp or temple, and jaw pain on chewing. See a doctor the same day, because it can damage sight. Any loss or blurring of vision is an emergency."
         }
       ]
     },
@@ -809,20 +868,39 @@
       "kind": "artery",
       "group": "arteries-leg",
       "paired": true,
-      "pulse": "Top of the foot, as the dorsalis pedis artery",
       "summary": "Passes forward between the tibia and fibula and runs down the front of the leg with the deep fibular nerve. In front of the ankle it becomes the dorsalis pedis artery, whose pulse you can feel on the top of the foot.",
       "supplies": [
         "tibialis-anterior",
         "toe-extensors",
+        "tibia",
+        "fibula"
+      ],
+      "continues": [
+        "dorsalis-pedis-artery"
+      ]
+    },
+    {
+      "id": "dorsalis-pedis-artery",
+      "name": "Dorsalis pedis artery",
+      "latin": "Arteria dorsalis pedis",
+      "aka": [
+        "dorsal artery of the foot"
+      ],
+      "kind": "artery",
+      "group": "arteries-leg",
+      "paired": true,
+      "pulse": "Top of the foot, just beside the tendon of the big toe",
+      "summary": "The continuation of the anterior tibial artery past the front of the ankle. It runs over the top of the foot toward the gap between the first two toes, where it dives into the sole to join the plantar arch. Doctors feel its pulse to check the blood supply to the foot.",
+      "supplies": [
         "tarsals",
         "metatarsals",
         "foot-phalanges"
       ],
-      "members": [
+      "suppliesNote": "And the skin and short muscles on the top of the foot.",
+      "issues": [
         {
-          "name": "Dorsalis pedis artery",
-          "latin": "Arteria dorsalis pedis",
-          "note": "Runs over the top of the foot toward the gap between the first two toes."
+          "name": "Weak or absent foot pulse",
+          "note": "Common with peripheral arterial disease and diabetes, though in a few healthy people it is simply hard to find. A cold, pale, painful foot needs emergency care."
         }
       ]
     },

@@ -20,7 +20,14 @@
         "brain",
         "temporalis",
         "trigeminal-nerve",
-        "common-carotid-artery"
+        "common-carotid-artery",
+        "olfactory-nerve",
+        "optic-nerve",
+        "oculomotor-nerve",
+        "trochlear-nerve",
+        "abducens-nerve",
+        "vestibulocochlear-nerve",
+        "superficial-temporal-artery"
       ],
       "causes": [
         {
@@ -86,7 +93,11 @@
         "temporalis",
         "trigeminal-nerve",
         "facial-nerve",
-        "common-carotid-artery"
+        "common-carotid-artery",
+        "facial-artery",
+        "superficial-temporal-artery",
+        "glossopharyngeal-nerve",
+        "hypoglossal-nerve"
       ],
       "causes": [
         {
@@ -175,7 +186,10 @@
         "phrenic-nerve",
         "brachial-plexus",
         "cervical-lymph-nodes",
-        "tonsils"
+        "tonsils",
+        "external-carotid-artery",
+        "hypoglossal-nerve",
+        "glossopharyngeal-nerve"
       ],
       "causes": [
         {
@@ -254,7 +268,8 @@
         "subclavian-vein",
         "axillary-vein",
         "cephalic-vein",
-        "axillary-lymph-nodes"
+        "axillary-lymph-nodes",
+        "rotator-cuff-tendons"
       ],
       "causes": [
         {
@@ -264,7 +279,8 @@
           "related": [
             "shoulder",
             "scapula",
-            "rotator-cuff"
+            "rotator-cuff",
+            "rotator-cuff-tendons"
           ]
         },
         {
@@ -310,6 +326,82 @@
         "Shoulder or arm pain with chest pressure, breathlessness or sweating: call emergency services",
         "Deformity after an injury, or a cold, numb arm",
         "Shoulder-tip pain after a blow to the abdomen (possible internal bleeding)"
+      ]
+    },
+    {
+      "id": "armpit",
+      "name": "Armpit",
+      "paired": true,
+      "structures": [
+        "axillary-lymph-nodes",
+        "axillary-artery",
+        "axillary-vein",
+        "brachial-plexus",
+        "pectoralis-major",
+        "pectoralis-minor",
+        "latissimus-dorsi",
+        "serratus-anterior",
+        "teres-major",
+        "humerus",
+        "shoulder",
+        "intercostal-nerves",
+        "arm-lymphatics"
+      ],
+      "causes": [
+        {
+          "title": "Swollen lymph node",
+          "signs": "A tender lump after an infection in the hand or arm, a recent vaccination or a shaving rash. It usually settles within two or three weeks.",
+          "urgency": "doctor",
+          "related": [
+            "axillary-lymph-nodes",
+            "arm-lymphatics"
+          ]
+        },
+        {
+          "title": "Boil or infected hair follicle",
+          "signs": "A red, hot, tender lump in the skin, sometimes with a yellow head, often after shaving. Warm compresses help. See a doctor if it spreads, grows or you feel unwell.",
+          "urgency": "self-care",
+          "related": []
+        },
+        {
+          "title": "Hidradenitis suppurativa",
+          "signs": "Painful lumps and abscesses that keep coming back in the armpits or groin, healing with scars. It is treatable, so see a doctor.",
+          "urgency": "doctor",
+          "related": []
+        },
+        {
+          "title": "Muscle strain",
+          "signs": "Pain at the front or back fold of the armpit after lifting, throwing or pushing, worse using the arm.",
+          "urgency": "self-care",
+          "related": [
+            "pectoralis-major",
+            "latissimus-dorsi",
+            "serratus-anterior",
+            "teres-major"
+          ]
+        },
+        {
+          "title": "Breast lump reaching the armpit",
+          "signs": "Breast tissue extends into the armpit, and breast cancer can spread to these nodes. Any new lump with a change in the breast needs a doctor.",
+          "urgency": "doctor",
+          "related": [
+            "axillary-lymph-nodes",
+            "pectoralis-major"
+          ]
+        },
+        {
+          "title": "Blood clot in the arm",
+          "signs": "A swollen, heavy, aching or bluish arm, sometimes after heavy repeated arm use or a drip.",
+          "urgency": "urgent",
+          "related": [
+            "axillary-vein"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A hard, fixed or growing lump, especially with a change in the breast",
+        "A swollen, discoloured or heavy arm: same-day assessment (possible blood clot)",
+        "Spreading redness or red streaks up the arm with fever"
       ]
     },
     {
@@ -602,7 +694,9 @@
         "median-cubital-vein",
         "ulnar-nerve",
         "median-nerve",
-        "radial-nerve"
+        "radial-nerve",
+        "common-extensor-tendon",
+        "common-flexor-tendon"
       ],
       "causes": [
         {
@@ -612,7 +706,8 @@
           "related": [
             "elbow",
             "humerus",
-            "forearm-extensors"
+            "forearm-extensors",
+            "common-extensor-tendon"
           ]
         },
         {
@@ -622,7 +717,8 @@
           "related": [
             "elbow",
             "humerus",
-            "forearm-flexors"
+            "forearm-flexors",
+            "common-flexor-tendon"
           ]
         },
         {
@@ -728,7 +824,8 @@
         "radial-nerve",
         "radial-artery",
         "ulnar-artery",
-        "palmar-arches"
+        "palmar-arches",
+        "flexor-retinaculum"
       ],
       "causes": [
         {
@@ -740,7 +837,8 @@
             "wrist",
             "forearm-flexors",
             "thenar",
-            "median-nerve"
+            "median-nerve",
+            "flexor-retinaculum"
           ]
         },
         {
@@ -1401,7 +1499,8 @@
         "great-saphenous-vein",
         "obturator-nerve",
         "lumbar-plexus",
-        "inguinal-lymph-nodes"
+        "inguinal-lymph-nodes",
+        "inguinal-ligament"
       ],
       "causes": [
         {
@@ -1445,7 +1544,8 @@
           "signs": "A groin bulge when standing or straining.",
           "urgency": "doctor",
           "related": [
-            "external-oblique"
+            "external-oblique",
+            "inguinal-ligament"
           ]
         },
         {
@@ -1485,7 +1585,8 @@
         "great-saphenous-vein",
         "sciatic-nerve",
         "obturator-nerve",
-        "lumbar-plexus"
+        "lumbar-plexus",
+        "iliotibial-band"
       ],
       "causes": [
         {
@@ -1560,7 +1661,15 @@
         "small-saphenous-vein",
         "common-fibular-nerve",
         "tibial-nerve",
-        "popliteal-lymph-nodes"
+        "popliteal-lymph-nodes",
+        "acl",
+        "pcl",
+        "mcl",
+        "lcl",
+        "menisci",
+        "patellar-tendon",
+        "quadriceps-tendon",
+        "iliotibial-band"
       ],
       "causes": [
         {
@@ -1574,11 +1683,24 @@
           ]
         },
         {
+          "title": "Patellar tendinopathy",
+          "signs": "Pain just below the kneecap when jumping, squatting or climbing stairs, common in jumping sports.",
+          "urgency": "self-care",
+          "related": [
+            "patellar-tendon",
+            "patella"
+          ]
+        },
+        {
           "title": "Ligament injury (ACL / MCL)",
           "signs": "A twist or pop with swelling and a knee that gives way.",
           "urgency": "doctor",
           "related": [
-            "knee"
+            "knee",
+            "acl",
+            "mcl",
+            "lcl",
+            "pcl"
           ]
         },
         {
@@ -1586,7 +1708,8 @@
           "signs": "Joint-line pain, catching or locking after a twist.",
           "urgency": "doctor",
           "related": [
-            "knee"
+            "knee",
+            "menisci"
           ]
         },
         {
@@ -1602,7 +1725,8 @@
           "signs": "Sharp pain on the outer knee in runners and cyclists, worse going downhill.",
           "urgency": "self-care",
           "related": [
-            "tensor-fasciae-latae"
+            "tensor-fasciae-latae",
+            "iliotibial-band"
           ]
         },
         {
@@ -1620,7 +1744,8 @@
           "related": [
             "knee",
             "gastrocnemius",
-            "popliteal-vein"
+            "popliteal-vein",
+            "menisci"
           ]
         },
         {
@@ -1635,6 +1760,87 @@
       "redFlags": [
         "A hot, swollen joint with fever",
         "Unable to bear weight or straighten the knee after an injury"
+      ]
+    },
+    {
+      "id": "back-of-knee",
+      "name": "Back of the knee",
+      "view": "back",
+      "paired": true,
+      "structures": [
+        "knee",
+        "femur",
+        "tibia",
+        "hamstrings",
+        "gastrocnemius",
+        "popliteal-artery",
+        "popliteal-vein",
+        "small-saphenous-vein",
+        "tibial-nerve",
+        "common-fibular-nerve",
+        "popliteal-lymph-nodes",
+        "pcl",
+        "menisci"
+      ],
+      "causes": [
+        {
+          "title": "Baker’s cyst",
+          "signs": "A soft swelling behind the knee, tight when you bend it, often with arthritis or a meniscus tear. If it bursts, the calf becomes swollen and painful like a blood clot, so get that checked the same day.",
+          "urgency": "doctor",
+          "related": [
+            "knee",
+            "menisci",
+            "gastrocnemius"
+          ]
+        },
+        {
+          "title": "Hamstring tendon strain",
+          "signs": "Pain at the inner or outer back of the knee after sprinting or kicking, worse bending the knee against resistance.",
+          "urgency": "self-care",
+          "related": [
+            "hamstrings"
+          ]
+        },
+        {
+          "title": "Calf strain",
+          "signs": "A sudden pull at the top of the calf during a push-off, then pain on walking or rising on tiptoe.",
+          "urgency": "self-care",
+          "related": [
+            "gastrocnemius"
+          ]
+        },
+        {
+          "title": "Meniscus tear",
+          "signs": "Pain deep in the back of the knee on squatting or twisting, sometimes with catching or locking.",
+          "urgency": "doctor",
+          "related": [
+            "menisci",
+            "knee"
+          ]
+        },
+        {
+          "title": "PCL injury",
+          "signs": "Pain at the back of the knee after a blow to the front of the shin with the knee bent, or a fall onto the bent knee.",
+          "urgency": "doctor",
+          "related": [
+            "pcl",
+            "knee"
+          ]
+        },
+        {
+          "title": "Deep vein thrombosis (DVT)",
+          "signs": "A swollen, warm, painful calf or back of the knee, especially after travel, surgery or illness.",
+          "urgency": "urgent",
+          "related": [
+            "popliteal-vein",
+            "small-saphenous-vein"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A swollen, warm, painful calf: same-day assessment (possible DVT)",
+        "Sudden breathlessness or chest pain with a swollen leg: call emergency services",
+        "A cold, pale, numb or painful foot"
       ]
     },
     {
@@ -1745,7 +1951,12 @@
         "small-saphenous-vein",
         "tibial-nerve",
         "deep-fibular-nerve",
-        "superficial-fibular-nerve"
+        "superficial-fibular-nerve",
+        "lateral-ankle-ligaments",
+        "deltoid-ligament",
+        "achilles-tendon",
+        "plantar-fascia",
+        "dorsalis-pedis-artery"
       ],
       "causes": [
         {
@@ -1754,7 +1965,9 @@
           "urgency": "self-care",
           "related": [
             "ankle",
-            "fibula"
+            "fibula",
+            "lateral-ankle-ligaments",
+            "deltoid-ligament"
           ]
         },
         {
@@ -1772,7 +1985,8 @@
           "signs": "Heel pain with the first steps in the morning.",
           "urgency": "self-care",
           "related": [
-            "tarsals"
+            "tarsals",
+            "plantar-fascia"
           ]
         },
         {
@@ -1782,7 +1996,8 @@
           "related": [
             "tarsals",
             "gastrocnemius",
-            "soleus"
+            "soleus",
+            "achilles-tendon"
           ]
         },
         {
@@ -1810,7 +2025,8 @@
           "related": [
             "tibial-nerve",
             "anterior-tibial-artery",
-            "posterior-tibial-artery"
+            "posterior-tibial-artery",
+            "dorsalis-pedis-artery"
           ]
         }
       ],
@@ -1818,6 +2034,83 @@
         "A cold, pale or blue foot",
         "A hot, swollen joint with fever",
         "An open wound over a broken bone"
+      ]
+    },
+    {
+      "id": "heel",
+      "name": "Heel",
+      "view": "back",
+      "paired": true,
+      "structures": [
+        "tarsals",
+        "achilles-tendon",
+        "plantar-fascia",
+        "gastrocnemius",
+        "soleus",
+        "ankle",
+        "subtalar-midfoot",
+        "tibial-nerve",
+        "posterior-tibial-artery",
+        "small-saphenous-vein"
+      ],
+      "causes": [
+        {
+          "title": "Plantar fasciitis",
+          "signs": "Sharp pain under the heel with the first steps in the morning or after sitting, easing as you walk.",
+          "urgency": "self-care",
+          "related": [
+            "plantar-fascia",
+            "tarsals"
+          ]
+        },
+        {
+          "title": "Achilles tendinopathy",
+          "signs": "Pain and stiffness in the cord above the heel, worst in the morning or at the start of exercise.",
+          "urgency": "self-care",
+          "related": [
+            "achilles-tendon",
+            "gastrocnemius",
+            "soleus"
+          ]
+        },
+        {
+          "title": "Achilles rupture",
+          "signs": "A sudden snap, as if kicked in the heel, then you can't push off or stand on tiptoe.",
+          "urgency": "urgent",
+          "related": [
+            "achilles-tendon"
+          ]
+        },
+        {
+          "title": "Sever’s disease",
+          "signs": "Heel pain in an active child of about 8 to 14, worse with running and jumping, where the Achilles pulls on the growing heel bone. It settles with growth.",
+          "urgency": "self-care",
+          "related": [
+            "tarsals",
+            "achilles-tendon"
+          ]
+        },
+        {
+          "title": "Heel stress fracture",
+          "signs": "Heel pain that builds with walking or running and the whole heel is tender when squeezed, after a rise in activity.",
+          "urgency": "doctor",
+          "related": [
+            "tarsals"
+          ]
+        },
+        {
+          "title": "Trapped nerve (tarsal tunnel)",
+          "signs": "Burning, tingling or numbness under the heel and sole, sometimes worse at night.",
+          "urgency": "doctor",
+          "related": [
+            "tibial-nerve"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A sudden snap at the back of the heel and you can't push off or stand on tiptoe",
+        "A hot, red, swollen heel or foot with fever, or a new wound on the foot if you have diabetes",
+        "Heel pain after a fall from a height that stops you bearing weight"
       ]
     },
     {
@@ -1892,6 +2185,95 @@
       "redFlags": [
         "Sudden, severe tearing pain between the shoulder blades",
         "Back pain with chest pain or breathlessness"
+      ]
+    },
+    {
+      "id": "mid-back",
+      "name": "Mid back",
+      "view": "back",
+      "structures": [
+        "@thoracic",
+        "@ribs",
+        "costovertebral",
+        "intervertebral",
+        "erector-spinae",
+        "latissimus-dorsi",
+        "trapezius",
+        "intercostals",
+        "intercostal-nerves",
+        "diaphragm",
+        "spinal-cord",
+        "spinal-nerves",
+        "aorta",
+        "kidney",
+        "esophagus",
+        "stomach",
+        "pancreas",
+        "gallbladder",
+        "thoracic-duct"
+      ],
+      "causes": [
+        {
+          "title": "Muscle strain",
+          "signs": "Aching or sharp pain beside the spine after lifting, twisting or long sitting, worse with some movements. Staying active helps.",
+          "urgency": "self-care",
+          "related": [
+            "erector-spinae",
+            "latissimus-dorsi",
+            "trapezius"
+          ]
+        },
+        {
+          "title": "Rib joint sprain",
+          "signs": "Sharp, one-sided pain beside the spine that catches on breathing in, twisting or coughing.",
+          "urgency": "self-care",
+          "related": [
+            "costovertebral",
+            "@ribs"
+          ]
+        },
+        {
+          "title": "Osteoporotic fracture",
+          "signs": "Sudden mid-back pain after a minor strain, cough or fall in someone over 60 or with thin bones, sometimes with loss of height.",
+          "urgency": "doctor",
+          "related": [
+            "@thoracic"
+          ]
+        },
+        {
+          "title": "Shingles",
+          "signs": "Burning or tingling pain in a band around one side of the chest and back, followed a few days later by a blistering rash. See a doctor early for antiviral treatment.",
+          "urgency": "doctor",
+          "related": [
+            "intercostal-nerves",
+            "spinal-nerves"
+          ]
+        },
+        {
+          "title": "Kidney infection or stone",
+          "signs": "Pain at the bottom of the ribs on one side of the back, with fever, shivering or urinary symptoms, or waves of severe pain spreading to the groin.",
+          "urgency": "doctor",
+          "related": [
+            "kidney"
+          ]
+        },
+        {
+          "title": "Pain from the gut",
+          "signs": "Gallstones, a stomach ulcer or pancreatitis can be felt in the middle of the back, often after eating and with pain in the upper abdomen.",
+          "urgency": "doctor",
+          "related": [
+            "gallbladder",
+            "pancreas",
+            "stomach",
+            "esophagus"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Sudden, severe tearing pain in the back: call emergency services (possible aortic dissection)",
+        "Back pain with chest pain, breathlessness or sweating: call emergency services",
+        "Back pain with fever, unexplained weight loss or a history of cancer",
+        "New numbness or weakness in the legs, or bladder or bowel problems"
       ]
     },
     {

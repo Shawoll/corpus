@@ -1,0 +1,369 @@
+{
+  "layer": "ligaments",
+  "name": "Ligaments",
+  "type": "connective",
+  "note": "Ligaments (bone to bone), tendons (muscle to bone), fascia and the knee menisci. \"stabilises\" (→ the joint it holds) and \"attaches\" (→ the bones and muscles it joins) become links (see linkTypes in manifest.json). \"kind\" is ligament, tendon, fascia or cartilage. Ids match data-id attributes in assets/svg/ligaments-anterior.svg and ligaments-posterior.svg.",
+  "groups": [
+    {
+      "id": "connective-tissue",
+      "name": "Ligaments & tendons",
+      "summary": "The tough, white, fibrous straps of the body. Ligaments tie bone to bone and hold joints together, tendons tie muscle to bone and pass on its pull, and sheets of fascia wrap and connect muscles. They have a poor blood supply, so they heal slowly.",
+      "issues": [
+        {
+          "name": "Sprain",
+          "note": "A stretched or torn ligament: pain, swelling and bruising around a joint after a twist. Most heal with rest, ice, compression, elevation and then gradual use over weeks. See a doctor if you can't bear weight or the joint feels unstable."
+        },
+        {
+          "name": "Tendinopathy",
+          "note": "A painful, stiff tendon from more load than it can adapt to, often after a change in training. It improves with gradual strengthening over weeks to months rather than complete rest."
+        }
+      ]
+    },
+    {
+      "id": "knee-ligaments",
+      "name": "Knee",
+      "parent": "connective-tissue",
+      "summary": "Four main ligaments hold the knee: the two cruciates cross inside the joint and stop the shin sliding forward or back, and the two collaterals stop it bending sideways. Two menisci cushion the joint, and the quadriceps and patellar tendons straighten it through the kneecap."
+    },
+    {
+      "id": "ankle-foot-ligaments",
+      "name": "Ankle & foot",
+      "parent": "connective-tissue",
+      "summary": "Ligament fans on both sides of the ankle, the Achilles tendon behind it and the plantar fascia under the foot."
+    },
+    {
+      "id": "upper-limb-ligaments",
+      "name": "Shoulder, elbow & wrist",
+      "parent": "connective-tissue",
+      "summary": "The rotator cuff tendons over the shoulder, the shared forearm tendons at the elbow and the band that roofs the carpal tunnel."
+    },
+    {
+      "id": "hip-thigh-ligaments",
+      "name": "Hip & thigh",
+      "parent": "connective-tissue",
+      "summary": "The inguinal ligament along the groin and the iliotibial band down the outer thigh."
+    }
+  ],
+  "structures": [
+    {
+      "id": "acl",
+      "name": "Anterior cruciate ligament",
+      "latin": "Ligamentum cruciatum anterius",
+      "aka": ["ACL"],
+      "kind": "ligament",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "Runs inside the knee from the front of the top of the tibia up and back to the inner side of the outer femoral condyle. It stops the shin sliding forward under the thigh and controls twisting, so it takes the strain when you land, cut or pivot.",
+      "stabilises": ["knee"],
+      "attaches": ["femur", "tibia"],
+      "issues": [
+        {
+          "name": "ACL tear",
+          "note": "A pop during a twist or awkward landing, rapid swelling within hours, and a knee that gives way. See a doctor or physiotherapist. Many people do well with focused rehabilitation, and some need reconstruction."
+        }
+      ]
+    },
+    {
+      "id": "pcl",
+      "name": "Posterior cruciate ligament",
+      "latin": "Ligamentum cruciatum posterius",
+      "aka": ["PCL"],
+      "kind": "ligament",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "The stronger of the two cruciates. It runs from the back of the top of the tibia up and forward to the inner femoral condyle, crossing behind the ACL, and stops the shin being pushed backward.",
+      "stabilises": ["knee"],
+      "attaches": ["femur", "tibia"],
+      "issues": [
+        {
+          "name": "PCL injury",
+          "note": "Usually from a blow to the front of the shin with the knee bent, as against a dashboard, or a fall onto the bent knee. Pain at the back of the knee and mild swelling. Most recover with rehabilitation."
+        }
+      ]
+    },
+    {
+      "id": "mcl",
+      "name": "Medial collateral ligament",
+      "latin": "Ligamentum collaterale tibiale",
+      "aka": ["MCL", "tibial collateral ligament"],
+      "kind": "ligament",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "A broad, flat band on the inner side of the knee, from the inner femoral epicondyle to the tibia well below the joint. It stops the knee buckling inward and is joined to the inner meniscus.",
+      "stabilises": ["knee"],
+      "attaches": ["femur", "tibia"],
+      "issues": [
+        {
+          "name": "MCL sprain",
+          "note": "Pain and tenderness along the inner knee after a blow to the outside of the knee or a twist. It heals well without surgery, often in a brace, over weeks."
+        }
+      ]
+    },
+    {
+      "id": "lcl",
+      "name": "Lateral collateral ligament",
+      "latin": "Ligamentum collaterale fibulare",
+      "aka": ["LCL", "fibular collateral ligament"],
+      "kind": "ligament",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "A cord on the outer side of the knee, from the outer femoral epicondyle to the head of the fibula. It stops the knee bowing outward.",
+      "stabilises": ["knee"],
+      "attaches": ["femur", "fibula"],
+      "issues": [
+        {
+          "name": "LCL sprain",
+          "note": "Less common than an MCL sprain: pain on the outer knee after a blow to its inner side. A bad one can stretch the common fibular nerve nearby, causing a weak, dropping foot, which needs prompt assessment."
+        }
+      ]
+    },
+    {
+      "id": "menisci",
+      "name": "Menisci",
+      "latin": "Menisci articulationis genus",
+      "aka": ["meniscus", "knee cartilage"],
+      "kind": "cartilage",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "Two C-shaped wedges of fibrocartilage sitting on the top of the tibia, one on the inner and one on the outer side. They deepen the shallow tibial surface for the rounded femoral condyles, spread the load and absorb shock.",
+      "stabilises": ["knee"],
+      "attaches": ["tibia"],
+      "members": [
+        { "name": "Medial meniscus", "latin": "Meniscus medialis", "note": "The larger, more C-shaped one on the inner side, joined to the MCL, so it tears more often." },
+        { "name": "Lateral meniscus", "latin": "Meniscus lateralis", "note": "The rounder, more mobile one on the outer side." }
+      ],
+      "issues": [
+        {
+          "name": "Meniscus tear",
+          "note": "Pain along the joint line, swelling the next day, and catching or locking. From a twist in younger people, or wear in older ones. Most settle with exercise. A knee locked so it can't straighten needs prompt assessment."
+        }
+      ]
+    },
+    {
+      "id": "patellar-tendon",
+      "name": "Patellar tendon",
+      "latin": "Ligamentum patellae",
+      "aka": ["patellar ligament"],
+      "kind": "tendon",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "The thick band from the bottom of the kneecap to the bump at the top of the shin (the tibial tuberosity). It is the last link of the quadriceps, which straightens the knee. Tapping it gives the knee-jerk reflex.",
+      "stabilises": ["knee"],
+      "attaches": ["patella", "tibia", "rectus-femoris", "vastus-lateralis", "vastus-medialis", "vastus-intermedius"],
+      "issues": [
+        {
+          "name": "Patellar tendinopathy",
+          "note": "\"Jumper's knee\": pain just below the kneecap on jumping, squatting or stairs. It improves with gradual loading exercises over weeks to months."
+        },
+        {
+          "name": "Osgood–Schlatter disease",
+          "note": "A tender bump below the knee in active growing children, where the tendon pulls on the shin. It settles once growth finishes. Adjust activity to the pain."
+        }
+      ]
+    },
+    {
+      "id": "quadriceps-tendon",
+      "name": "Quadriceps tendon",
+      "latin": "Tendo musculi quadricipitis femoris",
+      "kind": "tendon",
+      "group": "knee-ligaments",
+      "paired": true,
+      "summary": "Where the four quadriceps muscles join into one tendon above the knee and attach to the top of the kneecap.",
+      "attaches": ["patella", "rectus-femoris", "vastus-lateralis", "vastus-medialis", "vastus-intermedius"],
+      "issues": [
+        {
+          "name": "Quadriceps tendon rupture",
+          "note": "Mostly over 40: a sudden pain above the kneecap on landing or stumbling, and you can't straighten the leg. It needs urgent assessment, because it is repaired surgically."
+        }
+      ]
+    },
+    {
+      "id": "lateral-ankle-ligaments",
+      "name": "Lateral ankle ligaments",
+      "latin": "Ligamentum collaterale laterale",
+      "aka": ["ATFL", "anterior talofibular ligament", "calcaneofibular ligament"],
+      "kind": "ligament",
+      "group": "ankle-foot-ligaments",
+      "paired": true,
+      "summary": "Three bands that fan out from the tip of the fibula (the outer ankle bone) to the talus and calcaneus. The front one, the anterior talofibular ligament, is the most often injured ligament in the body.",
+      "stabilises": ["ankle", "subtalar-midfoot"],
+      "attaches": ["fibula", "tarsals"],
+      "membersLabel": "Ligaments",
+      "members": [
+        { "name": "Anterior talofibular ligament", "latin": "Ligamentum talofibulare anterius", "note": "Front of the outer ankle. Torn first when the foot rolls inward." },
+        { "name": "Calcaneofibular ligament", "latin": "Ligamentum calcaneofibulare", "note": "Down from the fibula to the heel bone." },
+        { "name": "Posterior talofibular ligament", "latin": "Ligamentum talofibulare posterius", "note": "Behind the joint. The strongest of the three." }
+      ],
+      "issues": [
+        {
+          "name": "Sprained ankle",
+          "note": "Rolling the foot inward: pain, swelling and bruising on the outer ankle. Most improve within weeks with early, gradual walking and balance exercises. See a doctor if you can't take four steps or the bone itself is tender."
+        }
+      ]
+    },
+    {
+      "id": "deltoid-ligament",
+      "name": "Deltoid ligament",
+      "latin": "Ligamentum collaterale mediale",
+      "aka": ["medial ankle ligament"],
+      "kind": "ligament",
+      "group": "ankle-foot-ligaments",
+      "paired": true,
+      "summary": "A strong triangular fan from the inner ankle bone (the medial malleolus of the tibia) to the talus, calcaneus and navicular. It holds the inner ankle and helps support the arch.",
+      "stabilises": ["ankle", "subtalar-midfoot"],
+      "attaches": ["tibia", "tarsals"],
+      "issues": [
+        {
+          "name": "Medial ankle sprain",
+          "note": "Uncommon, because the ligament is so strong. Pain on the inner ankle after the foot turns outward, which can come with a fracture of the fibula. See a doctor."
+        }
+      ]
+    },
+    {
+      "id": "achilles-tendon",
+      "name": "Achilles tendon",
+      "latin": "Tendo calcaneus",
+      "aka": ["calcaneal tendon", "heel cord"],
+      "kind": "tendon",
+      "group": "ankle-foot-ligaments",
+      "paired": true,
+      "summary": "The thickest, strongest tendon in the body. It joins the gastrocnemius and soleus to the back of the heel bone and lifts the heel for walking, running and jumping.",
+      "attaches": ["gastrocnemius", "soleus", "tarsals"],
+      "issues": [
+        {
+          "name": "Achilles tendinopathy",
+          "note": "Pain and stiffness in the tendon, worst first thing in the morning or at the start of exercise. Calf-strengthening exercises over months are the main treatment."
+        },
+        {
+          "name": "Achilles rupture",
+          "note": "A sudden snap, as if kicked in the back of the heel, and you can't push off or stand on tiptoe. It needs urgent assessment the same day."
+        }
+      ]
+    },
+    {
+      "id": "plantar-fascia",
+      "name": "Plantar fascia",
+      "latin": "Aponeurosis plantaris",
+      "aka": ["plantar aponeurosis"],
+      "kind": "fascia",
+      "group": "ankle-foot-ligaments",
+      "paired": true,
+      "summary": "A thick sheet under the sole, from the underside of the heel bone fanning out to the bases of the toes. Like a bowstring it holds up the arch, and it tightens as the toes bend back when you push off.",
+      "stabilises": ["subtalar-midfoot", "tarsometatarsal"],
+      "attaches": ["tarsals", "foot-phalanges"],
+      "issues": [
+        {
+          "name": "Plantar fasciitis",
+          "note": "Sharp pain under the heel with the first steps in the morning or after sitting, easing as you walk. Calf and sole stretches, supportive shoes and easing high-impact exercise help. Most settle within months."
+        }
+      ]
+    },
+    {
+      "id": "iliotibial-band",
+      "name": "Iliotibial band",
+      "latin": "Tractus iliotibialis",
+      "aka": ["IT band", "ITB"],
+      "kind": "fascia",
+      "group": "hip-thigh-ligaments",
+      "paired": true,
+      "summary": "A long, thick strip of fascia down the outside of the thigh, from the iliac crest, where the tensor fasciae latae and gluteus maximus pull on it, to the outer front of the top of the tibia. It steadies the hip and the outer knee.",
+      "stabilises": ["knee"],
+      "attaches": ["hip-bone", "tibia", "tensor-fasciae-latae", "gluteus-maximus"],
+      "issues": [
+        {
+          "name": "IT band syndrome",
+          "note": "Pain on the outer side of the knee during running or cycling, often coming on at the same distance each time. It improves with reduced mileage and hip-strengthening exercises."
+        }
+      ]
+    },
+    {
+      "id": "inguinal-ligament",
+      "name": "Inguinal ligament",
+      "latin": "Ligamentum inguinale",
+      "aka": ["Poupart's ligament"],
+      "kind": "ligament",
+      "group": "hip-thigh-ligaments",
+      "paired": true,
+      "summary": "The rolled-under lower edge of the external oblique, stretched along the groin crease from the front point of the hip bone (the anterior superior iliac spine) to the pubic tubercle. The femoral vessels and nerve pass under it into the thigh, and the inguinal canal runs just above it.",
+      "attaches": ["hip-bone", "external-oblique"],
+      "issues": [
+        {
+          "name": "Inguinal hernia",
+          "note": "A soft bulge in the groin just above the ligament, bigger on standing or coughing. See a doctor. A hernia that becomes hard, very painful and won't go back in needs emergency care."
+        }
+      ]
+    },
+    {
+      "id": "rotator-cuff-tendons",
+      "name": "Rotator cuff tendons",
+      "latin": "Tendines cuffiae rotatorum",
+      "aka": ["supraspinatus tendon"],
+      "kind": "tendon",
+      "group": "upper-limb-ligaments",
+      "paired": true,
+      "summary": "The four rotator cuff muscles end in tendons that merge into one hood over the top, front and back of the head of the humerus. They hold the ball centred in the shallow socket. The supraspinatus tendon, running under the acromion, is the one that wears and tears most.",
+      "stabilises": ["shoulder"],
+      "attaches": ["rotator-cuff", "humerus", "scapula"],
+      "issues": [
+        {
+          "name": "Rotator cuff tendinopathy",
+          "note": "Ache over the outer shoulder, worse lifting the arm out to the side or overhead and lying on it at night. It usually improves with exercises over months."
+        },
+        {
+          "name": "Rotator cuff tear",
+          "note": "Weakness lifting the arm, from a fall or gradual wear. See a doctor, sooner if you suddenly can't lift the arm after an injury."
+        }
+      ]
+    },
+    {
+      "id": "common-extensor-tendon",
+      "name": "Common extensor tendon",
+      "latin": "Tendo communis extensorum",
+      "kind": "tendon",
+      "group": "upper-limb-ligaments",
+      "paired": true,
+      "summary": "The shared tendon of the wrist and finger extensors, attached to the outer bump of the elbow (the lateral epicondyle of the humerus).",
+      "attaches": ["humerus", "forearm-extensors"],
+      "issues": [
+        {
+          "name": "Tennis elbow",
+          "note": "Pain on the outer elbow when gripping, lifting or twisting, from overloading this tendon, rarely from tennis. It usually settles within a year. Easing the aggravating grip and strengthening exercises help."
+        }
+      ]
+    },
+    {
+      "id": "common-flexor-tendon",
+      "name": "Common flexor tendon",
+      "latin": "Tendo communis flexorum",
+      "kind": "tendon",
+      "group": "upper-limb-ligaments",
+      "paired": true,
+      "summary": "The shared tendon of the wrist and finger flexors, attached to the inner bump of the elbow (the medial epicondyle of the humerus).",
+      "attaches": ["humerus", "forearm-flexors"],
+      "issues": [
+        {
+          "name": "Golfer's elbow",
+          "note": "Pain on the inner elbow when gripping or bending the wrist, from overloading this tendon. It settles with rest from the aggravating activity and gradual strengthening."
+        }
+      ]
+    },
+    {
+      "id": "flexor-retinaculum",
+      "name": "Flexor retinaculum",
+      "latin": "Retinaculum musculorum flexorum",
+      "aka": ["transverse carpal ligament"],
+      "kind": "ligament",
+      "group": "upper-limb-ligaments",
+      "paired": true,
+      "summary": "A strong band across the front of the wrist, bridging the arch of the carpal bones. It roofs the carpal tunnel, through which the median nerve and the finger flexor tendons pass into the hand.",
+      "stabilises": ["intercarpal"],
+      "attaches": ["carpals"],
+      "issues": [
+        {
+          "name": "Carpal tunnel syndrome",
+          "note": "Tingling and numbness in the thumb, index and middle fingers, often waking you at night, from pressure on the median nerve under this band. Wrist splints at night help. See a doctor for constant numbness or a weak thumb."
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,7 @@ data/organs.json        organs
 data/vessels.json       arteries and veins (supplies, branches, continues, drains)
 data/nerves.json        spinal cord and nerves (innervates, branches)
 data/lymphatics.json    lymph vessels, ducts, node groups, thymus and tonsils (collects, drains)
+data/ligaments.json     ligaments, tendons, fascia and the knee menisci (stabilises, attaches)
 data/links.json         cross-layer and organ-to-organ links
 data/regions.json       "Where does it hurt?" areas, causes, red flags
 assets/fonts/           Source Serif 4 (roman + italic WOFF2, Latin subset) and its OFL licence

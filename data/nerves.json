@@ -12,7 +12,7 @@
     {
       "id": "cranial-nerves",
       "name": "Cranial nerves",
-      "summary": "Nerves that leave the brain directly, through openings in the skull. Four of the twelve pairs are drawn here."
+      "summary": "Twelve pairs of nerves that leave the brain and brainstem directly, through openings in the skull, numbered I to XII from front to back. They carry smell, sight, eye movement, feeling and movement in the face, hearing and balance, taste, swallowing and speech, and the vagus reaches down to the chest and gut. Most run inside the head, so they are drawn faint."
     },
     {
       "id": "trunk-nerves",
@@ -156,6 +156,106 @@
       ]
     },
     {
+      "id": "olfactory-nerve",
+      "name": "Olfactory nerve",
+      "latin": "Nervus olfactorius",
+      "aka": [
+        "first cranial nerve",
+        "cranial nerve I"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Smell",
+      "summary": "Twenty or so bundles of very fine fibres that pass up from the roof of the nose through the sieve-like plate of the ethmoid bone to the olfactory bulb under the front of the brain. They carry smell, which is also most of what we call flavour.",
+      "issues": [
+        {
+          "name": "Loss of smell",
+          "note": "Most often after a cold, flu or COVID-19, or with nasal polyps, and it often recovers over weeks to months. Smell training can help. See a doctor if it lasts or comes with other new symptoms."
+        }
+      ]
+    },
+    {
+      "id": "optic-nerve",
+      "name": "Optic nerve",
+      "latin": "Nervus opticus",
+      "aka": [
+        "second cranial nerve",
+        "cranial nerve II"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Sight",
+      "summary": "Carries everything the eye sees from the retina back through the orbit to the optic chiasm under the brain, where the fibres from the inner half of each retina cross to the other side. It is really an outgrowth of the brain, wrapped in the same membranes.",
+      "issues": [
+        {
+          "name": "Optic neuritis",
+          "note": "Inflammation of the nerve: blurred or dim vision in one eye over days, with pain on moving the eye. See a doctor urgently. Any sudden loss of vision is an emergency."
+        }
+      ]
+    },
+    {
+      "id": "oculomotor-nerve",
+      "name": "Oculomotor nerve",
+      "latin": "Nervus oculomotorius",
+      "aka": [
+        "third cranial nerve",
+        "cranial nerve III"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Eye movement, eyelid lift, pupil size and focusing",
+      "summary": "Moves the eye up, down and inward through four of the six eye muscles, lifts the upper eyelid, and through its parasympathetic fibres narrows the pupil and focuses the lens for near vision.",
+      "issues": [
+        {
+          "name": "Third nerve palsy",
+          "note": "A drooping eyelid with the eye turned down and out, double vision and sometimes a large pupil. A sudden one with a large pupil or a severe headache is an emergency, because it can come from an aneurysm pressing on the nerve."
+        }
+      ]
+    },
+    {
+      "id": "trochlear-nerve",
+      "name": "Trochlear nerve",
+      "latin": "Nervus trochlearis",
+      "aka": [
+        "fourth cranial nerve",
+        "cranial nerve IV"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Eye movement",
+      "summary": "The thinnest cranial nerve, and the only one that leaves the back of the brainstem. It supplies a single eye muscle, the superior oblique, which turns the eye down and in, the movement used to look down stairs or read.",
+      "issues": [
+        {
+          "name": "Fourth nerve palsy",
+          "note": "Vertical double vision, worse looking down, often with the head tilted to compensate. Usually after a head injury. See a doctor for any new double vision."
+        }
+      ]
+    },
+    {
+      "id": "abducens-nerve",
+      "name": "Abducens nerve",
+      "latin": "Nervus abducens",
+      "aka": [
+        "sixth cranial nerve",
+        "cranial nerve VI"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Eye movement",
+      "summary": "Supplies the lateral rectus muscle, which turns the eye outward. Its long path along the base of the skull makes it easily affected by raised pressure inside the head.",
+      "issues": [
+        {
+          "name": "Sixth nerve palsy",
+          "note": "Horizontal double vision, worse looking toward the affected side, because the eye can't turn outward. New double vision needs a doctor promptly, and urgently with headache."
+        }
+      ]
+    },
+    {
       "id": "trigeminal-nerve",
       "name": "Trigeminal nerve",
       "latin": "Nervus trigeminus",
@@ -255,6 +355,44 @@
       ]
     },
     {
+      "id": "vestibulocochlear-nerve",
+      "name": "Vestibulocochlear nerve",
+      "latin": "Nervus vestibulocochlearis",
+      "aka": [
+        "eighth cranial nerve",
+        "cranial nerve VIII"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Hearing and balance",
+      "summary": "Runs a short distance from the inner ear, through the internal acoustic canal in the temporal bone, to the brainstem. Its cochlear part carries hearing and its vestibular part carries the sense of head position and movement.",
+      "issues": [
+        {
+          "name": "Vestibular neuritis",
+          "note": "Sudden severe spinning dizziness lasting days, with nausea but no hearing loss, usually after a virus. It settles over weeks. Dizziness with slurred speech, weakness, a drooping face or trouble walking is an emergency."
+        },
+        {
+          "name": "Sudden hearing loss",
+          "note": "Hearing loss in one ear over hours or a few days needs to be seen within a day or two, because early treatment improves recovery."
+        }
+      ]
+    },
+    {
+      "id": "glossopharyngeal-nerve",
+      "name": "Glossopharyngeal nerve",
+      "latin": "Nervus glossopharyngeus",
+      "aka": [
+        "ninth cranial nerve",
+        "cranial nerve IX"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Taste and feeling at the back of the tongue and throat, and swallowing",
+      "summary": "Leaves the skull with the vagus and runs down to the back of the tongue and throat. It carries taste and touch from the back third of the tongue and the throat (the gag reflex), supplies one swallowing muscle and the parotid salivary gland, and reports blood pressure from the carotid sinus."
+    },
+    {
       "id": "vagus-nerve",
       "name": "Vagus nerve",
       "latin": "Nervus vagus",
@@ -333,6 +471,26 @@
         {
           "name": "Injury in the neck",
           "note": "Because it lies so close to the surface, surgery or a wound in the side of the neck can damage it. This leaves a drooping shoulder and trouble lifting the arm above shoulder height."
+        }
+      ]
+    },
+    {
+      "id": "hypoglossal-nerve",
+      "name": "Hypoglossal nerve",
+      "latin": "Nervus hypoglossus",
+      "aka": [
+        "twelfth cranial nerve",
+        "cranial nerve XII"
+      ],
+      "kind": "cranial",
+      "group": "cranial-nerves",
+      "paired": true,
+      "carries": "Tongue movement",
+      "summary": "Leaves the skull just above the top of the spine, curves forward below the jaw, past the carotid arteries, and enters the tongue from below. It supplies all of the tongue muscles but one, for speaking, chewing and swallowing.",
+      "issues": [
+        {
+          "name": "Hypoglossal nerve palsy",
+          "note": "The tongue points toward the weak side when stuck out, with slurred speech. A new one needs a doctor, and sudden speech or swallowing problems are an emergency."
         }
       ]
     },

@@ -38,6 +38,12 @@ The structures and links behind the map. The JSON shapes are in the root `CONTRI
 - `collects` (node or vessel → the organs and muscles whose lymph it filters, "Collects lymph from" / "Lymph drains to") and `drains` (lymph flow onward, ending in `subclavian-vein:left` / `:right`) are field links. Paired node groups that drain into a different duct on each side (cervical and axillary nodes: right → right lymphatic duct, left → thoracic duct) do so through `links.json` entries with `"side"`.
 - `?debug` reports a lymphatic structure that connects nothing, as it does for nerves and vessels.
 
+## Ligaments & tendons (`ligaments.json`)
+
+- Its file `type` is `connective`, and `kind` is `ligament`, `tendon`, `fascia` or `cartilage` (the menisci), shown as the panel's Type.
+- `stabilises` (→ the joints it holds, "Stabilises" / "Stabilised by") and `attaches` (→ the bones and muscles it joins, "Attaches to" / "Ligaments & tendons attached") are field links. A tendon attaches to its muscle and its bone.
+- `?debug` reports a ligament or tendon that connects nothing. Add a new one to the matching "Where does it hurt?" region's `structures` and to the `related` of its causes.
+
 ## Links (`links.json`)
 
 `type` must be a key of `manifest.json` → `linkTypes`, whose `forward` / `reverse` labels are the panel section titles. `"side": "right"` keeps only right-side (and midline) matches. `note` is shown next to the section title, or above its own chips when a section mixes links with different notes, so only annotate a link when the note tells it apart from others in the same section.
