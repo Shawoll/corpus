@@ -102,6 +102,7 @@
         }
       },
       "data": "data/ligaments.json",
+      "model": "assets/3d/ligaments.glb",
       "visible": false
     },
     {
@@ -118,6 +119,7 @@
         }
       },
       "data": "data/muscles.json",
+      "model": "assets/3d/muscles.glb",
       "visible": false
     },
     {
