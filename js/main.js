@@ -72,6 +72,7 @@ async function boot() {
     visible: new Set(manifest.layers.filter((l) => l.visible).map((l) => l.id)),
     active: [...manifest.layers].reverse().find((l) => l.visible)?.id,
     joints: prefs.get('joints', true),
+    jointStyle: prefs.get('jointStyle', 'anatomy') === 'dots' ? 'dots' : 'anatomy', // realistic drawings: joints as anatomy or as dots
     mirror: prefs.get('mirror', false),
     probe: null,
     fromRegion: null,
@@ -117,6 +118,8 @@ async function boot() {
   const setView = (v) => store.set(viewPatch(store.get(), v));
   // a style other than the default only exists where some layer has a drawing for it in this view
   const styleIn = (s, v) => s === styles[0].id || manifest.layers.some((l) => l.styles?.[s]?.[v]);
+  // whether the drawings shown in this view and style draw any joint as anatomy (`.ja`, the realistic skeleton)
+  const anatomyIn = (st) => !!svg.querySelector(`.view[data-view="${st.view}"] .layer[data-style="${styleIn(st.style, st.view) ? st.style : styles[0].id}"] .ja`);
   const setStyle = (s) => { if (!styleById.has(s)) return; prefs.set('style', s); store.set({ style: s }); };
 
   // ------------------------------------------------------------------ biological sex
@@ -314,6 +317,7 @@ async function boot() {
       active: activeIn(st),
       hurt: Router.isHurt(st.route),
       joints: st.joints,
+      jointStyle: st.jointStyle,
       flip,
       sex: st.sex,
       probePoint: st.route.view === 'region' && st.probe ? st.probe.point : null,
@@ -333,7 +337,7 @@ async function boot() {
   const layerbar = $('#layerbar');
   layerbar.innerHTML = [...manifest.layers].reverse()
     .map((l) => `<button class="layer-chip" data-layer="${l.id}" data-name="${escapeHtml(l.name)}"><span class="sw" aria-hidden="true"></span>${escapeHtml(l.name)}</button>`)
-    .join('') + `<button class="layer-chip" data-toggle="joints" title="Show or hide joint markers"><span class="sw" aria-hidden="true" style="border-radius:50%"></span>Joints</button>`;
+    .join('') + `<button class="layer-chip" data-toggle="joints" title="Show or hide the joints"><span class="sw" aria-hidden="true" style="border-radius:50%"></span>Joints</button>`;
   layerbar.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b) return;
@@ -406,8 +410,16 @@ async function boot() {
       off: (v, st) => !styleIn(v, st.view) },
     { id: 'sex', label: 'Biological sex', opts: sexes.map((x) => [x.id, x.name]), hide: sexes.length < 2,
       value: (st) => st.sex, set: (v) => setSex(v) },
-    { id: 'joints', label: 'Joint markers', opts: [['on', 'Show'], ['off', 'Hide']],
-      value: (st) => (st.joints ? 'on' : 'off'), set: (v) => { prefs.set('joints', v === 'on'); store.set({ joints: v === 'on' }); } },
+    // Anatomy draws the joints of the realistic skeleton as capsules and joint spaces; the schematic one only has dots
+    { id: 'joints', label: 'Joints', opts: [['dots', 'Dots'], ['anatomy', 'Anatomy'], ['off', 'Off']],
+      value: (st) => (!st.joints ? 'off' : anatomyIn(st) ? st.jointStyle : 'dots'),
+      set: (v) => {
+        const on = v !== 'off';
+        prefs.set('joints', on);
+        if (on) prefs.set('jointStyle', v);
+        store.set(on ? { joints: true, jointStyle: v } : { joints: false });
+      },
+      off: (v, st) => v === 'anatomy' && !anatomyIn(st) },
     { id: 'mirror', label: 'Mirror', opts: [['off', 'Off'], ['on', 'On']],
       value: (st) => (st.mirror && !viewById.get(st.view)?.flip ? 'on' : 'off'),
       set: (v) => { prefs.set('mirror', v === 'on'); store.set({ mirror: v === 'on' }); },

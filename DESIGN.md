@@ -289,7 +289,7 @@ Quiet instruments: hairline, neutral and small until they're pressed.
 
 ### Navigation
 - **Top bar:** Browse, then the wordmark (italic serif, with the uppercase tracked strapline), then search, the mode toggle and the settings cog. Plain Paper with a hairline bottom edge.
-- **Settings (cog):** a Raised Paper sheet under the top bar with the Float shadow. Each setting (Theme: Auto / Light / Dark, View, Drawings, Joint markers, Mirror) is a labelled segmented switch built from `settingRows` in `js/main.js`; a new setting is one more row there. Options that do not apply in the current view are disabled, not hidden. It closes on Escape or a tap outside.
+- **Settings (cog):** a Raised Paper sheet under the top bar with the Float shadow. Each setting (Theme: Auto / Light / Dark, View, Drawings, Biological sex, Joints: Dots / Anatomy / Off, Mirror) is a labelled segmented switch built from `settingRows` in `js/main.js`; a new setting is one more row there. Options that do not apply in the current view are disabled, not hidden. It closes on Escape or a tap outside.
 - **Browse drawer:** a Raised Paper sheet with a serif heading, disclosure groups with a rotating "›" marker, counts aligned right, and rows that turn Sunk Paper on hover.
 - **Panel:** a crumb, eyebrow, serif headline, italic Latin subline, then fact tags, the summary and eyebrow-headed sections. It ends with a hairline-topped disclaimer in Faint Ink, which appears on every health page.
 - **Mobile:** the panel becomes a bottom sheet with peek, half and full positions, a 42 × 5px handle and the Float shadow.
@@ -309,6 +309,8 @@ The state language that makes the atlas respond, shared by every layer and both 
 
 ### Joint markers
 Small round markers coloured by joint class (synovial in verdigris, cartilaginous in ochre, fibrous in umber) with a Paper ring. They grow to 1.35× on hover and 1.6× in Vermilion when selected, using the `--ease` curve `cubic-bezier(0.2, 0.7, 0.2, 1)`.
+
+In the realistic skeleton every joint with a marker is also drawn as anatomy, the default: a dashed capsule in the joint-class colour (16% fill) over the joint line, and the joint space as cartilage (`--cart`). The big ball and hinge joints get one capsule around the bone ends; the small joints of the hand and foot, the clavicle and the jaw one per joint line; each finger joint its own small ring. Sutures are a serrated umber band along each seam, with an invisible wider tap target that tints on hover. Anatomical joints never scale: selection and relation recolour the capsule (Vermilion or Verdigris, solid stroke) and fill the joint space. The cog's **Joints** row switches between Dots, Anatomy and Off (`corpus:joints`, `corpus:jointStyle`); Anatomy is disabled with Simple drawings, which only have dots, and the Joints chip in the layer bar still shows or hides them.
 
 ### Drawing styles: Schematic and Realistic (realistic skeleton built, front and back)
 - **Schematic** (the default for now): rounded shapes generated from landmark coordinates and mirrored left to right, flat tissue fills and sparse detail lines.

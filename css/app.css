@@ -486,17 +486,22 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .jm[data-jclass="fibrous"] { fill: var(--j-fibrous); }
 #map .jm:hover, #map .jm.is-hover { transform: scale(1.35); }
 #map.no-joints .jm { display: none; }
-/* anatomical joints (realistic style): a capsule over the joint line and the cartilage of the joint space, not a dot */
-#map .jm.ja { fill: none; stroke: none; transform: none; animation: none; }
+/* anatomical joints (realistic style): a capsule over the joint line and the cartilage of the joint space, not a dot.
+   The realistic files also keep each one's dot (.jd); the Joints setting shows one or the other. */
+#map:not(.joints-dots) .jm.jd, #map.joints-dots .jm.ja { display: none; }
+#map .jm.ja { --jc: var(--j-synovial); fill: none; stroke: none; }
+#map .jm.ja[data-jclass="cartilaginous"] { --jc: var(--j-cartilaginous); }
+#map .jm.ja[data-jclass="fibrous"] { --jc: var(--j-fibrous); }
 #map .jm.ja .cap {
-  fill: color-mix(in srgb, var(--j-synovial) 16%, transparent); stroke: color-mix(in srgb, var(--j-synovial) 75%, transparent);
+  fill: color-mix(in srgb, var(--jc) 16%, transparent); stroke: color-mix(in srgb, var(--jc) 75%, transparent);
   stroke-width: 1; stroke-dasharray: 3 2; vector-effect: non-scaling-stroke; transition: fill 0.16s, stroke 0.16s;
 }
 #map .jm.ja .js { fill: var(--cart); stroke: var(--cart-line); stroke-width: 0.6; vector-effect: non-scaling-stroke; }
 #map .jm.ja:hover .cap, #map .jm.ja.is-hover .cap { stroke-dasharray: none; stroke-width: 1.4; }
-#map .jm.ja.is-sel .cap { fill: color-mix(in srgb, var(--sel) 16%, transparent); stroke: var(--sel); stroke-dasharray: none; stroke-width: 1.6; }
-#map .jm.ja.is-sel .js { fill: color-mix(in srgb, var(--sel) 75%, transparent); stroke: var(--sel); }
-#map .jm.ja.is-rel .cap { fill: color-mix(in srgb, var(--rel) 14%, transparent); stroke: var(--rel); stroke-dasharray: none; }
+/* sutures: a serrated band along the seam; the capsule is only a wider, invisible tap target until hovered or chosen */
+#map .jm.ja.su .cap { fill: transparent; stroke: none; }
+#map .jm.ja.su .js { fill: var(--jc); stroke: none; opacity: 0.75; }
+#map .jm.ja.su:hover .cap, #map .jm.ja.su.is-hover .cap { fill: color-mix(in srgb, var(--jc) 12%, transparent); }
 
 /* hover */
 #map .s:hover .b, #map .s.is-hover .b { fill: var(--hover-fill); }
@@ -512,6 +517,12 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map.has-sel .jm:not(.is-sel):not(.is-rel) { opacity: 0.35; }
 #map .jm.is-rel { opacity: 1; animation: pulse 1.6s var(--ease) infinite; }
 #map .jm.is-sel { transform: scale(1.6); fill: var(--sel); }
+/* anatomical joints stay their size: the capsule colours carry the highlight */
+#map .jm.ja:is(:hover, .is-hover, .is-sel, .is-rel) { transform: none; animation: none; }
+#map .jm.ja.is-sel .cap { fill: color-mix(in srgb, var(--sel) 16%, transparent); stroke: var(--sel); stroke-dasharray: none; stroke-width: 1.6; }
+#map .jm.ja.is-sel .js { fill: color-mix(in srgb, var(--sel) 75%, transparent); stroke: var(--sel); opacity: 1; }
+#map .jm.ja.is-rel .cap { fill: color-mix(in srgb, var(--rel) 14%, transparent); stroke: var(--rel); stroke-dasharray: none; }
+#map .jm.ja.su.is-rel .js { fill: var(--rel); opacity: 1; }
 @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.45); } }
 
 /* context layers: visible for orientation, not interactive */

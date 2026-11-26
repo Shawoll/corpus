@@ -32,6 +32,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
   const shown = (e) => !e.closest('.layer.off, .layer.style-off, .view.off, .sex-off');
   let marked = [];
   let hovered = [];
+  let jointStyle = 'anatomy'; // realistic joints: 'anatomy' hides their dots (`.jd`), 'dots' hides the anatomy (`.ja`)
 
   function importSvg(text, into) {
     const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
@@ -141,6 +142,8 @@ export function createMap({ svg, graph, onPick, onHover }) {
     svg.classList.toggle('has-sel', v.sel.size > 0 || v.rsel.size > 0);
     svg.classList.toggle('mode-hurt', !!v.hurt);
     svg.classList.toggle('no-joints', !v.joints);
+    svg.classList.toggle('joints-dots', v.jointStyle === 'dots');
+    jointStyle = v.jointStyle;
     for (const [id, g] of viewEls) g.classList.toggle('off', id !== v.view);
     for (const { g, style } of styled) g.classList.toggle('style-off', style !== v.style);
     for (const e of sexed) e.classList.toggle('sex-off', e.dataset.sex !== v.sex);
@@ -159,7 +162,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     const ov = el('g', { class: 'ov' });
     for (const k of v.sel) {
       for (const e of index.get(k) || []) {
-        if (!shown(e)) continue;
+        if (!shown(e) || (jointStyle !== 'dots' && e.classList.contains('jd'))) continue; // a dot drawn as anatomy instead
         const shape = e.matches('circle') ? e : e.querySelector('.b');
         if (shape) ov.appendChild(shape.cloneNode(false)).removeAttribute('class');
       }
