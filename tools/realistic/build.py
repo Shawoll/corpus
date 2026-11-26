@@ -2,6 +2,7 @@
 """Build the realistic skeleton drawings from the schematic ones.
 
     python3 tools/realistic/build.py            # writes assets/svg/skeleton-{anterior,posterior}-realistic.svg
+                                                # and the other layers' realistic files (layers.py)
 
 Needs shapely (pip install shapely), for drawing only: the site itself stays dependency-free. The schematic file
 for each view supplies the draw order, the ids and sides, and the joint markers, so a realistic file always has
@@ -19,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import skeleton as S  # noqa: E402
 from geometry import LIGHTS, add_contact_shadows, area_d, polys_from_d, unary_union  # noqa: E402
 from joints import JOINTS, joint_svg  # noqa: E402
+import layers as L  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 JM = re.compile(r'^<circle class="jm" data-id="([^"]+)"(?: data-side="([^"]+)")? cx="([\d.]+)" cy="([\d.]+)"[^>]*/>')
@@ -135,3 +137,5 @@ def build(view):
 if __name__ == '__main__':
     for v in sys.argv[1:] or ['anterior', 'posterior']:
         build(v)
+        for layer in L.LAYERS:
+            L.build(layer, v)

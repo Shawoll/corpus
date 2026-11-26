@@ -53,6 +53,12 @@
         "anterior": "assets/svg/organs-anterior.svg",
         "posterior": "assets/svg/organs-posterior.svg"
       },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/organs-anterior-realistic.svg",
+          "posterior": "assets/svg/organs-posterior-realistic.svg"
+        }
+      },
       "data": "data/organs.json",
       "visible": false
     },
@@ -79,6 +85,12 @@
         "anterior": "assets/svg/ligaments-anterior.svg",
         "posterior": "assets/svg/ligaments-posterior.svg"
       },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/ligaments-anterior-realistic.svg",
+          "posterior": "assets/svg/ligaments-posterior-realistic.svg"
+        }
+      },
       "data": "data/ligaments.json",
       "visible": false
     },
@@ -88,6 +100,12 @@
       "svg": {
         "anterior": "assets/svg/muscles-anterior.svg",
         "posterior": "assets/svg/muscles-posterior.svg"
+      },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/muscles-anterior-realistic.svg",
+          "posterior": "assets/svg/muscles-posterior-realistic.svg"
+        }
       },
       "data": "data/muscles.json",
       "visible": false
@@ -99,6 +117,12 @@
         "anterior": "assets/svg/vessels-anterior.svg",
         "posterior": "assets/svg/vessels-posterior.svg"
       },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/vessels-anterior-realistic.svg",
+          "posterior": "assets/svg/vessels-posterior-realistic.svg"
+        }
+      },
       "data": "data/vessels.json",
       "visible": false
     },
@@ -109,6 +133,12 @@
         "anterior": "assets/svg/lymphatics-anterior.svg",
         "posterior": "assets/svg/lymphatics-posterior.svg"
       },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/lymphatics-anterior-realistic.svg",
+          "posterior": "assets/svg/lymphatics-posterior-realistic.svg"
+        }
+      },
       "data": "data/lymphatics.json",
       "visible": false
     },
@@ -118,6 +148,12 @@
       "svg": {
         "anterior": "assets/svg/nerves-anterior.svg",
         "posterior": "assets/svg/nerves-posterior.svg"
+      },
+      "styles": {
+        "realistic": {
+          "anterior": "assets/svg/nerves-anterior-realistic.svg",
+          "posterior": "assets/svg/nerves-posterior-realistic.svg"
+        }
       },
       "data": "data/nerves.json",
       "visible": false

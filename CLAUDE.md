@@ -12,7 +12,7 @@ Corpus is an interactive map of the human body, seen from the front and the back
 python3 -m http.server 8000      # serve the folder; fetch() fails from file://
 open http://localhost:8000/?debug # run the data check in the browser
 node tools/check.mjs              # the same check headless (Node 22+, no packages); exits 1 on problems
-python3 tools/realistic/build.py  # regenerate the realistic skeleton drawings (needs shapely; drawing tool only)
+python3 tools/realistic/build.py  # regenerate every *-realistic.svg (needs shapely; drawing tool only); rerun after editing any schematic SVG
 ```
 
 There are no tests, linter or build. The only automated check is the data check in `js/validate.js`: `check()` is pure and shared by `tools/check.mjs` (also run by `.github/workflows/check.yml` on every push) and by `?debug`, where `main.js` dynamically imports the module, logs a `[Corpus] data check` group to the console (a table of problems) and adds a badge to the page. Run it after any data or SVG change and get it to 0 issues. It runs once per biological sex setting (`checkAll()`, see below) and checks that every drawn shape has data, every reference and group resolves, paired and unpaired sides match, every structure that isn't `listOnly` is drawn in at least one view (and none that is `listOnly` is drawn), every region has a shape in its view, bone `count`s sum to 206, every bone (except ones with `noJoints`) has a joint, every joint connects something, every muscle has an origin or insertion, every nerve and vessel connects to something, every muscle has a nerve and a blood supply, and every organ has a blood supply.

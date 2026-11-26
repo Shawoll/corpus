@@ -36,7 +36,11 @@ Realistic structures add shading paths inside each `<g class="s">`, all non-inte
 | `.sh.sh1` … `.sh.sh4` | stacked form-shadow bands on the side away from the light (upper left), widest and faintest first, plus contact shadows from bones lying on top |
 | `.hl` | the lit rim on the upper-left edge |
 | `.f` | recesses drawn dark: foramina, sockets, fovea, notches |
+| `.fb` | finer fibre lines between the drawn `.d` fibres (muscles, ligaments) |
+| `.gl` | a soft sheen inside the lit edge (smooth organs, lymph nodes) |
 
 `skeleton-anterior-realistic.svg` and `skeleton-posterior-realistic.svg` are **generated**: don't edit them by hand. `tools/realistic/` builds them from the schematic files (which supply the draw order, ids, sides and joint markers) and its own anatomy (`skeleton.py`, one builder per bone, right side only; the left is mirrored and lit again). To change a realistic bone, edit its builder and run `python3 tools/realistic/build.py`, then `node tools/check.mjs`. It needs shapely (`python3 -m venv ~/.venvs/corpus && ~/.venvs/corpus/bin/pip install shapely`, then run the build with that Python); the site itself stays dependency-free. In the back view the light is mirrored in the frame, so on screen both views are lit from the upper left. A structure added to a schematic skeleton file needs a builder too, or the build stops.
+
+The other layers' realistic files (`muscles-anterior-realistic.svg` and so on) are generated too, by `tools/realistic/layers.py` in the same build. They keep the schematic outlines, ids, classes and paths unchanged and add the shading paths above (`.sh*`, `.hl`, plus `.fb` / `.gl` per layer), with the shading depth scaled to each shape's thickness and coloured from its own tissue colour in `css/app.css`. So **after editing any schematic layer file, run the build again**: the data check catches a missing or extra id, but not a shape that changed in one style only. The "Where does it hurt?" regions are tap areas rather than drawings, so both styles share one regions file per view.
 
 The default drawings are schematic, not illustration. They were generated once from landmark coordinates (rounded shapes, left and right mirrored about x = 240) and are now ordinary SVG files to edit by hand.

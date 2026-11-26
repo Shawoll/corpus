@@ -20,7 +20,7 @@ Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, wha
 - **Nerves**: the spinal cord, cranial nerves, plexuses and the main limb nerves
 - **Where does it hurt?**: 28 body areas with likely causes, urgency and red flags
 
-Every layer is drawn from the **front** and the **back** (the skeleton also in a realistic style), and everything is linked: a bone lists the muscles that attach to it, a muscle lists its nerve and artery, and so on.
+Every layer is drawn from the **front** and the **back** in two styles, schematic and realistic, and everything is linked: a bone lists the muscles that attach to it, a muscle lists its nerve and artery, and so on.
 
 ## Features
 

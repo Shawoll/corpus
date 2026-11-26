@@ -647,24 +647,38 @@ def metatarsals():
     return Bone(separate(bones, 0.45, later_on_top=False), 1.8)
 
 
-def foot_phalanges():
-    toes = [((225.8, 1173.8), (0.08, 1.0), [7.2, 6.4], 6.8), ((215.6, 1173.8), (0.02, 1.0), [5.2, 2.8, 2.6], 3.8),
-            ((206.8, 1173.4), (-0.05, 1.0), [4.8, 2.6, 2.4], 3.6), ((198.2, 1171.8), (-0.12, 1.0), [4.4, 2.4, 2.2], 3.4),
-            ((190.2, 1169.0), (-0.2, 1.0), [3.8, 2.2, 2.0], 3.2)]
-    parts = []
-    for (s, d, segs, w) in toes:
+# toes, big toe first: base, direction, segment lengths, width
+TOES = [((225.8, 1173.8), (0.08, 1.0), [7.2, 6.4], 6.8), ((215.6, 1173.8), (0.02, 1.0), [5.2, 2.8, 2.6], 3.8),
+        ((206.8, 1173.4), (-0.05, 1.0), [4.8, 2.6, 2.4], 3.6), ((198.2, 1171.8), (-0.12, 1.0), [4.4, 2.4, 2.2], 3.4),
+        ((190.2, 1169.0), (-0.2, 1.0), [3.8, 2.2, 2.0], 3.2)]
+
+
+def toe_segments():
+    """Per toe: its phalanges as (start, end) and the toe's width, like HAND['ph']."""
+    out = []
+    for (s, d, segs, w) in TOES:
         L = (d[0] ** 2 + d[1] ** 2) ** 0.5
         ux, uy = d[0] / L, d[1] / L
         x, y = s
-        for j, ln in enumerate(segs):
+        ab = []
+        for ln in segs:
             a = (x + ux * 0.8, y + uy * 0.8)
             b = (x + ux * (0.8 + ln), y + uy * (0.8 + ln))
-            taper = 1.0 if j < len(segs) - 1 else 0.82
+            ab.append((a, b))
+            x, y = b
+        out.append((ab, w))
+    return out
+
+
+def foot_phalanges():
+    parts = []
+    for ab, w in toe_segments():
+        for j, (a, b) in enumerate(ab):
+            taper = 1.0 if j < len(ab) - 1 else 0.82
             ww = w * (1 - 0.12 * j)
             seg = tube([a, lerp(a, b, 0.5), b], [ww * 1.18, ww * 0.78, ww * taper])
             parts.append(fillet(unary_union([seg, ell(a[0], a[1], ww * 0.6, ww * 0.42),
                                              ell(b[0], b[1], ww * 0.5 * taper, ww * 0.4)]), 0.6))
-            x, y = b
     return Bone(unary_union(parts), 1.4)
 
 

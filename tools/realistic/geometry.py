@@ -242,7 +242,19 @@ class Bone:
         if self.cart is not None:
             c = self.cart if self.cart_outside else self.cart.intersection(b)
             parts.append(('c', area_d(c)))
-        k = self.k
+        parts += self.shading(light)
+        if self.fossa is not None:
+            parts.append(('f', area_d(self.fossa.intersection(b))))
+        if self.lines:
+            clipped = [l.intersection(b.buffer(0.2)) for l in self.lines]
+            parts.append(('d', line_d(clipped)))
+        rule = {'b': ' fill-rule="evenodd"'}
+        inner = ''.join(f'<path class="{c}"{rule.get(c, "")} d="{d}"/>' for c, d in parts if d)
+        return f'<g class="{cls}" {attrs}>{inner}</g>'
+
+    def shading(self, light):
+        """The form-shadow bands (.sh1–.sh4) away from the light and the lit rim (.hl), as (class, d) pairs."""
+        b, k, parts = self.body, self.k, []
         bands = [b.difference(shift(b, light, k * f)) for f in (1.0, 0.66, 0.4, 0.17)]
         extra = []
         if self.hollow is not None:
@@ -260,14 +272,7 @@ class Bone:
             parts.append((f'sh sh{i + 1}', area_d(band, 0.34, 0.6)))
         if self.light:
             parts.append(('hl', area_d(soften(b.difference(shift(b, light, -k * 0.28)), 0.2), 0.4, 0.8)))
-        if self.fossa is not None:
-            parts.append(('f', area_d(self.fossa.intersection(b))))
-        if self.lines:
-            clipped = [l.intersection(b.buffer(0.2)) for l in self.lines]
-            parts.append(('d', line_d(clipped)))
-        rule = {'b': ' fill-rule="evenodd"'}
-        inner = ''.join(f'<path class="{c}"{rule.get(c, "")} d="{d}"/>' for c, d in parts if d)
-        return f'<g class="{cls}" {attrs}>{inner}</g>'
+        return parts
 
 
 def add_contact_shadows(items, light, k=1.9):

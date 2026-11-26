@@ -164,14 +164,24 @@
 <circle class="jm" data-id="tmj" data-side="left" cx="279.5" cy="129.5" r="2.8"/>
 <circle class="jm" data-id="sternoclavicular" data-side="right" cx="224.5" cy="241.5" r="3.2"/>
 <circle class="jm" data-id="sternoclavicular" data-side="left" cx="255.5" cy="241.5" r="3.2"/>
+<circle class="jm" data-id="sternocostal" data-side="right" cx="228.2" cy="289.6" r="2.4"/>
+<circle class="jm" data-id="sternocostal" data-side="left" cx="251.8" cy="289.6" r="2.4"/>
+<circle class="jm" data-id="interchondral" data-side="right" cx="192.2" cy="385.8" r="2.4"/>
+<circle class="jm" data-id="interchondral" data-side="left" cx="287.8" cy="385.8" r="2.4"/>
 <circle class="jm" data-id="acromioclavicular" data-side="right" cx="121.5" cy="222.5" r="3.2"/>
 <circle class="jm" data-id="acromioclavicular" data-side="left" cx="358.5" cy="222.5" r="3.2"/>
 <circle class="jm" data-id="shoulder" data-side="right" cx="133.0" cy="262.0" r="4.2"/>
 <circle class="jm" data-id="shoulder" data-side="left" cx="347.0" cy="262.0" r="4.2"/>
 <circle class="jm" data-id="elbow" data-side="right" cx="107.0" cy="456.0" r="4.2"/>
 <circle class="jm" data-id="elbow" data-side="left" cx="373.0" cy="456.0" r="4.2"/>
+<circle class="jm" data-id="proximal-radioulnar" data-side="right" cx="100.8" cy="464.0" r="2.6"/>
+<circle class="jm" data-id="proximal-radioulnar" data-side="left" cx="379.2" cy="464.0" r="2.6"/>
 <circle class="jm" data-id="wrist" data-side="right" cx="86.0" cy="631.0" r="3.6"/>
 <circle class="jm" data-id="wrist" data-side="left" cx="394.0" cy="631.0" r="3.6"/>
+<circle class="jm" data-id="distal-radioulnar" data-side="right" cx="93.4" cy="623.0" r="2.6"/>
+<circle class="jm" data-id="distal-radioulnar" data-side="left" cx="386.6" cy="623.0" r="2.6"/>
+<circle class="jm" data-id="intercarpal" data-side="right" cx="88.0" cy="642.0" r="2.4"/>
+<circle class="jm" data-id="intercarpal" data-side="left" cx="392.0" cy="642.0" r="2.4"/>
 <circle class="jm" data-id="carpometacarpal" data-side="right" cx="71.5" cy="649.0" r="2.4"/>
 <circle class="jm" data-id="carpometacarpal" data-side="left" cx="408.5" cy="649.0" r="2.4"/>
 <circle class="jm" data-id="metacarpophalangeal" data-side="right" cx="83.0" cy="703.5" r="2.4"/>
@@ -188,9 +198,15 @@
 <circle class="jm" data-id="proximal-tibiofibular" data-side="left" cx="304.0" cy="886.0" r="2.6"/>
 <circle class="jm" data-id="ankle" data-side="right" cx="208.0" cy="1115.5" r="3.8"/>
 <circle class="jm" data-id="ankle" data-side="left" cx="272.0" cy="1115.5" r="3.8"/>
+<circle class="jm" data-id="distal-tibiofibular" data-side="right" cx="193.3" cy="1098.4" r="2.6"/>
+<circle class="jm" data-id="distal-tibiofibular" data-side="left" cx="286.7" cy="1098.4" r="2.6"/>
+<circle class="jm" data-id="subtalar-midfoot" data-side="right" cx="211.6" cy="1133.0" r="2.4"/>
+<circle class="jm" data-id="subtalar-midfoot" data-side="left" cx="268.4" cy="1133.0" r="2.4"/>
 <circle class="jm" data-id="tarsometatarsal" data-side="right" cx="205.0" cy="1149.5" r="2.6"/>
 <circle class="jm" data-id="tarsometatarsal" data-side="left" cx="275.0" cy="1149.5" r="2.6"/>
 <circle class="jm" data-id="metatarsophalangeal" data-side="right" cx="226.0" cy="1172.5" r="2.6"/>
 <circle class="jm" data-id="metatarsophalangeal" data-side="left" cx="254.0" cy="1172.5" r="2.6"/>
+<circle class="jm" data-id="foot-interphalangeal" data-side="right" cx="226.5" cy="1182.2" r="2.2"/>
+<circle class="jm" data-id="foot-interphalangeal" data-side="left" cx="253.5" cy="1182.2" r="2.2"/>
 </g>
 </svg>

@@ -42,7 +42,7 @@ data/regions.json       "Where does it hurt?" areas, causes, red flags
 assets/fonts/           Source Serif 4 (roman + italic WOFF2, Latin subset) and its OFL licence
 assets/svg/*.svg        one drawing per layer and view (*-anterior, *-posterior), all in the same 480 × 1200 frame
 tools/check.mjs         the ?debug data check, headless (node tools/check.mjs)
-tools/realistic/        generator for the realistic skeleton drawings (Python + shapely, drawing only)
+tools/realistic/        generator for the realistic drawings of every layer (Python + shapely, drawing only)
 ```
 
 ## How the pieces connect

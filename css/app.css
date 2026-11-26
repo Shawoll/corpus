@@ -402,6 +402,18 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.is-sel .sh { fill: color-mix(in srgb, var(--sel) 55%, var(--shade)); }
 #map .s.is-rel .sh { fill: color-mix(in srgb, var(--rel) 55%, var(--shade)); }
 #map .s:is(.is-sel, .is-rel) .hl { opacity: 0.5; }
+/* soft tissue (tools/realistic/layers.py): the same shading, toned from each tissue's own colour, so it follows the
+   theme; plus finer fibres (.fb) in muscles and ligaments and a sheen (.gl) on smooth organs and lymph nodes */
+#map .s.m { --shade: color-mix(in srgb, var(--muscle) 30%, #1a0503); --lit: color-mix(in srgb, var(--muscle) 35%, #fff); }
+#map .s.o { --shade: color-mix(in srgb, var(--organ) 35%, #1a0805); --lit: color-mix(in srgb, var(--organ) 25%, #fff); }
+#map .s:is(.a, .v, .n, .ly, .lg) { --shade: color-mix(in srgb, var(--tone) 40%, #0d0807); --lit: color-mix(in srgb, var(--tone) 30%, #fff); }
+#map .layer[data-style="realistic"]:not([data-layer="skeleton"]) .s .hl { fill-opacity: 0.45; }
+#map .s :is(.fb, .gl) { pointer-events: none; transition: opacity 0.16s; }
+#map .s .fb { fill: none; stroke: var(--muscle-fibre); stroke-width: 0.35; stroke-opacity: 0.6; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+#map .s.lg .fb { stroke: var(--tone-line); stroke-opacity: 0.4; }
+#map .s.m.is-sel .fb { stroke: color-mix(in srgb, var(--sel) 45%, transparent); }
+#map .s .gl { fill: var(--lit); fill-opacity: 0.3; stroke: none; }
+#map .s.is-sel .gl { opacity: 0.4; }
 
 /* organs */
 #map .s.o { --organ: var(--o-brain); }
@@ -454,10 +466,10 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.m.is-sel .b { fill: var(--sel-fill); stroke: var(--sel); stroke-width: 1.8; }
 #map .s.m.is-sel .d { stroke: color-mix(in srgb, var(--sel) 45%, transparent); }
 #map .layer.context[data-layer="muscles"] .s { opacity: 0.18; }
-#map .layer.context[data-layer="muscles"] .s .d { display: none; }
+#map .layer.context[data-layer="muscles"] .s :is(.d, .fb) { display: none; }
 #map .layer.context[data-layer="muscles"] .s.is-sel, #map .layer.context[data-layer="muscles"] .s.is-rel { opacity: 0.9; }
 #map.mode-hurt .layer[data-layer="muscles"] .s.m { opacity: 0.2; }
-#map.mode-hurt .layer[data-layer="muscles"] .s.m .d { display: none; }
+#map.mode-hurt .layer[data-layer="muscles"] .s.m :is(.d, .fb) { display: none; }
 #map.mode-hurt .layer[data-layer="muscles"] .s.m.is-rel { opacity: 0.8; }
 
 /* vessels & nerves: thin bands; .c marks a stretch behind bone, .deep a structure lying behind */
@@ -535,8 +547,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .layer.context .s.is-sel .b, #map .layer.context .s.is-rel .b,
 #map .layer.context .s.is-sel .c, #map .layer.context .s.is-rel .c { fill-opacity: 0.85; }
 #map .layer.context .jm { display: none; }
-#map .layer.context .s :is(.sh, .hl, .f) { opacity: 0.3; }
-#map .layer.context .s:is(.is-sel, .is-rel) :is(.sh, .hl, .f) { opacity: 0.85; }
+#map .layer.context .s :is(.sh, .hl, .f, .gl) { opacity: 0.3; }
+#map .layer.context .s:is(.is-sel, .is-rel) :is(.sh, .hl, .f, .gl) { opacity: 0.85; }
 #map .layer.off { display: none; }
 #map .view.off { display: none; } /* stays hidden while probing, so "Under this spot" only lists the current view */
 

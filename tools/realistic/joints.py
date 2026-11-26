@@ -30,8 +30,8 @@ def contact(pairs, r=None, w=3.0, g=0.9):
     return ('contact', tuple(pairs), r, w, g)
 
 
-def digits(w=2.2):
-    return ('digits', w)
+def digits(bone='hand-phalanges'):
+    return ('digits', bone)
 
 
 def suture(pairs, g=1.0):
@@ -51,8 +51,13 @@ JOINTS = {
         'tmj': contact([('temporal', 'mandible')], r=8, w=2.6),
         'sternoclavicular': contact([('sternum', 'clavicle')], r=9, w=2.6),
         'acromioclavicular': contact([('clavicle', 'scapula')], r=7, w=2.4),
+        'sternocostal': contact([('sternum', f'rib-{n}') for n in range(1, 8)], w=2.0),
+        'interchondral': contact([('rib-7', 'rib-8'), ('rib-8', 'rib-9'), ('rib-9', 'rib-10')], r=31, w=2.0, g=1.2),
         'shoulder': hull(('humerus', 'scapula'), 15),
         'elbow': contact([('humerus', 'ulna'), ('humerus', 'radius'), ('radius', 'ulna')], r=16, w=4.0, g=1.7),
+        'proximal-radioulnar': contact([('radius', 'ulna')], r=8, w=2.4, g=2.6),
+        'distal-radioulnar': hull(('radius', 'ulna'), 7),
+        'intercarpal': contact([('carpals', 'carpals')], w=1.4),
         'wrist': contact([('radius', 'carpals'), ('ulna', 'carpals')], r=22, w=3.0),
         'carpometacarpal': contact([('carpals', 'metacarpals')], w=2.0),
         'metacarpophalangeal': contact([('metacarpals', 'hand-phalanges')], w=2.4),
@@ -62,17 +67,24 @@ JOINTS = {
         'knee': hull(('femur', 'tibia'), 24),
         'proximal-tibiofibular': contact([('tibia', 'fibula')], r=7, w=2.2),
         'ankle': contact([('tibia', 'tarsals'), ('fibula', 'tarsals'), ('tibia', 'fibula')], r=15, w=3.2),
+        'distal-tibiofibular': contact([('tibia', 'fibula')], r=5, w=2.0),
+        'subtalar-midfoot': contact([('tarsals', 'tarsals')], w=1.6),
         'tarsometatarsal': contact([('tarsals', 'metatarsals')], w=1.8),
         'metatarsophalangeal': contact([('metatarsals', 'foot-phalanges')], w=2.0),
+        'foot-interphalangeal': digits('foot-phalanges'),
     },
     'posterior': {
         'cranial-sutures': suture(SKULL_BACK),
         'atlanto-occipital': contact([('occipital', 'c1')], r=12, w=2.4),
+        'atlanto-axial': contact([('c1', 'c2')], r=8, w=2.2, g=2.5),
         'costovertebral': contact([(f'rib-{n}', f't{t}') for n, t in [(1, 1), (2, 1), (2, 2), (3, 2), (3, 3), (4, 3), (4, 4), (5, 4), (5, 5), (6, 5), (6, 6), (7, 6), (7, 7), (8, 7), (8, 8), (9, 8), (9, 9), (10, 10), (11, 11), (12, 12)]], w=1.8),
         'acromioclavicular': contact([('clavicle', 'scapula')], r=7, w=2.4),
         'shoulder': hull(('humerus', 'scapula'), 15),
         'elbow': hull(('humerus', 'ulna', 'radius'), 13),   # from behind: around the olecranon
+        'proximal-radioulnar': contact([('radius', 'ulna')], r=8, w=2.4, g=2.6),
+        'distal-radioulnar': hull(('radius', 'ulna'), 7),
         'wrist': contact([('radius', 'carpals'), ('ulna', 'carpals')], r=22, w=3.0),
+        'intercarpal': contact([('carpals', 'carpals')], w=1.4),
         'carpometacarpal': contact([('carpals', 'metacarpals')], w=2.0),
         'metacarpophalangeal': contact([('metacarpals', 'hand-phalanges')], w=2.4),
         'hand-interphalangeal': digits(),
@@ -81,6 +93,8 @@ JOINTS = {
         'knee': hull(('femur', 'tibia'), 24),
         'proximal-tibiofibular': contact([('tibia', 'fibula')], r=7, w=2.2),
         'ankle': contact([('tibia', 'tarsals'), ('fibula', 'tarsals'), ('tibia', 'fibula')], r=15, w=3.2),
+        'distal-tibiofibular': contact([('tibia', 'fibula')], r=5, w=2.0),
+        'subtalar-midfoot': contact([('tarsals', 'tarsals')], w=1.6),
         'sacrococcygeal': contact([('sacrum', 'coccyx')], r=8, w=2.0),
     },
 }
@@ -110,12 +124,31 @@ def _lines(g):
     return [m for m in getattr(merged, 'geoms', [merged]) if m.length > 0.8]
 
 
+def _shape(bone):
+    """A bone with the cartilage drawn beside it (the costal cartilages of the ribs)."""
+    if bone.cart is not None and bone.cart_outside:
+        return unary_union([bone.body, bone.cart])
+    return bone.body
+
+
 def meeting(a, b, g, order):
     """Where bone a meets bone b: the visible edge of the one drawn on top that lies over or against the other,
-    and any narrow gap between them."""
-    top, under = (a, b) if order[a] > order[b] else (b, a)
-    edge = top.body.boundary.intersection(under.body.buffer(g))
-    gap = a.body.buffer(g).intersection(b.body.buffer(g)).difference(unary_union([a.body, b.body]).buffer(0.05))
+    and any narrow gap between them. With a == b, where the separate bones of one group meet (the carpals)."""
+    if a is b:
+        ps = polys(a.body)
+        edges, gaps = [], []
+        for i, p in enumerate(ps):
+            for q in ps[i + 1:]:
+                if p.distance(q) > 2 * g:
+                    continue
+                edges.append(p.boundary.intersection(q.buffer(g)))
+                gaps.append(p.buffer(g).intersection(q.buffer(g)))
+        gap = unary_union(gaps).difference(a.body.buffer(0.05)) if gaps else a.body.buffer(0).difference(a.body)
+        return [x for e in edges for x in _lines(e)], gap
+    sa, sb = _shape(a), _shape(b)
+    top, under = ((a, sa), (b, sb)) if order[a] > order[b] else ((b, sb), (a, sa))
+    edge = top[1].boundary.intersection(under[1].buffer(g))
+    gap = sa.buffer(g).intersection(sb.buffer(g)).difference(unary_union([sa, sb]).buffer(0.05))
     return _lines(edge), gap
 
 
@@ -155,7 +188,7 @@ def draw_contact(spec, side, cx, cy, bones, order):
         if not ka or not kb:
             continue
         A, B = bones[ka], bones[kb]
-        bodies += [A.body, B.body]
+        bodies += [_shape(A), _shape(B)]
         ls, gap = meeting(A, B, g, order)
         if zone is not None:
             ls = [x for l in ls for x in _lines(l.intersection(zone))]
@@ -164,7 +197,7 @@ def draw_contact(spec, side, cx, cy, bones, order):
         gaps += [p for p in polys(gap) if p.area > 0.4]
     bodies = unary_union(bodies)
     space = unary_union([l.buffer(0.42, cap_style=1) for l in lines] + gaps)
-    space = space.intersection(bodies.buffer(0.6))
+    space = space.intersection(bodies.buffer(max(0.6, g)))
     parts = [p for p in polys(space) if p.area > 0.5]
     if not parts:
         return None, None
@@ -173,10 +206,10 @@ def draw_contact(spec, side, cx, cy, bones, order):
 
 
 def draw_digits(spec, side, cx, cy, bones, order):
-    _, w = spec
-    body = bones[_key(bones, 'hand-phalanges', side)].body
+    _, bid = spec
+    body = bones[_key(bones, bid, side)].body
     spaces, caps = [], []
-    for segs, width in S.HAND['ph']:
+    for segs, width in (S.HAND['ph'] if bid == 'hand-phalanges' else [(ab, w * 0.8) for ab, w in S.toe_segments()]):
         for j in range(len(segs) - 1):
             (_, b), (a, _) = segs[j], segs[j + 1]
             if side == 'left':
