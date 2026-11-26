@@ -5,8 +5,9 @@ import { Graph, parseKey } from './graph.js';
 import { forSex, sexTagProblems } from './sex.js';
 
 // drawn: Map(view -> Set(structure key)), regionShapes: Map(view -> Set(region key)),
-// variants: [{ layer, view, style, keys: Set, base: Set }] a layer's drawing in another style and its default drawing's keys
-export function check({ graph, drawn, regionShapes, variants = [] }) {
+// variants: [{ layer, view, style, keys: Set, base: Set }] a layer's drawing in another style and its default drawing's keys,
+// models: [{ layer, file, nodes: [{ name, key, sex }], listed: [key] | null }] the 3D model's .glb files (see modelsFrom)
+export function check({ graph, drawn, regionShapes, variants = [], models = [], sex = 'none' }) {
   const problems = [...graph.problems];
   const views = [...drawn.keys()];
   const all = new Set([...drawn.values()].flatMap((s) => [...s]));
@@ -66,11 +67,35 @@ export function check({ graph, drawn, regionShapes, variants = [] }) {
     for (const ref of refs) if (!graph.node(parseKey(ref).id)) problems.push(`Region "${r.id}" references unknown "${ref}"`);
   }
 
+  // the 3D model: every mesh is a structure of its own layer, with the side rules of the drawings; coverage is reported,
+  // not required (the source has no female body, for one). Meshes of the other sex don't exist for this sex.
+  const in3d = new Set();
+  for (const { layer, file, nodes, listed } of models) {
+    for (const nd of nodes) {
+      if (nd.key !== nd.name) problems.push(`3D model ${file}: node "${nd.name}" carries key "${nd.key}"`);
+      if (nd.sex && nd.sex !== sex) continue;
+      const { id, side } = parseKey(nd.key || '');
+      const n = graph.node(id);
+      if (!n) { problems.push(`3D model ${file}: "${nd.key}" has no entry in the data${nd.sex ? '' : ' (if it exists for one sex only, give it extras.sex)'}`); continue; }
+      if (n.layer !== layer) problems.push(`3D model ${file}: "${nd.key}" belongs to the ${n.layer} layer`);
+      if (n.paired && !side) problems.push(`3D model ${file}: "${id}" is paired but its mesh has no side`);
+      if (!n.paired && side) problems.push(`3D model ${file}: "${id}" is not paired but its mesh is "${nd.key}"`);
+      in3d.add(nd.key);
+    }
+    if (listed) {
+      const got = new Set(nodes.map((x) => x.key));
+      for (const k of listed) if (!got.has(k)) problems.push(`assets/3d/keys.json lists "${k}" for ${layer}, but ${file} has no such mesh`);
+      for (const k of got) if (!listed.includes(k)) problems.push(`${file} has "${k}", which assets/3d/keys.json doesn't list (rerun the build)`);
+    }
+  }
+  const solid = [...graph.nodes.values()].filter((n) => n.type !== 'joint');
+  const model3d = models.length ? { have: solid.filter((n) => graph.instances(n.id).every((k) => in3d.has(k))).length, of: solid.length } : null;
+
   const unique = [...new Set(problems)];
   const edges = [...graph.adj.values()].reduce((s, l) => s + l.length, 0) / 2;
   const perView = [...drawn].map(([v, s]) => `${s.size} ${v}`).join(', ');
   const summary = `${unique.length} issue${unique.length === 1 ? '' : 's'} · ${bones} bones · ${graph.nodes.size} structures · ${edges} connections · drawn keys: ${perView}`;
-  return { problems: unique, summary, stats: { bones, structures: graph.nodes.size, edges, perView } };
+  return { problems: unique, summary, stats: { bones, structures: graph.nodes.size, edges, perView, model3d } };
 }
 
 // Keys drawn for one sex: drawnTagged is Map(view -> Map(key -> Set(data-sex value, '' when untagged))).
@@ -80,19 +105,40 @@ export const drawnForSex = (drawnTagged, sex) => new Map([...drawnTagged].map(([
 const SEX_LABEL = { none: 'not set', female: 'female', male: 'male' };
 // raw: { layers, links, linkTypes, regions } as loaded. Problems found for every sex are listed once; the others are
 // prefixed with the sex they occur in ("[male] …").
-export function checkAll({ raw, sexes = ['none', 'female', 'male'], drawnTagged, regionShapes, variants = [] }) {
-  const runs = sexes.map((sex) => ({ sex, ...check({ graph: new Graph(forSex(raw, sex)), drawn: drawnForSex(drawnTagged, sex), regionShapes, variants }) }));
+export function checkAll({ raw, sexes = ['none', 'female', 'male'], drawnTagged, regionShapes, variants = [], models = [] }) {
+  const runs = sexes.map((sex) => ({ sex, ...check({ graph: new Graph(forSex(raw, sex)), drawn: drawnForSex(drawnTagged, sex), regionShapes, variants, models, sex }) }));
   const everywhere = runs[0].problems.filter((p) => runs.every((r) => r.problems.includes(p)));
   const problems = [...sexTagProblems(raw), ...everywhere];
   for (const r of runs) for (const p of r.problems) if (!everywhere.includes(p)) problems.push(`[${SEX_LABEL[r.sex] || r.sex}] ${p}`);
   const st = runs[0].stats;
   const per = runs.map((r) => `${r.stats.structures} ${SEX_LABEL[r.sex] || r.sex}`).join(' / ');
-  const summary = `${problems.length} issue${problems.length === 1 ? '' : 's'} · ${st.bones} bones · structures ${per} · ${st.edges} connections · drawn keys: ${st.perView}`;
+  const m3 = runs.filter((r) => r.stats.model3d).map((r) => `${r.stats.model3d.have}/${r.stats.model3d.of} ${SEX_LABEL[r.sex] || r.sex}`);
+  const summary = `${problems.length} issue${problems.length === 1 ? '' : 's'} · ${st.bones} bones · structures ${per} · ${st.edges} connections · drawn keys: ${st.perView}`
+    + (m3.length ? ` · in 3D: ${m3.join(' / ')}` : '');
   return { problems, summary };
 }
 
-export function validate({ raw, map }) {
-  const { problems, summary } = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants() });
+// The nodes of a binary glTF (.glb): its JSON chunk follows the 12-byte header and the chunk's length and type.
+// Each mesh node is named with its key and carries { key, sex? } in extras (tools/model3d/build.py).
+export function glbNodes(bytes) {
+  const b = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+  const dv = new DataView(b.buffer, b.byteOffset, b.byteLength);
+  if (dv.getUint32(0, true) !== 0x46546c67 || dv.getUint32(16, true) !== 0x4e4f534a) throw new Error('not a binary glTF file');
+  const json = JSON.parse(new TextDecoder().decode(b.subarray(20, 20 + dv.getUint32(12, true))));
+  return (json.nodes || []).filter((n) => n.mesh != null).map((n) => ({ name: n.name, key: n.extras?.key, sex: n.extras?.sex }));
+}
+
+// The 3D model's files for check(): read(url, 'bytes' | 'json') fetches one (fetch() in the browser, the file system in Node)
+export async function modelsFrom(manifest, read) {
+  if (!manifest.views?.some((v) => v.model)) return [];
+  const index = manifest.model3d?.keys ? await read(manifest.model3d.keys, 'json') : null;
+  return Promise.all(manifest.layers.filter((l) => l.model).map(async (l) => ({
+    layer: l.id, file: l.model, nodes: glbNodes(await read(l.model, 'bytes')), listed: index?.layers?.[l.id] || null,
+  })));
+}
+
+export function validate({ raw, map, models = [] }) {
+  const { problems, summary } = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants(), models });
   console.group(`[Corpus] data check: ${summary}`);
   if (problems.length) console.table(problems.map((p) => ({ problem: p })));
   else console.info('All references resolve.');

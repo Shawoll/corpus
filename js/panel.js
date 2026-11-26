@@ -173,10 +173,12 @@ export function createPanel(graph) {
   }
 
   // flip: the figure is shown flipped (Mirror on, or the back view); back: seen from behind
-  function sideSwitch(n, side, { flip, back }) {
+  // model: the 3D view, which turns, so there is no fixed left or right of the figure
+  function sideSwitch(n, side, { flip, back, model }) {
     const btn = (s) => `<button data-nav="s/${encodeURIComponent(n.id)}${s ? '/' + s : ''}" aria-pressed="${(s || null) === (side || null)}">${s ? cap(s) : 'Both'}</button>`;
     const where = side ? ((side === 'right') !== !!flip ? 'left' : 'right') : null;
-    const note = side ? `<p class="side-note">The body’s ${side} side, on the ${where} of the figure${back ? ' seen from behind' : flip ? ' in mirror view' : ''}.</p>` : '';
+    const note = !side ? '' : model ? `<p class="side-note">The body’s ${side} side.</p>`
+      : `<p class="side-note">The body’s ${side} side, on the ${where} of the figure${back ? ' seen from behind' : flip ? ' in mirror view' : ''}.</p>`;
     return `<div class="side-switch"><div class="seg" role="group" aria-label="Side">${btn('right')}${btn('left')}${btn(null)}</div>${note}</div>`;
   }
 
@@ -201,7 +203,7 @@ export function createPanel(graph) {
     h += eyebrow(crumbs);
     h += `<h2 class="title">${esc(n.name)}</h2>`;
     h += `<div class="subline">${n.latin && n.latin !== n.name ? `<span class="latin">${esc(n.latin)}</span>` : ''}${aka ? `<span class="aka">also: ${esc(aka)}</span>` : ''}</div>`;
-    if (n.paired) h += sideSwitch(n, side, { flip: st.view === 'posterior' || st.mirror, back: st.view === 'posterior' });
+    if (n.paired) h += sideSwitch(n, side, { flip: st.view === 'posterior' || st.mirror, back: st.view === 'posterior', model: st.view === '3d' });
 
     const f = [];
     if (n.type === 'bone') {

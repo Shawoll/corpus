@@ -26,19 +26,28 @@ async function load(url, as = 'json') {
 async function boot() {
   const manifest = await load('data/manifest.json');
   const views = manifest.views?.length ? manifest.views : [{ id: 'anterior', name: 'Front' }];
+  // the 3D view ("model": true) has no SVG drawings: each layer's "model" is a .glb, loaded by js/model3d.js on demand
+  const svgViews = views.filter((v) => !v.model);
+  const modelView = views.find((v) => v.model)?.id || null;
+  const is3d = (v) => v === modelView;
   // a layer's "svg" maps view id -> file; a plain string means the first view only
   const svgMap = (spec) => (typeof spec === 'string' ? { [views[0].id]: spec } : spec || {});
   const loadSvgs = async (spec) => Object.fromEntries(await Promise.all(Object.entries(svgMap(spec)).map(async ([v, url]) => [v, await load(url, 'text')])));
   // drawing styles: the first is the default drawing in a layer's "svg"; a layer's "styles" adds per-style drawings,
   // which are fetched only when first shown (ensureStyle below), so a first visit downloads the default drawings only
   const styles = manifest.styles?.length ? manifest.styles : [{ id: 'schematic', name: 'Schematic' }];
-  const [datas, svgs, linkFiles, regionsData, regionSvgs] = await Promise.all([
+  const [datas, svgs, linkFiles, regionsData, regionSvgs, modelIndex] = await Promise.all([
     Promise.all(manifest.layers.map((l) => load(l.data))),
     Promise.all(manifest.layers.map((l) => loadSvgs(l.svg))),
     Promise.all((manifest.links || []).map((u) => load(u))),
     manifest.regions ? load(manifest.regions.data) : { regions: [] },
     manifest.regions ? loadSvgs(manifest.regions.svg) : {},
+    // which keys the 3D model has (a few KB), so routes can pick a view without loading any model
+    modelView && manifest.model3d ? load(manifest.model3d.keys).catch(() => null) : null,
   ]);
+  // layer id -> Set(key) in its .glb; only layers the manifest gives a "model" count
+  const modelKeys = new Map(manifest.layers.filter((l) => l.model && modelIndex?.layers?.[l.id]).map((l) => [l.id, new Set(modelIndex.layers[l.id])]));
+  const inModel = (k) => [...modelKeys.values()].some((s) => s.has(k));
   const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i] }));
   // biological sex: one graph per setting, built on first use from the data filtered by js/sex.js (the first is neutral)
   const sexes = manifest.sexes?.length ? manifest.sexes : [{ id: 'none', name: 'Not set' }];
@@ -56,6 +65,7 @@ async function boot() {
   const panelEl = $('#panel');
   const panelBody = $('#panel-body');
   const hint = $('#map-hint');
+  const hintText = hint?.textContent;
   let panel = createPanel(graph);
   let search = null, browse = null; // created further down; useSex() rebuilds them
 
@@ -79,13 +89,48 @@ async function boot() {
   });
 
   const map = createMap({ svg, graph, onPick, onHover });
-  map.mount(layers, regionSvgs, views, styles);
+  map.mount(layers, regionSvgs, svgViews, styles);
   const zoom = createZoom(svg, { onChange: () => {} });
 
-  // ------------------------------------------------------------------ views (front / back)
-  const layersIn = (v) => manifest.layers.filter((l) => svgMap(l.svg)[v]).map((l) => l.id);
+  // ------------------------------------------------------------------ the 3D view (js/model3d.js, loaded on first use)
+  const canvas = $('#model3d');
+  const modelStatus = $('#model-status');
+  let model = null, modelLoad = null, modelFront = true;
+  // structure id -> { layer, kind } for every structure, whatever the biological sex (the model's colours)
+  const infoById = new Map(layers.flatMap((l) => l.data.structures.map((s) => [s.id, { layer: l.id, kind: s.kind }])));
+  const setStatus = (text) => { modelStatus.textContent = text || ''; modelStatus.hidden = !text; };
+  function ensureModel() {
+    if (!modelLoad) {
+      setStatus('Loading the 3D body…');
+      modelLoad = import('./model3d.js').then(({ createModel3d }) => {
+        model = createModel3d({
+          canvas, bounds: modelIndex.bounds, info: (id) => infoById.get(id), onPick, onHover,
+          onTurn: (front) => { modelFront = front; renderControls(store.get()); if (!settingsEl.hidden) renderSettings(store.get()); },
+        });
+        return model;
+      }).catch((err) => { modelLoad = null; setStatus('The 3D view couldn’t load.'); throw err; });
+    }
+    return modelLoad;
+  }
+  // load the .glb of every visible layer that has one (each once), then draw
+  const modelLayerLoads = new Map();
+  function ensureModelLayers(st) {
+    return ensureModel().then((m) => {
+      const want = manifest.layers.filter((l) => l.model && modelKeys.has(l.id) && st.visible.has(l.id) && !m.hasLayer(l.id));
+      if (!want.length) { setStatus(''); renderMap(store.get()); return; }
+      setStatus('Loading the 3D body…');
+      return Promise.all(want.map((l) => {
+        if (!modelLayerLoads.has(l.id)) modelLayerLoads.set(l.id, m.load(l.id, l.model).catch((err) => { modelLayerLoads.delete(l.id); throw err; }));
+        return modelLayerLoads.get(l.id);
+      })).then(() => { setStatus(''); renderMap(store.get()); })
+        .catch((err) => { setStatus('Part of the 3D body couldn’t load.'); console.warn('[Corpus] 3D model failed to load', err); });
+    });
+  }
+
+  // ------------------------------------------------------------------ views (front / back / 3D)
+  const layersIn = (v) => (is3d(v) ? manifest.layers.filter((l) => modelKeys.has(l.id)) : manifest.layers.filter((l) => svgMap(l.svg)[v])).map((l) => l.id);
   // the back view is drawn in the front's frame and shown flipped; Mirror only applies to views that aren't flipped
-  const flipOf = (st) => (viewById.get(st.view)?.flip ? true : st.mirror);
+  const flipOf = (st) => (is3d(st.view) ? false : viewById.get(st.view)?.flip ? true : st.mirror);
   // the layer in focus, falling back to the top-most visible layer this view has a drawing for
   const activeIn = (st) => {
     const here = layersIn(st.view);
@@ -93,9 +138,12 @@ async function boot() {
     return [...here].reverse().find((id) => st.visible.has(id)) || null;
   };
   // patch that switches to view v, keeping at least one layer that is drawn there visible
+  // the 2D view to return to from 3D (the Display row and the M key)
+  let lastFlat = svgViews.some((x) => x.id === prefs.get('view', '')) ? prefs.get('view', '') : svgViews[0].id;
   function viewPatch(st, v) {
     if (!viewById.has(v) || v === st.view) return {};
     prefs.set('view', v);
+    if (!is3d(v)) lastFlat = v;
     const patch = { view: v };
     const here = layersIn(v);
     const visible = st.visible;
@@ -103,16 +151,22 @@ async function boot() {
     return patch;
   }
   // keys a route points at, and the views where they are drawn: switch only when the current view doesn't show them
+  // (the 3D model counts as a view for structures it has a mesh for; "Where does it hurt?" is 2D only for now)
   function viewFor(route, current) {
     let found = [];
+    const withModel = (keys) => {
+      const vs = map.viewsOf(keys);
+      return modelView && keys.some(inModel) ? views.map((v) => v.id).filter((v) => vs.includes(v) || v === modelView) : vs;
+    };
     if (route.view === 'node') {
       const n = graph.node(route.id);
-      if (n) found = map.viewsOf(graph.keysFor(n.id, n.paired ? route.side : null));
-    } else if (route.view === 'group') found = map.viewsOf(graph.groupKeys(route.id));
+      if (n) found = withModel(graph.keysFor(n.id, n.paired ? route.side : null));
+    } else if (route.view === 'group') found = withModel(graph.groupKeys(route.id));
     else if (route.view === 'region') {
       const r = graph.regions.get(route.id);
       if (r) found = map.viewsOf(graph.regionKeys(r.id, r.paired ? route.side : null), { regions: true });
     }
+    if (Router.isHurt(route) && is3d(current) && !found.length) return svgViews[0].id;
     return !found.length || found.includes(current) ? current : found[0];
   }
   const setView = (v) => store.set(viewPatch(store.get(), v));
@@ -232,6 +286,12 @@ async function boot() {
   function revealSelection() {
     const st = store.get();
     const h = highlights(st);
+    if (is3d(st.view)) {
+      if (!h.sel.size) return;
+      // the model may still be loading the layer: frame once it's there
+      ensureModelLayers(st).then(() => model?.frame([...h.sel], { parts: h.sel.size === 2 ? [...h.sel] : null }));
+      return;
+    }
     if (st.route.view === 'region') { zoom.reveal(map.bbox([...h.rsel], { regions: true })); return; }
     const parts = h.sel.size > 1 && h.sel.size <= 2 ? [...h.sel].map((k) => map.bbox([k])).filter(Boolean) : null;
     zoom.reveal(map.bbox([...h.sel]), { parts });
@@ -292,22 +352,37 @@ async function boot() {
       b.dataset.state = state;
       b.disabled = !drawnHere;
       b.setAttribute('aria-pressed', String(state === 'active' || state === 'context'));
-      b.title = state === 'na' ? `${name} aren’t drawn in the ${vname.toLowerCase()} view yet` : state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
+      b.title = state === 'na' ? (is3d(st.view) ? `${name} aren’t in the 3D model yet` : `${name} aren’t drawn in the ${vname.toLowerCase()} view yet`) : state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
     }
     svg.setAttribute('aria-label', `${vname} view of the human body. Use search or Browse to reach every structure by keyboard.`);
+    canvas.setAttribute('aria-label', '3D model of the human body: drag or use the arrow keys to turn it. Use search or Browse to reach every structure by keyboard.');
     const jb = $('.layer-chip[data-toggle="joints"]');
     jb.dataset.state = st.joints ? 'active' : 'off';
     jb.setAttribute('aria-pressed', String(st.joints));
-    const flip = flipOf(st);
+    // in 3D the sides follow the camera: seen from behind, the body's right is on the viewer's right
+    const flip = is3d(st.view) ? !modelFront : flipOf(st);
     const lab = (s) => `<b>${s === 'right' ? 'R' : 'L'}</b><small>body’s ${s}</small>`;
     $('#side-left').innerHTML = lab(flip ? 'left' : 'right');
     $('#side-right').innerHTML = lab(flip ? 'right' : 'left');
     $('#hurt-banner').hidden = st.route.view !== 'hurt';
+    if (hint) hint.textContent = is3d(st.view) ? 'Tap a bone · drag to turn · scroll or pinch to zoom' : hintText;
     const t = panel.title(st);
     document.title = t ? `${t} · Corpus` : 'Corpus: a connected map of the human body';
   }
   let lastFlip = null;
   function renderMap(st) {
+    const three = is3d(st.view);
+    svg.toggleAttribute('hidden', three); // SVG elements have no .hidden property
+    canvas.hidden = !three;
+    $('.model-credit').hidden = !three;
+    if (three) {
+      if (!model) { ensureModelLayers(st); return; }
+      if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id))) ensureModelLayers(st);
+      model.resize();
+      model.render({ ...highlights(st), visible: st.visible, active: activeIn(st), sex: st.sex });
+      return;
+    }
+    setStatus('');
     const flip = flipOf(st);
     if (lastFlip !== null && flip !== lastFlip) zoom.mirrorX(); // keep the same body part in frame
     lastFlip = flip;
@@ -368,10 +443,22 @@ async function boot() {
       navigate(hurt ? 'hurt' : '');
     });
   }
-  $('#zoom-in').addEventListener('click', () => { hideHint(); zoom.zoomBy(0.7); });
-  $('#zoom-out').addEventListener('click', () => zoom.zoomBy(1.4));
-  $('#zoom-fit').addEventListener('click', () => zoom.home());
-  const toggleView = () => { const i = views.findIndex((v) => v.id === store.get().view); setView(views[(i + 1) % views.length].id); };
+  // zoom: the SVG's viewBox, or the 3D camera
+  const zoomBy = (f) => { if (is3d(store.get().view)) model?.zoomBy(f); else zoom.zoomBy(f); };
+  const zoomHome = () => { if (is3d(store.get().view)) model?.home(); else zoom.home(); };
+  $('#zoom-in').addEventListener('click', () => { hideHint(); zoomBy(0.7); });
+  $('#zoom-out').addEventListener('click', () => zoomBy(1.4));
+  $('#zoom-fit').addEventListener('click', () => zoomHome());
+  // Front / Back: in 2D the drawings, in 3D which way the model faces (B)
+  const facing = (st) => (is3d(st.view) ? (modelFront ? svgViews[0].id : (svgViews[1] || svgViews[0]).id) : st.view);
+  const setFacing = (v) => { if (is3d(store.get().view)) model?.face(v); else setView(v); };
+  const toggleView = () => {
+    const i = svgViews.findIndex((v) => v.id === facing(store.get()));
+    setFacing(svgViews[(i + 1) % svgViews.length].id);
+  };
+  // 2D / 3D (M)
+  const setDisplay = (d) => setView(d === '3d' ? modelView : lastFlat);
+  const toggleDisplay = () => { if (modelView) setDisplay(is3d(store.get().view) ? '2d' : '3d'); };
   const toggleStyle = () => {
     const st = store.get();
     const here = styles.filter((s) => styleIn(s.id, st.view));
@@ -379,6 +466,7 @@ async function boot() {
     if (here.length > 1) setStyle(here[(i + 1) % here.length].id);
   };
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
+  canvas.addEventListener('pointerdown', hideHint, { once: true });
 
   // ------------------------------------------------------------------ settings (cog)
   // Each row is a segmented switch, marked up as a radio group: one Tab stop per row (the checked option), arrow
@@ -388,11 +476,14 @@ async function boot() {
     { id: 'theme', label: 'Theme', opts: [['auto', 'Auto'], ['light', 'Light'], ['dark', 'Dark']],
       value: () => prefs.get('theme', null) || 'auto',
       set: (v) => { const t = v === 'auto' ? null : v; applyTheme(t); prefs.set('theme', t); } },
-    { id: 'view', label: 'View', keys: 'B', opts: views.map((v) => [v.id, v.name]), hide: views.length < 2,
-      value: (st) => st.view, set: (v) => setView(v) },
+    { id: 'display', label: 'Display', keys: 'M', opts: [['2d', '2D'], ['3d', '3D']], hide: !modelView,
+      value: (st) => (is3d(st.view) ? '3d' : '2d'), set: (v) => setDisplay(v),
+      off: (v, st) => v === '3d' && Router.isHurt(st.route), why: '“Where does it hurt?” is 2D only for now' },
+    { id: 'view', label: 'View', keys: 'B', opts: svgViews.map((v) => [v.id, v.name]), hide: svgViews.length < 2,
+      value: (st) => facing(st), set: (v) => setFacing(v) },
     { id: 'style', label: 'Drawings', keys: 'D', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
       value: (st) => (styleIn(st.style, st.view) ? st.style : styles[0].id), set: (v) => setStyle(v),
-      off: (v, st) => !styleIn(v, st.view), why: 'Not drawn in this view yet' },
+      off: (v, st) => !styleIn(v, st.view), why: (st) => (is3d(st.view) ? 'The 3D view has one style' : 'Not drawn in this view yet') },
     { id: 'sex', label: 'Biological sex', keys: 'S', opts: sexes.map((x) => [x.id, x.name]), hide: sexes.length < 2,
       value: (st) => st.sex, set: (v) => setSex(v) },
     // Anatomy draws the joints of the realistic skeleton as capsules and joint spaces; the schematic one only has dots
@@ -406,9 +497,10 @@ async function boot() {
       },
       off: (v, st) => v === 'anatomy' && !anatomyIn(st), why: 'Only with realistic drawings' },
     { id: 'mirror', label: 'Mirror', opts: [['off', 'Off'], ['on', 'On']],
-      value: (st) => (st.mirror && !viewById.get(st.view)?.flip ? 'on' : 'off'),
+      value: (st) => (st.mirror && !viewById.get(st.view)?.flip && !is3d(st.view) ? 'on' : 'off'),
       set: (v) => { prefs.set('mirror', v === 'on'); store.set({ mirror: v === 'on' }); },
-      off: (v, st) => !!viewById.get(st.view)?.flip, why: 'The back view is already shown from behind' },
+      off: (v, st) => !!viewById.get(st.view)?.flip || is3d(st.view),
+      why: (st) => (is3d(st.view) ? 'Turn the 3D body to see it from behind' : 'The back view is already shown from behind') },
   ].filter((r) => !r.hide);
   const settingsEl = $('#settings');
   const settingsBtn = $('#settings-toggle');
@@ -428,7 +520,7 @@ async function boot() {
         const off = !!r.off?.(b.dataset.value, st);
         b.setAttribute('aria-checked', String(r.value(st) === b.dataset.value));
         b.disabled = off;
-        if (off && r.why) b.title = r.why; else b.removeAttribute('title');
+        if (off && r.why) b.title = typeof r.why === 'function' ? r.why(st) : r.why; else b.removeAttribute('title');
       }
       // the row's one Tab stop: its checked option, else its first enabled one
       const stop = btns.find((b) => b.getAttribute('aria-checked') === 'true' && !b.disabled) || btns.find((b) => !b.disabled);
@@ -526,11 +618,15 @@ async function boot() {
     if (nav) { navigate(nav.dataset.nav, { zoom: true }); return; }
     if (sheet === 'peek' && isMobile()) setSheet('half');
   });
-  const hoverFrom = (t) => map.setHover(t?.dataset.keys ? t.dataset.keys.split(' ') : [], t?.dataset.rkeys ? t.dataset.rkeys.split(' ') : []);
+  const hoverFrom = (t) => {
+    const keys = t?.dataset.keys ? t.dataset.keys.split(' ') : [];
+    map.setHover(keys, t?.dataset.rkeys ? t.dataset.rkeys.split(' ') : []);
+    model?.setHover(keys);
+  };
   panelEl.addEventListener('pointerover', (e) => hoverFrom(e.target.closest('[data-keys],[data-rkeys]')));
-  panelEl.addEventListener('pointerleave', () => map.setHover());
+  panelEl.addEventListener('pointerleave', () => { map.setHover(); model?.setHover(); });
   panelEl.addEventListener('focusin', (e) => hoverFrom(e.target.closest('[data-keys],[data-rkeys]')));
-  panelEl.addEventListener('focusout', () => map.setHover());
+  panelEl.addEventListener('focusout', () => { map.setHover(); model?.setHover(); });
 
   // mobile bottom sheet
   let sheet = 'peek';
@@ -560,10 +656,11 @@ async function boot() {
       const r = store.get().route;
       if (r.view === 'region') navigate('hurt');
       else if (r.view !== 'home' && r.view !== 'hurt') navigate('');
-    } else if (e.key === '+' || e.key === '=') zoom.zoomBy(0.7);
-    else if (e.key === '-' || e.key === '_') zoom.zoomBy(1.4);
-    else if (e.key === '0') zoom.home();
+    } else if (e.key === '+' || e.key === '=') zoomBy(0.7);
+    else if (e.key === '-' || e.key === '_') zoomBy(1.4);
+    else if (e.key === '0') zoomHome();
     else if (e.key === 'b' || e.key === 'B') toggleView();
+    else if ((e.key === 'm' || e.key === 'M') && !Router.isHurt(store.get().route)) toggleDisplay();
     else if (e.key === 'd' || e.key === 'D') toggleStyle();
     else if (e.key === 's' || e.key === 'S') cycleSex();
   });
@@ -579,10 +676,14 @@ async function boot() {
   if (new URLSearchParams(location.search).has('debug')) {
     // the check compares every style's drawings with the default ones, so mount them all first
     Promise.all(styles.slice(1).flatMap((s) => views.map((v) => ensureStyle(s.id, v.id))))
-      .then(() => import('./validate.js')).then((m) => m.validate({ raw, map }));
+      .then(() => import('./validate.js'))
+      .then(async (m) => m.validate({ raw, map, models: await m.modelsFrom(manifest, async (u, as) => {
+        const r = await fetch(u, { cache: 'no-cache' });
+        return as === 'json' ? r.json() : r.arrayBuffer();
+      }) }));
   }
   // handy for poking around in the console; graph is the current sex's graph
-  window.corpus = { get graph() { return graph; }, graphFor, map, store, zoom };
+  window.corpus = { get graph() { return graph; }, get model() { return model; }, graphFor, map, store, zoom };
 }
 
 function escapeHtml(s) {

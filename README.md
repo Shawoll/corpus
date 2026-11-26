@@ -26,6 +26,7 @@ Every layer is drawn from the **front** and the **back** in two styles, schemati
 
 - Search, a browse drawer and keyboard access to every structure
 - Zoom, pan and **Mirror**, which flips the figure to match your own body
+- A **3D view** you can turn with a drag (the skeleton so far), using the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) models (CC BY-SA 4.0)
 - Light and dark themes, works on phones
 - No sign-up, no tracking, no external requests
 
@@ -36,7 +37,7 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-It is plain HTML, CSS, JavaScript, JSON and SVG, with no build step and no dependencies. It deploys to GitHub Pages as-is. For the project layout, data shapes and how to add a layer, see [CONTRIBUTING.md](CONTRIBUTING.md).
+It is plain HTML, CSS, JavaScript, JSON and SVG, with no build step. The only library is three.js, copied into `js/vendor/` for the 3D view. It deploys to GitHub Pages as-is. For the project layout, data shapes and how to add a layer, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Support
 

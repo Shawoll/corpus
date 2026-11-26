@@ -9,8 +9,17 @@
       "id": "posterior",
       "name": "Back",
       "flip": true
+    },
+    {
+      "id": "3d",
+      "name": "3D",
+      "model": true
     }
   ],
+  "model3d": {
+    "keys": "assets/3d/keys.json",
+    "license": "assets/3d/LICENSE.md"
+  },
   "styles": [
     {
       "id": "schematic",
@@ -76,6 +85,7 @@
         }
       },
       "data": "data/skeleton.json",
+      "model": "assets/3d/skeleton.glb",
       "visible": true
     },
     {

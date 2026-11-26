@@ -3,7 +3,7 @@
 // Builds the same graphs the app does (one per biological sex setting) and runs js/validate.js's checkAll() on them.
 // Exits 1 if anything is wrong.
 import { readFile } from 'node:fs/promises';
-import { checkAll } from '../js/validate.js';
+import { checkAll, modelsFrom } from '../js/validate.js';
 
 const root = new URL('../', import.meta.url);
 const json = async (p) => JSON.parse(await readFile(new URL(p, root), 'utf8'));
@@ -24,7 +24,8 @@ const taggedKeysIn = (svg) => {
 const keysIn = (svg) => new Set(taggedKeysIn(svg).keys());
 
 const manifest = await json('data/manifest.json');
-const views = manifest.views?.length ? manifest.views : [{ id: 'anterior' }];
+// the 3D view ("model": true) has no drawings; its .glb files are checked through modelsFrom()
+const views = (manifest.views?.length ? manifest.views : [{ id: 'anterior' }]).filter((v) => !v.model);
 const svgMap = (spec) => (typeof spec === 'string' ? { [views[0].id]: spec } : spec || {});
 
 const layers = await Promise.all(manifest.layers.map(async (l) => ({ ...l, data: await json(l.data) })));
@@ -57,7 +58,9 @@ for (const v of views) {
   regionShapes.set(v.id, rfile ? keysIn(await text(rfile)) : new Set());
 }
 
-const { problems, summary } = checkAll({ raw, drawnTagged, regionShapes, variants });
+const models = await modelsFrom(manifest, async (p, as) => (as === 'json' ? json(p) : readFile(new URL(p, root))));
+
+const { problems, summary } = checkAll({ raw, drawnTagged, regionShapes, variants, models });
 console.log(`[Corpus] data check: ${summary}`);
 for (const p of problems) console.log(`  - ${p}`);
 process.exit(problems.length ? 1 : 0);

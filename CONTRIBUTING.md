@@ -1,6 +1,6 @@
 # Contributing to Corpus
 
-Corpus is plain HTML, CSS, ES modules, JSON and SVG. There is no build step, no package manager and no external requests, and it should stay that way.
+Corpus is plain HTML, CSS, ES modules, JSON and SVG. There is no build step, no package manager and no external requests, and it should stay that way. The one library is three.js, copied into `js/vendor/three/` for the 3D view and loaded only when that view is opened.
 
 ## Run and check
 
@@ -28,7 +28,9 @@ js/browse.js            browse drawer (keyboard-friendly access to everything)
 js/router.js            hash routes
 js/state.js             tiny observable store
 js/sex.js               biological sex: filters the data for one sex (forSex)
-js/validate.js          ?debug data checks, once per sex
+js/model3d.js           the 3D view (three.js): loads the .glb models, picking, highlights, camera
+js/vendor/three/        three.js r170 (MIT): the module, GLTFLoader, OrbitControls, the meshopt decoder
+js/validate.js          ?debug data checks, once per sex (and the 3D model's meshes)
 data/manifest.json      views, styles, sexes, layers, link types, region files
 data/skeleton.json      bone groups, bones, joints
 data/muscles.json       muscle groups and muscles (origin, insertion, nerve, actions)
@@ -41,8 +43,10 @@ data/links.json         cross-layer and organ-to-organ links
 data/regions.json       "Where does it hurt?" areas, causes, red flags
 assets/fonts/           Source Serif 4 (roman + italic WOFF2, Latin subset) and its OFL licence
 assets/svg/*.svg        one drawing per layer and view (*-anterior, *-posterior), all in the same 480 × 1200 frame
+assets/3d/              one .glb per layer for the 3D view, keys.json (keys per file, body bounds), LICENSE.md (CC BY-SA 4.0)
 tools/check.mjs         the ?debug data check, headless (node tools/check.mjs)
 tools/realistic/        generator for the realistic drawings of every layer (Python + shapely, drawing only)
+tools/model3d/          builds assets/3d/ from the Z-Anatomy models (Python + numpy + meshoptimizer, drawing only)
 ```
 
 ## How the pieces connect
@@ -129,6 +133,17 @@ outlines are the same in both files: reuse them and change the draw order, the `
 structures), the `deep` class (what now lies in front, drawn faint) and the detail lines. A stretch
 marked `.c` because it is behind bone from the front is usually in plain view from behind, so merge it
 into the `.b` shape there. Remove `"listOnly"` from anything you newly draw.
+
+## The 3D model
+
+The 3D view's meshes come from the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) FBX exports (CC BY-SA 4.0, built on BodyParts3D, CC BY 4.0). They are not in the repository. To rebuild:
+
+1. Download the FBX files from Z-Anatomy's `Resources/Models/FBX` into `tools/model3d/source/zanatomy/` (gitignored), and run `~/.venvs/corpus/bin/python -I tools/model3d/index_source.py` once. It lists every source part in `source/index.json`.
+2. `tools/model3d/map.json` maps each Corpus id to source part names, per layer. A plain name takes that part and its `.r` / `.l` copies; `"@Name"` also takes every part below it. Paired ids are split by side automatically. An id with no part goes under `missing`, with the reason.
+3. `~/.venvs/corpus/bin/python -I tools/model3d/coverage.py` shows what is mapped and what isn't; `…/build.py [layer…]` writes the `.glb` files and `assets/3d/keys.json`.
+4. Give the layer a `"model": "assets/3d/<layer>.glb"` in the manifest, then run `node tools/check.mjs`.
+
+The build merges, simplifies (to a triangle budget per layer), quantises and meshopt-compresses each structure's mesh and names it with its key. Nothing is redrawn, so the 3D body won't match the 2D drawings exactly.
 
 ## About the drawings
 
