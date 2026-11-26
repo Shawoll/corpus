@@ -215,8 +215,8 @@
     --muscle-deep: #8a4037;
     --muscle-line: #3c1712;
     --muscle-fibre: rgba(255, 220, 210, 0.22);
-    --tendon: #cbc1ae;
-    --tendon-line: #6f6553;
+    --tendon: #9d9380;
+    --tendon-line: #574e40;
   --artery: #d9534f;
   --artery-line: #5a1513;
   --vein: #6d8fd6;
@@ -321,8 +321,8 @@
   --muscle-deep: #8a4037;
   --muscle-line: #3c1712;
   --muscle-fibre: rgba(255, 220, 210, 0.22);
-  --tendon: #cbc1ae;
-  --tendon-line: #6f6553;
+  --tendon: #9d9380;
+  --tendon-line: #574e40;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 

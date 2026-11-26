@@ -3,8 +3,9 @@
     python3 tools/realistic/build.py            # builds these too: assets/svg/<layer>-<view>-realistic.svg
 
 Unlike the skeleton, these keep the schematic outlines: every structure keeps its shape, id, side, classes and
-paths, so the two styles always line up and the data check finds the same keys. The exception is the front muscles:
-a muscle with a builder in muscles.py gets that anatomy instead (redraw()), under the same id, side and classes. The realistic file adds form:
+paths, so the two styles always line up and the data check finds the same keys. The exception is the muscles: a
+muscle with a builder in muscles.py (front) or muscles_back.py (back) gets that anatomy instead (redraw()), under the
+same id, side and classes. The realistic file adds form:
 four form-shadow bands away from a light at the upper left and a lit rim (the same shading as the realistic bones,
 coloured per layer through --shade / --lit in css/app.css), plus, per layer,
 
@@ -96,11 +97,11 @@ def gloss(body, k, light):
 
 
 def redraw(line, layer, view):
-    """The group with its outline, tendons and fibres replaced by the anatomy in muscles.py, when there is one."""
+    """The group with its outline, tendons and fibres replaced by the anatomy in muscles.py / muscles_back.py."""
     m = OPEN.match(line)
-    if layer != 'muscles' or view != 'anterior' or not m:
+    if layer != 'muscles' or not m:
         return line
-    mu = MU.muscle(m.group(1), m.group(2))
+    mu = MU.muscle(m.group(1), m.group(2), view)
     if mu is None:
         return line
     body = mu.body

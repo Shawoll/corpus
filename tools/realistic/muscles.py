@@ -499,13 +499,21 @@ MIDLINE = {'orbicularis-oris'}
 _cache = {}
 
 
-def muscle(id_, side):
-    """The Muscle for one schematic group, or None to keep the schematic drawing."""
-    if id_ not in FRONT:
+def builders(view):
+    if view == 'anterior':
+        return FRONT
+    from muscles_back import BACK   # imports the helpers above, so it loads after them
+    return BACK
+
+
+def muscle(id_, side, view='anterior'):
+    """The Muscle for one schematic group in a view, or None to keep the schematic drawing."""
+    table = builders(view)
+    if id_ not in table:
         return None
-    if id_ not in _cache:
-        _cache[id_] = FRONT[id_]()
-    m = _cache[id_]
+    if (view, id_) not in _cache:
+        _cache[view, id_] = table[id_]()
+    m = _cache[view, id_]
     if m is None or id_ in MIDLINE or side != 'left':
         return m
     return m.mirrored()
