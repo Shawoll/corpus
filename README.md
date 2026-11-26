@@ -15,29 +15,37 @@ Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, wha
 
 - **Skeleton**: all 206 bones and 33 joints
 - **Muscles**: 72 muscles and muscle groups, with origin, insertion, nerve and blood supply
-- **Organs**: 31 organs, from the brain and senses to the bladder and skin
-- **Vessels**: 38 major arteries and veins, with pulse points
-- **Nerves**: the spinal cord, cranial nerves, plexuses and the main limb nerves
-- **Where does it hurt?**: 28 body areas with likely causes, urgency and red flags
+- **Organs**: from the brain and senses to the endocrine glands and the female and male reproductive organs
+- **Vessels, nerves, lymphatics, ligaments and tendons**, each linked to what they supply, drain or hold together
+- **Where does it hurt?**: 33 body areas with likely causes, how urgent they are and red flags
 
-Every layer is drawn from the **front** and the **back** in two styles, schematic and realistic, and everything is linked: a bone lists the muscles that attach to it, a muscle lists its nerve and artery, and so on.
+Every layer is drawn from the front and the back, in a schematic and a realistic style, and can be turned around in **3D**. Everything is linked: a bone lists the muscles that attach to it, a muscle lists its nerve and artery, and so on.
 
 ## Features
 
-- Search, a browse drawer and keyboard access to every structure
+- Search, a browse list and full keyboard access to every structure
 - Zoom, pan and **Mirror**, which flips the figure to match your own body
-- A **3D view** you can turn with a drag (every layer), using the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) models (CC BY-SA 4.0)
-- Light and dark themes, works on phones
+- A **3D view** of every layer, built on the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) models (CC BY-SA 4.0)
+- Works **offline** and can be added to your home screen
+- Light and dark themes, made for phones first
 - No sign-up, no tracking, no external requests
 
 ## Run it locally
 
 ```sh
-python3 -m http.server 8000
-# open http://localhost:8000
+python3 -m http.server 8000   # then open http://localhost:8000
+node tools/check.mjs          # the data check (Node 22+)
 ```
 
-It is plain HTML, CSS, JavaScript, JSON and SVG, with no build step. The only library is three.js, copied into `js/vendor/` for the 3D view. It deploys to GitHub Pages as-is. For the project layout, data shapes and how to add a layer, see [CONTRIBUTING.md](CONTRIBUTING.md).
+Plain HTML, CSS, JavaScript, JSON and SVG: no build step and no dependencies apart from a vendored copy of three.js for the 3D view. It deploys to GitHub Pages as-is.
+
+## Documentation
+
+Start with the [docs](docs/README.md): how the code fits together, the data, the drawings, the 3D model, offline use and how to contribute.
+
+## Licences
+
+The code, data and drawings are Corpus's own. The 3D models and the outlines drawn from them are adapted from Z-Anatomy and BodyParts3D under CC BY-SA 4.0 (see [assets/3d/LICENSE.md](assets/3d/LICENSE.md)). Source Serif 4 is under the SIL Open Font License ([assets/fonts/OFL.txt](assets/fonts/OFL.txt)), and three.js under the MIT licence ([js/vendor/three/LICENSE](js/vendor/three/LICENSE)).
 
 ## Support
 

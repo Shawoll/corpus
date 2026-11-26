@@ -8,6 +8,7 @@ import { createSearch } from './search.js';
 import { buildBrowse } from './browse.js';
 import { forSex } from './sex.js';
 import * as Router from './router.js';
+import * as Offline from './offline.js';
 
 const $ = (s) => document.querySelector(s);
 const prefs = {
@@ -588,7 +589,10 @@ async function boot() {
   settingsEl.innerHTML = '<h2 id="settings-title">Settings</h2>' + settingRows.map((r) => `<div class="setting"><span class="setting-label" id="set-${r.id}">${escapeHtml(r.label)}</span>`
     + `<div class="seg" role="radiogroup" aria-labelledby="set-${r.id}"${r.keys ? ` aria-keyshortcuts="${r.keys}"` : ''}>`
     + r.opts.map(([v, name]) => `<button type="button" role="radio" data-setting="${r.id}" data-value="${escapeHtml(v)}" aria-checked="false" tabindex="-1">${escapeHtml(name)}</button>`).join('')
-    + '</div></div>').join('');
+    + '</div></div>').join('')
+    + (Offline.supported ? '<div class="setting offline"><span class="setting-label" id="set-offline">Offline</span>'
+      + '<p class="offline-note" id="offline-note" role="status" tabindex="-1"></p>'
+      + '<button type="button" class="offline-save" id="offline-save" aria-describedby="offline-note">Save for offline</button></div>' : '');
   settingsEl.setAttribute('aria-labelledby', 'settings-title');
   settingsEl.removeAttribute('aria-label');
   const rowOf = (b) => settingRows.find((x) => x.id === b.dataset.setting);
@@ -607,10 +611,36 @@ async function boot() {
       for (const b of btns) b.tabIndex = b === stop ? 0 : -1;
     }
   };
+  // Offline: what a visit fetches only on demand (the realistic drawings, the 3D view) saved ahead (js/offline.js).
+  // OFFLINE_MB is that download, compressed, give or take: update it when the models or drawings grow a lot.
+  const OFFLINE_MB = 6;
+  let offlineSaving = false;
+  async function renderOffline() {
+    const note = $('#offline-note'), btn = $('#offline-save');
+    if (!note || offlineSaving) return;
+    const all = await Offline.savedAll(manifest);
+    note.textContent = all ? 'Everything is saved on this device, so Corpus works without a connection.'
+      : 'What you have opened works without a connection. Save the rest to use the 3D view and both drawing styles offline.';
+    btn.hidden = all;
+    btn.textContent = `Save for offline (about ${OFFLINE_MB} MB)`;
+  }
+  $('#offline-save')?.addEventListener('click', async () => {
+    const note = $('#offline-note'), btn = $('#offline-save');
+    const hadFocus = settingsEl.contains(document.activeElement);
+    offlineSaving = true;
+    btn.disabled = true;
+    const failed = await Offline.saveAll(manifest, (done, total) => { btn.textContent = `Saving… ${done} of ${total}`; });
+    offlineSaving = false;
+    btn.disabled = false;
+    await renderOffline();
+    if (failed) note.textContent = `${failed} file${failed === 1 ? '' : 's'} couldn’t be saved. Try again when you’re online.`;
+    if (btn.hidden && hadFocus) note.focus(); // the button is gone: keep the focus in the cog
+  });
+
   const setSettings = (open, { refocus = false } = {}) => {
     settingsEl.hidden = !open;
     settingsBtn.setAttribute('aria-expanded', String(open));
-    if (open) { renderSettings(store.get()); settingsEl.querySelector('[tabindex="0"]')?.focus(); }
+    if (open) { renderSettings(store.get()); renderOffline(); settingsEl.querySelector('[tabindex="0"]')?.focus(); }
     else if (refocus) settingsBtn.focus();
   };
   const choose = (b) => {
@@ -768,6 +798,11 @@ async function boot() {
   ensureShown(store.get());
   if (store.get().route.view !== 'home') requestAnimationFrame(() => revealSelection());
   document.body.classList.add('ready');
+  // offline use: start the service worker once the page has loaded, so it doesn't compete with the first paint
+  if (Offline.supported) {
+    if (document.readyState === 'complete') Offline.register();
+    else addEventListener('load', () => Offline.register(), { once: true });
+  }
 
   if (new URLSearchParams(location.search).has('debug')) {
     // the check compares every style's drawings with the default ones, so mount them all first
