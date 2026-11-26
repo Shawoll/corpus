@@ -188,8 +188,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 
 .crumb { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); margin-bottom: 14px; }
 .crumb:hover { color: var(--ink); }
-.eyebrow { font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-3); }
-.eyebrow button { letter-spacing: inherit; text-transform: inherit; color: inherit; }
+.eyebrow { font-family: var(--serif); font-size: 14.5px; font-variant-caps: all-small-caps; letter-spacing: 0.08em; color: var(--ink-3); }
+.eyebrow button { letter-spacing: inherit; font-variant-caps: inherit; color: inherit; }
 .eyebrow button:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .title { font-family: var(--serif); font-size: 31px; line-height: 1.1; font-weight: 600; margin: 6px 0 4px; text-wrap: balance; }
 .subline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
@@ -204,7 +204,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .fact { padding: 6px 10px; border-radius: 9px; background: var(--paper); border: 1px solid var(--line); font-size: 12.5px; line-height: 1.25; }
 .fact b { display: block; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; margin-bottom: 2px; }
 
-.summary { font-size: 15.5px; line-height: 1.62; color: var(--ink); text-wrap: pretty; }
+.summary { font-size: 17px; line-height: 1.58; color: var(--ink); }
 .note-card {
   margin-top: 14px; padding: 12px 14px; border-radius: 12px;
   background: var(--rel-soft); border: 1px solid color-mix(in srgb, var(--rel) 35%, transparent); font-size: 14px;
@@ -212,10 +212,10 @@ body { display: grid; grid-template-rows: auto 1fr; }
 
 .section { margin-top: 26px; }
 .section > h3 {
-  font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-3);
-  font-weight: 650; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  font-family: var(--serif); font-size: 15px; font-variant-caps: all-small-caps; letter-spacing: 0.08em; color: var(--ink-3);
+  font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
 }
-.section > h3 .n { font-weight: 400; letter-spacing: 0; text-transform: none; }
+.section > h3 .n { font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0; font-variant-caps: normal; }
 
 .show-layer {
   display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
@@ -266,7 +266,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .issues li { padding: 10px 0; border-top: 1px solid var(--line); }
 .issues li:first-child { border-top: 0; padding-top: 0; }
 .issues strong { display: block; font-weight: 600; margin-bottom: 2px; }
-.issues span { font-size: 14px; color: var(--ink-2); }
+.issues span { font-size: 15px; color: var(--ink-2); }
 .issues-from { font-size: 12px; color: var(--ink-3); font-weight: 400; letter-spacing: 0; text-transform: none; }
 
 .movements { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -276,7 +276,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .cause { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--paper); display: grid; gap: 6px; }
 .cause-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .cause-title { font-weight: 650; }
-.cause p { font-size: 14px; color: var(--ink-2); }
+.cause p { font-size: 15px; color: var(--ink-2); }
 .urg {
   flex: none; font-size: 11px; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase;
   padding: 3px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap;
@@ -291,12 +291,21 @@ body { display: grid; grid-template-rows: auto 1fr; }
   padding: 12px 14px; border-radius: 12px;
 }
 .flags h4 { font-size: 13px; margin-bottom: 6px; color: var(--sel); letter-spacing: 0.02em; }
-.flags ul { padding-left: 18px; display: grid; gap: 4px; font-size: 14px; }
+.flags ul { padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
 .flags .emergency { margin-top: 8px; font-weight: 600; font-size: 13.5px; }
 
 .region-list { display: grid; gap: 14px; }
 .region-list h4 { font-size: 12px; color: var(--ink-3); font-weight: 600; margin-bottom: 6px; }
 
+/* Reading text is set like a book: serif, old-style figures, hyphenated, no
+   short last lines. Controls, chips and tags stay in the sans. */
+.summary, .note-card, .issues, .cause, .flags, .howto, .disclaimer, .home-note, .members .mt, .side-note, .section-note {
+  font-family: var(--serif); font-variant-numeric: oldstyle-nums proportional-nums;
+  hyphens: auto; hyphenate-limit-chars: 7 3 3; text-wrap: pretty;
+}
+.cause-head .urg, .summary button, .note-card button, .issues button, .cause button, .flags button, .howto button, .members .mt button {
+  font-family: var(--sans); font-variant-numeric: normal; hyphens: manual;
+}
 .home-lede { font-family: var(--serif); font-size: 21px; line-height: 1.4; text-wrap: pretty; }
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 20px 0 6px; }
 .stats .stat:last-child:nth-child(4n + 3) { grid-column: span 2; }
@@ -304,7 +313,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .stat b { display: block; font-family: var(--serif); font-size: 22px; line-height: 1; font-weight: 600; }
 .stat span { font-size: 11.5px; color: var(--ink-3); }
 .howto { list-style: none; display: grid; gap: 10px; }
-.howto li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; font-size: 14.5px; color: var(--ink-2); }
+.howto li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; font-size: 15.5px; color: var(--ink-2); }
 .howto li b { color: var(--ink); font-weight: 600; }
 .howto .k { font-family: var(--serif); font-style: italic; color: var(--ink-3); font-size: 15px; }
 .legend { display: grid; gap: 8px; font-size: 13.5px; color: var(--ink-2); }
@@ -319,11 +328,11 @@ body { display: grid; grid-template-rows: auto 1fr; }
 
 .disclaimer {
   margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--line);
-  font-size: 12.5px; line-height: 1.5; color: var(--ink-3);
+  font-size: 13.5px; line-height: 1.5; color: var(--ink-3);
 }
 .home-note {
   margin: 14px 0 0; padding: 10px 12px; border: 1px solid var(--line-2);
-  border-radius: 8px; background: var(--paper-2); font-size: 13px; line-height: 1.5; color: var(--ink-2);
+  border-radius: 8px; background: var(--paper-2); font-size: 14px; line-height: 1.5; color: var(--ink-2);
 }
 .home-note b { color: var(--sel); }
 .kbd { font-family: var(--sans); font-size: 11.5px; border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; color: var(--ink-2); }

@@ -33,23 +33,23 @@ colors:
   verdigris-night: "#5cc8cc"
 typography:
   brand:
-    fontFamily: "Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
+    fontFamily: "Source Serif 4, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
     fontSize: "25px"
     fontWeight: 400
     lineHeight: 1
     letterSpacing: "0.005em"
   headline:
-    fontFamily: "Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
+    fontFamily: "Source Serif 4, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
     fontSize: "31px"
     fontWeight: 600
     lineHeight: 1.1
   lede:
-    fontFamily: "Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
+    fontFamily: "Source Serif 4, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
     fontSize: "21px"
     fontWeight: 400
     lineHeight: 1.4
   latin:
-    fontFamily: "Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
+    fontFamily: "Source Serif 4, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
     fontSize: "16.5px"
     fontWeight: 400
     lineHeight: 1.3
@@ -59,21 +59,21 @@ typography:
     fontWeight: 400
     lineHeight: 1.5
   summary:
-    fontFamily: "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
-    fontSize: "15.5px"
+    fontFamily: "Source Serif 4, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
+    fontSize: "17px"
     fontWeight: 400
-    lineHeight: 1.62
+    lineHeight: 1.58
   control:
     fontFamily: "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
     fontSize: "13.5px"
     fontWeight: 400
     lineHeight: 1.3
   eyebrow:
-    fontFamily: "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
-    fontSize: "11.5px"
-    fontWeight: 650
+    fontFamily: "Source Serif 4, Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, ui-serif, serif"
+    fontSize: "14.5px"
+    fontWeight: 600
     lineHeight: 1.3
-    letterSpacing: "0.13em"
+    letterSpacing: "0.08em"
 rounded:
   hint: "6px"
   tag: "9px"
@@ -152,7 +152,7 @@ components:
 
 Corpus is a beautiful, faithful anatomy atlas that responds to touch. The body is the only thing on the page with real colour and weight. Bone, muscle, vessels and organs sit on warm paper, and everything around them (the top bar, layer chips, zoom controls, the detail panel) behaves like a quiet instrument: hairline borders, soft pills, small type. Studying it should be a pleasure. A student should want to stay for an hour, and a worried person should feel oriented, not alarmed.
 
-The page reads as one calm spread. A serif voice (Iowan Old Style, italic for the brand and Latin names) carries the atlas: titles, Latin names, the home lede. A system sans carries the interface. Only two colours mean something about state. **Vermilion** marks what you selected and **Verdigris** traces what it connects to. Every other colour belongs to the tissue being drawn. Light is warm paper and ink. Dark is a cool graphite night in which the tissues stay legible and the state colours brighten.
+The page reads as one calm spread. A serif voice (Source Serif 4, italic for the brand and Latin names) carries the atlas: titles, Latin names, the home lede. A system sans carries the interface. Only two colours mean something about state. **Vermilion** marks what you selected and **Verdigris** traces what it connects to. Every other colour belongs to the tissue being drawn. Light is warm paper and ink. Dark is a cool graphite night in which the tissues stay legible and the state colours brighten.
 
 The drawings are moving from schematic to realistic. Today's drawings are schematic: rounded, mirrored shapes made from landmark coordinates. The direction is anatomically faithful illustration, with true bone form, fibre direction in muscle and tissue-true colour, and a **Schematic / Realistic** switch so either style can be shown. Realistic is the lead style once it exists. Schematic stays for clarity at small sizes and for anyone who prefers it. Both styles are plain SVG styled from CSS, so the site still runs from GitHub Pages with no build and no external requests.
 
@@ -206,25 +206,26 @@ These belong to the drawing, never to the interface.
 
 ## Typography
 
-**Display Font:** Iowan Old Style (with Palatino Linotype, Palatino, Book Antiqua, Georgia, then the system serif)
-**Body Font:** the system sans (`ui-sans-serif`, `system-ui`, `-apple-system`, Segoe UI, Roboto, …)
+**Display and Reading Font:** Source Serif 4 (Adobe, SIL OFL 1.1), bundled in `assets/fonts/` (with Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia, then the system serif as fallbacks)
+**Interface Font:** the system sans (`ui-sans-serif`, `system-ui`, `-apple-system`, Segoe UI, Roboto, …)
 **Label/Mono Font:** the system monospace, used only for the `?debug` badge
 
-**Character:** a bookish old-style serif for the atlas (names, Latin, the lede) paired with the device's own sans for the interface. No web fonts are loaded. The serif comes from fonts the operating system already has, so it costs nothing to load.
+**Character:** the panel reads like a page of an anatomy textbook. A text serif carries the atlas (names, Latin, the lede, section headings and every paragraph of reading text) and the device's own sans runs the interface. Source Serif 4 is the one bundled font: two variable WOFF2 files (roman and italic, weight 400–700, optical size 8–60), subset to Latin, Greek, punctuation and arrows, about 340 KB together and preloaded from `index.html`. It is served from the repo, never from a font CDN. To regenerate the subset, run `pyftsubset` and `fonttools varLib.instancer wght=400:700` on the upstream variable files.
 
 ### Hierarchy
 - **Brand** (italic, 400, 25px, falling to 21px on phones): the "Corpus" wordmark only.
 - **Headline** (600, 31px, falling to 26px on phones, line-height 1.1, balanced wrap): the structure or region name at the top of the panel.
 - **Lede** (400, 21px, 1.4): the home page's opening sentence. Stat numbers (600, 22px) and the Browse heading (600, 20px) use the same serif.
 - **Latin** (italic, 16.5px in the subline and 13px beside member names, in Soft Ink or Faint Ink): every Terminologia Anatomica name.
-- **Body** (400, 15px, 1.5): the default text. **Summary** (15.5px, 1.62, pretty wrap) is for the descriptive paragraph about a structure.
-- **Control** (13–13.5px): chips, segmented buttons, layer chips and crumbs. List text in issues, causes and flags is 14px.
-- **Eyebrow** (650, 11.5px, 0.13em tracking, uppercase, Faint Ink): section headings in the panel and the kind label above the title. Fact labels (10.5px) and the strapline (11px, 0.14em) use the same small-caps style.
+- **Body** (sans, 400, 15px, 1.5): the default text of the interface.
+- **Reading text** (serif, old-style figures, hyphenated, pretty wrap): the **Summary** (17px, 1.58) about a structure, and the text of notes, issues, causes, flags, the how-to list, the member descriptions, side and section notes and the disclaimer (13.5–15.5px). Chips and buttons inside these blocks switch back to the sans.
+- **Control** (sans, 13–13.5px): chips, segmented buttons, layer chips and crumbs.
+- **Eyebrow** (serif, 600, 14.5–15px, all small caps, 0.08em tracking, Faint Ink): section headings in the panel and the kind label above the title, the way a textbook sets its running heads. Counts beside a heading stay in the small sans. Fact labels (10.5px) and the strapline (11px, 0.14em) keep the uppercase sans.
 
 ### Named Rules
 **The Latin Is Italic Rule.** Latin names are always serif italic in a softer ink, so the plain name stays the main read and the Latin sits just below it.
 
-**The Serif for Things, Sans for Controls Rule.** The serif names anatomy: structures, regions, the lede, stat numbers. The sans runs the interface. Never set a button or chip in the serif.
+**The Serif for Things, Sans for Controls Rule.** The serif names and describes anatomy: structures, regions, the lede, stat numbers, section headings and reading text. The sans runs the interface. Never set a button or chip in the serif, even when it sits inside a serif paragraph.
 
 ## Layout
 
@@ -321,7 +322,7 @@ Small round markers coloured by joint class (synovial in verdigris, cartilaginou
 - **Do** keep vermilion for the selection and verdigris for its connections, everywhere: map, chips, outlines, legend.
 - **Do** let the drawing carry the colour and the beauty. Keep the instruments around it to hairlines, pills and small type.
 - **Do** style tissue from CSS tokens in `css/base.css` (no hard-coded fills in the SVG) and give every new token a light value plus both dark blocks.
-- **Do** set structure names and the lede in Iowan Old Style, and Latin names in italic serif in a softer ink.
+- **Do** set structure names, the lede and reading text in Source Serif 4, and Latin names in italic serif in a softer ink.
 - **Do** use the single Float shadow only for layers that float. Surfaces in the layout separate by paper tone and 1px hairlines.
 - **Do** keep stroke weight constant with `non-scaling-stroke`, and keep 12px hit tolerance on touch screens.
 - **Do** push the drawings toward atlas-quality realism while keeping the schematic style one switch away.
@@ -331,5 +332,5 @@ Small round markers coloured by joint class (synovial in verdigris, cartilaginou
 - **Don't** add a third accent colour or reuse vermilion for decoration. It always means "selected" or "urgent".
 - **Don't** set controls in the serif, or show Latin in upright roman.
 - **Don't** put shadows on cards, chips or panels that sit in the layout.
-- **Don't** add web fonts, raster image dependencies or CDN assets for the drawings. The site stays static, self-contained and fast on a phone.
+- **Don't** load fonts or anything else from a CDN, add a second bundled font, or add raster image dependencies for the drawings. The site stays static, self-contained and fast on a phone.
 - **Don't** let the realistic style change ids, the frame or the state colours (see the Same Bones Rule).
