@@ -267,7 +267,66 @@ def rectus_abdominis():
 
 
 def diaphragm():
-    return None   # the schematic dome is kept (it lies behind the ribs and organs)
+    """The whole (unpaired) dome, not mirrored: the right dome rides higher over the liver, the left sits lower
+    under the heart and stomach, and the right crus is the longer (L1-L3, the left L1-L2). Its openings line up
+    with the other layers: the vena cava foramen in the central tendon over the IVC (x ~ 230), the oesophageal
+    hiatus where the oesophagus meets the stomach (~ 254, 393), and the aortic hiatus between the crura over the
+    aorta (x ~ 250) under the median arcuate ligament at T12/L1."""
+    dome = [(151, 409), (153.5, 400), (159, 391.5), (168, 384.5), (180, 378.5), (194, 374.5), (207, 372.8),
+            (219, 373.8), (229, 376.5), (237, 379.2), (245, 380.3), (255, 380.2), (266, 379.4), (277, 377.8),
+            (288, 376.8), (298, 378.2), (307, 382.5), (315, 389.5), (321.5, 398), (326, 407), (328.5, 416)]
+    left_low = [(328.5, 423), (326, 430.5), (321, 435.5), (314, 438.5), (306, 438.5), (299, 437),    # costal slips
+                (291, 431.5), (282, 428.4), (273, 429.4), (269, 431.5),                              # lateral arcuate
+                (265, 428.2), (261, 430.5)]                                                         # medial arcuate
+    left_crus = [(262.5, 443), (261.5, 456), (258.5, 466.5), (255.5, 465), (255, 450), (254.5, 433)]
+    hiatus = [(252.5, 424.5), (250, 422.4), (247.5, 424.5)]                                          # aortic hiatus
+    right_crus = [(245.5, 436), (244, 458), (240.5, 478), (236, 488), (231.5, 487), (229.5, 472), (225, 452),
+                  (221.2, 433.5)]
+    right_low = [(217, 429), (213.5, 428.4), (209.5, 432), (204, 428.6), (194, 428.8), (184.5, 434),  # arcuates
+                 (176, 438.5), (167, 438.5), (160, 435), (155, 429.5), (151.5, 421)]                # costal slips
+    body = blob(dome + left_low + left_crus + hiatus + right_crus + right_low, 10)
+    ivc = ell(230.2, 386.4, 3.7, 2.5)
+    oesophagus = ell(254.5, 393.6, 4.2, 3.0, -18)
+    body = body.difference(ivc).difference(oesophagus)
+
+    tendon = blob([(191, 380.5), (201, 377.6), (213, 377.4), (225, 380), (235, 383.3), (245, 384.4), (257, 384),
+                   (269, 382.6), (280, 381.2), (289, 382.8), (284.5, 387), (275, 389.3), (265, 388.8), (259.5, 387),
+                   (253.5, 390.5), (246, 396.5), (238, 398.6), (230, 396.3), (223.5, 391.2), (218.5, 388.8),
+                   (209.5, 389.4), (199.5, 386.6), (193.5, 383.6)], 10)
+    tendon = tendon.difference(ivc.buffer(0.6)).difference(oesophagus.buffer(1.0))
+
+    # the arcuate ligaments arch over psoas (medial) and quadratus lumborum (lateral); the median one over the aorta
+    arcs = [[(221.5, 433), (217, 428.6), (213, 428.2), (209.5, 431.4)],
+            [(209.5, 431.4), (204, 428.2), (194, 428.4), (184, 434)],
+            [(258.8, 431), (262, 428), (266, 428.2), (269.5, 431)],
+            [(269.5, 431), (275, 428.4), (284, 428.6), (293, 433.5)],
+            [(244.6, 433), (247.2, 423.6), (250, 421.6), (252.8, 423.6), (255.2, 433)]]
+    ligaments = U(*[curve(a).buffer(0.95) for a in arcs],
+                  tube([(232.5, 480), (234, 489.5)], [4.4, 3.2]), tube([(257.5, 460), (257.5, 469)], [3.6, 2.6]))
+
+    # costal fibres: from the slips and arches, up over each dome, onto its leaflet of the central tendon
+    def dome_fibres(origin, insert, n, lift):
+        o, t = curve(origin), curve(insert)
+        out = []
+        for i in range(n):
+            f = (i + 0.5) / n
+            p, q = o.interpolate(f, normalized=True), t.interpolate(f, normalized=True)
+            m = lerp((p.x, p.y), (q.x, q.y), 0.5)
+            out.append(curve([lerp((q.x, q.y), (p.x, p.y), 1.08), (m[0], m[1] - lift * (1 - f) ** 1.5), (q.x, q.y)]))
+        return out
+
+    lines = dome_fibres([(150, 406), (151.5, 420), (156, 431), (166, 438), (178, 437.5), (192, 430), (206, 429.5),
+                         (218, 431)], [(190, 380.5), (196, 384.6), (204, 387.6), (212, 389.2), (219.5, 389.6)], 15, 9)
+    lines += dome_fibres([(330, 412), (328, 424), (322.5, 434.5), (312, 438.5), (300, 437.5), (287, 430.5),
+                          (272, 429.5), (262, 431)], [(290, 382.8), (284, 386.4), (276, 388.6), (267, 389.2),
+                                                      (260, 388)], 14, 8)
+    # the crura rise along the vertebral bodies; right crus fibres part around the oesophagus
+    lines += along([(232.5, 486), (230.5, 465), (230, 440), (231.5, 415), (232, 396)], 4, 4.4)
+    lines += [curve([(241, 478), (243, 450), (246, 425), (247.5, 405), (246, 396)]),
+              curve([(238, 482), (240.5, 455), (243.5, 428), (249, 404), (250, 398)]),
+              curve([(242, 470), (246.5, 445), (252, 425), (259, 405), (259.5, 397)])]
+    lines += along([(258, 465), (258.5, 445), (258, 425), (261, 404), (264, 391)], 2, 2.2)
+    return Muscle(body, lines, tendons=ligaments, marks=tendon)
 
 
 # ================================================================== hip and thigh
@@ -483,7 +542,7 @@ FRONT = {
     'scalenes': scalenes, 'platysma': platysma, 'trapezius': trapezius, 'deltoid': deltoid,
     'pectoralis-major': pectoralis_major, 'pectoralis-minor': pectoralis_minor, 'subclavius': subclavius,
     'serratus-anterior': serratus_anterior, 'latissimus-dorsi': latissimus_dorsi,
-    'external-oblique': external_oblique, 'rectus-abdominis': rectus_abdominis, 'iliopsoas': iliopsoas,
+    'external-oblique': external_oblique, 'rectus-abdominis': rectus_abdominis, 'diaphragm': diaphragm, 'iliopsoas': iliopsoas,
     'obturator-externus': obturator_externus, 'gluteus-medius': gluteus_medius,
     'tensor-fasciae-latae': tensor_fasciae_latae, 'sartorius': sartorius, 'adductors': adductors,
     'vastus-lateralis': vastus_lateralis, 'vastus-medialis': vastus_medialis, 'rectus-femoris': rectus_femoris,
@@ -494,7 +553,7 @@ FRONT = {
     'forearm-extensors': forearm_extensors, 'forearm-flexors': forearm_flexors, 'thenar': thenar,
     'hypothenar': hypothenar, 'hand-lumbricals': hand_lumbricals,
 }
-MIDLINE = {'orbicularis-oris'}
+MIDLINE = {'orbicularis-oris', 'diaphragm'}   # drawn whole, never mirrored
 
 _cache = {}
 

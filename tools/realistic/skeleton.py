@@ -5,7 +5,7 @@ shared front frame. Landmarks match the schematic drawings (joint markers, muscl
 layers stay aligned: hip joint at (180, 590), knee (199.5, 869.5), ankle (208, 1115.5), shoulder (133, 262),
 elbow (107, 456), wrist (86, 631), temporomandibular joint (200.5, 129.5).
 """
-from geometry import (MID, Bone, LineString, Polygon, affinity, blob, both, box, circ, curve, ell, fillet, lerp,
+from geometry import (MID, Bone, LineString, affinity, blob, both, box, circ, curve, ell, fillet, lerp,
                       mirror, separate, soften, suture, tube, unary_union)
 
 
@@ -260,8 +260,8 @@ def rib_front_half(n):
         widths = [wf * 0.9, wf, wf * 0.9, wf * 0.7, wf * 0.45]
     shaft = tube(pts, widths)
     cap = circ(L[0] + wf * 0.5, L[1] - 0.6, wf * 0.5)
-    end = circ(E[0], E[1], wf * 0.52) if n < 11 else Polygon()
-    return fillet(unary_union([shaft, cap, end]), 0.9)
+    parts = [shaft, cap] + ([circ(E[0], E[1], wf * 0.52)] if n < 11 else [])   # floating ribs end in a point
+    return fillet(unary_union(parts), 0.9)
 
 
 def costal_cartilage(n):

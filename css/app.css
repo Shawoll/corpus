@@ -48,7 +48,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
   transition: background 0.15s, color 0.15s;
 }
 .seg button:hover { color: var(--ink); }
-.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg button[aria-pressed="true"], .seg button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
+.seg button:focus-visible { border-radius: 999px; }
 .modes button[data-mode="hurt"][aria-pressed="true"] { background: var(--sel); color: #fff; }
 .modes .short { display: none; }
 

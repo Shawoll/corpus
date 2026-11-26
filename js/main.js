@@ -381,17 +381,19 @@ async function boot() {
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
 
   // ------------------------------------------------------------------ settings (cog)
-  // Each row is a segmented switch; value(st) gives the pressed option, set(v) applies it, off(v, st) disables one.
+  // Each row is a segmented switch, marked up as a radio group: one Tab stop per row (the checked option), arrow
+  // keys move and choose, as with native radios. value(st) gives the checked option, set(v) applies it, off(v, st)
+  // disables one, why says why (shown as its tooltip), keys names the row's shortcut.
   const settingRows = [
     { id: 'theme', label: 'Theme', opts: [['auto', 'Auto'], ['light', 'Light'], ['dark', 'Dark']],
       value: () => prefs.get('theme', null) || 'auto',
       set: (v) => { const t = v === 'auto' ? null : v; applyTheme(t); prefs.set('theme', t); } },
-    { id: 'view', label: 'View', opts: views.map((v) => [v.id, v.name]), hide: views.length < 2,
+    { id: 'view', label: 'View', keys: 'B', opts: views.map((v) => [v.id, v.name]), hide: views.length < 2,
       value: (st) => st.view, set: (v) => setView(v) },
-    { id: 'style', label: 'Drawings', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
+    { id: 'style', label: 'Drawings', keys: 'D', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
       value: (st) => (styleIn(st.style, st.view) ? st.style : styles[0].id), set: (v) => setStyle(v),
-      off: (v, st) => !styleIn(v, st.view) },
-    { id: 'sex', label: 'Biological sex', opts: sexes.map((x) => [x.id, x.name]), hide: sexes.length < 2,
+      off: (v, st) => !styleIn(v, st.view), why: 'Not drawn in this view yet' },
+    { id: 'sex', label: 'Biological sex', keys: 'S', opts: sexes.map((x) => [x.id, x.name]), hide: sexes.length < 2,
       value: (st) => st.sex, set: (v) => setSex(v) },
     // Anatomy draws the joints of the realistic skeleton as capsules and joint spaces; the schematic one only has dots
     { id: 'joints', label: 'Joints', opts: [['dots', 'Dots'], ['anatomy', 'Anatomy'], ['off', 'Off']],
@@ -402,38 +404,76 @@ async function boot() {
         if (on) prefs.set('jointStyle', v);
         store.set(on ? { joints: true, jointStyle: v } : { joints: false });
       },
-      off: (v, st) => v === 'anatomy' && !anatomyIn(st) },
+      off: (v, st) => v === 'anatomy' && !anatomyIn(st), why: 'Only with realistic drawings' },
     { id: 'mirror', label: 'Mirror', opts: [['off', 'Off'], ['on', 'On']],
       value: (st) => (st.mirror && !viewById.get(st.view)?.flip ? 'on' : 'off'),
       set: (v) => { prefs.set('mirror', v === 'on'); store.set({ mirror: v === 'on' }); },
-      off: (v, st) => !!viewById.get(st.view)?.flip },
+      off: (v, st) => !!viewById.get(st.view)?.flip, why: 'The back view is already shown from behind' },
   ].filter((r) => !r.hide);
   const settingsEl = $('#settings');
   const settingsBtn = $('#settings-toggle');
-  settingsEl.innerHTML = '<h2>Settings</h2>' + settingRows.map((r) => `<div class="setting"><span class="setting-label" id="set-${r.id}">${escapeHtml(r.label)}</span>`
-    + `<div class="seg" role="group" aria-labelledby="set-${r.id}">${r.opts.map(([v, name]) => `<button data-setting="${r.id}" data-value="${escapeHtml(v)}" aria-pressed="false">${escapeHtml(name)}</button>`).join('')}</div></div>`).join('');
+  const settingsWrap = settingsEl.closest('.settings-wrap');
+  settingsEl.innerHTML = '<h2 id="settings-title">Settings</h2>' + settingRows.map((r) => `<div class="setting"><span class="setting-label" id="set-${r.id}">${escapeHtml(r.label)}</span>`
+    + `<div class="seg" role="radiogroup" aria-labelledby="set-${r.id}"${r.keys ? ` aria-keyshortcuts="${r.keys}"` : ''}>`
+    + r.opts.map(([v, name]) => `<button type="button" role="radio" data-setting="${r.id}" data-value="${escapeHtml(v)}" aria-checked="false" tabindex="-1">${escapeHtml(name)}</button>`).join('')
+    + '</div></div>').join('');
+  settingsEl.setAttribute('aria-labelledby', 'settings-title');
+  settingsEl.removeAttribute('aria-label');
+  const rowOf = (b) => settingRows.find((x) => x.id === b.dataset.setting);
   const renderSettings = (st) => {
-    for (const b of settingsEl.querySelectorAll('[data-setting]')) {
-      const r = settingRows.find((x) => x.id === b.dataset.setting);
-      b.setAttribute('aria-pressed', String(r.value(st) === b.dataset.value));
-      b.disabled = !!r.off?.(b.dataset.value, st);
+    for (const seg of settingsEl.querySelectorAll('.seg')) {
+      const btns = [...seg.querySelectorAll('[data-setting]')];
+      for (const b of btns) {
+        const r = rowOf(b);
+        const off = !!r.off?.(b.dataset.value, st);
+        b.setAttribute('aria-checked', String(r.value(st) === b.dataset.value));
+        b.disabled = off;
+        if (off && r.why) b.title = r.why; else b.removeAttribute('title');
+      }
+      // the row's one Tab stop: its checked option, else its first enabled one
+      const stop = btns.find((b) => b.getAttribute('aria-checked') === 'true' && !b.disabled) || btns.find((b) => !b.disabled);
+      for (const b of btns) b.tabIndex = b === stop ? 0 : -1;
     }
   };
-  const setSettings = (open) => {
+  const setSettings = (open, { refocus = false } = {}) => {
     settingsEl.hidden = !open;
     settingsBtn.setAttribute('aria-expanded', String(open));
-    if (open) { renderSettings(store.get()); settingsEl.querySelector('[aria-pressed="true"]:not(:disabled)')?.focus(); }
+    if (open) { renderSettings(store.get()); settingsEl.querySelector('[tabindex="0"]')?.focus(); }
+    else if (refocus) settingsBtn.focus();
+  };
+  const choose = (b) => {
+    if (!b || b.disabled) return;
+    rowOf(b).set(b.dataset.value);
+    renderSettings(store.get());
   };
   settingsBtn.addEventListener('click', () => setSettings(settingsEl.hidden));
-  settingsEl.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-setting]');
-    if (!b || b.disabled) return;
-    settingRows.find((r) => r.id === b.dataset.setting).set(b.dataset.value);
-    renderSettings(store.get());
+  settingsEl.addEventListener('click', (e) => choose(e.target.closest('[data-setting]')));
+  settingsEl.addEventListener('keydown', (e) => {
+    const b = e.target.closest?.('[data-setting]');
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (!b || !(step || e.key === 'Home' || e.key === 'End')) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const btns = [...b.parentElement.querySelectorAll('[data-setting]')].filter((x) => !x.disabled || x === b);
+    let i = btns.indexOf(b);
+    if (e.key === 'Home') i = 0;
+    else if (e.key === 'End') i = btns.length - 1;
+    else i = (i + step + btns.length) % btns.length;
+    const next = btns[i];
+    if (next === b || next.disabled) return;
+    choose(next);
+    // choosing can re-render the page (biological sex), so focus the option by its row and value
+    settingsEl.querySelector(`[data-setting="${next.dataset.setting}"][data-value="${CSS.escape(next.dataset.value)}"]`)?.focus();
   });
   store.subscribe((st) => { if (!settingsEl.hidden) renderSettings(st); });
-  document.addEventListener('pointerdown', (e) => { if (!settingsEl.hidden && !e.target.closest('.settings-wrap')) setSettings(false); });
-  settingsEl.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); setSettings(false); settingsBtn.focus(); } });
+  document.addEventListener('pointerdown', (e) => { if (!settingsEl.hidden && !settingsWrap.contains(e.target)) setSettings(false); });
+  // Escape closes it from anywhere inside (the cog included) and returns to the cog; tabbing away closes it too
+  settingsWrap.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !settingsEl.hidden) { e.stopPropagation(); setSettings(false, { refocus: true }); }
+  });
+  settingsWrap.addEventListener('focusout', (e) => {
+    if (!settingsEl.hidden && e.relatedTarget && !settingsWrap.contains(e.relatedTarget)) setSettings(false);
+  });
 
   // phones: a short placeholder, since the search shares its row with the other controls
   const phone = matchMedia('(max-width: 760px)');
