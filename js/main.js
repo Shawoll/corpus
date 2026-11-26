@@ -379,7 +379,12 @@ async function boot() {
       if (!model) { ensureModelLayers(st); return; }
       if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id))) ensureModelLayers(st);
       model.resize();
-      model.render({ ...highlights(st), visible: st.visible, active: activeIn(st), sex: st.sex });
+      const h = highlights(st);
+      model.render({ ...h, visible: st.visible, active: activeIn(st), sex: st.sex });
+      // a structure the model has no mesh for (the female organs, a few tendons): say so instead of showing nothing
+      const n = st.route.view === 'node' ? graph.node(st.route.id) : null;
+      if (n && h.sel.size && ![...h.sel].some(inModel)) setStatus(`${n.name} isn’t in the 3D model yet. Switch to 2D to see it.`);
+      else if (!modelLayerLoads.size || [...modelKeys.keys()].every((id) => !st.visible.has(id) || model.hasLayer(id))) setStatus('');
       return;
     }
     setStatus('');

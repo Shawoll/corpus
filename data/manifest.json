@@ -69,6 +69,7 @@
         }
       },
       "data": "data/organs.json",
+      "model": "assets/3d/organs.glb",
       "visible": false
     },
     {

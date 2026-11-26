@@ -26,7 +26,7 @@ Every layer is drawn from the **front** and the **back** in two styles, schemati
 
 - Search, a browse drawer and keyboard access to every structure
 - Zoom, pan and **Mirror**, which flips the figure to match your own body
-- A **3D view** you can turn with a drag (skeleton, muscles and ligaments so far), using the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) models (CC BY-SA 4.0)
+- A **3D view** you can turn with a drag (skeleton, muscles, ligaments and organs so far), using the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) models (CC BY-SA 4.0)
 - Light and dark themes, works on phones
 - No sign-up, no tracking, no external requests
 

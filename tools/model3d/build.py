@@ -99,6 +99,25 @@ def simplify(v, f, target):
     return dest[:n].reshape(-1, 3)
 
 
+def allocate(sizes, budget):
+    """Triangles per mesh: shares of the budget by the square root of each source size, so one huge source
+    (the brain's folded cortex) can't starve the small organs; no mesh gets more than it has, and what a
+    capped mesh leaves goes to the others."""
+    left, out, todo = budget, {}, dict(sizes)
+    while todo:
+        w = {k: n ** 0.5 for k, n in todo.items()}
+        total = sum(w.values())
+        capped = {k: n for k, n in todo.items() if left * w[k] / total >= n}
+        if not capped:
+            out.update({k: max(MIN_TRIS, round(left * w[k] / total)) for k in todo})
+            break
+        for k, n in capped.items():
+            out[k] = n
+            left -= n
+            del todo[k]
+    return out
+
+
 def compact(v, f):
     used, inv = np.unique(f.reshape(-1), return_inverse=True)
     return v[used], inv.reshape(-1, 3).astype(np.uint32)
@@ -252,10 +271,10 @@ def main(only):
         budget = BUDGET.get(layer, 50_000)
         glb = Glb(origin, step)
         tris = 0
+        targets = allocate({k: len(f) for k, (_, f) in meshes.items()}, budget)
         for key in sorted(meshes):
             v, f = meshes[key]
-            target = max(MIN_TRIS, round(budget * len(f) / total))
-            f = simplify(v, f, target)
+            f = simplify(v, f, targets[key])
             v2, f2 = compact(v, f)
             v2, f2 = optimise(v2, f2)
             sex = known[key.split(':')[0]].get('sex')
