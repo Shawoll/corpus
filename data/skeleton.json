@@ -802,6 +802,16 @@
           "name": "Sacral stress fracture",
           "note": "Deep low-back or buttock pain on weight-bearing in runners and in people with osteoporosis."
         }
+      ],
+      "sexNotes": [
+        {
+          "sex": "female",
+          "text": "In women the sacrum is shorter, wider and less curved, tilted back to widen the pelvic outlet."
+        },
+        {
+          "sex": "male",
+          "text": "In men the sacrum is longer, narrower and more curved."
+        }
       ]
     },
     {
@@ -1334,6 +1344,16 @@
         {
           "name": "Avulsion fracture",
           "note": "In teenage athletes, a strong muscle pull can tear off a fragment of bone at the front of the pelvis or at the sitting bone."
+        }
+      ],
+      "sexNotes": [
+        {
+          "sex": "female",
+          "text": "The female pelvis is wider and shallower, with a round, roomy inlet, a wider pubic arch (more than 90°) and hip sockets set further apart, making room for childbirth."
+        },
+        {
+          "sex": "male",
+          "text": "The male pelvis is narrower and deeper, with a heart-shaped inlet, a narrow pubic arch (about 60°) and heavier bones with stronger muscle markings."
         }
       ]
     },
@@ -2012,7 +2032,8 @@
       "issues": [
         {
           "name": "Pelvic girdle pain in pregnancy",
-          "note": "Pain at the front of the pelvis, worse when walking, on stairs or when parting the legs."
+          "note": "Pain at the front of the pelvis, worse when walking, on stairs or when parting the legs.",
+          "sex": "female"
         },
         {
           "name": "Osteitis pubis",

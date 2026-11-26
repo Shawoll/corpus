@@ -27,8 +27,9 @@ js/search.js            type-ahead search
 js/browse.js            browse drawer (keyboard-friendly access to everything)
 js/router.js            hash routes
 js/state.js             tiny observable store
-js/validate.js          ?debug data checks
-data/manifest.json      layers, link types, region files
+js/sex.js               biological sex: filters the data for one sex (forSex)
+js/validate.js          ?debug data checks, once per sex
+data/manifest.json      views, styles, sexes, layers, link types, region files
 data/skeleton.json      bone groups, bones, joints
 data/muscles.json       muscle groups and muscles (origin, insertion, nerve, actions)
 data/organs.json        organs
@@ -62,6 +63,10 @@ At startup every layer's data is merged into one graph:
 - **Side rules**: paired ↔ paired links same side to same side, a midline structure links to
   both sides, and `"side": "right"` narrows a link (the liver is protected only by the right ribs).
 
+**Biological sex** (Not set / Female / Male) is a setting, not a route. Anything in the data can
+carry `"sex": "female"` or `"male"`; the app builds one graph per setting from data filtered by
+`js/sex.js`, and shapes tagged `data-sex` are shown only for their sex. See `data/CLAUDE.md`.
+
 Coordinates follow the anatomical convention: the figure faces you, so the **body's right
 is on the viewer's left** (x < 240). The Mirror button flips the view for people matching
 it to their own body.
@@ -75,7 +80,9 @@ it to their own body.
   "summary": "…", "issues": [{ "name": "Hip fracture", "note": "…" }],
   "members": [ … ],     // optional: bones drawn as one group (carpals)
   "countLabel": "…",     // optional: a paired organ's Count fact (default "One on each side")
-  "listOnly": true }    // optional: not drawn in any view
+  "listOnly": true,     // optional: not drawn in any view
+  "sex": "female",       // optional: only exists for this biological sex (see data/CLAUDE.md)
+  "sexNotes": [{ "sex": "female", "text": "…" }] }  // optional: how it differs by sex
 
 // a joint: connect bones with "bones" (every pair), "chain" (each to the next) or "pairs"
 { "id": "knee", "name": "Knee joint", "class": "synovial", "subtype": "Modified hinge",
@@ -92,7 +99,7 @@ it to their own body.
 // a region
 { "id": "knee", "name": "Knee", "paired": true, "structures": ["femur", "tibia", "knee"],
   "causes": [{ "title": "Meniscus tear", "signs": "…", "urgency": "doctor", "related": ["knee"] }],
-  "redFlags": ["…"] }
+  "redFlags": ["…", { "text": "…", "sex": "male" }] }  // functions and redFlags items: a string or { text, sex }
 ```
 
 ## Adding a layer (lymphatics…)

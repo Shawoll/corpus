@@ -1,6 +1,8 @@
 // Data integrity check. Runs in the browser with ?debug in the URL, and headless with `node tools/check.mjs`.
-// check() is pure (no DOM) so both can share it; validate() is the browser wrapper that logs and shows a badge.
-import { parseKey } from './graph.js';
+// check() is pure (no DOM) so both can share it; checkAll() runs it once per biological sex setting (each builds its
+// own graph from forSex()); validate() is the browser wrapper that logs and shows a badge.
+import { Graph, parseKey } from './graph.js';
+import { forSex, sexTagProblems } from './sex.js';
 
 // drawn: Map(view -> Set(structure key)), regionShapes: Map(view -> Set(region key)),
 // variants: [{ layer, view, style, keys: Set, base: Set }] a layer's drawing in another style and its default drawing's keys
@@ -68,11 +70,29 @@ export function check({ graph, drawn, regionShapes, variants = [] }) {
   const edges = [...graph.adj.values()].reduce((s, l) => s + l.length, 0) / 2;
   const perView = [...drawn].map(([v, s]) => `${s.size} ${v}`).join(', ');
   const summary = `${unique.length} issue${unique.length === 1 ? '' : 's'} · ${bones} bones · ${graph.nodes.size} structures · ${edges} connections · drawn keys: ${perView}`;
-  return { problems: unique, summary };
+  return { problems: unique, summary, stats: { bones, structures: graph.nodes.size, edges, perView } };
 }
 
-export function validate({ graph, map }) {
-  const { problems, summary } = check({ graph, drawn: map.drawnByView(), regionShapes: map.regionsByView(), variants: map.variants() });
+// Keys drawn for one sex: drawnTagged is Map(view -> Map(key -> Set(data-sex value, '' when untagged))).
+export const drawnForSex = (drawnTagged, sex) => new Map([...drawnTagged].map(([v, m]) =>
+  [v, new Set([...m].filter(([, tags]) => tags.has('') || tags.has(sex)).map(([k]) => k))]));
+
+const SEX_LABEL = { none: 'not set', female: 'female', male: 'male' };
+// raw: { layers, links, linkTypes, regions } as loaded. Problems found for every sex are listed once; the others are
+// prefixed with the sex they occur in ("[male] …").
+export function checkAll({ raw, sexes = ['none', 'female', 'male'], drawnTagged, regionShapes, variants = [] }) {
+  const runs = sexes.map((sex) => ({ sex, ...check({ graph: new Graph(forSex(raw, sex)), drawn: drawnForSex(drawnTagged, sex), regionShapes, variants }) }));
+  const everywhere = runs[0].problems.filter((p) => runs.every((r) => r.problems.includes(p)));
+  const problems = [...sexTagProblems(raw), ...everywhere];
+  for (const r of runs) for (const p of r.problems) if (!everywhere.includes(p)) problems.push(`[${SEX_LABEL[r.sex] || r.sex}] ${p}`);
+  const st = runs[0].stats;
+  const per = runs.map((r) => `${r.stats.structures} ${SEX_LABEL[r.sex] || r.sex}`).join(' / ');
+  const summary = `${problems.length} issue${problems.length === 1 ? '' : 's'} · ${st.bones} bones · structures ${per} · ${st.edges} connections · drawn keys: ${st.perView}`;
+  return { problems, summary };
+}
+
+export function validate({ raw, map }) {
+  const { problems, summary } = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants() });
   console.group(`[Corpus] data check: ${summary}`);
   if (problems.length) console.table(problems.map((p) => ({ problem: p })));
   else console.info('All references resolve.');

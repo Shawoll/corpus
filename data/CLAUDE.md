@@ -8,6 +8,18 @@ The structures and links behind the map. The JSON shapes are in the root `CONTRI
 - `"paired": true` means the structure exists as `id:right` and `id:left`. The data has one entry, and the SVG draws both sides with `data-side`. Use `"id:right"` in a reference only to point at one side. Otherwise the side rules in `graph.js` (`resolvePair`) choose sides.
 - A structure that isn't drawn in any view (front or back) needs `"listOnly": true`, or the check reports it as not drawn. Remove the flag once it is drawn: the check also reports a drawn structure that is still `listOnly`. `listOnly` can also be a sentence saying why it isn't drawn (the skin), which the panel shows instead of the default "lies deep inside" note.
 
+## Sex-specific content
+
+The biological sex setting (Not set / Female / Male, `manifest.sexes`) filters the data through `js/sex.js` before a graph is built, once per setting.
+
+- Tag an object with `"sex": "female"` or `"sex": "male"`; an object without one applies to both. Any other value is reported by the check.
+- **Entities** (`structures`, `joints`, `groups`, links in `links.json`, `regions`) with a tag exist only for that sex, so with Not set none of them exist: the reproductive groups (`reproductive-female`, `reproductive-male`), their organs and the gonadal vessels are tagged this way.
+- **Text items** in any other array (`issues`, region `causes`, `members`, `functions` / `actions`, `redFlags`, `sexNotes`) with a tag are hidden only for the *other* sex. With Not set they show, tagged "female" / "male", so an urgent cause such as testicular torsion or pregnancy pain is never hidden from a health page. `functions` / `actions` and `redFlags` items are a string or `{ "text": "…", "sex": "…" }`.
+- **References are stripped, not duplicated.** In `from`, `to`, `structures`, `related` and every link type's `field` (`supplies`, `collects`, `innervates`…), an id or `@group` that exists in the data but not for the current sex is removed. So shared lists can name both sexes' organs (`iliac-artery.supplies` lists the uterus and the prostate; the Genitals region lists the vulva and the scrotum), and a cause whose `related` all disappear still shows. Unknown ids are left in, so typos are still reported.
+- **Same-id variants**: two entries may share an id when each has a different `sex` (the female and male `breast`, with different text and drawings). Only one survives the filter, so it isn't a duplicate.
+- `sexNotes: [{ "sex", "text" }]` on any structure adds a note card on how it differs (the pelvis on `hip-bone` and `sacrum`).
+- A tagged structure's shapes need the same `data-sex` (see `assets/svg/CLAUDE.md`). The check runs once per sex, and a problem that occurs for only some of them is prefixed `[female]`, `[male]` or `[not set]`; the 206-bone, blood-supply and other rules hold for every sex.
+
 ## Skeleton (`skeleton.json`)
 
 - The `count` fields of all bones must sum to **206**. Paired bones count both sides (`femur` has `count: 2`). A grouped entry (carpals, phalanges…) carries the total for its `members`.

@@ -35,6 +35,18 @@
     {
       "id": "senses",
       "name": "Senses & skin"
+    },
+    {
+      "id": "reproductive-female",
+      "name": "Reproductive system",
+      "sex": "female",
+      "summary": "The ovaries make eggs and the hormones oestrogen and progesterone; the uterine tubes carry the egg to the uterus, which holds a pregnancy; the vagina and vulva are the birth canal and the external genitals. The breasts make milk after childbirth."
+    },
+    {
+      "id": "reproductive-male",
+      "name": "Reproductive system",
+      "sex": "male",
+      "summary": "The testes make sperm and testosterone; the epididymis stores the sperm, and the vas deferens carries them to the urethra, where the seminal vesicles and prostate add the fluid of semen. The penis carries urine and semen out of the body."
     }
   ],
   "structures": [
@@ -1236,6 +1248,527 @@
         {
           "name": "Incontinence",
           "note": "Leaking when coughing (stress) or with a sudden urge. Common and treatable."
+        }
+      ]
+    },
+    {
+      "id": "ovary",
+      "name": "Ovary",
+      "latin": "Ovarium",
+      "aka": [
+        "ovaries"
+      ],
+      "kind": "organ",
+      "group": "reproductive-female",
+      "paired": true,
+      "sex": "female",
+      "location": "Low in the pelvis on each side of the uterus, against the side wall, about the size and shape of an almond.",
+      "summary": "The female gonads. From puberty to the menopause they ripen an egg about once a month and make the hormones oestrogen and progesterone, which run the menstrual cycle.",
+      "functions": [
+        "Ripens and releases an egg each cycle (ovulation)",
+        "Makes oestrogen and progesterone",
+        "Makes small amounts of testosterone"
+      ],
+      "issues": [
+        {
+          "name": "Ovarian cyst",
+          "note": "Fluid-filled sacs are common and usually harmless, coming and going with the cycle. A large one can ache or cause one-sided pain."
+        },
+        {
+          "name": "Ovarian torsion",
+          "note": "Sudden, severe one-sided low pain, often with vomiting, when the ovary twists on its stalk. It is an emergency."
+        },
+        {
+          "name": "Polycystic ovary syndrome (PCOS)",
+          "note": "Irregular or absent periods, extra hair growth, acne and difficulty getting pregnant. See a doctor."
+        },
+        {
+          "name": "Ovarian cancer",
+          "note": "Bloating that doesn’t go away, feeling full quickly, pelvic or belly pain and needing to pass urine more often, especially over 50. See a doctor if it lasts three weeks or more."
+        }
+      ]
+    },
+    {
+      "id": "uterine-tube",
+      "name": "Uterine tube",
+      "latin": "Tuba uterina",
+      "aka": [
+        "fallopian tube",
+        "oviduct"
+      ],
+      "kind": "organ",
+      "group": "reproductive-female",
+      "paired": true,
+      "sex": "female",
+      "location": "From each upper corner of the uterus out to the ovary, about 10 cm long.",
+      "summary": "A narrow tube whose fringed end catches the egg released by the ovary. Egg and sperm usually meet here, and the tube carries the early embryo to the uterus over a few days.",
+      "functions": [
+        "Catches the egg from the ovary",
+        "Is where fertilisation usually happens",
+        "Moves the fertilised egg to the uterus"
+      ],
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Infundibulum",
+          "latin": "Infundibulum tubae uterinae",
+          "note": "The funnel-shaped end beside the ovary, fringed with finger-like fimbriae."
+        },
+        {
+          "name": "Ampulla",
+          "latin": "Ampulla tubae uterinae",
+          "note": "The wide middle part, where fertilisation usually happens."
+        },
+        {
+          "name": "Isthmus",
+          "latin": "Isthmus tubae uterinae",
+          "note": "The narrow part next to the uterus."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Ectopic pregnancy",
+          "note": "A pregnancy that implants in the tube: one-sided low pain, vaginal bleeding, pain at the tip of the shoulder or fainting, usually 4–12 weeks into pregnancy. It is an emergency."
+        },
+        {
+          "name": "Pelvic inflammatory disease",
+          "note": "Infection spreading up from the cervix, often a sexually transmitted infection: low pain, fever, unusual discharge, pain during sex. It can scar the tubes, so see a doctor promptly."
+        }
+      ]
+    },
+    {
+      "id": "uterus",
+      "name": "Uterus",
+      "latin": "Uterus",
+      "aka": [
+        "womb"
+      ],
+      "kind": "organ",
+      "group": "reproductive-female",
+      "paired": false,
+      "sex": "female",
+      "location": "In the middle of the pelvis, between the bladder in front and the rectum behind, usually tipped forward over the bladder.",
+      "summary": "A hollow, pear-sized muscular organ. Its lining thickens each cycle and is shed as a period if no pregnancy starts. In pregnancy it grows to hold the baby, and in labour its muscle pushes the baby out.",
+      "functions": [
+        "Builds and sheds its lining in the menstrual cycle",
+        "Holds and nourishes a pregnancy",
+        "Contracts to deliver the baby in labour"
+      ],
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Fundus",
+          "latin": "Fundus uteri",
+          "note": "The domed top, above where the tubes enter."
+        },
+        {
+          "name": "Body",
+          "latin": "Corpus uteri",
+          "note": "The main hollow, lined by the endometrium."
+        },
+        {
+          "name": "Cervix",
+          "latin": "Cervix uteri",
+          "note": "The narrow neck that opens into the vagina. Cervical screening checks it for changes that could turn into cancer."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Period pain",
+          "note": "Cramping low central pain around periods. Simple painkillers and heat help. Pain bad enough to stop daily life is worth checking."
+        },
+        {
+          "name": "Heavy periods",
+          "note": "Soaking through pads or tampons every hour or two, passing large clots, or feeling tired and breathless from anaemia. Common and treatable: see a doctor."
+        },
+        {
+          "name": "Fibroids",
+          "note": "Non-cancerous growths of the womb muscle: heavy or long periods, pressure in the pelvis, needing to pass urine often."
+        },
+        {
+          "name": "Endometriosis",
+          "note": "Tissue like the womb lining growing outside the uterus: severe period pain, pain during sex and long-lasting pelvic pain. It often takes years to diagnose, so keep raising pain that doesn’t settle."
+        },
+        {
+          "name": "Miscarriage",
+          "note": "Bleeding and cramping in early pregnancy. Get care the same day; heavy bleeding or fainting is an emergency."
+        },
+        {
+          "name": "Cervical or womb cancer",
+          "note": "Bleeding after sex, between periods or after the menopause needs a doctor. Regular cervical screening finds early changes."
+        }
+      ]
+    },
+    {
+      "id": "vagina",
+      "name": "Vagina",
+      "latin": "Vagina",
+      "kind": "organ",
+      "group": "reproductive-female",
+      "paired": false,
+      "sex": "female",
+      "location": "A muscular tube from the cervix down and forward to the vulva, with the bladder and urethra in front and the rectum behind.",
+      "summary": "A stretchy, muscular passage that lets out menstrual blood, receives the penis in sex and becomes the birth canal in childbirth. Its natural bacteria keep it slightly acidic, which protects against infection.",
+      "functions": [
+        "Lets out menstrual blood",
+        "Receives the penis during sex",
+        "Stretches to become the birth canal"
+      ],
+      "issues": [
+        {
+          "name": "Thrush",
+          "note": "Itching, soreness and a thick white discharge. Very common; a pharmacy treatment works for most."
+        },
+        {
+          "name": "Bacterial vaginosis",
+          "note": "A thin grey or white discharge with a fishy smell. It is treated with antibiotics."
+        },
+        {
+          "name": "Vaginal dryness",
+          "note": "Common after the menopause and while breastfeeding: soreness and pain during sex. Moisturisers and treatment help."
+        }
+      ]
+    },
+    {
+      "id": "vulva",
+      "name": "Vulva",
+      "latin": "Pudendum femininum",
+      "aka": [
+        "external genitals"
+      ],
+      "kind": "organ",
+      "group": "reproductive-female",
+      "paired": false,
+      "sex": "female",
+      "location": "The external genitals, between the thighs below the pubic bone.",
+      "summary": "The outer folds of the labia protect the openings of the urethra and the vagina. The clitoris, with as many nerve endings as the tip of the penis, is the centre of sexual pleasure.",
+      "functions": [
+        "Protects the openings of the urethra and vagina",
+        "Sexual sensation and arousal (the clitoris)",
+        "Keeps the area moist (Bartholin’s glands)"
+      ],
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Labia majora",
+          "latin": "Labia majora pudendi",
+          "note": "The outer folds of skin and fat, with hair from puberty."
+        },
+        {
+          "name": "Labia minora",
+          "latin": "Labia minora pudendi",
+          "note": "The thin inner folds around the vestibule."
+        },
+        {
+          "name": "Clitoris",
+          "latin": "Clitoris",
+          "note": "Erectile tissue whose small visible tip extends deep along each side of the vestibule."
+        },
+        {
+          "name": "Vestibule",
+          "latin": "Vestibulum vaginae",
+          "note": "The space between the labia minora, with the openings of the urethra and vagina and of Bartholin’s glands."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Bartholin’s cyst",
+          "note": "A swelling at one side of the vaginal opening. A painful, hot one may be an abscess and needs a doctor."
+        },
+        {
+          "name": "Vulval pain (vulvodynia)",
+          "note": "Burning or soreness lasting months with no visible cause. It is real and treatable: see a doctor."
+        },
+        {
+          "name": "Lichen sclerosus",
+          "note": "Itchy white patches of skin. See a doctor: it is treated with creams and needs follow-up."
+        },
+        {
+          "name": "Genital herpes or warts",
+          "note": "Painful blisters and sores, or small painless lumps. A sexual health clinic can test and treat confidentially."
+        }
+      ]
+    },
+    {
+      "id": "breast",
+      "name": "Breast",
+      "latin": "Mamma",
+      "aka": [
+        "breasts"
+      ],
+      "kind": "organ",
+      "group": "reproductive-female",
+      "paired": true,
+      "sex": "female",
+      "location": "On the front of the chest over the pectoralis major, from about the 2nd to the 6th rib, with a tail of tissue toward the armpit.",
+      "summary": "Glandular and fatty tissue that develops at puberty. After childbirth its milk glands make breast milk, which flows through ducts to the nipple. Most of its lymph drains to the armpit nodes.",
+      "functions": [
+        "Makes and releases milk after childbirth"
+      ],
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Mammary gland",
+          "latin": "Glandula mammaria",
+          "note": "15–20 lobes of milk glands, each with a duct to the nipple."
+        },
+        {
+          "name": "Nipple and areola",
+          "latin": "Papilla mammaria",
+          "note": "The milk ducts open on the nipple; small glands in the areola keep it supple."
+        },
+        {
+          "name": "Axillary tail",
+          "note": "A strip of breast tissue reaching up into the armpit."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Breast lump",
+          "note": "Most lumps are harmless cysts or fibroadenomas, but any new lump, change in shape, puckered skin, nipple change or discharge needs a doctor."
+        },
+        {
+          "name": "Mastitis",
+          "note": "A painful, hot, red area, usually while breastfeeding, sometimes with fever. Keep feeding or expressing, and see a doctor if it isn’t better within a day."
+        },
+        {
+          "name": "Breast pain",
+          "note": "Often comes and goes with periods. Pain alone is rarely cancer, but get it checked if it persists."
+        },
+        {
+          "name": "Breast cancer",
+          "note": "The most common cancer in women. Know what is normal for you, and go to screening when invited."
+        }
+      ]
+    },
+    {
+      "id": "testis",
+      "name": "Testis",
+      "latin": "Testis",
+      "aka": [
+        "testicle",
+        "testicles",
+        "testes"
+      ],
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": true,
+      "sex": "male",
+      "location": "In the scrotum, below the penis. The left usually hangs a little lower.",
+      "summary": "The male gonads, each about the size of a small plum. From puberty they make sperm and the hormone testosterone. They hang outside the body because sperm develop best a few degrees below body temperature.",
+      "functions": [
+        "Makes sperm",
+        "Makes testosterone"
+      ],
+      "issues": [
+        {
+          "name": "Testicular torsion",
+          "note": "Sudden, severe pain in one testicle, often with swelling, belly pain and vomiting, most often in teenagers. It is an emergency: surgery within hours saves the testicle."
+        },
+        {
+          "name": "Testicular lump or cancer",
+          "note": "A painless lump or swelling, or a heavy feeling in the scrotum. Most common between 15 and 49 and very treatable. See a doctor."
+        },
+        {
+          "name": "Hydrocele or varicocele",
+          "note": "A soft, painless swelling of fluid (hydrocele) or of veins that feels like a bag of worms (varicocele). Usually harmless, but have any swelling checked."
+        }
+      ]
+    },
+    {
+      "id": "epididymis",
+      "name": "Epididymis",
+      "latin": "Epididymis",
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": true,
+      "sex": "male",
+      "location": "A coiled tube along the top and back of each testis.",
+      "summary": "About six metres of tightly coiled tube in which sperm mature and are stored before ejaculation.",
+      "functions": [
+        "Matures and stores sperm"
+      ],
+      "issues": [
+        {
+          "name": "Epididymitis",
+          "note": "Pain and swelling at the back of the testicle building up over a day or two, sometimes with fever or burning when passing urine. Usually an infection: see a doctor the same day."
+        },
+        {
+          "name": "Epididymal cyst",
+          "note": "A smooth, painless lump above and behind the testicle. Common and harmless, but get any new lump checked."
+        }
+      ]
+    },
+    {
+      "id": "vas-deferens",
+      "name": "Vas deferens",
+      "latin": "Ductus deferens",
+      "aka": [
+        "sperm duct"
+      ],
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": true,
+      "sex": "male",
+      "location": "From the epididymis up in the spermatic cord through the groin (the inguinal canal), then over and behind the bladder to the prostate.",
+      "summary": "A muscular tube about 45 cm long that carries sperm from the epididymis to the urethra. Cutting it (vasectomy) is a permanent form of contraception.",
+      "functions": [
+        "Carries sperm to the urethra"
+      ],
+      "issues": [
+        {
+          "name": "After a vasectomy",
+          "note": "Bruising and an ache for a week or two are common. A growing, painful swelling or fever needs a doctor."
+        }
+      ]
+    },
+    {
+      "id": "seminal-vesicle",
+      "name": "Seminal vesicle",
+      "latin": "Glandula vesiculosa",
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": true,
+      "sex": "male",
+      "location": "Behind the bladder, above the prostate.",
+      "summary": "A coiled gland that makes most of the fluid of semen, rich in sugar (fructose) that fuels the sperm. Its duct joins the vas deferens inside the prostate.",
+      "functions": [
+        "Makes most of the fluid in semen"
+      ],
+      "issues": [
+        {
+          "name": "Blood in the semen",
+          "note": "Usually harmless and settles by itself. See a doctor if it keeps happening, or if you are over 40."
+        }
+      ]
+    },
+    {
+      "id": "prostate",
+      "name": "Prostate",
+      "latin": "Prostata",
+      "aka": [
+        "prostate gland"
+      ],
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": false,
+      "sex": "male",
+      "location": "Just below the bladder, wrapped around the start of the urethra, in front of the rectum.",
+      "summary": "A walnut-sized gland that adds a thin, milky fluid to semen. It grows with age, and because the urethra runs through it, an enlarged prostate can make passing urine harder.",
+      "functions": [
+        "Adds fluid to semen",
+        "Helps close off the bladder during ejaculation"
+      ],
+      "issues": [
+        {
+          "name": "Enlarged prostate",
+          "note": "A weak stream, needing to go often or at night, and not emptying fully. Common after 50 and treatable."
+        },
+        {
+          "name": "Prostatitis",
+          "note": "Pain between the scrotum and the anus, in the lower back, or when passing urine or ejaculating, sometimes with fever. See a doctor."
+        },
+        {
+          "name": "Prostate cancer",
+          "note": "Often causes no symptoms early on. Talk to a doctor about testing, especially over 50, or over 45 with a family history or of Black ethnicity."
+        }
+      ]
+    },
+    {
+      "id": "penis",
+      "name": "Penis",
+      "latin": "Penis",
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": false,
+      "sex": "male",
+      "location": "In front of the scrotum, its root attached to the pubic bones.",
+      "summary": "Carries the urethra, through which both urine and semen leave the body. Its spongy tissue fills with blood to make it stiff in an erection.",
+      "functions": [
+        "Carries urine and semen out of the body",
+        "Becomes erect for sex"
+      ],
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Corpora cavernosa",
+          "latin": "Corpus cavernosum penis",
+          "note": "Two columns of spongy tissue that fill with blood in an erection."
+        },
+        {
+          "name": "Corpus spongiosum",
+          "latin": "Corpus spongiosum penis",
+          "note": "Surrounds the urethra and widens into the glans."
+        },
+        {
+          "name": "Glans",
+          "latin": "Glans penis",
+          "note": "The sensitive tip, covered by the foreskin unless circumcised."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Erectile dysfunction",
+          "note": "Common, and often linked to blood-vessel health, diabetes, stress or medicines. Worth seeing a doctor, as it can be an early sign of heart disease."
+        },
+        {
+          "name": "Balanitis",
+          "note": "Soreness, redness and discharge under the foreskin. Gentle washing helps; see a doctor if it persists."
+        },
+        {
+          "name": "Priapism",
+          "note": "An erection lasting more than four hours without arousal is an emergency."
+        }
+      ]
+    },
+    {
+      "id": "scrotum",
+      "name": "Scrotum",
+      "latin": "Scrotum",
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": false,
+      "sex": "male",
+      "location": "A pouch of skin and thin muscle below the penis, holding the testes.",
+      "summary": "Keeps the testes about 2–3 °C cooler than the rest of the body: its muscle draws them up in the cold and lets them hang lower in the heat.",
+      "functions": [
+        "Holds the testes and keeps them cool"
+      ],
+      "issues": [
+        {
+          "name": "Scrotal swelling",
+          "note": "A painless swelling is often a hydrocele or a hernia. A sudden, painful swelling is an emergency."
+        },
+        {
+          "name": "Hernia into the scrotum",
+          "note": "A bulge that comes down into the scrotum when standing or straining. A tender, hard swelling that won’t go back is urgent."
+        }
+      ]
+    },
+    {
+      "id": "breast",
+      "name": "Breast",
+      "latin": "Mamma",
+      "aka": [
+        "breasts"
+      ],
+      "kind": "organ",
+      "group": "reproductive-male",
+      "paired": true,
+      "sex": "male",
+      "location": "On the front of the chest over the pectoralis major, behind the nipple.",
+      "summary": "A small disc of breast tissue behind the nipple, which doesn’t develop at puberty the way it does in women. Its lymph drains to the armpit nodes.",
+      "functions": [
+        "Has no function in men"
+      ],
+      "issues": [
+        {
+          "name": "Gynaecomastia",
+          "note": "Swelling of the breast tissue, common in teenage boys and older men and with some medicines or weight gain. Usually harmless, but see a doctor about a firm or one-sided lump."
+        },
+        {
+          "name": "Breast cancer",
+          "note": "Rare in men, but a painless lump, a turned-in nipple or discharge needs a doctor."
         }
       ]
     }

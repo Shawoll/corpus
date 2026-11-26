@@ -246,6 +246,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 }
 .chip:hover, .chip:focus-visible { border-color: var(--rel); background: var(--rel-soft); }
 .chip .side { font-size: 11.5px; color: var(--ink-3); }
+/* "female" / "male" tag on sex-specific text while no biological sex is chosen */
+.sex-tag { display: inline-block; margin-left: 6px; padding: 0 7px; border: 1px solid var(--line-2); border-radius: 999px; font-family: var(--sans); font-size: 11px; font-weight: 500; line-height: 17px; letter-spacing: 0.02em; color: var(--ink-3); vertical-align: 1px; white-space: nowrap; }
 .chip-range { border-style: dashed; }
 .chip .jdot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 
@@ -434,6 +436,12 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.o[data-id="nose"] { --organ: var(--o-nose); }
 #map .s.o[data-id="tongue"] { --organ: var(--o-tongue); }
 #map .s.o[data-id="salivary-glands"] { --organ: var(--o-salivary-glands); }
+#map .s.o:is([data-id="ovary"], [data-id="testis"]) { --organ: var(--o-gonad); }
+#map .s.o:is([data-id="uterus"], [data-id="vagina"], [data-id="prostate"], [data-id="penis"]) { --organ: var(--o-repro); }
+#map .s.o:is([data-id="uterine-tube"], [data-id="vas-deferens"], [data-id="epididymis"], [data-id="seminal-vesicle"]) { --organ: var(--o-repro-duct); }
+#map .s.o:is([data-id="breast"], [data-id="vulva"], [data-id="scrotum"]) { --organ: var(--o-breast); }
+#map .s.o[data-id="breast"][data-sex="female"] .b { fill-opacity: 0.6; } /* lies over the lungs: let them show through */
+#map .s.o[data-id="vas-deferens"] .b { stroke-width: 0.6; }
 #map .s.o[data-id="ureter"] .b { stroke-width: 0.6; vector-effect: non-scaling-stroke; }
 
 /* muscles */
@@ -588,6 +596,10 @@ body { display: grid; grid-template-rows: auto 1fr; }
   .panel-inner { padding: 4px 16px 40px; }
   .title { font-size: 26px; }
   .map-controls { bottom: calc(92px + 14px); left: 12px; }
+  /* the two-button switches (Front / Back, Simple / Real, F / M) sit side by side so the column stays short */
+  .map-controls { align-items: flex-start; }
+  .map-controls .views { flex-direction: row; }
+  .map-controls .views button + button { border-top: 0; border-left: 1px solid var(--line); }
   .map-hint { display: none; }
   .layerbar { top: 10px; left: 10px; gap: 4px; }
   .layer-chip { height: 28px; padding: 0 9px 0 8px; gap: 6px; font-size: 12.5px; }
@@ -605,6 +617,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map.probing .regions-layer, #map.probing .regions-layer *, #map.probing .jm { pointer-events: none !important; }
 /* the drawing style that isn't shown stays hidden, even while probing ("Under this spot" lists each structure once) */
 #map .view .layer.style-off { display: none !important; }
+/* shapes for the biological sex that isn't chosen (or every sex-specific shape when none is) stay hidden too */
+#map .sex-off { display: none !important; }
 
 /* range chips expand in place */
 .chipset, .chips-more { display: contents; }

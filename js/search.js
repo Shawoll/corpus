@@ -67,5 +67,9 @@ export function createSearch({ input, list, graph, onChoose }) {
     choose(+li.dataset.i);
   });
 
-  return { focus: () => input.focus() };
+  return {
+    focus: () => input.focus(),
+    // the biological sex changed: search the new graph from now on
+    setGraph(g) { graph = g; results = []; active = -1; open(false); },
+  };
 }

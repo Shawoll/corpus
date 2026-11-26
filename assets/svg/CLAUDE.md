@@ -12,6 +12,7 @@ One SVG per layer and view (`<layer>-anterior.svg`, `<layer>-posterior.svg`), li
 | --- | --- |
 | `<g class="structures">` | wrapper for interactive shapes |
 | `<g class="s" data-id … data-side …>` | one structure instance. Add `m` for muscles and `o` for organs |
+| `data-sex="female\|male"` on a `<g class="s">` | a sex-specific shape, shown only when that biological sex is chosen. Its structure must carry the same `"sex"` in the data (the check reports a mismatch per sex). Two shapes may share an id and side when each has a different `data-sex` (the female and male breast) |
 | `.b` path | body shape: filled, used for highlights, outlines and the bounding box. map.js clones it into the tap target (`.hit`), so don't add `.hit` by hand |
 | `.c` path | cartilage or tendon |
 | `.d` path | detail lines (fibres, sutures). Hidden for muscles when that layer is in the background or in hurt mode |

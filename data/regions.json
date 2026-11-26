@@ -9,7 +9,15 @@
     "Difficulty breathing, choking, or blue lips",
     "Heavy bleeding, vomiting blood, or black tarry stools",
     "Severe abdominal pain with a rigid belly or fainting, or abdominal pain in pregnancy",
-    "Fainting, confusion or a seizure"
+    "Fainting, confusion or a seizure",
+    {
+      "text": "Sudden, severe pain in a testicle",
+      "sex": "male"
+    },
+    {
+      "text": "Heavy bleeding, or severe pain, in pregnancy",
+      "sex": "female"
+    }
   ],
   "regions": [
     {
@@ -398,7 +406,8 @@
         "humerus",
         "shoulder",
         "intercostal-nerves",
-        "arm-lymphatics"
+        "arm-lymphatics",
+        "breast"
       ],
       "causes": [
         {
@@ -439,7 +448,8 @@
           "urgency": "doctor",
           "related": [
             "axillary-lymph-nodes",
-            "pectoralis-major"
+            "pectoralis-major",
+            "breast"
           ]
         },
         {
@@ -536,7 +546,8 @@
         "intercostals",
         "intercostal-nerves",
         "phrenic-nerve",
-        "pulmonary-veins"
+        "pulmonary-veins",
+        "breast"
       ],
       "causes": [
         {
@@ -609,7 +620,8 @@
         "intercostal-nerves",
         "phrenic-nerve",
         "pulmonary-veins",
-        "coronary-arteries"
+        "coronary-arteries",
+        "breast"
       ],
       "causes": [
         {
@@ -1368,7 +1380,9 @@
         "iliac-artery",
         "iliac-vein",
         "lumbar-plexus",
-        "ureter"
+        "ureter",
+        "ovary",
+        "uterine-tube"
       ],
       "causes": [
         {
@@ -1405,10 +1419,22 @@
           ]
         },
         {
-          "title": "Ovarian cyst or ectopic pregnancy",
-          "signs": "One-sided lower pain. In anyone who could be pregnant, pain with bleeding, dizziness or fainting is an emergency.",
+          "title": "Ectopic pregnancy",
+          "sex": "female",
+          "signs": "One-sided low pain in someone who could be pregnant, often with vaginal bleeding, pain at the tip of the shoulder, dizziness or fainting. It is an emergency. One on the right can feel like appendicitis.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "uterine-tube"
+          ]
+        },
+        {
+          "title": "Ovarian cyst or torsion",
+          "sex": "female",
+          "signs": "A cyst can cause a dull one-sided ache. Sudden, severe pain with vomiting can mean the ovary has twisted, which is an emergency.",
+          "urgency": "urgent",
+          "related": [
+            "ovary"
+          ]
         },
         {
           "title": "Trapped wind / constipation",
@@ -1434,7 +1460,14 @@
         "iliac-artery",
         "iliac-vein",
         "sacral-plexus",
-        "rectum"
+        "rectum",
+        "uterus",
+        "ovary",
+        "uterine-tube",
+        "vagina",
+        "prostate",
+        "seminal-vesicle",
+        "vas-deferens"
       ],
       "causes": [
         {
@@ -1457,13 +1490,41 @@
           "title": "Period pain",
           "signs": "Cramping low central pain around periods.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "uterus"
+          ],
+          "sex": "female"
         },
         {
-          "title": "Pelvic infection",
+          "title": "Pelvic infection (PID)",
           "signs": "Low pain with fever, unusual discharge or pain during sex.",
           "urgency": "doctor",
-          "related": []
+          "related": [
+            "uterus",
+            "uterine-tube",
+            "ovary"
+          ],
+          "sex": "female"
+        },
+        {
+          "title": "Endometriosis",
+          "sex": "female",
+          "signs": "Severe period pain, pain during sex or when opening the bowels, and pelvic pain that lasts for months.",
+          "urgency": "doctor",
+          "related": [
+            "uterus",
+            "ovary"
+          ]
+        },
+        {
+          "title": "Prostatitis",
+          "sex": "male",
+          "signs": "Deep pain low in the pelvis or between the scrotum and anus, with burning or difficulty passing urine, sometimes fever.",
+          "urgency": "doctor",
+          "related": [
+            "prostate",
+            "bladder"
+          ]
         },
         {
           "title": "Constipation",
@@ -1478,7 +1539,11 @@
           "title": "Pregnancy-related pain",
           "signs": "Any significant lower abdominal pain in pregnancy, or with a missed period, should be assessed promptly.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "uterus",
+            "uterine-tube"
+          ],
+          "sex": "female"
         }
       ]
     },
@@ -1497,7 +1562,9 @@
         "iliac-vein",
         "inferior-mesenteric-artery",
         "lumbar-plexus",
-        "ureter"
+        "ureter",
+        "ovary",
+        "uterine-tube"
       ],
       "causes": [
         {
@@ -1534,10 +1601,22 @@
           ]
         },
         {
-          "title": "Ovarian cyst or ectopic pregnancy",
-          "signs": "One-sided lower pain. In anyone who could be pregnant, pain with bleeding or fainting is an emergency.",
+          "title": "Ectopic pregnancy",
+          "sex": "female",
+          "signs": "One-sided low pain in someone who could be pregnant, often with vaginal bleeding, pain at the tip of the shoulder, dizziness or fainting. It is an emergency.",
           "urgency": "urgent",
-          "related": []
+          "related": [
+            "uterine-tube"
+          ]
+        },
+        {
+          "title": "Ovarian cyst or torsion",
+          "sex": "female",
+          "signs": "A cyst can cause a dull one-sided ache. Sudden, severe pain with vomiting can mean the ovary has twisted, which is an emergency.",
+          "urgency": "urgent",
+          "related": [
+            "ovary"
+          ]
         },
         {
           "title": "Inflammatory bowel disease",
@@ -1547,6 +1626,142 @@
             "large-intestine"
           ]
         }
+      ]
+    },
+    {
+      "id": "genitals",
+      "name": "Genitals",
+      "structures": [
+        "vulva",
+        "vagina",
+        "penis",
+        "scrotum",
+        "testis",
+        "epididymis",
+        "vas-deferens",
+        "pelvic-floor",
+        "pudendal-nerve",
+        "inguinal-lymph-nodes",
+        "bladder",
+        "pubic-symphysis",
+        "iliac-artery"
+      ],
+      "causes": [
+        {
+          "title": "Urinary tract infection",
+          "signs": "Burning or stinging when passing urine, needing to go often, cloudy or smelly urine. Fever, shivering or pain in the side means the kidneys may be involved.",
+          "urgency": "doctor",
+          "related": [
+            "bladder"
+          ]
+        },
+        {
+          "title": "Sexually transmitted infection",
+          "signs": "Unusual discharge, burning when passing urine, sores, blisters or lumps. Many have no symptoms. Sexual health clinics test and treat confidentially.",
+          "urgency": "doctor",
+          "related": [
+            "vulva",
+            "vagina",
+            "penis",
+            "inguinal-lymph-nodes"
+          ]
+        },
+        {
+          "title": "Thrush",
+          "sex": "female",
+          "signs": "Itching and soreness of the vulva with a thick white discharge. A pharmacy treatment works for most; see a doctor if it keeps coming back.",
+          "urgency": "self-care",
+          "related": [
+            "vagina",
+            "vulva"
+          ]
+        },
+        {
+          "title": "Bartholin’s cyst",
+          "sex": "female",
+          "signs": "A swelling on one side of the vaginal opening. A painful, hot, growing one may be an abscess.",
+          "urgency": "doctor",
+          "related": [
+            "vulva"
+          ]
+        },
+        {
+          "title": "Vulval pain",
+          "sex": "female",
+          "signs": "Burning, stinging or soreness of the vulva lasting months, sometimes only on touch or during sex.",
+          "urgency": "doctor",
+          "related": [
+            "vulva",
+            "pudendal-nerve",
+            "pelvic-floor"
+          ]
+        },
+        {
+          "title": "Testicular torsion",
+          "sex": "male",
+          "signs": "Sudden, severe pain in one testicle, often with swelling, belly pain and vomiting, most often in teenagers. It is an emergency: surgery within hours saves the testicle.",
+          "urgency": "urgent",
+          "related": [
+            "testis"
+          ]
+        },
+        {
+          "title": "Epididymitis",
+          "sex": "male",
+          "signs": "Pain and swelling at the back of a testicle building up over a day or two, sometimes with fever or burning when passing urine.",
+          "urgency": "doctor",
+          "related": [
+            "epididymis",
+            "testis"
+          ]
+        },
+        {
+          "title": "Testicular lump",
+          "sex": "male",
+          "signs": "A painless lump, a swelling or a heavy feeling in the scrotum. Most lumps are harmless, but all need checking.",
+          "urgency": "doctor",
+          "related": [
+            "testis",
+            "epididymis",
+            "scrotum"
+          ]
+        },
+        {
+          "title": "Hernia into the scrotum",
+          "sex": "male",
+          "signs": "A bulge that comes down into the scrotum when standing or straining. A tender, hard swelling that won’t go back is urgent.",
+          "urgency": "doctor",
+          "related": [
+            "scrotum",
+            "external-oblique",
+            "inguinal-ligament"
+          ]
+        },
+        {
+          "title": "Pudendal neuralgia",
+          "signs": "Burning or stabbing pain in the genitals or perineum, worse sitting and eased by standing or lying down.",
+          "urgency": "doctor",
+          "related": [
+            "pudendal-nerve",
+            "pelvic-floor"
+          ]
+        }
+      ],
+      "redFlags": [
+        {
+          "text": "Sudden, severe pain in a testicle",
+          "sex": "male"
+        },
+        {
+          "text": "An erection lasting more than four hours",
+          "sex": "male"
+        },
+        {
+          "text": "Heavy bleeding, or severe pain, in pregnancy",
+          "sex": "female"
+        },
+        "Being unable to pass urine",
+        "Numbness around the genitals or buttocks with new bladder or bowel problems (possible cauda equina syndrome)"
       ]
     },
     {
@@ -1571,7 +1786,10 @@
         "obturator-nerve",
         "lumbar-plexus",
         "inguinal-lymph-nodes",
-        "inguinal-ligament"
+        "inguinal-ligament",
+        "vas-deferens",
+        "testicular-artery",
+        "testicular-vein"
       ],
       "causes": [
         {
@@ -1620,6 +1838,16 @@
           ]
         },
         {
+          "title": "Pain spreading from a testicle",
+          "sex": "male",
+          "signs": "A problem in the testicle, such as torsion or epididymitis, is often felt in the groin. Sudden, severe pain is an emergency.",
+          "urgency": "urgent",
+          "related": [
+            "testis",
+            "vas-deferens"
+          ]
+        },
+        {
           "title": "Pain from the back",
           "signs": "Hip or buttock pain with back stiffness, sometimes running down the leg.",
           "urgency": "doctor",
@@ -1633,7 +1861,11 @@
       ],
       "redFlags": [
         "A child with a limp and fever, or who refuses to walk",
-        "An older person who can’t bear weight after a fall"
+        "An older person who can’t bear weight after a fall",
+        {
+          "text": "Sudden, severe pain in a testicle, or groin pain with a swollen scrotum",
+          "sex": "male"
+        }
       ]
     },
     {

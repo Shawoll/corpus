@@ -6,6 +6,7 @@ import { createZoom } from './zoom.js';
 import { createPanel } from './panel.js';
 import { createSearch } from './search.js';
 import { buildBrowse } from './browse.js';
+import { forSex } from './sex.js';
 import * as Router from './router.js';
 
 const $ = (s) => document.querySelector(s);
@@ -40,7 +41,15 @@ async function boot() {
     manifest.regions ? loadSvgs(manifest.regions.svg) : {},
   ]);
   const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i], styleSvgs: styleSvgs[i] }));
-  const graph = new Graph({ layers, links: linkFiles.flatMap((f) => f.links || []), linkTypes: manifest.linkTypes, regions: regionsData });
+  // biological sex: one graph per setting, built on first use from the data filtered by js/sex.js (the first is neutral)
+  const sexes = manifest.sexes?.length ? manifest.sexes : [{ id: 'none', name: 'Not set' }];
+  const sexById = new Map(sexes.map((x) => [x.id, x]));
+  const raw = { layers, links: linkFiles.flatMap((f) => f.links || []), linkTypes: manifest.linkTypes, regions: regionsData };
+  const graphs = new Map();
+  const graphFor = (sx) => { if (!graphs.has(sx)) graphs.set(sx, new Graph(forSex(raw, sx))); return graphs.get(sx); };
+  const savedSex = prefs.get('sex', sexes[0].id);
+  const initialSex = sexById.has(savedSex) ? savedSex : sexes[0].id;
+  let graph = graphFor(initialSex);
 
   const svg = $('#map');
   const wrap = $('.map-wrap');
@@ -48,7 +57,8 @@ async function boot() {
   const panelEl = $('#panel');
   const panelBody = $('#panel-body');
   const hint = $('#map-hint');
-  const panel = createPanel(graph);
+  let panel = createPanel(graph);
+  let search = null, browse = null; // created further down; useSex() rebuilds them
 
   const viewById = new Map(views.map((v) => [v.id, v]));
   const savedView = prefs.get('view', views[0].id);
@@ -58,6 +68,7 @@ async function boot() {
     route: { view: 'home' },
     view: viewById.has(savedView) ? savedView : views[0].id, // front / back (not part of the route)
     style: styleById.has(savedStyle) ? savedStyle : styles[0].id, // schematic / realistic drawings (not part of the route)
+    sex: initialSex, // biological sex: none / female / male (not part of the route)
     visible: new Set(manifest.layers.filter((l) => l.visible).map((l) => l.id)),
     active: [...manifest.layers].reverse().find((l) => l.visible)?.id,
     joints: prefs.get('joints', true),
@@ -108,6 +119,33 @@ async function boot() {
   const styleIn = (s, v) => s === styles[0].id || manifest.layers.some((l) => l.styles?.[s]?.[v]);
   const setStyle = (s) => { if (!styleById.has(s)) return; prefs.set('style', s); store.set({ style: s }); };
 
+  // ------------------------------------------------------------------ biological sex
+  // does the route's structure, group or region exist in this graph? (home and hurt always do)
+  const routeIn = (g, route) => (route.view === 'node' ? !!g.node(route.id) : route.view === 'group' ? !!g.group(route.id)
+    : route.view === 'region' ? g.regions.has(route.id) : true);
+  // a shared link to a sex-specific page (#/s/prostate) switches to the sex that has it
+  const sexFor = (route, current) => (routeIn(graphFor(current), route) ? current
+    : sexes.map((x) => x.id).find((x) => routeIn(graphFor(x), route)) || current);
+  // swap the graph and everything built from it; the caller puts { sex } in its store patch
+  function useSex(sx) {
+    graph = graphFor(sx);
+    panel = createPanel(graph);
+    search?.setGraph(graph);
+    if (browse) buildBrowse(browse, graph);
+    prefs.set('sex', sx);
+  }
+  function setSex(sx) {
+    if (!sexById.has(sx) || sx === store.get().sex) return;
+    useSex(sx);
+    const st = store.get();
+    // an "Under this spot" list was probed with the other sex's shapes: drop it until the next tap
+    if (routeIn(graph, st.route)) { store.set({ sex: sx, probe: null }); return; }
+    // the page on show doesn't exist for this sex: go home (in the same render, so it never shows "not found")
+    store.set({ sex: sx, route: Router.isHurt(st.route) ? { view: 'hurt' } : { view: 'home' }, probe: null, fromRegion: null });
+    navigate(Router.isHurt(st.route) ? 'hurt' : '');
+  }
+  const cycleSex = () => { const i = sexes.findIndex((x) => x.id === store.get().sex); setSex(sexes[(i + 1) % sexes.length].id); };
+
   // ------------------------------------------------------------------ navigation
   let zoomNext = false;
   const navigate = (path, { zoom: z = false } = {}) => { zoomNext = z; Router.go(path); };
@@ -116,7 +154,9 @@ async function boot() {
   function onRoute() {
     const prev = store.get();
     const route = Router.parse();
-    const patch = { route, ...viewPatch(prev, viewFor(route, prev.view)) };
+    const sx = sexFor(route, prev.sex);
+    if (sx !== prev.sex) useSex(sx);
+    const patch = { route, ...(sx !== prev.sex ? { sex: sx } : {}), ...viewPatch(prev, viewFor(route, prev.view)) };
     if (route.view === 'node') {
       const n = graph.node(route.id);
       if (n && !n.listOnly && !Router.isHurt(route)) {
@@ -239,6 +279,11 @@ async function boot() {
       b.disabled = !here;
       b.title = here ? `${s.name} drawings (D)` : `No ${s.name.toLowerCase()} drawings for the ${vname.toLowerCase()} view yet`;
     }
+    for (const b of document.querySelectorAll('#sexes button')) {
+      const on = b.dataset.sex === st.sex;
+      b.setAttribute('aria-pressed', String(on));
+      b.title = on ? `${b.getAttribute('aria-label')}: press again to clear (S)` : `Show the body as ${b.getAttribute('aria-label').toLowerCase()} (S)`;
+    }
     svg.setAttribute('aria-label', `${vname} view of the human body. Use search or Browse to reach every structure by keyboard.`);
     const jb = $('.layer-chip[data-toggle="joints"]');
     jb.dataset.state = st.joints ? 'active' : 'off';
@@ -270,6 +315,7 @@ async function boot() {
       hurt: Router.isHurt(st.route),
       joints: st.joints,
       flip,
+      sex: st.sex,
       probePoint: st.route.view === 'region' && st.probe ? st.probe.point : null,
     });
   }
@@ -278,7 +324,7 @@ async function boot() {
     if (top) { panelBody.scrollTop = 0; panelEl.scrollTop = 0; }
   }
   store.subscribe((st, prev) => {
-    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible || st.view !== prev.view) renderPanel(st, st.route !== prev.route);
+    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible || st.view !== prev.view || st.sex !== prev.sex) renderPanel(st, st.route !== prev.route);
     renderMap(st);
     renderControls(st);
   });
@@ -334,6 +380,17 @@ async function boot() {
     const i = here.findIndex((s) => s.id === st.style);
     if (here.length > 1) setStyle(here[(i + 1) % here.length].id);
   };
+  // the F / M pair: the first entry (Not set) has no button; pressing the active one goes back to it
+  const sexesEl = $('#sexes');
+  const sexButtons = sexes.slice(1);
+  sexesEl.innerHTML = sexButtons.map((x) => `<button data-sex="${escapeHtml(x.id)}" aria-pressed="false" aria-label="Biological ${escapeHtml(x.name.toLowerCase())}">${escapeHtml(x.short || x.name)}</button>`).join('');
+  sexesEl.hidden = !sexButtons.length;
+  sexesEl.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-sex]');
+    if (!b) return;
+    hideHint();
+    setSex(b.dataset.sex === store.get().sex ? sexes[0].id : b.dataset.sex);
+  });
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
 
   // ------------------------------------------------------------------ settings (cog)
@@ -347,6 +404,8 @@ async function boot() {
     { id: 'style', label: 'Drawings', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
       value: (st) => (styleIn(st.style, st.view) ? st.style : styles[0].id), set: (v) => setStyle(v),
       off: (v, st) => !styleIn(v, st.view) },
+    { id: 'sex', label: 'Biological sex', opts: sexes.map((x) => [x.id, x.name]), hide: sexes.length < 2,
+      value: (st) => st.sex, set: (v) => setSex(v) },
     { id: 'joints', label: 'Joint markers', opts: [['on', 'Show'], ['off', 'Hide']],
       value: (st) => (st.joints ? 'on' : 'off'), set: (v) => { prefs.set('joints', v === 'on'); store.set({ joints: v === 'on' }); } },
     { id: 'mirror', label: 'Mirror', opts: [['off', 'Off'], ['on', 'On']],
@@ -381,9 +440,9 @@ async function boot() {
   document.addEventListener('pointerdown', (e) => { if (!settingsEl.hidden && !e.target.closest('.settings-wrap')) setSettings(false); });
   settingsEl.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); setSettings(false); settingsBtn.focus(); } });
 
-  const search = createSearch({ input: $('#search'), list: $('#search-results'), graph, onChoose: (nav) => navigate(nav, { zoom: true }) });
+  search = createSearch({ input: $('#search'), list: $('#search-results'), graph, onChoose: (nav) => navigate(nav, { zoom: true }) });
 
-  const browse = $('#browse');
+  browse = $('#browse');
   const browseBtn = $('#browse-toggle');
   buildBrowse(browse, graph);
   const setBrowse = (open) => { browse.hidden = !open; browseBtn.setAttribute('aria-expanded', String(open)); if (open) browse.querySelector('summary')?.focus(); };
@@ -465,6 +524,7 @@ async function boot() {
     else if (e.key === '0') zoom.home();
     else if (e.key === 'b' || e.key === 'B') toggleView();
     else if (e.key === 'd' || e.key === 'D') toggleStyle();
+    else if (e.key === 's' || e.key === 'S') cycleSex();
   });
 
   window.addEventListener('hashchange', onRoute);
@@ -473,9 +533,10 @@ async function boot() {
   document.body.classList.add('ready');
 
   if (new URLSearchParams(location.search).has('debug')) {
-    import('./validate.js').then((m) => m.validate({ graph, map }));
+    import('./validate.js').then((m) => m.validate({ raw, map }));
   }
-  window.corpus = { graph, map, store, zoom }; // handy for poking around in the console
+  // handy for poking around in the console; graph is the current sex's graph
+  window.corpus = { get graph() { return graph; }, graphFor, map, store, zoom };
 }
 
 function escapeHtml(s) {

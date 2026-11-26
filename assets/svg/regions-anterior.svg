@@ -26,10 +26,11 @@
 <g class="rg" data-id="lower-right-abdomen"><path d="M156 528L200 525L210 560L226 590L198 582L168 562L156 546Z"/></g>
 <g class="rg" data-id="lower-middle-abdomen"><path d="M200 525L280 525L270 560L254 590L240 596L226 590L210 560Z"/></g>
 <g class="rg" data-id="lower-left-abdomen"><path d="M324 546L312 562L282 582L254 590L270 560L280 525L324 528Z"/></g>
-<g class="rg" data-id="hip-groin" data-side="right"><path d="M156 546L168 562L198 582L226 590L236 606L230 630L200 640L170 636L138 628L132 600L140 566Z"/></g>
-<g class="rg" data-id="hip-groin" data-side="left"><path d="M340 566L348 600L342 628L310 636L280 640L250 630L244 606L254 590L282 582L312 562L324 546Z"/></g>
-<g class="rg" data-id="thigh" data-side="right"><path d="M138 628L170 636L200 640L230 630L236 660L232 780L226 826L180 826L164 760L150 690Z"/></g>
-<g class="rg" data-id="thigh" data-side="left"><path d="M330 690L316 760L300 826L254 826L248 780L244 660L250 630L280 640L310 636L342 628Z"/></g>
+<g class="rg" data-id="hip-groin" data-side="right"><path d="M156 546L168 562L198 582L226 590L230 606L224 630L200 640L170 636L138 628L132 600L140 566Z"/></g>
+<g class="rg" data-id="hip-groin" data-side="left"><path d="M340 566L348 600L342 628L310 636L280 640L256 630L250 606L254 590L282 582L312 562L324 546Z"/></g>
+<g class="rg" data-id="genitals"><path d="M226 590L240 596L254 590L250 606L256 630L248 662L240 678L232 662L224 630L230 606Z"/></g>
+<g class="rg" data-id="thigh" data-side="right"><path d="M138 628L170 636L200 640L224 630L232 662L232 780L226 826L180 826L164 760L150 690Z"/></g>
+<g class="rg" data-id="thigh" data-side="left"><path d="M330 690L316 760L300 826L254 826L248 780L248 662L256 630L280 640L310 636L342 628Z"/></g>
 <g class="rg" data-id="knee" data-side="right"><path d="M180 826L226 826L232 850L230 890L222 910L184 910L174 890L172 850Z"/></g>
 <g class="rg" data-id="knee" data-side="left"><path d="M308 850L306 890L296 910L258 910L250 890L248 850L254 826L300 826Z"/></g>
 <g class="rg" data-id="lower-leg" data-side="right"><path d="M184 910L222 910L230 960L230 1060L226 1100L190 1100L180 1060L176 960Z"/></g>

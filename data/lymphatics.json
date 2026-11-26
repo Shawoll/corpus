@@ -189,7 +189,8 @@
         "pectoralis-minor",
         "serratus-anterior",
         "latissimus-dorsi",
-        "skin"
+        "skin",
+        "breast"
       ],
       "issues": [
         {
@@ -241,7 +242,10 @@
       "collects": [
         "kidney",
         "ureter",
-        "adrenal-gland"
+        "adrenal-gland",
+        "testis",
+        "ovary",
+        "uterine-tube"
       ],
       "drains": [
         "cisterna-chyli"
@@ -287,7 +291,12 @@
         "bladder",
         "pelvic-floor",
         "rectum",
-        "ureter"
+        "ureter",
+        "uterus",
+        "vagina",
+        "prostate",
+        "seminal-vesicle",
+        "vas-deferens"
       ],
       "drains": [
         "para-aortic-lymph-nodes"
@@ -309,7 +318,10 @@
         "gluteus-maximus",
         "rectus-abdominis",
         "external-oblique",
-        "skin"
+        "skin",
+        "vulva",
+        "scrotum",
+        "penis"
       ],
       "drains": [
         "iliac-lymph-nodes"

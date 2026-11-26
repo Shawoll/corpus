@@ -18,10 +18,17 @@ const REGION_GROUPS = [
   ['Abdomen', ['upper-right-abdomen', 'upper-middle-abdomen', 'upper-left-abdomen', 'right-flank', 'around-navel', 'left-flank', 'lower-right-abdomen', 'lower-middle-abdomen', 'lower-left-abdomen']],
   ['Arms', ['shoulder', 'armpit', 'upper-arm', 'elbow', 'forearm', 'wrist-hand']],
   ['Legs', ['hip-groin', 'thigh', 'knee', 'back-of-knee', 'lower-leg', 'ankle-foot', 'heel']],
+  ['Pelvis', ['genitals']],
   ['Back', ['upper-back', 'mid-back', 'lower-back', 'buttock']],
 ];
+// a list item is a string or { text, sex } (functions, red flags)
+const txt = (x) => (typeof x === 'string' ? x : x?.text ?? '');
 
 export function createPanel(graph) {
+  // with no biological sex chosen, sex-specific text is still shown, tagged "female" / "male"
+  let tagSex = false;
+  const sexTag = (x) => (tagSex && x && typeof x === 'object' && x.sex ? `<span class="sex-tag">${esc(x.sex)}</span>` : '');
+  const sexHint = () => (tagSex ? '<div class="note-card">Reproductive organs appear once you choose a biological sex: <b>F</b> or <b>M</b> on the map (or <span class="kbd">S</span>), or in settings.</div>' : '');
   const navFor = (k) => {
     const { id, side } = parseKey(k);
     return `s/${encodeURIComponent(id)}${side ? '/' + side : ''}`;
@@ -82,9 +89,9 @@ export function createPanel(graph) {
 
   const section = (title, body, extra = '') => (body ? `<section class="section"><h3>${title}${extra}</h3>${body}</section>` : '');
   const facts = (list) => `<div class="facts">${list.filter((f) => f[1]).map(([k, v]) => `<div class="fact"><b>${esc(k)}</b>${esc(v)}</div>`).join('')}</div>`;
-  const issuesList = (issues) => `<ul class="issues">${issues.map((i) => `<li><strong>${esc(i.name)}</strong><span>${esc(i.note)}</span></li>`).join('')}</ul>`;
+  const issuesList = (issues) => `<ul class="issues">${issues.map((i) => `<li><strong>${esc(i.name)}${sexTag(i)}</strong><span>${esc(i.note)}</span></li>`).join('')}</ul>`;
   const disclaimer = () => `<p class="disclaimer">${esc(graph.regionsData.disclaimer || 'Educational only, not medical advice.')} ${esc(graph.regionsData.emergency || '')}</p>`;
-  const flagsCard = (title, list, emergency = true) => `<div class="flags"><h4>${esc(title)}</h4><ul>${list.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>${emergency ? `<p class="emergency">${esc(graph.regionsData.emergency || '')}</p>` : ''}</div>`;
+  const flagsCard = (title, list, emergency = true) => `<div class="flags"><h4>${esc(title)}</h4><ul>${list.map((f) => `<li>${esc(txt(f))}${sexTag(f)}</li>`).join('')}</ul>${emergency ? `<p class="emergency">${esc(graph.regionsData.emergency || '')}</p>` : ''}</div>`;
 
   function firstAka(n) {
     const members = new Set((n.members || []).map((m) => normalize(m.name)));
@@ -232,6 +239,7 @@ export function createPanel(graph) {
       const notes = side ? [n.sideNotes[side]] : Object.values(n.sideNotes);
       h += `<div class="note-card">${notes.map(esc).join('<br>')}</div>`;
     }
+    if (n.sexNotes?.length) h += `<div class="note-card">${n.sexNotes.map((x) => `${esc(x.text)}${sexTag(x)}`).join('<br>')}</div>`;
     if (n.noJoints) h += `<div class="note-card">${esc(n.noJoints)}</div>`;
     if (n.listOnly) h += `<div class="note-card">${typeof n.listOnly === 'string' ? esc(n.listOnly) : 'Not drawn on the map yet: it lies deep inside, under other structures.'} You can still reach it through search, the browse list and its connections.</div>`;
 
@@ -244,10 +252,10 @@ export function createPanel(graph) {
     }
     h += linksSection(n, keys, ctx, st);
     const does = n.functions || n.actions;
-    if (does?.length) h += section('What it does', `<ul class="issues">${does.map((x) => `<li><span>${esc(x)}</span></li>`).join('')}</ul>`);
+    if (does?.length) h += section('What it does', `<ul class="issues">${does.map((x) => `<li><span>${esc(txt(x))}${sexTag(x)}</span></li>`).join('')}</ul>`);
     if (n.members?.length) {
       const focus = route.member ? normalize(route.member) : null;
-      h += section(esc(n.membersLabel || 'Includes'), `<ul class="members">${n.members.map((m) => `<li class="${focus && normalize(m.name) === focus ? 'focus' : ''}"><div><span class="mn">${esc(m.name)}</span>${m.latin && m.latin !== m.name ? `<span class="ml">${esc(m.latin)}</span>` : ''}</div>${m.note ? `<div class="mt">${esc(m.note)}</div>` : ''}</li>`).join('')}</ul>`, ` <span class="n">${n.members.length}</span>`);
+      h += section(esc(n.membersLabel || 'Includes'), `<ul class="members">${n.members.map((m) => `<li class="${focus && normalize(m.name) === focus ? 'focus' : ''}"><div><span class="mn">${esc(m.name)}${sexTag(m)}</span>${m.latin && m.latin !== m.name ? `<span class="ml">${esc(m.latin)}</span>` : ''}</div>${m.note ? `<div class="mt">${esc(m.note)}</div>` : ''}</li>`).join('')}</ul>`, ` <span class="n">${n.members.length}</span>`);
     }
     if (n.issues?.length) h += section('Common issues', issuesList(n.issues));
     else {
@@ -292,7 +300,7 @@ export function createPanel(graph) {
     h += section('In this area', chips(graph.regionStructures(r, side), { side: ctxSide }));
     h += section('Common causes of pain here', `<div class="causes">${r.causes.map((c) => {
       const rel = c.related?.length ? chips(graph.regionStructures({ structures: c.related, paired: r.paired, side: r.side }, side), { side: ctxSide }) : '';
-      return `<article class="cause"><div class="cause-head"><span class="cause-title">${esc(c.title)}</span><span class="urg" data-u="${esc(c.urgency)}">${esc(URG[c.urgency] || c.urgency)}</span></div><p>${esc(c.signs)}</p>${rel}</article>`;
+      return `<article class="cause"><div class="cause-head"><span class="cause-title">${esc(c.title)}${sexTag(c)}</span><span class="urg" data-u="${esc(c.urgency)}">${esc(URG[c.urgency] || c.urgency)}</span></div><p>${esc(c.signs)}</p>${rel}</article>`;
     }).join('')}</div>`);
     if (r.redFlags?.length) h += section('Get help urgently if', flagsCard('Warning signs for this area', r.redFlags));
     h += section('General warning signs', flagsCard('Call for help straight away with', graph.regionsData.redFlags || [], false));
@@ -307,6 +315,7 @@ export function createPanel(graph) {
     h += st.view === 'posterior'
       ? `<div class="note-card">You’re looking at the figure from behind, so its right side is on your right, like your own body. Switch to <b>Front</b> (bottom left of the map) for the chest, belly and face.</div>`
       : `<div class="note-card">The figure faces you, so its right side is on your left. ${st.mirror ? 'Mirror is on: the figure now matches your own body like a mirror.' : 'Turn on <b>Mirror</b> (bottom left of the map) to match it to your own body.'} Switch to <b>Back</b> for the back and buttocks.</div>`;
+    h += sexHint();
     h += section('How urgent', `<div class="legend-urg">${Object.entries(URG).map(([k, v]) => `<span class="urg" data-u="${k}">${v}</span>`).join('')}</div>`);
     const lists = REGION_GROUPS.map(([name, ids]) => {
       const items = ids.map((id) => graph.regions.get(id)).filter(Boolean);
@@ -331,6 +340,7 @@ export function createPanel(graph) {
     let h = eyebrow(['A connected map of the body']);
     h += `<p class="home-lede">The human body as one system. Tap any bone, joint, ligament, tendon, muscle, organ, nerve, blood vessel or lymph node to see what it is, what it connects to and what commonly goes wrong.</p>`;
     h += `<p class="home-note" role="note"><b>Not a diagnostic tool.</b> ${esc(graph.regionsData.disclaimer || 'Educational only, not medical advice.')} ${esc(graph.regionsData.emergency || '')}</p>`;
+    h += sexHint();
     h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${stat(muscles, 'muscles')}<div class="stat"><b>${organs}</b><span>organs</span></div>${stat(nerves, 'nerves')}${stat(vessels, 'vessels')}${stat(lymph, 'lymphatics')}${stat(connective, 'ligaments & tendons')}<div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
     h += section('How to use it', `<ul class="howto">
       <li><span class="k">i</span><span><b>Tap</b> a structure. It turns red, everything it connects to turns teal, and the joints between them pulse.</span></li>
@@ -339,7 +349,8 @@ export function createPanel(graph) {
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
       <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the muscles of the back, and every other layer seen from behind.</span></li>
       <li><span class="k">vi</span><span><b>Simple / Real</b> (bottom left of the map, or <span class="kbd">D</span>) switches between simple diagrams and realistic drawings. The skeleton is drawn both ways; the other layers are simple diagrams for now.</span></li>
-      <li><span class="k">vii</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
+      <li><span class="k">vii</span><span><b>F / M</b> (bottom left of the map, or <span class="kbd">S</span>) sets the biological sex, which adds the reproductive organs and the conditions that only affect one sex. Press it again to clear it.</span></li>
+      <li><span class="k">viii</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);
     h += section('Legend', `<div class="legend">
       <div><span class="sq sel"></span>Selected</div>
@@ -361,6 +372,7 @@ export function createPanel(graph) {
 
   return {
     render(st) {
+      tagSex = !st.sex || st.sex === 'none';
       const r = st.route;
       let body;
       if (r.view === 'node') body = nodeView(r, st);

@@ -5,6 +5,7 @@ export function buildBrowse(container, graph) {
   const item = (n) =>
     `<li><button data-nav="s/${encodeURIComponent(n.id)}">${esc(n.name)}${n.listOnly ? '<span class="muted">list only</span>' : n.paired ? '<span class="muted">L · R</span>' : ''}</button></li>`;
   const tree = (g) => {
+    if (!graph.groupIds(g.id).length) return ''; // e.g. a group left empty by the biological sex filter
     const members = g.members.map((id) => graph.node(id)).filter(Boolean);
     const count = g.layer === 'skeleton' ? graph.groupCount(g.id) : graph.groupIds(g.id).length;
     return `<li><details><summary>${esc(g.name)}<span class="count">${count}</span></summary><ul>

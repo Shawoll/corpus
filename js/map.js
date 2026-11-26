@@ -3,6 +3,7 @@
 // one frame (body's right at x < 240), so a view with "flip" is shown through the mirror transform on #world.
 // A layer may have one drawing per style (schematic, realistic) in a view: each gets its own <g class="layer"
 // data-style=…> with the same ids, and only the current style's group is displayed.
+// A sex-specific shape carries data-sex="female|male" and is hidden (.sex-off) unless that biological sex is chosen.
 const NS = 'http://www.w3.org/2000/svg';
 const el = (tag, attrs = {}) => {
   const e = document.createElementNS(NS, tag);
@@ -19,7 +20,8 @@ export function createMap({ svg, graph, onPick, onHover }) {
   const rindex = new Map(); // region key -> elements (all views)
   const keyViews = new Map(); // structure key -> Set(view) where it is drawn and tappable (not .back)
   const regionViews = new Map(); // region key -> Set(view)
-  const drawn = new Map(); // view -> Set(structure key), including .back shapes
+  const drawn = new Map(); // view -> Map(structure key -> Set(data-sex value, '' when untagged)), including .back shapes
+  const sexed = []; // elements with data-sex
   const regionDrawn = new Map(); // view -> Set(region key)
   const layerEls = new Map(); // layer id -> [<g class="layer">] (one per view it is drawn in)
   const viewEls = new Map(); // view id -> <g class="view">
@@ -27,7 +29,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
   const variants = []; // [{ layer, view, style, keys: Set, base: Set }] for the ?debug check
   let viewIds = [];
   const add = (m, k, v) => { if (!m.has(k)) m.set(k, new Set()); m.get(k).add(v); };
-  const shown = (e) => !e.closest('.layer.off, .layer.style-off, .view.off');
+  const shown = (e) => !e.closest('.layer.off, .layer.style-off, .view.off, .sex-off');
   let marked = [];
   let hovered = [];
 
@@ -50,7 +52,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
       const vg = el('g', { class: 'view', 'data-view': V.id });
       layersG.appendChild(vg);
       viewEls.set(V.id, vg);
-      drawn.set(V.id, new Set());
+      drawn.set(V.id, new Map());
       regionDrawn.set(V.id, new Set());
       for (const L of layers) {
         if (!L.svgs?.[V.id]) continue;
@@ -80,7 +82,8 @@ export function createMap({ svg, graph, onPick, onHover }) {
         e.dataset.key = k;
         if (!index.has(k)) index.set(k, []);
         index.get(k).push(e);
-        drawn.get(V.id).add(k);
+        add(drawn.get(V.id), k, e.dataset.sex || '');
+        if (e.dataset.sex) sexed.push(e);
         if (!e.classList.contains('back')) add(keyViews, k, V.id);
         const b = e.querySelector(':scope > .b');
         if (b) { const hit = b.cloneNode(false); hit.setAttribute('class', 'hit'); e.appendChild(hit); }
@@ -140,6 +143,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
     svg.classList.toggle('no-joints', !v.joints);
     for (const [id, g] of viewEls) g.classList.toggle('off', id !== v.view);
     for (const { g, style } of styled) g.classList.toggle('style-off', style !== v.style);
+    for (const e of sexed) e.classList.toggle('sex-off', e.dataset.sex !== v.sex);
     for (const [id, gs] of layerEls) {
       const on = v.visible.has(id);
       for (const g of gs) {
@@ -229,7 +233,9 @@ export function createMap({ svg, graph, onPick, onHover }) {
     has: (k) => index.has(k),
     keys: () => [...index.keys()],
     regionKeys: () => [...rindex.keys()],
-    drawnByView: () => drawn, // view -> Set(structure key), for the ?debug check
+    // view -> Set(structure key) drawn for one sex (untagged shapes and that sex's), and the tagged map for ?debug
+    drawnByView: (sex = 'none') => new Map([...drawn].map(([v, m]) => [v, new Set([...m].filter(([, t]) => t.has('') || t.has(sex)).map(([k]) => k))])),
+    drawnTagged: () => drawn,
     regionsByView: () => regionDrawn,
     variants: () => variants, // per-style drawings of a layer, for the ?debug check (same keys as the default)
     elements: (k) => index.get(k) || [],

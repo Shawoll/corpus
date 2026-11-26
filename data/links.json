@@ -742,6 +742,176 @@
         "skin"
       ],
       "note": "through small branches to the skin above them"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "ovarian-vein"
+      ],
+      "to": [
+        "inferior-vena-cava"
+      ],
+      "side": "right",
+      "sex": "female"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "ovarian-vein"
+      ],
+      "to": [
+        "renal-vein"
+      ],
+      "side": "left",
+      "sex": "female"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "testicular-vein"
+      ],
+      "to": [
+        "inferior-vena-cava"
+      ],
+      "side": "right",
+      "sex": "male"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "testicular-vein"
+      ],
+      "to": [
+        "renal-vein"
+      ],
+      "side": "left",
+      "sex": "male"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "ovary",
+        "uterine-tube"
+      ],
+      "to": [
+        "ovarian-vein"
+      ],
+      "sex": "female"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "testis",
+        "epididymis"
+      ],
+      "to": [
+        "testicular-vein"
+      ],
+      "sex": "male"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "uterus",
+        "vagina",
+        "vulva",
+        "prostate",
+        "seminal-vesicle",
+        "vas-deferens",
+        "penis",
+        "scrotum"
+      ],
+      "to": [
+        "iliac-vein"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "breast"
+      ],
+      "to": [
+        "axillary-vein",
+        "subclavian-vein"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "ovary"
+      ],
+      "to": [
+        "uterine-tube"
+      ],
+      "note": "the egg",
+      "sex": "female"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "uterine-tube"
+      ],
+      "to": [
+        "uterus"
+      ],
+      "note": "the egg",
+      "sex": "female"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "testis"
+      ],
+      "to": [
+        "epididymis"
+      ],
+      "note": "sperm",
+      "sex": "male"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "epididymis"
+      ],
+      "to": [
+        "vas-deferens"
+      ],
+      "note": "sperm",
+      "sex": "male"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "vas-deferens",
+        "seminal-vesicle"
+      ],
+      "to": [
+        "prostate"
+      ],
+      "note": "semen, through the ejaculatory ducts",
+      "sex": "male"
+    },
+    {
+      "type": "regulates",
+      "from": [
+        "pituitary"
+      ],
+      "to": [
+        "ovary",
+        "testis"
+      ],
+      "note": "through FSH and LH"
+    },
+    {
+      "type": "contains",
+      "from": [
+        "scrotum"
+      ],
+      "to": [
+        "testis",
+        "epididymis"
+      ],
+      "sex": "male"
     }
   ]
 }

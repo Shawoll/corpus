@@ -130,6 +130,8 @@
         "superior-mesenteric-artery",
         "renal-artery",
         "inferior-mesenteric-artery",
+        "ovarian-artery",
+        "testicular-artery",
         "iliac-artery"
       ],
       "supplies": [
@@ -454,9 +456,10 @@
         "larynx",
         "parathyroid",
         "levator-scapulae",
-        "scalenes"
+        "scalenes",
+        "breast"
       ],
-      "suppliesNote": "Through the thyrocervical trunk (thyroid, neck and shoulder muscles), the dorsal scapular artery, and the internal thoracic artery, which runs down inside the front of the chest beside the breastbone.",
+      "suppliesNote": "Through the thyrocervical trunk (thyroid, neck and shoulder muscles), the dorsal scapular artery, and the internal thoracic artery, which runs down inside the front of the chest beside the breastbone and also feeds the inner part of the breast.",
       "membersLabel": "Branches",
       "members": [
         {
@@ -500,9 +503,10 @@
         "deltoid",
         "rotator-cuff",
         "humerus",
-        "teres-major"
+        "teres-major",
+        "breast"
       ],
-      "suppliesNote": "Through the thoracoacromial, lateral thoracic, subscapular and circumflex humeral arteries.",
+      "suppliesNote": "Through the thoracoacromial, lateral thoracic, subscapular and circumflex humeral arteries. The lateral thoracic artery also feeds the outer part of the breast.",
       "membersLabel": "Branches",
       "members": [
         {
@@ -799,9 +803,18 @@
         "hip-bone",
         "rectum",
         "ureter",
-        "piriformis"
+        "piriformis",
+        "uterus",
+        "uterine-tube",
+        "vagina",
+        "vulva",
+        "prostate",
+        "seminal-vesicle",
+        "vas-deferens",
+        "penis",
+        "scrotum"
       ],
-      "suppliesNote": "The pelvic organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
+      "suppliesNote": "The pelvic organs, reproductive organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator, uterine, vesical and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
       "membersLabel": "Parts",
       "members": [
         {
@@ -823,7 +836,47 @@
           "name": "Inferior epigastric artery",
           "latin": "Arteria epigastrica inferior",
           "note": "Runs up behind the rectus abdominis."
+        },
+        {
+          "name": "Uterine artery",
+          "latin": "Arteria uterina",
+          "sex": "female",
+          "note": "Runs across the floor of the pelvis to the side of the uterus and up along it, also feeding the cervix, the vagina and the uterine tube."
+        },
+        {
+          "name": "Internal pudendal artery",
+          "latin": "Arteria pudenda interna",
+          "note": "Leaves the pelvis with the pudendal nerve to the perineum, the external genitals and the lower end of the bowel."
         }
+      ]
+    },
+    {
+      "id": "ovarian-artery",
+      "name": "Ovarian artery",
+      "latin": "Arteria ovarica",
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": true,
+      "sex": "female",
+      "summary": "A long, thin artery from the front of the abdominal aorta just below the renal arteries. It runs down on the psoas muscle, crosses the iliac vessels at the rim of the pelvis and reaches the ovary in a fold of tissue. The ovaries form high in the abdomen, which is why their arteries start so high.",
+      "supplies": [
+        "ovary",
+        "uterine-tube"
+      ],
+      "suppliesNote": "It joins the uterine artery beside the uterus, so the ovary and the tube are fed from both."
+    },
+    {
+      "id": "testicular-artery",
+      "name": "Testicular artery",
+      "latin": "Arteria testicularis",
+      "kind": "artery",
+      "group": "arteries-abdomen",
+      "paired": true,
+      "sex": "male",
+      "summary": "A long, thin artery from the front of the abdominal aorta just below the renal arteries. It runs down on the psoas muscle and through the groin (the inguinal canal) in the spermatic cord to the testis. The testes form high in the abdomen and descend before birth, which is why their arteries start so high.",
+      "supplies": [
+        "testis",
+        "epididymis"
       ]
     },
     {
@@ -1149,7 +1202,8 @@
       "issues": [
         {
           "name": "Pressure in late pregnancy",
-          "note": "Lying flat on the back late in pregnancy can squash it and cause dizziness or faintness. Lying on the left side relieves it."
+          "note": "Lying flat on the back late in pregnancy can squash it and cause dizziness or faintness. Lying on the left side relieves it.",
+          "sex": "female"
         }
       ]
     },
@@ -1232,6 +1286,38 @@
           "name": "External iliac vein",
           "latin": "Vena iliaca externa",
           "note": "From the groin along the rim of the pelvis."
+        }
+      ]
+    },
+    {
+      "id": "ovarian-vein",
+      "name": "Ovarian vein",
+      "latin": "Vena ovarica",
+      "kind": "vein",
+      "group": "veins-abdomen",
+      "paired": true,
+      "sex": "female",
+      "summary": "Drains the ovary and the uterine tube, starting as a web of veins beside the ovary. The right one empties into the inferior vena cava, the left one into the left renal vein.",
+      "issues": [
+        {
+          "name": "Pelvic congestion",
+          "note": "Widened ovarian veins can cause a dull, dragging pelvic ache that is worse after standing. See a doctor about pelvic pain that lasts."
+        }
+      ]
+    },
+    {
+      "id": "testicular-vein",
+      "name": "Testicular vein",
+      "latin": "Vena testicularis",
+      "kind": "vein",
+      "group": "veins-abdomen",
+      "paired": true,
+      "sex": "male",
+      "summary": "Starts as a web of veins around the testicular artery in the spermatic cord (the pampiniform plexus), which cools the blood flowing in, then joins into one vein in the abdomen. The right one empties into the inferior vena cava, the left one into the left renal vein.",
+      "issues": [
+        {
+          "name": "Varicocele",
+          "note": "Swollen veins above the testicle that feel like a bag of worms, much more often on the left because of the way its vein drains. Usually harmless, but have any swelling checked."
         }
       ]
     },

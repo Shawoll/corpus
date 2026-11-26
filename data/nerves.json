@@ -954,9 +954,10 @@
         "rectum",
         "piriformis"
       ],
-      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone), short direct branches (piriformis), and the pudendal nerve, which also works the external anal sphincter.",
+      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone), short direct branches (piriformis), and the pudendal nerve, which has its own page.",
       "branches": [
-        "sciatic-nerve"
+        "sciatic-nerve",
+        "pudendal-nerve"
       ],
       "membersLabel": "Branches",
       "members": [
@@ -971,13 +972,55 @@
           "note": "Gluteus maximus."
         },
         {
-          "name": "Pudendal nerve",
-          "latin": "Nervus pudendus",
-          "note": "The pelvic floor, the sphincters and the skin of the genitals and perineum."
-        },
-        {
           "name": "Posterior femoral cutaneous nerve",
           "note": "Skin of the back of the thigh."
+        }
+      ]
+    },
+    {
+      "id": "pudendal-nerve",
+      "name": "Pudendal nerve",
+      "latin": "Nervus pudendus",
+      "kind": "peripheral",
+      "group": "leg-nerves",
+      "paired": true,
+      "roots": "S2–S4",
+      "carries": "Movement and sensation",
+      "summary": "Leaves the pelvis below the piriformis, hooks around the ischial spine and runs forward in a canal along the side wall of the pelvic outlet to the perineum. It works the pelvic floor and the sphincters that keep urine and stool in, and gives feeling to the genitals and the skin around the anus. Drawn in the back view.",
+      "innervates": [
+        "pelvic-floor",
+        "rectum",
+        "vulva",
+        "vagina",
+        "penis",
+        "scrotum"
+      ],
+      "innervatesNote": "The external anal and urethral sphincters, the pelvic floor, and the skin and erectile tissue of the genitals.",
+      "membersLabel": "Branches",
+      "members": [
+        {
+          "name": "Inferior rectal nerve",
+          "latin": "Nervus rectalis inferior",
+          "note": "The external anal sphincter and the skin around the anus."
+        },
+        {
+          "name": "Perineal nerve",
+          "latin": "Nervus perinealis",
+          "note": "The muscles of the perineum, the urethral sphincter and the skin of the scrotum or labia."
+        },
+        {
+          "name": "Dorsal nerve of the penis or clitoris",
+          "note": "Feeling in the penis or the clitoris."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Pudendal neuralgia",
+          "note": "Burning or stabbing pain in the genitals, the perineum or around the anus, worse sitting and eased by standing or lying down. Long cycling and childbirth can set it off. See a doctor."
+        },
+        {
+          "name": "Numbness in the saddle area",
+          "note": "New numbness around the genitals or bottom with bladder or bowel trouble can mean cauda equina syndrome. Get emergency care."
         }
       ]
     },

@@ -23,6 +23,22 @@
       "short": "Real"
     }
   ],
+  "sexes": [
+    {
+      "id": "none",
+      "name": "Not set"
+    },
+    {
+      "id": "female",
+      "name": "Female",
+      "short": "F"
+    },
+    {
+      "id": "male",
+      "name": "Male",
+      "short": "M"
+    }
+  ],
   "viewBox": [
     0,
     0,

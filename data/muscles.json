@@ -1120,7 +1120,15 @@
       "insertionNote": "The coccyx and the tissue around the anus and urethra",
       "nerve": "Sacral nerves (S3–S4) and the pudendal nerve",
       "actions": [
-        "Support the bladder, bowel and (in women) the uterus",
+        "Support the bladder and bowel",
+        {
+          "text": "Support the uterus and vagina",
+          "sex": "female"
+        },
+        {
+          "text": "Support the prostate",
+          "sex": "male"
+        },
         "Help keep continence",
         "Relax to let you pass urine and stool"
       ],
@@ -1145,11 +1153,17 @@
         },
         {
           "name": "Pelvic organ prolapse",
-          "note": "A heavy, dragging feeling or a bulge in the vagina."
+          "note": "A heavy, dragging feeling or a bulge in the vagina.",
+          "sex": "female"
         },
         {
           "name": "Pelvic floor tension",
           "note": "Pelvic pain, painful sex or difficulty emptying when the muscles can’t relax."
+        },
+        {
+          "name": "Weak pelvic floor after prostate surgery",
+          "sex": "male",
+          "note": "Leaking urine after prostate surgery is common at first. Pelvic floor exercises help most men regain control."
         }
       ]
     },
