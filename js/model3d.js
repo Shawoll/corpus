@@ -125,8 +125,9 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
           o.userData.id = k.split(':')[0];
           o.userData.layer = layer;
           o.material = new THREE.MeshStandardMaterial({ roughness: 0.72, metalness: 0 });
-          // joint markers sit where bones meet, often inside a socket: drawn on top, like the 2D dots
-          if (o.userData.joint) { o.material.depthTest = false; o.renderOrder = 8; }
+          // joint markers sit where bones meet, often inside a socket: hidden by bone in front of them, except when
+          // they are part of the selection or hovered (render() then draws them on top, like the 2D dots)
+          if (o.userData.joint) o.renderOrder = 8;
           if (!index.has(k)) index.set(k, []);
           index.get(k).push(o);
           meshes.push(o);
@@ -314,7 +315,9 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
       if (bs.length > 1 && bs.every((x) => x.getSize(new THREE.Vector3()).length() < 0.12)) b = bs[0];
     }
     const c = b.getCenter(new THREE.Vector3());
-    const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, 0.05);
+    // a joint alone is a few small markers: keep enough of its bones in view to see where it is
+    const joints = keys.every((k) => (index.get(k) || []).every((m) => m.userData.joint));
+    const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, joints ? 0.11 : 0.05);
     const dir = camera.position.clone().sub(controls.target).normalize();
     moveTo(c.clone().add(dir.multiplyScalar(fitDistance(r) * 1.4)), c);
   }
@@ -344,7 +347,10 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
       const k = m.userData.key;
       m.visible = shownFor(m, v.sex);
       // joint markers: with the joints on and the skeleton in focus, as in 2D (or when they're part of the selection)
-      if (m.userData.joint) m.visible = !v.hurt && (v.sel.has(k) || v.rel.has(k) || (!!v.joints && v.active === 'skeleton'));
+      if (m.userData.joint) {
+        m.visible = !v.hurt && (v.sel.has(k) || v.rel.has(k) || (!!v.joints && v.active === 'skeleton'));
+        m.material.depthTest = !(v.sel.has(k) || v.rel.has(k) || hovered.has(k));
+      }
       const mat = m.material;
       const sel = v.sel.has(k), rel = v.rel.has(k);
       const context = m.userData.layer !== v.active;
@@ -394,8 +400,13 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     return ray.intersectObjects(pool, false);
   }
   // the first hit in the layer in focus (context layers are see-through), else the first hit at all
-  // a joint marker wins, since it is drawn on top of the bones
-  const topOf = (h) => (h.find((x) => x.object.userData.joint) || h.find((x) => x.object.userData.layer === state?.active) || h[0])?.object.userData.key || null;
+  // a joint marker wins when it shows: drawn on top (selected, related, hovered), or not behind the first thing hit
+  const topOf = (h) => {
+    const j = h.find((x) => x.object.userData.joint);
+    const solid = h.find((x) => !x.object.userData.joint);
+    if (j && (!j.object.material.depthTest || !solid || j.distance <= solid.distance + 0.002)) return j.object.userData.key;
+    return (h.find((x) => x.object.userData.layer === state?.active) || h[0])?.object.userData.key || null;
+  };
   // a near miss still counts, so thin nerves and vessels can be tapped (the 2D map's wider .hit strokes):
   // rings of rays around the point, nearest ring first; fingers get wider rings
   const coarse = matchMedia('(pointer: coarse)');

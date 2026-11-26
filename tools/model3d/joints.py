@@ -118,6 +118,6 @@ def build(bones, groups):
             else:
                 pts += contact(bones[site[0]], bones[site[1]], many)
         if pts:
-            v, f = markers(pts, 0.0035 if small else 0.0055)
+            v, f = markers(pts, 0.0022 if small else 0.0034)
             out[jk] = (v, f, j['class'])
     return out
