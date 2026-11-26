@@ -1,5 +1,5 @@
 {
-  "note": "Body areas for “Where does it hurt?”. Ids match data-id attributes in assets/svg/regions-anterior.svg and, for areas also seen from behind, regions-posterior.svg. \"view\": \"back\" marks an area on the back of the body, which needs a shape in the posterior drawing. Urgency: self-care | doctor | urgent.",
+  "note": "Body areas for “Where does it hurt?”. Ids match data-id attributes in assets/svg/regions-anterior.svg and, for areas also seen from behind, regions-posterior.svg. \"view\": \"back\" marks an area on the back of the body, which needs a shape in the posterior drawing. Urgency: self-care | doctor | urgent. \"formerly\" lists the old ids of an area that was split or renamed: their addresses open this area.",
   "disclaimer": "Corpus is an educational map, not a diagnosis. It can’t examine you or know your history. If you are worried about a symptom, talk to a doctor or pharmacist.",
   "emergency": "In an emergency call your local emergency number: 112 (EU), 999 (UK), 911 (US).",
   "redFlags": [
@@ -1232,34 +1232,56 @@
       ]
     },
     {
-      "id": "wrist-hand",
-      "name": "Wrist & hand",
+      "id": "wrist",
+      "name": "Wrist",
       "paired": true,
+      "formerly": [
+        "wrist-hand"
+      ],
       "structures": [
         "carpals",
-        "metacarpals",
-        "hand-phalanges",
         "wrist",
-        "carpometacarpal",
-        "metacarpophalangeal",
-        "hand-interphalangeal",
         "radius",
         "ulna",
-        "thenar",
-        "hypothenar",
+        "distal-radioulnar",
+        "carpometacarpal",
+        "flexor-retinaculum",
         "forearm-flexors",
         "forearm-extensors",
         "median-nerve",
         "ulnar-nerve",
         "radial-nerve",
         "radial-artery",
-        "ulnar-artery",
-        "palmar-arches",
-        "flexor-retinaculum",
-        "hand-lumbricals",
-        "hand-interossei"
+        "ulnar-artery"
       ],
       "causes": [
+        {
+          "title": "Wrist sprain",
+          "signs": "Pain and swelling after a twist, improving over days.",
+          "urgency": "self-care",
+          "related": [
+            "wrist",
+            "carpals"
+          ]
+        },
+        {
+          "title": "Ganglion cyst",
+          "signs": "A smooth, rubbery lump on the back or front of the wrist, often painless, that can grow and shrink. Many go away on their own.",
+          "urgency": "self-care",
+          "related": [
+            "wrist",
+            "carpals"
+          ]
+        },
+        {
+          "title": "De Quervain’s tenosynovitis",
+          "signs": "Pain on the thumb side of the wrist when gripping, lifting or turning the wrist, often in new parents.",
+          "urgency": "self-care",
+          "related": [
+            "wrist",
+            "forearm-extensors"
+          ]
+        },
         {
           "title": "Carpal tunnel syndrome",
           "signs": "Tingling or numbness in the thumb, index and middle fingers, often at night.",
@@ -1274,6 +1296,14 @@
           ]
         },
         {
+          "title": "Thumb-base arthritis",
+          "signs": "Aching at the base of the thumb when pinching or opening jars.",
+          "urgency": "doctor",
+          "related": [
+            "carpometacarpal"
+          ]
+        },
+        {
           "title": "Scaphoid fracture",
           "signs": "Pain at the base of the thumb after a fall on an outstretched hand, even if it seems only sprained. Needs an X-ray.",
           "urgency": "doctor",
@@ -1282,28 +1312,148 @@
           ]
         },
         {
-          "title": "Sprain",
-          "signs": "Pain and swelling after a twist, improving over days.",
-          "urgency": "self-care",
+          "title": "Broken wrist",
+          "signs": "Pain, swelling or a bent shape just above the wrist after a fall on an outstretched hand.",
+          "urgency": "urgent",
           "related": [
+            "radius",
+            "ulna",
             "wrist"
           ]
-        },
+        }
+      ],
+      "redFlags": [
+        "A wrist that looks bent or out of shape after a fall",
+        "A hand that is cold, pale or numb after an injury",
+        "A red, hot, swollen joint with fever"
+      ]
+    },
+    {
+      "id": "hand",
+      "name": "Hand",
+      "paired": true,
+      "structures": [
+        "metacarpals",
+        "metacarpophalangeal",
+        "carpometacarpal",
+        "thenar",
+        "hypothenar",
+        "hand-lumbricals",
+        "hand-interossei",
+        "palmar-arches",
+        "forearm-flexors",
+        "forearm-extensors",
+        "median-nerve",
+        "ulnar-nerve",
+        "radial-nerve",
+        "skin"
+      ],
+      "causes": [
         {
-          "title": "De Quervain’s tenosynovitis",
-          "signs": "Pain on the thumb side of the wrist when gripping or lifting.",
+          "title": "Bruised or strained hand",
+          "signs": "Aching and swelling after a knock or a lot of gripping, easing over days.",
           "urgency": "self-care",
           "related": [
-            "wrist",
-            "forearm-extensors"
+            "metacarpals",
+            "thenar",
+            "hypothenar"
           ]
         },
         {
-          "title": "Thumb-base arthritis",
-          "signs": "Aching at the base of the thumb when pinching or opening jars.",
+          "title": "Trapped ulnar nerve",
+          "signs": "Tingling or numbness in the ring and little fingers, sometimes with a weak grip, often from leaning on the elbow or long bike rides.",
           "urgency": "doctor",
           "related": [
+            "ulnar-nerve",
+            "hypothenar",
+            "hand-interossei"
+          ]
+        },
+        {
+          "title": "Dupuytren’s contracture",
+          "signs": "Firm lumps and cords in the palm that slowly pull one or more fingers, usually the ring and little fingers, into a bend.",
+          "urgency": "doctor",
+          "related": [
+            "metacarpophalangeal",
+            "forearm-flexors"
+          ]
+        },
+        {
+          "title": "Rheumatoid arthritis",
+          "signs": "Swollen, stiff, tender knuckles on both hands, worse in the morning and lasting more than half an hour.",
+          "urgency": "doctor",
+          "related": [
+            "metacarpophalangeal"
+          ]
+        },
+        {
+          "title": "Broken hand bone",
+          "signs": "Pain, swelling and a sunken knuckle after punching something or a fall.",
+          "urgency": "doctor",
+          "related": [
+            "metacarpals"
+          ]
+        },
+        {
+          "title": "Hand infection",
+          "signs": "A red, hot, swollen, throbbing hand after a cut, bite or splinter. Bites, especially human or animal bites, need checking the same day.",
+          "urgency": "urgent",
+          "related": [
+            "skin",
+            "palmar-arches"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Redness spreading quickly from a bite or wound, or a red streak up the arm",
+        "A deep cut with loss of movement or feeling",
+        "A hand that is cold, pale or numb after an injury"
+      ]
+    },
+    {
+      "id": "fingers",
+      "name": "Fingers & thumb",
+      "paired": true,
+      "structures": [
+        "hand-phalanges",
+        "metacarpophalangeal",
+        "hand-interphalangeal",
+        "forearm-flexors",
+        "forearm-extensors",
+        "hand-lumbricals",
+        "hand-interossei",
+        "thenar",
+        "median-nerve",
+        "ulnar-nerve",
+        "radial-nerve",
+        "palmar-arches",
+        "skin"
+      ],
+      "causes": [
+        {
+          "title": "Jammed or sprained finger",
+          "signs": "A swollen, painful finger joint after a ball hits the tip. A finger that looks crooked or won’t bend or straighten needs checking.",
+          "urgency": "self-care",
+          "related": [
+            "hand-interphalangeal",
+            "hand-phalanges"
+          ]
+        },
+        {
+          "title": "Finger osteoarthritis",
+          "signs": "Knobbly, stiff, aching joints near the fingertips or at the base of the thumb, usually from middle age.",
+          "urgency": "self-care",
+          "related": [
+            "hand-interphalangeal",
             "carpometacarpal"
+          ]
+        },
+        {
+          "title": "Infected nail fold",
+          "signs": "A red, swollen, painful fold of skin beside a nail, sometimes with pus. Warm soaks help; see a doctor if it spreads.",
+          "urgency": "self-care",
+          "related": [
+            "skin"
           ]
         },
         {
@@ -1316,19 +1466,38 @@
           ]
         },
         {
-          "title": "Rheumatoid arthritis",
-          "signs": "Swollen, stiff knuckles on both hands, worse in the morning.",
+          "title": "Mallet finger",
+          "signs": "After a knock to the tip, the end of the finger droops and can’t be straightened on its own. It needs a splint soon.",
           "urgency": "doctor",
           "related": [
-            "metacarpophalangeal"
+            "forearm-extensors",
+            "hand-interphalangeal"
+          ]
+        },
+        {
+          "title": "Thumb ligament injury",
+          "signs": "Pain and a weak pinch at the base of the thumb, on the side next to the index finger, after the thumb was bent back (a fall while skiing, or a ball).",
+          "urgency": "doctor",
+          "related": [
+            "metacarpophalangeal",
+            "thenar"
+          ]
+        },
+        {
+          "title": "Raynaud’s phenomenon",
+          "signs": "Fingers that turn white, then blue, then red in the cold or with stress, with numbness or tingling.",
+          "urgency": "doctor",
+          "related": [
+            "palmar-arches",
+            "radial-artery",
+            "ulnar-artery"
           ]
         }
       ],
       "redFlags": [
-        "A hand that is cold, pale or numb after an injury",
-        "A red, hot, swollen joint with fever",
         "A deep cut with loss of movement or feeling in a finger",
-        "Redness spreading quickly from a bite or wound"
+        "A finger that is swollen, red and very painful to straighten, after a cut or bite (possible tendon sheath infection)",
+        "A finger or fingertip that stays white, cold or numb"
       ]
     },
     {
@@ -2800,41 +2969,34 @@
       ]
     },
     {
-      "id": "ankle-foot",
-      "name": "Ankle & foot",
+      "id": "ankle",
+      "name": "Ankle",
       "paired": true,
+      "formerly": [
+        "ankle-foot"
+      ],
       "structures": [
         "tibia",
         "fibula",
         "tarsals",
-        "metatarsals",
-        "foot-phalanges",
         "ankle",
         "subtalar-midfoot",
-        "tarsometatarsal",
-        "metatarsophalangeal",
+        "distal-tibiofibular",
+        "lateral-ankle-ligaments",
+        "deltoid-ligament",
+        "achilles-tendon",
         "tibialis-anterior",
-        "toe-extensors",
+        "tibialis-posterior",
         "fibularis",
-        "gastrocnemius",
-        "soleus",
+        "toe-extensors",
+        "toe-flexors",
         "anterior-tibial-artery",
         "posterior-tibial-artery",
         "great-saphenous-vein",
         "small-saphenous-vein",
         "tibial-nerve",
         "deep-fibular-nerve",
-        "superficial-fibular-nerve",
-        "lateral-ankle-ligaments",
-        "deltoid-ligament",
-        "achilles-tendon",
-        "plantar-fascia",
-        "dorsalis-pedis-artery",
-        "tibialis-posterior",
-        "toe-flexors",
-        "extensor-digitorum-brevis",
-        "foot-interossei",
-        "sole-muscles"
+        "superficial-fibular-nerve"
       ],
       "causes": [
         {
@@ -2849,33 +3011,12 @@
           ]
         },
         {
-          "title": "Fracture",
-          "signs": "Unable to bear weight, or tenderness right on the bone.",
-          "urgency": "urgent",
-          "related": [
-            "fibula",
-            "tibia",
-            "metatarsals"
-          ]
-        },
-        {
-          "title": "Plantar fasciitis",
-          "signs": "Heel pain with the first steps in the morning.",
-          "urgency": "self-care",
-          "related": [
-            "tarsals",
-            "plantar-fascia"
-          ]
-        },
-        {
-          "title": "Achilles tendon problem",
-          "signs": "Pain or thickening above the heel. A sudden snap means a possible rupture and is urgent.",
+          "title": "Outer ankle tendon pain",
+          "signs": "Pain and swelling behind the outer ankle bone, often after a sprain or with a high arch.",
           "urgency": "doctor",
           "related": [
-            "tarsals",
-            "gastrocnemius",
-            "soleus",
-            "achilles-tendon"
+            "fibularis",
+            "fibula"
           ]
         },
         {
@@ -2890,26 +3031,94 @@
           ]
         },
         {
-          "title": "Gout",
-          "signs": "A sudden, very painful, red, hot big-toe joint.",
+          "title": "Ankle arthritis",
+          "signs": "Stiffness, swelling and aching in the ankle, often years after a bad sprain or a break.",
           "urgency": "doctor",
           "related": [
-            "metatarsophalangeal"
+            "ankle",
+            "tibia",
+            "tarsals"
           ]
         },
         {
-          "title": "Bunion / Morton’s neuroma",
-          "signs": "A bump at the big-toe joint, or burning pain between the toes.",
+          "title": "Broken ankle",
+          "signs": "Unable to bear weight, a deformed ankle, or tenderness right on the bone after a twist or a fall.",
+          "urgency": "urgent",
+          "related": [
+            "fibula",
+            "tibia",
+            "tarsals",
+            "ankle"
+          ]
+        }
+      ],
+      "redFlags": [
+        "An ankle that looks out of shape after an injury, or an open wound over the bone",
+        "Unable to take four steps after an injury",
+        "A cold, pale or blue foot",
+        "A hot, swollen joint with fever"
+      ]
+    },
+    {
+      "id": "top-of-foot",
+      "name": "Top of the foot",
+      "paired": true,
+      "structures": [
+        "tarsals",
+        "metatarsals",
+        "subtalar-midfoot",
+        "tarsometatarsal",
+        "toe-extensors",
+        "extensor-digitorum-brevis",
+        "tibialis-anterior",
+        "foot-interossei",
+        "dorsalis-pedis-artery",
+        "deep-fibular-nerve",
+        "superficial-fibular-nerve",
+        "great-saphenous-vein",
+        "skin"
+      ],
+      "causes": [
+        {
+          "title": "Tight laces or shoes",
+          "signs": "Aching or tingling on the top of the foot from tight laces or new shoes, easing when they come off.",
+          "urgency": "self-care",
+          "related": [
+            "toe-extensors",
+            "superficial-fibular-nerve",
+            "deep-fibular-nerve"
+          ]
+        },
+        {
+          "title": "Tendon pain on top of the foot",
+          "signs": "Aching along the top of the foot that is worse when you run or pull the toes up.",
+          "urgency": "self-care",
+          "related": [
+            "toe-extensors",
+            "extensor-digitorum-brevis",
+            "tibialis-anterior"
+          ]
+        },
+        {
+          "title": "Midfoot arthritis",
+          "signs": "Aching and a bony bump on top of the middle of the foot, worse in tight shoes.",
           "urgency": "doctor",
           "related": [
-            "metatarsophalangeal",
-            "metatarsals",
-            "tibial-nerve"
+            "tarsometatarsal",
+            "tarsals"
+          ]
+        },
+        {
+          "title": "Metatarsal stress fracture",
+          "signs": "Pain on top of the foot that builds with walking or running, with one tender spot on a bone, after doing more than usual.",
+          "urgency": "doctor",
+          "related": [
+            "metatarsals"
           ]
         },
         {
           "title": "Diabetic foot problems",
-          "signs": "Any wound, colour change or swelling on the foot of someone with diabetes needs prompt review.",
+          "signs": "Any wound, blister, colour change or swelling on the foot of someone with diabetes needs a prompt check, even if it doesn’t hurt.",
           "urgency": "doctor",
           "related": [
             "tibial-nerve",
@@ -2917,12 +3126,108 @@
             "posterior-tibial-artery",
             "dorsalis-pedis-artery"
           ]
+        },
+        {
+          "title": "Midfoot (Lisfranc) injury",
+          "signs": "Pain and swelling across the middle of the foot, with bruising on the sole, after a twist or a fall. It is easy to miss and needs an X-ray.",
+          "urgency": "urgent",
+          "related": [
+            "tarsometatarsal",
+            "metatarsals",
+            "tarsals"
+          ]
         }
       ],
       "redFlags": [
-        "A cold, pale or blue foot",
-        "A hot, swollen joint with fever",
-        "An open wound over a broken bone"
+        "Bruising on the sole after an injury, or being unable to bear weight",
+        "A new wound, blister, colour change or swelling on the foot if you have diabetes",
+        "A cold, pale or blue foot"
+      ]
+    },
+    {
+      "id": "toes",
+      "name": "Toes",
+      "paired": true,
+      "structures": [
+        "foot-phalanges",
+        "metatarsophalangeal",
+        "foot-interphalangeal",
+        "metatarsals",
+        "toe-extensors",
+        "toe-flexors",
+        "foot-interossei",
+        "sole-muscles",
+        "tibial-nerve",
+        "dorsalis-pedis-artery",
+        "skin"
+      ],
+      "causes": [
+        {
+          "title": "Ingrown toenail",
+          "signs": "A painful, red edge of the toenail, usually the big toe, digging into the skin, sometimes infected.",
+          "urgency": "self-care",
+          "related": [
+            "skin"
+          ]
+        },
+        {
+          "title": "Stubbed or broken toe",
+          "signs": "Pain, swelling and bruising after stubbing or dropping something on a toe. A big toe that is broken or a toe that looks crooked needs checking.",
+          "urgency": "self-care",
+          "related": [
+            "foot-phalanges"
+          ]
+        },
+        {
+          "title": "Bunion",
+          "signs": "A bony bump at the side of the big-toe joint, with the big toe leaning towards the others.",
+          "urgency": "self-care",
+          "related": [
+            "metatarsophalangeal",
+            "metatarsals"
+          ]
+        },
+        {
+          "title": "Hammer or claw toes",
+          "signs": "Toes bent at the middle joint, rubbing on shoes and forming corns.",
+          "urgency": "self-care",
+          "related": [
+            "foot-interphalangeal",
+            "toe-flexors",
+            "foot-interossei"
+          ]
+        },
+        {
+          "title": "Pain under the ball of the foot",
+          "signs": "Aching or burning under the ball of the foot, worse in thin-soled or high-heeled shoes.",
+          "urgency": "self-care",
+          "related": [
+            "metatarsals",
+            "metatarsophalangeal"
+          ]
+        },
+        {
+          "title": "Morton’s neuroma",
+          "signs": "Burning pain, numbness or a feeling of a pebble in the shoe between the third and fourth toes.",
+          "urgency": "doctor",
+          "related": [
+            "tibial-nerve",
+            "metatarsals"
+          ]
+        },
+        {
+          "title": "Gout",
+          "signs": "A sudden, very painful, red, hot and swollen big-toe joint, often starting at night. Even a bed sheet touching it hurts.",
+          "urgency": "doctor",
+          "related": [
+            "metatarsophalangeal"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A toe that turns black, blue or very pale",
+        "A red, hot, swollen joint with fever",
+        "A new wound or blister on the foot if you have diabetes"
       ]
     },
     {

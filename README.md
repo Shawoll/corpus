@@ -17,7 +17,7 @@ Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, wha
 - **Muscles**: 72 muscles and muscle groups, with origin, insertion, nerve and blood supply
 - **Organs**: from the brain and senses to the endocrine glands and the female and male reproductive organs
 - **Vessels, nerves, lymphatics, ligaments and tendons**, each linked to what they supply, drain or hold together
-- **Where does it hurt?**: 40 body areas with likely causes, how urgent they are and red flags
+- **Where does it hurt?**: 44 body areas with likely causes, how urgent they are and red flags
 
 Every layer is drawn from the front and the back, in a schematic and a realistic style, and can be turned around in **3D**. Everything is linked: a bone lists the muscles that attach to it, a muscle lists its nerve and artery, and so on.
 

@@ -16,8 +16,8 @@ const REGION_GROUPS = [
   ['Head & neck', ['head', 'face', 'eye', 'ear', 'jaw-teeth', 'throat', 'neck']],
   ['Chest', ['chest-center', 'chest-right', 'chest-left']],
   ['Abdomen', ['upper-right-abdomen', 'upper-middle-abdomen', 'upper-left-abdomen', 'right-flank', 'around-navel', 'left-flank', 'lower-right-abdomen', 'lower-middle-abdomen', 'lower-left-abdomen']],
-  ['Arms', ['shoulder', 'armpit', 'upper-arm', 'elbow', 'forearm', 'wrist-hand']],
-  ['Legs', ['hip-groin', 'thigh', 'back-of-thigh', 'knee', 'back-of-knee', 'lower-leg', 'calf', 'ankle-foot', 'heel']],
+  ['Arms', ['shoulder', 'armpit', 'upper-arm', 'elbow', 'forearm', 'wrist', 'hand', 'fingers']],
+  ['Legs', ['hip-groin', 'thigh', 'back-of-thigh', 'knee', 'back-of-knee', 'lower-leg', 'calf', 'ankle', 'top-of-foot', 'toes', 'heel']],
   ['Pelvis', ['genitals']],
   ['Back', ['upper-back', 'mid-back', 'lower-back', 'tailbone', 'buttock']],
 ];

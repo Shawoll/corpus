@@ -60,6 +60,7 @@ export function check({ graph, drawn, regionShapes, variants = [], models = [], 
   for (const k of allRegions) if (!graph.regions.get(parseKey(k).id)) problems.push(`Region shape "${k}" has no entry in regions.json`);
   const backView = views.includes('posterior') ? 'posterior' : null;
   for (const r of graph.regions.values()) {
+    for (const old of r.formerly || []) if (graph.regions.has(old)) problems.push(`Region "${r.id}" lists "${old}" under formerly, but that area still exists`);
     const home = r.view === 'back' ? backView : views[0];
     if (!home) problems.push(`Region "${r.id}" is on the back, but there is no posterior view`);
     else for (const k of graph.regionKeys(r.id)) if (!regionShapes.get(home)?.has(k)) problems.push(`Region "${k}" has no shape in the ${home} view`);

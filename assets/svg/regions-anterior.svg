@@ -21,8 +21,12 @@
 <g class="rg" data-id="elbow" data-side="left"><path d="M396 448L390 478L336 470L340 422L382 426Z"/></g>
 <g class="rg" data-id="forearm" data-side="right"><path d="M90 478L144 470L124 540L116 616L64 620L72 540Z"/></g>
 <g class="rg" data-id="forearm" data-side="left"><path d="M408 540L416 620L364 616L356 540L336 470L390 478Z"/></g>
-<g class="rg" data-id="wrist-hand" data-side="right"><path d="M64 620L116 616L120 680L118 748L84 776L52 736L40 702L52 662Z"/></g>
-<g class="rg" data-id="wrist-hand" data-side="left"><path d="M428 662L440 702L428 736L396 776L362 748L360 680L364 616L416 620Z"/></g>
+<g class="rg" data-id="wrist" data-side="right"><path d="M116 616L64 620L53.89 655.4L60 656L118.3 653.1Z"/></g>
+<g class="rg" data-id="hand" data-side="right"><path d="M120 680L118.3 653.1L60 656L53.89 655.4L42.43 693.9L58 698L84 706L119.3 704.7Z"/></g>
+<g class="rg" data-id="fingers" data-side="right"><path d="M40 702L52 736L84 776L118 748L119.3 704.7L84 706L58 698L42.43 693.9Z"/></g>
+<g class="rg" data-id="wrist" data-side="left"><path d="M416 620L364 616L361.7 653.1L420 656L426.1 655.4Z"/></g>
+<g class="rg" data-id="hand" data-side="left"><path d="M437.6 693.9L426.1 655.4L420 656L361.7 653.1L360 680L360.7 704.7L396 706L422 698Z"/></g>
+<g class="rg" data-id="fingers" data-side="left"><path d="M362 748L396 776L428 736L440 702L437.6 693.9L422 698L396 706L360.7 704.7Z"/></g>
 <g class="rg" data-id="upper-right-abdomen"><path d="M154 382L170 385L205 377L200 445L152 445Z"/></g>
 <g class="rg" data-id="upper-middle-abdomen"><path d="M205 377L222 360L240 368L258 360L275 377L280 445L200 445Z"/></g>
 <g class="rg" data-id="upper-left-abdomen"><path d="M328 445L280 445L275 377L310 385L326 382Z"/></g>
@@ -41,8 +45,12 @@
 <g class="rg" data-id="knee" data-side="left"><path d="M308 850L306 890L296 910L258 910L250 890L248 850L254 826L300 826Z"/></g>
 <g class="rg" data-id="lower-leg" data-side="right"><path d="M184 910L222 910L230 960L230 1060L226 1100L190 1100L180 1060L176 960Z"/></g>
 <g class="rg" data-id="lower-leg" data-side="left"><path d="M304 960L300 1060L290 1100L254 1100L250 1060L250 960L258 910L296 910Z"/></g>
-<g class="rg" data-id="ankle-foot" data-side="right"><path d="M190 1100L226 1100L236 1120L238 1170L234 1199L176 1199L170 1166L178 1120Z"/></g>
-<g class="rg" data-id="ankle-foot" data-side="left"><path d="M302 1120L310 1166L304 1199L246 1199L242 1170L244 1120L254 1100L290 1100Z"/></g>
+<g class="rg" data-id="ankle" data-side="right"><path d="M236 1120L226 1100L190 1100L178 1120L175 1137L236.7 1137Z"/></g>
+<g class="rg" data-id="top-of-foot" data-side="right"><path d="M237.9 1171L236.7 1137L175 1137L170 1166L170.6 1169L200 1168Z"/></g>
+<g class="rg" data-id="toes" data-side="right"><path d="M176 1199L234 1199L237.9 1171L200 1168L170.6 1169Z"/></g>
+<g class="rg" data-id="ankle" data-side="left"><path d="M302 1120L290 1100L254 1100L244 1120L243.3 1137L305 1137Z"/></g>
+<g class="rg" data-id="top-of-foot" data-side="left"><path d="M310 1166L305 1137L243.3 1137L242.1 1171L280 1168L309.4 1169Z"/></g>
+<g class="rg" data-id="toes" data-side="left"><path d="M246 1199L304 1199L309.4 1169L280 1168L242.1 1171Z"/></g>
 <g class="rg" data-id="armpit" data-side="right"><path d="M136 290L152 290L151 310L150 330L140 332L138 312Z"/></g>
 <g class="rg" data-id="armpit" data-side="left"><path d="M344 290L328 290L329 310L330 330L340 332L342 312Z"/></g>
 </g>

@@ -304,6 +304,11 @@ async function boot() {
     tooltip.hidden = true; // a hover label from the last page would point at the wrong thing
     const prev = store.get();
     const route = Router.parse();
+    // an area that was split or renamed ("formerly" in regions.json): its old address opens the area that took over
+    if (route.view === 'region' && !graph.regions.has(route.id)) {
+      const now = [...graph.regions.values()].find((r) => r.formerly?.includes(route.id));
+      if (now) { location.replace(Router.href(`r/${encodeURIComponent(now.id)}${route.side ? '/' + route.side : ''}`)); return; }
+    }
     const sx = sexFor(route, prev.sex);
     if (sx !== prev.sex) useSex(sx);
     const patch = { route, ...(sx !== prev.sex ? { sex: sx } : {}), ...viewPatch(prev, viewFor(route, prev.view)) };
