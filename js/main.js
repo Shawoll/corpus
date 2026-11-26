@@ -435,6 +435,12 @@ async function boot() {
   document.addEventListener('pointerdown', (e) => { if (!settingsEl.hidden && !e.target.closest('.settings-wrap')) setSettings(false); });
   settingsEl.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); setSettings(false); settingsBtn.focus(); } });
 
+  // phones: a short placeholder, since the search shares its row with the other controls
+  const phone = matchMedia('(max-width: 760px)');
+  const fullPlaceholder = $('#search').placeholder;
+  const setPlaceholder = () => { $('#search').placeholder = phone.matches ? 'Search' : fullPlaceholder; };
+  setPlaceholder();
+  phone.addEventListener('change', setPlaceholder);
   search = createSearch({ input: $('#search'), list: $('#search-results'), graph, onChoose: (nav) => navigate(nav, { zoom: true }) });
 
   browse = $('#browse');

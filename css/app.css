@@ -584,17 +584,21 @@ body { display: grid; grid-template-rows: auto 1fr; }
 
 @media (max-width: 760px) {
   body { grid-template-rows: auto 1fr; }
-  .topbar { flex-wrap: wrap; gap: 6px; padding: 8px 10px 10px; min-height: 0; }
-  .brand-name { font-size: 21px; }
+  /* one row: Browse, brand, search, mode switch, Ko-fi, cog. The search takes whatever width is left, down to a round
+     search button on small phones, and widens over the whole bar while it has focus */
+  .topbar { flex-wrap: nowrap; gap: 5px; padding: 8px 10px; min-height: 0; }
+  .brand-name { font-size: 20px; }
   .seg { padding: 2px; }
-  .seg button { padding: 6px 9px; font-size: 13px; }
-  .icon-btn { height: 36px; min-width: 36px; }
-  /* row 1: Browse, brand, mode switch; row 2: search with Ko-fi and the cog beside it (they ran off the edge on one row) */
-  .search { order: 10; flex: 1 1 calc(100% - 90px); max-width: none; margin: 0; }
-  .kofi, .settings-wrap { order: 11; }
-  .modes { margin-left: auto; }
+  .seg button { padding: 6px 8px; font-size: 12.5px; }
+  .icon-btn { height: 34px; min-width: 34px; }
+  .search { flex: 1 1 0; min-width: 34px; max-width: none; margin: 0; container-type: inline-size; }
+  .search input { height: 34px; padding: 0 10px 0 31px; text-overflow: ellipsis; }
+  .search svg { left: 10px; }
+  .search:focus-within { position: absolute; left: 10px; right: 10px; top: 8px; z-index: 30; }
+  .search:focus-within input { padding-right: 14px; }
   .modes .long { display: none; }
   .modes .short { display: inline; }
+  @container (max-width: 90px) { .search input::placeholder { color: transparent; } }
   .icon-btn .label { display: none; }
   .icon-btn { padding: 0; }
 
@@ -630,6 +634,19 @@ body { display: grid; grid-template-rows: auto 1fr; }
   .side-label.l { left: 112px; }
   .side-label.r { right: 10px; }
   .hurt-banner { top: auto; bottom: calc(92px + 14px); left: 12px; transform: none; } /* bottom left is free on phones */
+}
+
+@media (max-width: 420px) {
+  .topbar { gap: 4px; padding: 8px 8px; }
+  .search:focus-within { left: 8px; right: 8px; }
+  .brand-name { font-size: 18px; }
+  .seg button { padding: 5px 6px; font-size: 12px; }
+  .icon-btn { height: 32px; min-width: 32px; }
+  .search { min-width: 32px; }
+  .search input { height: 32px; }
+}
+@media (max-width: 380px) {
+  .brand { display: none; }
 }
 
 /* probe: make every layer hit-testable for an instant (no paint happens in between) */
