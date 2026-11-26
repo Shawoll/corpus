@@ -93,8 +93,19 @@
         "rib-12"
       ],
       "to": [
-        "kidney"
+        "kidney",
+        "adrenal-gland"
       ]
+    },
+    {
+      "type": "protects",
+      "from": [
+        "sphenoid"
+      ],
+      "to": [
+        "pituitary"
+      ],
+      "note": "in the sella turcica"
     },
     {
       "type": "protects",
@@ -126,6 +137,56 @@
         "lung"
       ],
       "note": "via the left and right main bronchi"
+    },
+    {
+      "type": "regulates",
+      "from": [
+        "pituitary"
+      ],
+      "to": [
+        "thyroid"
+      ],
+      "note": "through TSH"
+    },
+    {
+      "type": "regulates",
+      "from": [
+        "pituitary"
+      ],
+      "to": [
+        "adrenal-gland"
+      ],
+      "note": "through ACTH (the cortex)"
+    },
+    {
+      "type": "regulates",
+      "from": [
+        "pituitary"
+      ],
+      "to": [
+        "kidney"
+      ],
+      "note": "through ADH (water balance)"
+    },
+    {
+      "type": "regulates",
+      "from": [
+        "parathyroid"
+      ],
+      "to": [
+        "kidney"
+      ],
+      "note": "through PTH (calcium and vitamin D)"
+    },
+    {
+      "type": "regulates",
+      "from": [
+        "adrenal-gland"
+      ],
+      "to": [
+        "kidney"
+      ],
+      "note": "through aldosterone (salt and water)"
     },
     {
       "type": "continues",
@@ -234,6 +295,34 @@
       "note": "hung from it by the thyrohyoid membrane"
     },
     {
+      "type": "attached",
+      "from": [
+        "brain"
+      ],
+      "to": [
+        "pituitary"
+      ],
+      "note": "by the pituitary stalk"
+    },
+    {
+      "type": "attached",
+      "from": [
+        "brain"
+      ],
+      "to": [
+        "pineal-gland"
+      ]
+    },
+    {
+      "type": "attached",
+      "from": [
+        "thyroid"
+      ],
+      "to": [
+        "parathyroid"
+      ]
+    },
+    {
       "type": "drains",
       "from": [
         "liver"
@@ -318,11 +407,34 @@
     {
       "type": "drains",
       "from": [
-        "brain"
+        "brain",
+        "pituitary",
+        "pineal-gland",
+        "parathyroid"
       ],
       "to": [
         "internal-jugular-vein"
       ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "adrenal-gland"
+      ],
+      "to": [
+        "inferior-vena-cava"
+      ],
+      "side": "right"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "adrenal-gland"
+      ],
+      "to": [
+        "renal-vein"
+      ],
+      "side": "left"
     },
     {
       "type": "drains",

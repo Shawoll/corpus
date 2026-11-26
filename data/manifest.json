@@ -140,6 +140,10 @@
       "forward": "Pumps blood into",
       "reverse": "Receives blood from"
     },
+    "regulates": {
+      "forward": "Controls",
+      "reverse": "Controlled by"
+    },
     "drains": {
       "forward": "Drains into",
       "reverse": "Receives from",

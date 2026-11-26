@@ -27,7 +27,9 @@
         "trochlear-nerve",
         "abducens-nerve",
         "vestibulocochlear-nerve",
-        "superficial-temporal-artery"
+        "superficial-temporal-artery",
+        "pituitary",
+        "pineal-gland"
       ],
       "causes": [
         {
@@ -191,7 +193,8 @@
         "hypoglossal-nerve",
         "glossopharyngeal-nerve",
         "pharynx",
-        "larynx"
+        "larynx",
+        "parathyroid"
       ],
       "causes": [
         {
@@ -1139,7 +1142,8 @@
         "renal-artery",
         "renal-vein",
         "inferior-vena-cava",
-        "ureter"
+        "ureter",
+        "adrenal-gland"
       ],
       "causes": [
         {
@@ -1266,7 +1270,8 @@
         "quadratus-lumborum",
         "renal-artery",
         "renal-vein",
-        "ureter"
+        "ureter",
+        "adrenal-gland"
       ],
       "causes": [
         {

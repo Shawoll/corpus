@@ -119,7 +119,7 @@ export function createPanel(graph) {
       if (lt.field && n[lt.field + 'Note'] && !byType.has(`${type}|out`) && Array.isArray(n[lt.field])) byType.set(`${type}|out`, { type, dir: 'out', keys: [], byNote: new Map() });
     }
     if (!byType.size) return '';
-    const order = ['stabilises', 'attaches', 'origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'collects', 'innervates', 'supplies', 'attached'];
+    const order = ['stabilises', 'attaches', 'origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'regulates', 'collects', 'innervates', 'supplies', 'attached'];
     const rank = (t) => (order.includes(t) ? order.indexOf(t) : order.length);
     const dirRank = (b) => ((b.dir === 'out') !== UPSTREAM_FIRST.has(b.type) ? 0 : 1);
     const items = [...byType.values()].sort((a, b) => rank(a.type) - rank(b.type) || dirRank(a) - dirRank(b));
@@ -223,7 +223,7 @@ export function createPanel(graph) {
       if (n.pulse) f.push(['Pulse', n.pulse]);
     } else {
       f.push(['System', graph.group(n.group)?.name]);
-      if (n.paired) f.push(['Count', 'One on each side']);
+      if (n.paired) f.push(['Count', n.countLabel || 'One on each side']);
     }
     h += facts(f);
     if (n.location) h += `<p class="summary" style="color:var(--ink-2);font-size:14px;margin-bottom:10px">${esc(n.location)}</p>`;

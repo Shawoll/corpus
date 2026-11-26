@@ -74,6 +74,7 @@ it to their own body.
   "kind": "long", "group": "lower-limb", "paired": true, "count": 2,
   "summary": "…", "issues": [{ "name": "Hip fracture", "note": "…" }],
   "members": [ … ],     // optional: bones drawn as one group (carpals)
+  "countLabel": "…",     // optional: a paired organ's Count fact (default "One on each side")
   "listOnly": true }    // optional: not drawn in any view
 
 // a joint: connect bones with "bones" (every pair), "chain" (each to the next) or "pairs"

@@ -68,6 +68,74 @@
       ]
     },
     {
+      "id": "pituitary",
+      "name": "Pituitary gland",
+      "latin": "Hypophysis",
+      "aka": [
+        "hypophysis"
+      ],
+      "kind": "organ",
+      "group": "endocrine",
+      "paired": false,
+      "location": "At the base of the brain behind the bridge of the nose, sitting in a saddle-shaped hollow of the sphenoid bone (the sella turcica).",
+      "summary": "A pea-sized gland hanging from the hypothalamus on a thin stalk. Often called the master gland, its hormones drive the thyroid, the adrenal glands, the ovaries and testes, growth and milk production.",
+      "membersLabel": "Lobes",
+      "members": [
+        {
+          "name": "Anterior pituitary",
+          "latin": "Adenohypophysis",
+          "note": "Makes growth hormone and prolactin, and the hormones that drive the thyroid (TSH), the adrenal glands (ACTH) and the ovaries or testes (FSH and LH)."
+        },
+        {
+          "name": "Posterior pituitary",
+          "latin": "Neurohypophysis",
+          "note": "Releases two hormones made in the hypothalamus: antidiuretic hormone (ADH), which controls water balance, and oxytocin, for birth and breastfeeding."
+        }
+      ],
+      "functions": [
+        "Controls the thyroid, the adrenal glands and the ovaries or testes",
+        "Growth hormone drives growth in childhood and tissue repair throughout life",
+        "ADH tells the kidneys how much water to keep"
+      ],
+      "issues": [
+        {
+          "name": "Pituitary adenoma",
+          "note": "A usually benign growth. It can cause headaches, loss of side vision, or symptoms from too much or too little of a hormone."
+        },
+        {
+          "name": "Diabetes insipidus",
+          "note": "Passing large amounts of dilute urine with constant thirst, from too little ADH. It is not related to sugar diabetes."
+        }
+      ]
+    },
+    {
+      "id": "pineal-gland",
+      "name": "Pineal gland",
+      "latin": "Glandula pinealis",
+      "aka": [
+        "pineal body"
+      ],
+      "kind": "organ",
+      "group": "endocrine",
+      "paired": false,
+      "location": "Deep in the middle of the brain, between its two halves, behind the third ventricle.",
+      "summary": "A tiny pine-cone-shaped gland that releases melatonin in the dark, helping to set the body’s sleep–wake rhythm.",
+      "functions": [
+        "Releases melatonin at night, which helps bring on sleep",
+        "Keeps the body clock in step with day and night"
+      ],
+      "issues": [
+        {
+          "name": "Pineal cyst",
+          "note": "Common, small and usually harmless, often found by chance on a brain scan."
+        },
+        {
+          "name": "Calcification",
+          "note": "It gathers calcium with age. This shows up on scans and is normal."
+        }
+      ]
+    },
+    {
       "id": "thyroid",
       "name": "Thyroid gland",
       "latin": "Glandula thyroidea",
@@ -93,6 +161,85 @@
         {
           "name": "Goitre or nodule",
           "note": "A swelling or lump at the front of the neck that moves when you swallow. Get it checked."
+        }
+      ]
+    },
+    {
+      "id": "parathyroid",
+      "name": "Parathyroid glands",
+      "latin": "Glandulae parathyroideae",
+      "aka": [
+        "parathyroids"
+      ],
+      "kind": "organ",
+      "group": "endocrine",
+      "paired": true,
+      "countLabel": "Usually two on each side",
+      "location": "On the back of the thyroid gland, usually two behind each lobe.",
+      "summary": "Usually four rice-grain-sized glands that keep the level of calcium in the blood steady with parathyroid hormone (PTH).",
+      "functions": [
+        "Raise blood calcium when it falls, drawing on the bones",
+        "Tell the kidneys to keep calcium and to activate vitamin D",
+        "Steady calcium keeps nerves and muscles working normally"
+      ],
+      "issues": [
+        {
+          "name": "Overactive parathyroid (hyperparathyroidism)",
+          "note": "Too much calcium: thirst, kidney stones, thinning bones, tummy pain, low mood and tiredness. Often found on a routine blood test."
+        },
+        {
+          "name": "Low calcium after neck surgery",
+          "note": "Tingling around the mouth or in the fingers, or muscle cramps, after thyroid surgery needs prompt medical advice."
+        }
+      ]
+    },
+    {
+      "id": "adrenal-gland",
+      "name": "Adrenal gland",
+      "latin": "Glandula suprarenalis",
+      "aka": [
+        "adrenals",
+        "suprarenal gland"
+      ],
+      "kind": "organ",
+      "group": "endocrine",
+      "paired": true,
+      "location": "On top of each kidney, high at the back of the abdomen beside the spine (about T12).",
+      "summary": "A small gland of about 5 g with two layers that work as separate glands: the outer cortex makes steroid hormones and the inner medulla releases adrenaline.",
+      "sideNotes": {
+        "right": "The right adrenal is a small pyramid capping the top of the kidney, tucked behind the liver and the inferior vena cava.",
+        "left": "The left adrenal is a crescent along the upper inner edge of the kidney, behind the stomach and pancreas."
+      },
+      "membersLabel": "Layers",
+      "members": [
+        {
+          "name": "Adrenal cortex",
+          "latin": "Cortex glandulae suprarenalis",
+          "note": "Makes cortisol (stress and blood sugar), aldosterone (salt and blood pressure) and small amounts of sex hormones."
+        },
+        {
+          "name": "Adrenal medulla",
+          "latin": "Medulla glandulae suprarenalis",
+          "note": "Releases adrenaline and noradrenaline for the “fight or flight” response."
+        }
+      ],
+      "functions": [
+        "Cortisol helps the body handle stress, keeps blood sugar up and damps down inflammation",
+        "Aldosterone balances salt, water and blood pressure",
+        "Adrenaline readies the body for action: a faster heart and more blood to the muscles"
+      ],
+      "issues": [
+        {
+          "name": "Adrenal insufficiency (Addison’s disease)",
+          "note": "Tiredness, weight loss, dizziness on standing, salt craving and darker skin. Vomiting, confusion or collapse is an emergency (adrenal crisis)."
+        },
+        {
+          "name": "Cushing’s syndrome",
+          "note": "Too much cortisol, most often from steroid medicines: weight gain on the trunk and face, thin skin, easy bruising and high blood pressure."
+        },
+        {
+          "name": "Adrenal tumour",
+          "note": "Usually benign and found by chance on a scan. Rarely one releases bursts of adrenaline, with pounding headaches, sweating and a racing heart."
         }
       ]
     },

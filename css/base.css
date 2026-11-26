@@ -91,6 +91,10 @@
   --o-rectum: #c58a75;
   --o-pharynx: #d9a39a;
   --o-larynx: #d8c6ad;
+  --o-adrenal-gland: #e3b25c;
+  --o-pituitary: #d98f8a;
+  --o-parathyroid: #d9a55e;
+  --o-pineal-gland: #c9a0b4;
   --o-line: rgba(70, 30, 20, 0.55);
 
   /* muscles */
@@ -184,6 +188,10 @@
     --o-rectum: #a0705e;
     --o-pharynx: #b07c74;
     --o-larynx: #ad9c84;
+    --o-adrenal-gland: #b98f45;
+    --o-pituitary: #b0706c;
+    --o-parathyroid: #af8546;
+    --o-pineal-gland: #a07f90;
     --o-line: rgba(0, 0, 0, 0.55);
     --muscle: #a64e43;
     --muscle-deep: #8a4037;
@@ -277,6 +285,10 @@
   --o-rectum: #a0705e;
   --o-pharynx: #b07c74;
   --o-larynx: #ad9c84;
+  --o-adrenal-gland: #b98f45;
+  --o-pituitary: #b0706c;
+  --o-parathyroid: #af8546;
+  --o-pineal-gland: #a07f90;
   --o-line: rgba(0, 0, 0, 0.55);
   --muscle: #a64e43;
   --muscle-deep: #8a4037;

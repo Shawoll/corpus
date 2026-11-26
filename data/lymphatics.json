@@ -154,7 +154,8 @@
         "temporalis",
         "sternocleidomastoid",
         "pharynx",
-        "larynx"
+        "larynx",
+        "parathyroid"
       ],
       "issues": [
         {
@@ -233,7 +234,8 @@
       "summary": "A chain of nodes on either side of the abdominal aorta, at the back of the abdomen. They collect lymph from the kidneys, the testes or ovaries and, through the iliac nodes, from the pelvis and legs, and pass it to the cisterna chyli.",
       "collects": [
         "kidney",
-        "ureter"
+        "ureter",
+        "adrenal-gland"
       ],
       "drains": [
         "cisterna-chyli"
