@@ -46,9 +46,12 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
     vb.y += ncy - cy;
   }
 
+  let goal = null; // where a running animation is heading
+  const stop = () => { cancelAnimationFrame(raf); goal = null; };
   function animateTo(target, ms = 340) {
     cancelAnimationFrame(raf);
-    if (reduced()) { vb = { ...target }; apply(); return; }
+    goal = { ...target };
+    if (reduced()) { vb = { ...target }; goal = null; apply(); return; }
     const from = { ...vb }, t0 = performance.now();
     const ease = (t) => 1 - Math.pow(1 - t, 3);
     const step = (now) => {
@@ -56,6 +59,7 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
       vb = { x: from.x + (target.x - from.x) * e, y: from.y + (target.y - from.y) * e, w: from.w + (target.w - from.w) * e, h: from.h + (target.h - from.h) * e };
       apply();
       if (t < 1) raf = requestAnimationFrame(step);
+      else goal = null;
     };
     raf = requestAnimationFrame(step);
   }
@@ -63,7 +67,7 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
   // ---- input
   svg.addEventListener('wheel', (e) => {
     e.preventDefault();
-    cancelAnimationFrame(raf);
+    stop();
     const p = toSvg(e.clientX, e.clientY);
     const k = e.ctrlKey ? 0.012 : 0.0016; // ctrlKey = trackpad pinch
     zoomAt(Math.exp(e.deltaY * k), p.x, p.y);
@@ -71,7 +75,7 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
 
   svg.addEventListener('pointerdown', (e) => {
     if (e.button !== 0 && e.pointerType === 'mouse') return;
-    cancelAnimationFrame(raf);
+    stop();
     suppressClick = false;
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.size === 1) drag = { x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, moved: false, id: e.pointerId };
@@ -136,10 +140,11 @@ export function createZoom(svg, { home = [-20, -12, 520, 1244], onChange = () =>
   return {
     get box() { return { ...vb }; },
     home() { animateTo({ x: home[0], y: home[1], w: home[2], h: home[3] }); },
-    zoomBy(f) { const c = { x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 }; cancelAnimationFrame(raf); const t = { ...vb }; const w = Math.min(MAX_W, Math.max(MIN_W, vb.w * f)); f = w / vb.w; animateTo({ x: c.x - (c.x - t.x) * f, y: c.y - (c.y - t.y) * f, w: t.w * f, h: t.h * f }, 220); },
-    pan(dx, dy) { animateTo({ ...vb, x: vb.x + dx * vb.w, y: vb.y + dy * vb.h }, 180); },
+    zoomBy(f) { const c = { x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 }; stop(); const t = { ...vb }; const w = Math.min(MAX_W, Math.max(MIN_W, vb.w * f)); f = w / vb.w; animateTo({ x: c.x - (c.x - t.x) * f, y: c.y - (c.y - t.y) * f, w: t.w * f, h: t.h * f }, 220); },
+    // from where a running animation is heading, so quick taps add up
+    pan(dx, dy) { const b = goal || vb; animateTo({ ...b, x: b.x + dx * b.w, y: b.y + dy * b.h }, 180); },
     // the figure was just flipped (Mirror, or front ↔ back): mirror the box about x = 240 so the same body part stays in frame
-    mirrorX() { cancelAnimationFrame(raf); vb = { ...vb, x: 480 - vb.x - vb.w }; clamp(); apply(); },
+    mirrorX() { stop(); vb = { ...vb, x: 480 - vb.x - vb.w }; clamp(); apply(); },
     // Bring a box (svg units) into view; zoom in on small targets, leave large visible ones alone.
     reveal(b, { force = false, parts = null } = {}) {
       // a paired structure whose instances are each tiny (both hands' carpals): zoom into the first one

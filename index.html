@@ -67,7 +67,13 @@
     <nav id="browse" class="browse" aria-label="Browse all structures" hidden></nav>
 
     <section class="map-wrap" aria-label="Body map">
-      <div id="layerbar" class="layerbar" role="group" aria-label="Layers"></div>
+      <div id="layerbar" class="layerbar">
+        <button type="button" class="layer-toggle" id="layer-toggle" aria-controls="layer-list" aria-expanded="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 14 5.2 8 8.4 2 5.2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><path d="m2 8 6 3.2L14 8M2 10.8 8 14l6-3.2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/></svg>
+          <span class="name">Layers</span>
+        </button>
+        <div id="layer-list" class="layer-list" role="group" aria-label="Layers"></div>
+      </div>
       <p id="hurt-banner" class="hurt-banner" hidden>Tap the area that hurts</p>
 
       <svg id="map" viewBox="-20 -12 520 1244" preserveAspectRatio="xMidYMid meet" role="img"
@@ -92,7 +98,11 @@
         <div class="group" role="group" aria-label="Zoom">
           <button id="zoom-in" title="Zoom in (+)" aria-label="Zoom in"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
           <button id="zoom-out" title="Zoom out (−)" aria-label="Zoom out"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-          <button id="zoom-fit" title="Fit the whole body (0)" aria-label="Fit the whole body"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="group" role="group" aria-label="Move">
+          <button id="move-up" title="Move up the body (Shift + ↑)" aria-label="Move up the body" aria-keyshortcuts="Shift+ArrowUp"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 10 4.5-4.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="move-down" title="Move down the body (Shift + ↓)" aria-label="Move down the body" aria-keyshortcuts="Shift+ArrowDown"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="zoom-fit" title="Reset the view (0)" aria-label="Reset the view" aria-keyshortcuts="0"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8a4.8 4.8 0 1 0 1.5-3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4.4 1.9v2.9h2.9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
       <p id="map-hint" class="map-hint">Tap a bone · scroll or pinch to zoom · drag to pan</p>

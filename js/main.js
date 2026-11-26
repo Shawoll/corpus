@@ -11,6 +11,18 @@ import * as Router from './router.js';
 import * as Offline from './offline.js';
 
 const $ = (s) => document.querySelector(s);
+// 16 × 16 stroke icons for the layer buttons (currentColor), by layer id
+const LAYER_ICONS = {
+  nerves: '<path d="M8 1.8v5.4M8 7.2 4.6 10.4v3.8M8 7.2l3.4 3.2v3.8M8 7.2v6.9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="1.9" r="1.1" fill="currentColor"/>',
+  lymphatics: '<path d="M8 1.5v13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="8" cy="5" rx="2.4" ry="1.7" fill="currentColor"/><ellipse cx="8" cy="11" rx="2.4" ry="1.7" fill="currentColor"/>',
+  vessels: '<path d="M8 1.8C8 1.8 3.6 7 3.6 10a4.4 4.4 0 0 0 8.8 0C12.4 7 8 1.8 8 1.8z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>',
+  muscles: '<path d="M1.5 8h2.2M12.3 8h2.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3.7 8C5.4 4.4 10.6 4.4 12.3 8 10.6 11.6 5.4 11.6 3.7 8z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="m6.4 6.4 3.2 3.2M8.4 5.9l1.5 1.5M6.1 8.6l1.5 1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>',
+  ligaments: '<path d="M3.2 2.8h9.6M3.2 13.2h9.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="m5.6 4.6 4.8 6.8M10.4 4.6l-4.8 6.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
+  skeleton: '<path d="M9 13.2a3.2 3.2 0 1 1 3.4-3.6h7.2a3.2 3.2 0 1 1 3.4 3.6 3.2 3.2 0 1 1-3.4 3.6h-7.2A3.2 3.2 0 1 1 9 13.2z" transform="rotate(-45 8 8) scale(0.5) translate(0 2.8)" stroke="currentColor" stroke-width="2.8" fill="none" stroke-linejoin="round"/>',
+  organs: '<path d="M8 1.8v4.6M8 6.4 6.6 7.6M8 6.4l1.4 1.2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.2 4.6C4.1 4.9 2.4 8 2.4 11.3c0 1.4.7 2.3 1.8 2.3 1.2 0 2.5-.8 2.5-1.9V5.1zM9.8 4.6c2.1.3 3.8 3.4 3.8 6.7 0 1.4-.7 2.3-1.8 2.3-1.2 0-2.5-.8-2.5-1.9V5.1z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>',
+  joints: '<circle cx="8" cy="8" r="5.6" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8" cy="8" r="2.2" fill="currentColor"/>',
+  default: '<rect x="3" y="3" width="10" height="10" rx="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/>',
+};
 const prefs = {
   get(k, d) { try { const v = localStorage.getItem('corpus:' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
   set(k, v) { try { localStorage.setItem('corpus:' + k, JSON.stringify(v)); } catch { /* private mode */ } },
@@ -494,11 +506,41 @@ async function boot() {
   });
 
   // ------------------------------------------------------------------ controls
+  // The layer buttons: a column of chips, each an icon (whose disc shows the state) and a name. The toggle above them
+  // collapses the column to icons (saved as corpus:layersCollapsed); on phones the column is always closed and the
+  // toggle opens it as a menu.
   const layerbar = $('#layerbar');
-  layerbar.innerHTML = [...manifest.layers].reverse()
-    .map((l) => `<button class="layer-chip" data-layer="${l.id}" data-name="${escapeHtml(l.name)}"><span class="sw" aria-hidden="true"></span>${escapeHtml(l.name)}</button>`)
-    .join('') + `<button class="layer-chip" data-toggle="joints" title="Show or hide the joints"><span class="sw" aria-hidden="true" style="border-radius:50%"></span>Joints</button>`;
-  layerbar.addEventListener('click', (e) => {
+  const layerList = $('#layer-list');
+  const layerToggle = $('#layer-toggle');
+  const chipIcon = (id) => `<span class="sw" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16">${LAYER_ICONS[id] || LAYER_ICONS.default}</svg></span>`;
+  layerList.innerHTML = [...manifest.layers].reverse()
+    .map((l) => `<button class="layer-chip" data-layer="${l.id}" data-name="${escapeHtml(l.name)}">${chipIcon(l.id)}<span class="name">${escapeHtml(l.name)}</span></button>`)
+    .join('') + `<button class="layer-chip" data-toggle="joints" title="Show or hide the joints">${chipIcon('joints')}<span class="name">Joints</span></button>`;
+  const narrow = matchMedia('(max-width: 760px)'); // the phone layout (css/app.css)
+  let layersOpen = false; // the phone menu
+  function renderLayerbar() {
+    const collapsed = !!prefs.get('layersCollapsed', false);
+    layerbar.dataset.collapsed = String(collapsed);
+    layerbar.dataset.open = String(layersOpen);
+    const expanded = narrow.matches ? layersOpen : !collapsed;
+    layerToggle.setAttribute('aria-expanded', String(expanded));
+    layerToggle.title = narrow.matches ? (layersOpen ? 'Close the layers' : 'Layers') : collapsed ? 'Show the layer names' : 'Show icons only';
+  }
+  const setLayersOpen = (open, { refocus = false } = {}) => {
+    layersOpen = open;
+    renderLayerbar();
+    if (refocus) layerToggle.focus();
+  };
+  layerToggle.addEventListener('click', () => {
+    if (narrow.matches) setLayersOpen(!layersOpen);
+    else { prefs.set('layersCollapsed', !prefs.get('layersCollapsed', false)); renderLayerbar(); }
+  });
+  narrow.addEventListener('change', () => setLayersOpen(false));
+  document.addEventListener('pointerdown', (e) => { if (layersOpen && !layerbar.contains(e.target)) setLayersOpen(false); });
+  layerbar.addEventListener('keydown', (e) => { if (e.key === 'Escape' && layersOpen) { e.stopPropagation(); setLayersOpen(false, { refocus: true }); } });
+  layerbar.addEventListener('focusout', (e) => { if (layersOpen && e.relatedTarget && !layerbar.contains(e.relatedTarget)) setLayersOpen(false); });
+  renderLayerbar();
+  layerList.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b) return;
     const st = store.get();
@@ -527,10 +569,15 @@ async function boot() {
   }
   // zoom: the SVG's viewBox, or the 3D camera
   const zoomBy = (f) => { if (is3d(store.get().view)) model?.zoomBy(f); else zoom.zoomBy(f); };
+  // reset: the whole body, upright (in 3D, still from the side it is seen from)
   const zoomHome = () => { if (is3d(store.get().view)) model?.home(); else zoom.home(); };
+  // move up or down the body: a fifth of the view at a time (in 3D along the screen's up, whatever the tilt)
+  const moveBy = (d) => { hideHint(); if (is3d(store.get().view)) model?.pan(d); else zoom.pan(0, d); };
   $('#zoom-in').addEventListener('click', () => { hideHint(); zoomBy(0.7); });
   $('#zoom-out').addEventListener('click', () => zoomBy(1.4));
   $('#zoom-fit').addEventListener('click', () => zoomHome());
+  $('#move-up').addEventListener('click', () => moveBy(-0.2));
+  $('#move-down').addEventListener('click', () => moveBy(0.2));
   // Front / Back: in 2D the drawings, in 3D which way the model faces (B)
   const facing = (st) => (is3d(st.view) ? (modelFront ? svgViews[0].id : (svgViews[1] || svgViews[0]).id) : st.view);
   const setFacing = (v) => { if (is3d(store.get().view)) model?.face(v); else setView(v); };
@@ -786,6 +833,7 @@ async function boot() {
     } else if (e.key === '+' || e.key === '=') zoomBy(0.7);
     else if (e.key === '-' || e.key === '_') zoomBy(1.4);
     else if (e.key === '0') zoomHome();
+    else if (e.shiftKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) { e.preventDefault(); moveBy(e.key === 'ArrowUp' ? -0.2 : 0.2); }
     else if (e.key === 'b' || e.key === 'B') toggleView();
     else if ((e.key === 'm' || e.key === 'M') && (skinUrl || !Router.isHurt(store.get().route))) toggleDisplay();
     else if (e.key === 'd' || e.key === 'D') toggleStyle();

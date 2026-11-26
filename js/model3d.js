@@ -59,8 +59,8 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
   controls.dampingFactor = 0.12;
-  controls.minPolarAngle = 0.18; // no flipping over the top or under the feet
-  controls.maxPolarAngle = Math.PI - 0.18;
+  controls.minPolarAngle = 0; // free tilt: from straight above the head to straight under the feet
+  controls.maxPolarAngle = Math.PI;
   controls.minDistance = 0.12;
   controls.maxDistance = 7;
   controls.zoomToCursor = true;
@@ -293,6 +293,14 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     const len = THREE.MathUtils.clamp(off.length() * f, controls.minDistance, controls.maxDistance);
     moveTo(controls.target.clone().add(off.setLength(len)), controls.target, 220);
   }
+  // move the view along the screen's up (d < 0: up, toward the head when upright), by d × the height in view
+  function pan(d) {
+    // from where a move still running is heading, so quick taps add up
+    const pos = anim ? anim.to.pos : camera.position, target = anim ? anim.to.target : controls.target;
+    const step = 2 * pos.distanceTo(target) * Math.tan(THREE.MathUtils.degToRad(FOV) / 2) * d;
+    const up = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion).multiplyScalar(-step);
+    moveTo(pos.clone().add(up), target.clone().add(up), 220);
+  }
   // turn around the target: azimuth (left/right) and polar (up/down) in radians, for the arrow keys
   function orbit(dAz, dPol) {
     const off = camera.position.clone().sub(controls.target);
@@ -494,7 +502,7 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
   canvas.addEventListener('keydown', (e) => {
     const step = Math.PI / 12;
     const turn = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step / 2], ArrowDown: [0, step / 2] }[e.key];
-    if (!turn) return;
+    if (!turn || e.shiftKey) return; // Shift + ↑ / ↓ moves up and down the body (main.js)
     e.preventDefault();
     orbit(...turn);
   });
@@ -506,7 +514,7 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
   controls.update();
 
   return {
-    load, loadSkin, render, setHover, probe, home, zoomBy, orbit, face, invalidate, resize, frameRegions,
+    load, loadSkin, render, setHover, probe, home, zoomBy, pan, orbit, face, invalidate, resize, frameRegions,
     frame: frameKeys,
     hasLayer: (layer) => groups.has(layer),
     hasSkin: () => !!skin,
