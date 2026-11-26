@@ -13,13 +13,13 @@ const CARRIES = { artery: 'Oxygen-rich blood away from the heart', vein: 'Oxygen
 const UPSTREAM_FIRST = new Set(['pumps', 'continues', 'branches', 'drains']);
 const URG = { 'self-care': 'Self-care', doctor: 'See a doctor', urgent: 'Urgent' };
 const REGION_GROUPS = [
-  ['Head & neck', ['head', 'face', 'neck']],
+  ['Head & neck', ['head', 'face', 'eye', 'ear', 'jaw-teeth', 'throat', 'neck']],
   ['Chest', ['chest-center', 'chest-right', 'chest-left']],
   ['Abdomen', ['upper-right-abdomen', 'upper-middle-abdomen', 'upper-left-abdomen', 'right-flank', 'around-navel', 'left-flank', 'lower-right-abdomen', 'lower-middle-abdomen', 'lower-left-abdomen']],
   ['Arms', ['shoulder', 'armpit', 'upper-arm', 'elbow', 'forearm', 'wrist-hand']],
-  ['Legs', ['hip-groin', 'thigh', 'knee', 'back-of-knee', 'lower-leg', 'ankle-foot', 'heel']],
+  ['Legs', ['hip-groin', 'thigh', 'back-of-thigh', 'knee', 'back-of-knee', 'lower-leg', 'calf', 'ankle-foot', 'heel']],
   ['Pelvis', ['genitals']],
-  ['Back', ['upper-back', 'mid-back', 'lower-back', 'buttock']],
+  ['Back', ['upper-back', 'mid-back', 'lower-back', 'tailbone', 'buttock']],
 ];
 // a list item is a string or { text, sex } (functions, red flags)
 const txt = (x) => (typeof x === 'string' ? x : x?.text ?? '');

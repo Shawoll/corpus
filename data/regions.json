@@ -96,74 +96,20 @@
     },
     {
       "id": "face",
-      "name": "Face & jaw",
+      "name": "Face",
       "structures": [
         "maxilla",
-        "mandible",
         "zygomatic",
         "nasal",
         "ethmoid",
-        "tmj",
-        "masseter",
-        "temporalis",
         "trigeminal-nerve",
         "facial-nerve",
-        "common-carotid-artery",
         "facial-artery",
-        "superficial-temporal-artery",
-        "glossopharyngeal-nerve",
-        "hypoglossal-nerve",
-        "eye",
-        "ear",
         "nose",
-        "tongue",
-        "salivary-glands",
         "orbicularis-oculi",
-        "orbicularis-oris",
-        "occipitofrontalis",
-        "pterygoids",
-        "buccinator",
-        "extraocular-muscles"
+        "buccinator"
       ],
       "causes": [
-        {
-          "title": "Jaw joint (TMJ) pain",
-          "signs": "Aching in front of the ear, clicking, pain when chewing, often with clenching or grinding.",
-          "urgency": "self-care",
-          "related": [
-            "tmj",
-            "mandible",
-            "masseter",
-            "temporalis",
-            "pterygoids"
-          ]
-        },
-        {
-          "title": "Earache",
-          "signs": "Pain in or around the ear, often with a cold (middle ear infection) or after swimming (outer ear). Jaw joint problems can also feel like earache.",
-          "urgency": "self-care",
-          "related": [
-            "ear",
-            "tmj"
-          ]
-        },
-        {
-          "title": "Red or painful eye",
-          "signs": "A red, sore or gritty eye. Pain with blurred vision or light sensitivity, or after an injury, needs same-day care.",
-          "urgency": "doctor",
-          "related": [
-            "eye"
-          ]
-        },
-        {
-          "title": "Dental pain or abscess",
-          "signs": "Toothache, sensitivity, or a swollen gum or cheek. Swelling or fever needs prompt dental care.",
-          "urgency": "doctor",
-          "related": [
-            "maxilla",
-            "mandible"
-          ]
-        },
         {
           "title": "Sinusitis",
           "signs": "Pressure in the cheeks or forehead, blocked nose, thick discharge.",
@@ -205,6 +151,111 @@
           ]
         },
         {
+          "title": "Nosebleed",
+          "signs": "Bleeding from one nostril, often after picking, a cold or dry air. Sit up, lean forward and pinch the soft part of the nose for 10 to 15 minutes.",
+          "urgency": "self-care",
+          "related": [
+            "nose",
+            "facial-artery"
+          ]
+        },
+        {
+          "title": "Shingles on the face",
+          "signs": "A burning pain, then a blistering rash on one side of the forehead or face. See a doctor within 3 days, and the same day if it is near the eye.",
+          "urgency": "doctor",
+          "related": [
+            "trigeminal-nerve",
+            "skin"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Sudden drooping of one side of the face (possible stroke)",
+        "Facial swelling that is spreading fast, or swelling with difficulty swallowing or breathing",
+        "A hot, red, swollen area around the eye or nose with fever"
+      ]
+    },
+    {
+      "id": "eye",
+      "name": "Eye",
+      "paired": true,
+      "structures": [
+        "eye",
+        "optic-nerve",
+        "oculomotor-nerve",
+        "trochlear-nerve",
+        "abducens-nerve",
+        "extraocular-muscles",
+        "orbicularis-oculi",
+        "trigeminal-nerve",
+        "facial-nerve",
+        "frontal",
+        "zygomatic",
+        "maxilla",
+        "ethmoid",
+        "sphenoid"
+      ],
+      "causes": [
+        {
+          "title": "Conjunctivitis",
+          "signs": "A red, gritty or itchy eye with watery or sticky discharge, often in both eyes, while your sight stays normal. It usually clears in one to two weeks.",
+          "urgency": "self-care",
+          "related": [
+            "eye"
+          ]
+        },
+        {
+          "title": "Dry eyes",
+          "signs": "Burning, gritty or tired eyes, worse with screens, heating, air conditioning or wind.",
+          "urgency": "self-care",
+          "related": [
+            "eye",
+            "orbicularis-oculi"
+          ]
+        },
+        {
+          "title": "Stye or eyelid lump",
+          "signs": "A tender red lump on the edge of the eyelid that usually settles in a week or two with warm compresses.",
+          "urgency": "self-care",
+          "related": [
+            "orbicularis-oculi"
+          ]
+        },
+        {
+          "title": "Scratch or something in the eye",
+          "signs": "Sharp pain, watering and a feeling that something is there, after dust, a fingernail or a contact lens. If it isn’t better within a day, see a pharmacist, optician or doctor.",
+          "urgency": "doctor",
+          "related": [
+            "eye"
+          ]
+        },
+        {
+          "title": "Red or painful eye",
+          "signs": "A red, sore or gritty eye. Pain with blurred vision or light sensitivity, or after an injury, needs same-day care.",
+          "urgency": "doctor",
+          "related": [
+            "eye"
+          ]
+        },
+        {
+          "title": "Optic neuritis",
+          "signs": "Pain on moving one eye, with blurring or faded colours in that eye coming on over a few days.",
+          "urgency": "doctor",
+          "related": [
+            "optic-nerve",
+            "eye"
+          ]
+        },
+        {
+          "title": "Acute glaucoma",
+          "signs": "Sudden, severe pain in one eye with redness, blurred vision, haloes around lights, headache and sometimes vomiting.",
+          "urgency": "urgent",
+          "related": [
+            "eye",
+            "optic-nerve"
+          ]
+        },
+        {
           "title": "Double vision",
           "signs": "Seeing two of things, side by side or one above the other. If it starts suddenly, especially with a droopy eyelid, a headache, or weakness or numbness elsewhere, get emergency care. Double vision that comes and goes over weeks, worse when tired, also needs a doctor.",
           "urgency": "urgent",
@@ -218,9 +269,211 @@
         }
       ],
       "redFlags": [
-        "Facial swelling that is spreading fast, or swelling with difficulty swallowing or breathing",
-        "Sudden drooping of one side of the face (possible stroke)",
-        "A red, painful eye with blurred or lost vision"
+        "Sudden loss of sight, or a curtain or shadow across part of your vision",
+        "New flashes of light or a shower of new floaters",
+        "A chemical splash (rinse with plenty of clean water first), or an injury from something sharp or fast-moving",
+        "A painful red eye with blurred vision",
+        "Sudden double vision, especially with a droopy eyelid or a headache"
+      ]
+    },
+    {
+      "id": "ear",
+      "name": "Ear",
+      "paired": true,
+      "structures": [
+        "ear",
+        "vestibulocochlear-nerve",
+        "facial-nerve",
+        "temporal",
+        "tmj",
+        "salivary-glands",
+        "superficial-temporal-artery",
+        "trigeminal-nerve",
+        "glossopharyngeal-nerve",
+        "vagus-nerve",
+        "cervical-lymph-nodes"
+      ],
+      "causes": [
+        {
+          "title": "Middle ear infection",
+          "signs": "Earache with a cold, sometimes with muffled hearing or a fever. Common in children, and most settle within 3 days.",
+          "urgency": "self-care",
+          "related": [
+            "ear"
+          ]
+        },
+        {
+          "title": "Outer ear infection",
+          "signs": "An itchy, painful ear canal, worse when the ear is pulled, often after swimming. A pharmacist can help.",
+          "urgency": "self-care",
+          "related": [
+            "ear"
+          ]
+        },
+        {
+          "title": "Earwax build-up",
+          "signs": "A blocked, full feeling with muffled hearing, sometimes with ringing.",
+          "urgency": "self-care",
+          "related": [
+            "ear"
+          ]
+        },
+        {
+          "title": "Jaw joint pain felt in the ear",
+          "signs": "Aching in front of the ear, worse when chewing or yawning, often with clicking. The ear itself is healthy.",
+          "urgency": "self-care",
+          "related": [
+            "tmj",
+            "masseter",
+            "pterygoids"
+          ]
+        },
+        {
+          "title": "Pain from the throat or teeth",
+          "signs": "Tonsillitis, a bad tooth or a sore throat can be felt as earache, because they share nerves with the ear.",
+          "urgency": "self-care",
+          "related": [
+            "tonsils",
+            "pharynx",
+            "glossopharyngeal-nerve",
+            "mandible"
+          ]
+        },
+        {
+          "title": "Vertigo",
+          "signs": "Brief spells of spinning when you move your head (often from loose crystals in the inner ear), or constant dizziness after a cold (inner ear inflammation).",
+          "urgency": "doctor",
+          "related": [
+            "ear",
+            "vestibulocochlear-nerve"
+          ]
+        },
+        {
+          "title": "Sudden hearing loss",
+          "signs": "Hearing drops in one ear over hours to a few days, without a cold or earwax. Get seen within a day, because early treatment helps.",
+          "urgency": "urgent",
+          "related": [
+            "ear",
+            "vestibulocochlear-nerve"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A red, tender swelling behind the ear that pushes it forward, with a fever",
+        "Sudden hearing loss in one ear",
+        "Earache with a drooping face, or blisters in or around the ear",
+        "Dizziness with a severe headache, double vision, slurred speech or weakness (possible stroke)"
+      ]
+    },
+    {
+      "id": "jaw-teeth",
+      "name": "Jaw & teeth",
+      "structures": [
+        "mandible",
+        "maxilla",
+        "tmj",
+        "masseter",
+        "temporalis",
+        "pterygoids",
+        "buccinator",
+        "orbicularis-oris",
+        "tongue",
+        "salivary-glands",
+        "trigeminal-nerve",
+        "facial-nerve",
+        "hypoglossal-nerve",
+        "facial-artery",
+        "cervical-lymph-nodes"
+      ],
+      "causes": [
+        {
+          "title": "Jaw joint (TMJ) pain",
+          "signs": "Aching in front of the ear, clicking, pain when chewing, often with clenching or grinding.",
+          "urgency": "self-care",
+          "related": [
+            "tmj",
+            "mandible",
+            "masseter",
+            "temporalis",
+            "pterygoids"
+          ]
+        },
+        {
+          "title": "Dental pain or abscess",
+          "signs": "Toothache, sensitivity to hot or cold, or a swollen gum or cheek. Swelling or fever needs a dentist promptly.",
+          "urgency": "doctor",
+          "related": [
+            "maxilla",
+            "mandible"
+          ]
+        },
+        {
+          "title": "Teeth grinding",
+          "signs": "An aching jaw, tired face muscles or a headache on waking, sometimes with worn or chipped teeth.",
+          "urgency": "self-care",
+          "related": [
+            "masseter",
+            "temporalis",
+            "tmj"
+          ]
+        },
+        {
+          "title": "Wisdom tooth pain",
+          "signs": "Pain and swelling at the back of the jaw, sometimes with a bad taste or trouble opening the mouth.",
+          "urgency": "doctor",
+          "related": [
+            "mandible"
+          ]
+        },
+        {
+          "title": "Mouth ulcers",
+          "signs": "Small, painful sores inside the mouth that heal within 2 weeks. One that lasts longer than 3 weeks needs checking.",
+          "urgency": "self-care",
+          "related": [
+            "tongue",
+            "orbicularis-oris"
+          ]
+        },
+        {
+          "title": "Salivary gland stone or infection",
+          "signs": "A painful swelling under the jaw or in front of the ear that comes on when you eat.",
+          "urgency": "doctor",
+          "related": [
+            "salivary-glands"
+          ]
+        },
+        {
+          "title": "Pain on chewing with a new headache",
+          "signs": "Jaw tiredness when chewing, with a new headache or a tender scalp, in someone over 50, can be inflamed arteries (giant cell arteritis) and needs treatment the same day to protect your sight.",
+          "urgency": "urgent",
+          "related": [
+            "superficial-temporal-artery",
+            "masseter"
+          ]
+        },
+        {
+          "title": "Jaw pain from the heart",
+          "signs": "An ache in the jaw or neck brought on by effort, or with chest tightness, breathlessness or sweating, can be angina or a heart attack.",
+          "urgency": "urgent",
+          "related": [
+            "heart"
+          ]
+        },
+        {
+          "title": "Broken jaw",
+          "signs": "After a blow: the teeth don’t meet properly, it hurts to open the mouth, or the lower lip is numb.",
+          "urgency": "urgent",
+          "related": [
+            "mandible",
+            "tmj"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Jaw pain with chest pain, breathlessness or sweating: call emergency services",
+        "Swelling in the face, jaw or floor of the mouth that is spreading, or makes it hard to swallow, breathe or open the mouth",
+        "A mouth ulcer, lump or white or red patch that hasn’t healed after 3 weeks",
+        "A new headache with jaw pain on chewing after 50"
       ]
     },
     {
@@ -228,14 +481,8 @@
       "name": "Neck",
       "structures": [
         "@cervical",
-        "hyoid",
-        "thyroid",
-        "trachea",
-        "esophagus",
         "sternocleidomastoid",
         "trapezius",
-        "suprahyoid",
-        "infrahyoid",
         "spinal-cord",
         "common-carotid-artery",
         "vertebral-artery",
@@ -247,13 +494,9 @@
         "phrenic-nerve",
         "brachial-plexus",
         "cervical-lymph-nodes",
-        "tonsils",
         "external-carotid-artery",
         "hypoglossal-nerve",
         "glossopharyngeal-nerve",
-        "pharynx",
-        "larynx",
-        "parathyroid",
         "levator-scapulae",
         "splenius",
         "scalenes",
@@ -284,8 +527,70 @@
           ]
         },
         {
-          "title": "Sore throat / swollen glands",
-          "signs": "Pain on swallowing and tender lumps under the jaw during a cold or tonsillitis.",
+          "title": "Wry neck",
+          "signs": "Waking with the head stuck turned to one side, painful to straighten. It usually eases within a few days to a week.",
+          "urgency": "self-care",
+          "related": [
+            "sternocleidomastoid",
+            "trapezius",
+            "levator-scapulae"
+          ]
+        },
+        {
+          "title": "Wear in the neck",
+          "signs": "Stiffness and aching that come and go with age, sometimes with grinding when you turn your head. Gentle movement helps.",
+          "urgency": "self-care",
+          "related": [
+            "@cervical",
+            "intervertebral"
+          ]
+        },
+        {
+          "title": "Whiplash",
+          "signs": "Neck pain and stiffness coming on in the hours after a sudden jolt, such as a car being hit from behind.",
+          "urgency": "doctor",
+          "related": [
+            "@cervical",
+            "sternocleidomastoid",
+            "trapezius",
+            "splenius"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Neck pain after a significant injury such as a fall or car crash: keep still and get help",
+        "Fever with a stiff neck, headache or rash",
+        "Neck pain with arm weakness or clumsy hands",
+        "A lump in the side of the neck that is growing or hasn’t gone after 3 weeks"
+      ]
+    },
+    {
+      "id": "throat",
+      "name": "Throat",
+      "structures": [
+        "pharynx",
+        "larynx",
+        "tonsils",
+        "thyroid",
+        "parathyroid",
+        "trachea",
+        "esophagus",
+        "hyoid",
+        "suprahyoid",
+        "infrahyoid",
+        "cervical-lymph-nodes",
+        "vagus-nerve",
+        "glossopharyngeal-nerve",
+        "hypoglossal-nerve",
+        "common-carotid-artery",
+        "internal-jugular-vein",
+        "tongue",
+        "platysma"
+      ],
+      "causes": [
+        {
+          "title": "Sore throat or tonsillitis",
+          "signs": "Pain on swallowing, sometimes with white patches on the tonsils and tender glands under the jaw, during a cold. Most get better within a week.",
           "urgency": "self-care",
           "related": [
             "tonsils",
@@ -302,6 +607,23 @@
           ]
         },
         {
+          "title": "Reflux",
+          "signs": "Burning in the throat and a sour taste, worse lying down.",
+          "urgency": "self-care",
+          "related": [
+            "esophagus"
+          ]
+        },
+        {
+          "title": "Lump in the throat feeling",
+          "signs": "A feeling of something stuck in the throat between meals, while food and drink go down normally. It is common, harmless and often linked to reflux or stress.",
+          "urgency": "self-care",
+          "related": [
+            "pharynx",
+            "esophagus"
+          ]
+        },
+        {
           "title": "Thyroid lump or swelling",
           "signs": "A lump at the front of the neck that moves when you swallow.",
           "urgency": "doctor",
@@ -310,19 +632,37 @@
           ]
         },
         {
-          "title": "Reflux",
-          "signs": "Burning in the throat and a sour taste, worse lying down.",
-          "urgency": "self-care",
+          "title": "Trouble swallowing",
+          "signs": "Food sticking on the way down, or swallowing that is getting harder over weeks.",
+          "urgency": "doctor",
+          "related": [
+            "esophagus",
+            "pharynx"
+          ]
+        },
+        {
+          "title": "Quinsy (abscess beside a tonsil)",
+          "signs": "A severe sore throat on one side, getting worse, with difficulty swallowing or opening the mouth, a muffled voice and fever.",
+          "urgency": "urgent",
+          "related": [
+            "tonsils",
+            "pharynx"
+          ]
+        },
+        {
+          "title": "Food stuck in the gullet",
+          "signs": "A feeling of food stuck after swallowing, with drooling or being unable to swallow your own saliva.",
+          "urgency": "urgent",
           "related": [
             "esophagus"
           ]
         }
       ],
       "redFlags": [
-        "Neck pain after a significant injury such as a fall or car crash: keep still and get help",
-        "Fever with a stiff neck, headache or rash",
-        "Difficulty breathing or swallowing, drooling or a muffled voice",
-        "Neck pain with arm weakness or clumsy hands"
+        "Difficulty breathing, noisy breathing, drooling or being unable to swallow saliva",
+        "Swelling of the lips, tongue or throat with a rash or breathlessness (possible severe allergic reaction): call emergency services",
+        "A hoarse voice for more than 3 weeks, especially if you smoke",
+        "Swallowing that keeps getting harder, or weight loss you can’t explain"
       ]
     },
     {
@@ -1899,7 +2239,7 @@
     },
     {
       "id": "thigh",
-      "name": "Thigh",
+      "name": "Front of thigh",
       "paired": true,
       "structures": [
         "femur",
@@ -1909,26 +2249,35 @@
         "vastus-intermedius",
         "sartorius",
         "adductors",
-        "hamstrings",
         "tensor-fasciae-latae",
         "femoral-artery",
         "femoral-vein",
         "femoral-nerve",
         "great-saphenous-vein",
-        "sciatic-nerve",
         "obturator-nerve",
         "lumbar-plexus",
         "iliotibial-band"
       ],
       "causes": [
         {
-          "title": "Muscle strain",
-          "signs": "Sudden pain at the back (hamstring) or front (quadriceps) of the thigh during sport.",
+          "title": "Thigh strain",
+          "signs": "A sudden pull at the front or inner thigh while sprinting, kicking or changing direction.",
           "urgency": "self-care",
           "related": [
             "rectus-femoris",
-            "hamstrings",
-            "adductors"
+            "adductors",
+            "vastus-lateralis",
+            "vastus-medialis"
+          ]
+        },
+        {
+          "title": "Dead leg",
+          "signs": "A painful, stiff thigh after a knee or a blow to the front of the thigh, with bruising. It settles over days to weeks.",
+          "urgency": "self-care",
+          "related": [
+            "vastus-lateralis",
+            "vastus-intermedius",
+            "rectus-femoris"
           ]
         },
         {
@@ -1967,6 +2316,78 @@
             "obturator-nerve"
           ]
         }
+      ],
+      "redFlags": [
+        "A swollen, painful leg with breathlessness or chest pain: call emergency services",
+        "Severe pain and swelling after a blow that keeps getting worse"
+      ]
+    },
+    {
+      "id": "back-of-thigh",
+      "name": "Back of thigh",
+      "paired": true,
+      "view": "back",
+      "structures": [
+        "femur",
+        "hamstrings",
+        "adductors",
+        "gluteus-maximus",
+        "sciatic-nerve",
+        "femoral-vein",
+        "great-saphenous-vein",
+        "skin"
+      ],
+      "causes": [
+        {
+          "title": "Hamstring strain",
+          "signs": "A sudden sharp pain or pull at the back of the thigh while sprinting or kicking, sometimes with bruising a day or two later.",
+          "urgency": "self-care",
+          "related": [
+            "hamstrings"
+          ]
+        },
+        {
+          "title": "Hamstring tear",
+          "signs": "A pop with sudden weakness and a lot of bruising down the back of the thigh. A tear near the sitting bone may need repair.",
+          "urgency": "doctor",
+          "related": [
+            "hamstrings",
+            "hip-bone"
+          ]
+        },
+        {
+          "title": "Sciatica",
+          "signs": "Pain running from the buttock down the back of the thigh, often past the knee, with tingling or numbness. It usually comes from the lower back.",
+          "urgency": "doctor",
+          "related": [
+            "sciatic-nerve",
+            "sacral-plexus",
+            "intervertebral",
+            "@lumbar"
+          ]
+        },
+        {
+          "title": "Cramp",
+          "signs": "A brief, hard tightening of the muscle, often at night or during exercise.",
+          "urgency": "self-care",
+          "related": [
+            "hamstrings"
+          ]
+        },
+        {
+          "title": "Deep vein thrombosis (DVT)",
+          "signs": "A swollen, warm, painful leg, often after travel, surgery or being unwell in bed.",
+          "urgency": "urgent",
+          "related": [
+            "femoral-vein",
+            "popliteal-vein"
+          ]
+        }
+      ],
+      "redFlags": [
+        "A swollen, painful leg with breathlessness or chest pain: call emergency services",
+        "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
+        "A leg that is getting weaker"
       ]
     },
     {
@@ -2207,7 +2628,7 @@
     },
     {
       "id": "lower-leg",
-      "name": "Shin & calf",
+      "name": "Shin",
       "paired": true,
       "structures": [
         "tibia",
@@ -2216,18 +2637,10 @@
         "tibialis-anterior",
         "toe-extensors",
         "fibularis",
-        "gastrocnemius",
-        "soleus",
         "anterior-tibial-artery",
-        "posterior-tibial-artery",
-        "popliteal-vein",
         "great-saphenous-vein",
-        "small-saphenous-vein",
-        "tibial-nerve",
         "deep-fibular-nerve",
-        "superficial-fibular-nerve",
-        "tibialis-posterior",
-        "toe-flexors"
+        "superficial-fibular-nerve"
       ],
       "causes": [
         {
@@ -2252,20 +2665,66 @@
           ]
         },
         {
+          "title": "Exercise compartment pain",
+          "signs": "A tight, aching front of the shin that builds up during running and eases with rest, sometimes with tingling on top of the foot.",
+          "urgency": "doctor",
+          "related": [
+            "tibialis-anterior",
+            "toe-extensors",
+            "deep-fibular-nerve"
+          ]
+        },
+        {
+          "title": "Knock to the shin",
+          "signs": "A painful lump after knocking the shin. The thin skin over the bone can be slow to heal.",
+          "urgency": "self-care",
+          "related": [
+            "tibia",
+            "skin"
+          ]
+        },
+        {
+          "title": "Cellulitis",
+          "signs": "A red, hot, swollen, tender patch of skin that spreads, sometimes with a fever.",
+          "urgency": "doctor",
+          "related": [
+            "skin"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Severe, increasing pain after an injury or in a tight cast",
+        "Red, hot, swollen skin that is spreading fast, with a fever or feeling very unwell"
+      ]
+    },
+    {
+      "id": "calf",
+      "name": "Calf",
+      "paired": true,
+      "view": "back",
+      "structures": [
+        "gastrocnemius",
+        "soleus",
+        "achilles-tendon",
+        "popliteus",
+        "tibialis-posterior",
+        "toe-flexors",
+        "tibia",
+        "fibula",
+        "tibial-nerve",
+        "posterior-tibial-artery",
+        "popliteal-vein",
+        "small-saphenous-vein",
+        "great-saphenous-vein"
+      ],
+      "causes": [
+        {
           "title": "Calf strain",
-          "signs": "A sudden pull in the calf when pushing off.",
+          "signs": "A sudden pull or a feeling of being struck in the calf when pushing off, followed by tightness.",
           "urgency": "self-care",
           "related": [
             "gastrocnemius",
             "soleus"
-          ]
-        },
-        {
-          "title": "Deep vein thrombosis (DVT)",
-          "signs": "A swollen, warm, tender calf, especially after travel, surgery or immobility.",
-          "urgency": "urgent",
-          "related": [
-            "popliteal-vein"
           ]
         },
         {
@@ -2278,6 +2737,35 @@
           ]
         },
         {
+          "title": "Achilles tendinopathy",
+          "signs": "Pain and stiffness in the tendon just above the heel, worst in the morning or at the start of exercise.",
+          "urgency": "self-care",
+          "related": [
+            "achilles-tendon",
+            "gastrocnemius",
+            "soleus"
+          ]
+        },
+        {
+          "title": "Varicose veins",
+          "signs": "Bulging, twisted veins with aching or heavy legs, worse at the end of the day.",
+          "urgency": "self-care",
+          "related": [
+            "small-saphenous-vein",
+            "great-saphenous-vein"
+          ]
+        },
+        {
+          "title": "Sciatica felt in the calf",
+          "signs": "Pain or tingling down the back of the leg into the calf or foot, coming from a nerve root in the lower back.",
+          "urgency": "doctor",
+          "related": [
+            "sciatic-nerve",
+            "tibial-nerve",
+            "intervertebral"
+          ]
+        },
+        {
           "title": "Poor circulation (claudication)",
           "signs": "Cramping calf pain on walking that eases with rest.",
           "urgency": "doctor",
@@ -2285,11 +2773,30 @@
             "femoral-artery",
             "popliteal-artery"
           ]
+        },
+        {
+          "title": "Deep vein thrombosis (DVT)",
+          "signs": "A swollen, warm, tender calf, especially after travel, surgery or immobility.",
+          "urgency": "urgent",
+          "related": [
+            "popliteal-vein"
+          ]
+        },
+        {
+          "title": "Achilles tendon rupture",
+          "signs": "A sudden snap, or a feeling of being kicked in the back of the ankle, then trouble walking or standing on tiptoe.",
+          "urgency": "urgent",
+          "related": [
+            "achilles-tendon",
+            "gastrocnemius",
+            "soleus"
+          ]
         }
       ],
       "redFlags": [
-        "A swollen, painful calf with breathlessness or chest pain",
-        "Severe, increasing pain after an injury or a tight cast"
+        "A swollen, painful calf with breathlessness or chest pain: call emergency services (possible blood clot in the lung)",
+        "Severe, increasing pain after an injury or in a tight cast",
+        "A cold, pale or blue foot or leg"
       ]
     },
     {
@@ -2747,7 +3254,6 @@
       "structures": [
         "@lumbar",
         "sacrum",
-        "coccyx",
         "kidney",
         "sacroiliac",
         "intervertebral",
@@ -2865,6 +3371,73 @@
       ]
     },
     {
+      "id": "tailbone",
+      "name": "Tailbone",
+      "view": "back",
+      "structures": [
+        "coccyx",
+        "sacrococcygeal",
+        "sacrum",
+        "gluteus-maximus",
+        "pelvic-floor",
+        "rectum",
+        "sacral-plexus",
+        "skin"
+      ],
+      "causes": [
+        {
+          "title": "Tailbone pain (coccydynia)",
+          "signs": "Pain at the very bottom of the spine, worse sitting or getting up from a chair, often after a fall or childbirth.",
+          "urgency": "self-care",
+          "related": [
+            "coccyx",
+            "sacrococcygeal"
+          ]
+        },
+        {
+          "title": "Bruised or broken tailbone",
+          "signs": "Pain after a fall onto your bottom, worse when sitting or getting up. It usually settles over a few weeks, and a cushion with a gap at the back helps.",
+          "urgency": "self-care",
+          "related": [
+            "coccyx",
+            "sacrococcygeal"
+          ]
+        },
+        {
+          "title": "Pilonidal abscess",
+          "signs": "A painful, swollen, sometimes discharging lump in the skin at the top of the buttock crease.",
+          "urgency": "doctor",
+          "related": [
+            "skin",
+            "coccyx"
+          ]
+        },
+        {
+          "title": "Piles or a tear at the back passage",
+          "signs": "Pain or itching around the back passage when opening your bowels, sometimes with bright red blood on the paper. Bleeding that keeps happening, or at over 50, should be checked by a doctor.",
+          "urgency": "self-care",
+          "related": [
+            "rectum"
+          ]
+        },
+        {
+          "title": "Pain from the lower back",
+          "signs": "The lower spine and the sacroiliac joints can cause an ache that is felt down at the tailbone.",
+          "urgency": "self-care",
+          "related": [
+            "@lumbar",
+            "sacroiliac",
+            "sacrum"
+          ]
+        }
+      ],
+      "redFlags": [
+        "Numbness around the genitals or buttocks, new bladder or bowel problems, or weakness in both legs: emergency (possible cauda equina syndrome)",
+        "A hot, swollen, very painful lump near the tailbone or back passage with fever",
+        "Tailbone pain with fever, unexplained weight loss or a history of cancer"
+      ]
+    },
+    {
       "id": "buttock",
       "name": "Buttock",
       "paired": true,
@@ -2872,9 +3445,7 @@
       "structures": [
         "hip-bone",
         "sacrum",
-        "coccyx",
         "sacroiliac",
-        "sacrococcygeal",
         "hip",
         "femur",
         "gluteus-maximus",
@@ -2942,15 +3513,6 @@
           ]
         },
         {
-          "title": "Tailbone pain (coccydynia)",
-          "signs": "Pain at the very bottom of the spine, worse sitting or getting up from a chair, often after a fall or childbirth.",
-          "urgency": "self-care",
-          "related": [
-            "coccyx",
-            "sacrococcygeal"
-          ]
-        },
-        {
           "title": "Pain from the hip",
           "signs": "Hip arthritis can ache in the buttock as well as the groin, with stiffness putting on shoes and socks.",
           "urgency": "doctor",
@@ -2977,15 +3539,6 @@
           "related": [
             "hamstrings",
             "hip-bone"
-          ]
-        },
-        {
-          "title": "Pilonidal abscess",
-          "signs": "A painful, swollen, sometimes discharging lump in the skin at the top of the buttock crease.",
-          "urgency": "doctor",
-          "related": [
-            "skin",
-            "coccyx"
           ]
         }
       ],

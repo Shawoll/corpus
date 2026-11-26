@@ -58,7 +58,7 @@ Corpus makes four claims, and the user stands behind all of them:
 
 - The structured anatomy data in `data/*.json`, with typed links between structures.
 - The SVG drawings in `assets/svg/`: front and back views for every layer, in the schematic and realistic styles.
-- 33 body areas (27 drawn on the front, 16 on the back, some on both), each with causes, urgency and red flags.
+- 40 body areas (31 drawn on the front, 17 on the back, some on both), each with causes, urgency and red flags.
 - There are no testimonials, user numbers, clinical review or endorsements. Future work must not invent them or suggest medical sign-off.
 
 ## Product Principles

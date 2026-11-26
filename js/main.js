@@ -281,8 +281,11 @@ async function boot() {
   const cycleSex = () => { const i = sexes.findIndex((x) => x.id === store.get().sex); setSex(sexes[(i + 1) % sexes.length].id); };
 
   // ------------------------------------------------------------------ navigation
-  let zoomNext = false;
-  const navigate = (path, { zoom: z = false } = {}) => { zoomNext = z; Router.go(path); };
+  // zoomNext: the next route should be brought into view (search, panel links: not a tap on the map, which is in view
+  // already). inApp tells those routes from the ones that come from outside (a typed or pasted address, back and
+  // forward, the first load), which are always brought into view.
+  let zoomNext = false, inApp = false;
+  const navigate = (path, { zoom: z = false } = {}) => { zoomNext = z; inApp = true; Router.go(path); };
   const regionKey = (r) => (r.side ? `${r.id}:${r.side}` : r.id);
 
   function onRoute() {
@@ -308,10 +311,8 @@ async function boot() {
 
     if (route.view === 'home' || route.view === 'hurt') setSheet('peek');
     else if (sheet === 'peek') setSheet('half');
-    if (zoomNext) {
-      zoomNext = false;
-      requestAnimationFrame(() => revealSelection());
-    }
+    if (zoomNext || !inApp) requestAnimationFrame(() => revealSelection());
+    zoomNext = inApp = false;
   }
 
   // whether a body area exists for the current biological sex (one function per graph, so the model sees a change)
@@ -796,7 +797,6 @@ async function boot() {
   window.addEventListener('hashchange', onRoute);
   onRoute();
   ensureShown(store.get());
-  if (store.get().route.view !== 'home') requestAnimationFrame(() => revealSelection());
   document.body.classList.add('ready');
   // offline use: start the service worker once the page has loaded, so it doesn't compete with the first paint
   if (Offline.supported) {
