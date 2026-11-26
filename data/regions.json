@@ -173,7 +173,9 @@
         "accessory-nerve",
         "cervical-plexus",
         "phrenic-nerve",
-        "brachial-plexus"
+        "brachial-plexus",
+        "cervical-lymph-nodes",
+        "tonsils"
       ],
       "causes": [
         {
@@ -200,7 +202,10 @@
           "title": "Sore throat / swollen glands",
           "signs": "Pain on swallowing and tender lumps under the jaw during a cold or tonsillitis.",
           "urgency": "self-care",
-          "related": []
+          "related": [
+            "tonsils",
+            "cervical-lymph-nodes"
+          ]
         },
         {
           "title": "Thyroid lump or swelling",
@@ -248,7 +253,8 @@
         "axillary-artery",
         "subclavian-vein",
         "axillary-vein",
-        "cephalic-vein"
+        "cephalic-vein",
+        "axillary-lymph-nodes"
       ],
       "causes": [
         {
@@ -1394,7 +1400,8 @@
         "femoral-nerve",
         "great-saphenous-vein",
         "obturator-nerve",
-        "lumbar-plexus"
+        "lumbar-plexus",
+        "inguinal-lymph-nodes"
       ],
       "causes": [
         {
@@ -1552,7 +1559,8 @@
         "great-saphenous-vein",
         "small-saphenous-vein",
         "common-fibular-nerve",
-        "tibial-nerve"
+        "tibial-nerve",
+        "popliteal-lymph-nodes"
       ],
       "causes": [
         {

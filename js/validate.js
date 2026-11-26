@@ -47,7 +47,7 @@ export function check({ graph, drawn, regionShapes, variants = [] }) {
   const has = (k, type, dir) => graph.edges(k).some((e) => e.type === type && e.dir === dir);
   for (const n of graph.nodes.values()) {
     for (const k of graph.instances(n.id)) {
-      if ((n.type === 'nerve' || n.type === 'vessel') && !graph.edges(k).length) problems.push(`${n.type === 'nerve' ? 'Nerve' : 'Vessel'} "${k}" connects nothing`);
+      if (['nerve', 'vessel', 'lymph'].includes(n.type) && !graph.edges(k).length) problems.push(`${{ nerve: 'Nerve', vessel: 'Vessel', lymph: 'Lymphatic' }[n.type]} "${k}" connects nothing`);
       if (n.type === 'muscle' && types.has('nerve') && !has(k, 'innervates', 'in')) problems.push(`Muscle "${k}" has no nerve supply`);
       if ((n.type === 'muscle' || n.type === 'organ') && types.has('vessel') && !has(k, 'supplies', 'in')) problems.push(`${n.type === 'muscle' ? 'Muscle' : 'Organ'} "${k}" has no blood supply`);
     }

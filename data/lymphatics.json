@@ -1,0 +1,361 @@
+{
+  "layer": "lymphatics",
+  "name": "Lymphatics",
+  "type": "lymph",
+  "note": "The lymphatic system: lymph vessels, the main node groups, the ducts that return lymph to the blood, and the thymus and tonsils. \"collects\" (the area or organ whose lymph a node group filters) and \"drains\" become links (see linkTypes in manifest.json). \"kind\" is node, vessel, duct or organ. Ids match data-id attributes in assets/svg/lymphatics-anterior.svg and lymphatics-posterior.svg. The spleen, the largest lymphoid organ, lives in organs.json.",
+  "groups": [
+    {
+      "id": "lymphatic-system",
+      "name": "Lymphatic system",
+      "summary": "A second network of vessels that collects the fluid leaking out of the blood into the tissues (lymph), filters it through lymph nodes, where immune cells check it for germs and abnormal cells, and returns it to the veins at the base of the neck. It also carries fat absorbed from the gut.",
+      "issues": [
+        {
+          "name": "Swollen lymph nodes",
+          "note": "Tender, swollen nodes near an infection (a sore throat, an infected cut) are the immune system at work and usually settle within two or three weeks. See a doctor for nodes that keep growing, feel hard or fixed, last more than three weeks, or come with night sweats, fever or weight loss."
+        },
+        {
+          "name": "Lymphoedema",
+          "note": "Persistent swelling of a limb when lymph can't drain away, most often after lymph nodes are removed or treated for cancer. Early treatment (compression, skin care, exercise) helps. See a doctor for a newly swollen limb."
+        }
+      ]
+    },
+    {
+      "id": "lymph-nodes",
+      "name": "Lymph node groups",
+      "parent": "lymphatic-system",
+      "summary": "Bean-shaped filters, usually a few millimetres long, clustered where lymph vessels from a region converge: the neck, armpit, groin, chest and abdomen. There are about 600 in the body."
+    },
+    {
+      "id": "lymph-vessels",
+      "name": "Lymph vessels & ducts",
+      "parent": "lymphatic-system",
+      "summary": "Thin-walled vessels with one-way valves. Muscle movement and breathing push lymph along them, from the tissues through the nodes to the two ducts that empty into the veins of the neck."
+    },
+    {
+      "id": "lymphoid-organs",
+      "name": "Lymphoid organs",
+      "parent": "lymphatic-system",
+      "summary": "Organs where immune cells mature or meet germs: the thymus, the tonsils and the spleen."
+    }
+  ],
+  "structures": [
+    {
+      "id": "thoracic-duct",
+      "name": "Thoracic duct",
+      "latin": "Ductus thoracicus",
+      "aka": [
+        "left lymphatic duct"
+      ],
+      "kind": "duct",
+      "group": "lymph-vessels",
+      "summary": "The body's main lymph vessel. It rises from the cisterna chyli in the upper abdomen, runs up in front of the spine between the aorta and the azygos vein, crosses to the left in the upper chest and empties into the veins at the base of the left side of the neck. It carries lymph from both legs, the abdomen and the left half of the chest, head and arm: about three quarters of the body.",
+      "drains": [
+        "subclavian-vein:left"
+      ],
+      "drainsNote": "at the left venous angle, where the left internal jugular vein joins the subclavian vein",
+      "issues": [
+        {
+          "name": "Chylothorax",
+          "note": "Rarely, injury or surgery in the chest damages the duct and milky lymph collects around the lung, causing breathlessness. It needs hospital treatment."
+        }
+      ]
+    },
+    {
+      "id": "cisterna-chyli",
+      "name": "Cisterna chyli",
+      "latin": "Cisterna chyli",
+      "kind": "duct",
+      "group": "lymph-vessels",
+      "summary": "A small sac in front of the first and second lumbar vertebrae where the lymph trunks of the legs, pelvis and gut meet. Its lymph is milky after a fatty meal (chyle) because it carries fat absorbed from the intestine. It is the start of the thoracic duct.",
+      "drains": [
+        "thoracic-duct"
+      ]
+    },
+    {
+      "id": "right-lymphatic-duct",
+      "name": "Right lymphatic duct",
+      "latin": "Ductus lymphaticus dexter",
+      "kind": "duct",
+      "group": "lymph-vessels",
+      "summary": "A short duct, about a centimetre long, at the base of the right side of the neck. It returns lymph from the right half of the head, neck and chest and the right arm: about a quarter of the body.",
+      "drains": [
+        "subclavian-vein:right"
+      ],
+      "drainsNote": "at the right venous angle, where the right internal jugular vein joins the subclavian vein"
+    },
+    {
+      "id": "arm-lymphatics",
+      "name": "Lymph vessels of the arm",
+      "latin": "Vasa lymphatica membri superioris",
+      "kind": "vessel",
+      "group": "lymph-vessels",
+      "paired": true,
+      "summary": "Fine vessels that start as a mesh in the skin of the fingers and palm and run up the forearm and arm, mostly along the surface veins, to the lymph nodes of the armpit.",
+      "collects": [
+        "@arm-muscles",
+        "@forearm-muscles"
+      ],
+      "drains": [
+        "axillary-lymph-nodes"
+      ],
+      "issues": [
+        {
+          "name": "Lymphangitis",
+          "note": "Red streaks running up from an infected cut or bite mean the infection is spreading along lymph vessels. See a doctor the same day."
+        },
+        {
+          "name": "Arm lymphoedema",
+          "note": "Swelling of the arm after the armpit nodes are removed or treated, most often for breast cancer. Compression, exercise and skin care help."
+        }
+      ]
+    },
+    {
+      "id": "leg-lymphatics",
+      "name": "Lymph vessels of the leg",
+      "latin": "Vasa lymphatica membri inferioris",
+      "kind": "vessel",
+      "group": "lymph-vessels",
+      "paired": true,
+      "summary": "Fine vessels from the skin of the foot that run up the inner leg with the great saphenous vein to the inguinal nodes in the groin. Lymph from the outer foot and back of the calf goes first to the popliteal nodes behind the knee.",
+      "collects": [
+        "@leg-muscles"
+      ],
+      "drains": [
+        "inguinal-lymph-nodes",
+        "popliteal-lymph-nodes"
+      ],
+      "issues": [
+        {
+          "name": "Leg lymphoedema",
+          "note": "Persistent swelling of the foot and leg, either from birth or after surgery, radiotherapy or infection in the groin. Skin care matters, because swollen legs get cellulitis easily."
+        },
+        {
+          "name": "Lymphangitis",
+          "note": "Red streaks running up the leg from an infected cut or bite need a doctor the same day."
+        }
+      ]
+    },
+    {
+      "id": "cervical-lymph-nodes",
+      "name": "Cervical lymph nodes",
+      "latin": "Nodi lymphoidei cervicales",
+      "aka": [
+        "neck glands",
+        "neck lymph nodes"
+      ],
+      "kind": "node",
+      "group": "lymph-nodes",
+      "paired": true,
+      "summary": "Chains of nodes under the jaw and along the internal jugular vein, under the sternocleidomastoid. They filter lymph from the scalp, face, mouth, throat and thyroid. The ones just below the angle of the jaw are the \"glands\" that swell with a sore throat.",
+      "collects": [
+        "tonsils",
+        "thyroid",
+        "masseter",
+        "temporalis",
+        "sternocleidomastoid"
+      ],
+      "issues": [
+        {
+          "name": "Swollen neck glands",
+          "note": "Common with colds, sore throats and dental infections, and they settle as the infection clears. See a doctor if one keeps growing, feels hard or fixed, or lasts more than three weeks."
+        },
+        {
+          "name": "Glandular fever",
+          "note": "Large, tender neck nodes with a severe sore throat, fever and tiredness, mostly in teenagers and young adults. It settles over weeks. Avoid contact sports until a doctor says the spleen is safe."
+        }
+      ]
+    },
+    {
+      "id": "axillary-lymph-nodes",
+      "name": "Axillary lymph nodes",
+      "latin": "Nodi lymphoidei axillares",
+      "aka": [
+        "armpit lymph nodes"
+      ],
+      "kind": "node",
+      "group": "lymph-nodes",
+      "paired": true,
+      "summary": "About 20 to 30 nodes in the fat of the armpit, around the axillary vein. They filter lymph from the arm, the chest wall and most of the breast, which is why they are checked in breast cancer.",
+      "collects": [
+        "pectoralis-major",
+        "pectoralis-minor",
+        "serratus-anterior",
+        "latissimus-dorsi"
+      ],
+      "issues": [
+        {
+          "name": "Swollen armpit node",
+          "note": "Often from an infection in the hand or arm, a recent vaccination or shaving rash. See a doctor for a lump that lasts more than three weeks, or any lump with a change in the breast."
+        }
+      ]
+    },
+    {
+      "id": "mediastinal-lymph-nodes",
+      "name": "Mediastinal lymph nodes",
+      "latin": "Nodi lymphoidei mediastinales",
+      "aka": [
+        "hilar lymph nodes",
+        "tracheobronchial lymph nodes"
+      ],
+      "kind": "node",
+      "group": "lymph-nodes",
+      "summary": "Nodes in the middle of the chest, around the trachea, its split into the two bronchi and the roots of the lungs. They filter lymph from the lungs, heart and oesophagus. They can't be felt, but show on chest scans.",
+      "collects": [
+        "lung",
+        "heart",
+        "trachea",
+        "esophagus"
+      ],
+      "issues": [
+        {
+          "name": "Enlarged chest nodes",
+          "note": "Found on scans in infections such as tuberculosis, in sarcoidosis and in some cancers. Doctors decide on tests depending on the cause."
+        }
+      ],
+      "drains": [
+        "thoracic-duct",
+        "right-lymphatic-duct"
+      ],
+      "drainsNote": "through the bronchomediastinal trunks"
+    },
+    {
+      "id": "para-aortic-lymph-nodes",
+      "name": "Para-aortic lymph nodes",
+      "latin": "Nodi lymphoidei lumbales",
+      "aka": [
+        "lumbar lymph nodes",
+        "retroperitoneal lymph nodes"
+      ],
+      "kind": "node",
+      "group": "lymph-nodes",
+      "summary": "A chain of nodes on either side of the abdominal aorta, at the back of the abdomen. They collect lymph from the kidneys, the testes or ovaries and, through the iliac nodes, from the pelvis and legs, and pass it to the cisterna chyli.",
+      "collects": [
+        "kidney"
+      ],
+      "drains": [
+        "cisterna-chyli"
+      ]
+    },
+    {
+      "id": "mesenteric-lymph-nodes",
+      "name": "Mesenteric lymph nodes",
+      "latin": "Nodi lymphoidei mesenterici",
+      "kind": "node",
+      "group": "lymph-nodes",
+      "summary": "Hundreds of small nodes in the mesentery, the fan of tissue that holds the intestines to the back of the abdomen. They filter lymph and absorbed fat from the gut on its way to the cisterna chyli.",
+      "collects": [
+        "small-intestine",
+        "large-intestine",
+        "appendix",
+        "stomach"
+      ],
+      "drains": [
+        "cisterna-chyli"
+      ],
+      "issues": [
+        {
+          "name": "Mesenteric adenitis",
+          "note": "Inflamed abdominal nodes after a viral infection, mostly in children. The pain can mimic appendicitis and usually settles in a few days. Worsening pain in the lower right abdomen needs a doctor."
+        }
+      ]
+    },
+    {
+      "id": "iliac-lymph-nodes",
+      "name": "Iliac lymph nodes",
+      "latin": "Nodi lymphoidei iliaci",
+      "aka": [
+        "pelvic lymph nodes"
+      ],
+      "kind": "node",
+      "group": "lymph-nodes",
+      "paired": true,
+      "summary": "Nodes along the iliac arteries and veins in the pelvis. They filter lymph from the bladder, the pelvic organs and, through the inguinal nodes, the leg, and pass it up to the para-aortic nodes.",
+      "collects": [
+        "bladder",
+        "pelvic-floor"
+      ],
+      "drains": [
+        "para-aortic-lymph-nodes"
+      ]
+    },
+    {
+      "id": "inguinal-lymph-nodes",
+      "name": "Inguinal lymph nodes",
+      "latin": "Nodi lymphoidei inguinales",
+      "aka": [
+        "groin lymph nodes",
+        "groin glands"
+      ],
+      "kind": "node",
+      "group": "lymph-nodes",
+      "paired": true,
+      "summary": "Nodes in the groin, a row just below the crease and a vertical group around the top of the great saphenous vein. They filter lymph from the leg, the buttock, the lower abdominal wall and the genitals, and pass it to the iliac nodes.",
+      "collects": [
+        "gluteus-maximus",
+        "rectus-abdominis",
+        "external-oblique"
+      ],
+      "drains": [
+        "iliac-lymph-nodes"
+      ],
+      "issues": [
+        {
+          "name": "Swollen groin node",
+          "note": "Usually from an infection of the foot, leg or skin, and it settles. A groin lump that comes and goes with coughing or standing is more likely a hernia. See a doctor for a lump that lasts more than three weeks."
+        }
+      ]
+    },
+    {
+      "id": "popliteal-lymph-nodes",
+      "name": "Popliteal lymph nodes",
+      "latin": "Nodi lymphoidei poplitei",
+      "kind": "node",
+      "group": "lymph-nodes",
+      "paired": true,
+      "summary": "A few small nodes deep in the hollow behind the knee, beside the popliteal vessels. They filter lymph from the outer foot and the back of the calf, along the small saphenous vein, and pass it to the inguinal nodes.",
+      "collects": [
+        "gastrocnemius",
+        "soleus"
+      ],
+      "drains": [
+        "inguinal-lymph-nodes"
+      ]
+    },
+    {
+      "id": "thymus",
+      "name": "Thymus",
+      "latin": "Thymus",
+      "kind": "organ",
+      "group": "lymphoid-organs",
+      "summary": "A two-lobed organ behind the top of the breastbone, in front of the heart and great vessels. T cells, the white blood cells that recognise germs, mature here. It is largest in childhood and is slowly replaced by fat after puberty.",
+      "drains": [
+        "mediastinal-lymph-nodes"
+      ]
+    },
+    {
+      "id": "tonsils",
+      "name": "Tonsils",
+      "latin": "Tonsilla palatina",
+      "aka": [
+        "palatine tonsils"
+      ],
+      "kind": "organ",
+      "group": "lymphoid-organs",
+      "paired": true,
+      "summary": "Two lumps of lymphoid tissue at the back of the throat, one on each side. Together with the adenoid and the tissue at the back of the tongue they form a ring that meets germs entering through the mouth and nose.",
+      "drains": [
+        "cervical-lymph-nodes"
+      ],
+      "issues": [
+        {
+          "name": "Tonsillitis",
+          "note": "Sore throat, painful swallowing, fever and red, swollen tonsils, usually from a virus. Rest, fluids and pain relief help. See a doctor if it lasts more than a week or keeps coming back."
+        },
+        {
+          "name": "Quinsy",
+          "note": "An abscess beside a tonsil: a severe one-sided sore throat, trouble opening the mouth and a muffled voice. It needs urgent treatment."
+        }
+      ]
+    }
+  ]
+}

@@ -102,6 +102,8 @@
   --vein-line: #1f3566;
   --nerve: #e2bc3c;
   --nerve-line: #8a6a12;
+  --lymph: #6a9f45;
+  --lymph-line: #2f5320;
 
   /* type */
   --serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
@@ -183,12 +185,16 @@
   --vein-line: #1c2c52;
   --nerve: #f0cf5a;
   --nerve-line: #6b5210;
+  --lymph: #8fc46e;
+  --lymph-line: #20391a;
     --artery: #d9534f;
     --artery-line: #5a1513;
     --vein: #6d8fd6;
     --vein-line: #1c2c52;
     --nerve: #f0cf5a;
     --nerve-line: #6b5210;
+    --lymph: #8fc46e;
+    --lymph-line: #20391a;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 }

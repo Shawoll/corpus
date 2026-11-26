@@ -338,6 +338,8 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .legend .ln.artery { background: var(--artery); border-color: var(--artery-line); }
 .legend .ln.vein { background: var(--vein); border-color: var(--vein-line); }
 .legend .ln.nerve { background: var(--nerve); border-color: var(--nerve-line); }
+.legend .ln.lymph { background: var(--lymph); border-color: var(--lymph-line); }
+.legend .nd { width: 10px; height: 7px; border-radius: 50%; border: 1px solid var(--lymph-line); background: var(--lymph); margin: 0 2px; }
 
 .disclaimer {
   margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--line);
@@ -437,15 +439,17 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.a { --tone: var(--artery); --tone-line: var(--artery-line); }
 #map .s.v { --tone: var(--vein); --tone-line: var(--vein-line); }
 #map .s.n { --tone: var(--nerve); --tone-line: var(--nerve-line); }
-#map .s:is(.a, .v, .n) .b { fill: var(--tone); stroke: var(--tone-line); stroke-width: 0.6; }
-#map .s:is(.a, .v, .n) .c { fill: var(--tone); stroke: none; opacity: 0.4; }
-#map .s:is(.a, .v, .n).deep .b { fill-opacity: 0.5; stroke-opacity: 0.5; }
-#map .s:is(.a, .v, .n):hover .b, #map .s:is(.a, .v, .n).is-hover .b { fill: color-mix(in srgb, var(--tone) 60%, #fff); }
-#map .s:is(.a, .v, .n).is-rel .b { fill: var(--rel-fill); stroke: var(--rel); stroke-width: 1.1; fill-opacity: 1; }
-#map .s:is(.a, .v, .n).is-sel .b { fill: var(--sel-fill); stroke: var(--sel); stroke-width: 1.4; fill-opacity: 1; }
-#map .s:is(.a, .v, .n).is-sel .c { fill: var(--sel); stroke: none; }
-#map.mode-hurt .layer:is([data-layer="vessels"], [data-layer="nerves"]) .s { opacity: 0.22; }
-#map.mode-hurt .layer:is([data-layer="vessels"], [data-layer="nerves"]) .s.is-rel { opacity: 0.85; }
+#map .s.ly { --tone: var(--lymph); --tone-line: var(--lymph-line); }
+#map .s:is(.a, .v, .n, .ly) .b { fill: var(--tone); stroke: var(--tone-line); stroke-width: 0.6; }
+#map .s.ly.lo .b { fill-opacity: 0.75; } /* thymus and tonsils: soft lymphoid tissue */
+#map .s:is(.a, .v, .n, .ly) .c { fill: var(--tone); stroke: none; opacity: 0.4; }
+#map .s:is(.a, .v, .n, .ly).deep .b { fill-opacity: 0.5; stroke-opacity: 0.5; }
+#map .s:is(.a, .v, .n, .ly):hover .b, #map .s:is(.a, .v, .n, .ly).is-hover .b { fill: color-mix(in srgb, var(--tone) 60%, #fff); }
+#map .s:is(.a, .v, .n, .ly).is-rel .b { fill: var(--rel-fill); stroke: var(--rel); stroke-width: 1.1; fill-opacity: 1; }
+#map .s:is(.a, .v, .n, .ly).is-sel .b { fill: var(--sel-fill); stroke: var(--sel); stroke-width: 1.4; fill-opacity: 1; }
+#map .s:is(.a, .v, .n, .ly).is-sel .c { fill: var(--sel); stroke: none; }
+#map.mode-hurt .layer:is([data-layer="vessels"], [data-layer="nerves"], [data-layer="lymphatics"]) .s { opacity: 0.22; }
+#map.mode-hurt .layer:is([data-layer="vessels"], [data-layer="nerves"], [data-layer="lymphatics"]) .s.is-rel { opacity: 0.85; }
 
 /* joint markers */
 #map .jm {

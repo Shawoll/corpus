@@ -297,6 +297,46 @@
       "to": [
         "iliac-vein"
       ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "cervical-lymph-nodes"
+      ],
+      "to": [
+        "right-lymphatic-duct"
+      ],
+      "side": "right"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "cervical-lymph-nodes"
+      ],
+      "to": [
+        "thoracic-duct"
+      ],
+      "side": "left"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "axillary-lymph-nodes"
+      ],
+      "to": [
+        "right-lymphatic-duct"
+      ],
+      "side": "right"
+    },
+    {
+      "type": "drains",
+      "from": [
+        "axillary-lymph-nodes"
+      ],
+      "to": [
+        "thoracic-duct"
+      ],
+      "side": "left"
     }
   ]
 }

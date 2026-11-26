@@ -32,6 +32,12 @@ The structures and links behind the map. The JSON shapes are in the root `CONTRI
 - Keep `aka` to true synonyms. Branch names belong in `members`, which search already indexes; the panel shows the first `aka` that isn't a member as "also: …".
 - `?debug` requires every muscle to have a nerve supply (`innervates`) and a blood supply (`supplies`), and every organ a blood supply, so a new muscle or organ needs both.
 
+## Lymphatics (`lymphatics.json`)
+
+- Its file `type` is `lymph`, and `kind` is `node` (a node group), `vessel`, `duct` or `organ` (thymus, tonsils). The spleen stays in `organs.json`.
+- `collects` (node or vessel → the organs and muscles whose lymph it filters, "Collects lymph from" / "Lymph drains to") and `drains` (lymph flow onward, ending in `subclavian-vein:left` / `:right`) are field links. Paired node groups that drain into a different duct on each side (cervical and axillary nodes: right → right lymphatic duct, left → thoracic duct) do so through `links.json` entries with `"side"`.
+- `?debug` reports a lymphatic structure that connects nothing, as it does for nerves and vessels.
+
 ## Links (`links.json`)
 
 `type` must be a key of `manifest.json` → `linkTypes`, whose `forward` / `reverse` labels are the panel section titles. `"side": "right"` keeps only right-side (and midline) matches. `note` is shown next to the section title, or above its own chips when a section mixes links with different notes, so only annotate a link when the note tells it apart from others in the same section.

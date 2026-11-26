@@ -77,6 +77,16 @@
       "visible": false
     },
     {
+      "id": "lymphatics",
+      "name": "Lymphatics",
+      "svg": {
+        "anterior": "assets/svg/lymphatics-anterior.svg",
+        "posterior": "assets/svg/lymphatics-posterior.svg"
+      },
+      "data": "data/lymphatics.json",
+      "visible": false
+    },
+    {
       "id": "nerves",
       "name": "Nerves",
       "svg": {
@@ -148,6 +158,11 @@
       "forward": "Supplies blood to",
       "reverse": "Blood supply",
       "field": "supplies"
+    },
+    "collects": {
+      "forward": "Collects lymph from",
+      "reverse": "Lymph drains to",
+      "field": "collects"
     }
   }
 }

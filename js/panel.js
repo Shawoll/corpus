@@ -6,6 +6,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
 const KIND = { long: 'Long bone', short: 'Short bone', flat: 'Flat bone', irregular: 'Irregular bone', sesamoid: 'Sesamoid bone' };
 const NERVE_KIND = { cranial: 'Cranial nerve', 'spinal-cord': 'Central nervous system', spinal: 'Spinal nerves', plexus: 'Nerve plexus', peripheral: 'Peripheral nerve' };
+const LYMPH_KIND = { node: 'Lymph node group', vessel: 'Lymph vessels', duct: 'Lymph duct', organ: 'Lymphoid organ' };
 const CARRIES = { artery: 'Oxygen-rich blood away from the heart', vein: 'Oxygen-poor blood back to the heart' };
 // read flow links upstream first: where it comes from, then where it goes
 const UPSTREAM_FIRST = new Set(['pumps', 'continues', 'branches', 'drains']);
@@ -117,7 +118,7 @@ export function createPanel(graph) {
       if (lt.field && n[lt.field + 'Note'] && !byType.has(`${type}|out`) && Array.isArray(n[lt.field])) byType.set(`${type}|out`, { type, dir: 'out', keys: [], byNote: new Map() });
     }
     if (!byType.size) return '';
-    const order = ['origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'innervates', 'supplies', 'attached'];
+    const order = ['origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'collects', 'innervates', 'supplies', 'attached'];
     const rank = (t) => (order.includes(t) ? order.indexOf(t) : order.length);
     const dirRank = (b) => ((b.dir === 'out') !== UPSTREAM_FIRST.has(b.type) ? 0 : 1);
     const items = [...byType.values()].sort((a, b) => rank(a.type) - rank(b.type) || dirRank(a) - dirRank(b));
@@ -209,6 +210,9 @@ export function createPanel(graph) {
       f.push(['Type', NERVE_KIND[n.kind] || cap(n.kind)]);
       if (n.roots) f.push(['Roots', n.roots]);
       if (n.carries) f.push(['Carries', n.carries]);
+    } else if (n.type === 'lymph') {
+      f.push(['Type', LYMPH_KIND[n.kind] || cap(n.kind)]);
+      if (n.kind !== 'organ') f.push(['Carries', 'Lymph, back toward the blood']);
     } else if (n.type === 'vessel') {
       f.push(['Type', cap(n.kind)]);
       f.push(['Carries', n.carries || CARRIES[n.kind]]);
@@ -316,17 +320,17 @@ export function createPanel(graph) {
     const joints = [...graph.nodes.values()].filter((n) => n.type === 'joint').length;
     const organs = [...graph.nodes.values()].filter((n) => n.type === 'organ').length;
     const count = (type) => [...graph.nodes.values()].filter((n) => n.type === type).length;
-    const muscles = count('muscle'), nerves = count('nerve'), vessels = count('vessel');
+    const muscles = count('muscle'), nerves = count('nerve'), vessels = count('vessel'), lymph = count('lymph');
     const stat = (v, label) => (v ? `<div class="stat"><b>${v}</b><span>${label}</span></div>` : '');
     let edges = 0;
     for (const list of graph.adj.values()) edges += list.length;
     let h = eyebrow(['A connected map of the body']);
-    h += `<p class="home-lede">The human body as one system. Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, what it connects to and what commonly goes wrong.</p>`;
+    h += `<p class="home-lede">The human body as one system. Tap any bone, joint, muscle, organ, nerve, blood vessel or lymph node to see what it is, what it connects to and what commonly goes wrong.</p>`;
     h += `<p class="home-note" role="note"><b>Not a diagnostic tool.</b> ${esc(graph.regionsData.disclaimer || 'Educational only, not medical advice.')} ${esc(graph.regionsData.emergency || '')}</p>`;
-    h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${stat(muscles, 'muscles')}<div class="stat"><b>${organs}</b><span>organs</span></div>${stat(nerves, 'nerves')}${stat(vessels, 'vessels')}<div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
+    h += `<div class="stats"><div class="stat"><b>${bones}</b><span>bones</span></div><div class="stat"><b>${joints}</b><span>joints</span></div>${stat(muscles, 'muscles')}<div class="stat"><b>${organs}</b><span>organs</span></div>${stat(nerves, 'nerves')}${stat(vessels, 'vessels')}${stat(lymph, 'lymphatics')}<div class="stat"><b>${Math.round(edges / 2)}</b><span>connections</span></div></div>`;
     h += section('How to use it', `<ul class="howto">
       <li><span class="k">i</span><span><b>Tap</b> a structure. It turns red, everything it connects to turns teal, and the joints between them pulse.</span></li>
-      <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles, Organs, Vessels or Nerves. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
+      <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles, Organs, Vessels, Lymphatics or Nerves. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
       <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, nerve, blood vessel, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
       <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the muscles of the back, and every other layer seen from behind.</span></li>
@@ -339,6 +343,7 @@ export function createPanel(graph) {
       <div><span class="ln artery"></span>Artery</div>
       <div><span class="ln vein"></span>Vein</div>
       <div><span class="ln nerve"></span>Nerve</div>
+      <div><span class="ln lymph"></span><span class="nd"></span>Lymph vessel and nodes</div>
       <div><span class="jdot" data-c="synovial"></span>Synovial joint (freely moving)</div>
       <div><span class="jdot" data-c="cartilaginous"></span>Cartilaginous joint (slightly moving)</div>
       <div><span class="jdot" data-c="fibrous"></span>Fibrous joint (fixed)</div>
