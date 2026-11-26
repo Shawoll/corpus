@@ -18,7 +18,7 @@ from pathlib import Path
 
 from shapely.geometry import LineString
 
-from geometry import LIGHTS, Bone, area_d, line_d, polys_from_d, shift, soften, unary_union
+from geometry import LIGHTS, Bone, area_d, line_d, polys_from_d, shift, subpaths, soften, unary_union
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -46,9 +46,7 @@ def evenodd(d):
 
 def polylines(d):
     out = []
-    for sub in re.findall(r'M[^M]*', d):
-        nums = [float(x) for x in re.findall(r'-?\d+\.?\d*', sub)]
-        pts = list(zip(nums[0::2], nums[1::2]))
+    for pts in subpaths(d):
         if len(pts) >= 2:
             out.append(LineString(pts))
     return out

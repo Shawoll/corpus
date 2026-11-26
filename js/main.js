@@ -273,29 +273,10 @@ async function boot() {
       b.setAttribute('aria-pressed', String(state === 'active' || state === 'context'));
       b.title = state === 'na' ? `${name} aren’t drawn in the ${vname.toLowerCase()} view yet` : state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
     }
-    for (const b of document.querySelectorAll('.views button')) b.setAttribute('aria-pressed', String(b.dataset.view === st.view));
-    const drawnStyle = styleIn(st.style, st.view) ? st.style : styles[0].id;
-    for (const b of document.querySelectorAll('#styles button')) {
-      const s = styleById.get(b.dataset.style);
-      const here = styleIn(s.id, st.view);
-      b.setAttribute('aria-pressed', String(s.id === drawnStyle));
-      b.disabled = !here;
-      b.title = here ? `${s.name} drawings (D)` : `No ${s.name.toLowerCase()} drawings for the ${vname.toLowerCase()} view yet`;
-    }
-    for (const b of document.querySelectorAll('#sexes button')) {
-      const on = b.dataset.sex === st.sex;
-      b.setAttribute('aria-pressed', String(on));
-      b.title = on ? `${b.getAttribute('aria-label')}: press again to clear (S)` : `Show the body as ${b.getAttribute('aria-label').toLowerCase()} (S)`;
-    }
     svg.setAttribute('aria-label', `${vname} view of the human body. Use search or Browse to reach every structure by keyboard.`);
     const jb = $('.layer-chip[data-toggle="joints"]');
     jb.dataset.state = st.joints ? 'active' : 'off';
     jb.setAttribute('aria-pressed', String(st.joints));
-    const fixedFlip = !!viewById.get(st.view)?.flip;
-    const mb = $('#mirror');
-    mb.disabled = fixedFlip;
-    mb.setAttribute('aria-pressed', String(!fixedFlip && st.mirror));
-    mb.title = fixedFlip ? 'Seen from behind, the figure already matches your own body' : 'Mirror: flip the figure so it matches your own body';
     const flip = flipOf(st);
     const lab = (s) => `<b>${s === 'right' ? 'R' : 'L'}</b><small>body’s ${s}</small>`;
     $('#side-left').innerHTML = lab(flip ? 'left' : 'right');
@@ -368,33 +349,13 @@ async function boot() {
   $('#zoom-in').addEventListener('click', () => { hideHint(); zoom.zoomBy(0.7); });
   $('#zoom-out').addEventListener('click', () => zoom.zoomBy(1.4));
   $('#zoom-fit').addEventListener('click', () => zoom.home());
-  $('#mirror').addEventListener('click', () => { const m = !store.get().mirror; prefs.set('mirror', m); store.set({ mirror: m }); });
-  const viewsEl = $('#views');
-  viewsEl.innerHTML = views.map((v) => `<button data-view="${escapeHtml(v.id)}" aria-pressed="false" title="${escapeHtml(v.name)} view (B)">${escapeHtml(v.name)}</button>`).join('');
-  viewsEl.hidden = views.length < 2;
-  viewsEl.addEventListener('click', (e) => { const b = e.target.closest('[data-view]'); if (b) { hideHint(); setView(b.dataset.view); } });
   const toggleView = () => { const i = views.findIndex((v) => v.id === store.get().view); setView(views[(i + 1) % views.length].id); };
-  const stylesEl = $('#styles');
-  stylesEl.innerHTML = styles.map((s) => `<button data-style="${escapeHtml(s.id)}" aria-pressed="false" aria-label="${escapeHtml(s.name)} drawings">${escapeHtml(s.short || s.name)}</button>`).join('');
-  stylesEl.hidden = styles.length < 2;
-  stylesEl.addEventListener('click', (e) => { const b = e.target.closest('[data-style]'); if (b && !b.disabled) { hideHint(); setStyle(b.dataset.style); } });
   const toggleStyle = () => {
     const st = store.get();
     const here = styles.filter((s) => styleIn(s.id, st.view));
     const i = here.findIndex((s) => s.id === st.style);
     if (here.length > 1) setStyle(here[(i + 1) % here.length].id);
   };
-  // the F / M pair: the first entry (Not set) has no button; pressing the active one goes back to it
-  const sexesEl = $('#sexes');
-  const sexButtons = sexes.slice(1);
-  sexesEl.innerHTML = sexButtons.map((x) => `<button data-sex="${escapeHtml(x.id)}" aria-pressed="false" aria-label="Biological ${escapeHtml(x.name.toLowerCase())}">${escapeHtml(x.short || x.name)}</button>`).join('');
-  sexesEl.hidden = !sexButtons.length;
-  sexesEl.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-sex]');
-    if (!b) return;
-    hideHint();
-    setSex(b.dataset.sex === store.get().sex ? sexes[0].id : b.dataset.sex);
-  });
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
 
   // ------------------------------------------------------------------ settings (cog)

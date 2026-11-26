@@ -28,7 +28,7 @@ export function createPanel(graph) {
   // with no biological sex chosen, sex-specific text is still shown, tagged "female" / "male"
   let tagSex = false;
   const sexTag = (x) => (tagSex && x && typeof x === 'object' && x.sex ? `<span class="sex-tag">${esc(x.sex)}</span>` : '');
-  const sexHint = () => (tagSex ? '<div class="note-card">Reproductive organs appear once you choose a biological sex: <b>F</b> or <b>M</b> on the map (or <span class="kbd">S</span>), or in settings.</div>' : '');
+  const sexHint = () => (tagSex ? '<div class="note-card">Reproductive organs appear once you choose a biological sex in settings (the cog, top right) or with <span class="kbd">S</span>.</div>' : '');
   const navFor = (k) => {
     const { id, side } = parseKey(k);
     return `s/${encodeURIComponent(id)}${side ? '/' + side : ''}`;
@@ -313,8 +313,8 @@ export function createPanel(graph) {
     h += `<h2 class="title">Tap where it hurts</h2>`;
     h += `<p class="summary">Pick the area on the figure, or from the list below. Each area lists what lies there, the common causes of pain and when to get help.</p>`;
     h += st.view === 'posterior'
-      ? `<div class="note-card">You’re looking at the figure from behind, so its right side is on your right, like your own body. Switch to <b>Front</b> (bottom left of the map) for the chest, belly and face.</div>`
-      : `<div class="note-card">The figure faces you, so its right side is on your left. ${st.mirror ? 'Mirror is on: the figure now matches your own body like a mirror.' : 'Turn on <b>Mirror</b> (bottom left of the map) to match it to your own body.'} Switch to <b>Back</b> for the back and buttocks.</div>`;
+      ? `<div class="note-card">You’re looking at the figure from behind, so its right side is on your right, like your own body. Switch to <b>Front</b> (in settings, or <span class="kbd">B</span>) for the chest, belly and face.</div>`
+      : `<div class="note-card">The figure faces you, so its right side is on your left. ${st.mirror ? 'Mirror is on: the figure now matches your own body like a mirror.' : 'Turn on <b>Mirror</b> in settings to match it to your own body.'} Switch to <b>Back</b> (in settings, or <span class="kbd">B</span>) for the back and buttocks.</div>`;
     h += sexHint();
     h += section('How urgent', `<div class="legend-urg">${Object.entries(URG).map(([k, v]) => `<span class="urg" data-u="${k}">${v}</span>`).join('')}</div>`);
     const lists = REGION_GROUPS.map(([name, ids]) => {
@@ -347,10 +347,8 @@ export function createPanel(graph) {
       <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Ligaments, Muscles, Organs, Vessels, Lymphatics or Nerves. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
       <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, nerve, blood vessel, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
-      <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the muscles of the back, and every other layer seen from behind.</span></li>
-      <li><span class="k">vi</span><span><b>Simple / Real</b> (bottom left of the map, or <span class="kbd">D</span>) switches between simple diagrams and realistic drawings. The skeleton is drawn both ways; the other layers are simple diagrams for now.</span></li>
-      <li><span class="k">vii</span><span><b>F / M</b> (bottom left of the map, or <span class="kbd">S</span>) sets the biological sex, which adds the reproductive organs and the conditions that only affect one sex. Press it again to clear it.</span></li>
-      <li><span class="k">viii</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
+      <li><span class="k">v</span><span><b>Settings</b> (the cog, top right) turn the figure around (<b>Front / Back</b>, or <span class="kbd">B</span>), switch between simple and realistic <b>drawings</b> (<span class="kbd">D</span>), set the <b>biological sex</b>, which adds the reproductive organs and the conditions that only affect one sex (<span class="kbd">S</span>), and turn on <b>Mirror</b> to match the figure to your own body.</span></li>
+      <li><span class="k">vi</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);
     h += section('Legend', `<div class="legend">
       <div><span class="sq sel"></span>Selected</div>

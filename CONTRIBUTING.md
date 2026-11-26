@@ -68,7 +68,7 @@ carry `"sex": "female"` or `"male"`; the app builds one graph per setting from d
 `js/sex.js`, and shapes tagged `data-sex` are shown only for their sex. See `data/CLAUDE.md`.
 
 Coordinates follow the anatomical convention: the figure faces you, so the **body's right
-is on the viewer's left** (x < 240). The Mirror button flips the view for people matching
+is on the viewer's left** (x < 240). The Mirror setting flips the view for people matching
 it to their own body.
 
 ### Data shapes (short)

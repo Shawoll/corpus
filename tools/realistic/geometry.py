@@ -147,14 +147,58 @@ def shift(g, light, k):
 # ------------------------------------------------------------------ reading the schematic drawings
 
 
-def polys_from_d(d):
-    out = []
-    for sub in re.findall(r'M[^M]*', d):
-        nums = [float(x) for x in re.findall(r'-?\d+\.?\d*', sub)]
-        pts = list(zip(nums[0::2], nums[1::2]))
-        if len(pts) >= 3:
-            out.append(Polygon(pts).buffer(0))
+PATH_TOKEN = re.compile(r'[MmLlHhVvZz]|[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?')
+
+
+def subpaths(d):
+    """The points of each subpath of a path made of straight lines: M/m, L/l, H/h, V/v and Z/z, absolute or
+    relative (the schematic drawings use M…L…Z, and some M…l…Z). Curves are refused rather than misread."""
+    stray = re.sub(r'[MmLlHhVvZz\d\s,.eE+-]', '', d)
+    if stray:
+        raise ValueError(f'path has commands this reader does not handle ({stray[:10]}): {d[:60]}…')
+    out, pts, cmd, x, y, sx, sy = [], [], None, 0.0, 0.0, 0.0, 0.0
+    toks = PATH_TOKEN.findall(d)
+    i = 0
+    while i < len(toks):
+        t = toks[i]
+        if t.isalpha():
+            cmd = t
+            i += 1
+            if cmd in 'Zz':
+                x, y = sx, sy
+                if pts:
+                    out.append(pts)
+                pts = []
+                # a new subpath starts at the closed one's start if lines follow without an M
+                cmd = 'L' if cmd == 'Z' else 'l'
+                pts = [(x, y)] if i < len(toks) and not toks[i].isalpha() else []
+            continue
+        if cmd in 'Hh':
+            v = float(t)
+            x = x + v if cmd == 'h' else v
+            i += 1
+        elif cmd in 'Vv':
+            v = float(t)
+            y = y + v if cmd == 'v' else v
+            i += 1
+        else:
+            dx, dy = float(t), float(toks[i + 1])
+            i += 2
+            rel = cmd.islower()
+            x, y = (x + dx, y + dy) if rel else (dx, dy)
+            if cmd in 'Mm':
+                if pts:
+                    out.append(pts)
+                pts, sx, sy = [], x, y
+                cmd = 'l' if rel else 'L'  # further pairs after a moveto are linetos
+        pts.append((x, y))
+    if pts:
+        out.append(pts)
     return out
+
+
+def polys_from_d(d):
+    return [Polygon(pts).buffer(0) for pts in subpaths(d) if len(pts) >= 3]
 
 
 # ------------------------------------------------------------------ output

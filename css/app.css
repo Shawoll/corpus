@@ -139,8 +139,6 @@ body { display: grid; grid-template-rows: auto 1fr; }
 .map-controls .group button:hover { color: var(--ink); background: var(--paper-3); }
 .map-controls .group button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 .map-controls .group button:disabled { color: var(--ink-3); opacity: 0.45; cursor: not-allowed; background: none; }
-.map-controls .views[hidden] { display: none; }
-.map-controls .views button { font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em; }
 
 .map-hint {
   position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 4;
@@ -591,7 +589,9 @@ body { display: grid; grid-template-rows: auto 1fr; }
   .seg { padding: 2px; }
   .seg button { padding: 6px 9px; font-size: 13px; }
   .icon-btn { height: 36px; min-width: 36px; }
-  .search { order: 10; flex-basis: 100%; max-width: none; margin: 0; }
+  /* row 1: Browse, brand, mode switch; row 2: search with Ko-fi and the cog beside it (they ran off the edge on one row) */
+  .search { order: 10; flex: 1 1 calc(100% - 90px); max-width: none; margin: 0; }
+  .kofi, .settings-wrap { order: 11; }
   .modes { margin-left: auto; }
   .modes .long { display: none; }
   .modes .short { display: inline; }
@@ -618,20 +618,18 @@ body { display: grid; grid-template-rows: auto 1fr; }
   #panel-body { overflow: auto; overscroll-behavior: contain; flex: 1; }
   .panel-inner { padding: 4px 16px 40px; }
   .title { font-size: 26px; }
-  .map-controls { bottom: calc(92px + 14px); left: 12px; }
-  /* the two-button switches (Front / Back, Simple / Real, F / M) sit side by side so the column stays short */
-  .map-controls { align-items: flex-start; }
-  .map-controls .views { flex-direction: row; }
-  .map-controls .views button + button { border-top: 0; border-left: 1px solid var(--line); }
+  /* the zoom buttons sit at the right edge and the layer chips down the left, so the two never meet */
+  .map-controls { bottom: calc(92px + 14px); left: auto; right: 12px; }
   .map-hint { display: none; }
   .layerbar { top: 10px; left: 10px; gap: 4px; }
   .layer-chip { height: 28px; padding: 0 9px 0 8px; gap: 6px; font-size: 12.5px; }
   .layer-chip .sw { width: 10px; height: 10px; }
-  .side-label { top: 50%; width: 48px; }
+  /* R / L at the top, either side of the head: clear of the layer column (left) and the zoom buttons (right) */
+  .side-label { top: 12px; width: 28px; }
   .side-label small { display: none; }
-  .side-label.l { left: 54px; } /* clear of the map buttons down the left edge */
-  .side-label.r { right: 2px; }
-  .hurt-banner { top: 10px; left: auto; right: 10px; transform: none; } /* clear of the layer column */
+  .side-label.l { left: 112px; }
+  .side-label.r { right: 10px; }
+  .hurt-banner { top: auto; bottom: calc(92px + 14px); left: 12px; transform: none; } /* bottom left is free on phones */
 }
 
 /* probe: make every layer hit-testable for an instant (no paint happens in between) */
