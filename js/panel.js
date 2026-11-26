@@ -225,7 +225,7 @@ export function createPanel(graph) {
       h += `<div class="note-card">${notes.map(esc).join('<br>')}</div>`;
     }
     if (n.noJoints) h += `<div class="note-card">${esc(n.noJoints)}</div>`;
-    if (n.listOnly) h += `<div class="note-card">Not drawn on the map yet: it lies deep inside, or on the back, where only the skeleton is drawn so far. You can still reach it through search, the browse list and its connections.</div>`;
+    if (n.listOnly) h += `<div class="note-card">Not drawn on the map yet: it lies deep inside, under other structures. You can still reach it through search, the browse list and its connections.</div>`;
 
     if (n.type === 'joint') {
       const members = lift(keys.flatMap((k) => graph.membersOfJoint(k)), ctx, null);
@@ -328,7 +328,7 @@ export function createPanel(graph) {
       <li><span class="k">ii</span><span><b>Layers</b> (top left): switch on Muscles, Organs, Vessels or Nerves. The layer you touched last is in focus, and the others stay faintly visible behind it.</span></li>
       <li><span class="k">iii</span><span><b>Search</b> <span class="kbd">/</span> for any bone, muscle, organ, nerve, blood vessel, body area or condition (try “tennis elbow”), or open <b>Browse</b> for the full list.</span></li>
       <li><span class="k">iv</span><span><b>Where does it hurt?</b> Tap a body area to see what lies there, the likely causes, and when to get help.</span></li>
-      <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the skeleton and the “Where does it hurt?” areas so far.</span></li>
+      <li><span class="k">v</span><span><b>Front / Back</b> (bottom left of the map, or <span class="kbd">B</span>) turns the figure around. The back view shows the muscles of the back, and every other layer seen from behind.</span></li>
       <li><span class="k">vi</span><span><b>Simple / Real</b> (bottom left of the map, or <span class="kbd">D</span>) switches between simple diagrams and realistic drawings. The skeleton is drawn both ways; the other layers are simple diagrams for now.</span></li>
       <li><span class="k">vii</span><span><b>Zoom</b> with the scroll wheel, a pinch or the + / − buttons, and drag to pan. Small bones are easier to tap when zoomed in.</span></li>
     </ul>`);

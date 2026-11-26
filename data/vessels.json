@@ -417,7 +417,8 @@
         "latissimus-dorsi",
         "deltoid",
         "rotator-cuff",
-        "humerus"
+        "humerus",
+        "teres-major"
       ],
       "suppliesNote": "Through the thoracoacromial, lateral thoracic, subscapular and circumflex humeral arteries.",
       "membersLabel": "Branches",
@@ -782,7 +783,7 @@
       "group": "arteries-leg",
       "paired": true,
       "pulse": "Deep behind the knee (hard to feel)",
-      "summary": "Continues the femoral artery behind the knee, deep in the hollow there. It sends branches around the knee joint and divides below it into the anterior and posterior tibial arteries. Drawn faint because it lies behind the knee.",
+      "summary": "Continues the femoral artery behind the knee, deep in the hollow there. It sends branches around the knee joint and divides below it into the anterior and posterior tibial arteries. Drawn faint in the front view, where it lies behind the knee.",
       "branches": [
         "anterior-tibial-artery",
         "posterior-tibial-artery"
@@ -833,7 +834,7 @@
       "group": "arteries-leg",
       "paired": true,
       "pulse": "Behind the inner ankle bone",
-      "summary": "The larger branch of the popliteal artery. It runs deep in the calf, then behind the inner ankle bone into the sole, where it divides into the plantar arteries. Its fibular branch feeds the outer side of the leg. Drawn faint because it lies behind the bones.",
+      "summary": "The larger branch of the popliteal artery. It runs deep in the calf, then behind the inner ankle bone into the sole, where it divides into the plantar arteries. Its fibular branch feeds the outer side of the leg. Drawn faint in the front view, where it lies behind the bones.",
       "supplies": [
         "soleus",
         "gastrocnemius",
@@ -884,7 +885,7 @@
       "group": "veins-chest",
       "paired": true,
       "carries": "Oxygen-rich blood from the lungs to the heart",
-      "summary": "Two veins from each lung that bring freshly oxygenated blood into the left atrium. They are the only veins that carry oxygen-rich blood. Drawn faint because they enter the back of the heart.",
+      "summary": "Two veins from each lung that bring freshly oxygenated blood into the left atrium. They are the only veins that carry oxygen-rich blood. Drawn faint in the front view, because they enter the back of the heart.",
       "drains": [
         "heart"
       ],
@@ -1142,7 +1143,7 @@
       "kind": "vein",
       "group": "veins-leg",
       "paired": true,
-      "summary": "Formed below the knee by the deep veins of the calf, which run in pairs beside the arteries. It runs up behind the knee and becomes the femoral vein. Each squeeze of the calf muscles pumps blood up through these veins. Drawn faint because it lies behind the bones.",
+      "summary": "Formed below the knee by the deep veins of the calf, which run in pairs beside the arteries. It runs up behind the knee and becomes the femoral vein. Each squeeze of the calf muscles pumps blood up through these veins. Drawn faint in the front view, where it lies behind the bones.",
       "continues": [
         "femoral-vein"
       ],
@@ -1159,11 +1160,6 @@
         {
           "name": "Anterior tibial veins",
           "note": "From the front of the leg and the top of the foot."
-        },
-        {
-          "name": "Small saphenous vein",
-          "latin": "Vena saphena parva",
-          "note": "A surface vein from the back of the calf that joins it behind the knee."
         }
       ],
       "issues": [
@@ -1196,6 +1192,28 @@
         {
           "name": "Superficial thrombophlebitis",
           "note": "A tender, red, hard cord along the vein. It usually settles, but see a doctor, because it can extend into the deep veins."
+        }
+      ]
+    },
+    {
+      "id": "small-saphenous-vein",
+      "name": "Small saphenous vein",
+      "latin": "Vena saphena parva",
+      "aka": [
+        "short saphenous vein",
+        "lesser saphenous vein"
+      ],
+      "kind": "vein",
+      "group": "veins-leg",
+      "paired": true,
+      "summary": "The surface vein of the back of the leg. It starts at the outer end of the arch of veins on the top of the foot, passes behind the outer ankle bone and runs up the middle of the calf, just under the skin, to join the popliteal vein behind the knee.",
+      "drains": [
+        "popliteal-vein"
+      ],
+      "issues": [
+        {
+          "name": "Varicose veins",
+          "note": "Swollen, twisting veins on the back of the calf when its valves leak. Mostly harmless. Walking and raising the legs help. See a doctor for skin changes, ulcers or bleeding."
         }
       ]
     }

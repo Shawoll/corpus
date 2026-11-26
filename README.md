@@ -20,7 +20,7 @@ no dependencies, no external requests. It runs as-is on GitHub Pages.
 | Vessels | 38 major arteries and veins, from the aorta and venae cavae to the palmar arches and the great saphenous vein, with pulse points |
 | Nerves | 24 entries: the spinal cord and spinal nerves, four cranial nerves (trigeminal, facial, vagus, accessory), the cervical, brachial, lumbar and sacral plexuses and the main nerves of the arms and legs |
 | Links | Bone ↔ bone (through joints), muscle → bone (origin and insertion), bone → organ ("protects"), organ → organ ("continues into", "drains into"), nerve → muscle or organ ("supplies nerves to"), artery → muscle, organ or bone ("supplies blood to"), vessel and nerve branching ("gives rise to"), vein → vein or heart ("drains into"), heart → aorta ("pumps blood into") |
-| Views | **Front** and **Back**. The back view has the skeleton (back of the skull with the occipital bone, spinous processes, shoulder blades, sacrum) and the body areas; the other layers are drawn from the front only so far |
+| Views | **Front** and **Back**. Every layer is drawn from both sides. The back view shows the back of the skeleton, the back muscles (trapezius, latissimus dorsi, erector spinae, glutes, hamstrings, calf), the vessels and nerves with the ones lying in front drawn faint, the organs from behind and the body areas |
 | Regions | 25 front body areas and 3 back areas (upper back, lower back, buttock), each with likely causes, urgency and red flags. Limb, head and neck areas can be tapped from both sides |
 
 ## Run it locally
@@ -151,8 +151,9 @@ List the file under the layer's `svg` in the manifest (`"svg": { "anterior": "�
 Posterior files use the **front frame** (body's right at x < 240); the app flips the back view when it
 shows it. Seen from behind, an outline is the mirror image of the front one, so in this frame the
 outlines are the same in both files: reuse them and change the draw order, the `back` class (hidden
-structures) and the detail lines. Remove `"listOnly"` from anything you newly draw (the hamstrings,
-gluteus maximus, erector spinae… once there is a posterior muscles drawing).
+structures), the `deep` class (what now lies in front, drawn faint) and the detail lines. A stretch
+marked `.c` because it is behind bone from the front is usually in plain view from behind, so merge it
+into the `.b` shape there. Remove `"listOnly"` from anything you newly draw.
 
 ## About the drawings
 

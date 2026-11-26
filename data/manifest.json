@@ -34,7 +34,8 @@
       "id": "organs",
       "name": "Organs",
       "svg": {
-        "anterior": "assets/svg/organs-anterior.svg"
+        "anterior": "assets/svg/organs-anterior.svg",
+        "posterior": "assets/svg/organs-posterior.svg"
       },
       "data": "data/organs.json",
       "visible": false
@@ -59,7 +60,8 @@
       "id": "muscles",
       "name": "Muscles",
       "svg": {
-        "anterior": "assets/svg/muscles-anterior.svg"
+        "anterior": "assets/svg/muscles-anterior.svg",
+        "posterior": "assets/svg/muscles-posterior.svg"
       },
       "data": "data/muscles.json",
       "visible": false
@@ -68,7 +70,8 @@
       "id": "vessels",
       "name": "Vessels",
       "svg": {
-        "anterior": "assets/svg/vessels-anterior.svg"
+        "anterior": "assets/svg/vessels-anterior.svg",
+        "posterior": "assets/svg/vessels-posterior.svg"
       },
       "data": "data/vessels.json",
       "visible": false
@@ -77,7 +80,8 @@
       "id": "nerves",
       "name": "Nerves",
       "svg": {
-        "anterior": "assets/svg/nerves-anterior.svg"
+        "anterior": "assets/svg/nerves-anterior.svg",
+        "posterior": "assets/svg/nerves-posterior.svg"
       },
       "data": "data/nerves.json",
       "visible": false

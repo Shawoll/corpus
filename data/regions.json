@@ -238,6 +238,7 @@
         "acromioclavicular",
         "deltoid",
         "rotator-cuff",
+        "teres-major",
         "trapezius",
         "pectoralis-major",
         "biceps",
@@ -1549,6 +1550,7 @@
         "popliteal-artery",
         "popliteal-vein",
         "great-saphenous-vein",
+        "small-saphenous-vein",
         "common-fibular-nerve",
         "tibial-nerve"
       ],
@@ -1644,6 +1646,7 @@
         "posterior-tibial-artery",
         "popliteal-vein",
         "great-saphenous-vein",
+        "small-saphenous-vein",
         "tibial-nerve",
         "deep-fibular-nerve",
         "superficial-fibular-nerve"
@@ -1731,6 +1734,7 @@
         "anterior-tibial-artery",
         "posterior-tibial-artery",
         "great-saphenous-vein",
+        "small-saphenous-vein",
         "tibial-nerve",
         "deep-fibular-nerve",
         "superficial-fibular-nerve"
@@ -1823,6 +1827,7 @@
         "latissimus-dorsi",
         "erector-spinae",
         "rotator-cuff",
+        "teres-major",
         "spinal-cord",
         "spinal-nerves",
         "intercostal-nerves",

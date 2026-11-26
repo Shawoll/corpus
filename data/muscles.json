@@ -32,7 +32,7 @@
     {
       "id": "back-muscles",
       "name": "Back",
-      "summary": "Deep muscles that hold the spine upright. They sit behind the spine, so they are listed but not drawn in the front view."
+      "summary": "Deep muscles that hold the spine upright. They lie behind the spine, so they are drawn in the back view."
     },
     {
       "id": "arm-muscles",
@@ -367,7 +367,6 @@
       "name": "Rotator cuff",
       "latin": "Musculi rotatores",
       "group": "shoulder-muscles",
-      "listOnly": true,
       "origin": [
         "scapula"
       ],
@@ -427,7 +426,6 @@
       "name": "Rhomboids",
       "latin": "Musculi rhomboidei",
       "group": "shoulder-muscles",
-      "listOnly": true,
       "origin": [
         "c7",
         "t1",
@@ -464,6 +462,35 @@
         {
           "name": "Pain between the shoulder blades",
           "note": "Aching from posture or a sudden strain. Pain here can also come from the neck, the heart or the gallbladder."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "teres-major",
+      "name": "Teres major",
+      "latin": "Musculus teres major",
+      "group": "shoulder-muscles",
+      "origin": [
+        "scapula"
+      ],
+      "originNote": "Back of the lower corner (inferior angle) of the shoulder blade",
+      "insertion": [
+        "humerus"
+      ],
+      "insertionNote": "Inner lip of the groove at the front of the upper humerus, beside the latissimus dorsi tendon",
+      "nerve": "Lower subscapular nerve (C5–C6)",
+      "actions": [
+        "Pulls the raised arm down and back",
+        "Turns the arm inward",
+        "Works with the latissimus dorsi in pull-ups and rowing"
+      ],
+      "summary": "A thick, rounded muscle from the lower corner of the shoulder blade to the upper humerus. With the latissimus dorsi it forms the back fold of the armpit. Despite its name it is not part of the rotator cuff.",
+      "issues": [
+        {
+          "name": "Teres major strain",
+          "note": "Pain at the back of the armpit or along the outer edge of the shoulder blade after throwing, rowing or climbing. It usually settles with rest."
         }
       ]
     },
@@ -908,7 +935,6 @@
         "paraspinal muscles"
       ],
       "group": "back-muscles",
-      "listOnly": true,
       "origin": [
         "sacrum",
         "hip-bone",
@@ -965,7 +991,6 @@
         "QL"
       ],
       "group": "back-muscles",
-      "listOnly": true,
       "origin": [
         "hip-bone"
       ],
@@ -1449,7 +1474,6 @@
         "buttock"
       ],
       "group": "hip-muscles",
-      "listOnly": true,
       "origin": [
         "hip-bone",
         "sacrum",
@@ -1760,7 +1784,6 @@
         "semimembranosus"
       ],
       "group": "thigh-muscles",
-      "listOnly": true,
       "origin": [
         "hip-bone",
         "femur"

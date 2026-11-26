@@ -57,7 +57,7 @@
       "group": "spinal",
       "paired": false,
       "carries": "Messages between the brain and the body",
-      "summary": "A finger-thick cable of nerve tissue running down the canal inside the spine, from the base of the skull to about the first lumbar vertebra. Below that, its nerve roots carry on down the canal as the cauda equina. Drawn faint because it lies behind the vertebral bodies.",
+      "summary": "A finger-thick cable of nerve tissue running down the canal inside the spine, from the base of the skull to about the first lumbar vertebra. Below that, its nerve roots carry on down the canal as the cauda equina. Drawn faint in the front view, where it lies behind the vertebral bodies.",
       "branches": [
         "spinal-nerves"
       ],
@@ -414,7 +414,6 @@
       "kind": "peripheral",
       "group": "trunk-nerves",
       "paired": true,
-      "listOnly": true,
       "roots": "T1–T12",
       "carries": "Movement and sensation",
       "summary": "The front branches of the twelve thoracic nerves. Each runs around the body in the groove under its rib, supplying the muscles between the ribs, the belly wall and a band of skin. The twelfth, below the last rib, is called the subcostal nerve.",
@@ -464,7 +463,8 @@
         "serratus-anterior",
         "latissimus-dorsi",
         "rotator-cuff",
-        "rhomboids"
+        "rhomboids",
+        "teres-major"
       ],
       "innervatesNote": "Through short branches that leave before the plexus ends: the pectoral, long thoracic, thoracodorsal, suprascapular, subscapular and dorsal scapular nerves.",
       "branches": [
@@ -618,7 +618,7 @@
       "paired": true,
       "roots": "C5–T1",
       "carries": "Movement and sensation",
-      "summary": "The largest branch of the brachial plexus. It spirals around the back of the humerus in a groove (drawn faint), comes forward at the outer elbow and splits: a deep branch to the muscles on the back of the forearm and a skin branch to the back of the hand on the thumb side. It straightens the elbow, wrist and fingers.",
+      "summary": "The largest branch of the brachial plexus. It spirals around the back of the humerus in a groove (drawn faint in the front view), comes forward at the outer elbow and splits: a deep branch to the muscles on the back of the forearm and a skin branch to the back of the hand on the thumb side. It straightens the elbow, wrist and fingers.",
       "innervates": [
         "triceps",
         "brachioradialis",
@@ -749,7 +749,7 @@
         "tensor-fasciae-latae",
         "pelvic-floor"
       ],
-      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint, behind the hip bone) and the pudendal nerve.",
+      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone) and the pudendal nerve.",
       "branches": [
         "sciatic-nerve"
       ],
@@ -785,7 +785,7 @@
       "paired": true,
       "roots": "L4–S3",
       "carries": "Movement and sensation",
-      "summary": "The thickest and longest nerve in the body, about as wide as a thumb. It leaves the pelvis below the piriformis, runs down the back of the thigh and splits above the knee into the tibial and common fibular nerves. Drawn faint because it lies behind the femur in this front view.",
+      "summary": "The thickest and longest nerve in the body, about as wide as a thumb. It leaves the pelvis below the piriformis, runs down the back of the thigh and splits above the knee into the tibial and common fibular nerves. Drawn faint in the front view, where it lies behind the femur.",
       "innervates": [
         "hamstrings",
         "adductors"
@@ -815,7 +815,7 @@
       "paired": true,
       "roots": "L4–S3",
       "carries": "Movement and sensation",
-      "summary": "The larger branch of the sciatic nerve. It runs down the middle of the back of the knee and deep in the calf, then curves behind the inner ankle bone into the sole, where it splits into the medial and lateral plantar nerves. Drawn faint because it lies behind the bones.",
+      "summary": "The larger branch of the sciatic nerve. It runs down the middle of the back of the knee and deep in the calf, then curves behind the inner ankle bone into the sole, where it splits into the medial and lateral plantar nerves. Drawn faint in the front view, where it lies behind the bones.",
       "innervates": [
         "gastrocnemius",
         "soleus"
@@ -860,7 +860,7 @@
       "paired": true,
       "roots": "L4–S2",
       "carries": "Movement and sensation",
-      "summary": "The smaller branch of the sciatic nerve. It follows the outer hamstring tendon behind the knee (drawn faint), winds around the neck of the fibula just under the skin below the outer knee, and splits into the deep and superficial fibular nerves.",
+      "summary": "The smaller branch of the sciatic nerve. It follows the outer hamstring tendon behind the knee (drawn faint in the front view), winds around the neck of the fibula just under the skin below the outer knee, and splits into the deep and superficial fibular nerves.",
       "innervates": [
         "hamstrings"
       ],
