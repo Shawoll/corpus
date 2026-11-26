@@ -545,7 +545,8 @@
         "brachialis",
         "triceps",
         "humerus",
-        "elbow"
+        "elbow",
+        "coracobrachialis"
       ],
       "suppliesNote": "The triceps and the humerus through its deep branch (profunda brachii).",
       "members": [
@@ -616,7 +617,9 @@
         "thenar",
         "hypothenar",
         "metacarpals",
-        "hand-phalanges"
+        "hand-phalanges",
+        "hand-lumbricals",
+        "hand-interossei"
       ],
       "membersLabel": "Parts",
       "members": [
@@ -812,7 +815,8 @@
         "seminal-vesicle",
         "vas-deferens",
         "penis",
-        "scrotum"
+        "scrotum",
+        "gluteus-minimus"
       ],
       "suppliesNote": "The pelvic organs, reproductive organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator, uterine, vesical and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
       "membersLabel": "Parts",
@@ -979,9 +983,11 @@
       "supplies": [
         "tarsals",
         "metatarsals",
-        "foot-phalanges"
+        "foot-phalanges",
+        "extensor-digitorum-brevis",
+        "foot-interossei"
       ],
-      "suppliesNote": "And the skin and short muscles on the top of the foot.",
+      "suppliesNote": "And the skin on the top of the foot.",
       "issues": [
         {
           "name": "Weak or absent foot pulse",
@@ -1005,7 +1011,10 @@
         "tibia",
         "fibula",
         "tarsals",
-        "tibialis-posterior"
+        "tibialis-posterior",
+        "toe-flexors",
+        "sole-muscles",
+        "foot-interossei"
       ],
       "membersLabel": "Branches",
       "members": [

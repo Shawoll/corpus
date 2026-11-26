@@ -37,7 +37,7 @@
     {
       "id": "arm-muscles",
       "name": "Upper arm",
-      "summary": "Muscles that bend and straighten the elbow."
+      "summary": "Muscles that bend and straighten the elbow, and the coracobrachialis, which draws the arm forward at the shoulder."
     },
     {
       "id": "forearm-muscles",
@@ -74,6 +74,11 @@
       "id": "leg-muscles",
       "name": "Lower leg",
       "summary": "Muscles that lift, point and tilt the foot and move the toes."
+    },
+    {
+      "id": "foot-muscles",
+      "name": "Foot",
+      "summary": "Small muscles inside the foot that move the toes and hold up the arches. Most lie in layers under the sole."
     }
   ],
   "structures": [
@@ -1362,6 +1367,38 @@
     {
       "kind": "muscle",
       "paired": true,
+      "id": "coracobrachialis",
+      "name": "Coracobrachialis",
+      "latin": "Musculus coracobrachialis",
+      "group": "arm-muscles",
+      "origin": [
+        "scapula"
+      ],
+      "originNote": "Tip of the coracoid process, shared with the short head of biceps",
+      "insertion": [
+        "humerus"
+      ],
+      "insertionNote": "Inner side of the humerus, halfway down the shaft",
+      "nerve": "Musculocutaneous nerve (C5–C7), which passes through it",
+      "actions": [
+        "Draws the arm forward and in towards the body",
+        "Helps hold the head of the humerus in the shoulder socket"
+      ],
+      "summary": "A slim muscle high on the inner side of the upper arm, from the coracoid process of the shoulder blade to the middle of the humerus, beside the short head of biceps.",
+      "issues": [
+        {
+          "name": "Coracobrachialis strain",
+          "note": "Pain at the front of the shoulder and the inner upper arm after throwing, bench-pressing or push-ups. It usually settles with rest."
+        },
+        {
+          "name": "Musculocutaneous nerve entrapment",
+          "note": "Rare: weakness bending the elbow and numbness along the outer forearm, from the nerve being squeezed where it passes through the muscle, sometimes after heavy weight training."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
       "id": "brachioradialis",
       "name": "Brachioradialis",
       "latin": "Musculus brachioradialis",
@@ -1644,6 +1681,81 @@
     {
       "kind": "muscle",
       "paired": true,
+      "id": "hand-lumbricals",
+      "name": "Lumbricals of the hand",
+      "latin": "Musculi lumbricales manus",
+      "aka": [
+        "lumbricals"
+      ],
+      "group": "forearm-muscles",
+      "origin": [
+        "forearm-flexors"
+      ],
+      "originNote": "Tendons of the deep finger flexor (flexor digitorum profundus) in the palm",
+      "insertion": [
+        "hand-phalanges"
+      ],
+      "insertionNote": "Thumb-side edge of the extensor expansions on the backs of the four fingers",
+      "nerve": "Median nerve (first and second), ulnar nerve (third and fourth)",
+      "actions": [
+        "Bend the knuckles while straightening the finger joints, as when holding a card or a pen",
+        "Fine-tune finger movements"
+      ],
+      "summary": "Four small worm-shaped muscles in the palm. They start on the long finger-bending tendons and join the tendons on the backs of the fingers, linking bending and straightening for precise movements.",
+      "issues": [
+        {
+          "name": "Lumbrical strain",
+          "note": "Pain in the palm when one finger is held straight while the others bend, typically in climbers. It usually heals with rest."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "hand-interossei",
+      "name": "Interossei of the hand",
+      "latin": "Musculi interossei manus",
+      "aka": [
+        "interosseous muscles of the hand"
+      ],
+      "group": "forearm-muscles",
+      "origin": [
+        "metacarpals"
+      ],
+      "originNote": "Sides of the metacarpals, filling the spaces between them",
+      "insertion": [
+        "hand-phalanges"
+      ],
+      "insertionNote": "Bases of the first finger bones and the extensor expansions",
+      "nerve": "Ulnar nerve, deep branch (C8–T1)",
+      "actions": [
+        "Spread the fingers apart (dorsal) and bring them together (palmar)",
+        "With the lumbricals, bend the knuckles while straightening the fingers"
+      ],
+      "summary": "Small muscles between the metacarpals. The four dorsal ones fill the spaces on the back of the hand, the largest forming the fleshy web between the thumb and the index finger. The three palmar ones lie deeper, on the palm side.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Dorsal interossei (4)",
+          "note": "Spread the fingers away from the middle finger.",
+          "latin": "Musculi interossei dorsales manus"
+        },
+        {
+          "name": "Palmar interossei (3)",
+          "note": "Bring the fingers together towards the middle finger.",
+          "latin": "Musculi interossei palmares"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Wasting between the bones",
+          "note": "Hollows between the metacarpals on the back of the hand, with weak finger-spreading and a clumsy grip, can be a sign of ulnar nerve compression at the elbow or the wrist."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
       "id": "iliopsoas",
       "name": "Iliopsoas",
       "latin": "Musculus iliopsoas",
@@ -1770,6 +1882,35 @@
         {
           "name": "Hip drop when walking",
           "note": "If it is weak, the pelvis drops on the opposite side with each step (Trendelenburg gait)."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "gluteus-minimus",
+      "name": "Gluteus minimus",
+      "latin": "Musculus gluteus minimus",
+      "group": "hip-muscles",
+      "origin": [
+        "hip-bone"
+      ],
+      "originNote": "Outer surface of the ilium, below gluteus medius",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "Front of the greater trochanter",
+      "nerve": "Superior gluteal nerve (L4–S1)",
+      "actions": [
+        "Lifts the leg out to the side, with gluteus medius",
+        "Keeps the pelvis level when you stand on one leg",
+        "Its front fibres turn the thigh inwards"
+      ],
+      "summary": "The smallest and deepest of the three gluteal muscles, a fan under gluteus medius. The two work as a pair, and their tendons share the outer hip.",
+      "issues": [
+        {
+          "name": "Gluteal tendinopathy",
+          "note": "Pain on the outer hip, worse lying on that side or climbing stairs. The gluteus minimus and medius tendons are usually involved together."
         }
       ]
     },
@@ -2372,6 +2513,227 @@
         {
           "name": "Shin splints (inner)",
           "note": "Pain along the inner edge of the shin."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "toe-flexors",
+      "name": "Long toe flexors",
+      "latin": "Musculi flexores digitorum et hallucis longi",
+      "aka": [
+        "flexor digitorum longus",
+        "flexor hallucis longus",
+        "FDL",
+        "FHL"
+      ],
+      "group": "leg-muscles",
+      "origin": [
+        "tibia",
+        "fibula"
+      ],
+      "originNote": "Back of the tibia (flexor digitorum longus) and the lower back of the fibula (flexor hallucis longus)",
+      "insertion": [
+        "foot-phalanges"
+      ],
+      "insertionNote": "Undersides of the last toe bones",
+      "nerve": "Tibial nerve",
+      "actions": [
+        "Bend the toes, gripping the ground",
+        "Help point the foot and support the arch",
+        "Give the final push-off from the big toe in walking and running"
+      ],
+      "summary": "Two deep calf muscles on either side of tibialis posterior. Their tendons pass behind the inner ankle bone and run under the sole to the toes.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Flexor digitorum longus",
+          "note": "Bends the four small toes.",
+          "latin": "Musculus flexor digitorum longus"
+        },
+        {
+          "name": "Flexor hallucis longus",
+          "note": "Bends the big toe, the strongest push-off of the toes.",
+          "latin": "Musculus flexor hallucis longus"
+        }
+      ],
+      "issues": [
+        {
+          "name": "FHL tendinopathy (dancer’s tendinitis)",
+          "note": "Pain behind the inner ankle or under the big toe, worse on tiptoe. Common in ballet dancers and runners."
+        },
+        {
+          "name": "Shin splints (inner)",
+          "note": "Flexor digitorum longus pulls on the inner edge of the shin together with tibialis posterior and soleus."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "extensor-digitorum-brevis",
+      "name": "Extensor digitorum brevis",
+      "latin": "Musculus extensor digitorum brevis",
+      "aka": [
+        "EDB"
+      ],
+      "group": "foot-muscles",
+      "origin": [
+        "tarsals"
+      ],
+      "originNote": "Upper outer surface of the heel bone (calcaneus)",
+      "insertion": [
+        "foot-phalanges"
+      ],
+      "insertionNote": "Base of the big toe, and the long extensor tendons of the second to fourth toes",
+      "nerve": "Deep fibular (peroneal) nerve",
+      "actions": [
+        "Lifts the first four toes",
+        "Helps the long toe extensors"
+      ],
+      "summary": "The only muscle on the top of the foot: a soft, fleshy pad in front of the outer ankle bone with four slim tendons to the toes. Its bulge is normal and is sometimes mistaken for swelling.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Extensor digitorum brevis",
+          "note": "Lifts the second to fourth toes.",
+          "latin": "Musculus extensor digitorum brevis"
+        },
+        {
+          "name": "Extensor hallucis brevis",
+          "note": "Its innermost slip; lifts the big toe.",
+          "latin": "Musculus extensor hallucis brevis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Top-of-foot pain",
+          "note": "Aching on the top of the foot from tight laces or a sudden increase in running, often together with the long extensor tendons."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "foot-interossei",
+      "name": "Interossei of the foot",
+      "latin": "Musculi interossei pedis",
+      "aka": [
+        "interosseous muscles of the foot"
+      ],
+      "group": "foot-muscles",
+      "origin": [
+        "metatarsals"
+      ],
+      "originNote": "Sides of the metatarsals",
+      "insertion": [
+        "foot-phalanges"
+      ],
+      "insertionNote": "Bases of the first bones of the second to fifth toes",
+      "nerve": "Lateral plantar nerve, from the tibial nerve",
+      "actions": [
+        "Spread the toes (dorsal) and bring them together (plantar)",
+        "Steady the toes and the front of the foot during push-off"
+      ],
+      "summary": "Small muscles in the spaces between the metatarsals. The four dorsal ones can be felt between the bones on the top of the foot; the three plantar ones lie under them, on the sole side.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Dorsal interossei (4)",
+          "note": "Spread the toes away from the second toe.",
+          "latin": "Musculi interossei dorsales pedis"
+        },
+        {
+          "name": "Plantar interossei (3)",
+          "note": "Bring the third to fifth toes towards the second.",
+          "latin": "Musculi interossei plantares"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Forefoot ache",
+          "note": "Aching between the metatarsals after a rise in walking or running. One very tender spot on a bone could be a stress fracture, which needs checking."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "sole-muscles",
+      "name": "Sole muscles",
+      "aka": [
+        "plantar muscles",
+        "intrinsic muscles of the foot"
+      ],
+      "group": "foot-muscles",
+      "listOnly": "Not drawn on the map: they lie under the sole, which faces the ground in both the front and the back views.",
+      "origin": [
+        "tarsals",
+        "metatarsals"
+      ],
+      "originNote": "Heel bone, the other tarsals, the bases of the metatarsals and the plantar fascia",
+      "insertion": [
+        "foot-phalanges"
+      ],
+      "insertionNote": "The toe bones, and the long toe-flexor tendons",
+      "nerve": "Medial and lateral plantar nerves, from the tibial nerve",
+      "actions": [
+        "Bend, spread and steady the toes",
+        "Hold up the arches of the foot when standing and pushing off"
+      ],
+      "summary": "Four layers of small muscles under the sole, between the plantar fascia and the bones. Together they brace the arches and keep the toes pressed to the ground.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Abductor hallucis",
+          "note": "Along the inner edge of the foot; moves the big toe away from the others and supports the inner arch.",
+          "latin": "Musculus abductor hallucis"
+        },
+        {
+          "name": "Flexor digitorum brevis",
+          "note": "In the middle of the sole, on the plantar fascia; bends the four small toes.",
+          "latin": "Musculus flexor digitorum brevis"
+        },
+        {
+          "name": "Abductor digiti minimi",
+          "note": "Along the outer edge; moves the little toe.",
+          "latin": "Musculus abductor digiti minimi pedis"
+        },
+        {
+          "name": "Quadratus plantae",
+          "note": "Pulls on the long toe-flexor tendons to straighten their line of pull.",
+          "latin": "Musculus quadratus plantae"
+        },
+        {
+          "name": "Lumbricals (4)",
+          "note": "Bend the toes at the base while straightening the toe joints.",
+          "latin": "Musculi lumbricales pedis"
+        },
+        {
+          "name": "Flexor hallucis brevis",
+          "note": "Bends the big toe; its tendons hold the two small sesamoid bones under the big-toe joint.",
+          "latin": "Musculus flexor hallucis brevis"
+        },
+        {
+          "name": "Adductor hallucis",
+          "note": "Pulls the big toe towards the others and braces the arch across the forefoot.",
+          "latin": "Musculus adductor hallucis"
+        },
+        {
+          "name": "Flexor digiti minimi brevis",
+          "note": "Bends the little toe.",
+          "latin": "Musculus flexor digiti minimi brevis pedis"
+        }
+      ],
+      "issues": [
+        {
+          "name": "Arch strain",
+          "note": "Aching under the arch after long standing, a new sport or a change of shoes. It usually settles with rest and supportive footwear."
+        },
+        {
+          "name": "Sesamoiditis",
+          "note": "Pain under the ball of the foot behind the big toe, common in dancers and runners."
         }
       ]
     }

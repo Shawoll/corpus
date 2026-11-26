@@ -407,7 +407,8 @@
         "shoulder",
         "intercostal-nerves",
         "arm-lymphatics",
-        "breast"
+        "breast",
+        "coracobrachialis"
       ],
       "causes": [
         {
@@ -695,7 +696,8 @@
         "radial-nerve",
         "musculocutaneous-nerve",
         "cephalic-vein",
-        "basilic-vein"
+        "basilic-vein",
+        "coracobrachialis"
       ],
       "causes": [
         {
@@ -705,7 +707,8 @@
           "related": [
             "biceps",
             "triceps",
-            "deltoid"
+            "deltoid",
+            "coracobrachialis"
           ]
         },
         {
@@ -892,7 +895,9 @@
         "radial-artery",
         "ulnar-artery",
         "palmar-arches",
-        "flexor-retinaculum"
+        "flexor-retinaculum",
+        "hand-lumbricals",
+        "hand-interossei"
       ],
       "causes": [
         {
@@ -1789,7 +1794,8 @@
         "inguinal-ligament",
         "vas-deferens",
         "testicular-artery",
-        "testicular-vein"
+        "testicular-vein",
+        "gluteus-minimus"
       ],
       "causes": [
         {
@@ -1825,7 +1831,8 @@
           "related": [
             "femur",
             "gluteus-medius",
-            "tensor-fasciae-latae"
+            "tensor-fasciae-latae",
+            "gluteus-minimus"
           ]
         },
         {
@@ -2176,7 +2183,8 @@
         "tibial-nerve",
         "deep-fibular-nerve",
         "superficial-fibular-nerve",
-        "tibialis-posterior"
+        "tibialis-posterior",
+        "toe-flexors"
       ],
       "causes": [
         {
@@ -2187,7 +2195,8 @@
             "tibia",
             "tibialis-anterior",
             "soleus",
-            "tibialis-posterior"
+            "tibialis-posterior",
+            "toe-flexors"
           ]
         },
         {
@@ -2271,7 +2280,11 @@
         "achilles-tendon",
         "plantar-fascia",
         "dorsalis-pedis-artery",
-        "tibialis-posterior"
+        "tibialis-posterior",
+        "toe-flexors",
+        "extensor-digitorum-brevis",
+        "foot-interossei",
+        "sole-muscles"
       ],
       "causes": [
         {
@@ -2321,7 +2334,9 @@
           "urgency": "doctor",
           "related": [
             "tibialis-posterior",
-            "tarsals"
+            "tarsals",
+            "toe-flexors",
+            "sole-muscles"
           ]
         },
         {
@@ -2375,7 +2390,8 @@
         "subtalar-midfoot",
         "tibial-nerve",
         "posterior-tibial-artery",
-        "small-saphenous-vein"
+        "small-saphenous-vein",
+        "sole-muscles"
       ],
       "causes": [
         {
@@ -2707,7 +2723,8 @@
         "sciatic-nerve",
         "sacral-plexus",
         "iliac-artery",
-        "piriformis"
+        "piriformis",
+        "gluteus-minimus"
       ],
       "causes": [
         {
@@ -2745,7 +2762,8 @@
           "urgency": "self-care",
           "related": [
             "gluteus-maximus",
-            "gluteus-medius"
+            "gluteus-medius",
+            "gluteus-minimus"
           ]
         },
         {

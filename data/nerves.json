@@ -756,9 +756,10 @@
       "summary": "Runs down the front of the arm between the biceps and the brachialis and supplies both. Below the elbow it becomes the skin nerve of the outer forearm.",
       "innervates": [
         "biceps",
-        "brachialis"
+        "brachialis",
+        "coracobrachialis"
       ],
-      "innervatesNote": "And the small coracobrachialis near the armpit (not drawn)."
+      "innervatesNote": "It passes through the coracobrachialis on its way down the arm."
     },
     {
       "id": "median-nerve",
@@ -772,9 +773,10 @@
       "summary": "Runs down the arm beside the brachial artery, through the middle of the forearm and under the band across the wrist (the carpal tunnel) into the palm. It works most forearm flexors and the ball of the thumb, and gives feeling to the thumb, index, middle and half of the ring finger.",
       "innervates": [
         "forearm-flexors",
-        "thenar"
+        "thenar",
+        "hand-lumbricals"
       ],
-      "innervatesNote": "All the forearm flexors except the flexor carpi ulnaris and half of the deep finger flexor, and most of the thenar muscles.",
+      "innervatesNote": "All the forearm flexors except the flexor carpi ulnaris and half of the deep finger flexor, most of the thenar muscles and the first two lumbricals.",
       "issues": [
         {
           "name": "Carpal tunnel syndrome",
@@ -798,9 +800,11 @@
       "innervates": [
         "forearm-flexors",
         "hypothenar",
-        "thenar"
+        "thenar",
+        "hand-lumbricals",
+        "hand-interossei"
       ],
-      "innervatesNote": "In the forearm, the flexor carpi ulnaris and half of the deep finger flexor. In the hand, the hypothenar muscles, the small muscles between the bones and the adductor of the thumb.",
+      "innervatesNote": "In the forearm, the flexor carpi ulnaris and half of the deep finger flexor. In the hand, the hypothenar muscles, the interossei, the third and fourth lumbricals and the adductor of the thumb.",
       "issues": [
         {
           "name": "Hitting your funny bone",
@@ -952,7 +956,8 @@
         "tensor-fasciae-latae",
         "pelvic-floor",
         "rectum",
-        "piriformis"
+        "piriformis",
+        "gluteus-minimus"
       ],
       "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone), short direct branches (piriformis), and the pudendal nerve, which has its own page.",
       "branches": [
@@ -1068,7 +1073,10 @@
         "gastrocnemius",
         "soleus",
         "popliteus",
-        "tibialis-posterior"
+        "tibialis-posterior",
+        "toe-flexors",
+        "sole-muscles",
+        "foot-interossei"
       ],
       "innervatesNote": "Every muscle in the back of the calf, and through the plantar nerves the small muscles of the sole.",
       "membersLabel": "Branches",
@@ -1141,7 +1149,8 @@
       "summary": "Runs down the front of the leg beside the anterior tibial artery to the top of the foot. It lifts the foot and toes, and gives feeling to the small web of skin between the big and second toes.",
       "innervates": [
         "tibialis-anterior",
-        "toe-extensors"
+        "toe-extensors",
+        "extensor-digitorum-brevis"
       ]
     },
     {

@@ -250,7 +250,7 @@
       "paired": true,
       "summary": "A thick sheet under the sole, from the underside of the heel bone fanning out to the bases of the toes. Like a bowstring it holds up the arch, and it tightens as the toes bend back when you push off.",
       "stabilises": ["subtalar-midfoot", "tarsometatarsal"],
-      "attaches": ["tarsals", "foot-phalanges"],
+      "attaches": ["tarsals", "foot-phalanges", "sole-muscles"],
       "issues": [
         {
           "name": "Plantar fasciitis",

@@ -343,7 +343,8 @@
       "summary": "A few small nodes deep in the hollow behind the knee, beside the popliteal vessels. They filter lymph from the outer foot and the back of the calf, along the small saphenous vein, and pass it to the inguinal nodes.",
       "collects": [
         "gastrocnemius",
-        "soleus"
+        "soleus",
+        "toe-flexors"
       ],
       "drains": [
         "inguinal-lymph-nodes"
