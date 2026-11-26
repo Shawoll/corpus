@@ -29,6 +29,7 @@ import meshoptimizer as mo
 HERE = pathlib.Path(__file__).parent
 sys.path.insert(0, str(HERE))
 import fbx  # noqa: E402
+import generated  # noqa: E402
 import joints  # noqa: E402
 import skin  # noqa: E402
 from resolve import ROOT, load, resolve, side_of  # noqa: E402
@@ -295,7 +296,10 @@ def main(only):
     layers = [l for l in res if not only or l in only]
     with_skin = not only or 'skin' in only
     origin, step = frame(index)
+    gen = {l: ids for l, ids in mapping.get('generated', {}).items() if l in layers}
     wanted = {(p['file'], p['i']) for l in layers for parts in res[l].values() for p in parts}
+    if any(gen.values()):  # the stand-ins are anchored to meshes of other layers
+        wanted |= {(p['file'], p['i']) for l in res for parts in res[l].values() for p in parts}
     if with_skin:  # the skin's own parts, and the bones its 2D fit uses
         wanted |= {(p['file'], p['i']) for p in skin.skin_parts(index)}
         wanted |= {(p['file'], p['i']) for parts in res['skeleton'].values() for p in parts}
@@ -304,10 +308,29 @@ def main(only):
     keys_file = OUT / 'keys.json'
     old = json.loads(keys_file.read_text()) if keys_file.exists() else {}
     keys = old.get('layers', {})
+    made = set(old.get('generated', []))
+    layer_of = {cid: l for l, known in structures.items() for cid in known}
+    cache = {}
+
+    def ctx(key):
+        """A structure's source vertices (m), for anchoring the stand-ins."""
+        l = layer_of[key.split(':')[0]]
+        if l not in cache:
+            cache[l] = key_meshes(l, res, structures[l], geo)
+        return cache[l][key][0]
+
+    def parts(cid, side):
+        return [(p['name'], geo[(p['file'], p['i'])][0]) for p in res[layer_of[cid]][cid] if side_of(p) == side]
     skin_regions = old.get('skin', [])
     for layer in layers:
         known = structures[layer]
         meshes = key_meshes(layer, res, known, geo)
+        made -= {k for k in made if k.split(':')[0] in known}
+        for cid in gen.get(layer, []):
+            for sd in (['right', 'left'] if known[cid].get('paired') else [None]):
+                key = f'{cid}:{sd}' if sd else cid
+                meshes[key] = generated.make(cid, sd, ctx, parts)
+                made.add(key)
         total = sum(len(f) for _, f in meshes.values())
         budget = BUDGET.get(layer, 50_000)
         glb = Glb(origin, step)
@@ -321,7 +344,7 @@ def main(only):
             v2, f2 = optimise(v2, f2)
             sex = known[key.split(':')[0]].get('sex')
             # three.js strips ':' from node names, so the key also goes in extras (→ userData)
-            glb.add(key, v2, f2, {'key': key, **({'sex': sex} if sex else {})})
+            glb.add(key, v2, f2, {'key': key, **({'sex': sex} if sex else {}), **({'generated': True} if key in made else {})})
             final[key] = v2
             tris += len(f2)
         layer_keys = sorted(meshes)
@@ -341,7 +364,8 @@ def main(only):
     hi = np.max([p['max'] for p in index if p['max']], axis=0) * CM
     out = {'bounds': [[round(float(x), 3) for x in lo], [round(float(x), 3) for x in hi]],
            'layers': {k: keys[k] for k in sorted(keys)},
-           'skin': skin_regions}  # the "Where does it hurt?" areas the skin has
+           'skin': skin_regions,  # the "Where does it hurt?" areas the skin has
+           'generated': sorted(made)}  # stand-ins drawn by generated.py, not from the source
     keys_file.write_text(json.dumps(out, indent=1) + '\n')
 
 

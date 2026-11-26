@@ -30,7 +30,7 @@ def main():
         lid = layer['id']
         data = json.loads((ROOT / layer['data']).read_text())
         mapped = res.get(lid, {})
-        have, lack, onesided, sex = [], [], [], {}
+        have, lack, onesided, sex, made = [], [], [], {}, []
         tris = 0
         for s in data['structures']:
             cid = s['id']
@@ -39,6 +39,10 @@ def main():
             if cid in {h for h in have} | {l for l, _ in lack}:
                 continue
             parts = mapped.get(cid) or []
+            if not parts and cid in mapping.get('generated', {}).get(lid, []):
+                have.append(cid)  # a stand-in drawn by generated.py
+                made.append(cid)
+                continue
             if not parts:
                 lack.append((cid, missing.get(cid, 'NOT MAPPED')))
                 continue
@@ -55,6 +59,8 @@ def main():
         lo, hi = (budget * b / 1e6 for b in BYTES_PER_TRI)
         rows.append((lid, len(have), n, tris, budget, lo, hi))
         print(f'\n## {lid}: {len(have)} of {n} structures have a mesh ({tris:,} source triangles)')
+        for cid in made:
+            print(f'   ~ {cid}: a simple stand-in (generated.py)')
         for cid, why in lack:
             print(f'   – {cid}: {why}')
         for o in onesided:

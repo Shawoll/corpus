@@ -51,6 +51,8 @@ async function boot() {
   // "Where does it hurt?" in 3D: the skin and the areas it covers
   const skinUrl = modelView && manifest.model3d?.skin && modelIndex?.skin?.length ? manifest.model3d.skin : null;
   const skinRegions = new Set(skinUrl ? modelIndex.skin : []);
+  // stand-ins the build drew for structures the source has no mesh for (tools/model3d/generated.py)
+  const generatedKeys = new Set(modelIndex?.generated || []);
   const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i] }));
   // biological sex: one graph per setting, built on first use from the data filtered by js/sex.js (the first is neutral)
   const sexes = manifest.sexes?.length ? manifest.sexes : [{ id: 'none', name: 'Not set' }];
@@ -115,21 +117,47 @@ async function boot() {
     }
     return modelLoad;
   }
-  // load the .glb of every visible layer that has one (each once), then draw
+  // layer id -> the promise of its .glb loading (see ensureModelLayers)
   const modelLayerLoads = new Map();
+  let loadFailed = false;
+  // the line at the top of the 3D view: what the model can't show for this page, else how far loading has got
+  function modelNote(st, h) {
+    const n = st.route.view === 'node' ? graph.node(st.route.id) : null;
+    const keys = [...h.sel];
+    if (n && keys.length && !keys.some(inModel)) return `${n.name} isn’t in the 3D model yet. Switch to 2D to see it.`;
+    if (n && keys.length && keys.every((k) => !inModel(k) || generatedKeys.has(k))) return `${n.name} is drawn as a simple shape here: the 3D source model doesn’t include it.`;
+    if (loadFailed) return 'Part of the 3D body couldn’t load.';
+    const want = manifest.layers.filter((l) => l.model && modelKeys.has(l.id) && st.visible.has(l.id));
+    const done = want.filter((l) => model?.hasLayer(l.id)).length;
+    const skinWait = Router.isHurt(st.route) && skinUrl && !model?.hasSkin();
+    if (!model || skinWait) return 'Loading the 3D body…';
+    if (done < want.length) return Router.isHurt(st.route)
+      ? `Loading what lies under the skin: ${done} of ${want.length} layers…`
+      : `Loading the 3D body: ${done} of ${want.length} layers…`;
+    return '';
+  }
+  // Start loading what the 3D view needs and isn't loading yet: the .glb of every visible layer and, in "Where does it
+  // hurt?", the skin. Each load starts once and redraws once when it lands; the promise settles when all have.
+  let skinLoading = null;
   function ensureModelLayers(st) {
     return ensureModel().then((m) => {
-      const want = manifest.layers.filter((l) => l.model && modelKeys.has(l.id) && st.visible.has(l.id) && !m.hasLayer(l.id));
-      const skinToo = Router.isHurt(st.route) && skinUrl && !m.hasSkin();
-      if (!want.length && !skinToo) { setStatus(''); renderMap(store.get()); return; }
-      setStatus('Loading the 3D body…');
+      const jobs = [];
       // the skin first (it is what you tap); the layers behind it fill "Under this spot"
-      if (skinToo) m.loadSkin(skinUrl).then(() => { if (want.every((l) => m.hasLayer(l.id))) setStatus(''); renderMap(store.get()); }).catch((err) => console.warn('[Corpus] 3D skin failed to load', err));
-      return Promise.all(want.map((l) => {
-        if (!modelLayerLoads.has(l.id)) modelLayerLoads.set(l.id, m.load(l.id, l.model).catch((err) => { modelLayerLoads.delete(l.id); throw err; }));
-        return modelLayerLoads.get(l.id);
-      })).then(() => { setStatus(''); renderMap(store.get()); })
-        .catch((err) => { setStatus('Part of the 3D body couldn’t load.'); console.warn('[Corpus] 3D model failed to load', err); });
+      if (Router.isHurt(st.route) && skinUrl && !m.hasSkin() && !skinLoading) {
+        skinLoading = m.loadSkin(skinUrl).then(() => renderMap(store.get()),
+          (err) => { skinLoading = null; loadFailed = true; renderMap(store.get()); console.warn('[Corpus] 3D skin failed to load', err); });
+      }
+      if (skinLoading && !m.hasSkin()) jobs.push(skinLoading);
+      for (const l of manifest.layers) {
+        if (!l.model || !modelKeys.has(l.id) || !st.visible.has(l.id) || m.hasLayer(l.id)) continue;
+        if (!modelLayerLoads.has(l.id)) {
+          modelLayerLoads.set(l.id, m.load(l.id, l.model).then(() => renderMap(store.get()),
+            (err) => { modelLayerLoads.delete(l.id); loadFailed = true; renderMap(store.get()); console.warn('[Corpus] 3D model failed to load', err); }));
+        }
+        jobs.push(modelLayerLoads.get(l.id));
+      }
+      if (!jobs.length) renderMap(store.get());
+      return Promise.all(jobs);
     });
   }
 
@@ -240,6 +268,7 @@ async function boot() {
   const regionKey = (r) => (r.side ? `${r.id}:${r.side}` : r.id);
 
   function onRoute() {
+    tooltip.hidden = true; // a hover label from the last page would point at the wrong thing
     const prev = store.get();
     const route = Router.parse();
     const sx = sexFor(route, prev.sex);
@@ -395,19 +424,18 @@ async function boot() {
     canvas.hidden = !three;
     $('.model-credit').hidden = !three;
     if (three) {
-      if (!model) { ensureModelLayers(st); return; }
+      if (!model) { setStatus('Loading the 3D body…'); ensureModelLayers(st); return; }
       const hurt = Router.isHurt(st.route);
-      if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id)) || (hurt && skinUrl && !model.hasSkin())) ensureModelLayers(st);
+      // something visible that isn't loaded and isn't on its way yet
+      if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id) && !modelLayerLoads.has(l.id))
+        || (hurt && skinUrl && !model.hasSkin() && !skinLoading)) ensureModelLayers(st);
       model.resize();
       const h = highlights(st);
       model.render({
         ...h, visible: st.visible, active: activeIn(st), sex: st.sex, joints: st.joints, hurt, regionOk: regionOkFor(graph),
         probe: st.route.view === 'region' && st.probe?.world ? st.probe.world : null,
       });
-      // a structure the model has no mesh for (the female organs, a few tendons): say so instead of showing nothing
-      const n = st.route.view === 'node' ? graph.node(st.route.id) : null;
-      if (n && h.sel.size && ![...h.sel].some(inModel)) setStatus(`${n.name} isn’t in the 3D model yet. Switch to 2D to see it.`);
-      else if (!modelLayerLoads.size || [...modelKeys.keys()].every((id) => !st.visible.has(id) || model.hasLayer(id))) setStatus('');
+      setStatus(modelNote(st, h));
       return;
     }
     setStatus('');

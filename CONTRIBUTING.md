@@ -139,7 +139,7 @@ into the `.b` shape there. Remove `"listOnly"` from anything you newly draw.
 The 3D view's meshes come from the [Z-Anatomy](https://github.com/LluisV/Z-Anatomy) FBX exports (CC BY-SA 4.0, built on BodyParts3D, CC BY 4.0). They are not in the repository. To rebuild:
 
 1. Download the FBX files from Z-Anatomy's `Resources/Models/FBX` into `tools/model3d/source/zanatomy/` (gitignored), and run `~/.venvs/corpus/bin/python -I tools/model3d/index_source.py` once. It lists every source part in `source/index.json`.
-2. `tools/model3d/map.json` maps each Corpus id to source part names, per layer. A plain name takes that part and its `.r` / `.l` copies; `"@Name"` also takes every part below it. Paired ids are split by side automatically. An id with no part goes under `missing`, with the reason.
+2. `tools/model3d/map.json` maps each Corpus id to source part names, per layer. A plain name takes that part and its `.r` / `.l` copies; `"@Name"` also takes every part below it. Paired ids are split by side automatically. An id with no part goes under `generated` if `tools/model3d/generated.py` has a recipe for a simple stand-in (a tube along a course anchored to source meshes), else under `missing`, with the reason.
 3. `~/.venvs/corpus/bin/python -I tools/model3d/coverage.py` shows what is mapped and what isn't; `…/build.py [layer…]` writes the `.glb` files and `assets/3d/keys.json`.
 4. Give the layer a `"model": "assets/3d/<layer>.glb"` in the manifest, then run `node tools/check.mjs`.
 
