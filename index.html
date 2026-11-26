@@ -51,9 +51,12 @@
       <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h8.5v4.2a3.6 3.6 0 0 1-3.6 3.6H6.1a3.6 3.6 0 0 1-3.6-3.6z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M11 5.8h1.1a1.9 1.9 0 0 1 0 3.8H11" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6.8 10.1 5.1 8.4a1 1 0 0 1 1.7-1.3 1 1 0 0 1 1.7 1.3z" fill="currentColor"/></svg>
       <span class="label">Support me on Ko-fi</span>
     </a>
-    <button class="icon-btn" id="theme-toggle" title="Switch light / dark" aria-label="Switch light or dark theme">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg>
-    </button>
+    <div class="settings-wrap">
+      <button class="icon-btn" id="settings-toggle" aria-controls="settings" aria-expanded="false" title="Settings" aria-label="Settings">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.9 1.5h2.2l.4 1.9 1.3.6 1.7-1 1.5 1.5-1 1.7.6 1.3 1.9.4v2.2l-1.9.4-.6 1.3 1 1.7-1.5 1.5-1.7-1-1.3.6-.4 1.9H6.9l-.4-1.9-1.3-.6-1.7 1-1.5-1.5 1-1.7-.6-1.3-1.9-.4V6.9l1.9-.4.6-1.3-1-1.7 1.5-1.5 1.7 1 1.3-.6z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.2" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+      </button>
+      <div id="settings" class="settings" role="group" aria-label="Settings" hidden></div>
+    </div>
   </header>
 
   <main class="stage">

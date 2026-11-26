@@ -60,6 +60,18 @@ body { display: grid; grid-template-rows: auto 1fr; }
 }
 .icon-btn:hover { color: var(--ink); border-color: var(--ink-3); }
 .icon-btn[aria-expanded="true"], .icon-btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+/* Settings (cog): a small sheet of segmented switches under the top bar */
+.settings-wrap { position: relative; flex: none; }
+.settings {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 45; width: max-content; max-width: calc(100vw - 32px);
+  padding: 14px 16px 16px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--paper-2);
+  box-shadow: var(--shadow); display: grid; gap: 12px;
+}
+.settings h2 { font-family: var(--serif); font-size: 18px; font-weight: 600; }
+.setting { display: grid; gap: 5px; }
+.setting-label { font-size: 12px; color: var(--ink-3); }
+.settings .seg button { padding: 5px 12px; font-size: 13px; }
+.seg button:disabled { opacity: 0.4; cursor: not-allowed; }
 /* Ko-fi support link: Ko-fi blue, dark text for contrast */
 .kofi { background: #72a4f2; border-color: #72a4f2; color: #0f1e36; font-weight: 600; text-decoration: none; }
 .kofi:hover { background: #8bb5f5; border-color: #8bb5f5; color: #0f1e36; }
@@ -82,8 +94,9 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map.dragging { cursor: grabbing; }
 
 .layerbar {
+  /* one column down the left edge, so every layer reads at a glance and none is cut off */
   position: absolute; top: 14px; left: 14px; z-index: 5;
-  display: flex; flex-wrap: wrap; gap: 6px; max-width: calc(100% - 28px);
+  display: flex; flex-direction: column; align-items: stretch; gap: 6px; width: max-content;
 }
 .layer-chip {
   display: inline-flex; align-items: center; gap: 7px;
@@ -137,7 +150,7 @@ body { display: grid; grid-template-rows: auto 1fr; }
 }
 .map-hint.gone { opacity: 0; pointer-events: none; }
 .hurt-banner {
-  position: absolute; top: 58px; left: 50%; transform: translateX(-50%); z-index: 6; /* below the layer chips */
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 6;
   background: var(--sel); color: #fff; font-size: 13px; padding: 7px 14px; border-radius: 999px;
   box-shadow: var(--shadow); white-space: nowrap;
 }
@@ -544,13 +557,13 @@ body { display: grid; grid-template-rows: auto 1fr; }
   .map-controls { bottom: calc(92px + 14px); left: 12px; }
   .map-hint { display: none; }
   .layerbar { top: 10px; left: 10px; gap: 4px; }
-  .layer-chip { height: 30px; padding: 0 9px 0 8px; gap: 6px; font-size: 12.5px; }
+  .layer-chip { height: 28px; padding: 0 9px 0 8px; gap: 6px; font-size: 12.5px; }
   .layer-chip .sw { width: 10px; height: 10px; }
-  .side-label { top: 42%; width: 48px; }
+  .side-label { top: 50%; width: 48px; }
   .side-label small { display: none; }
-  .side-label.l { left: 2px; }
+  .side-label.l { left: 54px; } /* clear of the map buttons down the left edge */
   .side-label.r { right: 2px; }
-  .hurt-banner { top: 84px; } /* the six layer chips wrap to two rows */
+  .hurt-banner { top: 10px; left: auto; right: 10px; transform: none; } /* clear of the layer column */
 }
 
 /* probe: make every layer hit-testable for an instant (no paint happens in between) */

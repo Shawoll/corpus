@@ -336,12 +336,50 @@ async function boot() {
   };
   svg.addEventListener('wheel', hideHint, { passive: true, once: true });
 
-  $('#theme-toggle').addEventListener('click', () => {
-    const cur = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    const next = cur === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    prefs.set('theme', next);
+  // ------------------------------------------------------------------ settings (cog)
+  // Each row is a segmented switch; value(st) gives the pressed option, set(v) applies it, off(v, st) disables one.
+  const settingRows = [
+    { id: 'theme', label: 'Theme', opts: [['auto', 'Auto'], ['light', 'Light'], ['dark', 'Dark']],
+      value: () => prefs.get('theme', null) || 'auto',
+      set: (v) => { const t = v === 'auto' ? null : v; applyTheme(t); prefs.set('theme', t); } },
+    { id: 'view', label: 'View', opts: views.map((v) => [v.id, v.name]), hide: views.length < 2,
+      value: (st) => st.view, set: (v) => setView(v) },
+    { id: 'style', label: 'Drawings', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
+      value: (st) => (styleIn(st.style, st.view) ? st.style : styles[0].id), set: (v) => setStyle(v),
+      off: (v, st) => !styleIn(v, st.view) },
+    { id: 'joints', label: 'Joint markers', opts: [['on', 'Show'], ['off', 'Hide']],
+      value: (st) => (st.joints ? 'on' : 'off'), set: (v) => { prefs.set('joints', v === 'on'); store.set({ joints: v === 'on' }); } },
+    { id: 'mirror', label: 'Mirror', opts: [['off', 'Off'], ['on', 'On']],
+      value: (st) => (st.mirror && !viewById.get(st.view)?.flip ? 'on' : 'off'),
+      set: (v) => { prefs.set('mirror', v === 'on'); store.set({ mirror: v === 'on' }); },
+      off: (v, st) => !!viewById.get(st.view)?.flip },
+  ].filter((r) => !r.hide);
+  const settingsEl = $('#settings');
+  const settingsBtn = $('#settings-toggle');
+  settingsEl.innerHTML = '<h2>Settings</h2>' + settingRows.map((r) => `<div class="setting"><span class="setting-label" id="set-${r.id}">${escapeHtml(r.label)}</span>`
+    + `<div class="seg" role="group" aria-labelledby="set-${r.id}">${r.opts.map(([v, name]) => `<button data-setting="${r.id}" data-value="${escapeHtml(v)}" aria-pressed="false">${escapeHtml(name)}</button>`).join('')}</div></div>`).join('');
+  const renderSettings = (st) => {
+    for (const b of settingsEl.querySelectorAll('[data-setting]')) {
+      const r = settingRows.find((x) => x.id === b.dataset.setting);
+      b.setAttribute('aria-pressed', String(r.value(st) === b.dataset.value));
+      b.disabled = !!r.off?.(b.dataset.value, st);
+    }
+  };
+  const setSettings = (open) => {
+    settingsEl.hidden = !open;
+    settingsBtn.setAttribute('aria-expanded', String(open));
+    if (open) { renderSettings(store.get()); settingsEl.querySelector('[aria-pressed="true"]:not(:disabled)')?.focus(); }
+  };
+  settingsBtn.addEventListener('click', () => setSettings(settingsEl.hidden));
+  settingsEl.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-setting]');
+    if (!b || b.disabled) return;
+    settingRows.find((r) => r.id === b.dataset.setting).set(b.dataset.value);
+    renderSettings(store.get());
   });
+  store.subscribe((st) => { if (!settingsEl.hidden) renderSettings(st); });
+  document.addEventListener('pointerdown', (e) => { if (!settingsEl.hidden && !e.target.closest('.settings-wrap')) setSettings(false); });
+  settingsEl.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); setSettings(false); settingsBtn.focus(); } });
 
   const search = createSearch({ input: $('#search'), list: $('#search-results'), graph, onChoose: (nav) => navigate(nav, { zoom: true }) });
 

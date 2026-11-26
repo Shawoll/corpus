@@ -229,9 +229,9 @@ These belong to the drawing, never to the interface.
 
 ## Layout
 
-On desktop the stage is a two-column grid: the map fills the flexible left column and the detail panel takes `clamp(340px, 36vw, 460px)` on the right, separated by a hairline. A 60px top bar holds Browse, the wordmark, a pill-shaped search field (up to 440px wide), the Explore / Where-does-it-hurt toggle and the theme button. The Browse drawer slides over the map from the left (`min(340px, 88vw)`).
+On desktop the stage is a two-column grid: the map fills the flexible left column and the detail panel takes `clamp(340px, 36vw, 460px)` on the right, separated by a hairline. A 60px top bar holds Browse, the wordmark, a pill-shaped search field (up to 440px wide), the Explore / Where-does-it-hurt toggle and the settings cog. The Browse drawer slides over the map from the left (`min(340px, 88vw)`).
 
-The map is a full-bleed SVG in the 480 × 1200 body frame, behind a soft radial paper vignette. Floating instruments sit on its edges: layer chips top-left, stacked zoom, view and mirror controls bottom-left, "R / body's right" and "L / body's left" labels at mid-height on each side, and a one-line hint at the bottom centre.
+The map is a full-bleed SVG in the 480 × 1200 body frame, behind a soft radial paper vignette. Floating instruments sit on its edges: layer chips in one column down the top-left edge (never a wrapping row across the top), stacked zoom, view and mirror controls bottom-left, "R / body's right" and "L / body's left" labels at mid-height on each side, and a one-line hint at the bottom centre.
 
 Spacing follows a small 4–6–8–10–14–16 scale. The panel has 24–26px of padding with 26px between sections, chips sit 6px apart, and cards have 12–14px of internal padding.
 
@@ -288,7 +288,8 @@ Quiet instruments: hairline, neutral and small until they're pressed.
 - **Results:** a floating Raised Paper list (14px radius, Float shadow) with 9px-radius rows. The selected row is Sunk Paper, and the matched letters are in Vermilion.
 
 ### Navigation
-- **Top bar:** Browse, then the wordmark (italic serif, with the uppercase tracked strapline), then search, the mode toggle and the theme button. Plain Paper with a hairline bottom edge.
+- **Top bar:** Browse, then the wordmark (italic serif, with the uppercase tracked strapline), then search, the mode toggle and the settings cog. Plain Paper with a hairline bottom edge.
+- **Settings (cog):** a Raised Paper sheet under the top bar with the Float shadow. Each setting (Theme: Auto / Light / Dark, View, Drawings, Joint markers, Mirror) is a labelled segmented switch built from `settingRows` in `js/main.js`; a new setting is one more row there. Options that do not apply in the current view are disabled, not hidden. It closes on Escape or a tap outside.
 - **Browse drawer:** a Raised Paper sheet with a serif heading, disclosure groups with a rotating "›" marker, counts aligned right, and rows that turn Sunk Paper on hover.
 - **Panel:** a crumb, eyebrow, serif headline, italic Latin subline, then fact tags, the summary and eyebrow-headed sections. It ends with a hairline-topped disclaimer in Faint Ink, which appears on every health page.
 - **Mobile:** the panel becomes a bottom sheet with peek, half and full positions, a 42 × 5px handle and the Float shadow.
