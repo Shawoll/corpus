@@ -6,8 +6,8 @@
   "groups": [
     {
       "id": "head-muscles",
-      "name": "Head & jaw",
-      "summary": "The chewing muscles that close and grind the jaw."
+      "name": "Head & face",
+      "summary": "The chewing muscles that close and grind the jaw, and the muscles of facial expression around the eyes, mouth and forehead."
     },
     {
       "id": "neck-muscles",
@@ -139,6 +139,91 @@
         {
           "name": "Jaw muscle pain",
           "note": "Aching cheeks and jaw from clenching, grinding or chewing gum; often part of a TMJ disorder."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "occipitofrontalis",
+      "name": "Occipitofrontalis",
+      "latin": "Musculus occipitofrontalis",
+      "group": "head-muscles",
+      "origin": [
+        "occipital"
+      ],
+      "originNote": "Back of the skull, above the nuchal line (occipital belly)",
+      "insertion": [],
+      "insertionNote": "The skin of the eyebrows (frontal belly). The two bellies are joined by a sheet of tendon over the top of the head (galea aponeurotica)",
+      "nerve": "Facial nerve",
+      "actions": [
+        "Raises the eyebrows and wrinkles the forehead",
+        "Moves the scalp"
+      ],
+      "summary": "A thin muscle with two bellies, over the forehead and the back of the head, joined by a sheet of tendon across the scalp.",
+      "issues": [
+        {
+          "name": "Tension-type headache",
+          "note": "Tight scalp and forehead muscles can add to a band-like headache."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "orbicularis-oculi",
+      "name": "Orbicularis oculi",
+      "latin": "Musculus orbicularis oculi",
+      "group": "head-muscles",
+      "origin": [
+        "frontal",
+        "maxilla",
+        "lacrimal"
+      ],
+      "originNote": "The bone on the inner side of the eye socket",
+      "insertion": [],
+      "insertionNote": "Loops round the eye into the skin of the eyelids",
+      "nerve": "Facial nerve",
+      "actions": [
+        "Closes the eyelids: gently to blink, tightly to squeeze",
+        "Helps tears drain towards the nose"
+      ],
+      "summary": "A flat ring of muscle around each eye, in the eyelids.",
+      "issues": [
+        {
+          "name": "Eyelid twitching",
+          "note": "Harmless flickers, often with tiredness, stress or caffeine."
+        },
+        {
+          "name": "Weak eye closure",
+          "note": "Being unable to close one eye fully, with the face drooping on that side, may be Bell’s palsy or a stroke. Sudden facial weakness needs emergency care."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": false,
+      "id": "orbicularis-oris",
+      "name": "Orbicularis oris",
+      "latin": "Musculus orbicularis oris",
+      "group": "head-muscles",
+      "origin": [
+        "maxilla",
+        "mandible"
+      ],
+      "originNote": "Near the midline of the upper and lower jaws, and the other muscles around the mouth",
+      "insertion": [],
+      "insertionNote": "The skin and lining of the lips",
+      "nerve": "Facial nerve",
+      "actions": [
+        "Closes and purses the lips",
+        "Shapes speech, whistling and kissing"
+      ],
+      "summary": "A ring of muscle inside the lips.",
+      "issues": [
+        {
+          "name": "Drooping mouth",
+          "note": "A sudden one-sided droop needs emergency care, as it may be a stroke (think FAST). Bell’s palsy also weakens it."
         }
       ]
     },
@@ -285,6 +370,148 @@
         {
           "name": "Tightness after neck surgery",
           "note": "They are parted in thyroid surgery and can feel tight while healing."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "scalenes",
+      "name": "Scalene muscles",
+      "latin": "Musculi scaleni",
+      "group": "neck-muscles",
+      "origin": [
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7"
+      ],
+      "originNote": "Transverse processes of C2–C7",
+      "insertion": [
+        "rib-1",
+        "rib-2"
+      ],
+      "insertionNote": "The first rib (anterior and middle scalenes) and the second rib (posterior scalene)",
+      "nerve": "Front (ventral) branches of the cervical nerves, C3–C8",
+      "actions": [
+        "Bend the neck to the side",
+        "Lift the top two ribs in deep or hard breathing"
+      ],
+      "summary": "Three muscles at the side of the neck, from the neck vertebrae to the top ribs. The brachial plexus and the subclavian artery pass out between the front and middle scalenes.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Anterior scalene",
+          "latin": "Musculus scalenus anterior",
+          "note": "C3–C6 to the first rib, in front of the subclavian artery."
+        },
+        {
+          "name": "Middle scalene",
+          "latin": "Musculus scalenus medius",
+          "note": "C2–C7 to the first rib, behind the brachial plexus."
+        },
+        {
+          "name": "Posterior scalene",
+          "latin": "Musculus scalenus posterior",
+          "note": "C4–C6 to the second rib."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Thoracic outlet syndrome",
+          "note": "Pins and needles, aching or weakness in the arm or hand, worse with the arms raised, from pressure on the nerves or vessels near the first rib."
+        },
+        {
+          "name": "Neck strain",
+          "note": "Aching at the side of the neck, sometimes spreading to the shoulder or upper chest."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "levator-scapulae",
+      "name": "Levator scapulae",
+      "latin": "Musculus levator scapulae",
+      "group": "neck-muscles",
+      "origin": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "originNote": "Transverse processes of C1–C4",
+      "insertion": [
+        "scapula"
+      ],
+      "insertionNote": "The upper inner corner (superior angle) of the shoulder blade",
+      "nerve": "Dorsal scapular nerve (C5) and cervical nerves C3–C4",
+      "actions": [
+        "Lifts the shoulder blade",
+        "Bends and turns the neck to the same side"
+      ],
+      "summary": "A strap-like muscle at the side and back of the neck, under the trapezius, that lifts the shoulder blade.",
+      "issues": [
+        {
+          "name": "Stiff neck",
+          "note": "A knot-like ache where the neck meets the shoulder blade, worse turning the head, often after sleeping awkwardly or long desk work."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "splenius",
+      "name": "Splenius",
+      "latin": "Musculi splenii",
+      "group": "neck-muscles",
+      "origin": [
+        "c7",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
+      "originNote": "The nuchal ligament and the spinous processes of C7–T6",
+      "insertion": [
+        "temporal",
+        "occipital",
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "insertionNote": "The mastoid process and the skull just behind it (capitis), and the transverse processes of C1–C3 (cervicis)",
+      "nerve": "Back (dorsal) branches of the cervical nerves",
+      "actions": [
+        "Tilts the head back (both sides together)",
+        "Turns the head to the same side"
+      ],
+      "summary": "A broad, bandage-like muscle at the back of the neck under the trapezius, running up and out from the spine to the skull.",
+      "membersLabel": "Muscles",
+      "members": [
+        {
+          "name": "Splenius capitis",
+          "latin": "Musculus splenius capitis",
+          "note": "C7–T3 to the mastoid process and skull."
+        },
+        {
+          "name": "Splenius cervicis",
+          "latin": "Musculus splenius cervicis",
+          "note": "T3–T6 to the transverse processes of C1–C3."
+        }
+      ],
+      "issues": [
+        {
+          "name": "Neck strain and whiplash",
+          "note": "Aching and stiffness at the back of the neck after a sudden jolt, or after a long time looking down."
+        },
+        {
+          "name": "Tension headache",
+          "note": "Tight neck muscles can send pain up the back of the head."
         }
       ]
     },
@@ -1535,6 +1762,34 @@
     {
       "kind": "muscle",
       "paired": true,
+      "id": "piriformis",
+      "name": "Piriformis",
+      "latin": "Musculus piriformis",
+      "group": "hip-muscles",
+      "origin": [
+        "sacrum"
+      ],
+      "originNote": "Front of the sacrum",
+      "insertion": [
+        "femur"
+      ],
+      "insertionNote": "Top of the greater trochanter",
+      "nerve": "Nerve to piriformis (S1–S2), from the sacral plexus",
+      "actions": [
+        "Turns the thigh outwards",
+        "Steadies the head of the femur in the hip socket"
+      ],
+      "summary": "A pear-shaped muscle deep in the buttock under gluteus maximus. The sciatic nerve usually passes out just below it.",
+      "issues": [
+        {
+          "name": "Piriformis syndrome",
+          "note": "A deep buttock ache, worse sitting or climbing stairs, sometimes with sciatica-like pain down the back of the leg."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
       "id": "tensor-fasciae-latae",
       "name": "Tensor fasciae latae",
       "latin": "Musculus tensor fasciae latae",
@@ -2041,6 +2296,68 @@
         {
           "name": "Shin splints (inner)",
           "note": "Pain along the inner edge of the shin where soleus and the deep calf muscles attach."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "popliteus",
+      "name": "Popliteus",
+      "latin": "Musculus popliteus",
+      "group": "leg-muscles",
+      "origin": [
+        "femur"
+      ],
+      "originNote": "Outer side of the lateral femoral condyle, and the lateral meniscus",
+      "insertion": [
+        "tibia"
+      ],
+      "insertionNote": "Back of the tibia, above the soleal line",
+      "nerve": "Tibial nerve",
+      "actions": [
+        "Unlocks the straightened knee by turning the tibia inwards",
+        "Draws the lateral meniscus back as the knee bends"
+      ],
+      "summary": "A small, flat, triangular muscle across the back of the knee, deep under gastrocnemius.",
+      "issues": [
+        {
+          "name": "Popliteus tendinopathy",
+          "note": "Pain at the back and outer side of the knee, worse running downhill."
+        }
+      ]
+    },
+    {
+      "kind": "muscle",
+      "paired": true,
+      "id": "tibialis-posterior",
+      "name": "Tibialis posterior",
+      "latin": "Musculus tibialis posterior",
+      "group": "leg-muscles",
+      "origin": [
+        "tibia",
+        "fibula"
+      ],
+      "originNote": "Back of the tibia, the fibula and the membrane between them",
+      "insertion": [
+        "tarsals",
+        "metatarsals"
+      ],
+      "insertionNote": "Mainly the navicular, with slips to the other tarsals and metatarsals 2–4",
+      "nerve": "Tibial nerve",
+      "actions": [
+        "Points the foot and turns the sole inwards",
+        "Holds up the arch of the foot"
+      ],
+      "summary": "The deepest calf muscle. Its tendon runs behind the inner ankle bone to support the arch.",
+      "issues": [
+        {
+          "name": "Tibialis posterior tendon problem",
+          "note": "Pain and swelling behind the inner ankle, and an arch that gradually flattens."
+        },
+        {
+          "name": "Shin splints (inner)",
+          "note": "Pain along the inner edge of the shin."
         }
       ]
     }

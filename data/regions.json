@@ -29,7 +29,9 @@
         "vestibulocochlear-nerve",
         "superficial-temporal-artery",
         "pituitary",
-        "pineal-gland"
+        "pineal-gland",
+        "occipitofrontalis",
+        "splenius"
       ],
       "causes": [
         {
@@ -38,7 +40,9 @@
           "urgency": "self-care",
           "related": [
             "temporalis",
-            "trapezius"
+            "trapezius",
+            "occipitofrontalis",
+            "splenius"
           ]
         },
         {
@@ -55,7 +59,8 @@
           "urgency": "self-care",
           "related": [
             "frontal",
-            "ethmoid"
+            "ethmoid",
+            "nose"
           ]
         },
         {
@@ -99,7 +104,15 @@
         "facial-artery",
         "superficial-temporal-artery",
         "glossopharyngeal-nerve",
-        "hypoglossal-nerve"
+        "hypoglossal-nerve",
+        "eye",
+        "ear",
+        "nose",
+        "tongue",
+        "salivary-glands",
+        "orbicularis-oculi",
+        "orbicularis-oris",
+        "occipitofrontalis"
       ],
       "causes": [
         {
@@ -111,6 +124,23 @@
             "mandible",
             "masseter",
             "temporalis"
+          ]
+        },
+        {
+          "title": "Earache",
+          "signs": "Pain in or around the ear, often with a cold (middle ear infection) or after swimming (outer ear). Jaw joint problems can also feel like earache.",
+          "urgency": "self-care",
+          "related": [
+            "ear",
+            "tmj"
+          ]
+        },
+        {
+          "title": "Red or painful eye",
+          "signs": "A red, sore or gritty eye. Pain with blurred vision or light sensitivity, or after an injury, needs same-day care.",
+          "urgency": "doctor",
+          "related": [
+            "eye"
           ]
         },
         {
@@ -128,7 +158,8 @@
           "urgency": "self-care",
           "related": [
             "maxilla",
-            "ethmoid"
+            "ethmoid",
+            "nose"
           ]
         },
         {
@@ -144,7 +175,9 @@
           "signs": "One side of the face droops or won’t move, including the forehead, coming on over a day or two, sometimes with pain behind the ear. Sudden facial weakness can also be a stroke, so get seen the same day.",
           "urgency": "urgent",
           "related": [
-            "facial-nerve"
+            "facial-nerve",
+            "orbicularis-oculi",
+            "orbicularis-oris"
           ]
         },
         {
@@ -194,7 +227,10 @@
         "glossopharyngeal-nerve",
         "pharynx",
         "larynx",
-        "parathyroid"
+        "parathyroid",
+        "levator-scapulae",
+        "splenius",
+        "scalenes"
       ],
       "causes": [
         {
@@ -204,7 +240,10 @@
           "related": [
             "@cervical",
             "sternocleidomastoid",
-            "trapezius"
+            "trapezius",
+            "levator-scapulae",
+            "splenius",
+            "scalenes"
           ]
         },
         {
@@ -540,7 +579,8 @@
           "signs": "A burning band of pain on one side, followed by a blistering rash. Early treatment helps.",
           "urgency": "doctor",
           "related": [
-            "intercostal-nerves"
+            "intercostal-nerves",
+            "skin"
           ]
         },
         {
@@ -621,7 +661,8 @@
           "signs": "A burning band of pain on one side, followed by a blistering rash.",
           "urgency": "doctor",
           "related": [
-            "intercostal-nerves"
+            "intercostal-nerves",
+            "skin"
           ]
         }
       ]
@@ -976,7 +1017,8 @@
           "signs": "A burning band of pain followed by a blistering rash on one side.",
           "urgency": "doctor",
           "related": [
-            "intercostal-nerves"
+            "intercostal-nerves",
+            "skin"
           ]
         }
       ]
@@ -1185,7 +1227,8 @@
           "signs": "A burning band of pain followed by a rash on one side.",
           "urgency": "doctor",
           "related": [
-            "intercostal-nerves"
+            "intercostal-nerves",
+            "skin"
           ]
         }
       ]
@@ -1808,7 +1851,8 @@
         "common-fibular-nerve",
         "popliteal-lymph-nodes",
         "pcl",
-        "menisci"
+        "menisci",
+        "popliteus"
       ],
       "causes": [
         {
@@ -1835,6 +1879,14 @@
           "urgency": "self-care",
           "related": [
             "gastrocnemius"
+          ]
+        },
+        {
+          "title": "Popliteus strain",
+          "signs": "Pain at the back and outer side of the knee, worse walking or running downhill.",
+          "urgency": "self-care",
+          "related": [
+            "popliteus"
           ]
         },
         {
@@ -1891,7 +1943,8 @@
         "small-saphenous-vein",
         "tibial-nerve",
         "deep-fibular-nerve",
-        "superficial-fibular-nerve"
+        "superficial-fibular-nerve",
+        "tibialis-posterior"
       ],
       "causes": [
         {
@@ -1901,7 +1954,8 @@
           "related": [
             "tibia",
             "tibialis-anterior",
-            "soleus"
+            "soleus",
+            "tibialis-posterior"
           ]
         },
         {
@@ -1984,7 +2038,8 @@
         "deltoid-ligament",
         "achilles-tendon",
         "plantar-fascia",
-        "dorsalis-pedis-artery"
+        "dorsalis-pedis-artery",
+        "tibialis-posterior"
       ],
       "causes": [
         {
@@ -2026,6 +2081,15 @@
             "gastrocnemius",
             "soleus",
             "achilles-tendon"
+          ]
+        },
+        {
+          "title": "Inner ankle pain / flattening arch",
+          "signs": "Pain and swelling behind the inner ankle bone, with the arch slowly dropping. A common cause of adult flat foot.",
+          "urgency": "doctor",
+          "related": [
+            "tibialis-posterior",
+            "tarsals"
           ]
         },
         {
@@ -2160,7 +2224,8 @@
         "spinal-cord",
         "spinal-nerves",
         "intercostal-nerves",
-        "aorta"
+        "aorta",
+        "levator-scapulae"
       ],
       "causes": [
         {
@@ -2171,7 +2236,8 @@
             "@thoracic",
             "trapezius",
             "rhomboids",
-            "erector-spinae"
+            "erector-spinae",
+            "levator-scapulae"
           ]
         },
         {
@@ -2196,7 +2262,8 @@
           "urgency": "doctor",
           "related": [
             "intercostal-nerves",
-            "spinal-nerves"
+            "spinal-nerves",
+            "skin"
           ]
         },
         {
@@ -2274,7 +2341,8 @@
           "urgency": "doctor",
           "related": [
             "intercostal-nerves",
-            "spinal-nerves"
+            "spinal-nerves",
+            "skin"
           ]
         },
         {
@@ -2406,7 +2474,8 @@
         "hamstrings",
         "sciatic-nerve",
         "sacral-plexus",
-        "iliac-artery"
+        "iliac-artery",
+        "piriformis"
       ],
       "causes": [
         {
@@ -2418,6 +2487,15 @@
             "sacral-plexus",
             "intervertebral",
             "@lumbar"
+          ]
+        },
+        {
+          "title": "Piriformis syndrome",
+          "signs": "A deep ache in the middle of the buttock, worse sitting or on stairs, sometimes with tingling down the back of the thigh.",
+          "urgency": "self-care",
+          "related": [
+            "piriformis",
+            "sciatic-nerve"
           ]
         },
         {

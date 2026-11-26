@@ -155,7 +155,12 @@
         "sternocleidomastoid",
         "pharynx",
         "larynx",
-        "parathyroid"
+        "parathyroid",
+        "tongue",
+        "salivary-glands",
+        "ear",
+        "nose",
+        "skin"
       ],
       "issues": [
         {
@@ -183,7 +188,8 @@
         "pectoralis-major",
         "pectoralis-minor",
         "serratus-anterior",
-        "latissimus-dorsi"
+        "latissimus-dorsi",
+        "skin"
       ],
       "issues": [
         {
@@ -302,7 +308,8 @@
       "collects": [
         "gluteus-maximus",
         "rectus-abdominis",
-        "external-oblique"
+        "external-oblique",
+        "skin"
       ],
       "drains": [
         "iliac-lymph-nodes"

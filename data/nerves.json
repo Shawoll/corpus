@@ -111,7 +111,8 @@
       "carries": "Movement and sensation",
       "summary": "Thirty-one pairs of nerves, one pair leaving the spine at each level through the gap between two vertebrae. Each soon splits into a back branch for the muscles and skin of the back, and a front branch that joins a plexus or runs around the body wall.",
       "innervates": [
-        "erector-spinae"
+        "erector-spinae",
+        "splenius"
       ],
       "innervatesNote": "Through their back (dorsal) branches. Their front branches form the plexuses and the intercostal nerves.",
       "branches": [
@@ -173,7 +174,11 @@
           "name": "Loss of smell",
           "note": "Most often after a cold, flu or COVID-19, or with nasal polyps, and it often recovers over weeks to months. Smell training can help. See a doctor if it lasts or comes with other new symptoms."
         }
-      ]
+      ],
+      "innervates": [
+        "nose"
+      ],
+      "innervatesNote": "Smell, from the roof of the nasal cavity."
     },
     {
       "id": "optic-nerve",
@@ -193,7 +198,11 @@
           "name": "Optic neuritis",
           "note": "Inflammation of the nerve: blurred or dim vision in one eye over days, with pain on moving the eye. See a doctor urgently. Any sudden loss of vision is an emergency."
         }
-      ]
+      ],
+      "innervates": [
+        "eye"
+      ],
+      "innervatesNote": "Carries sight from the retina to the brain."
     },
     {
       "id": "oculomotor-nerve",
@@ -213,7 +222,11 @@
           "name": "Third nerve palsy",
           "note": "A drooping eyelid with the eye turned down and out, double vision and sometimes a large pupil. A sudden one with a large pupil or a severe headache is an emergency, because it can come from an aneurysm pressing on the nerve."
         }
-      ]
+      ],
+      "innervates": [
+        "eye"
+      ],
+      "innervatesNote": "Four of the six eye muscles and the eyelid lifter, plus the muscles that narrow the pupil and focus the lens."
     },
     {
       "id": "trochlear-nerve",
@@ -233,7 +246,11 @@
           "name": "Fourth nerve palsy",
           "note": "Vertical double vision, worse looking down, often with the head tilted to compensate. Usually after a head injury. See a doctor for any new double vision."
         }
-      ]
+      ],
+      "innervates": [
+        "eye"
+      ],
+      "innervatesNote": "The superior oblique muscle, which turns the eye down and in."
     },
     {
       "id": "abducens-nerve",
@@ -253,7 +270,11 @@
           "name": "Sixth nerve palsy",
           "note": "Horizontal double vision, worse looking toward the affected side, because the eye can't turn outward. New double vision needs a doctor promptly, and urgently with headache."
         }
-      ]
+      ],
+      "innervates": [
+        "eye"
+      ],
+      "innervatesNote": "The lateral rectus muscle, which turns the eye outwards."
     },
     {
       "id": "trigeminal-nerve",
@@ -317,9 +338,12 @@
       "carries": "Facial expression, and taste",
       "summary": "Moves the muscles of facial expression. It leaves the skull just below the ear, passes through the parotid gland and fans out into five branches across the face. It also carries taste from the front of the tongue and runs the tear and saliva glands.",
       "innervates": [
-        "suprahyoid"
+        "suprahyoid",
+        "occipitofrontalis",
+        "orbicularis-oculi",
+        "orbicularis-oris"
       ],
-      "innervatesNote": "The facial expression muscles (not drawn here), and the back of the digastric and the stylohyoid above the hyoid.",
+      "innervatesNote": "All the muscles of facial expression (occipitofrontalis and the rings around the eyes and mouth are drawn), and the back of the digastric and the stylohyoid above the hyoid.",
       "membersLabel": "Branches",
       "members": [
         {
@@ -376,7 +400,11 @@
           "name": "Sudden hearing loss",
           "note": "Hearing loss in one ear over hours or a few days needs to be seen within a day or two, because early treatment improves recovery."
         }
-      ]
+      ],
+      "innervates": [
+        "ear"
+      ],
+      "innervatesNote": "Hearing from the cochlea and balance from the vestibule and semicircular canals."
     },
     {
       "id": "glossopharyngeal-nerve",
@@ -392,8 +420,11 @@
       "carries": "Taste and feeling at the back of the tongue and throat, and swallowing",
       "summary": "Leaves the skull with the vagus and runs down to the back of the tongue and throat. It carries taste and touch from the back third of the tongue and the throat (the gag reflex), supplies one swallowing muscle and the parotid salivary gland, and reports blood pressure from the carotid sinus.",
       "innervates": [
-        "pharynx"
-      ]
+        "pharynx",
+        "tongue",
+        "salivary-glands"
+      ],
+      "innervatesNote": "Taste and feeling from the back of the tongue and the throat, one swallowing muscle (stylopharyngeus), and the parotid gland."
     },
     {
       "id": "vagus-nerve",
@@ -498,7 +529,11 @@
           "name": "Hypoglossal nerve palsy",
           "note": "The tongue points toward the weak side when stuck out, with slurred speech. A new one needs a doctor, and sudden speech or swallowing problems are an emergency."
         }
-      ]
+      ],
+      "innervates": [
+        "tongue"
+      ],
+      "innervatesNote": "The muscles of the tongue."
     },
     {
       "id": "cervical-plexus",
@@ -512,9 +547,11 @@
       "summary": "A network formed by the top four neck nerves, deep to the sternocleidomastoid. Its skin branches fan out from the middle of that muscle’s back edge to the ear, the neck and the collarbone. Its muscle branches include a loop for the strap muscles (the ansa cervicalis) and the phrenic nerve.",
       "innervates": [
         "infrahyoid",
-        "suprahyoid"
+        "suprahyoid",
+        "levator-scapulae",
+        "scalenes"
       ],
-      "innervatesNote": "The strap muscles below the hyoid through the ansa cervicalis, and the geniohyoid above it through C1 fibres.",
+      "innervatesNote": "The strap muscles below the hyoid through the ansa cervicalis, the geniohyoid above it through C1 fibres, and direct branches to levator scapulae and the scalenes.",
       "branches": [
         "phrenic-nerve"
       ],
@@ -628,7 +665,9 @@
         "latissimus-dorsi",
         "rotator-cuff",
         "rhomboids",
-        "teres-major"
+        "teres-major",
+        "levator-scapulae",
+        "scalenes"
       ],
       "innervatesNote": "Through short branches that leave before the plexus ends: the pectoral, long thoracic, thoracodorsal, suprascapular, subscapular and dorsal scapular nerves.",
       "branches": [
@@ -912,9 +951,10 @@
         "gluteus-medius",
         "tensor-fasciae-latae",
         "pelvic-floor",
-        "rectum"
+        "rectum",
+        "piriformis"
       ],
-      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone) and the pudendal nerve, which also works the external anal sphincter.",
+      "innervatesNote": "Through the superior and inferior gluteal nerves (drawn faint in the front view, behind the hip bone), short direct branches (piriformis), and the pudendal nerve, which also works the external anal sphincter.",
       "branches": [
         "sciatic-nerve"
       ],
@@ -983,7 +1023,9 @@
       "summary": "The larger branch of the sciatic nerve. It runs down the middle of the back of the knee and deep in the calf, then curves behind the inner ankle bone into the sole, where it splits into the medial and lateral plantar nerves. Drawn faint in the front view, where it lies behind the bones.",
       "innervates": [
         "gastrocnemius",
-        "soleus"
+        "soleus",
+        "popliteus",
+        "tibialis-posterior"
       ],
       "innervatesNote": "Every muscle in the back of the calf, and through the plantar nerves the small muscles of the sole.",
       "membersLabel": "Branches",

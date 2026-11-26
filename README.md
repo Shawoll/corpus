@@ -14,8 +14,8 @@ Tap any bone, joint, muscle, organ, nerve or blood vessel to see what it is, wha
 ## What's inside
 
 - **Skeleton**: all 206 bones and 33 joints
-- **Muscles**: 45 muscles and muscle groups, with origin, insertion, nerve and blood supply
-- **Organs**: 25 major organs, from the brain to the bladder
+- **Muscles**: 55 muscles and muscle groups, with origin, insertion, nerve and blood supply
+- **Organs**: 31 organs, from the brain and senses to the bladder and skin
 - **Vessels**: 38 major arteries and veins, with pulse points
 - **Nerves**: the spinal cord, cranial nerves, plexuses and the main limb nerves
 - **Where does it hurt?**: 28 body areas with likely causes, urgency and red flags

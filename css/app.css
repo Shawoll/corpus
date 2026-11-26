@@ -429,6 +429,11 @@ body { display: grid; grid-template-rows: auto 1fr; }
 #map .s.o[data-id="pituitary"] { --organ: var(--o-pituitary); }
 #map .s.o[data-id="parathyroid"] { --organ: var(--o-parathyroid); }
 #map .s.o[data-id="pineal-gland"] { --organ: var(--o-pineal-gland); }
+#map .s.o[data-id="eye"] { --organ: var(--o-eye); }
+#map .s.o[data-id="ear"] { --organ: var(--o-ear); }
+#map .s.o[data-id="nose"] { --organ: var(--o-nose); }
+#map .s.o[data-id="tongue"] { --organ: var(--o-tongue); }
+#map .s.o[data-id="salivary-glands"] { --organ: var(--o-salivary-glands); }
 #map .s.o[data-id="ureter"] .b { stroke-width: 0.6; vector-effect: non-scaling-stroke; }
 
 /* muscles */

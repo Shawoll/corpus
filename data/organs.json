@@ -31,6 +31,10 @@
     {
       "id": "urinary",
       "name": "Urinary system"
+    },
+    {
+      "id": "senses",
+      "name": "Senses & skin"
     }
   ],
   "structures": [
@@ -105,6 +109,178 @@
         {
           "name": "Diabetes insipidus",
           "note": "Passing large amounts of dilute urine with constant thirst, from too little ADH. It is not related to sugar diabetes."
+        }
+      ]
+    },
+    {
+      "id": "eye",
+      "name": "Eye",
+      "latin": "Bulbus oculi",
+      "aka": [
+        "eyeball",
+        "eyes"
+      ],
+      "kind": "organ",
+      "group": "senses",
+      "paired": true,
+      "location": "In the orbit, a bony socket in the skull, cushioned by fat and turned by six small muscles.",
+      "summary": "A fluid-filled ball about 24 mm across. The cornea and lens focus light onto the retina, which turns it into nerve signals that the optic nerve carries to the brain.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Cornea",
+          "latin": "Cornea",
+          "note": "The clear front window, which does most of the focusing."
+        },
+        {
+          "name": "Iris and pupil",
+          "latin": "Iris",
+          "note": "The coloured ring, which widens or narrows the pupil to let in more or less light."
+        },
+        {
+          "name": "Lens",
+          "latin": "Lens",
+          "note": "Changes shape to focus on near or distant things."
+        },
+        {
+          "name": "Retina",
+          "latin": "Retina",
+          "note": "The light-sensitive lining at the back. Its centre, the macula, gives sharp detail and colour."
+        },
+        {
+          "name": "Eye muscles",
+          "latin": "Musculi bulbi",
+          "note": "Six small muscles that turn the eye, worked by the oculomotor, trochlear and abducens nerves."
+        }
+      ],
+      "functions": [
+        "Focuses light and turns it into nerve signals",
+        "Adjusts to bright and dim light",
+        "Tears keep the surface clean and moist"
+      ],
+      "issues": [
+        {
+          "name": "Conjunctivitis (pink eye)",
+          "note": "A red, gritty or sticky eye from an infection or allergy. It usually settles by itself."
+        },
+        {
+          "name": "Urgent eye symptoms",
+          "note": "A painful red eye, sudden loss or blurring of vision, new flashes and floaters, or a shadow spreading over the vision needs urgent same-day care."
+        },
+        {
+          "name": "Cataract",
+          "note": "Cloudy or dim vision and glare from lights as the lens clouds with age. Treatable with surgery."
+        },
+        {
+          "name": "Glaucoma",
+          "note": "Raised pressure slowly damages the optic nerve, often without symptoms at first. Regular eye tests catch it."
+        }
+      ]
+    },
+    {
+      "id": "ear",
+      "name": "Ear",
+      "latin": "Auris",
+      "aka": [
+        "ears"
+      ],
+      "kind": "organ",
+      "group": "senses",
+      "paired": true,
+      "location": "On each side of the head. The outer ear leads through the ear canal to the eardrum; the middle and inner ear lie inside the temporal bone.",
+      "summary": "The organ of hearing and balance. The outer ear gathers sound, three tiny bones in the middle ear amplify it and the cochlea turns it into nerve signals, while the semicircular canals sense movement of the head.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Outer ear",
+          "latin": "Auris externa",
+          "note": "The visible auricle and the ear canal, ending at the eardrum."
+        },
+        {
+          "name": "Middle ear",
+          "latin": "Auris media",
+          "note": "An air-filled space with the three ossicles (malleus, incus and stapes), joined to the throat by the Eustachian tube."
+        },
+        {
+          "name": "Inner ear",
+          "latin": "Auris interna",
+          "note": "The cochlea for hearing, and the semicircular canals and vestibule for balance."
+        }
+      ],
+      "functions": [
+        "Hearing",
+        "Balance, and sensing movement of the head",
+        "The Eustachian tube evens out pressure on the eardrum"
+      ],
+      "issues": [
+        {
+          "name": "Middle ear infection (otitis media)",
+          "note": "Earache, often with a cold and especially in children. It usually settles within a few days."
+        },
+        {
+          "name": "Outer ear infection (otitis externa)",
+          "note": "An itchy, painful ear canal, often after swimming."
+        },
+        {
+          "name": "Earwax build-up",
+          "note": "Muffled hearing and a full feeling. Avoid cotton buds; ear drops can soften it."
+        },
+        {
+          "name": "Sudden hearing loss or vertigo",
+          "note": "Sudden hearing loss in one ear needs same-day assessment. Vertigo with weakness, slurred speech or double vision is an emergency."
+        }
+      ]
+    },
+    {
+      "id": "skin",
+      "name": "Skin",
+      "latin": "Cutis",
+      "kind": "organ",
+      "group": "senses",
+      "paired": false,
+      "listOnly": "Not drawn on the map: it covers the whole body, so a drawing of it would hide everything underneath.",
+      "location": "Covers the whole body, about 1.5–2 m² in an adult. Thickest on the soles and palms, thinnest on the eyelids.",
+      "summary": "The body’s largest organ, at about 4 kg. It is a waterproof barrier against germs, sun and injury, helps control temperature, and is packed with receptors for touch, pain, heat and cold.",
+      "membersLabel": "Layers",
+      "members": [
+        {
+          "name": "Epidermis",
+          "latin": "Epidermis",
+          "note": "The thin outer layer, renewed about every month. It makes melanin, and vitamin D in sunlight."
+        },
+        {
+          "name": "Dermis",
+          "latin": "Dermis",
+          "note": "The tough inner layer with blood vessels, nerve endings, hair roots and sweat and oil glands."
+        },
+        {
+          "name": "Subcutaneous fat",
+          "latin": "Tela subcutanea",
+          "note": "Insulates, cushions and stores energy."
+        }
+      ],
+      "functions": [
+        "A barrier against germs, water loss and ultraviolet light",
+        "Controls temperature by sweating and changing blood flow",
+        "Senses touch, pain, heat and cold",
+        "Makes vitamin D in sunlight"
+      ],
+      "issues": [
+        {
+          "name": "Eczema",
+          "note": "Dry, itchy, inflamed patches, often in skin creases. Moisturisers help."
+        },
+        {
+          "name": "Cellulitis",
+          "note": "Spreading red, hot, swollen and painful skin, often with fever. It needs a doctor promptly."
+        },
+        {
+          "name": "Skin cancer warning signs",
+          "note": "A mole that changes size, shape or colour, bleeds or itches, or a sore that doesn’t heal needs checking."
+        },
+        {
+          "name": "Shingles",
+          "note": "A painful band of blistering rash on one side of the body, along one nerve."
         }
       ]
     },
@@ -291,6 +467,146 @@
         {
           "name": "Lump-in-the-throat feeling (globus)",
           "note": "Common and usually harmless when food goes down normally. Get it checked if it lasts, or if swallowing becomes difficult or painful."
+        }
+      ]
+    },
+    {
+      "id": "nose",
+      "name": "Nose and nasal cavity",
+      "latin": "Nasus",
+      "aka": [
+        "nose",
+        "nasal cavity"
+      ],
+      "kind": "organ",
+      "group": "respiratory",
+      "paired": false,
+      "location": "The middle of the face, from between the eyes to the nostrils. The nasal cavity behind opens into the nasopharynx.",
+      "summary": "The entrance to the airway. It warms, moistens and filters the air, and a small patch in its roof holds the smell receptors.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Nasal septum",
+          "latin": "Septum nasi",
+          "note": "Divides the nose into left and right halves: bone at the back, cartilage at the front."
+        },
+        {
+          "name": "Nasal conchae",
+          "latin": "Conchae nasales",
+          "note": "Three curled shelves on each side wall that warm and moisten the air."
+        },
+        {
+          "name": "Paranasal sinuses",
+          "latin": "Sinus paranasales",
+          "note": "Air spaces in the frontal, maxillary, ethmoid and sphenoid bones that drain into the nose."
+        },
+        {
+          "name": "Olfactory area",
+          "latin": "Regio olfactoria",
+          "note": "A small patch in the roof of the nasal cavity with the smell receptors."
+        }
+      ],
+      "functions": [
+        "Warms, moistens and filters the air",
+        "Smell",
+        "Gives the voice its resonance"
+      ],
+      "issues": [
+        {
+          "name": "Sinusitis",
+          "note": "Facial pain and pressure, a blocked nose and thick discharge after a cold, usually settling within 2–3 weeks."
+        },
+        {
+          "name": "Nosebleed",
+          "note": "Lean forward and pinch the soft part of the nose for 10–15 minutes. Bleeding for more than 20 minutes, or after a head injury, needs urgent care."
+        },
+        {
+          "name": "Hay fever",
+          "note": "Sneezing, an itchy runny nose and itchy eyes at certain times of year."
+        },
+        {
+          "name": "Loss of smell",
+          "note": "Common after colds. If it lasts more than a few weeks, see a doctor."
+        }
+      ]
+    },
+    {
+      "id": "tongue",
+      "name": "Tongue",
+      "latin": "Lingua",
+      "kind": "organ",
+      "group": "digestive",
+      "paired": false,
+      "location": "Floor of the mouth, anchored to the hyoid bone and the jaw. Its back third faces the throat.",
+      "summary": "A muscular organ that moves food while chewing, starts each swallow, shapes speech and carries most of the taste buds.",
+      "functions": [
+        "Taste: sweet, sour, salty, bitter and umami",
+        "Moves food around and pushes it back to swallow",
+        "Shapes sounds for speech"
+      ],
+      "issues": [
+        {
+          "name": "Mouth ulcers",
+          "note": "Small painful sores that heal within 2 weeks. An ulcer or patch lasting more than 3 weeks needs checking."
+        },
+        {
+          "name": "Oral thrush",
+          "note": "White patches that wipe off and leave soreness, common after antibiotics or with steroid inhalers."
+        },
+        {
+          "name": "Swelling of the tongue or lips",
+          "note": "With difficulty breathing or swallowing, it is an emergency (anaphylaxis)."
+        }
+      ]
+    },
+    {
+      "id": "salivary-glands",
+      "name": "Salivary glands",
+      "latin": "Glandulae salivariae majores",
+      "aka": [
+        "saliva glands"
+      ],
+      "kind": "organ",
+      "group": "digestive",
+      "paired": true,
+      "countLabel": "Three on each side",
+      "location": "In front of each ear (parotid), under the jaw (submandibular) and under the tongue (sublingual).",
+      "summary": "Three pairs of major glands, plus hundreds of tiny ones in the lining of the mouth, that make 0.5–1.5 litres of saliva a day.",
+      "membersLabel": "Glands",
+      "members": [
+        {
+          "name": "Parotid gland",
+          "latin": "Glandula parotidea",
+          "note": "The largest, in front of the ear over the angle of the jaw. Its duct opens inside the cheek beside the upper second molar."
+        },
+        {
+          "name": "Submandibular gland",
+          "latin": "Glandula submandibularis",
+          "note": "Under the jaw. Its duct opens under the tongue."
+        },
+        {
+          "name": "Sublingual gland",
+          "latin": "Glandula sublingualis",
+          "note": "The smallest, under the tongue (not drawn)."
+        }
+      ],
+      "functions": [
+        "Saliva moistens food and starts digesting starch",
+        "Protects the teeth and fights germs",
+        "Helps taste, chewing, swallowing and speech"
+      ],
+      "issues": [
+        {
+          "name": "Mumps",
+          "note": "Painful swelling of the parotid glands with fever. Vaccination prevents it."
+        },
+        {
+          "name": "Salivary stone",
+          "note": "Pain and swelling under the jaw or in front of the ear at mealtimes."
+        },
+        {
+          "name": "Dry mouth",
+          "note": "Common with many medicines, dehydration and some conditions."
         }
       ]
     },
@@ -654,6 +970,29 @@
       "paired": false,
       "location": "Deep in the upper abdomen behind the stomach, its head tucked into the curve of the duodenum.",
       "summary": "A long gland with two jobs: it releases digestive enzymes into the gut, and hormones (insulin and glucagon) into the blood.",
+      "membersLabel": "Parts",
+      "members": [
+        {
+          "name": "Head",
+          "latin": "Caput pancreatis",
+          "note": "Tucked into the curve of the duodenum."
+        },
+        {
+          "name": "Body",
+          "latin": "Corpus pancreatis",
+          "note": "Crosses the spine behind the stomach."
+        },
+        {
+          "name": "Tail",
+          "latin": "Cauda pancreatis",
+          "note": "Reaches the spleen."
+        },
+        {
+          "name": "Pancreatic islets",
+          "latin": "Insulae pancreaticae",
+          "note": "About a million clusters of hormone cells (islets of Langerhans), only 1–2% of the gland, that release insulin and glucagon into the blood."
+        }
+      ],
       "functions": [
         "Digestive enzymes for fats, proteins and carbohydrates",
         "Insulin and glucagon control blood sugar",

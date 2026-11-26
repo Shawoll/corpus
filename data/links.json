@@ -110,6 +110,41 @@
     {
       "type": "protects",
       "from": [
+        "frontal",
+        "zygomatic",
+        "maxilla",
+        "sphenoid",
+        "ethmoid"
+      ],
+      "to": [
+        "eye"
+      ],
+      "note": "the walls of the orbit"
+    },
+    {
+      "type": "protects",
+      "from": [
+        "temporal"
+      ],
+      "to": [
+        "ear"
+      ],
+      "note": "the middle and inner ear lie inside it"
+    },
+    {
+      "type": "protects",
+      "from": [
+        "nasal",
+        "maxilla",
+        "ethmoid"
+      ],
+      "to": [
+        "nose"
+      ]
+    },
+    {
+      "type": "protects",
+      "from": [
         "hip-bone",
         "pubic-symphysis"
       ],
@@ -187,6 +222,16 @@
         "kidney"
       ],
       "note": "through aldosterone (salt and water)"
+    },
+    {
+      "type": "continues",
+      "from": [
+        "nose"
+      ],
+      "to": [
+        "pharynx"
+      ],
+      "note": "air"
     },
     {
       "type": "continues",
@@ -323,6 +368,26 @@
       ]
     },
     {
+      "type": "attached",
+      "from": [
+        "hyoid",
+        "mandible"
+      ],
+      "to": [
+        "tongue"
+      ]
+    },
+    {
+      "type": "contains",
+      "from": [
+        "ear"
+      ],
+      "to": [
+        "ossicles"
+      ],
+      "note": "in the middle ear"
+    },
+    {
       "type": "drains",
       "from": [
         "liver"
@@ -410,10 +475,23 @@
         "brain",
         "pituitary",
         "pineal-gland",
-        "parathyroid"
+        "parathyroid",
+        "eye",
+        "nose",
+        "tongue"
       ],
       "to": [
         "internal-jugular-vein"
+      ]
+    },
+    {
+      "type": "drains",
+      "from": [
+        "ear",
+        "salivary-glands"
+      ],
+      "to": [
+        "external-jugular-vein"
       ]
     },
     {
@@ -579,6 +657,91 @@
         "@cranial-nerves"
       ],
       "note": "from the brain and brainstem"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "trigeminal-nerve"
+      ],
+      "to": [
+        "eye"
+      ],
+      "note": "feeling in the cornea and eyelids"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "trigeminal-nerve"
+      ],
+      "to": [
+        "nose"
+      ],
+      "note": "feeling inside the nose"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "trigeminal-nerve"
+      ],
+      "to": [
+        "tongue"
+      ],
+      "note": "touch on the front two-thirds"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "trigeminal-nerve"
+      ],
+      "to": [
+        "skin"
+      ],
+      "note": "the face"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "facial-nerve"
+      ],
+      "to": [
+        "tongue"
+      ],
+      "note": "taste on the front two-thirds"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "facial-nerve"
+      ],
+      "to": [
+        "salivary-glands"
+      ],
+      "note": "the submandibular and sublingual glands"
+    },
+    {
+      "type": "innervates",
+      "from": [
+        "spinal-nerves"
+      ],
+      "to": [
+        "skin"
+      ],
+      "note": "the neck, trunk and limbs, in strips called dermatomes"
+    },
+    {
+      "type": "supplies",
+      "from": [
+        "external-carotid-artery",
+        "subclavian-artery",
+        "aorta",
+        "iliac-artery",
+        "brachial-artery",
+        "femoral-artery"
+      ],
+      "to": [
+        "skin"
+      ],
+      "note": "through small branches to the skin above them"
     }
   ]
 }

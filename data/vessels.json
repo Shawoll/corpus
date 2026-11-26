@@ -288,6 +288,7 @@
       "summary": "Runs up the neck beside the windpipe, under the front edge of the sternocleidomastoid, and divides at the level of the top of the voice box. The internal carotid enters the skull to feed the brain and eye; the external carotid feeds the face, scalp, jaw and thyroid.",
       "supplies": [
         "brain",
+        "eye",
         "trachea",
         "sternocleidomastoid",
         "pituitary"
@@ -334,7 +335,12 @@
         "infrahyoid",
         "pharynx",
         "larynx",
-        "parathyroid"
+        "parathyroid",
+        "tongue",
+        "salivary-glands",
+        "ear",
+        "nose",
+        "splenius"
       ],
       "membersLabel": "Other branches",
       "members": [
@@ -370,9 +376,13 @@
       "pulse": "Lower edge of the jaw, just in front of the masseter muscle",
       "summary": "Hooks over the lower edge of the jaw just in front of the masseter, where you can feel its pulse, then winds up past the corner of the mouth and the side of the nose to the inner corner of the eye. It feeds the lips, cheek and nose, and is why face cuts bleed so freely.",
       "supplies": [
-        "masseter"
+        "masseter",
+        "nose",
+        "salivary-glands",
+        "orbicularis-oculi",
+        "orbicularis-oris"
       ],
-      "suppliesNote": "And the muscles of facial expression, lips and nose (not drawn here)."
+      "suppliesNote": "The submandibular gland, the nose, the lips and the muscles of facial expression."
     },
     {
       "id": "superficial-temporal-artery",
@@ -384,9 +394,12 @@
       "pulse": "Just in front of the ear, above the jaw joint",
       "summary": "The end of the external carotid. It climbs just in front of the ear, where its pulse is easy to feel, and branches over the temple and scalp. Its winding branches often show under the skin of the temple in older people.",
       "supplies": [
-        "temporalis"
+        "temporalis",
+        "ear",
+        "occipitofrontalis",
+        "orbicularis-oculi"
       ],
-      "suppliesNote": "And the skin of the temple and scalp.",
+      "suppliesNote": "The front of the ear, the forehead and the skin of the temple and scalp.",
       "issues": [
         {
           "name": "Giant cell arteritis",
@@ -439,7 +452,9 @@
         "rectus-abdominis",
         "pectoralis-major",
         "larynx",
-        "parathyroid"
+        "parathyroid",
+        "levator-scapulae",
+        "scalenes"
       ],
       "suppliesNote": "Through the thyrocervical trunk (thyroid, neck and shoulder muscles), the dorsal scapular artery, and the internal thoracic artery, which runs down inside the front of the chest beside the breastbone.",
       "membersLabel": "Branches",
@@ -783,7 +798,8 @@
         "adductors",
         "hip-bone",
         "rectum",
-        "ureter"
+        "ureter",
+        "piriformis"
       ],
       "suppliesNote": "The pelvic organs, buttock and pelvic floor through the internal iliac (the gluteal, obturator and pudendal arteries). The lower belly wall through the inferior epigastric artery, from the external iliac.",
       "membersLabel": "Parts",
@@ -866,7 +882,8 @@
         "knee",
         "gastrocnemius",
         "soleus",
-        "hamstrings"
+        "hamstrings",
+        "popliteus"
       ],
       "suppliesNote": "The knee through the genicular arteries, and the calf muscles through the sural arteries.",
       "issues": [
@@ -934,7 +951,8 @@
         "fibularis",
         "tibia",
         "fibula",
-        "tarsals"
+        "tarsals",
+        "tibialis-posterior"
       ],
       "membersLabel": "Branches",
       "members": [

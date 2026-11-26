@@ -153,6 +153,10 @@
       "forward": "Has attached",
       "reverse": "Attached to"
     },
+    "contains": {
+      "forward": "Contains",
+      "reverse": "Found in"
+    },
     "origin": {
       "forward": "Origin",
       "reverse": "Muscles that start here",

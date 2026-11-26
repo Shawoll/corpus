@@ -119,7 +119,7 @@ export function createPanel(graph) {
       if (lt.field && n[lt.field + 'Note'] && !byType.has(`${type}|out`) && Array.isArray(n[lt.field])) byType.set(`${type}|out`, { type, dir: 'out', keys: [], byNote: new Map() });
     }
     if (!byType.size) return '';
-    const order = ['stabilises', 'attaches', 'origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'regulates', 'collects', 'innervates', 'supplies', 'attached'];
+    const order = ['stabilises', 'attaches', 'origin', 'insertion', 'protects', 'pumps', 'continues', 'branches', 'drains', 'regulates', 'collects', 'innervates', 'supplies', 'attached', 'contains'];
     const rank = (t) => (order.includes(t) ? order.indexOf(t) : order.length);
     const dirRank = (b) => ((b.dir === 'out') !== UPSTREAM_FIRST.has(b.type) ? 0 : 1);
     const items = [...byType.values()].sort((a, b) => rank(a.type) - rank(b.type) || dirRank(a) - dirRank(b));
@@ -233,7 +233,7 @@ export function createPanel(graph) {
       h += `<div class="note-card">${notes.map(esc).join('<br>')}</div>`;
     }
     if (n.noJoints) h += `<div class="note-card">${esc(n.noJoints)}</div>`;
-    if (n.listOnly) h += `<div class="note-card">Not drawn on the map yet: it lies deep inside, under other structures. You can still reach it through search, the browse list and its connections.</div>`;
+    if (n.listOnly) h += `<div class="note-card">${typeof n.listOnly === 'string' ? esc(n.listOnly) : 'Not drawn on the map yet: it lies deep inside, under other structures.'} You can still reach it through search, the browse list and its connections.</div>`;
 
     if (n.type === 'joint') {
       const members = lift(keys.flatMap((k) => graph.membersOfJoint(k)), ctx, null);

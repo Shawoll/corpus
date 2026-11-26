@@ -6,7 +6,7 @@ The structures and links behind the map. The JSON shapes are in the root `CONTRI
 
 - `id`s are global across **all** layers and joints. If two entries share an id, the later one overwrites the earlier one, and only `?debug` reports it (`Duplicate id`). Ids are kebab-case and appear in URLs (`#/s/<id>`).
 - `"paired": true` means the structure exists as `id:right` and `id:left`. The data has one entry, and the SVG draws both sides with `data-side`. Use `"id:right"` in a reference only to point at one side. Otherwise the side rules in `graph.js` (`resolvePair`) choose sides.
-- A structure that isn't drawn in any view (front or back) needs `"listOnly": true`, or the check reports it as not drawn. Remove the flag once it is drawn: the check also reports a drawn structure that is still `listOnly`.
+- A structure that isn't drawn in any view (front or back) needs `"listOnly": true`, or the check reports it as not drawn. Remove the flag once it is drawn: the check also reports a drawn structure that is still `listOnly`. `listOnly` can also be a sentence saying why it isn't drawn (the skin), which the panel shows instead of the default "lies deep inside" note.
 
 ## Skeleton (`skeleton.json`)
 
