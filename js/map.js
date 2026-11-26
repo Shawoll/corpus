@@ -25,7 +25,10 @@ export function createMap({ svg, graph, onPick, onHover }) {
   const regionDrawn = new Map(); // view -> Set(region key)
   const layerEls = new Map(); // layer id -> [<g class="layer">] (one per view it is drawn in)
   const viewEls = new Map(); // view id -> <g class="view">
-  const styled = []; // [{ g, style }] layer groups that belong to one drawing style
+  const styled = []; // [{ g, style, view }] layer groups that belong to one drawing style
+  const slots = new Map(); // 'layer|view' -> the default drawing of a layer that has other styles in that view
+  const loaded = new Set(); // 'style|view' pairs whose drawings are mounted (see addStyle)
+  let defaultStyle = 'default';
   const variants = []; // [{ layer, view, style, keys: Set, base: Set }] for the ?debug check
   let viewIds = [];
   const add = (m, k, v) => { if (!m.has(k)) m.set(k, new Set()); m.get(k).add(v); };
@@ -44,11 +47,39 @@ export function createMap({ svg, graph, onPick, onHover }) {
     }
   }
 
-  // layers: [{ id, svgs: { <view>: svgText }, styleSvgs: { <style>: { <view>: svgText } } }], regionSvgs: { <view>: svgText },
-  // views: [{ id }] (drawing order: first is bottom), styles: [{ id }] (the first is the default drawing, held in svgs)
+  // index the shapes of one mounted group (a layer drawing or the regions) in view V
+  function indexShapes(root, V) {
+    for (const e of root.querySelectorAll('[data-id]')) {
+      const k = keyOf(e);
+      if (root.classList.contains('regions-layer')) {
+        e.dataset.rkey = k;
+        if (!rindex.has(k)) rindex.set(k, []);
+        rindex.get(k).push(e);
+        regionDrawn.get(V).add(k);
+        add(regionViews, k, V);
+        continue;
+      }
+      e.dataset.key = k;
+      if (!index.has(k)) index.set(k, []);
+      index.get(k).push(e);
+      add(drawn.get(V), k, e.dataset.sex || '');
+      if (e.dataset.sex) sexed.push(e);
+      if (!e.classList.contains('back')) add(keyViews, k, V);
+      const b = e.querySelector(':scope > .b');
+      if (b) { const hit = b.cloneNode(false); hit.setAttribute('class', 'hit'); e.appendChild(hit); }
+      if (e.classList.contains('jm')) {
+        const n = graph.node(e.dataset.id);
+        if (n?.class) e.dataset.jclass = n.class;
+      }
+    }
+  }
+
+  // layers: [{ id, svgs: { <view>: svgText }, styles: { <style>: { <view>: url } } }], regionSvgs: { <view>: svgText },
+  // views: [{ id }] (drawing order: first is bottom), styles: [{ id }] (the first is the default drawing, held in svgs).
+  // Only the default drawings are mounted here; a layer's other styles are added later by addStyle(), when first shown.
   function mount(layers, regionSvgs = {}, views = [{ id: 'anterior' }], styles = [{ id: 'default' }]) {
-    const keysOf = (g) => new Set([...g.querySelectorAll('[data-id]')].map(keyOf));
     viewIds = views.map((v) => v.id);
+    defaultStyle = styles[0].id;
     for (const V of views) {
       const vg = el('g', { class: 'view', 'data-view': V.id });
       layersG.appendChild(vg);
@@ -57,52 +88,49 @@ export function createMap({ svg, graph, onPick, onHover }) {
       regionDrawn.set(V.id, new Set());
       for (const L of layers) {
         if (!L.svgs?.[V.id]) continue;
-        const alts = styles.slice(1).filter((S) => L.styleSvgs?.[S.id]?.[V.id]);
-        const groups = [{ style: alts.length ? styles[0].id : null, text: L.svgs[V.id] },
-          ...alts.map((S) => ({ style: S.id, text: L.styleSvgs[S.id][V.id] }))];
+        const g = el('g', { class: 'layer', 'data-layer': L.id });
+        // a layer with a drawing in another style here: tag the default drawing so render() can swap the two
+        if (styles.slice(1).some((S) => L.styles?.[S.id]?.[V.id])) {
+          g.dataset.style = defaultStyle;
+          styled.push({ g, style: defaultStyle, view: V.id });
+          slots.set(`${L.id}|${V.id}`, g);
+        }
+        importSvg(L.svgs[V.id], g);
+        vg.appendChild(g);
         if (!layerEls.has(L.id)) layerEls.set(L.id, []);
-        for (const { style, text } of groups) {
-          const g = el('g', { class: 'layer', 'data-layer': L.id });
-          if (style) { g.dataset.style = style; styled.push({ g, style }); }
-          importSvg(text, g);
-          vg.appendChild(g);
-          layerEls.get(L.id).push(g);
-        }
-        if (alts.length) {
-          const [base, ...rest] = layerEls.get(L.id).slice(-groups.length);
-          const baseKeys = keysOf(base);
-          rest.forEach((g, i) => variants.push({ layer: L.id, view: V.id, style: alts[i].id, keys: keysOf(g), base: baseKeys }));
-        }
+        layerEls.get(L.id).push(g);
+        indexShapes(g, V.id);
       }
       const rg = el('g', { class: 'layer regions-layer', 'data-layer': 'regions' });
       if (regionSvgs[V.id]) importSvg(regionSvgs[V.id], rg);
       vg.appendChild(rg);
-
-      for (const e of vg.querySelectorAll('.layer:not(.regions-layer) [data-id]')) {
-        const k = keyOf(e);
-        e.dataset.key = k;
-        if (!index.has(k)) index.set(k, []);
-        index.get(k).push(e);
-        add(drawn.get(V.id), k, e.dataset.sex || '');
-        if (e.dataset.sex) sexed.push(e);
-        if (!e.classList.contains('back')) add(keyViews, k, V.id);
-        const b = e.querySelector(':scope > .b');
-        if (b) { const hit = b.cloneNode(false); hit.setAttribute('class', 'hit'); e.appendChild(hit); }
-        if (e.classList.contains('jm')) {
-          const n = graph.node(e.dataset.id);
-          if (n?.class) e.dataset.jclass = n.class;
-        }
-      }
-      for (const e of rg.querySelectorAll('[data-id]')) {
-        const k = keyOf(e);
-        e.dataset.rkey = k;
-        if (!rindex.has(k)) rindex.set(k, []);
-        rindex.get(k).push(e);
-        regionDrawn.get(V.id).add(k);
-        add(regionViews, k, V.id);
-      }
+      indexShapes(rg, V.id);
     }
   }
+
+  // Mount one style's drawings for one view, { <layer id>: svgText }, each right above its layer's default drawing.
+  // They have the same ids as the default drawings, so which views show a key (viewsOf) doesn't change.
+  function addStyle(style, view, texts) {
+    if (loaded.has(`${style}|${view}`)) return;
+    const keysOf = (g) => new Set([...g.querySelectorAll('[data-id]')].map(keyOf));
+    for (const [layer, text] of Object.entries(texts)) {
+      const slot = slots.get(`${layer}|${view}`);
+      if (!slot) continue;
+      const g = el('g', { class: 'layer', 'data-layer': layer, 'data-style': style });
+      importSvg(text, g);
+      // after the default drawing and any styles already added for it, so the layer order stays as in the manifest
+      let after = slot;
+      while (after.nextElementSibling?.dataset.layer === layer && after.nextElementSibling.dataset.style) after = after.nextElementSibling;
+      after.after(g);
+      styled.push({ g, style, view });
+      layerEls.get(layer).push(g);
+      variants.push({ layer, view, style, keys: keysOf(g), base: keysOf(slot) });
+      indexShapes(g, view);
+    }
+    loaded.add(`${style}|${view}`);
+  }
+  // whether a style's drawings for a view are mounted (the default style always is)
+  const hasStyle = (style, view) => style === defaultStyle || loaded.has(`${style}|${view}`);
 
   // Views (in manifest order) where any of these keys is drawn; regions: true looks at "Where does it hurt?" areas.
   function viewsOf(keys, { regions = false } = {}) {
@@ -145,7 +173,8 @@ export function createMap({ svg, graph, onPick, onHover }) {
     svg.classList.toggle('joints-dots', v.jointStyle === 'dots');
     jointStyle = v.jointStyle;
     for (const [id, g] of viewEls) g.classList.toggle('off', id !== v.view);
-    for (const { g, style } of styled) g.classList.toggle('style-off', style !== v.style);
+    // a style still loading for a view shows that view's default drawings meanwhile
+    for (const { g, style, view } of styled) g.classList.toggle('style-off', style !== (hasStyle(v.style, view) ? v.style : defaultStyle));
     for (const e of sexed) e.classList.toggle('sex-off', e.dataset.sex !== v.sex);
     for (const [id, gs] of layerEls) {
       const on = v.visible.has(id);
@@ -232,7 +261,7 @@ export function createMap({ svg, graph, onPick, onHover }) {
   }
 
   return {
-    mount, render, setHover, probe, bbox, toSvgPoint, viewsOf,
+    mount, addStyle, hasStyle, render, setHover, probe, bbox, toSvgPoint, viewsOf,
     has: (k) => index.has(k),
     keys: () => [...index.keys()],
     regionKeys: () => [...rindex.keys()],

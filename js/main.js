@@ -29,18 +29,17 @@ async function boot() {
   // a layer's "svg" maps view id -> file; a plain string means the first view only
   const svgMap = (spec) => (typeof spec === 'string' ? { [views[0].id]: spec } : spec || {});
   const loadSvgs = async (spec) => Object.fromEntries(await Promise.all(Object.entries(svgMap(spec)).map(async ([v, url]) => [v, await load(url, 'text')])));
-  // drawing styles: the first is the default drawing in a layer's "svg"; a layer's "styles" adds per-style drawings
+  // drawing styles: the first is the default drawing in a layer's "svg"; a layer's "styles" adds per-style drawings,
+  // which are fetched only when first shown (ensureStyle below), so a first visit downloads the default drawings only
   const styles = manifest.styles?.length ? manifest.styles : [{ id: 'schematic', name: 'Schematic' }];
-  const loadStyles = async (spec = {}) => Object.fromEntries(await Promise.all(Object.entries(spec).map(async ([s, files]) => [s, await loadSvgs(files)])));
-  const [datas, svgs, styleSvgs, linkFiles, regionsData, regionSvgs] = await Promise.all([
+  const [datas, svgs, linkFiles, regionsData, regionSvgs] = await Promise.all([
     Promise.all(manifest.layers.map((l) => load(l.data))),
     Promise.all(manifest.layers.map((l) => loadSvgs(l.svg))),
-    Promise.all(manifest.layers.map((l) => loadStyles(l.styles))),
     Promise.all((manifest.links || []).map((u) => load(u))),
     manifest.regions ? load(manifest.regions.data) : { regions: [] },
     manifest.regions ? loadSvgs(manifest.regions.svg) : {},
   ]);
-  const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i], styleSvgs: styleSvgs[i] }));
+  const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i] }));
   // biological sex: one graph per setting, built on first use from the data filtered by js/sex.js (the first is neutral)
   const sexes = manifest.sexes?.length ? manifest.sexes : [{ id: 'none', name: 'Not set' }];
   const sexById = new Map(sexes.map((x) => [x.id, x]));
@@ -76,6 +75,7 @@ async function boot() {
     mirror: prefs.get('mirror', false),
     probe: null,
     fromRegion: null,
+    drawings: 0, // bumped when a style's drawings are mounted (ensureStyle)
   });
 
   const map = createMap({ svg, graph, onPick, onHover });
@@ -121,6 +121,27 @@ async function boot() {
   // whether the drawings shown in this view and style draw any joint as anatomy (`.ja`, the realistic skeleton)
   const anatomyIn = (st) => !!svg.querySelector(`.view[data-view="${st.view}"] .layer[data-style="${styleIn(st.style, st.view) ? st.style : styles[0].id}"] .ja`);
   const setStyle = (s) => { if (!styleById.has(s)) return; prefs.set('style', s); store.set({ style: s }); };
+  // fetch and mount a style's drawings for one view, once; until then the map shows the default drawings there
+  const styleLoads = new Map(); // 'style|view' -> Promise
+  function ensureStyle(s, v) {
+    const id = `${s}|${v}`;
+    if (map.hasStyle(s, v) || !styleIn(s, v)) return Promise.resolve();
+    if (!styleLoads.has(id)) {
+      const files = manifest.layers.filter((l) => l.styles?.[s]?.[v]).map((l) => [l.id, l.styles[s][v]]);
+      styleLoads.set(id, Promise.all(files.map(async ([layer, url]) => [layer, await load(url, 'text')]))
+        .then((texts) => {
+          map.addStyle(s, v, Object.fromEntries(texts));
+          store.set({ drawings: store.get().drawings + 1 }); // re-render the map and the cog with the new drawings
+        })
+        .catch((err) => { styleLoads.delete(id); console.warn(`[Corpus] ${s} drawings (${v}) failed to load`, err); }));
+    }
+    return styleLoads.get(id);
+  }
+  // the current view's drawings in the current style first, then that style's other views in the background
+  function ensureShown(st) {
+    if (st.style === styles[0].id) return Promise.resolve();
+    return ensureStyle(st.style, st.view).then(() => Promise.all(views.map((v) => ensureStyle(st.style, v.id))));
+  }
 
   // ------------------------------------------------------------------ biological sex
   // does the route's structure, group or region exist in this graph? (home and hurt always do)
@@ -309,6 +330,7 @@ async function boot() {
     if (top) { panelBody.scrollTop = 0; panelEl.scrollTop = 0; }
   }
   store.subscribe((st, prev) => {
+    if (st.style !== prev.style || st.view !== prev.view) ensureShown(st);
     if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible || st.view !== prev.view || st.sex !== prev.sex) renderPanel(st, st.route !== prev.route);
     renderMap(st);
     renderControls(st);
@@ -500,13 +522,18 @@ async function boot() {
     else if (e.key === 's' || e.key === 'S') cycleSex();
   });
 
+  // a saved non-default style: mount the current view's drawings before the first render, so they don't swap in later
+  if (store.get().style !== styles[0].id) await ensureStyle(store.get().style, store.get().view);
   window.addEventListener('hashchange', onRoute);
   onRoute();
+  ensureShown(store.get());
   if (store.get().route.view !== 'home') requestAnimationFrame(() => revealSelection());
   document.body.classList.add('ready');
 
   if (new URLSearchParams(location.search).has('debug')) {
-    import('./validate.js').then((m) => m.validate({ raw, map }));
+    // the check compares every style's drawings with the default ones, so mount them all first
+    Promise.all(styles.slice(1).flatMap((s) => views.map((v) => ensureStyle(s.id, v.id))))
+      .then(() => import('./validate.js')).then((m) => m.validate({ raw, map }));
   }
   // handy for poking around in the console; graph is the current sex's graph
   window.corpus = { get graph() { return graph; }, graphFor, map, store, zoom };

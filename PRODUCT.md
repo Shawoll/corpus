@@ -36,13 +36,17 @@ Corpus makes four claims, and the user stands behind all of them:
 
 ## Capabilities and Constraints
 
-- Layers: skeleton (all 206 bones, 33 joints), muscles, organs, vessels, nerves, and the "Where does it hurt?" body areas. There are two views: Front, and Back (the back view currently has the skeleton and body areas only).
+- Layers: skeleton (all 206 bones, 33 joints), ligaments and tendons, muscles, organs (including the endocrine glands, the senses and skin, and the reproductive organs), vessels, lymphatics, nerves (including all 12 cranial nerves), and the "Where does it hurt?" body areas. There are two views, Front and Back, and every layer is drawn in both.
+- Two drawing styles: Schematic (the default) and Realistic (real bone form, joints drawn as anatomy, shaded soft tissue with fibres). Joints can be shown as Dots, as Anatomy (Realistic only) or not at all.
+- Biological sex: Not set (the default), Female or Male. Sex-specific structures and body areas exist only for their sex, so none are drawn when it is Not set. Sex-specific health text is hidden only for the other sex, and with Not set it is shown with a "female" / "male" tag, so an urgent cause is never hidden.
+- Controls: the map has zoom buttons only. View, Drawings, Biological sex, Joints, Mirror and Theme live in the settings cog, with the keyboard shortcuts B (view), D (drawings) and S (sex).
 - Stack: plain HTML, CSS, ES modules, JSON and SVG. No build step, package manager, dependencies, CDN scripts or external requests. It deploys as-is to GitHub Pages from the repository root. Paths stay relative and routing uses the URL hash.
 - Orientation convention: the front figure faces the viewer, so the body's right is on the viewer's left. "Mirror" and the back view flip only what is rendered.
-- Drawings are currently schematic. The confirmed direction is anatomically faithful drawings (real bone form, muscle fibres, tissue-true colour) alongside the schematic ones, with a user-facing Schematic / Realistic switch, all still plain SVG on GitHub Pages. Drawings and data are joined only by ids.
+- Drawings and data are joined only by ids. The realistic drawings are generated from the schematic ones (`tools/realistic/build.py`) and keep the same ids. Bones and joints are drawn as real anatomy. Muscles, organs, vessels, nerves, ligaments and lymphatics still follow the schematic outlines with shading and fibres added, and redrawing those outlines as anatomy is the next step for realism.
+- Load weight: a first visit downloads the data and the schematic drawings only (about 0.43 MB compressed). The realistic drawings (about 0.64 MB compressed) are fetched the first time someone switches to them, the current view first.
 - Health content is general and conservative. Urgency is one of `self-care`, `doctor` or `urgent`. Every health page shows the disclaimer and emergency numbers from `data/regions.json`.
 - Language: British English spelling ("fibres", "colour"), Latin names per Terminologia Anatomica. Whether to translate is undecided.
-- Preferences (theme, joints, mirror, view) stay in the browser under `corpus:`-prefixed keys. Nothing leaves the device.
+- Preferences (theme, view, drawing style, biological sex, joints and joint style, mirror) stay in the browser under `corpus:`-prefixed keys. Nothing leaves the device.
 
 ## Brand Commitments
 
@@ -52,8 +56,8 @@ Corpus makes four claims, and the user stands behind all of them:
 ## Evidence on Hand
 
 - The structured anatomy data in `data/*.json`, with typed links between structures.
-- The SVG drawings in `assets/svg/`: front views for every layer, and back views for the skeleton and body areas.
-- 25 front and 3 back body areas, each with causes, urgency and red flags.
+- The SVG drawings in `assets/svg/`: front and back views for every layer, in the schematic and realistic styles.
+- 33 body areas (27 drawn on the front, 16 on the back, some on both), each with causes, urgency and red flags.
 - There are no testimonials, user numbers, clinical review or endorsements. Future work must not invent them or suggest medical sign-off.
 
 ## Product Principles
