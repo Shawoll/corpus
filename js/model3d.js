@@ -1,6 +1,8 @@
 // The 3D body: one .glb per layer (assets/3d/, built by tools/model3d/build.py), drawn with three.js into a <canvas>.
 // Its interface mirrors js/map.js where it can (render, setHover, probe, keys), so main.js treats it as another view.
-// Every mesh carries its graph key in userData.key (`femur:right`) and userData.sex when it exists for one sex only.
+// Every mesh carries its graph key in userData.key (`femur:right`) and userData.sex when it exists for one sex only;
+// joint markers (in the skeleton file) also carry userData.joint, their class. The skin (skin.glb) is the body you tap
+// in "Where does it hurt?": its _hurt vertex attribute holds each vertex's place in the 2D drawings' frame and its area.
 // Loaded only when the 3D view is first opened (main.js imports this module dynamically), so three.js and the models
 // cost nothing until then.
 import * as THREE from 'three';
@@ -12,6 +14,8 @@ const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TAP_PX = 6; // a press that moves less than this is a tap, not a drag-to-turn
 const CONTEXT_OPACITY = 0.2; // layers shown for context, as in the 2D map
 const FOV = 30;
+// the skin on a body-area page: the chosen area tinted, the rest nearly clear, so what lies under it shows
+const AREA_ALPHA = 0.55, SKIN_ALPHA = 0.08;
 
 // colour token for a mesh: info(id) gives { layer, kind } from the data
 function tokenFor(id, info) {
@@ -84,7 +88,7 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
       return colours[name];
     };
     for (const m of meshes) {
-      const toks = tokenFor(m.userData.id, info);
+      const toks = m.userData.joint ? [`--j-${m.userData.joint}`] : tokenFor(m.userData.id, info);
       m.userData.base = toks.map(get).find(Boolean) || get('--bone-back') || new THREE.Color(0xdddddd);
     }
     colours.sel = get('--sel') || new THREE.Color(0xc8402a);
@@ -92,10 +96,19 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     colours.rel = get('--rel') || new THREE.Color(0x1f7a80);
     colours.paper = get('--paper') || new THREE.Color(0xf3eee4);
     colours.hover = get('--hover-fill') || new THREE.Color(0xfff3d6);
+    colours.skin = (get('--paper-3') || new THREE.Color(0xe9e2d4)).clone().lerp(get('--muscle') || new THREE.Color(0xb65a4e), 0.12);
     xrayMat.color.copy(colours.sel);
+    probeMat.color.copy(colours.sel);
+    paintSkin();
     if (state) render(state);
   }
   const xrayMat = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.3, depthTest: false, depthWrite: false });
+  // the tapped spot on a body-area page
+  const probeMat = new THREE.MeshBasicMaterial({ depthTest: false, depthWrite: false, transparent: true });
+  const probeDot = new THREE.Mesh(new THREE.SphereGeometry(0.008, 16, 12), probeMat);
+  probeDot.renderOrder = 12;
+  probeDot.visible = false;
+  scene.add(probeDot);
   new MutationObserver(readColours).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColours);
 
@@ -112,6 +125,8 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
           o.userData.id = k.split(':')[0];
           o.userData.layer = layer;
           o.material = new THREE.MeshStandardMaterial({ roughness: 0.72, metalness: 0 });
+          // joint markers sit where bones meet, often inside a socket: drawn on top, like the 2D dots
+          if (o.userData.joint) { o.material.depthTest = false; o.renderOrder = 8; }
           if (!index.has(k)) index.set(k, []);
           index.get(k).push(o);
           meshes.push(o);
@@ -123,6 +138,96 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
       }).catch((err) => { loading.delete(layer); throw err; }));
     }
     return loading.get(layer);
+  }
+
+  // ---- the skin ("Where does it hurt?")
+  let skin = null; // { mesh, regions: [key], scale, region: Int32Array (per vertex), colour: Float32Array }
+  let skinLoad = null;
+  let hoverRegion = null;
+  function loadSkin(url) {
+    if (!skinLoad) {
+      skinLoad = loader.loadAsync(url).then((gltf) => {
+        let mesh = null;
+        gltf.scene.traverse((o) => { if (o.isMesh && o.userData.skin) mesh = o; });
+        if (!mesh) throw new Error('skin.glb has no skin mesh');
+        const g = mesh.geometry;
+        const hurt = g.attributes._hurt;
+        const n = hurt.count;
+        const region = new Int32Array(n);
+        for (let i = 0; i < n; i++) region[i] = hurt.getZ(i);
+        const colour = new Float32Array(n * 4); // rgba: the alpha clears the skin around a chosen area
+        g.setAttribute('color', new THREE.BufferAttribute(colour, 4));
+        mesh.material = new THREE.MeshStandardMaterial({ roughness: 0.85, metalness: 0, vertexColors: true });
+        mesh.renderOrder = 5;
+        mesh.visible = false;
+        skin = { mesh, regions: mesh.userData.regions || [], scale: mesh.userData.flatScale || 16, region, colour };
+        scene.add(gltf.scene);
+        paintSkin();
+        if (state) render(state);
+      }).catch((err) => { skinLoad = null; throw err; });
+    }
+    return skinLoad;
+  }
+  // each area a slightly different shade, so the areas can be told apart; the chosen one in the selection colour
+  const shade = (k) => { let h = 0; for (const c of k) h = (h * 31 + c.charCodeAt(0)) | 0; return ((h >>> 0) % 7) / 7 - 0.5; };
+  function paintSkin() {
+    if (!skin || !colours.skin) return;
+    const rsel = state?.rsel || new Set();
+    const ok = state?.regionOk || (() => true);
+    const tones = skin.regions.map((k) => {
+      if (!k || !ok(k)) return colours.skin.clone().multiplyScalar(0.94);
+      if (rsel.has(k)) return colours.skin.clone().lerp(colours.sel, 0.55);
+      if (k === hoverRegion) return colours.skin.clone().lerp(colours.sel, 0.25);
+      return colours.skin.clone().offsetHSL(0, 0, shade(k) * 0.05);
+    });
+    const alphas = skin.regions.map((k) => (!rsel.size ? 1 : rsel.has(k) ? AREA_ALPHA : SKIN_ALPHA));
+    const c = skin.colour;
+    for (let i = 0; i < skin.region.length; i++) {
+      const t = tones[skin.region[i]] || colours.skin;
+      c[i * 4] = t.r; c[i * 4 + 1] = t.g; c[i * 4 + 2] = t.b; c[i * 4 + 3] = alphas[skin.region[i]] ?? SKIN_ALPHA;
+    }
+    skin.mesh.geometry.attributes.color.needsUpdate = true;
+    invalidate();
+  }
+  // the area under a screen point: { rkey, flat: {x, y} in the 2D frame, world: {x, y, z} } or null
+  const tri = new THREE.Triangle(), bary = new THREE.Vector3(), pa = new THREE.Vector3(), pb = new THREE.Vector3(), pc = new THREE.Vector3();
+  function regionAt(clientX, clientY) {
+    if (!skin?.mesh.visible) return null;
+    aim(clientX, clientY);
+    const h = ray.intersectObject(skin.mesh, false)[0];
+    if (!h?.face) return null;
+    const pos = skin.mesh.geometry.attributes.position, hurt = skin.mesh.geometry.attributes._hurt;
+    const { a, b, c } = h.face;
+    tri.set(pa.fromBufferAttribute(pos, a), pb.fromBufferAttribute(pos, b), pc.fromBufferAttribute(pos, c));
+    tri.getBarycoord(skin.mesh.worldToLocal(h.point.clone()), bary);
+    const w = [bary.x, bary.y, bary.z], vs = [a, b, c];
+    // the area of the corner nearest the hit (areas don't blend), the 2D point blended
+    const near = vs[w.indexOf(Math.max(...w))];
+    const rkey = skin.regions[skin.region[near]] || null;
+    const ok = state?.regionOk || (() => true);
+    const x = vs.reduce((s, v, i) => s + w[i] * hurt.getX(v), 0) / skin.scale;
+    const y = vs.reduce((s, v, i) => s + w[i] * hurt.getY(v), 0) / skin.scale;
+    return { rkey: rkey && ok(rkey) ? rkey : null, flat: { x, y }, world: { x: h.point.x, y: h.point.y, z: h.point.z } };
+  }
+  // frame body areas from the side they are on (the lower back from behind)
+  function frameRegions(rkeys) {
+    if (!skin) return;
+    const want = new Set(rkeys.map((k) => skin.regions.indexOf(k)).filter((i) => i > 0));
+    const pos = skin.mesh.geometry.attributes.position, nrm = skin.mesh.geometry.attributes.normal;
+    const b = new THREE.Box3(), p = new THREE.Vector3();
+    let nz = 0;
+    skin.mesh.updateWorldMatrix(true, false);
+    for (let i = 0; i < skin.region.length; i++) {
+      if (!want.has(skin.region[i])) continue;
+      b.expandByPoint(p.fromBufferAttribute(pos, i).applyMatrix4(skin.mesh.matrixWorld));
+      nz += nrm.getZ(i);
+    }
+    if (b.isEmpty()) return;
+    const c = b.getCenter(new THREE.Vector3());
+    const r = Math.max(b.getSize(new THREE.Vector3()).length() / 2, 0.05);
+    const dir = camera.position.clone().sub(controls.target).normalize();
+    if (Math.sign(dir.z || 1) !== Math.sign(nz || 1)) dir.set(0, 0.15, Math.sign(nz || 1)).normalize();
+    moveTo(c.clone().add(dir.multiplyScalar(fitDistance(r) * 1.3)), c);
   }
 
   // ---- rendering (on demand: a frame only when something changed, or while the camera settles)
@@ -214,16 +319,32 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     moveTo(c.clone().add(dir.multiplyScalar(fitDistance(r) * 1.4)), c);
   }
 
-  // v: { sel, rel, visible, active, sex } (Sets of keys / layer ids), as map.render gets
+  // v: { sel, rel, rsel, visible, active, sex, joints, hurt, probe, regionOk } as map.render gets them: Sets of keys,
+  // region keys and layer ids; probe is the tapped spot ({x, y, z}); regionOk(rkey) says whether an area exists now
   function render(v) {
-    state = v;
+    const rselChanged = !state || state.rsel !== v.rsel || state.regionOk !== v.regionOk;
+    state = { ...v, rsel: v.rsel || new Set() };
+    v = state;
     for (const x of xray) x.removeFromParent();
     xray = [];
     const hasSel = v.sel.size > 0;
-    for (const [layer, g] of groups) g.visible = v.visible.has(layer);
+    // "Where does it hurt?": a solid body to tap; on an area's page the skin turns see-through over the anatomy
+    const hurtHome = !!v.hurt && !v.rsel.size;
+    if (skin) {
+      skin.mesh.visible = !!v.hurt;
+      const m = skin.mesh.material;
+      if (m.transparent !== !hurtHome) { m.transparent = !hurtHome; m.needsUpdate = true; }
+      m.depthWrite = hurtHome;
+      if (rselChanged) paintSkin();
+    }
+    for (const [layer, g] of groups) g.visible = v.visible.has(layer) && !(hurtHome && skin);
+    probeDot.visible = !!v.probe && !!v.hurt;
+    if (v.probe) probeDot.position.set(v.probe.x, v.probe.y, v.probe.z);
     for (const m of meshes) {
       const k = m.userData.key;
       m.visible = shownFor(m, v.sex);
+      // joint markers: with the joints on and the skeleton in focus, as in 2D (or when they're part of the selection)
+      if (m.userData.joint) m.visible = !v.hurt && (v.sel.has(k) || v.rel.has(k) || (!!v.joints && v.active === 'skeleton'));
       const mat = m.material;
       const sel = v.sel.has(k), rel = v.rel.has(k);
       const context = m.userData.layer !== v.active;
@@ -249,28 +370,49 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     invalidate();
   }
 
-  function setHover(keys = []) {
+  function setHover(keys = [], rkeys = []) {
     hovered = new Set(keys);
+    const r = rkeys[0] || null;
+    if (r !== hoverRegion) { hoverRegion = r; paintSkin(); }
     if (state) render(state);
   }
 
   // ---- picking
   const ray = new THREE.Raycaster();
   const ndc = new THREE.Vector2();
-  function hits(clientX, clientY, { all = false } = {}) {
+  function aim(clientX, clientY) {
     const r = canvas.getBoundingClientRect();
     ndc.set(((clientX - r.left) / r.width) * 2 - 1, -((clientY - r.top) / r.height) * 2 + 1);
     ray.setFromCamera(ndc, camera);
+  }
+  // all: every loaded structure, hidden or not (but not the joint markers): "Under this spot"
+  function hits(clientX, clientY, { all = false } = {}) {
+    aim(clientX, clientY);
     const sex = state?.sex;
     // the raycaster doesn't skip hidden objects, so pass only the ones that count
-    const pool = meshes.filter((m) => shownFor(m, sex) && (all || (m.visible && groups.get(m.userData.layer)?.visible)));
+    const pool = meshes.filter((m) => shownFor(m, sex) && (all ? !m.userData.joint : m.visible && groups.get(m.userData.layer)?.visible));
     return ray.intersectObjects(pool, false);
   }
   // the first hit in the layer in focus (context layers are see-through), else the first hit at all
-  function keyAt(clientX, clientY) {
-    const h = hits(clientX, clientY);
-    const top = h.find((x) => x.object.userData.layer === state?.active) || h[0];
-    return top?.object.userData.key || null;
+  // a joint marker wins, since it is drawn on top of the bones
+  const topOf = (h) => (h.find((x) => x.object.userData.joint) || h.find((x) => x.object.userData.layer === state?.active) || h[0])?.object.userData.key || null;
+  // a near miss still counts, so thin nerves and vessels can be tapped (the 2D map's wider .hit strokes):
+  // rings of rays around the point, nearest ring first; fingers get wider rings
+  const coarse = matchMedia('(pointer: coarse)');
+  function keyAt(clientX, clientY, { rings = coarse.matches ? [7, 14] : [4, 8] } = {}) {
+    const k = topOf(hits(clientX, clientY));
+    if (k) return k;
+    for (const r of rings) {
+      const ring = [];
+      for (let i = 0; i < 8; i++) {
+        const a = (i / 8) * Math.PI * 2;
+        ring.push(...hits(clientX + Math.cos(a) * r, clientY + Math.sin(a) * r));
+      }
+      ring.sort((a, b) => a.distance - b.distance);
+      const near = topOf(ring);
+      if (near) return near;
+    }
+    return null;
   }
   // everything under a screen point, in every loaded layer (hidden ones too), nearest first: "Under this spot"
   function probe(clientX, clientY) {
@@ -293,10 +435,14 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     if (!down || e.pointerId !== down.id) return;
     const tap = !down.moved;
     down = null;
-    if (tap) onPick({ key: keyAt(e.clientX, e.clientY), rkey: null, clientX: e.clientX, clientY: e.clientY });
+    if (!tap) return;
+    if (state?.hurt) {
+      const r = regionAt(e.clientX, e.clientY);
+      onPick({ key: null, rkey: r?.rkey || null, clientX: e.clientX, clientY: e.clientY, flat: r?.flat || null, world: r?.world || null });
+    } else onPick({ key: keyAt(e.clientX, e.clientY), rkey: null, clientX: e.clientX, clientY: e.clientY });
   });
   canvas.addEventListener('pointercancel', () => { down = null; });
-  canvas.addEventListener('pointerleave', () => onHover(null));
+  canvas.addEventListener('pointerleave', () => { onHover(null); if (hoverRegion) { hoverRegion = null; paintSkin(); } });
   let hoverRaf = 0, hoverXY = null;
   function hoverAt(x, y) {
     hoverXY = [x, y];
@@ -304,7 +450,14 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
     hoverRaf = requestAnimationFrame(() => {
       hoverRaf = 0;
       const [cx, cy] = hoverXY;
-      const k = keyAt(cx, cy);
+      if (state?.hurt) {
+        const rk = regionAt(cx, cy)?.rkey || null;
+        canvas.style.cursor = rk ? 'pointer' : '';
+        if (rk !== hoverRegion) { hoverRegion = rk; paintSkin(); }
+        onHover(rk ? { key: null, rkey: rk } : null, cx, cy);
+        return;
+      }
+      const k = keyAt(cx, cy, { rings: [5] }); // one ring: hover runs on every mouse move
       canvas.style.cursor = k ? 'pointer' : '';
       onHover(k ? { key: k, rkey: null } : null, cx, cy);
     });
@@ -326,9 +479,10 @@ export function createModel3d({ canvas, bounds, info, onPick = () => {}, onHover
   controls.update();
 
   return {
-    load, render, setHover, probe, home, zoomBy, orbit, face, invalidate, resize,
+    load, loadSkin, render, setHover, probe, home, zoomBy, orbit, face, invalidate, resize, frameRegions,
     frame: frameKeys,
     hasLayer: (layer) => groups.has(layer),
+    hasSkin: () => !!skin,
     has: (k) => index.has(k),
     keys: () => [...index.keys()],
     get facingFront() { return facingFront !== false; },

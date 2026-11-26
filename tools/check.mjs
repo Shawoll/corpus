@@ -3,7 +3,7 @@
 // Builds the same graphs the app does (one per biological sex setting) and runs js/validate.js's checkAll() on them.
 // Exits 1 if anything is wrong.
 import { readFile } from 'node:fs/promises';
-import { checkAll, modelsFrom } from '../js/validate.js';
+import { checkAll, modelsFrom, skinFrom } from '../js/validate.js';
 
 const root = new URL('../', import.meta.url);
 const json = async (p) => JSON.parse(await readFile(new URL(p, root), 'utf8'));
@@ -58,9 +58,11 @@ for (const v of views) {
   regionShapes.set(v.id, rfile ? keysIn(await text(rfile)) : new Set());
 }
 
-const models = await modelsFrom(manifest, async (p, as) => (as === 'json' ? json(p) : readFile(new URL(p, root))));
+const read = async (p, as) => (as === 'json' ? json(p) : readFile(new URL(p, root)));
+const models = await modelsFrom(manifest, read);
+const skin = await skinFrom(manifest, read);
 
-const { problems, summary } = checkAll({ raw, drawnTagged, regionShapes, variants, models });
+const { problems, summary } = checkAll({ raw, drawnTagged, regionShapes, variants, models, skin });
 console.log(`[Corpus] data check: ${summary}`);
 for (const p of problems) console.log(`  - ${p}`);
 process.exit(problems.length ? 1 : 0);

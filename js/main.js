@@ -48,6 +48,9 @@ async function boot() {
   // layer id -> Set(key) in its .glb; only layers the manifest gives a "model" count
   const modelKeys = new Map(manifest.layers.filter((l) => l.model && modelIndex?.layers?.[l.id]).map((l) => [l.id, new Set(modelIndex.layers[l.id])]));
   const inModel = (k) => [...modelKeys.values()].some((s) => s.has(k));
+  // "Where does it hurt?" in 3D: the skin and the areas it covers
+  const skinUrl = modelView && manifest.model3d?.skin && modelIndex?.skin?.length ? manifest.model3d.skin : null;
+  const skinRegions = new Set(skinUrl ? modelIndex.skin : []);
   const layers = manifest.layers.map((l, i) => ({ ...l, data: datas[i], svgs: svgs[i] }));
   // biological sex: one graph per setting, built on first use from the data filtered by js/sex.js (the first is neutral)
   const sexes = manifest.sexes?.length ? manifest.sexes : [{ id: 'none', name: 'Not set' }];
@@ -117,8 +120,11 @@ async function boot() {
   function ensureModelLayers(st) {
     return ensureModel().then((m) => {
       const want = manifest.layers.filter((l) => l.model && modelKeys.has(l.id) && st.visible.has(l.id) && !m.hasLayer(l.id));
-      if (!want.length) { setStatus(''); renderMap(store.get()); return; }
+      const skinToo = Router.isHurt(st.route) && skinUrl && !m.hasSkin();
+      if (!want.length && !skinToo) { setStatus(''); renderMap(store.get()); return; }
       setStatus('Loading the 3D body…');
+      // the skin first (it is what you tap); the layers behind it fill "Under this spot"
+      if (skinToo) m.loadSkin(skinUrl).then(() => { if (want.every((l) => m.hasLayer(l.id))) setStatus(''); renderMap(store.get()); }).catch((err) => console.warn('[Corpus] 3D skin failed to load', err));
       return Promise.all(want.map((l) => {
         if (!modelLayerLoads.has(l.id)) modelLayerLoads.set(l.id, m.load(l.id, l.model).catch((err) => { modelLayerLoads.delete(l.id); throw err; }));
         return modelLayerLoads.get(l.id);
@@ -164,9 +170,13 @@ async function boot() {
     } else if (route.view === 'group') found = withModel(graph.groupKeys(route.id));
     else if (route.view === 'region') {
       const r = graph.regions.get(route.id);
-      if (r) found = map.viewsOf(graph.regionKeys(r.id, r.paired ? route.side : null), { regions: true });
+      if (r) {
+        const rks = graph.regionKeys(r.id, r.paired ? route.side : null);
+        const vs = map.viewsOf(rks, { regions: true });
+        found = rks.some((k) => skinRegions.has(k)) ? views.map((v) => v.id).filter((v) => vs.includes(v) || v === modelView) : vs;
+      }
     }
-    if (Router.isHurt(route) && is3d(current) && !found.length) return svgViews[0].id;
+    if (Router.isHurt(route) && is3d(current) && !skinUrl) return svgViews[0].id;
     return !found.length || found.includes(current) ? current : found[0];
   }
   const setView = (v) => store.set(viewPatch(store.get(), v));
@@ -257,6 +267,12 @@ async function boot() {
     }
   }
 
+  // whether a body area exists for the current biological sex (one function per graph, so the model sees a change)
+  const regionOks = new WeakMap();
+  const regionOkFor = (g) => {
+    if (!regionOks.has(g)) regionOks.set(g, (rk) => g.regions.has(parseKey(rk).id));
+    return regionOks.get(g);
+  };
   function highlights(st) {
     const sel = new Set(), rel = new Set(), rsel = new Set();
     const r = st.route;
@@ -287,6 +303,7 @@ async function boot() {
     const st = store.get();
     const h = highlights(st);
     if (is3d(st.view)) {
+      if (st.route.view === 'region') { ensureModelLayers(st).then(() => model?.frameRegions([...h.rsel])); return; }
       if (!h.sel.size) return;
       // the model may still be loading the layer: frame once it's there
       ensureModelLayers(st).then(() => model?.frame([...h.sel], { parts: h.sel.size === 2 ? [...h.sel] : null }));
@@ -298,13 +315,15 @@ async function boot() {
   }
 
   // ------------------------------------------------------------------ map events
-  function onPick({ key, rkey, clientX, clientY }) {
+  function onPick({ key, rkey, clientX, clientY, flat = null, world = null }) {
     hideHint();
     const st = store.get();
     if (Router.isHurt(st.route)) {
       if (!rkey) return;
-      const keys = map.probe(clientX, clientY);
-      store.set({ probe: { rkey, keys, point: map.toSvgPoint(clientX, clientY) } });
+      // in 3D the spot is on the skin: everything along that line of sight, and the matching point of the 2D frame
+      const three = is3d(st.view);
+      const keys = three ? model.probe(clientX, clientY) : map.probe(clientX, clientY);
+      store.set({ probe: { rkey, keys, point: three ? flat : map.toSvgPoint(clientX, clientY), world: three ? world : null } });
       const { id, side } = parseKey(rkey);
       navigate(`r/${encodeURIComponent(id)}${side ? '/' + side : ''}`);
       return;
@@ -377,10 +396,14 @@ async function boot() {
     $('.model-credit').hidden = !three;
     if (three) {
       if (!model) { ensureModelLayers(st); return; }
-      if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id))) ensureModelLayers(st);
+      const hurt = Router.isHurt(st.route);
+      if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id)) || (hurt && skinUrl && !model.hasSkin())) ensureModelLayers(st);
       model.resize();
       const h = highlights(st);
-      model.render({ ...h, visible: st.visible, active: activeIn(st), sex: st.sex });
+      model.render({
+        ...h, visible: st.visible, active: activeIn(st), sex: st.sex, joints: st.joints, hurt, regionOk: regionOkFor(graph),
+        probe: st.route.view === 'region' && st.probe?.world ? st.probe.world : null,
+      });
       // a structure the model has no mesh for (the female organs, a few tendons): say so instead of showing nothing
       const n = st.route.view === 'node' ? graph.node(st.route.id) : null;
       if (n && h.sel.size && ![...h.sel].some(inModel)) setStatus(`${n.name} isn’t in the 3D model yet. Switch to 2D to see it.`);
@@ -483,7 +506,7 @@ async function boot() {
       set: (v) => { const t = v === 'auto' ? null : v; applyTheme(t); prefs.set('theme', t); } },
     { id: 'display', label: 'Display', keys: 'M', opts: [['2d', '2D'], ['3d', '3D']], hide: !modelView,
       value: (st) => (is3d(st.view) ? '3d' : '2d'), set: (v) => setDisplay(v),
-      off: (v, st) => v === '3d' && Router.isHurt(st.route), why: '“Where does it hurt?” is 2D only for now' },
+      off: (v, st) => v === '3d' && Router.isHurt(st.route) && !skinUrl, why: '“Where does it hurt?” is 2D only for now' },
     { id: 'view', label: 'View', keys: 'B', opts: svgViews.map((v) => [v.id, v.name]), hide: svgViews.length < 2,
       value: (st) => facing(st), set: (v) => setFacing(v) },
     { id: 'style', label: 'Drawings', keys: 'D', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
@@ -626,7 +649,7 @@ async function boot() {
   const hoverFrom = (t) => {
     const keys = t?.dataset.keys ? t.dataset.keys.split(' ') : [];
     map.setHover(keys, t?.dataset.rkeys ? t.dataset.rkeys.split(' ') : []);
-    model?.setHover(keys);
+    model?.setHover(keys, t?.dataset.rkeys ? t.dataset.rkeys.split(' ') : []);
   };
   panelEl.addEventListener('pointerover', (e) => hoverFrom(e.target.closest('[data-keys],[data-rkeys]')));
   panelEl.addEventListener('pointerleave', () => { map.setHover(); model?.setHover(); });
@@ -665,7 +688,7 @@ async function boot() {
     else if (e.key === '-' || e.key === '_') zoomBy(1.4);
     else if (e.key === '0') zoomHome();
     else if (e.key === 'b' || e.key === 'B') toggleView();
-    else if ((e.key === 'm' || e.key === 'M') && !Router.isHurt(store.get().route)) toggleDisplay();
+    else if ((e.key === 'm' || e.key === 'M') && (skinUrl || !Router.isHurt(store.get().route))) toggleDisplay();
     else if (e.key === 'd' || e.key === 'D') toggleStyle();
     else if (e.key === 's' || e.key === 'S') cycleSex();
   });
@@ -682,10 +705,10 @@ async function boot() {
     // the check compares every style's drawings with the default ones, so mount them all first
     Promise.all(styles.slice(1).flatMap((s) => views.map((v) => ensureStyle(s.id, v.id))))
       .then(() => import('./validate.js'))
-      .then(async (m) => m.validate({ raw, map, models: await m.modelsFrom(manifest, async (u, as) => {
-        const r = await fetch(u, { cache: 'no-cache' });
-        return as === 'json' ? r.json() : r.arrayBuffer();
-      }) }));
+      .then(async (m) => {
+        const read = async (u, as) => { const r = await fetch(u, { cache: 'no-cache' }); return as === 'json' ? r.json() : r.arrayBuffer(); };
+        return m.validate({ raw, map, models: await m.modelsFrom(manifest, read), skin: await m.skinFrom(manifest, read) });
+      });
   }
   // handy for poking around in the console; graph is the current sex's graph
   window.corpus = { get graph() { return graph; }, get model() { return model; }, graphFor, map, store, zoom };

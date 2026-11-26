@@ -236,4 +236,7 @@ def meshes(path):
         faces = _triangles(inode.props[0])
         m = world(mid) @ _geometric(p70[mid])
         verts = verts @ m[:3, :3].T + m[:3, 3]
+        # a mirrored copy (the .l parts are the .r ones scaled by -1) turns its triangles inside out: turn them back
+        if np.linalg.det(m[:3, :3]) < 0:
+            faces = faces[:, ::-1]
         yield _clean(models[mid].props[1]), chain(mid), verts, faces

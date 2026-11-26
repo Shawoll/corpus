@@ -10,8 +10,8 @@ For each Corpus key (`femur:right`, `heart`) the parts map.json names are merged
 split into right and left where needed, simplified to the layer's triangle
 budget, quantised and written as one mesh node named with the key. Files use
 KHR_mesh_quantization and EXT_meshopt_compression; three.js decodes both.
-assets/3d/keys.json lists the keys in each file ("layers") and the body's
-bounds, so the app knows what the 3D view shows without loading every model.
+assets/3d/keys.json lists the keys in each file ("layers"), the areas the skin
+covers ("skin") and the body's bounds, so the app knows what the 3D view shows without loading every model.
 Each node's extras carry { key, sex? } (three.js strips ':' from node names).
 
 Frame: the source is Y-up in centimetres, facing +Z, with the body's right at
@@ -29,13 +29,15 @@ import meshoptimizer as mo
 HERE = pathlib.Path(__file__).parent
 sys.path.insert(0, str(HERE))
 import fbx  # noqa: E402
+import joints  # noqa: E402
+import skin  # noqa: E402
 from resolve import ROOT, load, resolve, side_of  # noqa: E402
 
 OUT = ROOT / 'assets' / '3d'
 SRC = HERE / 'source' / 'zanatomy'
 # triangles per layer after simplification
 BUDGET = {'skeleton': 320_000, 'muscles': 320_000, 'organs': 140_000, 'vessels': 90_000,
-          'nerves': 70_000, 'ligaments': 16_000, 'lymphatics': 24_000}
+          'nerves': 70_000, 'ligaments': 16_000, 'lymphatics': 24_000, 'skin': 60_000}
 MIN_TRIS = 160  # small parts (a parathyroid) keep at least this many, if they have them
 CM = 0.01  # source centimetres → metres
 
@@ -169,7 +171,8 @@ class Glb:
         self.views.append(view)
         return len(self.views) - 1
 
-    def add(self, key, v, f, extras=None):
+    def add(self, key, v, f, extras=None, attrs=None):
+        """One mesh node. attrs: extra vertex attributes {'_NAME': int16 array n×4} (glTF custom attributes)."""
         q = np.clip(np.round((v - self.origin) / self.step), 0, 65535).astype(np.uint16)
         v_ = q.astype(np.float32) * self.step + self.origin  # normals from what is drawn
         nrm = normals(v_, f)
@@ -190,7 +193,12 @@ class Glb:
             {'bufferView': nv, 'componentType': 5120, 'normalized': True, 'count': n, 'type': 'VEC3'},
             {'bufferView': iv, 'componentType': 5125 if wide else 5123, 'count': len(idx), 'type': 'SCALAR'},
         ]
-        self.meshes.append({'name': key, 'primitives': [{'attributes': {'POSITION': a, 'NORMAL': a + 1}, 'indices': a + 2, 'material': 0}]})
+        attributes = {'POSITION': a, 'NORMAL': a + 1}
+        for name, arr in (attrs or {}).items():
+            av = self._view(np.ascontiguousarray(arr, dtype=np.int16).view(np.uint8).reshape(n, 8), 8, n, 'ATTRIBUTES', 34962)
+            attributes[name] = len(self.accessors)
+            self.accessors.append({'bufferView': av, 'componentType': 5122, 'count': n, 'type': 'VEC4'})
+        self.meshes.append({'name': key, 'primitives': [{'attributes': attributes, 'indices': a + 2, 'material': 0}]})
         node = {'name': key, 'mesh': len(self.meshes) - 1, 'translation': [float(x) for x in self.origin],
                 'scale': [self.step] * 3}
         if extras:
@@ -230,6 +238,52 @@ def corpus_layers():
     return out
 
 
+def key_meshes(layer, res, known, geo):
+    """{key: (vertices, faces)} for a layer: paired ids split by side, midline ids take everything."""
+    pieces = {}
+    for cid, parts in res[layer].items():
+        s = known.get(cid)
+        if not s:
+            sys.exit(f'map.json: "{cid}" is not in the {layer} data')
+        for p in parts:
+            v, f = geo[(p['file'], p['i'])]
+            if not s.get('paired'):
+                pieces.setdefault(cid, []).append((v, f))
+                continue
+            side = side_of(p)
+            for sd in ([side] if side else ['right', 'left']):
+                piece = (v, f) if side else split_x(v, f, sd == 'right')
+                pieces.setdefault(f'{cid}:{sd}', []).append(piece)
+    meshes = {}
+    for key, ps in pieces.items():
+        m = merge(ps)
+        if m:
+            meshes[key] = weld(*m)
+    return meshes
+
+
+def build_skin(index, res, structures, geo, origin, step):
+    """assets/3d/skin.glb: one mesh with a _HURT attribute per vertex: (2D x, 2D y) × 16, area index, 0."""
+    parts = skin.skin_parts(index)
+    v, f = weld(*merge([geo[(p['file'], p['i'])] for p in parts]))
+    total = len(f)
+    f = simplify(v, f, BUDGET['skin'])
+    v, f = compact(v, f)
+    v, f = optimise(v, f)
+    bones = {k: bv for k, (bv, _) in key_meshes('skeleton', res, structures['skeleton'], geo).items()}
+    flat = skin.flat_fit(bones)(v[:, :2].astype(np.float64))
+    area, keys = skin.areas(flat, normals(v, f)[:, 2])
+    hurt = np.zeros((len(v), 4), np.int16)
+    hurt[:, 0:2] = np.clip(np.round(flat * skin.FLAT_SCALE), -32767, 32767)
+    hurt[:, 2] = area
+    glb = Glb(origin, step)
+    glb.add('skin', v, f, {'skin': True, 'regions': keys, 'flatScale': skin.FLAT_SCALE}, attrs={'_HURT': hurt})
+    size = glb.write(OUT / 'skin.glb', 'skin')
+    print(f'skin: {total:,} → {len(f):,} triangles, {(area > 0).mean():.0%} of vertices in an area, '
+          f'{size / 1e6:.2f} MB', file=sys.stderr)
+    return sorted({keys[i] for i in np.unique(area) if i})
+
+
 def main(only):
     mo.encode_vertex_version(0)
     mo.encode_index_version(1)
@@ -239,39 +293,27 @@ def main(only):
         sys.exit('map.json names with no part: ' + ', '.join(f'{c}:{n}' for _, c, n in unknown))
     structures = corpus_layers()
     layers = [l for l in res if not only or l in only]
+    with_skin = not only or 'skin' in only
     origin, step = frame(index)
     wanted = {(p['file'], p['i']) for l in layers for parts in res[l].values() for p in parts}
+    if with_skin:  # the skin's own parts, and the bones its 2D fit uses
+        wanted |= {(p['file'], p['i']) for p in skin.skin_parts(index)}
+        wanted |= {(p['file'], p['i']) for parts in res['skeleton'].values() for p in parts}
     geo = read_parts(wanted)
     OUT.mkdir(parents=True, exist_ok=True)
     keys_file = OUT / 'keys.json'
-    keys = json.loads(keys_file.read_text()).get('layers', {}) if keys_file.exists() else {}
+    old = json.loads(keys_file.read_text()) if keys_file.exists() else {}
+    keys = old.get('layers', {})
+    skin_regions = old.get('skin', [])
     for layer in layers:
         known = structures[layer]
-        # pieces per key: paired ids split by side, midline ids take everything
-        pieces = {}
-        for cid, parts in res[layer].items():
-            s = known.get(cid)
-            if not s:
-                sys.exit(f'map.json: "{cid}" is not in the {layer} data')
-            for p in parts:
-                v, f = geo[(p['file'], p['i'])]
-                if not s.get('paired'):
-                    pieces.setdefault(cid, []).append((v, f))
-                    continue
-                side = side_of(p)
-                for sd in ([side] if side else ['right', 'left']):
-                    piece = (v, f) if side else split_x(v, f, sd == 'right')
-                    pieces.setdefault(f'{cid}:{sd}', []).append(piece)
-        meshes = {}
-        for key, ps in pieces.items():
-            m = merge(ps)
-            if m:
-                meshes[key] = weld(*m)
+        meshes = key_meshes(layer, res, known, geo)
         total = sum(len(f) for _, f in meshes.values())
         budget = BUDGET.get(layer, 50_000)
         glb = Glb(origin, step)
         tris = 0
         targets = allocate({k: len(f) for k, (_, f) in meshes.items()}, budget)
+        final = {}
         for key in sorted(meshes):
             v, f = meshes[key]
             f = simplify(v, f, targets[key])
@@ -280,15 +322,26 @@ def main(only):
             sex = known[key.split(':')[0]].get('sex')
             # three.js strips ':' from node names, so the key also goes in extras (→ userData)
             glb.add(key, v2, f2, {'key': key, **({'sex': sex} if sex else {})})
+            final[key] = v2
             tris += len(f2)
+        layer_keys = sorted(meshes)
+        if layer == 'skeleton':  # joint markers where the bones meet, named with the joint keys
+            groups = {cid for cid, s in known.items() if (s.get('count') or 1) / (2 if s.get('paired') else 1) > 1}
+            for jk, (v, f, cls) in sorted(joints.build(final, groups).items()):
+                glb.add(jk, v, f, {'key': jk, 'joint': cls})
+                layer_keys.append(jk)
+                tris += len(f)
         size = glb.write(OUT / f'{layer}.glb', layer)
-        keys[layer] = sorted(meshes)
+        keys[layer] = layer_keys
         print(f'{layer}: {len(meshes)} keys, {total:,} → {tris:,} triangles, {size / 1e6:.2f} MB', file=sys.stderr)
+    if with_skin:
+        skin_regions = build_skin(index, res, structures, geo, origin, step)
     # bounds: the whole body (every source part), in metres, so the app can frame it before any model loads
     lo = np.min([p['min'] for p in index if p['min']], axis=0) * CM
     hi = np.max([p['max'] for p in index if p['max']], axis=0) * CM
     out = {'bounds': [[round(float(x), 3) for x in lo], [round(float(x), 3) for x in hi]],
-           'layers': {k: keys[k] for k in sorted(keys)}}
+           'layers': {k: keys[k] for k in sorted(keys)},
+           'skin': skin_regions}  # the "Where does it hurt?" areas the skin has
     keys_file.write_text(json.dumps(out, indent=1) + '\n')
 
 

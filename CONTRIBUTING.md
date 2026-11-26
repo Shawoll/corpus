@@ -143,7 +143,9 @@ The 3D view's meshes come from the [Z-Anatomy](https://github.com/LluisV/Z-Anato
 3. `~/.venvs/corpus/bin/python -I tools/model3d/coverage.py` shows what is mapped and what isn't; `…/build.py [layer…]` writes the `.glb` files and `assets/3d/keys.json`.
 4. Give the layer a `"model": "assets/3d/<layer>.glb"` in the manifest, then run `node tools/check.mjs`.
 
-The build merges, simplifies (to a triangle budget per layer, shared by the square root of each structure's source size so one huge mesh can't starve the small ones), quantises and meshopt-compresses each structure's mesh and names it with its key. Nothing is redrawn, so the 3D body won't match the 2D drawings exactly.
+`build.py` also writes the joint markers into `skeleton.glb` (from the joints' bone pairs in `data/skeleton.json`) and `skin.glb`, the body you tap in "Where does it hurt?". The skin's areas come from the region drawings, so after you change `assets/svg/regions-*.svg`, rebuild it with `build.py skin`.
+
+The FBX reader turns mirrored parts (the `.l` copies are the `.r` ones scaled by −1) the right way out. The build merges, simplifies (to a triangle budget per layer, shared by the square root of each structure's source size so one huge mesh can't starve the small ones), quantises and meshopt-compresses each structure's mesh and names it with its key. Nothing is redrawn, so the 3D body won't match the 2D drawings exactly.
 
 ## About the drawings
 

@@ -314,7 +314,9 @@ export function createPanel(graph) {
     let h = eyebrow(['Where does it hurt?']);
     h += `<h2 class="title">Tap where it hurts</h2>`;
     h += `<p class="summary">Pick the area on the figure, or from the list below. Each area lists what lies there, the common causes of pain and when to get help.</p>`;
-    h += st.view === 'posterior'
+    h += st.view === '3d'
+      ? `<div class="note-card">Drag to turn the body, or press <span class="kbd">B</span> to see it from behind. The labels at the sides show which is its right and left.</div>`
+      : st.view === 'posterior'
       ? `<div class="note-card">You’re looking at the figure from behind, so its right side is on your right, like your own body. Switch to <b>Front</b> (in settings, or <span class="kbd">B</span>) for the chest, belly and face.</div>`
       : `<div class="note-card">The figure faces you, so its right side is on your left. ${st.mirror ? 'Mirror is on: the figure now matches your own body like a mirror.' : 'Turn on <b>Mirror</b> in settings to match it to your own body.'} Switch to <b>Back</b> (in settings, or <span class="kbd">B</span>) for the back and buttocks.</div>`;
     h += sexHint();

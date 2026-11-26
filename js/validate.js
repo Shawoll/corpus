@@ -105,10 +105,22 @@ export const drawnForSex = (drawnTagged, sex) => new Map([...drawnTagged].map(([
 const SEX_LABEL = { none: 'not set', female: 'female', male: 'male' };
 // raw: { layers, links, linkTypes, regions } as loaded. Problems found for every sex are listed once; the others are
 // prefixed with the sex they occur in ("[male] …").
-export function checkAll({ raw, sexes = ['none', 'female', 'male'], drawnTagged, regionShapes, variants = [], models = [] }) {
-  const runs = sexes.map((sex) => ({ sex, ...check({ graph: new Graph(forSex(raw, sex)), drawn: drawnForSex(drawnTagged, sex), regionShapes, variants, models, sex }) }));
+// skin: { file, regions: [region key], listed: [region key] | null } the 3D skin's areas (see modelsFrom), or null
+export function checkAll({ raw, sexes = ['none', 'female', 'male'], drawnTagged, regionShapes, variants = [], models = [], skin = null }) {
+  const graphs = sexes.map((sex) => new Graph(forSex(raw, sex)));
+  const runs = sexes.map((sex, i) => ({ sex, ...check({ graph: graphs[i], drawn: drawnForSex(drawnTagged, sex), regionShapes, variants, models, sex }) }));
   const everywhere = runs[0].problems.filter((p) => runs.every((r) => r.problems.includes(p)));
   const problems = [...sexTagProblems(raw), ...everywhere];
+  // the skin's areas come from the region drawings (tools/model3d/skin.py): each must be an area for some sex
+  if (skin) {
+    for (const rk of skin.regions) {
+      const { id, side } = parseKey(rk);
+      const r = graphs.map((g) => g.regions.get(id)).find(Boolean);
+      if (!r) problems.push(`${skin.file}: area "${rk}" has no entry in regions.json (rebuild the skin)`);
+      else if (!!r.paired !== !!side) problems.push(`${skin.file}: area "${rk}" ${r.paired ? 'needs' : 'shouldn’t have'} a side`);
+    }
+    if (skin.listed && skin.listed.join() !== [...new Set(skin.regions)].sort().join()) problems.push(`assets/3d/keys.json "skin" doesn't match ${skin.file} (rerun the build)`);
+  }
   for (const r of runs) for (const p of r.problems) if (!everywhere.includes(p)) problems.push(`[${SEX_LABEL[r.sex] || r.sex}] ${p}`);
   const st = runs[0].stats;
   const per = runs.map((r) => `${r.stats.structures} ${SEX_LABEL[r.sex] || r.sex}`).join(' / ');
@@ -137,8 +149,20 @@ export async function modelsFrom(manifest, read) {
   })));
 }
 
-export function validate({ raw, map, models = [] }) {
-  const { problems, summary } = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants(), models });
+// The 3D skin's areas for checkAll(): the region keys in skin.glb's extras, and the ones keys.json lists
+export async function skinFrom(manifest, read) {
+  const file = manifest.views?.some((v) => v.model) && manifest.model3d?.skin;
+  if (!file) return null;
+  const index = manifest.model3d.keys ? await read(manifest.model3d.keys, 'json') : null;
+  const b = new Uint8Array(await read(file, 'bytes'));
+  const dv = new DataView(b.buffer, b.byteOffset, b.byteLength);
+  const json = JSON.parse(new TextDecoder().decode(b.subarray(20, 20 + dv.getUint32(12, true))));
+  const regions = (json.nodes || []).flatMap((n) => (n.extras?.skin ? n.extras.regions || [] : [])).filter(Boolean);
+  return { file, regions, listed: index?.skin || null };
+}
+
+export function validate({ raw, map, models = [], skin = null }) {
+  const { problems, summary } = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants(), models, skin });
   console.group(`[Corpus] data check: ${summary}`);
   if (problems.length) console.table(problems.map((p) => ({ problem: p })));
   else console.info('All references resolve.');
