@@ -1,0 +1,1498 @@
+{
+ "structures": {
+  "brain": {
+   "name": "Mozog",
+   "location": "Vnútri lebky, nad očami a za nimi.",
+   "summary": "Riadiace centrum nervovej sústavy: asi 1,4 kg neurónov a podporných buniek, ktoré spracúvajú zmysly, riadia pohyb a vytvárajú myšlienky, pamäť a emócie.",
+   "functions": [
+    "Spracúva zmyslové vnemy a riadi pohyb",
+    "Cez mozgový kmeň a hypotalamus reguluje dýchanie, tep srdca a hormóny",
+    "Pamäť, reč, emócie a uvažovanie"
+   ],
+   "issues": [
+    {
+     "name": "Mozgová porážka",
+     "note": "Náhle poklesnutie tváre, slabosť ruky alebo zastretá reč. Ihneď volajte záchrannú službu (pamätajte na skratku FAST)."
+    },
+    {
+     "name": "Migréna",
+     "note": "Pulzujúca, často jednostranná bolesť hlavy s nevoľnosťou a citlivosťou na svetlo, niekedy po zrakovej aure."
+    },
+    {
+     "name": "Otras mozgu",
+     "note": "Bolesť hlavy, zmätenosť alebo závrat po úraze hlavy. Zvracanie, zhoršujúca sa bolesť hlavy alebo ospalosť si vyžadujú naliehavú starostlivosť."
+    },
+    {
+     "name": "Meningitída",
+     "note": "Horúčka, silná bolesť hlavy, stuhnutá šija, citlivosť na svetlo alebo vyrážka, ktorá nezbledne pod pohárom. Je to stav pre pohotovosť."
+    }
+   ]
+  },
+  "pituitary": {
+   "name": "Hypofýza",
+   "aka": [
+    "podmozgová žľaza"
+   ],
+   "location": "Na spodine mozgu za koreňom nosa, v sedlovitej jamke klinovej kosti (tureckom sedle).",
+   "summary": "Žľaza veľkosti hrachu, zavesená na tenkej stopke z hypotalamu. Často sa nazýva hlavnou žľazou: jej hormóny riadia štítnu žľazu, nadobličky, vaječníky a semenníky, rast a tvorbu mlieka.",
+   "membersLabel": "Laloky",
+   "members": [
+    {
+     "name": "Predný lalok hypofýzy",
+     "note": "Tvorí rastový hormón a prolaktín a hormóny, ktoré riadia štítnu žľazu (TSH), nadobličky (ACTH) a vaječníky alebo semenníky (FSH a LH)."
+    },
+    {
+     "name": "Zadný lalok hypofýzy",
+     "note": "Uvoľňuje dva hormóny vytvorené v hypotalame: antidiuretický hormón (ADH), ktorý riadi vodnú rovnováhu, a oxytocín, pre pôrod a dojčenie."
+    }
+   ],
+   "functions": [
+    "Riadi štítnu žľazu, nadobličky a vaječníky alebo semenníky",
+    "Rastový hormón poháňa rast v detstve a obnovu tkanív počas celého života",
+    "ADH hovorí obličkám, koľko vody majú zadržať"
+   ],
+   "issues": [
+    {
+     "name": "Adenóm hypofýzy",
+     "note": "Zvyčajne nezhubný výrastok. Môže spôsobiť bolesti hlavy, stratu bočného videnia alebo príznaky z nadbytku či nedostatku niektorého hormónu."
+    },
+    {
+     "name": "Diabetes insipidus",
+     "note": "Vylučovanie veľkého množstva riedkeho moču so stálym smädom pre nedostatok ADH. So sladkou cukrovkou nesúvisí."
+    }
+   ]
+  },
+  "eye": {
+   "name": "Oko",
+   "aka": [
+    "očná guľa",
+    "oči"
+   ],
+   "location": "V očnici, kostenej jamke v lebke, obložené tukom a otáčané šiestimi malými svalmi.",
+   "summary": "Tekutinou naplnená guľa s priemerom asi 24 mm. Rohovka a šošovka zaostrujú svetlo na sietnicu, ktorá ho mení na nervové signály, a tie zrakový nerv vedie do mozgu.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Rohovka",
+     "note": "Priehľadné predné okienko, ktoré zabezpečuje väčšinu zaostrenia."
+    },
+    {
+     "name": "Dúhovka a zrenica",
+     "note": "Farebný prstenec, ktorý rozširuje alebo zužuje zrenicu, aby prepustila viac alebo menej svetla."
+    },
+    {
+     "name": "Šošovka",
+     "note": "Mení tvar, aby zaostrila na blízke alebo vzdialené predmety."
+    },
+    {
+     "name": "Sietnica",
+     "note": "Svetlocitlivá výstelka vzadu. Jej stred, žltá škvrna, dáva ostré detaily a farby."
+    },
+    {
+     "name": "Okohybné svaly",
+     "note": "Šesť malých svalov, ktoré otáčajú okom, ovládaných okohybným, kladkovým a odťahovacím nervom."
+    }
+   ],
+   "functions": [
+    "Zaostruje svetlo a mení ho na nervové signály",
+    "Prispôsobuje sa jasnému aj slabému svetlu",
+    "Slzy udržiavajú povrch čistý a vlhký"
+   ],
+   "issues": [
+    {
+     "name": "Zápal spojoviek",
+     "note": "Červené, pálivé alebo zlepené oko pri infekcii alebo alergii. Zvyčajne odznie samo."
+    },
+    {
+     "name": "Naliehavé očné príznaky",
+     "note": "Bolestivé červené oko, náhla strata alebo rozmazanie zraku, nové záblesky a mušky alebo tieň šíriaci sa po zornom poli si vyžadujú naliehavú starostlivosť ešte v ten deň."
+    },
+    {
+     "name": "Sivý zákal (katarakta)",
+     "note": "Zahmlené alebo stlmené videnie a oslnenie svetlami, keď sa šošovka s vekom zakalí. Lieči sa operáciou."
+    },
+    {
+     "name": "Zelený zákal (glaukóm)",
+     "note": "Zvýšený tlak pomaly poškodzuje zrakový nerv, spočiatku často bez príznakov. Odhalia ho pravidelné očné vyšetrenia."
+    }
+   ]
+  },
+  "ear": {
+   "name": "Ucho",
+   "aka": [
+    "uši"
+   ],
+   "location": "Na každej strane hlavy. Vonkajšie ucho vedie zvukovodom k bubienku, stredné a vnútorné ucho ležia vnútri spánkovej kosti.",
+   "summary": "Orgán sluchu a rovnováhy. Vonkajšie ucho zachytáva zvuk, tri drobné kostičky v strednom uchu ho zosilňujú a slimák ho mení na nervové signály, kým polkruhovité kanáliky vnímajú pohyb hlavy.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Vonkajšie ucho",
+     "note": "Viditeľná ušnica a zvukovod, zakončený bubienkom."
+    },
+    {
+     "name": "Stredné ucho",
+     "note": "Vzduchom naplnený priestor s tromi sluchovými kostičkami (kladivko, nákovka a strmienok), spojený s hrdlom Eustachovou trubicou."
+    },
+    {
+     "name": "Vnútorné ucho",
+     "note": "Slimák pre sluch a polkruhovité kanáliky s predsieňou pre rovnováhu."
+    }
+   ],
+   "functions": [
+    "Sluch",
+    "Rovnováha a vnímanie pohybu hlavy",
+    "Eustachova trubica vyrovnáva tlak na bubienok"
+   ],
+   "issues": [
+    {
+     "name": "Zápal stredného ucha",
+     "note": "Bolesť ucha, často pri nádche a najmä u detí. Zvyčajne odznie za niekoľko dní."
+    },
+    {
+     "name": "Zápal zvukovodu",
+     "note": "Svrbiaci, bolestivý zvukovod, často po plávaní."
+    },
+    {
+     "name": "Ušný maz",
+     "note": "Pridusený sluch a pocit plnosti. Nepoužívajte vatové tyčinky, ušné kvapky ho môžu zmäkčiť."
+    },
+    {
+     "name": "Náhla strata sluchu alebo závrat",
+     "note": "Náhla strata sluchu na jedno ucho si vyžaduje vyšetrenie ešte v ten deň. Závrat so slabosťou, zastretou rečou alebo dvojitým videním je stav pre pohotovosť."
+    }
+   ]
+  },
+  "skin": {
+   "name": "Koža",
+   "listOnly": "Na mape nie je nakreslená: pokrýva celé telo, takže jej kresba by zakryla všetko pod ňou.",
+   "location": "Pokrýva celé telo, u dospelého asi 1,5–2 m². Najhrubšia je na chodidlách a dlaniach, najtenšia na viečkach.",
+   "summary": "Najväčší orgán tela, s hmotnosťou asi 4 kg. Je nepremokavou bariérou proti zárodkom, slnku a poraneniu, pomáha regulovať teplotu a je plná receptorov pre dotyk, bolesť, teplo a chlad.",
+   "membersLabel": "Vrstvy",
+   "members": [
+    {
+     "name": "Pokožka (epidermis)",
+     "note": "Tenká vonkajšia vrstva, obnovuje sa približne každý mesiac. Tvorí melanín a na slnku vitamín D."
+    },
+    {
+     "name": "Zamša (dermis)",
+     "note": "Pevná vnútorná vrstva s cievami, nervovými zakončeniami, korienkami vlasov a potnými a mazovými žľazami."
+    },
+    {
+     "name": "Podkožný tuk",
+     "note": "Izoluje, tlmí nárazy a uchováva energiu."
+    }
+   ],
+   "functions": [
+    "Bariéra proti zárodkom, strate vody a ultrafialovému žiareniu",
+    "Reguluje teplotu potením a zmenami prekrvenia",
+    "Vníma dotyk, bolesť, teplo a chlad",
+    "Na slnku tvorí vitamín D"
+   ],
+   "issues": [
+    {
+     "name": "Ekzém",
+     "note": "Suché, svrbiace, zapálené ložiská, často v kožných záhyboch. Pomáhajú hydratačné krémy."
+    },
+    {
+     "name": "Flegmóna (celulitída)",
+     "note": "Šíriace sa červené, horúce, opuchnuté a bolestivé miesto na koži, často s horúčkou. Vyžaduje rýchlu návštevu lekára."
+    },
+    {
+     "name": "Varovné príznaky rakoviny kože",
+     "note": "Znamienko, ktoré mení veľkosť, tvar alebo farbu, krváca alebo svrbí, či ranka, ktorá sa nehojí, treba vyšetriť."
+    },
+    {
+     "name": "Pásový opar",
+     "note": "Bolestivý pás pľuzgierovitej vyrážky na jednej strane tela, pozdĺž jedného nervu."
+    }
+   ]
+  },
+  "pineal-gland": {
+   "name": "Epifýza",
+   "aka": [
+    "šišinka",
+    "šuškovité teliesko"
+   ],
+   "location": "Hlboko v strede mozgu, medzi jeho dvoma polovicami, za tretou komorou.",
+   "summary": "Drobná žľaza v tvare šišky, ktorá v tme uvoľňuje melatonín a pomáha nastaviť rytmus spánku a bdenia.",
+   "functions": [
+    "V noci uvoľňuje melatonín, ktorý pomáha zaspať",
+    "Zlaďuje vnútorné hodiny tela s dňom a nocou"
+   ],
+   "issues": [
+    {
+     "name": "Cysta epifýzy",
+     "note": "Častá, malá a zvyčajne neškodná, často sa nájde náhodou na snímke mozgu."
+    },
+    {
+     "name": "Kalcifikácia",
+     "note": "S vekom sa v nej ukladá vápnik. Je to viditeľné na snímkach a je to normálne."
+    }
+   ]
+  },
+  "thyroid": {
+   "name": "Štítna žľaza",
+   "aka": [
+    "štítnica"
+   ],
+   "location": "Predná strana krku, ovinutá okolo priedušnice pod ohryzkom.",
+   "summary": "Žľaza v tvare motýľa, ktorej hormóny určujú tempo metabolizmu tela.",
+   "functions": [
+    "Tvorí tyroxín (T4) a trijódtyronín (T3)",
+    "Určuje rýchlosť metabolizmu, tep srdca a telesnú teplotu",
+    "Tvorí kalcitonín, ktorý pomáha regulovať vápnik"
+   ],
+   "issues": [
+    {
+     "name": "Znížená činnosť štítnej žľazy (hypotyreóza)",
+     "note": "Únava, priberanie, pocit chladu, zápcha, suchá koža."
+    },
+    {
+     "name": "Zvýšená činnosť štítnej žľazy (hypertyreóza)",
+     "note": "Chudnutie, búšenie srdca, tras, neznášanlivosť tepla, úzkosť."
+    },
+    {
+     "name": "Struma alebo uzol",
+     "note": "Opuch alebo hrčka na prednej strane krku, ktorá sa pohybuje pri prehĺtaní. Dajte ju vyšetriť."
+    }
+   ]
+  },
+  "parathyroid": {
+   "name": "Prištítne telieska",
+   "aka": [
+    "prištítne žľazy"
+   ],
+   "countLabel": "Zvyčajne dve na každej strane",
+   "location": "Na zadnej strane štítnej žľazy, zvyčajne dve za každým lalokom.",
+   "summary": "Zvyčajne štyri žliazky veľkosti zrnka ryže, ktoré parathormónom (PTH) udržiavajú stálu hladinu vápnika v krvi.",
+   "functions": [
+    "Pri poklese zvyšujú vápnik v krvi z kostí",
+    "Hovoria obličkám, aby zadržiavali vápnik a aktivovali vitamín D",
+    "Stála hladina vápnika udržiava normálnu činnosť nervov a svalov"
+   ],
+   "issues": [
+    {
+     "name": "Zvýšená činnosť prištítnych teliesok (hyperparatyreóza)",
+     "note": "Priveľa vápnika: smäd, obličkové kamene, rednutie kostí, bolesť brucha, skleslosť a únava. Často sa zistí pri bežnom krvnom teste."
+    },
+    {
+     "name": "Nízky vápnik po operácii krku",
+     "note": "Mravčenie okolo úst alebo v prstoch či svalové kŕče po operácii štítnej žľazy si vyžadujú rýchlu lekársku radu."
+    }
+   ]
+  },
+  "adrenal-gland": {
+   "name": "Nadoblička",
+   "aka": [
+    "nadobličky",
+    "adrenálna žľaza"
+   ],
+   "location": "Na vrchole každej obličky, vysoko na zadnej strane brucha vedľa chrbtice (asi T12).",
+   "summary": "Malá žľaza s hmotnosťou asi 5 g s dvoma vrstvami, ktoré fungujú ako samostatné žľazy: vonkajšia kôra tvorí steroidné hormóny a vnútorná dreň uvoľňuje adrenalín.",
+   "sideNotes": {
+    "right": "Pravá nadoblička je malá pyramída na vrchole obličky, zastrčená za pečeňou a dolnou dutou žilou.",
+    "left": "Ľavá nadoblička je polmesiac pozdĺž horného vnútorného okraja obličky, za žalúdkom a podžalúdkovou žľazou."
+   },
+   "membersLabel": "Vrstvy",
+   "members": [
+    {
+     "name": "Kôra nadobličky",
+     "note": "Tvorí kortizol (stres a krvný cukor), aldosterón (soľ a krvný tlak) a malé množstvo pohlavných hormónov."
+    },
+    {
+     "name": "Dreň nadobličky",
+     "note": "Uvoľňuje adrenalín a noradrenalín pre reakciu „bojuj alebo uteč“."
+    }
+   ],
+   "functions": [
+    "Kortizol pomáha telu zvládať stres, udržiava krvný cukor a tlmí zápal",
+    "Aldosterón vyrovnáva soľ, vodu a krvný tlak",
+    "Adrenalín pripravuje telo na akciu: rýchlejšie srdce a viac krvi do svalov"
+   ],
+   "issues": [
+    {
+     "name": "Nedostatočnosť nadobličiek (Addisonova choroba)",
+     "note": "Únava, chudnutie, závrat pri postavení sa, chuť na soľ a tmavšia koža. Zvracanie, zmätenosť alebo kolaps je stav pre pohotovosť (adrenálna kríza)."
+    },
+    {
+     "name": "Cushingov syndróm",
+     "note": "Priveľa kortizolu, najčastejšie zo steroidných liekov: priberanie na trupe a tvári, tenká koža, ľahká tvorba modrín a vysoký krvný tlak."
+    },
+    {
+     "name": "Nádor nadobličky",
+     "note": "Zvyčajne nezhubný a nájdený náhodou na snímke. Zriedka uvoľňuje nárazy adrenalínu s búšivými bolesťami hlavy, potením a búšením srdca."
+    }
+   ]
+  },
+  "pharynx": {
+   "name": "Hltan",
+   "aka": [
+    "hrdlo",
+    "farynx"
+   ],
+   "location": "Za nosom, ústami a hrtanom, od spodiny lebky po šiesty krčný stavec, kde prechádza do pažeráka.",
+   "summary": "Svalový lievik dlhý asi 12–14 cm, spoločný pre vzduch aj potravu. Vedie vzduch ďalej do hrtana a pri prehĺtaní tlačí potravu nadol do pažeráka.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Nosohltan",
+     "note": "Za nosom. Sú v ňom nosohltanové mandle a ústia Eustachových trubíc do stredného ucha."
+    },
+    {
+     "name": "Ústna časť hltana",
+     "note": "Za ústami, s podnebnými mandľami a koreňom jazyka."
+    },
+    {
+     "name": "Hrtanová časť hltana",
+     "note": "Za hrtanom, až po začiatok pažeráka."
+    }
+   ],
+   "functions": [
+    "Vedie vzduch z nosa a úst do hrtana",
+    "Prehĺtanie: jeho svaly tlačia potravu nadol, kým sú dýchacie cesty uzavreté",
+    "Mandle v jeho stenách chránia pred infekciou",
+    "Formuje zvuk hlasu"
+   ],
+   "issues": [
+    {
+     "name": "Bolesť hrdla (faryngitída)",
+     "note": "Zvyčajne vírusová a do týždňa sa zlepší. Silná bolesť hrdla s horúčkou alebo bolesť oveľa horšia na jednej strane si vyžaduje lekára."
+    },
+    {
+     "name": "Ťažkosti s prehĺtaním alebo dýchaním",
+     "note": "Slintanie, neschopnosť prehltnúť sliny alebo hlučné dýchanie pri bolesti hrdla je stav pre pohotovosť."
+    },
+    {
+     "name": "Pocit hrče v hrdle (globus)",
+     "note": "Častý a zvyčajne neškodný, ak potrava prechádza normálne. Dajte ho vyšetriť, ak pretrváva alebo ak je prehĺtanie ťažké či bolestivé."
+    }
+   ]
+  },
+  "nose": {
+   "name": "Nos a nosová dutina",
+   "aka": [
+    "nos",
+    "nosová dutina"
+   ],
+   "location": "Stred tváre, od miesta medzi očami po nosné dierky. Nosová dutina za ním ústi do nosohltana.",
+   "summary": "Vstup do dýchacích ciest. Ohrieva, zvlhčuje a filtruje vzduch a malá plôška v jeho strope obsahuje čuchové receptory.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Nosová priehradka",
+     "note": "Delí nos na ľavú a pravú polovicu: vzadu kosť, vpredu chrupka."
+    },
+    {
+     "name": "Nosové mušle",
+     "note": "Tri zvinuté výbežky na každej bočnej stene, ktoré ohrievajú a zvlhčujú vzduch."
+    },
+    {
+     "name": "Prinosové dutiny",
+     "note": "Vzduchové priestory v čelovej, čeľustnej, čuchovej a klinovej kosti, ktoré ústia do nosa."
+    },
+    {
+     "name": "Čuchová oblasť",
+     "note": "Malá plôška v strope nosovej dutiny s čuchovými receptormi."
+    }
+   ],
+   "functions": [
+    "Ohrieva, zvlhčuje a filtruje vzduch",
+    "Čuch",
+    "Dáva hlasu rezonanciu"
+   ],
+   "issues": [
+    {
+     "name": "Zápal prinosových dutín (sinusitída)",
+     "note": "Bolesť a tlak v tvári, upchatý nos a hustý výtok po nádche, zvyčajne odznie do 2–3 týždňov."
+    },
+    {
+     "name": "Krvácanie z nosa",
+     "note": "Predkloňte sa a stlačte mäkkú časť nosa na 10–15 minút. Krvácanie dlhšie ako 20 minút alebo po úraze hlavy si vyžaduje naliehavú starostlivosť."
+    },
+    {
+     "name": "Senná nádcha",
+     "note": "Kýchanie, svrbiaci výtok z nosa a svrbiace oči v určitom ročnom období."
+    },
+    {
+     "name": "Strata čuchu",
+     "note": "Častá po nádche. Ak trvá viac ako niekoľko týždňov, navštívte lekára."
+    }
+   ]
+  },
+  "tongue": {
+   "name": "Jazyk",
+   "location": "Dno úst, ukotvený k jazylke a sánke. Jeho zadná tretina smeruje do hrdla.",
+   "summary": "Svalový orgán, ktorý pri žuvaní posúva potravu, začína každé prehltnutie, formuje reč a nesie väčšinu chuťových pohárikov.",
+   "functions": [
+    "Chuť: sladká, kyslá, slaná, horká a umami",
+    "Posúva potravu a tlačí ju dozadu na prehltnutie",
+    "Formuje zvuky reči"
+   ],
+   "issues": [
+    {
+     "name": "Afty",
+     "note": "Malé bolestivé ranky, ktoré sa zahoja do 2 týždňov. Ranku alebo škvrnu trvajúcu viac ako 3 týždne treba vyšetriť."
+    },
+    {
+     "name": "Ústna kandidóza (soor)",
+     "note": "Biele povlaky, ktoré sa dajú zotrieť a zanechajú bolestivé miesto, časté po antibiotikách alebo pri steroidných inhalátoroch."
+    },
+    {
+     "name": "Opuch jazyka alebo pier",
+     "note": "S ťažkosťami s dýchaním alebo prehĺtaním je to stav pre pohotovosť (anafylaxia)."
+    }
+   ]
+  },
+  "salivary-glands": {
+   "name": "Slinné žľazy",
+   "aka": [
+    "slinné žliazky"
+   ],
+   "countLabel": "Tri na každej strane",
+   "location": "Pred každým uchom (príušná), pod sánkou (podsánková) a pod jazykom (podjazyková).",
+   "summary": "Tri páry veľkých žliaz a stovky drobných v sliznici úst, ktoré denne vytvoria 0,5–1,5 litra slín.",
+   "membersLabel": "Žľazy",
+   "members": [
+    {
+     "name": "Príušná žľaza",
+     "note": "Najväčšia, pred uchom nad uhlom sánky. Jej vývod ústi na vnútornej strane líca pri druhej hornej stoličke."
+    },
+    {
+     "name": "Podsánková žľaza",
+     "note": "Pod sánkou. Jej vývod ústi pod jazykom."
+    },
+    {
+     "name": "Podjazyková žľaza",
+     "note": "Najmenšia, pod jazykom (nie je nakreslená)."
+    }
+   ],
+   "functions": [
+    "Sliny zvlhčujú potravu a začínajú tráviť škrob",
+    "Chránia zuby a bojujú proti zárodkom",
+    "Pomáhajú pri chuti, žuvaní, prehĺtaní a reči"
+   ],
+   "issues": [
+    {
+     "name": "Mumps",
+     "note": "Bolestivý opuch príušných žliaz s horúčkou. Predchádza mu očkovanie."
+    },
+    {
+     "name": "Slinný kameň",
+     "note": "Bolesť a opuch pod sánkou alebo pred uchom pri jedle."
+    },
+    {
+     "name": "Sucho v ústach",
+     "note": "Časté pri mnohých liekoch, dehydratácii a niektorých ochoreniach."
+    }
+   ]
+  },
+  "larynx": {
+   "name": "Hrtan",
+   "aka": [
+    "larynx"
+   ],
+   "location": "Predná strana krku, medzi jazylkou a priedušnicou (asi C3–C6). Ohryzok je hrana jeho štítnej chrupky.",
+   "summary": "Hlasový orgán: kostra z chrupiek, svalov a hlasiviek, ktorá stráži vstup do dýchacích ciest a vytvára zvuk hlasu.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Štítna chrupka",
+     "note": "Štít vpredu. Jeho hrana je ohryzok."
+    },
+    {
+     "name": "Prstencová chrupka",
+     "note": "Jediný úplný chrupkový prstenec v dýchacích cestách, tesne pod štítnou chrupkou."
+    },
+    {
+     "name": "Hrtanová príklopka",
+     "note": "Lístkovitá chlopňa, ktorá sa pri prehĺtaní sklopí nad dýchacie cesty."
+    },
+    {
+     "name": "Hlasivky",
+     "note": "Dva pruhy, ktoré kmitajú vo vydychovanom vzduchu a vytvárajú hlas."
+    }
+   ],
+   "functions": [
+    "Pri prehĺtaní uzatvára dýchacie cesty",
+    "Vytvára hlas",
+    "Spúšťa kašeľ na vyčistenie dýchacích ciest"
+   ],
+   "issues": [
+    {
+     "name": "Zápal hrtana (laryngitída)",
+     "note": "Chrapľavý alebo stratený hlas po nádche alebo preťažení, zvyčajne sa zlepší do 2 týždňov."
+    },
+    {
+     "name": "Pretrvávajúci chrapot",
+     "note": "Chrapot dlhší ako 3 týždne, najmä u fajčiarov, treba dať vyšetriť lekárom."
+    },
+    {
+     "name": "Krup (pseudokrup)",
+     "note": "Štekavý kašeľ a hlučné dýchanie u malého dieťaťa, zvyčajne po nádche. Ťažké dýchanie si vyžaduje naliehavú starostlivosť."
+    }
+   ]
+  },
+  "trachea": {
+   "name": "Priedušnica",
+   "aka": [
+    "trachea",
+    "priedušky"
+   ],
+   "location": "Od prednej strany krku do stredu hrudníka, kde sa delí na ľavú a pravú hlavnú priedušku.",
+   "summary": "Trubica dlhá asi 10–12 cm, udržiavaná otvorená chrupkovými prstencami v tvare písmena C, ktorá vedie vzduch z hrtana do pľúc.",
+   "functions": [
+    "Vedie vzduch do pľúc a z nich",
+    "Hlien a drobné riasinky posúvajú zachytené čiastočky nahor",
+    "Kašeľ čistí a chráni dýchacie cesty"
+   ],
+   "issues": [
+    {
+     "name": "Zápal priedušiek (bronchitída)",
+     "note": "Vlhký kašeľ a bolestivosť za hrudnou kosťou po nádche."
+    },
+    {
+     "name": "Dusenie",
+     "note": "Človek nemôže hovoriť, kašľať ani dýchať. Okamžite konajte údermi medzi lopatky a stlačeniami brucha a volajte záchrannú službu."
+    },
+    {
+     "name": "Vdýchnutý predmet",
+     "note": "Malé predmety zvyčajne uviaznu v pravej hlavnej prieduške, ktorá je širšia a zvislejšia."
+    }
+   ]
+  },
+  "esophagus": {
+   "name": "Pažerák",
+   "aka": [
+    "ezofágus"
+   ],
+   "location": "Za priedušnicou a srdcom, prechádza cez bránicu do žalúdka.",
+   "summary": "Svalová trubica dlhá asi 25 cm, ktorá vlnami (peristaltikou) posúva prehltnutú potravu do žalúdka.",
+   "functions": [
+    "Posúva jedlo a nápoje do žalúdka",
+    "Dolný zvierač bráni návratu žalúdočnej kyseliny"
+   ],
+   "issues": [
+    {
+     "name": "Refluxná choroba (GERD)",
+     "note": "Pálenie záhy a kyslá chuť, horšie v ľahu alebo po veľkom jedle."
+    },
+    {
+     "name": "Ťažkosti s prehĺtaním",
+     "note": "Uviaznutie potravy cestou nadol, najmä ak sa zhoršuje alebo ho sprevádza chudnutie, si vyžaduje rýchle vyšetrenie."
+    }
+   ]
+  },
+  "lung": {
+   "name": "Pľúca",
+   "aka": [
+    "pľúcne krídlo"
+   ],
+   "location": "Po oboch stranách srdca vnútri hrudného koša, od miesta tesne nad kľúčnou kosťou až po bránicu.",
+   "summary": "Hubovité orgány, kde kyslík prechádza do krvi a oxid uhličitý z nej odchádza cez stovky miliónov drobných mechúrikov (alveol).",
+   "sideNotes": {
+    "right": "Pravé pľúca majú tri laloky (horný, stredný a dolný) a sú kratšie a širšie, lebo pod nimi leží pečeň.",
+    "left": "Ľavé pľúca majú dva laloky (horný a dolný) a zárez, kde leží srdce."
+   },
+   "functions": [
+    "Výmena plynov: kyslík dnu, oxid uhličitý von",
+    "Pomáhajú regulovať kyslosť krvi",
+    "Zachytávajú malé zrazeniny z krvného obehu"
+   ],
+   "issues": [
+    {
+     "name": "Zápal pľúc",
+     "note": "Horúčka, kašeľ s hlienom, dýchavičnosť a ostrá bolesť na hrudi pri nádychu."
+    },
+    {
+     "name": "Astma / CHOCHP",
+     "note": "Pískanie, kašeľ a dýchavičnosť zo zúžených dýchacích ciest."
+    },
+    {
+     "name": "Kolaps pľúc (pneumotorax)",
+     "note": "Náhla jednostranná bolesť na hrudi a dýchavičnosť. Je to naliehavé."
+    },
+    {
+     "name": "Pľúcna embólia",
+     "note": "Náhla dýchavičnosť, bolesť na hrudi alebo vykašliavanie krvi, často s opuchnutým lýtkom. Je to stav pre pohotovosť."
+    }
+   ]
+  },
+  "heart": {
+   "name": "Srdce",
+   "location": "Stred hrudníka za hrudnou kosťou, naklonené doľava. Jeho hrot leží blízko piateho medzirebrového priestoru.",
+   "summary": "Štvordutinová svalová pumpa veľkosti päste. Pravá strana posiela krv cez pľúca a ľavá ju pumpuje do celého tela, asi 100 000 úderov denne.",
+   "functions": [
+    "V pokoji prečerpá asi 5 litrov krvi za minútu",
+    "Vlastný elektrický systém určuje rytmus",
+    "Štyri chlopne udržiavajú jednosmerný tok krvi"
+   ],
+   "issues": [
+    {
+     "name": "Infarkt",
+     "note": "Zvieravá alebo tlaková bolesť na hrudi, ktorá sa môže šíriť do ruky, sánky alebo chrbta, s potením alebo dýchavičnosťou. Volajte záchrannú službu."
+    },
+    {
+     "name": "Angína pektoris",
+     "note": "Tlak na hrudi pri námahe, ktorý v pokoji ustúpi. Vyžaduje lekárske vyšetrenie."
+    },
+    {
+     "name": "Arytmia",
+     "note": "Búšenie, trepotanie alebo rýchly či nepravidelný pulz. S odpadnutím alebo bolesťou na hrudi vyhľadajte naliehavú pomoc."
+    },
+    {
+     "name": "Zlyhávanie srdca",
+     "note": "Dýchavičnosť, opuchnuté členky a únava."
+    }
+   ]
+  },
+  "liver": {
+   "name": "Pečeň",
+   "location": "Vpravo hore v bruchu pod pravými rebrami, siaha cez strednú čiaru.",
+   "summary": "Najväčší vnútorný orgán (asi 1,5 kg). Spracúva všetko vstrebané z čreva, tvorí žlč a mnohé bielkoviny, uchováva energiu a odstraňuje toxíny.",
+   "functions": [
+    "Tvorí žlč na trávenie tukov",
+    "Uchováva glykogén, vitamíny a železo",
+    "Odbúrava lieky a alkohol",
+    "Tvorí zrážacie faktory a albumín"
+   ],
+   "issues": [
+    {
+     "name": "Stukovatenie pečene",
+     "note": "Často bez príznakov, súvisí s hmotnosťou, cukrovkou a alkoholom."
+    },
+    {
+     "name": "Hepatitída",
+     "note": "Zápal z vírusov, alkoholu alebo liekov: únava, žltá koža alebo oči (žltačka), tmavý moč."
+    },
+    {
+     "name": "Cirhóza",
+     "note": "Dlhodobé zjazvenie: opuchnuté brucho, ľahká tvorba modrín, zmätenosť."
+    }
+   ]
+  },
+  "gallbladder": {
+   "name": "Žlčník",
+   "location": "Pod dolným okrajom pečene, kde sa pravý rebrový oblúk stretáva so stredoklavikulárnou čiarou.",
+   "summary": "Malý hruškovitý vačok, ktorý uchováva a zahusťuje žlč a po tučnom jedle ju vytláča do dvanástnika.",
+   "functions": [
+    "Uchováva a zahusťuje žlč",
+    "Uvoľňuje žlč na trávenie tukov"
+   ],
+   "issues": [
+    {
+     "name": "Žlčníkové kamene (žlčníková kolika)",
+     "note": "Silná bolesť pod pravými rebrami alebo hore v strede, často po tučnom jedle, trvajúca minúty až hodiny. Môže sa šíriť k pravej lopatke."
+    },
+    {
+     "name": "Zápal žlčníka (cholecystitída)",
+     "note": "Pretrvávajúca bolesť pod pravými rebrami s horúčkou. Vyžaduje lekársku starostlivosť."
+    },
+    {
+     "name": "Žltačka",
+     "note": "Žltá koža alebo oči so svetlou stolicou a tmavým močom môžu znamenať, že kameň upcháva žlčovod."
+    }
+   ]
+  },
+  "stomach": {
+   "name": "Žalúdok",
+   "location": "Vľavo hore a v strede brucha, tesne pod bránicou.",
+   "summary": "Rozťažný vak v tvare písmena J, ktorý uchováva potravu, premiešava ju a kyselinou a enzýmami začína trávenie bielkovín.",
+   "functions": [
+    "Uchováva a premiešava potravu",
+    "Vylučuje kyselinu a pepsín",
+    "Postupne posúva potravu do tenkého čreva"
+   ],
+   "issues": [
+    {
+     "name": "Dyspepsia / gastritída",
+     "note": "Pálivá bolesť v hornej časti brucha, nafukovanie, nevoľnosť."
+    },
+    {
+     "name": "Vred žalúdka",
+     "note": "Hlodavá bolesť v hornej časti brucha, ktorú jedlo niekedy zmierni alebo zhorší. Čierna stolica alebo zvracanie krvi je stav pre pohotovosť."
+    },
+    {
+     "name": "Gastroenteritída",
+     "note": "Zvracanie a hnačka, zvyčajne vírusové. Pozor na dehydratáciu."
+    }
+   ]
+  },
+  "duodenum": {
+   "name": "Dvanástnik",
+   "aka": [
+    "duodenum"
+   ],
+   "location": "Ovíja sa v tvare C okolo hlavy podžalúdkovej žľazy, od žalúdka (asi L1, vpravo od stredovej čiary) po miesto tesne vľavo od stredovej čiary, za priečnou časťou hrubého čreva.",
+   "summary": "Prvých asi 25 cm tenkého čreva. Prijíma potravu zo žalúdka a mieša ju so žlčou a pankreatickou šťavou, ktoré vstupujú malým otvorom v jeho stene (veľkou dvanástnikovou bradavkou).",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Horná časť",
+     "note": "Začína pri vrátniku. V jej prvom, rozšírenom úseku (bulbe dvanástnika) vzniká väčšina vredov dvanástnika."
+    },
+    {
+     "name": "Zostupná časť",
+     "note": "Vedie nadol vedľa hlavy podžalúdkovej žľazy. Ústi do nej žlčovod a pankreatický vývod."
+    },
+    {
+     "name": "Vodorovná časť",
+     "note": "Kríži stredovú čiaru pred aortou a dolnou dutou žilou."
+    },
+    {
+     "name": "Vzostupná časť",
+     "note": "Stúpa k dvanástnikovo-lačníkovému ohybu, kde začína lačník."
+    }
+   ],
+   "functions": [
+    "Prijíma žlč a pankreatické enzýmy",
+    "Neutralizuje žalúdočnú kyselinu bikarbonátom",
+    "Uvoľňuje hormóny (sekretín a cholecystokinín), ktoré riadia tempo trávenia",
+    "Vstrebáva železo"
+   ],
+   "issues": [
+    {
+     "name": "Vred dvanástnika",
+     "note": "Pálivá alebo hlodavá bolesť hore v strede brucha, často zmiernená jedlom a horšia v noci. Čierna stolica alebo zvracanie krvi je stav pre pohotovosť."
+    },
+    {
+     "name": "Celiakia",
+     "note": "Lepok poškodzuje sliznicu najprv tu, preto ju potvrdí malá vzorka (biopsia) z dvanástnika."
+    }
+   ]
+  },
+  "spleen": {
+   "name": "Slezina",
+   "location": "Vľavo hore v bruchu za žalúdkom, chránená 9.–11. rebrom.",
+   "summary": "Orgán veľkosti päste, ktorý filtruje krv, odstraňuje staré červené krvinky a uchováva imunitné bunky bojujúce s infekciou.",
+   "functions": [
+    "Filtruje krv a recykluje staré červené krvinky",
+    "Imunitná obrana proti baktériám",
+    "Uchováva krvné doštičky a biele krvinky"
+   ],
+   "issues": [
+    {
+     "name": "Roztrhnutie sleziny",
+     "note": "Po údere do ľavého boku: bolesť vľavo hore, niekedy bolesť v špičke ľavého ramena a závrat. Je to stav pre pohotovosť."
+    },
+    {
+     "name": "Zväčšená slezina",
+     "note": "Pri infekciách, ako je infekčná mononukleóza (kým je zväčšená, vyhnite sa kontaktným športom), alebo pri ochoreniach pečene či krvi."
+    }
+   ]
+  },
+  "pancreas": {
+   "name": "Podžalúdková žľaza",
+   "aka": [
+    "pankreas"
+   ],
+   "location": "Hlboko v hornej časti brucha za žalúdkom, jej hlava je zastrčená v ohybe dvanástnika.",
+   "summary": "Dlhá žľaza s dvoma úlohami: uvoľňuje tráviace enzýmy do čreva a hormóny (inzulín a glukagón) do krvi.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Hlava",
+     "note": "Zastrčená v ohybe dvanástnika."
+    },
+    {
+     "name": "Telo",
+     "note": "Kríži chrbticu za žalúdkom."
+    },
+    {
+     "name": "Chvost",
+     "note": "Siaha k slezine."
+    },
+    {
+     "name": "Pankreatické ostrovčeky",
+     "note": "Asi milión zhlukov hormonálnych buniek (Langerhansove ostrovčeky), len 1–2 % žľazy, ktoré uvoľňujú inzulín a glukagón do krvi."
+    }
+   ],
+   "functions": [
+    "Tráviace enzýmy na tuky, bielkoviny a sacharidy",
+    "Inzulín a glukagón riadia hladinu krvného cukru",
+    "Bikarbonát neutralizuje žalúdočnú kyselinu"
+   ],
+   "issues": [
+    {
+     "name": "Zápal podžalúdkovej žľazy (pankreatitída)",
+     "note": "Silná bolesť v hornej časti brucha prevŕtavajúca do chrbta, so zvracaním. Často zo žlčových kameňov alebo alkoholu, je to naliehavé."
+    },
+    {
+     "name": "Cukrovka",
+     "note": "Smäd, časté močenie, chudnutie a únava."
+    },
+    {
+     "name": "Rakovina podžalúdkovej žľazy",
+     "note": "Nebolestivá žltačka, bolesť chrbta a chudnutie. Rýchlo navštívte lekára."
+    }
+   ]
+  },
+  "kidney": {
+   "name": "Oblička",
+   "aka": [
+    "obličky",
+    "ren"
+   ],
+   "location": "Vysoko na zadnej strane brucha po oboch stranách chrbtice (asi T12–L3), čiastočne za najnižšími rebrami. Pravá leží o niečo nižšie.",
+   "summary": "Fazuľovité filtre, ktoré denne spracujú asi 180 litrov krvnej plazmy na 1–2 litre moču a vyrovnávajú vodu, soli a krvný tlak.",
+   "functions": [
+    "Filtrujú odpadové látky z krvi do moču",
+    "Vyrovnávajú tekutiny, soli a kyslosť",
+    "Tvoria hormóny pre krvný tlak (renín) a tvorbu červených krviniek (EPO)",
+    "Aktivujú vitamín D"
+   ],
+   "issues": [
+    {
+     "name": "Obličkový kameň",
+     "note": "Vlny silnej bolesti v boku, šíriace sa do slabiny, niekedy s krvou v moči."
+    },
+    {
+     "name": "Zápal obličiek (pyelonefritída)",
+     "note": "Bolesť v boku, horúčka, triaška a ťažkosti s močením. Navštívte lekára ešte v ten deň."
+    },
+    {
+     "name": "Chronické ochorenie obličiek",
+     "note": "Zvyčajne bez príznakov, odhalia ho krvné a močové testy. Oplatí sa ho kontrolovať pri cukrovke alebo vysokom krvnom tlaku."
+    }
+   ]
+  },
+  "ureter": {
+   "name": "Močovod",
+   "aka": [
+    "močovody",
+    "ureter"
+   ],
+   "location": "Z každej obličky nadol po zadnej stene brucha, cez okraj panvy, k zadnej strane močového mechúra.",
+   "summary": "Svalová trubica dlhá asi 25–30 cm, ktorá vlnami (peristaltikou) vedie moč z obličky do močového mechúra.",
+   "functions": [
+    "Vedie moč z obličky do močového mechúra",
+    "Posúva ho vlnami niekoľkokrát za minútu",
+    "Vstupuje do mechúra šikmo, čo bráni spätnému toku moču"
+   ],
+   "issues": [
+    {
+     "name": "Kameň v močovode (obličková kolika)",
+     "note": "Vlny silnej bolesti od boku do slabiny, keď kameň putuje nadol, často s nevoľnosťou. S horúčkou alebo triaškou vyhľadajte naliehavú pomoc."
+    },
+    {
+     "name": "Upchatie",
+     "note": "Kameň alebo zúženie môže spôsobiť spätné hromadenie moču a opuch obličky (hydronefrózu), ktorý ukáže vyšetrenie."
+    }
+   ]
+  },
+  "small-intestine": {
+   "name": "Tenké črevo",
+   "aka": [
+    "lačník",
+    "bedrovník",
+    "jejunum",
+    "ileum"
+   ],
+   "location": "Stočené v strede brucha, ohraničené hrubým črevom.",
+   "summary": "Asi 6 metrov stočenej trubice, kde prebieha väčšina trávenia a vstrebávania živín cez milióny prstovitých klkov. Vedie od dvanástnika (zobrazený samostatne) cez lačník po bedrovník.",
+   "functions": [
+    "Trávi potravu enzýmami a žlčou",
+    "Vstrebáva živiny, vodu a vitamíny",
+    "Sídli v ňom veľká časť imunitného systému"
+   ],
+   "issues": [
+    {
+     "name": "Celiakia",
+     "note": "Lepok vyvoláva zápal: nafukovanie, hnačka, chudnutie, chudokrvnosť."
+    },
+    {
+     "name": "Črevná nepriechodnosť",
+     "note": "Kolikovitá bolesť, nafúknuté brucho, zvracanie a neodchádzajú plyny ani stolica. Je to stav pre pohotovosť."
+    },
+    {
+     "name": "Crohnova choroba",
+     "note": "Zápal spôsobujúci bolesť, hnačku a chudnutie, často na konci bedrovníka vpravo dole."
+    }
+   ]
+  },
+  "large-intestine": {
+   "name": "Hrubé črevo",
+   "aka": [
+    "kolón",
+    "črevo",
+    "slepé črevo",
+    "céka"
+   ],
+   "location": "Ohraničuje brucho: hore po pravej strane, naprieč pod žalúdkom, potom nadol po ľavej strane do panvy, kde prechádza do konečníka.",
+   "summary": "Asi 1,5 m dlhé (slepé črevo a hrubé črevo), končí konečníkom. Vstrebáva vodu a soli, žijú v ňom bilióny črevných baktérií a vytvára stolicu.",
+   "functions": [
+    "Vstrebáva vodu a soli",
+    "Črevné baktérie kvasia vlákninu a tvoria vitamíny",
+    "Vytvára stolicu a posúva ju do konečníka"
+   ],
+   "issues": [
+    {
+     "name": "Zápcha / syndróm dráždivého čreva",
+     "note": "Kŕče, nafukovanie a zmena vyprázdňovania. Veľmi časté."
+    },
+    {
+     "name": "Divertikulitída",
+     "note": "Bolesť vľavo dole v bruchu s horúčkou, väčšinou u starších dospelých."
+    },
+    {
+     "name": "Varovné príznaky rakoviny hrubého čreva",
+     "note": "Krv v stolici, trvalá zmena vyprázdňovania, nevysvetliteľné chudnutie alebo chudokrvnosť. Navštívte lekára."
+    }
+   ]
+  },
+  "appendix": {
+   "name": "Červovitý prívesok",
+   "aka": [
+    "apendix",
+    "slepé črevo"
+   ],
+   "location": "Vpravo dole v bruchu, visí zo slepého čreva.",
+   "summary": "Vačok veľkosti prsta na začiatku hrubého čreva. Obsahuje lymfatické tkanivo a môže slúžiť ako zásobáreň užitočných črevných baktérií.",
+   "functions": [
+    "Lymfatické (imunitné) tkanivo",
+    "Možná zásobáreň črevných baktérií"
+   ],
+   "issues": [
+    {
+     "name": "Zápal slepého čreva (apendicitída)",
+     "note": "Bolesť, ktorá začína okolo pupka a presúva sa doprava dole, horšia pri pohybe alebo kašli, so stratou chuti do jedla, nevoľnosťou a horúčkou. Je to naliehavé."
+    }
+   ]
+  },
+  "rectum": {
+   "name": "Konečník",
+   "aka": [
+    "rektum"
+   ],
+   "location": "V zadnej časti panvy, sleduje zakrivenie krížovej kosti a kostrče, od konca esovitého hrubého čreva (asi S3) až po riť.",
+   "summary": "Posledných asi 12 cm hrubého čreva. Zadržiava stolicu, kým nie je vhodná chvíľa na vyprázdnenie, a senzory napätia v jeho stene vyvolávajú nutkanie.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Rektálna ampula",
+     "note": "Široká dolná časť, kde stolica čaká."
+    },
+    {
+     "name": "Análny kanál",
+     "note": "Posledné 3–4 cm, obkolesené vnútorným (automatickým) a vonkajším (vôľou ovládaným) zvieračom."
+    }
+   ],
+   "functions": [
+    "Zadržiava stolicu, kým ju nevyprázdnite",
+    "Vníma naplnenie a spúšťa nutkanie",
+    "Zvierače a panvové dno ho udržiavajú uzavretý"
+   ],
+   "issues": [
+    {
+     "name": "Hemoroidy",
+     "note": "Jasne červená krv na papieri, svrbenie alebo mäkká hrčka pri ritnom otvore. Časté a zvyčajne zvládnuteľné doma."
+    },
+    {
+     "name": "Análna trhlinka (fisúra)",
+     "note": "Ostrá bolesť pri vyprázdňovaní, potom pálivá bolesť s trochou jasne červenej krvi."
+    },
+    {
+     "name": "Varovné príznaky krvácania z konečníka",
+     "note": "Tmavá alebo do stolice primiešaná krv, trvalá zmena vyprázdňovania alebo chudnutie si vyžadujú lekára. Silné krvácanie si vyžaduje naliehavú starostlivosť."
+    }
+   ]
+  },
+  "bladder": {
+   "name": "Močový mechúr",
+   "aka": [
+    "mechúr"
+   ],
+   "location": "Nízko v panve, za lonovými kosťami.",
+   "summary": "Svalová, rozťažná nádrž, ktorá zadržiava moč z obličiek (asi 400–500 ml), kým nie je vhodná chvíľa na vyprázdnenie.",
+   "functions": [
+    "Zadržiava moč",
+    "Vyprázdňuje sa pod kontrolou zvieračov a panvového dna"
+   ],
+   "issues": [
+    {
+     "name": "Infekcia močových ciest (cystitída)",
+     "note": "Pálenie, nutkanie, časté močenie a bolesť nízko v strede."
+    },
+    {
+     "name": "Zadržiavanie moču",
+     "note": "Nemožnosť vymočiť sa s bolestivým, plným podbruškom. Je to naliehavé."
+    },
+    {
+     "name": "Inkontinencia",
+     "note": "Únik moču pri kašli (stresová) alebo s náhlym nutkaním. Častá a liečiteľná."
+    }
+   ]
+  },
+  "ovary": {
+   "name": "Vaječník",
+   "aka": [
+    "vaječníky"
+   ],
+   "location": "Nízko v panve po oboch stranách maternice, pri bočnej stene, veľkosťou a tvarom ako mandľa.",
+   "summary": "Ženské pohlavné žľazy. Od puberty po menopauzu dozrieva v nich asi raz za mesiac vajíčko a tvoria hormóny estrogén a progesterón, ktoré riadia menštruačný cyklus.",
+   "functions": [
+    "V každom cykle dozrieva a uvoľňuje vajíčko (ovulácia)",
+    "Tvorí estrogén a progesterón",
+    "Tvorí malé množstvo testosterónu"
+   ],
+   "issues": [
+    {
+     "name": "Cysta na vaječníku",
+     "note": "Tekutinou naplnené vačky sú časté a zvyčajne neškodné, objavujú sa a miznú s cyklom. Veľká cysta môže bolieť alebo spôsobovať jednostrannú bolesť."
+    },
+    {
+     "name": "Torzia vaječníka",
+     "note": "Náhla, silná jednostranná bolesť v podbrušku, často so zvracaním, keď sa vaječník pretočí na stopke. Je to stav pre pohotovosť."
+    },
+    {
+     "name": "Syndróm polycystických ovárií (PCOS)",
+     "note": "Nepravidelná alebo chýbajúca menštruácia, nadmerné ochlpenie, akné a ťažkosti s otehotnením. Navštívte lekára."
+    },
+    {
+     "name": "Rakovina vaječníkov",
+     "note": "Nafukovanie, ktoré neodchádza, rýchly pocit sýtosti, bolesť v panve alebo bruchu a častejšie močenie, najmä po 50. roku. Navštívte lekára, ak to trvá tri týždne alebo dlhšie."
+    }
+   ]
+  },
+  "uterine-tube": {
+   "name": "Vajíčkovod",
+   "aka": [
+    "Fallopiova trubica",
+    "vajcovod"
+   ],
+   "location": "Z každého horného rohu maternice smerom von k vaječníku, dlhý asi 10 cm.",
+   "summary": "Úzka trubica, ktorej strapcovitý koniec zachytí vajíčko uvoľnené z vaječníka. Vajíčko a spermia sa zvyčajne stretnú tu a trubica v priebehu niekoľkých dní prenesie skoré embryo do maternice.",
+   "functions": [
+    "Zachytáva vajíčko z vaječníka",
+    "Zvyčajne v ňom dochádza k oplodneniu",
+    "Posúva oplodnené vajíčko do maternice"
+   ],
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Lievik",
+     "note": "Lievikovitý koniec vedľa vaječníka, lemovaný prstovitými strapcami (fimbriami)."
+    },
+    {
+     "name": "Ampula",
+     "note": "Široká stredná časť, kde zvyčajne dochádza k oplodneniu."
+    },
+    {
+     "name": "Zúžená časť (isthmus)",
+     "note": "Úzka časť pri maternici."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Mimomaternicové tehotenstvo",
+     "note": "Tehotenstvo, ktoré sa uhniezdi vo vajíčkovode: jednostranná bolesť v podbrušku, krvácanie z pošvy, bolesť v špičke ramena alebo odpadnutie, zvyčajne v 4. až 12. týždni tehotenstva. Je to stav pre pohotovosť."
+    },
+    {
+     "name": "Zápal panvových orgánov",
+     "note": "Infekcia šíriaca sa nahor z krčka maternice, často pohlavne prenosná: bolesť v podbrušku, horúčka, nezvyčajný výtok, bolesť pri pohlavnom styku. Môže zjazviť vajíčkovody, preto rýchlo navštívte lekára."
+    }
+   ]
+  },
+  "uterus": {
+   "name": "Maternica",
+   "aka": [
+    "uterus"
+   ],
+   "location": "V strede panvy, medzi močovým mechúrom vpredu a konečníkom vzadu, zvyčajne naklonená dopredu nad mechúr.",
+   "summary": "Dutý svalový orgán veľkosti hrušky. Jej sliznica sa v každom cykle zhrubne, a ak nenastane tehotenstvo, odlúči sa ako menštruácia. V tehotenstve rastie, aby pojala dieťa, a pri pôrode ho jej svalovina vytlačí.",
+   "functions": [
+    "V menštruačnom cykle buduje a odlučuje sliznicu",
+    "Nesie a vyživuje tehotenstvo",
+    "Pri pôrode sa sťahuje, aby porodila dieťa"
+   ],
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Dno maternice",
+     "note": "Klenutý vrchol nad miestom, kde vstupujú vajíčkovody."
+    },
+    {
+     "name": "Telo maternice",
+     "note": "Hlavná dutina, vystlaná endometriom."
+    },
+    {
+     "name": "Krčok maternice",
+     "note": "Úzky krk, ktorý ústi do pošvy. Cytologický skríning ho kontroluje na zmeny, ktoré by sa mohli zmeniť na rakovinu."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Bolestivá menštruácia",
+     "note": "Kŕčovitá bolesť nízko v strede okolo menštruácie. Pomáhajú bežné lieky proti bolesti a teplo. Bolesť, ktorá zastaví bežný život, sa oplatí dať vyšetriť."
+    },
+    {
+     "name": "Silná menštruácia",
+     "note": "Premočenie vložky alebo tampónu každú hodinu či dve, veľké zrazeniny alebo únava a dýchavičnosť z chudokrvnosti. Časté a liečiteľné: navštívte lekára."
+    },
+    {
+     "name": "Myómy",
+     "note": "Nezhubné výrastky svaloviny maternice: silná alebo dlhá menštruácia, tlak v panve, časté močenie."
+    },
+    {
+     "name": "Endometrióza",
+     "note": "Tkanivo podobné sliznici maternice rastúce mimo maternice: silná menštruačná bolesť, bolesť pri pohlavnom styku a dlhotrvajúca bolesť v panve. Diagnóza často trvá roky, preto bolesť, ktorá neustupuje, opakovane spomínajte."
+    },
+    {
+     "name": "Potrat",
+     "note": "Krvácanie a kŕče v ranom tehotenstve. Vyhľadajte pomoc ešte v ten deň, silné krvácanie alebo odpadnutie je stav pre pohotovosť."
+    },
+    {
+     "name": "Rakovina krčka alebo tela maternice",
+     "note": "Krvácanie po pohlavnom styku, medzi menštruáciami alebo po menopauze si vyžaduje lekára. Pravidelný cytologický skríning odhalí skoré zmeny."
+    }
+   ]
+  },
+  "vagina": {
+   "name": "Pošva",
+   "aka": [
+    "vagína"
+   ],
+   "location": "Svalová trubica od krčka maternice nadol a dopredu k vonkajším pohlavným orgánom, s močovým mechúrom a močovou rúrou vpredu a konečníkom vzadu.",
+   "summary": "Rozťažný svalový kanál, ktorým odchádza menštruačná krv, ktorý pri pohlavnom styku prijíma penis a pri pôrode sa stáva pôrodnými cestami. Jej prirodzené baktérie ju udržiavajú mierne kyslú, čo chráni pred infekciou.",
+   "functions": [
+    "Odvádza menštruačnú krv",
+    "Pri pohlavnom styku prijíma penis",
+    "Rozťahuje sa a stáva sa pôrodnými cestami"
+   ],
+   "issues": [
+    {
+     "name": "Kvasinková infekcia",
+     "note": "Svrbenie, bolestivosť a hustý biely výtok. Veľmi častá, väčšine pomôže liečba z lekárne."
+    },
+    {
+     "name": "Bakteriálna vaginóza",
+     "note": "Riedky sivý alebo biely výtok s rybím zápachom. Lieči sa antibiotikami."
+    },
+    {
+     "name": "Suchosť pošvy",
+     "note": "Častá po menopauze a počas dojčenia: bolestivosť a bolesť pri pohlavnom styku. Pomáhajú hydratačné prípravky a liečba."
+    }
+   ]
+  },
+  "vulva": {
+   "name": "Vulva",
+   "aka": [
+    "vonkajšie pohlavné orgány",
+    "ohanbie"
+   ],
+   "location": "Vonkajšie pohlavné orgány, medzi stehnami pod lonovou kosťou.",
+   "summary": "Vonkajšie pysky ohanbia chránia ústie močovej rúry a pošvy. Klitoris s rovnakým počtom nervových zakončení ako žaluď penisu je centrom sexuálneho potešenia.",
+   "functions": [
+    "Chráni ústie močovej rúry a pošvy",
+    "Sexuálne vnímanie a vzrušenie (klitoris)",
+    "Udržiava oblasť vlhkú (Bartholiniho žľazy)"
+   ],
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Veľké pysky ohanbia",
+     "note": "Vonkajšie záhyby kože a tuku, od puberty s ochlpením."
+    },
+    {
+     "name": "Malé pysky ohanbia",
+     "note": "Tenké vnútorné záhyby okolo predsiene pošvy."
+    },
+    {
+     "name": "Klitoris",
+     "note": "Topoľovité tkanivo, ktorého malý viditeľný hrot pokračuje hlboko po oboch stranách predsiene pošvy."
+    },
+    {
+     "name": "Predsieň pošvy",
+     "note": "Priestor medzi malými pyskami s ústím močovej rúry, pošvy a Bartholiniho žliaz."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Cysta Bartholiniho žľazy",
+     "note": "Opuch na jednej strane vchodu do pošvy. Bolestivý, horúci opuch môže byť absces a vyžaduje lekára."
+    },
+    {
+     "name": "Bolesť vulvy (vulvodýnia)",
+     "note": "Pálenie alebo bolestivosť trvajúca mesiace bez viditeľnej príčiny. Je skutočná a liečiteľná: navštívte lekára."
+    },
+    {
+     "name": "Lichen sclerosus",
+     "note": "Svrbiace biele ložiská na koži. Navštívte lekára: lieči sa krémami a vyžaduje sledovanie."
+    },
+    {
+     "name": "Genitálny herpes alebo bradavice",
+     "note": "Bolestivé pľuzgieriky a ranky alebo malé nebolestivé hrčky. Ambulancia pre pohlavné choroby ich môže diskrétne vyšetriť a liečiť."
+    }
+   ]
+  },
+  "breast#female": {
+   "name": "Prsník",
+   "aka": [
+    "prsia",
+    "prsníky"
+   ],
+   "location": "Na prednej strane hrudníka nad veľkým prsným svalom, asi od 2. po 6. rebro, s výbežkom tkaniva smerom k podpazušiu.",
+   "summary": "Žľazové a tukové tkanivo, ktoré sa vyvíja v puberte. Po pôrode jeho mliečne žľazy tvoria materské mlieko, ktoré tečie vývodmi k bradavke. Väčšina jeho lymfy odteká do uzlín v podpazuší.",
+   "functions": [
+    "Po pôrode tvorí a uvoľňuje mlieko"
+   ],
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Mliečna žľaza",
+     "note": "15–20 lalokov mliečnych žliaz, každý s vývodom k bradavke."
+    },
+    {
+     "name": "Bradavka a dvorec",
+     "note": "Mliečne vývody ústia na bradavke, malé žliazky v dvorci ho udržiavajú pružný."
+    },
+    {
+     "name": "Podpazušný výbežok",
+     "note": "Pruh prsníkového tkaniva, ktorý siaha do podpazušia."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Hrčka v prsníku",
+     "note": "Väčšina hrčiek sú neškodné cysty alebo fibroadenómy, ale akákoľvek nová hrčka, zmena tvaru, vtiahnutá koža, zmena bradavky alebo výtok si vyžadujú lekára."
+    },
+    {
+     "name": "Zápal prsníka (mastitída)",
+     "note": "Bolestivé, horúce, červené miesto, zvyčajne počas dojčenia, niekedy s horúčkou. Pokračujte v dojčení alebo odsávaní a navštívte lekára, ak sa to do dňa nezlepší."
+    },
+    {
+     "name": "Bolesť prsníka",
+     "note": "Často sa objavuje a mizne s menštruáciou. Samotná bolesť je zriedka rakovina, ale ak pretrváva, dajte ju vyšetriť."
+    },
+    {
+     "name": "Rakovina prsníka",
+     "note": "Najčastejšia rakovina u žien. Poznajte, čo je pre vás normálne, a choďte na skríning, keď vás pozvú."
+    }
+   ]
+  },
+  "testis": {
+   "name": "Semenník",
+   "aka": [
+    "semenníky",
+    "testis",
+    "varlata"
+   ],
+   "location": "V miešku pod penisom. Ľavý zvyčajne visí o niečo nižšie.",
+   "summary": "Mužské pohlavné žľazy, každá veľkosti malej slivky. Od puberty tvoria spermie a hormón testosterón. Visia mimo tela, lebo spermie sa najlepšie vyvíjajú pri teplote o niekoľko stupňov nižšej, ako je telesná.",
+   "functions": [
+    "Tvorí spermie",
+    "Tvorí testosterón"
+   ],
+   "issues": [
+    {
+     "name": "Torzia semenníka",
+     "note": "Náhla, silná bolesť jedného semenníka, často s opuchom, bolesťou brucha a zvracaním, najčastejšie u dospievajúcich. Je to stav pre pohotovosť: operácia do niekoľkých hodín semenník zachráni."
+    },
+    {
+     "name": "Hrčka alebo rakovina semenníka",
+     "note": "Nebolestivá hrčka alebo opuch či pocit ťažoby v miešku. Najčastejšia medzi 15. a 49. rokom a veľmi dobre liečiteľná. Navštívte lekára."
+    },
+    {
+     "name": "Hydrokéla alebo varikokéla",
+     "note": "Mäkký, nebolestivý opuch z tekutiny (hydrokéla) alebo zo žíl, ktorý na pohmat pripomína vrecko červíkov (varikokéla). Zvyčajne neškodné, ale akýkoľvek opuch dajte vyšetriť."
+    }
+   ]
+  },
+  "epididymis": {
+   "name": "Nadsemenník",
+   "aka": [
+    "epididymis"
+   ],
+   "location": "Stočená trubica pozdĺž hornej a zadnej strany každého semenníka.",
+   "summary": "Asi šesť metrov tesne stočenej trubice, v ktorej spermie dozrievajú a sú uskladnené pred ejakuláciou.",
+   "functions": [
+    "Spermie v ňom dozrievajú a sú uskladnené"
+   ],
+   "issues": [
+    {
+     "name": "Zápal nadsemenníka (epididymitída)",
+     "note": "Bolesť a opuch na zadnej strane semenníka, ktoré narastajú počas dňa či dvoch, niekedy s horúčkou alebo pálením pri močení. Zvyčajne infekcia: navštívte lekára ešte v ten deň."
+    },
+    {
+     "name": "Cysta nadsemenníka",
+     "note": "Hladká, nebolestivá hrčka nad semenníkom a za ním. Častá a neškodná, ale každú novú hrčku dajte vyšetriť."
+    }
+   ]
+  },
+  "vas-deferens": {
+   "name": "Chámovod",
+   "aka": [
+    "semenovod"
+   ],
+   "location": "Z nadsemenníka nahor v semennom povrazci cez slabinu (slabinový kanál), potom nad močovým mechúrom a za ním k prostate.",
+   "summary": "Svalová trubica dlhá asi 45 cm, ktorá vedie spermie z nadsemenníka do močovej rúry. Jeho prerušenie (vazektómia) je trvalá forma antikoncepcie.",
+   "functions": [
+    "Vedie spermie do močovej rúry"
+   ],
+   "issues": [
+    {
+     "name": "Po vazektómii",
+     "note": "Modriny a bolesť počas týždňa či dvoch sú bežné. Zväčšujúci sa, bolestivý opuch alebo horúčka si vyžadujú lekára."
+    }
+   ]
+  },
+  "seminal-vesicle": {
+   "name": "Semenný mechúrik",
+   "location": "Za močovým mechúrom, nad prostatou.",
+   "summary": "Stočená žľaza, ktorá tvorí väčšinu tekutiny semena, bohatej na cukor (fruktózu), ktorý dodáva energiu spermiám. Jej vývod sa spája s chámovodom vnútri prostaty.",
+   "functions": [
+    "Tvorí väčšinu tekutiny semena"
+   ],
+   "issues": [
+    {
+     "name": "Krv v semene",
+     "note": "Zvyčajne neškodná a odznie sama. Navštívte lekára, ak sa opakuje alebo ak máte viac ako 40 rokov."
+    }
+   ]
+  },
+  "prostate": {
+   "name": "Prostata",
+   "aka": [
+    "predstojná žľaza"
+   ],
+   "location": "Tesne pod močovým mechúrom, ovíja sa okolo začiatku močovej rúry, pred konečníkom.",
+   "summary": "Žľaza veľkosti vlašského orecha, ktorá pridáva do semena riedku mliečnu tekutinu. S vekom rastie, a keďže ňou prechádza močová rúra, zväčšená prostata môže sťažovať močenie.",
+   "functions": [
+    "Pridáva tekutinu do semena",
+    "Pomáha uzavrieť močový mechúr pri ejakulácii"
+   ],
+   "issues": [
+    {
+     "name": "Zväčšená prostata",
+     "note": "Slabý prúd moču, časté močenie aj v noci a pocit neúplného vyprázdnenia. Častá po 50. roku a liečiteľná."
+    },
+    {
+     "name": "Zápal prostaty (prostatitída)",
+     "note": "Bolesť medzi mieškom a ritným otvorom, v dolnej časti chrbta alebo pri močení či ejakulácii, niekedy s horúčkou. Navštívte lekára."
+    },
+    {
+     "name": "Rakovina prostaty",
+     "note": "Spočiatku často bez príznakov. O vyšetrení sa porozprávajte s lekárom, najmä po 50. roku alebo po 45. roku pri výskyte v rodine či u mužov tmavej pleti."
+    }
+   ]
+  },
+  "penis": {
+   "name": "Penis",
+   "aka": [
+    "pohlavný úd"
+   ],
+   "location": "Pred mieškom, jeho koreň je pripojený k lonovým kostiam.",
+   "summary": "Vedie močovú rúru, ktorou z tela odchádza moč aj semeno. Jeho hubovité tkanivo sa pri erekcii naplní krvou a stuhne.",
+   "functions": [
+    "Odvádza moč a semeno z tela",
+    "Pri pohlavnom styku sa stáva erektívnym"
+   ],
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Topoľovité telesá",
+     "note": "Dva stĺpce hubovitého tkaniva, ktoré sa pri erekcii naplnia krvou."
+    },
+    {
+     "name": "Hubovité teleso",
+     "note": "Obklopuje močovú rúru a rozširuje sa do žaluďa."
+    },
+    {
+     "name": "Žaluď",
+     "note": "Citlivý hrot, zakrytý predkožkou, ak nie je obrezaný."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Erektilná dysfunkcia",
+     "note": "Častá, často súvisí so stavom ciev, cukrovkou, stresom alebo liekmi. Oplatí sa navštíviť lekára, lebo môže byť skorým príznakom choroby srdca."
+    },
+    {
+     "name": "Zápal žaluďa (balanitída)",
+     "note": "Bolestivosť, začervenanie a výtok pod predkožkou. Pomáha jemné umývanie, ak pretrváva, navštívte lekára."
+    },
+    {
+     "name": "Priapizmus",
+     "note": "Erekcia trvajúca viac ako štyri hodiny bez vzrušenia je stav pre pohotovosť."
+    }
+   ]
+  },
+  "scrotum": {
+   "name": "Miešok",
+   "aka": [
+    "skrótum"
+   ],
+   "location": "Vak z kože a tenkého svalu pod penisom, v ktorom sú semenníky.",
+   "summary": "Udržiava semenníky asi o 2–3 °C chladnejšie ako zvyšok tela: jeho sval ich v chlade vytiahne nahor a v teple ich nechá visieť nižšie.",
+   "functions": [
+    "Drží semenníky a udržiava ich v chlade"
+   ],
+   "issues": [
+    {
+     "name": "Opuch mieška",
+     "note": "Nebolestivý opuch je často hydrokéla alebo prietrž. Náhly, bolestivý opuch je stav pre pohotovosť."
+    },
+    {
+     "name": "Prietrž do mieška",
+     "note": "Vydutie, ktoré zostupuje do mieška pri státí alebo napínaní. Citlivý, tvrdý opuch, ktorý sa nedá vtlačiť späť, je naliehavý."
+    }
+   ]
+  },
+  "breast#male": {
+   "name": "Prsník",
+   "aka": [
+    "prsia",
+    "prsníky"
+   ],
+   "location": "Na prednej strane hrudníka nad veľkým prsným svalom, za bradavkou.",
+   "summary": "Malý disk prsníkového tkaniva za bradavkou, ktorý sa v puberte nevyvíja tak ako u žien. Jeho lymfa odteká do uzlín v podpazuší.",
+   "functions": [
+    "U mužov nemá funkciu"
+   ],
+   "issues": [
+    {
+     "name": "Gynekomastia",
+     "note": "Zväčšenie prsníkového tkaniva, časté u dospievajúcich chlapcov a starších mužov a pri niektorých liekoch či priberaní. Zvyčajne neškodné, ale s pevnou alebo jednostrannou hrčkou navštívte lekára."
+    },
+    {
+     "name": "Rakovina prsníka",
+     "note": "U mužov zriedkavá, ale nebolestivá hrčka, vtiahnutá bradavka alebo výtok si vyžadujú lekára."
+    }
+   ]
+  }
+ },
+ "groups": {
+  "nervous": {
+   "name": "Nervová sústava"
+  },
+  "endocrine": {
+   "name": "Žľazy s vnútorným vylučovaním"
+  },
+  "respiratory": {
+   "name": "Dýchacia sústava"
+  },
+  "cardiovascular": {
+   "name": "Srdce a krvný obeh"
+  },
+  "digestive": {
+   "name": "Tráviaca sústava"
+  },
+  "lymphatic": {
+   "name": "Imunitná a lymfatická sústava"
+  },
+  "urinary": {
+   "name": "Močová sústava"
+  },
+  "senses": {
+   "name": "Zmysly a koža"
+  },
+  "reproductive-female": {
+   "name": "Pohlavná sústava",
+   "summary": "Vaječníky tvoria vajíčka a hormóny estrogén a progesterón, vajíčkovody prenášajú vajíčko do maternice, ktorá nesie tehotenstvo, a pošva s vulvou sú pôrodné cesty a vonkajšie pohlavné orgány. Prsníky po pôrode tvoria mlieko."
+  },
+  "reproductive-male": {
+   "name": "Pohlavná sústava",
+   "summary": "Semenníky tvoria spermie a testosterón, nadsemenník spermie uskladňuje a chámovod ich vedie do močovej rúry, kde semenné mechúriky a prostata pridávajú tekutinu semena. Penis odvádza moč a semeno z tela."
+  }
+ }
+}

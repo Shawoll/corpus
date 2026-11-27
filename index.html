@@ -29,52 +29,52 @@
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  <a class="skip" href="#search">Skip to search</a>
+  <a class="skip" href="#search" data-i18n="app.skip">Skip to search</a>
 
   <header class="topbar">
-    <button class="icon-btn" id="browse-toggle" aria-controls="browse" aria-expanded="false" title="Browse everything">
+    <button class="icon-btn" id="browse-toggle" aria-controls="browse" aria-expanded="false" title="Browse everything" data-i18n-attr="title:app.browseAll">
       <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-      <span class="label">Browse</span>
+      <span class="label" data-i18n="app.browse">Browse</span>
     </button>
-    <a class="brand" href="#/" aria-label="Corpus, home">
+    <a class="brand" href="#/" aria-label="Corpus, home" data-i18n-attr="aria-label:app.home">
       <span class="brand-name">Corpus</span>
-      <span class="brand-sub">a connected map of the body</span>
+      <span class="brand-sub" data-i18n="app.tagline">a connected map of the body</span>
     </a>
     <div class="search" role="search">
       <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10.5 10.5 14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <label for="search" class="visually-hidden">Search the body</label>
+      <label for="search" class="visually-hidden" data-i18n="app.searchLabel">Search the body</label>
       <input id="search" type="search" placeholder="Search bones, muscles, organs, conditions…" autocomplete="off" spellcheck="false"
              role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
-      <ul id="search-results" role="listbox" aria-label="Search results" hidden></ul>
+      <ul id="search-results" role="listbox" aria-label="Search results" data-i18n-attr="aria-label:app.searchResults" hidden></ul>
     </div>
-    <div class="seg modes" role="radiogroup" aria-label="Mode">
-      <button type="button" role="radio" data-mode="explore" aria-checked="true" tabindex="0">Explore</button>
-      <button type="button" role="radio" data-mode="hurt" aria-checked="false" tabindex="-1"><span class="long">Where does it hurt?</span><span class="short">Where it hurts</span></button>
+    <div class="seg modes" role="radiogroup" aria-label="Mode" data-i18n-attr="aria-label:app.mode">
+      <button type="button" role="radio" data-mode="explore" aria-checked="true" tabindex="0" data-i18n="app.explore">Explore</button>
+      <button type="button" role="radio" data-mode="hurt" aria-checked="false" tabindex="-1"><span class="long" data-i18n="app.hurt">Where does it hurt?</span><span class="short" data-i18n="app.hurtShort">Where it hurts</span></button>
     </div>
-    <a class="icon-btn kofi" href="https://ko-fi.com/A6H428CUW3" target="_blank" rel="noopener" title="Support me on Ko-fi">
+    <a class="icon-btn kofi" href="https://ko-fi.com/A6H428CUW3" target="_blank" rel="noopener" title="Support me on Ko-fi" data-i18n-attr="title:app.kofi">
       <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h8.5v4.2a3.6 3.6 0 0 1-3.6 3.6H6.1a3.6 3.6 0 0 1-3.6-3.6z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M11 5.8h1.1a1.9 1.9 0 0 1 0 3.8H11" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6.8 10.1 5.1 8.4a1 1 0 0 1 1.7-1.3 1 1 0 0 1 1.7 1.3z" fill="currentColor"/></svg>
-      <span class="label">Support me on Ko-fi</span>
+      <span class="label" data-i18n="app.kofi">Support me on Ko-fi</span>
     </a>
     <div class="settings-wrap">
-      <button class="icon-btn" id="settings-toggle" aria-controls="settings" aria-expanded="false" title="Settings" aria-label="Settings">
+      <button class="icon-btn" id="settings-toggle" aria-controls="settings" aria-expanded="false" title="Settings" aria-label="Settings" data-i18n-attr="title:app.settings; aria-label:app.settings">
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.9 1.5h2.2l.4 1.9 1.3.6 1.7-1 1.5 1.5-1 1.7.6 1.3 1.9.4v2.2l-1.9.4-.6 1.3 1 1.7-1.5 1.5-1.7-1-1.3.6-.4 1.9H6.9l-.4-1.9-1.3-.6-1.7 1-1.5-1.5 1-1.7-.6-1.3-1.9-.4V6.9l1.9-.4.6-1.3-1-1.7 1.5-1.5 1.7 1 1.3-.6z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/><circle cx="8" cy="8" r="2.2" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
       </button>
-      <div id="settings" class="settings" role="group" aria-label="Settings" hidden></div>
+      <div id="settings" class="settings" role="group" aria-label="Settings" data-i18n-attr="aria-label:app.settings" hidden></div>
     </div>
   </header>
 
   <main class="stage">
-    <nav id="browse" class="browse" aria-label="Browse all structures" hidden></nav>
+    <nav id="browse" class="browse" aria-label="Browse all structures" data-i18n-attr="aria-label:app.browseNav" hidden></nav>
 
-    <section class="map-wrap" aria-label="Body map">
+    <section class="map-wrap" aria-label="Body map" data-i18n-attr="aria-label:app.bodyMap">
       <div id="layerbar" class="layerbar">
         <button type="button" class="layer-toggle" id="layer-toggle" aria-controls="layer-list" aria-expanded="true">
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 14 5.2 8 8.4 2 5.2z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><path d="m2 8 6 3.2L14 8M2 10.8 8 14l6-3.2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/></svg>
-          <span class="name">Layers</span>
+          <span class="name" data-i18n="layers.title">Layers</span>
         </button>
-        <div id="layer-list" class="layer-list" role="group" aria-label="Layers"></div>
+        <div id="layer-list" class="layer-list" role="group" aria-label="Layers" data-i18n-attr="aria-label:layers.title"></div>
       </div>
-      <p id="hurt-banner" class="hurt-banner" hidden>Tap the area that hurts</p>
+      <p id="hurt-banner" class="hurt-banner" data-i18n="map.tapHurt" hidden>Tap the area that hurts</p>
 
       <svg id="map" viewBox="-20 -12 520 1244" preserveAspectRatio="xMidYMid meet" role="img"
            aria-label="Front view of the human body. Use search or Browse to reach every structure by keyboard.">
@@ -87,29 +87,29 @@
       <canvas id="model3d" class="model3d" tabindex="0" role="img" hidden
               aria-label="3D model of the human body: drag or use the arrow keys to turn it. Use search or Browse to reach every structure by keyboard."></canvas>
       <p id="model-status" class="model-status" role="status" hidden></p>
-      <p class="model-credit" hidden>3D model: <a href="assets/3d/LICENSE.md" target="_blank" rel="noopener">Z-Anatomy and BodyParts3D</a>, CC BY-SA 4.0</p>
+      <p class="model-credit" hidden><span data-i18n="map.credit">3D model:</span> <a href="assets/3d/LICENSE.md" target="_blank" rel="noopener">Z-Anatomy and BodyParts3D</a>, CC BY-SA 4.0</p>
 
-      <span class="side-label l" id="side-left" title="As you face the figure"><b>R</b><small>body’s right</small></span>
-      <span class="side-label r" id="side-right" title="As you face the figure"><b>L</b><small>body’s left</small></span>
+      <span class="side-label l" id="side-left" title="As you face the figure" data-i18n-attr="title:map.sideTitle"><b>R</b><small>body’s right</small></span>
+      <span class="side-label r" id="side-right" title="As you face the figure" data-i18n-attr="title:map.sideTitle"><b>L</b><small>body’s left</small></span>
 
       <div class="tooltip" id="tooltip" hidden></div>
 
       <div class="map-controls">
-        <div class="group" role="group" aria-label="Zoom">
-          <button id="zoom-in" title="Zoom in (+)" aria-label="Zoom in"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-          <button id="zoom-out" title="Zoom out (−)" aria-label="Zoom out"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <div class="group" role="group" aria-label="Zoom" data-i18n-attr="aria-label:map.zoom">
+          <button id="zoom-in" title="Zoom in (+)" aria-label="Zoom in" data-i18n-attr="title:map.zoomInTitle; aria-label:map.zoomIn"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          <button id="zoom-out" title="Zoom out (−)" aria-label="Zoom out" data-i18n-attr="title:map.zoomOutTitle; aria-label:map.zoomOut"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
         </div>
-        <div class="group" role="group" aria-label="Move">
-          <button id="move-up" title="Move up the body (Shift + ↑)" aria-label="Move up the body" aria-keyshortcuts="Shift+ArrowUp"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 10 4.5-4.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button id="move-down" title="Move down the body (Shift + ↓)" aria-label="Move down the body" aria-keyshortcuts="Shift+ArrowDown"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button id="zoom-fit" title="Reset the view (0)" aria-label="Reset the view" aria-keyshortcuts="0"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8a4.8 4.8 0 1 0 1.5-3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4.4 1.9v2.9h2.9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="group" role="group" aria-label="Move" data-i18n-attr="aria-label:map.move">
+          <button id="move-up" title="Move up the body (Shift + ↑)" aria-label="Move up the body" data-i18n-attr="title:map.moveUpTitle; aria-label:map.moveUp" aria-keyshortcuts="Shift+ArrowUp"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 10 4.5-4.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="move-down" title="Move down the body (Shift + ↓)" aria-label="Move down the body" data-i18n-attr="title:map.moveDownTitle; aria-label:map.moveDown" aria-keyshortcuts="Shift+ArrowDown"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="zoom-fit" title="Reset the view (0)" aria-label="Reset the view" data-i18n-attr="title:map.resetTitle; aria-label:map.reset" aria-keyshortcuts="0"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8a4.8 4.8 0 1 0 1.5-3.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4.4 1.9v2.9h2.9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
       <p id="map-hint" class="map-hint">Tap a bone · scroll or pinch to zoom · drag to pan</p>
     </section>
 
-    <aside id="panel" class="panel" data-sheet="peek" aria-label="Details">
-      <div class="sheet-handle" role="button" tabindex="-1" aria-label="Resize details panel"></div>
+    <aside id="panel" class="panel" data-sheet="peek" aria-label="Details" data-i18n-attr="aria-label:app.details">
+      <div class="sheet-handle" role="button" tabindex="-1" aria-label="Resize details panel" data-i18n-attr="aria-label:app.resizePanel"></div>
       <div id="panel-body" aria-live="polite">
         <div class="panel-inner"><p class="eyebrow">Loading the body…</p></div>
       </div>

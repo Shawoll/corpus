@@ -2,6 +2,8 @@
 // answer in the "corpus" cache, used when there is no network. This module registers it, hands it what the page
 // loaded before it was running (the first visit), and backs "Save for offline" in the settings: everything a visit
 // fetches only on demand (the realistic drawings, the 3D view: three.js and every model), fetched now.
+import { allLangFiles } from './i18n.js';
+
 const CACHE = 'corpus'; // the same name as in sw.js
 
 // file:// and plain http (other than localhost) have no service workers
@@ -43,7 +45,7 @@ async function handOver() {
 }
 
 // The files a visit fetches only on demand, from the manifest: every view's drawings in every style, the 3D models,
-// the skin, the 3D keys and the model licence. (The data and the default drawings load on every visit.)
+// the skin, the 3D keys and the model licence, and the other languages. (The data and the default drawings load on every visit.)
 export function onDemandFiles(manifest) {
   const out = new Set();
   const add = (spec) => {
@@ -53,6 +55,8 @@ export function onDemandFiles(manifest) {
   for (const l of manifest.layers) { add(l.svg); add(l.styles); add(l.model); }
   add(manifest.regions?.svg);
   add(manifest.model3d);
+  // every language's strings and data overlays (a visit loads only English and the language on show)
+  allLangFiles(manifest).forEach(add);
   return [...out].map((p) => new URL(p, location.href).href);
 }
 // three.js and the 3D view's own module, which only load with the 3D view

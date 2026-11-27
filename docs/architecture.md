@@ -18,16 +18,19 @@ js/browse.js            the browse list (keyboard access to everything)
 js/router.js            hash routes
 js/state.js             a tiny observable store
 js/sex.js               biological sex: filters the data for one setting (forSex)
+js/i18n.js              languages: interface strings (t), data overlays (forLang) (i18n.md)
 js/model3d.js           the 3D view (three.js): models, picking, highlights, camera
 js/offline.js           registers sw.js, "Save for offline"
 js/validate.js          the data check (pure), shared by ?debug and tools/check.mjs
 js/vendor/three/        three.js r170 (MIT): the module, GLTFLoader, OrbitControls, the meshopt decoder
-data/                   the anatomy as JSON (data.md)
+data/                   the anatomy as JSON, in English (data.md)
+locales/                interface strings and translations of the data (i18n.md)
 assets/svg/             one drawing per layer, view and style (drawings.md)
 assets/3d/              one .glb per layer, the skin, keys.json and the model licence (3d-model.md)
 assets/fonts/           Source Serif 4 (WOFF2, Latin subset) and its OFL licence
 assets/icons/           app icons for the home screen
 tools/check.mjs         the data check, headless
+tools/i18n.mjs          translation status, to-do lists and snapshots (i18n.md)
 tools/realistic/        generator for the realistic drawings (Python + shapely, drawing only)
 tools/model3d/          builds assets/3d/ from the Z-Anatomy models (Python + numpy + meshoptimizer, drawing only)
 docs/                   these guides
@@ -35,7 +38,7 @@ docs/                   these guides
 
 ## How it starts
 
-`js/main.js` loads `data/manifest.json`, then in parallel every layer's JSON, its default drawing for each view, the link files and the regions. It builds the graph, mounts every drawing into the single `<svg id="map">` and wires up the store, the router, the panel, search, browse and the controls. All the panel's interactivity is declared with data attributes (`data-nav`, `data-keys`…) and handled by delegation in `main.js`.
+`js/main.js` loads `data/manifest.json`, then in parallel every layer's JSON, its default drawing for each view, the link files, the regions, and the English and chosen language's strings and overlays ([i18n.md](i18n.md)). It builds the graph, mounts every drawing into the single `<svg id="map">` and wires up the store, the router, the panel, search, browse and the controls. All the panel's interactivity is declared with data attributes (`data-nav`, `data-keys`…) and handled by delegation in `main.js`.
 
 What isn't needed for the first paint loads on demand: the realistic drawings the first time that style is shown, and the 3D view (three.js and one model per visible layer) the first time it is opened. Once the page has loaded, `js/offline.js` starts the service worker.
 
@@ -48,13 +51,13 @@ What isn't needed for the first paint loads on demand: the realistic drawings th
 - Side rules decide which sides connect: paired to paired on the same side, midline to both sides, and an explicit `:side` or link `side` narrows it.
 - Unknown ids and groups are collected in `graph.problems` instead of throwing, so a typo only shows in the data check.
 
-One graph is built per biological sex setting (Not set, Female, Male), from the data filtered by `js/sex.js`. Switching the setting swaps the graph.
+One graph is built per biological sex setting (Not set, Female, Male), from the data in the chosen language (`js/i18n.js`'s `forLang`) filtered by `js/sex.js`. Switching the setting swaps the graph; switching the language rebuilds them.
 
 ## Routes and state
 
 Routes live in the URL hash: `#/s/<id>[/<side>]` for a structure, `#/g/<group>`, `#/hurt` and `#/r/<region>[/<side>]`. Navigation always goes `Router.go()` → `hashchange` → `onRoute()` → `store.set()` → render. The store (`js/state.js`) compares fields by reference, so every change passes a new object.
 
-The view (Front, Back, 3D), drawing style, biological sex, theme, joints and mirror are preferences, saved in `localStorage` under `corpus:` keys and not part of the route. When a route's structure isn't drawn in the current view, or exists only for another sex, `onRoute()` switches to one where it is.
+The view (Front, Back, 3D), drawing style, biological sex, language, theme, joints and mirror are preferences, saved in `localStorage` under `corpus:` keys and not part of the route. When a route's structure isn't drawn in the current view, or exists only for another sex, `onRoute()` switches to one where it is.
 
 ## Drawing it
 
@@ -64,4 +67,4 @@ The view (Front, Back, 3D), drawing style, biological sex, theme, joints and mir
 
 ## The data check
 
-`js/validate.js` is pure (no DOM). `node tools/check.mjs` runs it headless (and CI runs that on every push), and `?debug` runs it in the browser with a console table and a badge. It runs once per biological sex setting.
+`js/validate.js` is pure (no DOM). `node tools/check.mjs` runs it headless (and CI runs that on every push), and `?debug` runs it in the browser with a console table and a badge. It runs once per biological sex setting, and checks every translation against English.

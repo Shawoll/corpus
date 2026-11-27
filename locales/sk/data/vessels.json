@@ -1,0 +1,858 @@
+{
+ "structures": {
+  "aorta": {
+   "name": "Aorta",
+   "aka": [
+    "srdcovnica",
+    "hlavná tepna"
+   ],
+   "summary": "Hlavná tepna tela, široká asi ako záhradná hadica. Vychádza z ľavej komory, oblúkom sa prehýba nad srdcom, vedie nadol popri chrbtici cez hrudník a bránicu a pred štvrtým driekovým stavcom sa delí na dve bedrové tepny.",
+   "suppliesNote": "Priamo, cez malé párové vetvy po celej dĺžke: priedušnicové, pažerákové, medzirebrové, driekové, bránicové a stredné nadobličkové tepny. Jej veľké pomenované vetvy majú vlastné stránky.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Vzostupná aorta",
+     "note": "Stúpa zo srdca. Pri jej koreni odstupujú vencovité tepny."
+    },
+    {
+     "name": "Oblúk aorty",
+     "note": "Prehýba sa nad srdcom a vydáva tepny pre hlavu a ruky."
+    },
+    {
+     "name": "Hrudná aorta",
+     "note": "Vedie nadol popri chrbtici cez hrudník."
+    },
+    {
+     "name": "Brušná aorta",
+     "note": "Od bránice po rozdelenie pri štvrtom driekovom stavci."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Výduť brušnej aorty",
+     "note": "Vydutie brušnej aorty, najčastejšie u starších fajčiarov. Zvyčajne nespôsobuje ťažkosti a odhalí ju skríning. Náhla silná bolesť brucha alebo chrbta s kolapsom môže znamenať jej prasknutie. Volajte záchrannú službu."
+    },
+    {
+     "name": "Disekcia aorty",
+     "note": "Roztrhnutie steny aorty: náhla, prudká, trhavá bolesť v hrudníku alebo chrbte. Volajte záchrannú službu."
+    }
+   ]
+  },
+  "pulmonary-trunk": {
+   "name": "Pľúcny kmeň",
+   "aka": [
+    "pľúcne tepny",
+    "pľúcnica"
+   ],
+   "carries": "Odkysličenú krv do pľúc",
+   "summary": "Vychádza z pravej komory a pod oblúkom aorty sa delí na pravú a ľavú pľúcnu tepnu. Sú to jediné tepny, ktoré vedú odkysličenú krv, a tá ide do pľúc pre kyslík.",
+   "suppliesNote": "Vedie krv cez pľúca na okysličenie. Samotné pľúcne tkanivo vyživujú malé priedušnicové tepny z aorty.",
+   "members": [
+    {
+     "name": "Pravá pľúcna tepna",
+     "note": "Prechádza za aortou a hornou dutou žilou k pravým pľúcam."
+    },
+    {
+     "name": "Ľavá pľúcna tepna",
+     "note": "Kratšia, k ľavým pľúcam."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Pľúcna embólia",
+     "note": "Krvná zrazenina, zvyčajne zo žily na nohe, uviazne v pľúcnych tepnách: náhla dýchavičnosť, ostrá bolesť na hrudi horšia pri nádychu, niekedy vykašliavanie krvi. Volajte záchrannú službu."
+    },
+    {
+     "name": "Pľúcna hypertenzia",
+     "note": "Vysoký tlak v pľúcnych tepnách spôsobuje dýchavičnosť pri námahe a únavu. Vyžaduje vyšetrenie u špecialistu."
+    }
+   ]
+  },
+  "coronary-arteries": {
+   "name": "Vencovité tepny",
+   "aka": [
+    "koronárne tepny",
+    "srdcové tepny",
+    "LAD"
+   ],
+   "summary": "Vlastné krvné zásobenie srdca: dve tepny, ktoré odstupujú z úplného začiatku aorty a vedú v ryhách na povrchu srdca. Ľavá sa skoro delí na prednú zostupnú (LAD) a cirkumflexnú vetvu.",
+   "membersLabel": "Tepny",
+   "members": [
+    {
+     "name": "Pravá vencovitá tepna",
+     "note": "Pravá strana srdca a u väčšiny ľudí aj prirodzený srdcový udavač rytmu."
+    },
+    {
+     "name": "Ľavá predná zostupná tepna (LAD)",
+     "note": "Predná strana srdca a priehradka medzi komorami."
+    },
+    {
+     "name": "Cirkumflexná tepna",
+     "note": "Ľavá a zadná strana srdca."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Ischemická choroba srdca",
+     "note": "Zúženie tukovými plátmi spôsobuje angínu pektoris: tlak na hrudi pri námahe, ktorý ustúpi v pokoji. Vyžaduje lekárske vyšetrenie."
+    },
+    {
+     "name": "Infarkt",
+     "note": "Zrazenina upchá vencovitú tepnu: zvieravá bolesť na hrudi, ktorá sa môže šíriť do ruky, sánky alebo chrbta, s potením alebo dýchavičnosťou. Volajte záchrannú službu."
+    }
+   ]
+  },
+  "brachiocephalic-trunk": {
+   "name": "Ramenno-hlavový kmeň",
+   "aka": [
+    "truncus brachiocephalicus"
+   ],
+   "summary": "Prvá a najväčšia vetva oblúka aorty. Vedie hore a doprava za hrudnou kosťou a za pravým hrudnokľúčnym kĺbom sa delí na pravú spoločnú krčnicu a pravú podkľúčovú tepnu. Ľavý neexistuje: vľavo tieto dve tepny odstupujú priamo z oblúka."
+  },
+  "common-carotid-artery": {
+   "name": "Spoločná krčnica",
+   "aka": [
+    "krčná tepna",
+    "karotída",
+    "spoločná krčná tepna"
+   ],
+   "pulse": "Bok krku, vedľa priedušnice",
+   "summary": "Stúpa po krku vedľa priedušnice, pod predným okrajom zvierača hlavy, a vo výške horného okraja hrtana sa delí. Vnútorná krčnica vstupuje do lebky a vyživuje mozog a oko, vonkajšia krčnica vyživuje tvár, vlasovú časť hlavy, sánku a štítnu žľazu.",
+   "suppliesNote": "Mozog, oko, okohybné svaly a hypofýzu cez vnútornú krčnicu (jej horná časť je nakreslená slabo, za sánkou). Tvár, vlasovú časť hlavy, štítnu žľazu a sánku cez vonkajšiu krčnicu.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Vnútorná krčnica",
+     "note": "Do lebky, k prednej a strednej časti mozgu a k oku."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Ochorenie krčnice",
+     "note": "Zúženie v mieste rozdelenia môže uvoľňovať zrazeniny do mozgu. Prechodný ischemický atak (TIA) s krátkou slabosťou, necitlivosťou, stratou reči alebo stratou zraku na jedno oko je varovanie: dajte sa naliehavo vyšetriť ešte v ten deň."
+    },
+    {
+     "name": "Mozgová porážka",
+     "note": "Pokleslá tvár, slabosť ruky alebo ťažkosti s rečou: okamžite volajte záchrannú službu."
+    }
+   ]
+  },
+  "external-carotid-artery": {
+   "name": "Vonkajšia krčnica",
+   "aka": [
+    "vonkajšia krčná tepna"
+   ],
+   "summary": "Vetva spoločnej krčnice, ktorá vyživuje všetko v hlave mimo lebky: štítnu žľazu, jazyk, tvár, sánku a vlasovú časť hlavy. Stúpa za uhlom sánky vnútri príušnej žľazy a končí tesne pred uchom rozdelením na povrchovú spánkovú a čeľustnú tepnu.",
+   "membersLabel": "Ďalšie vetvy",
+   "members": [
+    {
+     "name": "Horná štítna tepna",
+     "note": "K štítnej žľaze a hrtanu."
+    },
+    {
+     "name": "Jazyková tepna",
+     "note": "K jazyku."
+    },
+    {
+     "name": "Čeľustná tepna",
+     "note": "Hlboko v tvári: čeľuste, zuby, žuvacie svaly a obal lebky (stredná tepna tvrdej pleny)."
+    },
+    {
+     "name": "Záhlavová tepna",
+     "note": "K zadnej časti vlasovej časti hlavy."
+    }
+   ]
+  },
+  "facial-artery": {
+   "name": "Tvárová tepna",
+   "pulse": "Dolný okraj sánky, tesne pred žuvacím svalom",
+   "summary": "Ohýba sa cez dolný okraj sánky tesne pred žuvacím svalom, kde cítiť jej pulz, a potom sa vinie hore popri kútiku úst a boku nosa k vnútornému kútiku oka. Vyživuje pery, líce a nos, a preto rany na tvári tak silno krvácajú.",
+   "suppliesNote": "Podsánkovú žľazu, nos, pery a mimické svaly."
+  },
+  "superficial-temporal-artery": {
+   "name": "Povrchová spánková tepna",
+   "pulse": "Tesne pred uchom, nad čeľustným kĺbom",
+   "summary": "Koniec vonkajšej krčnice. Stúpa tesne pred uchom, kde sa jej pulz ľahko nahmatá, a rozvetvuje sa cez spánok a vlasovú časť hlavy. Jej kľukaté vetvy sú u starších ľudí často viditeľné pod kožou spánku.",
+   "suppliesNote": "Prednú časť ucha, čelo a kožu spánku a vlasovej časti hlavy.",
+   "issues": [
+    {
+     "name": "Obrovskobunková arteritída",
+     "note": "Zapálené spánkové tepny, takmer výlučne po 50. roku: nová bolesť hlavy, citlivá vlasová časť hlavy alebo spánok a bolesť sánky pri žuvaní. Navštívte lekára ešte v ten deň, lebo môže poškodiť zrak. Akákoľvek strata alebo rozmazanie zraku je stav pre pohotovosť."
+    }
+   ]
+  },
+  "vertebral-artery": {
+   "name": "Stavcová tepna",
+   "aka": [
+    "vertebrálna tepna"
+   ],
+   "summary": "Odstupuje z podkľúčovej tepny a stúpa otvormi v priečnych výbežkoch krčných stavcov do lebky. Obe sa na spodine mozgu spájajú do bazilárnej tepny, ktorá vyživuje mozgový kmeň, mozoček a zadnú časť mozgu. Nakreslená slabo, lebo vedie vnútri stavcov.",
+   "issues": [
+    {
+     "name": "Disekcia stavcovej tepny",
+     "note": "Roztrhnutie steny, niekedy po poranení krku alebo prudkom pohybe krkom: bolesť krku alebo hlavy, po ktorej nasleduje závrat, neistota, dvojité videnie alebo zastretá reč. Volajte záchrannú službu."
+    }
+   ]
+  },
+  "subclavian-artery": {
+   "name": "Podkľúčová tepna",
+   "summary": "Oblúkom sa prehýba cez prvé rebro tesne nad kľúčnou kosťou a vedie krv do ruky. Vpravo odstupuje z ramenno-hlavového kmeňa, vľavo priamo z oblúka aorty. Pri vonkajšom okraji prvého rebra sa mení na podpazušnú tepnu.",
+   "suppliesNote": "Cez štítno-krčný kmeň (štítna žľaza, svaly krku a ramena), chrbtovú lopatkovú tepnu a vnútornú hrudnú tepnu, ktorá vedie nadol vnútri prednej steny hrudníka vedľa hrudnej kosti a vyživuje aj vnútornú časť prsníka.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Štítno-krčný kmeň",
+     "note": "Dolná časť štítnej žľazy a svaly krku a ramena."
+    },
+    {
+     "name": "Vnútorná hrudná tepna",
+     "note": "Vedie nadol vedľa hrudnej kosti k hrudnej stene a priamemu brušnému svalu. Chirurgovia ju často používajú pri bypassoch srdca."
+    },
+    {
+     "name": "Chrbtová lopatková tepna",
+     "note": "Rombické svaly a svaly nad lopatkou."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Syndróm podkľúčového odberu",
+     "note": "Zúžená podkľúčová tepna môže spôsobiť bolesť ruky pri námahe a závraty. Veľký rozdiel krvného tlaku medzi rukami treba vyšetriť."
+    }
+   ]
+  },
+  "axillary-artery": {
+   "name": "Podpazušná tepna",
+   "summary": "Tepna podpazušia, od prvého rebra po dolný okraj veľkého oblého svalu, kde sa mení na ramennú tepnu. Vedie za malým prsným svalom a okolo nej sú zväzky ramennej spleti.",
+   "suppliesNote": "Cez hrudno-nadpleckovú, vonkajšiu hrudnú, podlopatkovú a cirkumflexné ramenné tepny. Vonkajšia hrudná tepna vyživuje aj vonkajšiu časť prsníka.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Hrudno-nadplecková tepna",
+     "note": "Prsné svaly, deltový sval a vrch ramena."
+    },
+    {
+     "name": "Vonkajšia hrudná tepna",
+     "note": "Predný pílovitý sval a bok hrudnej steny."
+    },
+    {
+     "name": "Podlopatková tepna",
+     "note": "Svaly lopatky a najširší sval chrbta."
+    },
+    {
+     "name": "Cirkumflexné ramenné tepny",
+     "note": "Ovíjajú sa okolo krčka ramennej kosti k deltovému svalu a ramennému kĺbu."
+    }
+   ]
+  },
+  "brachial-artery": {
+   "name": "Ramenná tepna",
+   "pulse": "Vnútorná strana lakťovej jamky, kde sa meria krvný tlak",
+   "summary": "Hlavná tepna ramena. Vedie nadol po vnútornej strane dvojhlavého svalu do lakťovej jamky, kde ju počúva manžeta tlakomeru, a tesne pod lakťom sa delí na vretennú a lakťovú tepnu.",
+   "suppliesNote": "Trojhlavý sval ramena a ramennú kosť cez svoju hlbokú vetvu (hlboká ramenná tepna).",
+   "members": [
+    {
+     "name": "Hlboká ramenná tepna",
+     "note": "Vedie s vretenným nervom okolo zadnej strany ramennej kosti."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Poranenie pri zlomenine lakťa",
+     "note": "Výrazne posunutá zlomenina lakťa, najmä u detí, ju môže stlačiť. Studená, bledá ruka alebo silná bolesť predlaktia po poranení lakťa si vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "radial-artery": {
+   "name": "Vretenná tepna",
+   "aka": [
+    "radiálna tepna"
+   ],
+   "pulse": "Zápästie, pri báze palca",
+   "summary": "Vedie nadol po palcovej strane predlaktia pod ramenno-vretenným svalom. Na zápästí leží tesne pod kožou, kde sa meria pulz, potom sa stáča okolo bázy palca do ruky a tvorí hlboký dlaňový oblúk.",
+   "suppliesNote": "Jej vetvy sa ku člnkovej kosti dostávajú hlavne zo vzdialeného konca, preto zlomenina stredom člnkovej kosti môže odrezať prívod krvi do bližšej polovice."
+  },
+  "ulnar-artery": {
+   "name": "Lakťová tepna",
+   "aka": [
+    "ulnárna tepna"
+   ],
+   "pulse": "Zápästie, na malíčkovej strane (slabší)",
+   "summary": "Väčšia z dvoch tepien predlaktia. Vedie nadol po malíčkovej strane predlaktia vedľa lakťového nervu a vstupuje do dlane vedľa hráškovitej kosti, kde tvorí povrchový dlaňový oblúk.",
+   "suppliesNote": "Zadnú stranu predlaktia cez svoje medzikostné vetvy."
+  },
+  "palmar-arches": {
+   "name": "Dlaňové oblúky",
+   "summary": "Dve tepnové slučky naprieč dlaňou, ktoré spájajú vretennú a lakťovú tepnu, takže ruka má dvojité zásobenie. Povrchový oblúk leží pod kožou dlane, hlboký pri kostiach. Spolu vysielajú tepnu po každej strane každého prsta.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Povrchový dlaňový oblúk",
+     "note": "Hlavne z lakťovej tepny."
+    },
+    {
+     "name": "Hlboký dlaňový oblúk",
+     "note": "Hlavne z vretennej tepny."
+    },
+    {
+     "name": "Prstové tepny",
+     "note": "Vedú po oboch stranách každého prsta."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Raynaudov fenomén",
+     "note": "V chlade prsty zbelejú, potom zmodrajú a pri zahrievaní sčervenajú, lebo sa malé tepny stiahnu. Udržujte ruky v teple. Navštívte lekára, ak postihuje len jednu stranu, je výrazný alebo spôsobuje ranky."
+    }
+   ]
+  },
+  "celiac-trunk": {
+   "name": "Trupový kmeň",
+   "aka": [
+    "truncus coeliacus",
+    "celiakálny kmeň"
+   ],
+   "summary": "Krátka, široká tepna, ktorá odstupuje z prednej strany aorty tesne pod bránicou. Do centimetra sa rozdelí na tri vetvy, ktoré vyživujú orgány hornej časti brucha: žalúdok, pečeň, žlčník, slezinu a podžalúdkovú žľazu.",
+   "suppliesNote": "Cez svoje tri vetvy. Najnižšiu časť pažeráka vyživuje ľavá žalúdková tepna.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Ľavá žalúdková tepna",
+     "note": "Horná časť žalúdka a dolná časť pažeráka."
+    },
+    {
+     "name": "Slezinová tepna",
+     "note": "Vinie sa po hornom okraji podžalúdkovej žľazy k slezine."
+    },
+    {
+     "name": "Spoločná pečeňová tepna",
+     "note": "Pečeň, žlčník (cez žlčníkovú tepnu) a prvá časť tenkého čreva."
+    }
+   ]
+  },
+  "superior-mesenteric-artery": {
+   "name": "Horná mezenterická tepna",
+   "aka": [
+    "horná okružná tepna",
+    "AMS",
+    "SMA"
+   ],
+   "summary": "Odstupuje z prednej strany aorty tesne pod trupovým kmeňom a vedie nadol do mezentéria, vejára tkaniva, ktorý drží tenké črevo. Vyživuje celé tenké črevo, červovitý prívesok a hrubé črevo asi do dvoch tretín jeho priečnej časti.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Lačníkové a bedrovníkové tepny",
+     "note": "Vejár 15 a viac vetiev k tenkému črevu."
+    },
+    {
+     "name": "Bedrovníkovo-hrubočrevná tepna",
+     "note": "Koniec tenkého čreva, slepé črevo a červovitý prívesok."
+    },
+    {
+     "name": "Pravá hrubočrevná tepna",
+     "note": "Vzostupná časť hrubého čreva."
+    },
+    {
+     "name": "Stredná hrubočrevná tepna",
+     "note": "Väčšina priečnej časti hrubého čreva."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Mezenterická ischémia",
+     "note": "Upchatá tepna čreva: náhla, prudká bolesť brucha, ktorá sa zdá neúmerná tomu, čo lekár zistí, často u starších ľudí s nepravidelným tepom. Volajte záchrannú službu."
+    }
+   ]
+  },
+  "inferior-mesenteric-artery": {
+   "name": "Dolná mezenterická tepna",
+   "aka": [
+    "dolná okružná tepna",
+    "AMI",
+    "IMA"
+   ],
+   "summary": "Najmenšia z troch tepien čreva, odstupuje z aorty nízko v bruchu. Vedie nadol a doľava a vyživuje poslednú tretinu hrubého čreva a konečník.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Ľavá hrubočrevná tepna",
+     "note": "Zostupná časť hrubého čreva."
+    },
+    {
+     "name": "Esovité tepny",
+     "note": "Esovité hrubé črevo."
+    },
+    {
+     "name": "Horná konečníková tepna",
+     "note": "Konečník."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Ischemická kolitída",
+     "note": "Znížený prietok krvi do ľavej strany hrubého čreva: náhla kŕčovitá bolesť vľavo s krvavou hnačkou. Naliehavo navštívte lekára."
+    }
+   ]
+  },
+  "renal-artery": {
+   "name": "Obličková tepna",
+   "aka": [
+    "renálna tepna"
+   ],
+   "summary": "Odstupuje z boku aorty tesne pod hornou mezenterickou tepnou a vstupuje do obličky v jej zárezu (hile). Pravá je dlhšia a prechádza za dolnou dutou žilou. Spolu vedú asi pätinu všetkej krvi, ktorú srdce prečerpá.",
+   "issues": [
+    {
+     "name": "Stenóza obličkovej tepny",
+     "note": "Zúžená obličková tepna môže spôsobovať ťažko kontrolovateľný vysoký krvný tlak a pomaly znižovať funkciu obličky. Vyžaduje vyšetrenie u špecialistu."
+    }
+   ]
+  },
+  "iliac-artery": {
+   "name": "Bedrové tepny",
+   "aka": [
+    "iliakálne tepny"
+   ],
+   "summary": "Aorta končí rozdelením na dve spoločné bedrové tepny. Každá sa delí pred krížovo-bedrovým kĺbom: vnútorná bedrová tepna ide nadol do panvy a vonkajšia vedie po okraji panvy k slabine, kde sa mení na stehennú tepnu.",
+   "suppliesNote": "Panvové orgány, pohlavné orgány, sedaciu oblasť a panvové dno cez vnútornú bedrovú tepnu (sedacie, zapchávacie, maternicové, mechúrové a ohanbové tepny). Dolnú brušnú stenu cez dolnú epigastrickú tepnu z vonkajšej bedrovej tepny.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Spoločná bedrová tepna",
+     "note": "Od konca aorty po krížovo-bedrový kĺb."
+    },
+    {
+     "name": "Vnútorná bedrová tepna",
+     "note": "Močový mechúr, panvové dno, sedacia oblasť a pohlavné orgány."
+    },
+    {
+     "name": "Vonkajšia bedrová tepna",
+     "note": "Po okraji panvy k slabine."
+    },
+    {
+     "name": "Dolná epigastrická tepna",
+     "note": "Stúpa za priamym brušným svalom."
+    },
+    {
+     "name": "Maternicová tepna",
+     "note": "Vedie naprieč dnom panvy k boku maternice a po ňom nahor, vyživuje aj krčok maternice, pošvu a vajíčkovod."
+    },
+    {
+     "name": "Vnútorná ohanbová tepna",
+     "note": "Opúšťa panvu spolu s ohanbovým nervom a ide k hrádzi, vonkajším pohlavným orgánom a dolnému koncu čreva."
+    }
+   ]
+  },
+  "ovarian-artery": {
+   "name": "Vaječníková tepna",
+   "summary": "Dlhá, tenká tepna z prednej strany brušnej aorty tesne pod obličkovými tepnami. Vedie nadol po veľkom driekovom svale, pri okraji panvy kríži bedrové cievy a k vaječníku sa dostane v riase tkaniva. Vaječníky vznikajú vysoko v bruchu, preto ich tepny začínajú tak vysoko.",
+   "suppliesNote": "Pri maternici sa spája s maternicovou tepnou, takže vaječník a vajíčkovod sú vyživované z oboch."
+  },
+  "testicular-artery": {
+   "name": "Semenníková tepna",
+   "summary": "Dlhá, tenká tepna z prednej strany brušnej aorty tesne pod obličkovými tepnami. Vedie nadol po veľkom driekovom svale a cez slabinu (slabinový kanál) v semennom povrazci k semenníku. Semenníky vznikajú vysoko v bruchu a pred narodením zostupujú, preto ich tepny začínajú tak vysoko."
+  },
+  "femoral-artery": {
+   "name": "Stehenná tepna",
+   "aka": [
+    "femorálna tepna"
+   ],
+   "pulse": "Slabina, v polovici medzi kostným výbežkom bedra a lonovou kosťou",
+   "summary": "Hlavná tepna stehna. Vstupuje pod slabinovým väzom v strede slabiny, kde sa jej pulz ľahko nahmatá, vedie nadol po vnútornej prednej strane stehna pod krajčírskym svalom a cez otvor v priťahovačoch prechádza do zadnej strany kolena.",
+   "suppliesNote": "Väčšinu stehna cez svoju hlbokú vetvu (hlboká stehenná tepna, nakreslená slabo), ktorej cirkumflexné vetvy vyživujú aj hlavicu stehennej kosti. Zlomenina krčka stehennej kosti ich môže roztrhnúť.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Hlboká stehenná tepna",
+     "note": "Hlavné zásobenie svalov stehna, vedie hlboko blízko stehennej kosti."
+    },
+    {
+     "name": "Vonkajšia cirkumflexná stehenná tepna",
+     "note": "Vonkajšie svaly stehna a bedrový kĺb."
+    },
+    {
+     "name": "Vnútorná cirkumflexná stehenná tepna",
+     "note": "Hlavné zásobenie hlavice stehennej kosti."
+    }
+   ]
+  },
+  "popliteal-artery": {
+   "name": "Podkolenná tepna",
+   "pulse": "Hlboko za kolenom (ťažko nahmatateľný)",
+   "summary": "Pokračuje zo stehennej tepny za kolenom, hlboko v podkolennej jamke. Vysiela vetvy okolo kolenného kĺbu a pod ním sa delí na prednú a zadnú píšťalovú tepnu. V prednom pohľade nakreslená slabo, lebo leží za kolenom.",
+   "suppliesNote": "Koleno cez kolenné tepny a svaly lýtka cez lýtkové tepny.",
+   "issues": [
+    {
+     "name": "Výduť podkolennej tepny",
+     "note": "Rozšírenie tepny za kolenom, často na oboch stranách. Môžu sa v nej tvoriť zrazeniny, ktoré upchajú prívod krvi do predkolenia. Pulzujúcu hrčku za kolenom treba vyšetriť."
+    }
+   ]
+  },
+  "anterior-tibial-artery": {
+   "name": "Predná píšťalová tepna",
+   "summary": "Prechádza dopredu medzi píšťalou a ihlicou a vedie nadol po prednej strane predkolenia s hlbokým ihlicovým nervom. Pred členkom sa mení na chrbtovú tepnu nohy, ktorej pulz cítiť na chrbte chodidla."
+  },
+  "dorsalis-pedis-artery": {
+   "name": "Chrbtová tepna nohy",
+   "aka": [
+    "arteria dorsalis pedis"
+   ],
+   "pulse": "Chrbát chodidla, tesne vedľa šľachy palca",
+   "summary": "Pokračovanie prednej píšťalovej tepny za prednou stranou členka. Vedie po chrbte chodidla k medzere medzi prvými dvoma prstami, kde sa zanorí do chodidla a spojí sa s chodidlovým oblúkom. Lekári nahmatávajú jej pulz, aby skontrolovali prekrvenie nohy.",
+   "suppliesNote": "A kožu na chrbte chodidla.",
+   "issues": [
+    {
+     "name": "Slabý alebo chýbajúci pulz na nohe",
+     "note": "Častý pri ochorení periférnych tepien a cukrovke, hoci u niekoľkých zdravých ľudí sa ho jednoducho ťažko nájde. Studená, bledá, bolestivá noha si vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "posterior-tibial-artery": {
+   "name": "Zadná píšťalová tepna",
+   "pulse": "Za vnútorným členkom",
+   "summary": "Väčšia vetva podkolennej tepny. Vedie hlboko v lýtku, potom za vnútorným členkom do chodidla, kde sa delí na chodidlové tepny. Jej ihlicová vetva vyživuje vonkajšiu stranu predkolenia. V prednom pohľade nakreslená slabo, lebo leží za kosťami.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Ihlicová tepna",
+     "note": "Vedie nadol za ihlicou k vonkajšej strane predkolenia a členku."
+    },
+    {
+     "name": "Chodidlové tepny",
+     "note": "Chodidlo a prsty."
+    }
+   ]
+  },
+  "superior-vena-cava": {
+   "name": "Horná dutá žila",
+   "aka": [
+    "vena cava superior",
+    "HDŽ"
+   ],
+   "summary": "Krátka, široká žila, ktorá zbiera všetku krv z hlavy, krku a rúk a vlieva ju do pravej predsiene. Vzniká za pravou stranou hrudnej kosti spojením dvoch ramenno-hlavových žíl.",
+   "issues": [
+    {
+     "name": "Syndróm hornej dutej žily",
+     "note": "Upchatie, zvyčajne nádorom alebo zrazeninou, spôsobí opuch tváre, krku a rúk s dýchavičnosťou. Vyžaduje naliehavú lekársku starostlivosť."
+    }
+   ]
+  },
+  "pulmonary-veins": {
+   "name": "Pľúcne žily",
+   "carries": "Okysličenú krv z pľúc do srdca",
+   "summary": "Dve žily z každých pľúc, ktoré privádzajú čerstvo okysličenú krv do ľavej predsiene. Sú to jediné žily, ktoré vedú okysličenú krv. V prednom pohľade nakreslené slabo, lebo vstupujú do zadnej strany srdca.",
+   "issues": [
+    {
+     "name": "Fibrilácia predsiení",
+     "note": "Najčastejšia porucha srdcového rytmu často začína vo svalovine okolo ústí pľúcnych žíl. Búšenie srdca alebo nepravidelný pulz si vyžadujú lekára. S bolesťou na hrudi alebo odpadnutím vyhľadajte naliehavú pomoc."
+    }
+   ]
+  },
+  "brachiocephalic-vein": {
+   "name": "Ramenno-hlavová žila",
+   "aka": [
+    "vena brachiocephalica"
+   ],
+   "summary": "Vzniká na každej strane za vnútorným koncom kľúčnej kosti spojením vnútornej krčnej a podkľúčovej žily. Ľavá je asi dvakrát dlhšia a kríži sa pred vetvami oblúka aorty. Obe sa spájajú do hornej dutej žily."
+  },
+  "internal-jugular-vein": {
+   "name": "Vnútorná krčná žila",
+   "aka": [
+    "krčná žila",
+    "jugulárna žila"
+   ],
+   "summary": "Odvádza krv z mozgu, tváre a krku. Vystupuje z lebky cez jugulárny otvor (jej horná časť je nakreslená slabo, za sánkou) a vedie nadol krkom v pošve spolu s krčnicou a blúdivým nervom, hlboko pod zvieračom hlavy.",
+   "issues": [
+    {
+     "name": "Zvýšený tlak v krčných žilách",
+     "note": "Viditeľne zväčšené krčné žily v sede môžu byť príznakom zlyhávania srdca. Lekár to kontroluje pri vyšetrení."
+    }
+   ]
+  },
+  "external-jugular-vein": {
+   "name": "Vonkajšia krčná žila",
+   "summary": "Povrchová žila, ktorá vedie spoza uhla sánky nadol cez zvierač hlavy tesne nad stred kľúčnej kosti. Často vystúpi, keď sa človek namáha, spieva alebo kričí."
+  },
+  "subclavian-vein": {
+   "name": "Podkľúčová žila",
+   "summary": "Pokračuje z podpazušnej žily cez prvé rebro, tesne za kľúčnou kosťou a pred podkľúčovou tepnou. Spája sa s vnútornou krčnou žilou do ramenno-hlavovej žily a je častým miestom zavedenia centrálneho katétra.",
+   "issues": [
+    {
+     "name": "Námahová trombóza",
+     "note": "Zrazenina po opakovanej ťažkej práci rukou, keď je žila stláčaná medzi kľúčnou kosťou a prvým rebrom: opuchnutá, ťažká, modrastá ruka. Vyžaduje naliehavé vyšetrenie."
+    }
+   ]
+  },
+  "axillary-vein": {
+   "name": "Podpazušná žila",
+   "summary": "Žila podpazušia, ktorá vzniká spojením kráľovskej žily s hlbokými žilami ramena. Vedie vedľa podpazušnej tepny a pri vonkajšom okraji prvého rebra sa mení na podkľúčovú žilu."
+  },
+  "cephalic-vein": {
+   "name": "Hlavová žila",
+   "aka": [
+    "vena cephalica"
+   ],
+   "summary": "Povrchová žila, ktorá vedie z palcovej strany chrbta ruky hore po vonkajšej strane predlaktia a ramena a potom v ryhe medzi deltovým a veľkým prsným svalom do podpazušnej žily. Často sa používa na infúzie."
+  },
+  "basilic-vein": {
+   "name": "Kráľovská žila",
+   "aka": [
+    "vena basilica"
+   ],
+   "summary": "Povrchová žila, ktorá vedie z malíčkovej strany chrbta ruky hore po vnútornej strane predlaktia. V polovici ramena sa zanorí do hĺbky a spolu s ramennými žilami vytvorí podpazušnú žilu."
+  },
+  "median-cubital-vein": {
+   "name": "Stredná lakťová žila",
+   "aka": [
+    "žila na odber krvi",
+    "vena mediana cubiti"
+   ],
+   "summary": "Krátka povrchová žila, ktorá kríži prednú stranu lakťa od hlavovej ku kráľovskej žile. Je to zvyčajná žila na odber krvi, lebo je široká, blízko pod kožou a dobre fixovaná.",
+   "issues": [
+    {
+     "name": "Modrina po odbere krvi",
+     "note": "Častá a neškodná. Po odbere niekoľko minút pevne tlačte. Tvrdé, horúce, červené miesto, ktoré sa šíri, alebo horúčka si vyžadujú lekára."
+    }
+   ]
+  },
+  "inferior-vena-cava": {
+   "name": "Dolná dutá žila",
+   "aka": [
+    "vena cava inferior",
+    "DDŽ"
+   ],
+   "summary": "Najväčšia žila v tele. Vzniká pred piatym driekovým stavcom z dvoch bedrových žíl, stúpa vpravo od aorty, zbiera žily obličiek a pečene a cez bránicu vstupuje do pravej predsiene.",
+   "issues": [
+    {
+     "name": "Tlak v neskorom tehotenstve",
+     "note": "Ležanie na chrbte v neskorom tehotenstve ju môže stlačiť a spôsobiť závrat alebo slabosť. Pomôže ľah na ľavom boku."
+    }
+   ]
+  },
+  "hepatic-portal-vein": {
+   "name": "Vrátnicová žila",
+   "aka": [
+    "portálna žila",
+    "vena portae"
+   ],
+   "carries": "Krv bohatú na živiny z čreva do pečene",
+   "summary": "Vzniká za krčkom podžalúdkovej žľazy spojením slezinovej a hornej mezenterickej žily. Vedie krv zo žalúdka, čriev, sleziny a podžalúdkovej žľazy do pečene, ktorá spracuje živiny a odstráni toxíny skôr, než sa krv dostane do zvyšku tela.",
+   "membersLabel": "Žily, ktoré sa do nej vlievajú",
+   "members": [
+    {
+     "name": "Slezinová žila",
+     "note": "Zo sleziny, po zadnej strane podžalúdkovej žľazy."
+    },
+    {
+     "name": "Horná mezenterická žila",
+     "note": "Z tenkého čreva a pravej polovice hrubého čreva."
+    },
+    {
+     "name": "Dolná mezenterická žila",
+     "note": "Z ľavej časti hrubého čreva a konečníka, do slezinovej žily."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Portálna hypertenzia",
+     "note": "Zjazvenie pečene (cirhóza) zvyšuje tlak vo vrátnicovej žile, čo spôsobuje tekutinu v bruchu, zväčšenú slezinu a rozšírené žily v pažeráku, ktoré môžu krvácať. Zvracanie krvi alebo čierna stolica si vyžadujú pohotovosť."
+    }
+   ]
+  },
+  "renal-vein": {
+   "name": "Obličková žila",
+   "summary": "Vedie prefiltrovanú krv z každej obličky do dolnej dutej žily. Ľavá je dlhšia a kríži sa pred aortou, tesne pod hornou mezenterickou tepnou."
+  },
+  "iliac-vein": {
+   "name": "Bedrové žily",
+   "aka": [
+    "iliakálne žily"
+   ],
+   "summary": "Vonkajšia bedrová žila pokračuje zo stehennej žily od slabiny po okraji panvy a vnútorná bedrová žila odvádza krv z panvy. Spájajú sa do spoločnej bedrovej žily a dve spoločné bedrové žily tvoria dolnú dutú žilu. Ľavá prechádza za pravou spoločnou bedrovou tepnou.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Spoločná bedrová žila",
+     "note": "Od krížovo-bedrového kĺbu po dolnú dutú žilu."
+    },
+    {
+     "name": "Vnútorná bedrová žila",
+     "note": "Močový mechúr, panvové dno, sedacia oblasť a pohlavné orgány."
+    },
+    {
+     "name": "Vonkajšia bedrová žila",
+     "note": "Od slabiny po okraji panvy."
+    }
+   ]
+  },
+  "ovarian-vein": {
+   "name": "Vaječníková žila",
+   "summary": "Odvádza krv z vaječníka a vajíčkovodu, začína ako pletenec žíl vedľa vaječníka. Pravá sa vlieva do dolnej dutej žily, ľavá do ľavej obličkovej žily.",
+   "issues": [
+    {
+     "name": "Syndróm panvovej kongescie",
+     "note": "Rozšírené vaječníkové žily môžu spôsobovať tupú, ťahavú bolesť v panve, horšiu po státí. S dlhotrvajúcou bolesťou v panve navštívte lekára."
+    }
+   ]
+  },
+  "testicular-vein": {
+   "name": "Semenníková žila",
+   "summary": "Začína ako pletenec žíl okolo semenníkovej tepny v semennom povrazci (pampiniformný pletenec), ktorý ochladzuje privádzanú krv, a v bruchu sa spojí do jednej žily. Pravá sa vlieva do dolnej dutej žily, ľavá do ľavej obličkovej žily.",
+   "issues": [
+    {
+     "name": "Varikokéla",
+     "note": "Rozšírené žily nad semenníkom, ktoré na pohmat pripomínajú vrecko červíkov, oveľa častejšie vľavo pre spôsob, akým sa ľavá žila vlieva. Zvyčajne neškodné, ale akýkoľvek opuch dajte vyšetriť."
+    }
+   ]
+  },
+  "femoral-vein": {
+   "name": "Stehenná žila",
+   "aka": [
+    "femorálna žila"
+   ],
+   "summary": "Hlavná hlboká žila stehna. Pokračuje z podkolennej žily a stúpa vedľa stehennej tepny, v slabine na jej vnútornej strane, kde do nej ústi veľká skrytá žila."
+  },
+  "popliteal-vein": {
+   "name": "Podkolenná žila",
+   "summary": "Vzniká pod kolenom z hlbokých žíl lýtka, ktoré vedú v pároch vedľa tepien. Stúpa za kolenom a mení sa na stehennú žilu. Každé stiahnutie lýtkových svalov pumpuje krv cez tieto žily nahor. V prednom pohľade nakreslená slabo, lebo leží za kosťami.",
+   "membersLabel": "Žily, ktoré sa do nej vlievajú",
+   "members": [
+    {
+     "name": "Zadné píšťalové žily",
+     "note": "Z chodidla a zadnej strany lýtka."
+    },
+    {
+     "name": "Ihlicové žily",
+     "note": "Z vonkajšej strany lýtka."
+    },
+    {
+     "name": "Predné píšťalové žily",
+     "note": "Z prednej strany predkolenia a chrbta chodidla."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Hlboká žilová trombóza v lýtku",
+     "note": "Väčšina zrazenín v nohe začína v týchto hlbokých žilách lýtka, po dlhom cestovaní, operácii, ležaní na lôžku, v tehotenstve alebo pri niektorých liekoch. Opuchnuté, bolestivé lýtko si vyžaduje naliehavé vyšetrenie ešte v ten deň."
+    }
+   ]
+  },
+  "great-saphenous-vein": {
+   "name": "Veľká skrytá žila",
+   "aka": [
+    "vena saphena magna",
+    "safénová žila"
+   ],
+   "summary": "Najdlhšia žila v tele. Začína na vnútornom konci žilového oblúka na chrbte chodidla, prechádza pred vnútorným členkom a stúpa po vnútornej strane predkolenia a stehna, tesne pod kožou, až sa pod slabinou vlieva do stehennej žily.",
+   "issues": [
+    {
+     "name": "Kŕčové žily",
+     "note": "Nedomykavé chlopne nechajú krv hromadiť, takže žila a jej vetvy sa rozšíria a skrútia. Väčšinou neškodné. Pomáha chôdza a vyloženie nôh. Pri zmenách kože, vredoch alebo krvácaní navštívte lekára."
+    },
+    {
+     "name": "Povrchová tromboflebitída",
+     "note": "Citlivý, červený, tvrdý povrázok pozdĺž žily. Zvyčajne odznie, ale navštívte lekára, lebo sa môže rozšíriť do hlbokých žíl."
+    }
+   ]
+  },
+  "small-saphenous-vein": {
+   "name": "Malá skrytá žila",
+   "aka": [
+    "vena saphena parva"
+   ],
+   "summary": "Povrchová žila zadnej strany predkolenia. Začína na vonkajšom konci žilového oblúka na chrbte chodidla, prechádza za vonkajším členkom a stúpa stredom lýtka, tesne pod kožou, až sa za kolenom vlieva do podkolennej žily.",
+   "issues": [
+    {
+     "name": "Kŕčové žily",
+     "note": "Rozšírené, kľukaté žily na zadnej strane lýtka, keď sú jej chlopne nedomykavé. Väčšinou neškodné. Pomáha chôdza a vyloženie nôh. Pri zmenách kože, vredoch alebo krvácaní navštívte lekára."
+    }
+   ]
+  }
+ },
+ "groups": {
+  "arteries": {
+   "name": "Tepny",
+   "summary": "Cievy, ktoré pod tlakom vedú krv zo srdca. Majú hrubé svalnaté steny a pulz cítiť všade, kde vedú blízko povrchu nad kosťou.",
+   "issues": [
+    {
+     "name": "Ateroskleróza",
+     "note": "Tukové pláty v priebehu mnohých rokov zužujú a stužujú tepny. Urýchľuje ju fajčenie, vysoký krvný tlak, vysoký cholesterol a cukrovka. Stojí za väčšinou infarktov a mozgových porážok."
+    },
+    {
+     "name": "Náhle upchatie",
+     "note": "Končatina, ktorá náhle zostane studená, bledá, bolestivá alebo necitlivá, či príznaky mozgovej porážky alebo infarktu si vyžadujú pohotovosť."
+    }
+   ]
+  },
+  "arteries-chest": {
+   "name": "Srdce a hrudník",
+   "summary": "Aorta, tepny srdca a pľúc a prvé vetvy oblúka aorty."
+  },
+  "arteries-head-arm": {
+   "name": "Hlava, krk a ruka",
+   "summary": "Krčnice a stavcové tepny k hlave a reťaz tepien, ktorá vedie po každej ruke až k dlani."
+  },
+  "arteries-abdomen": {
+   "name": "Brucho a panva",
+   "summary": "Vetvy brušnej aorty k črevu, obličkám a panve."
+  },
+  "arteries-leg": {
+   "name": "Noha",
+   "summary": "Stehenná tepna a jej pokračovania až k chodidlu.",
+   "issues": [
+    {
+     "name": "Ochorenie periférnych tepien",
+     "note": "Zúžené tepny nôh spôsobujú kŕčovitú bolesť lýtka, stehna alebo zadku pri chôdzi, ktorá do niekoľkých minút pokoja ustúpi (klaudikácie). Pomáha prestať fajčiť a pravidelne chodiť. Navštívte lekára."
+    },
+    {
+     "name": "Akútne upchatá tepna",
+     "note": "Noha, ktorá náhle zostane studená, bledá, bolestivá alebo necitlivá, si vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "veins": {
+   "name": "Žily",
+   "summary": "Cievy, ktoré pri nízkom tlaku privádzajú krv späť do srdca. Mnohé majú jednosmerné chlopne a na nohách krv pumpuje nahor stláčanie lýtkových svalov.",
+   "issues": [
+    {
+     "name": "Krvná zrazenina (trombóza)",
+     "note": "Zrazenina upchávajúca žilu spôsobí, že oblasť, z ktorej odvádza krv, opuchne, bolí a niekedy zmení farbu. Opuchnutá, bolestivá končatina si vyžaduje naliehavé vyšetrenie."
+    }
+   ]
+  },
+  "veins-chest": {
+   "name": "Srdce a hrudník",
+   "summary": "Žily, ktoré sa vlievajú do srdca."
+  },
+  "veins-head-arm": {
+   "name": "Hlava, krk a ruka",
+   "summary": "Krčné žily z hlavy a krku a hlboké a povrchové žily ruky.",
+   "issues": [
+    {
+     "name": "Krvná zrazenina v ruke",
+     "note": "Menej častá ako na nohách. Môže sa objaviť po infúzii alebo centrálnom katétri či po ťažkej opakovanej práci rukou. Opuchnutá, bolestivá alebo modrastá ruka si vyžaduje rýchle vyšetrenie."
+    },
+    {
+     "name": "Flebitída",
+     "note": "Zapálená povrchová žila, často po infúzii: citlivý, červený povrázok pod kožou. Zvyčajne odznie. Navštívte lekára, ak sa šíri alebo máte horúčku."
+    }
+   ]
+  },
+  "veins-abdomen": {
+   "name": "Brucho a panva",
+   "summary": "Dolná dutá žila, žily obličiek a panvy a vrátnicová žila, ktorá vedie krv z čreva do pečene."
+  },
+  "veins-leg": {
+   "name": "Noha",
+   "summary": "Hlboké žily, ktoré vedú spolu s tepnami, a veľká skrytá žila tesne pod kožou.",
+   "issues": [
+    {
+     "name": "Hlboká žilová trombóza (HŽT)",
+     "note": "Zrazenina v hlbokej žile nohy: opuchnuté, bolestivé, teplé lýtko alebo stehno. Vyžaduje naliehavé vyšetrenie ešte v ten deň. Náhla dýchavičnosť alebo bolesť na hrudi môže znamenať, že sa zrazenina presunula do pľúc. Volajte záchrannú službu."
+    },
+    {
+     "name": "Kŕčové žily",
+     "note": "Nedomykavé chlopne nechajú krv hromadiť, takže povrchové žily sa rozšíria a skrútia. Väčšinou neškodné. Pomáha chôdza a vyloženie nôh. Pri zmenách kože, vredoch alebo krvácaní navštívte lekára."
+    }
+   ]
+  }
+ }
+}

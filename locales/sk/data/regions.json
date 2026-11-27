@@ -1,0 +1,1553 @@
+{
+ "disclaimer": "Corpus je vzdelávacia mapa, nie diagnóza. Nemôže vás vyšetriť ani nepozná vašu anamnézu. Ak vás niektorý príznak znepokojuje, porozprávajte sa s lekárom alebo lekárnikom.",
+ "emergency": "V núdzi volajte číslo tiesňového volania: 112 (jednotné európske číslo), na Slovensku záchranná zdravotná služba aj 155.",
+ "redFlags": [
+  "Bolesť alebo tlak na hrudi, najmä s dýchavičnosťou, potením, nevoľnosťou alebo bolesťou šíriacou sa do ruky, krku alebo sánky",
+  "Príznaky mozgovej porážky: poklesnutá tvár, slabosť ruky, zastretá reč",
+  "Náhla, prudká bolesť hlavy alebo bolesť hlavy s horúčkou, stuhnutou šijou alebo vyrážkou",
+  "Ťažkosti s dýchaním, dusenie alebo modré pery",
+  "Silné krvácanie, zvracanie krvi alebo čierna dechtovitá stolica",
+  "Silná bolesť brucha so stuhnutým bruchom alebo odpadnutím, alebo bolesť brucha v tehotenstve",
+  "Odpadnutie, zmätenosť alebo kŕče",
+  "Náhla, silná bolesť v semenníku",
+  "Silné krvácanie alebo silná bolesť v tehotenstve"
+ ],
+ "regions": {
+  "head": {
+   "name": "Hlava",
+   "causes": [
+    {
+     "title": "Tenzná bolesť hlavy",
+     "signs": "Tlak ako obruč na oboch stranách, často pri strese, zlom spánku, dehydratácii alebo dlhom čase pred obrazovkou."
+    },
+    {
+     "title": "Migréna",
+     "signs": "Pulzujúca, často jednostranná, s nevoľnosťou a citlivosťou na svetlo alebo zvuk; niekedy jej predchádza zraková aura."
+    },
+    {
+     "title": "Bolesť z prinosových dutín",
+     "signs": "Tlak nad čelom alebo lícami s upchatým nosom po nádche, horší pri predklone."
+    },
+    {
+     "title": "Otras mozgu",
+     "signs": "Bolesť hlavy, závrat, nevoľnosť alebo zmätenosť po údere do hlavy."
+    },
+    {
+     "title": "Bolesť hlavy z nadužívania liekov",
+     "signs": "Takmer každodenné bolesti hlavy u človeka, ktorý väčšinu dní užíva lieky proti bolesti."
+    }
+   ],
+   "redFlags": [
+    "Náhla „hromová“ bolesť hlavy, najhoršia, akú ste kedy mali",
+    "Bolesť hlavy s horúčkou, stuhnutou šijou, vyrážkou alebo zmätenosťou",
+    "Bolesť hlavy po úraze hlavy so zvracaním, ospalosťou alebo zhoršujúcou sa bolesťou",
+    "Bolesť hlavy so slabosťou, necitlivosťou alebo ťažkosťami s rečou či videním",
+    "Nová bolesť hlavy po 50. roku s citlivou vlasovou časťou hlavy alebo bolesťou sánky pri žuvaní"
+   ]
+  },
+  "face": {
+   "name": "Tvár",
+   "causes": [
+    {
+     "title": "Zápal prinosových dutín",
+     "signs": "Tlak v lícach alebo na čele, upchatý nos, hustý výtok."
+    },
+    {
+     "title": "Neuralgia trojklanného nervu",
+     "signs": "Krátke bolesti v tvári ako elektrický šok, vyvolané dotykom, jedlom alebo vetrom."
+    },
+    {
+     "title": "Bellova obrna",
+     "signs": "Jedna strana tváre vrátane čela poklesne alebo sa nehýbe, nastupuje v priebehu dňa či dvoch, niekedy s bolesťou za uchom. Náhla slabosť tváre môže byť aj mozgová porážka, preto sa dajte vyšetriť ešte v ten deň."
+    },
+    {
+     "title": "Zlomenina tváre",
+     "signs": "Po údere: opuch, necitlivosť, zuby, ktoré do seba nezapadajú, alebo dvojité videnie."
+    },
+    {
+     "title": "Krvácanie z nosa",
+     "signs": "Krvácanie z jednej nosnej dierky, často po štúraní, nádche alebo v suchom vzduchu. Seďte vzpriamene, predkloňte sa a stlačte mäkkú časť nosa na 10 až 15 minút."
+    },
+    {
+     "title": "Pásový opar na tvári",
+     "signs": "Pálivá bolesť a potom pľuzgierovitá vyrážka na jednej strane čela alebo tváre. Navštívte lekára do 3 dní, a ak je pri oku, ešte v ten deň."
+    }
+   ],
+   "redFlags": [
+    "Náhle poklesnutie jednej strany tváre (možná mozgová porážka)",
+    "Opuch tváre, ktorý sa rýchlo šíri, alebo opuch s ťažkosťami s prehĺtaním či dýchaním",
+    "Horúce, červené, opuchnuté miesto okolo oka alebo nosa s horúčkou"
+   ]
+  },
+  "eye": {
+   "name": "Oko",
+   "causes": [
+    {
+     "title": "Zápal spojoviek",
+     "signs": "Červené, pálivé alebo svrbiace oko s vodnatým alebo lepkavým výtokom, často na oboch očiach, pričom zrak zostáva normálny. Zvyčajne odznie za jeden až dva týždne."
+    },
+    {
+     "title": "Suché oči",
+     "signs": "Pálivé, rezavé alebo unavené oči, horšie pri obrazovkách, kúrení, klimatizácii alebo vetre."
+    },
+    {
+     "title": "Jačmeň alebo hrčka na viečku",
+     "signs": "Citlivá červená hrčka na okraji viečka, ktorá zvyčajne ustúpi za týždeň či dva pri teplých obkladoch."
+    },
+    {
+     "title": "Škrabnutie alebo cudzie teleso v oku",
+     "signs": "Ostrá bolesť, slzenie a pocit, že v oku niečo je, po prachu, nechte alebo kontaktnej šošovke. Ak sa to do dňa nezlepší, navštívte lekárnika, optika alebo lekára."
+    },
+    {
+     "title": "Červené alebo bolestivé oko",
+     "signs": "Červené, boľavé alebo rezavé oko. Bolesť s rozmazaným videním alebo citlivosťou na svetlo, alebo po úraze, si vyžaduje starostlivosť ešte v ten deň."
+    },
+    {
+     "title": "Zápal zrakového nervu",
+     "signs": "Bolesť pri pohybe jedného oka s rozmazaním alebo vyblednutými farbami na tom oku, ktoré nastupuje v priebehu niekoľkých dní."
+    },
+    {
+     "title": "Akútny glaukóm",
+     "signs": "Náhla, silná bolesť jedného oka so začervenaním, rozmazaným videním, svätožiarami okolo svetiel, bolesťou hlavy a niekedy zvracaním."
+    },
+    {
+     "title": "Dvojité videnie",
+     "signs": "Vidíte veci dvakrát, vedľa seba alebo nad sebou. Ak začne náhle, najmä s pokleslým viečkom, bolesťou hlavy alebo slabosťou či necitlivosťou inde, vyhľadajte pohotovosť. Dvojité videnie, ktoré sa objavuje a mizne v priebehu týždňov a je horšie pri únave, si tiež vyžaduje lekára."
+    }
+   ],
+   "redFlags": [
+    "Náhla strata zraku alebo opona či tieň cez časť zorného poľa",
+    "Nové záblesky svetla alebo spŕška nových mušiek",
+    "Poleptanie chemikáliou (najprv vyplachujte veľkým množstvom čistej vody) alebo poranenie ostrým či rýchlo letiacim predmetom",
+    "Bolestivé červené oko s rozmazaným videním",
+    "Náhle dvojité videnie, najmä s pokleslým viečkom alebo bolesťou hlavy"
+   ]
+  },
+  "ear": {
+   "name": "Ucho",
+   "causes": [
+    {
+     "title": "Zápal stredného ucha",
+     "signs": "Bolesť ucha pri nádche, niekedy s tlmeným sluchom alebo horúčkou. Častý u detí a väčšina odznie do 3 dní."
+    },
+    {
+     "title": "Zápal zvukovodu",
+     "signs": "Svrbiaci, bolestivý zvukovod, horší pri potiahnutí ucha, často po plávaní. Môže pomôcť lekárnik."
+    },
+    {
+     "title": "Ušný maz",
+     "signs": "Pocit upchatia a plnosti s tlmeným sluchom, niekedy so zvonením."
+    },
+    {
+     "title": "Bolesť čeľustného kĺbu pociťovaná v uchu",
+     "signs": "Bolesť pred uchom, horšia pri žuvaní alebo zívaní, často s cvakaním. Samotné ucho je zdravé."
+    },
+    {
+     "title": "Bolesť z hrdla alebo zubov",
+     "signs": "Angína, pokazený zub alebo bolesť hrdla sa môžu prejaviť ako bolesť ucha, lebo zdieľajú nervy s uchom."
+    },
+    {
+     "title": "Závrat",
+     "signs": "Krátke záchvaty točenia pri pohybe hlavou (často z uvoľnených kryštálikov vo vnútornom uchu) alebo trvalý závrat po nádche (zápal vnútorného ucha)."
+    },
+    {
+     "title": "Náhla strata sluchu",
+     "signs": "Sluch na jednom uchu klesne v priebehu hodín až niekoľkých dní, bez nádchy alebo ušného mazu. Dajte sa vyšetriť do dňa, lebo včasná liečba pomáha."
+    }
+   ],
+   "redFlags": [
+    "Červený, citlivý opuch za uchom, ktorý ho tlačí dopredu, s horúčkou",
+    "Náhla strata sluchu na jednom uchu",
+    "Bolesť ucha s poklesnutou tvárou alebo pľuzgierikmi v uchu či okolo neho",
+    "Závrat so silnou bolesťou hlavy, dvojitým videním, zastretou rečou alebo slabosťou (možná mozgová porážka)"
+   ]
+  },
+  "jaw-teeth": {
+   "name": "Sánka a zuby",
+   "causes": [
+    {
+     "title": "Bolesť čeľustného kĺbu",
+     "signs": "Bolesť pred uchom, cvakanie, bolesť pri žuvaní, často so zatínaním alebo škrípaním zubami."
+    },
+    {
+     "title": "Bolesť zuba alebo zubný absces",
+     "signs": "Bolesť zuba, citlivosť na teplé alebo studené alebo opuchnuté ďasno či líce. Opuch alebo horúčka si vyžadujú rýchlu návštevu zubára."
+    },
+    {
+     "title": "Škrípanie zubami",
+     "signs": "Bolesť sánky, unavené svaly tváre alebo bolesť hlavy po prebudení, niekedy s obrúsenými alebo odštiepenými zubami."
+    },
+    {
+     "title": "Bolesť zuba múdrosti",
+     "signs": "Bolesť a opuch vzadu na sánke, niekedy so zlou chuťou alebo ťažkosťami s otváraním úst."
+    },
+    {
+     "title": "Afty",
+     "signs": "Malé, bolestivé ranky v ústach, ktoré sa zahoja do 2 týždňov. Ranku, ktorá trvá dlhšie ako 3 týždne, treba vyšetriť."
+    },
+    {
+     "title": "Slinný kameň alebo infekcia slinnej žľazy",
+     "signs": "Bolestivý opuch pod sánkou alebo pred uchom, ktorý sa objaví pri jedle."
+    },
+    {
+     "title": "Bolesť pri žuvaní s novou bolesťou hlavy",
+     "signs": "Únava sánky pri žuvaní s novou bolesťou hlavy alebo citlivou vlasovou časťou hlavy u človeka nad 50 rokov môže byť zápal tepien (obrovskobunková arteritída) a vyžaduje liečbu ešte v ten deň na ochranu zraku."
+    },
+    {
+     "title": "Bolesť sánky zo srdca",
+     "signs": "Bolesť v sánke alebo krku vyvolaná námahou, alebo s tlakom na hrudi, dýchavičnosťou či potením, môže byť angína pektoris alebo infarkt."
+    },
+    {
+     "title": "Zlomená sánka",
+     "signs": "Po údere: zuby do seba nezapadajú, otváranie úst bolí alebo je dolná pera necitlivá."
+    }
+   ],
+   "redFlags": [
+    "Bolesť sánky s bolesťou na hrudi, dýchavičnosťou alebo potením: volajte záchrannú službu",
+    "Opuch tváre, sánky alebo dna úst, ktorý sa šíri alebo sťažuje prehĺtanie, dýchanie či otváranie úst",
+    "Afta, hrčka alebo biela či červená škvrna v ústach, ktorá sa nezahojila ani po 3 týždňoch",
+    "Nová bolesť hlavy s bolesťou sánky pri žuvaní po 50. roku"
+   ]
+  },
+  "neck": {
+   "name": "Krk",
+   "causes": [
+    {
+     "title": "Natiahnutie krku",
+     "signs": "Stuhnutosť a bolesť po spaní v nevhodnej polohe, dlhej práci za stolom alebo trhnutí."
+    },
+    {
+     "title": "Stlačený nerv",
+     "signs": "Bolesť krku vystreľujúca do ruky s mravčením, necitlivosťou alebo slabosťou."
+    },
+    {
+     "title": "Stŕpnutá šija",
+     "signs": "Prebudenie s hlavou zaseknutou otočenou na jednu stranu, ktorú bolí narovnať. Zvyčajne poľaví do niekoľkých dní až týždňa."
+    },
+    {
+     "title": "Opotrebovanie krčnej chrbtice",
+     "signs": "Stuhnutosť a bolesť, ktoré s vekom prichádzajú a odchádzajú, niekedy so škrípaním pri otáčaní hlavy. Pomáha jemný pohyb."
+    },
+    {
+     "title": "Whiplash",
+     "signs": "Bolesť a stuhnutosť krku, ktoré nastúpia v priebehu hodín po náhlom trhnutí, napríklad pri náraze do auta zozadu."
+    }
+   ],
+   "redFlags": [
+    "Bolesť krku po vážnom úraze, napríklad páde alebo autonehode: zostaňte v pokoji a privolajte pomoc",
+    "Horúčka so stuhnutou šijou, bolesťou hlavy alebo vyrážkou",
+    "Bolesť krku so slabosťou ruky alebo nešikovnými rukami",
+    "Hrčka na boku krku, ktorá rastie alebo nezmizla ani po 3 týždňoch"
+   ]
+  },
+  "throat": {
+   "name": "Hrdlo",
+   "causes": [
+    {
+     "title": "Bolesť hrdla alebo angína",
+     "signs": "Bolesť pri prehĺtaní, niekedy s bielymi povlakmi na mandliach a citlivými uzlinami pod sánkou, počas nádchy. Väčšina sa zlepší do týždňa."
+    },
+    {
+     "title": "Chrapľavý hlas (laryngitída)",
+     "signs": "Chrapľavý, slabý alebo stratený hlas po nádche alebo veľa rozprávania či kričania. Ak trvá viac ako 3 týždne, navštívte lekára."
+    },
+    {
+     "title": "Reflux",
+     "signs": "Pálenie v hrdle a kyslá chuť, horšie v ľahu."
+    },
+    {
+     "title": "Pocit hrče v hrdle",
+     "signs": "Pocit, že vám niečo uviazlo v hrdle medzi jedlami, pričom jedlo a pitie prechádzajú normálne. Je častý, neškodný a často súvisí s refluxom alebo stresom."
+    },
+    {
+     "title": "Hrčka alebo opuch štítnej žľazy",
+     "signs": "Hrčka na prednej strane krku, ktorá sa pohybuje pri prehĺtaní."
+    },
+    {
+     "title": "Ťažkosti s prehĺtaním",
+     "signs": "Jedlo uviazne cestou nadol alebo prehĺtanie je v priebehu týždňov čoraz ťažšie."
+    },
+    {
+     "title": "Peritonzilárny absces",
+     "signs": "Silná bolesť hrdla na jednej strane, ktorá sa zhoršuje, s ťažkosťami pri prehĺtaní alebo otváraní úst, priduseným hlasom a horúčkou."
+    },
+    {
+     "title": "Uviaznuté jedlo v pažeráku",
+     "signs": "Pocit uviaznutého jedla po prehltnutí so slintaním alebo neschopnosťou prehltnúť vlastné sliny."
+    }
+   ],
+   "redFlags": [
+    "Ťažkosti s dýchaním, hlučné dýchanie, slintanie alebo neschopnosť prehltnúť sliny",
+    "Opuch pier, jazyka alebo hrdla s vyrážkou alebo dýchavičnosťou (možná ťažká alergická reakcia): volajte záchrannú službu",
+    "Chrapľavý hlas viac ako 3 týždne, najmä ak fajčíte",
+    "Prehĺtanie, ktoré je čoraz ťažšie, alebo nevysvetliteľné chudnutie"
+   ]
+  },
+  "shoulder": {
+   "name": "Rameno",
+   "causes": [
+    {
+     "title": "Ťažkosti s rotátorovou manžetou",
+     "signs": "Bolesť na vonkajšej strane ramena pri dvíhaní ruky a bolesť v noci pri ležaní na ňom."
+    },
+    {
+     "title": "Zamrznuté rameno",
+     "signs": "Postupne narastajúca bolesť a stuhnutosť vo všetkých smeroch."
+    },
+    {
+     "title": "Poranenie AC kĺbu",
+     "signs": "Bolesť na vrchole ramena po páde naň; môže sa objaviť hrbolček."
+    },
+    {
+     "title": "Vykĺbenie alebo zlomenina",
+     "signs": "Po páde: deformita a nemožnosť pohnúť rukou."
+    },
+    {
+     "title": "Prenesená bolesť",
+     "signs": "Bolesť ramena môže pochádzať z krku alebo z bránice, žlčníka či srdca, ktoré dráždia spoločné nervy."
+    }
+   ],
+   "redFlags": [
+    "Bolesť ramena alebo ruky s tlakom na hrudi, dýchavičnosťou alebo potením: volajte záchrannú službu",
+    "Deformita po úraze alebo studená, necitlivá ruka",
+    "Bolesť v špičke ramena po údere do brucha (možné vnútorné krvácanie)"
+   ]
+  },
+  "armpit": {
+   "name": "Podpazušie",
+   "causes": [
+    {
+     "title": "Zväčšená lymfatická uzlina",
+     "signs": "Citlivá hrčka po infekcii na ruke, nedávnom očkovaní alebo podráždení po holení. Zvyčajne ustúpi do dvoch až troch týždňov."
+    },
+    {
+     "title": "Furunkul alebo zapálený vlasový folikul",
+     "signs": "Červená, horúca, citlivá hrčka v koži, niekedy so žltou hlavičkou, často po holení. Pomáhajú teplé obklady. Navštívte lekára, ak sa šíri, rastie alebo sa necítite dobre."
+    },
+    {
+     "title": "Hidradenitis suppurativa",
+     "signs": "Bolestivé hrčky a abscesy, ktoré sa stále vracajú v podpazuší alebo slabinách a hoja sa jazvami. Je liečiteľná, navštívte lekára."
+    },
+    {
+     "title": "Natiahnutie svalu",
+     "signs": "Bolesť na prednej alebo zadnej riase podpazušia po dvíhaní, hádzaní alebo tlačení, horšia pri používaní ruky."
+    },
+    {
+     "title": "Hrčka prsníka zasahujúca do podpazušia",
+     "signs": "Prsníkové tkanivo siaha do podpazušia a rakovina prsníka sa môže šíriť do týchto uzlín. Akákoľvek nová hrčka so zmenou na prsníku si vyžaduje lekára."
+    },
+    {
+     "title": "Krvná zrazenina v ruke",
+     "signs": "Opuchnutá, ťažká, boľavá alebo modrastá ruka, niekedy po ťažkej opakovanej práci rukou alebo infúzii."
+    }
+   ],
+   "redFlags": [
+    "Tvrdá, nepohyblivá alebo rastúca hrčka, najmä so zmenou na prsníku",
+    "Opuchnutá, sfarbená alebo ťažká ruka: vyšetrenie ešte v ten deň (možná krvná zrazenina)",
+    "Šíriace sa začervenanie alebo červené pruhy na ruke s horúčkou"
+   ]
+  },
+  "chest-center": {
+   "name": "Stred hrudníka",
+   "causes": [
+    {
+     "title": "Infarkt alebo angína pektoris",
+     "signs": "Tlak, zvieranie alebo ťažoba, ktoré sa môžu šíriť do ruky, krku, sánky alebo chrbta, s dýchavičnosťou, potením alebo nevoľnosťou."
+    },
+    {
+     "title": "Pálenie záhy / reflux",
+     "signs": "Pálenie za hrudnou kosťou po jedle alebo v ľahu, s kyslou chuťou."
+    },
+    {
+     "title": "Kostochondritída",
+     "signs": "Ostrá bolesť v mieste, kde sa rebrá stretávajú s hrudnou kosťou, citlivá na zatlačenie a horšia pri pohybe."
+    },
+    {
+     "title": "Perikarditída",
+     "signs": "Ostrá bolesť v strede, horšia v ľahu na chrbte a lepšia v predklone, často po vírusovom ochorení."
+    },
+    {
+     "title": "Úzkosť alebo panika",
+     "signs": "Tlak na hrudi s búšením srdca, rýchlym dýchaním a mravčením. Kým to predpokladáte, dajte bolesť na hrudi vyšetriť."
+    }
+   ],
+   "redFlags": [
+    "Bolesť na hrudi, ktorá trvá viac ako niekoľko minút alebo ju sprevádza dýchavičnosť, potenie, nevoľnosť či odpadnutie: volajte záchrannú službu hneď",
+    "Náhla trhavá bolesť prechádzajúca do chrbta"
+   ]
+  },
+  "chest-right": {
+   "name": "Pravá strana hrudníka",
+   "causes": [
+    {
+     "title": "Natiahnutie svalu alebo poranenie rebra",
+     "signs": "Bolesť pri otáčaní, kašli alebo zatlačení na jedno miesto, často po námahe alebo páde."
+    },
+    {
+     "title": "Zápal pľúc alebo pohrudnice",
+     "signs": "Ostrá bolesť pri nádychu s horúčkou a kašľom."
+    },
+    {
+     "title": "Pľúcna embólia",
+     "signs": "Náhla ostrá bolesť a dýchavičnosť, prípadne s opuchnutým lýtkom alebo vykašliavaním krvi."
+    },
+    {
+     "title": "Kolaps pľúc",
+     "signs": "Náhla jednostranná bolesť na hrudi a dýchavičnosť."
+    },
+    {
+     "title": "Pásový opar",
+     "signs": "Pálivý pás bolesti na jednej strane, po ktorom nasleduje pľuzgierovitá vyrážka. Včasná liečba pomáha."
+    },
+    {
+     "title": "Bolesť žlčníka",
+     "signs": "Bolesť pod dolnými pravými rebrami po tučnom jedle, niekedy pociťovaná v chrbte."
+    }
+   ]
+  },
+  "chest-left": {
+   "name": "Ľavá strana hrudníka",
+   "causes": [
+    {
+     "title": "Infarkt alebo angína pektoris",
+     "signs": "Tlak alebo zvieranie, ktoré sa môže šíriť do ľavej ruky, krku alebo sánky, s dýchavičnosťou alebo potením."
+    },
+    {
+     "title": "Natiahnutie svalu alebo poranenie rebra",
+     "signs": "Bolesť pri otáčaní, kašli alebo zatlačení na jedno miesto."
+    },
+    {
+     "title": "Zápal pľúc alebo pohrudnice",
+     "signs": "Ostrá bolesť pri nádychu s horúčkou a kašľom."
+    },
+    {
+     "title": "Pľúcna embólia",
+     "signs": "Náhla ostrá bolesť a dýchavičnosť, prípadne s opuchnutým lýtkom alebo vykašliavaním krvi."
+    },
+    {
+     "title": "Kolaps pľúc",
+     "signs": "Náhla jednostranná bolesť na hrudi a dýchavičnosť."
+    },
+    {
+     "title": "Pásový opar",
+     "signs": "Pálivý pás bolesti na jednej strane, po ktorom nasleduje pľuzgierovitá vyrážka."
+    }
+   ]
+  },
+  "upper-arm": {
+   "name": "Nadlaktie",
+   "causes": [
+    {
+     "title": "Natiahnutie svalu",
+     "signs": "Bolesť po dvíhaní alebo nezvyčajnom cvičení, ktorá v priebehu dní ustupuje."
+    },
+    {
+     "title": "Ťažkosti so šľachou bicepsu",
+     "signs": "Bolesť na prednej strane ramena alebo nadlaktia. Náhle prasknutie, po ktorom nasleduje vydutie na ruke, naznačuje pretrhnutie."
+    },
+    {
+     "title": "Zlomenina",
+     "signs": "Po páde: silná bolesť, opuch, ruku nemožno používať."
+    },
+    {
+     "title": "Bolesť prenesená z krku",
+     "signs": "Bolesť ruky s mravčením, ktorá sleduje pruh kože, často so stuhnutosťou krku."
+    }
+   ],
+   "redFlags": [
+    "Bolesť ľavej ruky s nepríjemným pocitom na hrudi, dýchavičnosťou alebo potením: volajte záchrannú službu"
+   ]
+  },
+  "elbow": {
+   "name": "Lakeť",
+   "causes": [
+    {
+     "title": "Tenisový lakeť",
+     "signs": "Bolesť na vonkajšej strane lakťa pri úchope, dvíhaní alebo otáčaní kľučkou."
+    },
+    {
+     "title": "Golfový lakeť",
+     "signs": "Bolesť na vnútornej strane lakťa pri úchope."
+    },
+    {
+     "title": "Zápal burzy olekranonu",
+     "signs": "Mäkký opuch na hrote lakťa. Červený, horúci opuch môže byť infikovaný."
+    },
+    {
+     "title": "Podráždenie lakťového nervu",
+     "signs": "Mravčenie prstenníka a malíčka, horšie pri ohnutom lakti."
+    },
+    {
+     "title": "Zlomenina alebo vykĺbenie",
+     "signs": "Po páde: deformita, opuch, lakeť nemožno ohnúť ani vystrieť."
+    }
+   ]
+  },
+  "forearm": {
+   "name": "Predlaktie",
+   "causes": [
+    {
+     "title": "Preťaženie / natiahnutie šľachy",
+     "signs": "Bolesť pozdĺž predlaktia po opakovanom úchope, písaní na klávesnici alebo práci s náradím."
+    },
+    {
+     "title": "Zlomenina",
+     "signs": "Po páde: bolesť, opuch, zalomenie predlaktia."
+    },
+    {
+     "title": "Kompartmentový syndróm",
+     "signs": "Silná, narastajúca bolesť po pomliaždení alebo zlomenine, horšia pri pohybe prstov."
+    }
+   ]
+  },
+  "wrist": {
+   "name": "Zápästie",
+   "causes": [
+    {
+     "title": "Podvrtnutie zápästia",
+     "signs": "Bolesť a opuch po vytočení, ktoré sa v priebehu dní zlepšujú."
+    },
+    {
+     "title": "Ganglión",
+     "signs": "Hladká, gumovitá hrčka na chrbte alebo prednej strane zápästia, často nebolestivá, ktorá sa môže zväčšovať a zmenšovať. Mnohé zmiznú samy."
+    },
+    {
+     "title": "De Quervainova tendovaginitída",
+     "signs": "Bolesť na palcovej strane zápästia pri úchope, dvíhaní alebo otáčaní zápästia, často u čerstvých rodičov."
+    },
+    {
+     "title": "Syndróm karpálneho tunela",
+     "signs": "Mravčenie alebo necitlivosť palca, ukazováka a prostredníka, často v noci."
+    },
+    {
+     "title": "Artróza bázy palca",
+     "signs": "Bolesť na báze palca pri štipnutí alebo otváraní pohárov."
+    },
+    {
+     "title": "Zlomenina člnkovej kosti",
+     "signs": "Bolesť na báze palca po páde na vystretú ruku, aj keď sa zdá, že ide len o podvrtnutie. Vyžaduje röntgen."
+    },
+    {
+     "title": "Zlomené zápästie",
+     "signs": "Bolesť, opuch alebo zalomenie tesne nad zápästím po páde na vystretú ruku."
+    }
+   ],
+   "redFlags": [
+    "Zápästie, ktoré po páde vyzerá zalomené alebo zdeformované",
+    "Ruka, ktorá je po úraze studená, bledá alebo necitlivá",
+    "Červený, horúci, opuchnutý kĺb s horúčkou"
+   ]
+  },
+  "hand": {
+   "name": "Ruka (dlaň)",
+   "causes": [
+    {
+     "title": "Pomliaždená alebo preťažená ruka",
+     "signs": "Bolesť a opuch po údere alebo veľa úchopov, ktoré v priebehu dní ustupujú."
+    },
+    {
+     "title": "Stlačený lakťový nerv",
+     "signs": "Mravčenie alebo necitlivosť prstenníka a malíčka, niekedy so slabým úchopom, často z opierania sa o lakeť alebo dlhých jázd na bicykli."
+    },
+    {
+     "title": "Dupuytrenova kontraktúra",
+     "signs": "Pevné uzlíky a povrázky v dlani, ktoré pomaly sťahujú jeden alebo viac prstov, zvyčajne prstenník a malíček, do ohnutia."
+    },
+    {
+     "title": "Reumatoidná artritída",
+     "signs": "Opuchnuté, stuhnuté, citlivé hánky na oboch rukách, horšie ráno a trvajúce viac ako pol hodiny."
+    },
+    {
+     "title": "Zlomená kosť ruky",
+     "signs": "Bolesť, opuch a vpadnutá hánka po údere do niečoho alebo páde."
+    },
+    {
+     "title": "Infekcia ruky",
+     "signs": "Červená, horúca, opuchnutá, pulzujúca ruka po porezaní, uhryznutí alebo triesky. Uhryznutia, najmä ľudské alebo zvieracie, treba dať vyšetriť ešte v ten deň."
+    }
+   ],
+   "redFlags": [
+    "Začervenanie, ktoré sa rýchlo šíri od uhryznutia alebo rany, alebo červený pruh stúpajúci po ruke",
+    "Hlboká rana so stratou pohybu alebo citlivosti",
+    "Ruka, ktorá je po úraze studená, bledá alebo necitlivá"
+   ]
+  },
+  "fingers": {
+   "name": "Prsty a palec",
+   "causes": [
+    {
+     "title": "Vyvrtnutý alebo podvrtnutý prst",
+     "signs": "Opuchnutý, bolestivý kĺb prsta po náraze lopty na koniec prsta. Prst, ktorý vyzerá krivý alebo sa nedá ohnúť či vystrieť, treba vyšetriť."
+    },
+    {
+     "title": "Artróza prstov",
+     "signs": "Hrboľaté, stuhnuté, boľavé kĺby pri končekoch prstov alebo na báze palca, zvyčajne od stredného veku."
+    },
+    {
+     "title": "Zápal nechtového valu",
+     "signs": "Červený, opuchnutý, bolestivý záhyb kože vedľa nechta, niekedy s hnisom. Pomáhajú teplé kúpele; ak sa šíri, navštívte lekára."
+    },
+    {
+     "title": "Lupkajúci prst",
+     "signs": "Prst sa pri ohýbaní zasekáva alebo zamyká."
+    },
+    {
+     "title": "Kladivkový prst",
+     "signs": "Po údere do končeka koniec prsta ovisne a sám sa nedá vystrieť. Čoskoro potrebuje dlahu."
+    },
+    {
+     "title": "Poranenie väzu palca",
+     "signs": "Bolesť a slabé štipnutie na báze palca, na strane pri ukazováku, po tom, čo sa palec ohol dozadu (pád pri lyžovaní alebo lopta)."
+    },
+    {
+     "title": "Raynaudov fenomén",
+     "signs": "Prsty, ktoré v chlade alebo pri strese zbelejú, potom zmodrajú a potom sčervenajú, s necitlivosťou alebo mravčením."
+    }
+   ],
+   "redFlags": [
+    "Hlboká rana so stratou pohybu alebo citlivosti prsta",
+    "Prst, ktorý je po porezaní alebo uhryznutí opuchnutý, červený a veľmi bolí pri vystieraní (možná infekcia šľachovej pošvy)",
+    "Prst alebo koniec prsta, ktorý zostáva biely, studený alebo necitlivý"
+   ]
+  },
+  "upper-right-abdomen": {
+   "name": "Pravá horná časť brucha",
+   "causes": [
+    {
+     "title": "Žlčníkové kamene alebo zápal žlčníka",
+     "signs": "Silná bolesť pod pravými rebrami, často po tučnom jedle, ktorá sa môže šíriť k pravej lopatke. Horúčka alebo žltá koža to robia naliehavým."
+    },
+    {
+     "title": "Zápal pečene (hepatitída)",
+     "signs": "Tupá bolesť s únavou, nevoľnosťou, žltými očami alebo tmavým močom."
+    },
+    {
+     "title": "Obličkový kameň alebo infekcia",
+     "signs": "Bolesť v chrbte alebo boku, ktorá sa môže ovíjať dopredu, s horúčkou alebo ťažkosťami s močením."
+    },
+    {
+     "title": "Natiahnutie svalu alebo rebra",
+     "signs": "Bolesť pri pohybe alebo zatlačení na jedno miesto, po námahe alebo kašli."
+    },
+    {
+     "title": "Pásový opar",
+     "signs": "Pálivý pás bolesti, po ktorom nasleduje pľuzgierovitá vyrážka na jednej strane."
+    }
+   ]
+  },
+  "upper-middle-abdomen": {
+   "name": "Horná stredná časť brucha",
+   "causes": [
+    {
+     "title": "Dyspepsia / gastritída",
+     "signs": "Pálivá alebo hlodavá bolesť pod hrudnou kosťou, nafukovanie, často súvisiace s jedlom, alkoholom alebo protizápalovými liekmi proti bolesti."
+    },
+    {
+     "title": "Peptický vred",
+     "signs": "Opakujúca sa hlodavá bolesť, niekedy v noci alebo nalačno."
+    },
+    {
+     "title": "Žlčníkové kamene",
+     "signs": "Silná bolesť hore v strede alebo vpravo, trvajúca minúty až hodiny po jedle."
+    },
+    {
+     "title": "Zápal podžalúdkovej žľazy",
+     "signs": "Silná bolesť prevŕtavajúca do chrbta, so zvracaním."
+    },
+    {
+     "title": "Infarkt",
+     "signs": "Môže pripomínať ťažkosti s trávením, najmä u žien, starších ľudí a ľudí s cukrovkou."
+    }
+   ],
+   "redFlags": [
+    "Zvracanie krvi alebo „kávovej usadeniny“ či čierna dechtovitá stolica",
+    "Silná bolesť prevŕtavajúca do chrbta so zvracaním",
+    "Bolesť podobná ťažkostiam s trávením s potením, dýchavičnosťou alebo bolesťou šíriacou sa do ruky alebo sánky"
+   ]
+  },
+  "upper-left-abdomen": {
+   "name": "Ľavá horná časť brucha",
+   "causes": [
+    {
+     "title": "Dyspepsia / gastritída",
+     "signs": "Pálivá bolesť a nafukovanie po jedle."
+    },
+    {
+     "title": "Zadržané plyny / syndróm dráždivého čreva",
+     "signs": "Kŕčovitá bolesť pod ľavými rebrami, ktorá prichádza a odchádza a zmierni sa po odchode plynov."
+    },
+    {
+     "title": "Poranenie alebo zväčšenie sleziny",
+     "signs": "Bolesť po údere do ľavého boku alebo ťahavá bolesť po infekčnej mononukleóze."
+    },
+    {
+     "title": "Zápal podžalúdkovej žľazy",
+     "signs": "Silná bolesť prechádzajúca do chrbta, so zvracaním."
+    },
+    {
+     "title": "Obličkový kameň alebo infekcia",
+     "signs": "Bolesť v boku ovíjajúca sa dopredu, s horúčkou alebo ťažkosťami s močením."
+    },
+    {
+     "title": "Natiahnutie svalu alebo rebra",
+     "signs": "Bolesť pri pohybe alebo zatlačení na jedno miesto."
+    }
+   ]
+  },
+  "right-flank": {
+   "name": "Pravý bok",
+   "causes": [
+    {
+     "title": "Obličkový kameň",
+     "signs": "Vlny silnej bolesti z chrbta alebo boku nadol k slabine; nedá sa nájsť pohodlná poloha."
+    },
+    {
+     "title": "Zápal obličiek",
+     "signs": "Bolesť boku alebo chrbta s horúčkou, triaškou a pálením pri močení."
+    },
+    {
+     "title": "Natiahnutie svalu",
+     "signs": "Bolesť pri predklone alebo otáčaní, ktorá sa v pokoji zmierni."
+    },
+    {
+     "title": "Zápcha",
+     "signs": "Kŕčovitý, nafúknutý pocit s občasnou alebo tvrdou stolicou."
+    },
+    {
+     "title": "Pásový opar",
+     "signs": "Pálivý pás bolesti, po ktorom nasleduje vyrážka na jednej strane."
+    }
+   ]
+  },
+  "around-navel": {
+   "name": "Okolie pupka",
+   "causes": [
+    {
+     "title": "Začínajúci zápal slepého čreva",
+     "signs": "Bolesť často začína tu a potom sa presúva doprava dole, so stratou chuti do jedla a nevoľnosťou."
+    },
+    {
+     "title": "Gastroenteritída",
+     "signs": "Kŕče so zvracaním alebo hnačkou."
+    },
+    {
+     "title": "Zápcha / zadržané plyny / syndróm dráždivého čreva",
+     "signs": "Nafukovanie a kŕče, ktoré prichádzajú a odchádzajú."
+    },
+    {
+     "title": "Pupočná prietrž",
+     "signs": "Mäkké vydutie v pupku alebo pri ňom, výraznejšie pri kašli. Bolestivé, tvrdé vydutie, ktoré sa nedá vtlačiť späť, je naliehavé."
+    },
+    {
+     "title": "Črevná nepriechodnosť",
+     "signs": "Kolikovitá bolesť, nafúknuté brucho, zvracanie a neodchádzajú plyny ani stolica."
+    },
+    {
+     "title": "Výduť brušnej aorty",
+     "signs": "U starších dospelých, najmä fajčiarov: pocit pulzovania alebo náhla silná bolesť šíriaca sa do chrbta."
+    }
+   ]
+  },
+  "left-flank": {
+   "name": "Ľavý bok",
+   "causes": [
+    {
+     "title": "Obličkový kameň",
+     "signs": "Vlny silnej bolesti z chrbta alebo boku nadol k slabine."
+    },
+    {
+     "title": "Zápal obličiek",
+     "signs": "Bolesť boku alebo chrbta s horúčkou, triaškou a pálením pri močení."
+    },
+    {
+     "title": "Natiahnutie svalu",
+     "signs": "Bolesť pri predklone alebo otáčaní, ktorá sa v pokoji zmierni."
+    },
+    {
+     "title": "Zápcha / syndróm dráždivého čreva",
+     "signs": "Kŕčovitá bolesť vľavo s nafukovaním a zmenou vyprázdňovania."
+    }
+   ]
+  },
+  "lower-right-abdomen": {
+   "name": "Pravá dolná časť brucha",
+   "causes": [
+    {
+     "title": "Zápal slepého čreva",
+     "signs": "Bolesť, ktorá začne okolo pupka a presunie sa sem, horšia pri pohybe, kašli alebo otrasoch na ceste, s nevoľnosťou, stratou chuti do jedla a horúčkou."
+    },
+    {
+     "title": "Slabinová prietrž",
+     "signs": "Vydutie v slabine, ktoré sa objaví pri státí alebo napínaní. Bolestivé, tvrdé vydutie, ktoré sa nedá vtlačiť späť, je naliehavé."
+    },
+    {
+     "title": "Obličkový kameň",
+     "signs": "Silná bolesť, ktorá sa presúva z boku nadol k slabine."
+    },
+    {
+     "title": "Crohnova choroba",
+     "signs": "Opakujúca sa bolesť s hnačkou a chudnutím."
+    },
+    {
+     "title": "Mimomaternicové tehotenstvo",
+     "signs": "Jednostranná bolesť v podbrušku u človeka, ktorý môže byť tehotný, často s krvácaním z pošvy, bolesťou v špičke ramena, závratom alebo odpadnutím. Je to stav pre pohotovosť. Vpravo môže pripomínať zápal slepého čreva."
+    },
+    {
+     "title": "Cysta alebo torzia vaječníka",
+     "signs": "Cysta môže spôsobovať tupú jednostrannú bolesť. Náhla, silná bolesť so zvracaním môže znamenať pretočenie vaječníka, čo je stav pre pohotovosť."
+    },
+    {
+     "title": "Zadržané plyny / zápcha",
+     "signs": "Kŕče, ktoré prichádzajú a odchádzajú a zmiernia sa po vyprázdnení."
+    }
+   ]
+  },
+  "lower-middle-abdomen": {
+   "name": "Dolná stredná časť brucha",
+   "causes": [
+    {
+     "title": "Zápal močového mechúra (cystitída)",
+     "signs": "Bolesť nízko v strede s pálením, nutkaním a častým močením."
+    },
+    {
+     "title": "Zadržiavanie moču",
+     "signs": "Nemožnosť vymočiť sa s citlivým, plným podbruškom."
+    },
+    {
+     "title": "Bolestivá menštruácia",
+     "signs": "Kŕčovitá bolesť nízko v strede okolo menštruácie."
+    },
+    {
+     "title": "Zápal panvových orgánov",
+     "signs": "Bolesť v podbrušku s horúčkou, nezvyčajným výtokom alebo bolesťou pri pohlavnom styku."
+    },
+    {
+     "title": "Endometrióza",
+     "signs": "Silná menštruačná bolesť, bolesť pri pohlavnom styku alebo pri vyprázdňovaní a bolesť v panve trvajúca mesiace."
+    },
+    {
+     "title": "Zápal prostaty",
+     "signs": "Hlboká bolesť nízko v panve alebo medzi mieškom a ritným otvorom, s pálením alebo ťažkosťami pri močení, niekedy s horúčkou."
+    },
+    {
+     "title": "Zápcha",
+     "signs": "Kŕče a nafukovanie s tvrdou alebo občasnou stolicou."
+    },
+    {
+     "title": "Bolesť v tehotenstve",
+     "signs": "Akúkoľvek výraznú bolesť v podbrušku v tehotenstve alebo pri vynechanej menštruácii treba rýchlo dať vyšetriť."
+    }
+   ]
+  },
+  "lower-left-abdomen": {
+   "name": "Ľavá dolná časť brucha",
+   "causes": [
+    {
+     "title": "Divertikulitída",
+     "signs": "Bolesť tu s horúčkou a citlivosťou, väčšinou u starších dospelých."
+    },
+    {
+     "title": "Zápcha / syndróm dráždivého čreva",
+     "signs": "Kŕče a nafukovanie súvisiace s vyprázdňovaním."
+    },
+    {
+     "title": "Slabinová prietrž",
+     "signs": "Vydutie v slabine pri státí alebo napínaní."
+    },
+    {
+     "title": "Obličkový kameň",
+     "signs": "Silná bolesť, ktorá sa presúva z boku nadol k slabine."
+    },
+    {
+     "title": "Mimomaternicové tehotenstvo",
+     "signs": "Jednostranná bolesť v podbrušku u človeka, ktorý môže byť tehotný, často s krvácaním z pošvy, bolesťou v špičke ramena, závratom alebo odpadnutím. Je to stav pre pohotovosť."
+    },
+    {
+     "title": "Cysta alebo torzia vaječníka",
+     "signs": "Cysta môže spôsobovať tupú jednostrannú bolesť. Náhla, silná bolesť so zvracaním môže znamenať pretočenie vaječníka, čo je stav pre pohotovosť."
+    },
+    {
+     "title": "Zápalové ochorenie čriev",
+     "signs": "Opakujúca sa bolesť s krvavou hnačkou alebo nutkaním na stolicu."
+    }
+   ]
+  },
+  "genitals": {
+   "name": "Pohlavné orgány",
+   "causes": [
+    {
+     "title": "Infekcia močových ciest",
+     "signs": "Pálenie alebo štípanie pri močení, časté močenie, zakalený alebo zapáchajúci moč. Horúčka, triaška alebo bolesť v boku znamenajú, že môžu byť postihnuté obličky."
+    },
+    {
+     "title": "Pohlavne prenosná infekcia",
+     "signs": "Nezvyčajný výtok, pálenie pri močení, ranky, pľuzgieriky alebo hrčky. Mnohé nemajú príznaky. Ambulancie pre pohlavné choroby ich diskrétne vyšetria a liečia."
+    },
+    {
+     "title": "Kvasinková infekcia",
+     "signs": "Svrbenie a bolestivosť vulvy s hustým bielym výtokom. Väčšine pomôže liečba z lekárne; ak sa stále vracia, navštívte lekára."
+    },
+    {
+     "title": "Cysta Bartholiniho žľazy",
+     "signs": "Opuch na jednej strane vchodu do pošvy. Bolestivý, horúci, rastúci opuch môže byť absces."
+    },
+    {
+     "title": "Bolesť vulvy",
+     "signs": "Pálenie, štípanie alebo bolestivosť vulvy trvajúca mesiace, niekedy len pri dotyku alebo pohlavnom styku."
+    },
+    {
+     "title": "Torzia semenníka",
+     "signs": "Náhla, silná bolesť jedného semenníka, často s opuchom, bolesťou brucha a zvracaním, najčastejšie u dospievajúcich. Je to stav pre pohotovosť: operácia do niekoľkých hodín semenník zachráni."
+    },
+    {
+     "title": "Zápal nadsemenníka",
+     "signs": "Bolesť a opuch na zadnej strane semenníka, ktoré narastajú počas dňa či dvoch, niekedy s horúčkou alebo pálením pri močení."
+    },
+    {
+     "title": "Hrčka v semenníku",
+     "signs": "Nebolestivá hrčka, opuch alebo pocit ťažoby v miešku. Väčšina hrčiek je neškodná, ale všetky treba vyšetriť."
+    },
+    {
+     "title": "Prietrž do mieška",
+     "signs": "Vydutie, ktoré zostupuje do mieška pri státí alebo napínaní. Citlivý, tvrdý opuch, ktorý sa nedá vtlačiť späť, je naliehavý."
+    },
+    {
+     "title": "Pudendálna neuralgia",
+     "signs": "Pálivá alebo bodavá bolesť v pohlavných orgánoch alebo na hrádzi, horšia v sede a ľahšia v stoji alebo v ľahu."
+    }
+   ],
+   "redFlags": [
+    "Náhla, silná bolesť v semenníku",
+    "Erekcia trvajúca viac ako štyri hodiny",
+    "Silné krvácanie alebo silná bolesť v tehotenstve",
+    "Nemožnosť vymočiť sa",
+    "Necitlivosť okolo pohlavných orgánov alebo zadku s novými ťažkosťami s mechúrom alebo stolicou (možný syndróm cauda equina)"
+   ]
+  },
+  "hip-groin": {
+   "name": "Bedro a slabina",
+   "causes": [
+    {
+     "title": "Artróza bedrového kĺbu",
+     "signs": "Bolesť a stuhnutosť v slabine alebo stehne, horšia pri chôdzi, ťažkosti s obúvaním topánok a ponožiek."
+    },
+    {
+     "title": "Natiahnutie slabiny",
+     "signs": "Bolesť na vnútornej strane stehna po kopaní, šprinte alebo zmene smeru."
+    },
+    {
+     "title": "Zlomenina bedra",
+     "signs": "Starší človek, ktorý sa po páde nemôže postaviť na nohu."
+    },
+    {
+     "title": "Bolesť vonkajšej strany bedra (gluteálna tendinopatia)",
+     "signs": "Bolesť na vonkajšej strane bedra, horšia pri ležaní na tej strane alebo chôdzi do schodov."
+    },
+    {
+     "title": "Slabinová prietrž",
+     "signs": "Vydutie v slabine pri státí alebo napínaní."
+    },
+    {
+     "title": "Bolesť šíriaca sa zo semenníka",
+     "signs": "Problém v semenníku, napríklad torzia alebo zápal nadsemenníka, sa často prejavuje v slabine. Náhla, silná bolesť je stav pre pohotovosť."
+    },
+    {
+     "title": "Bolesť z chrbta",
+     "signs": "Bolesť bedra alebo zadku so stuhnutosťou chrbta, niekedy šíriaca sa nadol po nohe."
+    }
+   ],
+   "redFlags": [
+    "Dieťa, ktoré krivká a má horúčku alebo odmieta chodiť",
+    "Starší človek, ktorý sa po páde nemôže postaviť na nohu",
+    "Náhla, silná bolesť v semenníku alebo bolesť v slabine s opuchnutým mieškom"
+   ]
+  },
+  "thigh": {
+   "name": "Predná strana stehna",
+   "causes": [
+    {
+     "title": "Natiahnutie stehna",
+     "signs": "Náhle potiahnutie na prednej alebo vnútornej strane stehna pri šprinte, kopaní alebo zmene smeru."
+    },
+    {
+     "title": "Pomliaždené stehno („mŕtva noha“)",
+     "signs": "Bolestivé, stuhnuté stehno po údere kolenom alebo inom údere do prednej strany stehna, s modrinou. Ustúpi v priebehu dní až týždňov."
+    },
+    {
+     "title": "Meralgia paresthetica",
+     "signs": "Pálenie alebo necitlivosť na vonkajšej strane stehna zo stlačeného kožného nervu."
+    },
+    {
+     "title": "Hlboká žilová trombóza (HŽT)",
+     "signs": "Opuchnutá, teplá, bolestivá noha, často po cestovaní, operácii alebo nehybnosti."
+    },
+    {
+     "title": "Zlomenina stehennej kosti",
+     "signs": "Silná bolesť a deformita po vážnom úraze."
+    },
+    {
+     "title": "Prenesená bolesť",
+     "signs": "Bolesť stehna môže pochádzať z bedrového kĺbu alebo dolnej časti chrbta."
+    }
+   ],
+   "redFlags": [
+    "Opuchnutá, bolestivá noha s dýchavičnosťou alebo bolesťou na hrudi: volajte záchrannú službu",
+    "Silná bolesť a opuch po údere, ktoré sa stále zhoršujú"
+   ]
+  },
+  "back-of-thigh": {
+   "name": "Zadná strana stehna",
+   "causes": [
+    {
+     "title": "Natiahnutie zadných stehenných svalov",
+     "signs": "Náhla ostrá bolesť alebo potiahnutie na zadnej strane stehna pri šprinte alebo kopaní, niekedy s modrinou o deň či dva neskôr."
+    },
+    {
+     "title": "Natrhnutie zadných stehenných svalov",
+     "signs": "Lupnutie s náhlou slabosťou a veľkou modrinou po zadnej strane stehna. Natrhnutie pri sedacej kosti môže vyžadovať operáciu."
+    },
+    {
+     "title": "Ischias",
+     "signs": "Bolesť vedúca zo zadku po zadnej strane stehna, často až pod koleno, s mravčením alebo necitlivosťou. Zvyčajne pochádza z dolnej časti chrbta."
+    },
+    {
+     "title": "Kŕč",
+     "signs": "Krátke, tvrdé stiahnutie svalu, často v noci alebo pri cvičení."
+    },
+    {
+     "title": "Hlboká žilová trombóza (HŽT)",
+     "signs": "Opuchnutá, teplá, bolestivá noha, často po cestovaní, operácii alebo chorobe na lôžku."
+    }
+   ],
+   "redFlags": [
+    "Opuchnutá, bolestivá noha s dýchavičnosťou alebo bolesťou na hrudi: volajte záchrannú službu",
+    "Necitlivosť okolo pohlavných orgánov alebo zadku, nové ťažkosti s mechúrom alebo stolicou či slabosť oboch nôh: pohotovosť (možný syndróm cauda equina)",
+    "Noha, ktorá slabne"
+   ]
+  },
+  "knee": {
+   "name": "Koleno",
+   "causes": [
+    {
+     "title": "Patelofemorálna bolesť",
+     "signs": "Bolesť okolo jabĺčka na schodoch, pri drepe alebo po sedení."
+    },
+    {
+     "title": "Tendinopatia väzu jabĺčka",
+     "signs": "Bolesť tesne pod jabĺčkom pri skákaní, drepe alebo chôdzi do schodov, častá pri skokanských športoch."
+    },
+    {
+     "title": "Poranenie väzu (predný skrížený / vnútorný postranný)",
+     "signs": "Vytočenie alebo lupnutie s opuchom a koleno, ktoré podkluzuje."
+    },
+    {
+     "title": "Poranenie menisku",
+     "signs": "Bolesť v kĺbovej štrbine, zasekávanie alebo zamykanie po vytočení."
+    },
+    {
+     "title": "Artróza",
+     "signs": "Bolesť a stuhnutosť u starších dospelých, horšie pri aktivite."
+    },
+    {
+     "title": "Syndróm iliotibiálneho traktu",
+     "signs": "Ostrá bolesť na vonkajšej strane kolena u bežcov a cyklistov, horšia pri behu z kopca."
+    },
+    {
+     "title": "Burzitída",
+     "signs": "Opuch nad jabĺčkom alebo pod ním po častom kľačaní."
+    },
+    {
+     "title": "Bakerova cysta",
+     "signs": "Opuch alebo pocit napätia za kolenom, často spolu s artrózou. Náhle opuchnuté, bolestivé lýtko treba vyšetriť pre krvnú zrazeninu (HŽT)."
+    },
+    {
+     "title": "Horúce, opuchnuté koleno",
+     "signs": "Červené, horúce, opuchnuté koleno, s horúčkou alebo bez nej, môže byť dna alebo infekcia."
+    }
+   ],
+   "redFlags": [
+    "Horúci, opuchnutý kĺb s horúčkou",
+    "Nemožnosť postaviť sa na nohu alebo vystrieť koleno po úraze"
+   ]
+  },
+  "back-of-knee": {
+   "name": "Zadná strana kolena",
+   "causes": [
+    {
+     "title": "Bakerova cysta",
+     "signs": "Mäkký opuch za kolenom, napätý pri ohnutí, často pri artróze alebo poranení menisku. Ak praskne, lýtko opuchne a bolí ako pri krvnej zrazenine, preto to dajte vyšetriť ešte v ten deň."
+    },
+    {
+     "title": "Natiahnutie šľachy zadných stehenných svalov",
+     "signs": "Bolesť na vnútornej alebo vonkajšej zadnej strane kolena po šprinte alebo kopaní, horšia pri ohýbaní kolena proti odporu."
+    },
+    {
+     "title": "Natiahnutie lýtka",
+     "signs": "Náhle potiahnutie v hornej časti lýtka pri odraze, potom bolesť pri chôdzi alebo postavení sa na špičky."
+    },
+    {
+     "title": "Natiahnutie podkolenného svalu",
+     "signs": "Bolesť na zadnej a vonkajšej strane kolena, horšia pri chôdzi alebo behu z kopca."
+    },
+    {
+     "title": "Poranenie menisku",
+     "signs": "Bolesť hlboko v zadnej časti kolena pri drepe alebo vytočení, niekedy so zasekávaním alebo zamykaním."
+    },
+    {
+     "title": "Poranenie zadného skríženého väzu",
+     "signs": "Bolesť na zadnej strane kolena po údere do prednej strany holene pri pokrčenom kolene alebo po páde na pokrčené koleno."
+    },
+    {
+     "title": "Hlboká žilová trombóza (HŽT)",
+     "signs": "Opuchnuté, teplé, bolestivé lýtko alebo zadná strana kolena, najmä po cestovaní, operácii alebo chorobe."
+    },
+    {
+     "title": "Bolesť z chrbta (ischias)",
+     "signs": "Bolesť za kolenom ako súčasť línie bolesti od zadku nadol po zadnej strane nohy, často s mravčením alebo necitlivosťou."
+    },
+    {
+     "title": "Výduť alebo útlak podkolennej tepny",
+     "signs": "Pulzujúca hrčka za kolenom u staršieho dospelého alebo kŕče lýtka pri cvičení u mladého športovca, ktoré v pokoji ustúpia."
+    }
+   ],
+   "redFlags": [
+    "Opuchnuté, teplé, bolestivé lýtko: vyšetrenie ešte v ten deň (možná HŽT)",
+    "Náhla dýchavičnosť alebo bolesť na hrudi s opuchnutou nohou: volajte záchrannú službu",
+    "Studené, bledé, necitlivé alebo bolestivé chodidlo",
+    "Ťažko poranené koleno, ktoré vyzerá zdeformované: pohotovosť (vykĺbené koleno môže roztrhnúť tepnu za ním)"
+   ]
+  },
+  "lower-leg": {
+   "name": "Holeň",
+   "causes": [
+    {
+     "title": "Shin splints",
+     "signs": "Rozptýlená bolesť pozdĺž vnútornej strany holene pri behu."
+    },
+    {
+     "title": "Únavová zlomenina",
+     "signs": "Jedno veľmi citlivé miesto na holeni, ktoré sa zhoršuje."
+    },
+    {
+     "title": "Námahový kompartmentový syndróm",
+     "signs": "Napätá, boľavá predná strana holene, ktorá narastá počas behu a v pokoji ustupuje, niekedy s mravčením na chrbte chodidla."
+    },
+    {
+     "title": "Úder do holene",
+     "signs": "Bolestivá hrča po údere do holene. Tenká koža nad kosťou sa môže hojiť pomaly."
+    },
+    {
+     "title": "Flegmóna (celulitída)",
+     "signs": "Červené, horúce, opuchnuté, citlivé miesto na koži, ktoré sa šíri, niekedy s horúčkou."
+    }
+   ],
+   "redFlags": [
+    "Silná, narastajúca bolesť po úraze alebo v tesnej sadre",
+    "Červená, horúca, opuchnutá koža, ktorá sa rýchlo šíri, s horúčkou alebo pocitom veľkej choroby"
+   ]
+  },
+  "calf": {
+   "name": "Lýtko",
+   "causes": [
+    {
+     "title": "Natiahnutie lýtka",
+     "signs": "Náhle potiahnutie alebo pocit úderu do lýtka pri odraze, po ktorom nasleduje napätie."
+    },
+    {
+     "title": "Kŕč",
+     "signs": "Krátke, silné stiahnutie, často v noci."
+    },
+    {
+     "title": "Tendinopatia Achillovej šľachy",
+     "signs": "Bolesť a stuhnutosť šľachy tesne nad pätou, najhoršia ráno alebo na začiatku cvičenia."
+    },
+    {
+     "title": "Kŕčové žily",
+     "signs": "Vypuklé, kľukaté žily s boľavými alebo ťažkými nohami, horšie na konci dňa."
+    },
+    {
+     "title": "Ischias pociťovaný v lýtku",
+     "signs": "Bolesť alebo mravčenie po zadnej strane nohy do lýtka alebo chodidla z nervového koreňa v dolnej časti chrbta."
+    },
+    {
+     "title": "Zlé prekrvenie (klaudikácie)",
+     "signs": "Kŕčovitá bolesť lýtka pri chôdzi, ktorá v pokoji ustúpi."
+    },
+    {
+     "title": "Hlboká žilová trombóza (HŽT)",
+     "signs": "Opuchnuté, teplé, citlivé lýtko, najmä po cestovaní, operácii alebo nehybnosti."
+    },
+    {
+     "title": "Pretrhnutie Achillovej šľachy",
+     "signs": "Náhle prasknutie alebo pocit kopnutia zozadu do členka, potom ťažkosti s chôdzou alebo postavením sa na špičky."
+    }
+   ],
+   "redFlags": [
+    "Opuchnuté, bolestivé lýtko s dýchavičnosťou alebo bolesťou na hrudi: volajte záchrannú službu (možná krvná zrazenina v pľúcach)",
+    "Silná, narastajúca bolesť po úraze alebo v tesnej sadre",
+    "Studené, bledé alebo modré chodidlo či noha"
+   ]
+  },
+  "ankle": {
+   "name": "Členok",
+   "causes": [
+    {
+     "title": "Podvrtnutý členok",
+     "signs": "Opuch a modrina po vytočení členka. Ak neurobíte štyri kroky alebo bolí kosť pri dotyku, dajte ho vyšetriť."
+    },
+    {
+     "title": "Bolesť šliach na vonkajšej strane členka",
+     "signs": "Bolesť a opuch za vonkajším členkom, často po podvrtnutí alebo pri vysokej klenbe."
+    },
+    {
+     "title": "Bolesť vnútornej strany členka / klesajúca klenba",
+     "signs": "Bolesť a opuch za vnútorným členkom s pomaly klesajúcou klenbou. Častá príčina plochej nohy u dospelých."
+    },
+    {
+     "title": "Artróza členka",
+     "signs": "Stuhnutosť, opuch a bolesť členka, často roky po ťažkom podvrtnutí alebo zlomenine."
+    },
+    {
+     "title": "Zlomený členok",
+     "signs": "Nemožnosť postaviť sa na nohu, zdeformovaný členok alebo citlivosť priamo na kosti po vytočení alebo páde."
+    }
+   ],
+   "redFlags": [
+    "Členok, ktorý po úraze vyzerá zdeformovaný, alebo otvorená rana nad kosťou",
+    "Nemožnosť urobiť štyri kroky po úraze",
+    "Studené, bledé alebo modré chodidlo",
+    "Horúci, opuchnutý kĺb s horúčkou"
+   ]
+  },
+  "top-of-foot": {
+   "name": "Chrbát chodidla",
+   "causes": [
+    {
+     "title": "Tesné šnúrky alebo topánky",
+     "signs": "Bolesť alebo mravčenie na chrbte chodidla z tesných šnúrok alebo nových topánok, ktoré po vyzutí ustúpia."
+    },
+    {
+     "title": "Bolesť šliach na chrbte chodidla",
+     "signs": "Bolesť pozdĺž chrbta chodidla, ktorá je horšia pri behu alebo dvíhaní prstov."
+    },
+    {
+     "title": "Artróza stredonožia",
+     "signs": "Bolesť a kostný hrbolček na chrbte strednej časti chodidla, horšie v tesnej obuvi."
+    },
+    {
+     "title": "Únavová zlomenina predpriehlavkovej kosti",
+     "signs": "Bolesť na chrbte chodidla, ktorá narastá pri chôdzi alebo behu, s jedným citlivým miestom na kosti, po zvýšení aktivity."
+    },
+    {
+     "title": "Ťažkosti s nohou pri cukrovke",
+     "signs": "Akúkoľvek ranu, pľuzgier, zmenu farby alebo opuch na nohe človeka s cukrovkou treba rýchlo vyšetriť, aj keď nebolí."
+    },
+    {
+     "title": "Poranenie stredonožia (Lisfrancovo)",
+     "signs": "Bolesť a opuch naprieč strednou časťou chodidla s modrinou na chodidle po vytočení alebo páde. Ľahko sa prehliadne a vyžaduje röntgen."
+    }
+   ],
+   "redFlags": [
+    "Modrina na chodidle po úraze alebo nemožnosť postaviť sa na nohu",
+    "Nová rana, pľuzgier, zmena farby alebo opuch na nohe, ak máte cukrovku",
+    "Studené, bledé alebo modré chodidlo"
+   ]
+  },
+  "toes": {
+   "name": "Prsty nohy",
+   "causes": [
+    {
+     "title": "Zarastený necht",
+     "signs": "Bolestivý, červený okraj nechtu, zvyčajne na palci, zarývajúci sa do kože, niekedy infikovaný."
+    },
+    {
+     "title": "Narazený alebo zlomený prst",
+     "signs": "Bolesť, opuch a modrina po narazení prsta alebo páde predmetu naň. Zlomený palec alebo prst, ktorý vyzerá krivý, treba vyšetriť."
+    },
+    {
+     "title": "Vbočený palec (hallux valgus)",
+     "signs": "Kostný hrbolček na boku kĺbu palca, s palcom nakloneným k ostatným prstom."
+    },
+    {
+     "title": "Kladivkové alebo pazúrovité prsty",
+     "signs": "Prsty ohnuté v strednom kĺbe, ktoré sa odierajú o obuv a tvoria kurie oká."
+    },
+    {
+     "title": "Bolesť pod prednými vankúšikmi chodidla",
+     "signs": "Bolesť alebo pálenie pod prednými vankúšikmi chodidla, horšie v obuvi s tenkou podrážkou alebo na vysokom podpätku."
+    },
+    {
+     "title": "Mortonov neuróm",
+     "signs": "Pálivá bolesť, necitlivosť alebo pocit kamienka v topánke medzi tretím a štvrtým prstom."
+    },
+    {
+     "title": "Dna",
+     "signs": "Náhly, veľmi bolestivý, červený, horúci a opuchnutý kĺb palca, často začínajúci v noci. Bolí aj dotyk prikrývky."
+    }
+   ],
+   "redFlags": [
+    "Prst, ktorý sčernie, zmodrie alebo veľmi zbledne",
+    "Červený, horúci, opuchnutý kĺb s horúčkou",
+    "Nová rana alebo pľuzgier na nohe, ak máte cukrovku"
+   ]
+  },
+  "heel": {
+   "name": "Päta",
+   "causes": [
+    {
+     "title": "Plantárna fasciitída",
+     "signs": "Ostrá bolesť pod pätou pri prvých krokoch ráno alebo po sedení, ktorá pri chôdzi ustupuje."
+    },
+    {
+     "title": "Tendinopatia Achillovej šľachy",
+     "signs": "Bolesť a stuhnutosť šľachy nad pätou, najhoršia ráno alebo na začiatku cvičenia."
+    },
+    {
+     "title": "Pretrhnutie Achillovej šľachy",
+     "signs": "Náhle prasknutie, akoby vás niekto kopol do päty, a potom sa nemôžete odraziť ani postaviť na špičky."
+    },
+    {
+     "title": "Severova choroba",
+     "signs": "Bolesť päty u aktívneho dieťaťa vo veku asi 8 až 14 rokov, horšia pri behu a skákaní, kde Achillova šľacha ťahá za rastúcu pätovú kosť. Ustúpi s rastom."
+    },
+    {
+     "title": "Únavová zlomenina pätovej kosti",
+     "signs": "Bolesť päty, ktorá narastá pri chôdzi alebo behu, a celá päta je citlivá pri stlačení, po zvýšení aktivity."
+    },
+    {
+     "title": "Stlačený nerv (tarzálny tunel)",
+     "signs": "Pálenie, mravčenie alebo necitlivosť pod pätou a chodidlom, niekedy horšie v noci."
+    },
+    {
+     "title": "Hrbolček na päte a burzitída (Haglundova)",
+     "signs": "Citlivý, niekedy červený hrbolček na zadnej strane päty, kde sa obuv odiera, tesne pod Achillovou šľachou."
+    },
+    {
+     "title": "Pomliaždený vankúšik päty",
+     "signs": "Hlboká bolesť v strede vankúšika päty, horšia pri chôdzi naboso po tvrdej podlahe, často po skoku alebo doskoku."
+    },
+    {
+     "title": "Zápalová bolesť päty",
+     "signs": "Bolesť oboch piat alebo zároveň pri Achillovej šľache a pod pätou, s rannou stuhnutosťou chrbta, psoriázou alebo opuchnutými kĺbmi inde."
+    }
+   ],
+   "redFlags": [
+    "Náhle prasknutie na zadnej strane päty a nemôžete sa odraziť ani postaviť na špičky",
+    "Horúca, červená, opuchnutá päta alebo chodidlo s horúčkou alebo nová rana na nohe, ak máte cukrovku",
+    "Bolesť päty po páde z výšky, pre ktorú sa nemôžete postaviť na nohu",
+    "Studené, bledé alebo necitlivé chodidlo alebo rana na päte, ktorá sa nehojí"
+   ]
+  },
+  "upper-back": {
+   "name": "Horná časť chrbta",
+   "causes": [
+    {
+     "title": "Preťaženie z držania tela",
+     "signs": "Bolesť medzi lopatkami po dlhom sedení."
+    },
+    {
+     "title": "Podvrtnutie rebrového kĺbu",
+     "signs": "Ostrá bolesť vedľa chrbtice pri dýchaní alebo otáčaní."
+    },
+    {
+     "title": "Osteoporotická zlomenina",
+     "signs": "Náhla bolesť v strede chrbta po malej námahe u človeka s riedkymi kosťami."
+    },
+    {
+     "title": "Pásový opar",
+     "signs": "Pálivý pás bolesti, po ktorom nasleduje vyrážka na jednej strane."
+    },
+    {
+     "title": "Prenesená bolesť",
+     "signs": "Bolesť hornej časti chrbta môže spôsobiť srdce, aorta, žlčník alebo podžalúdková žľaza."
+    },
+    {
+     "title": "Stlačený nerv na krku",
+     "signs": "Bolesť medzi lopatkami alebo nad jednou z nich, často s bolesťou krku a mravčením, necitlivosťou alebo slabosťou po jednej ruke."
+    },
+    {
+     "title": "Zápal pohrudnice alebo infekcia hrudníka",
+     "signs": "Ostrá bolesť pri nádychu alebo kašli, s kašľom, horúčkou alebo dýchavičnosťou."
+    },
+    {
+     "title": "Zhrbený chrbát u dospievajúceho (Scheuermannova choroba)",
+     "signs": "Boľavý, stuhnutý horný chrbát a zakrivenie, ktoré sa nevyrovná ani pri vzpriamenom postoji, zvyčajne zbadané v ranom dospievaní."
+    }
+   ],
+   "redFlags": [
+    "Náhla, prudká trhavá bolesť medzi lopatkami",
+    "Bolesť chrbta s bolesťou na hrudi alebo dýchavičnosťou",
+    "Bolesť chrbta s horúčkou, nevysvetliteľným chudnutím alebo rakovinou v minulosti",
+    "Nová necitlivosť alebo slabosť rúk či nôh alebo ťažkosti s mechúrom či stolicou"
+   ]
+  },
+  "mid-back": {
+   "name": "Stredná časť chrbta",
+   "causes": [
+    {
+     "title": "Natiahnutie svalu",
+     "signs": "Tupá alebo ostrá bolesť vedľa chrbtice po dvíhaní, otáčaní alebo dlhom sedení, horšia pri niektorých pohyboch. Pomáha zostať aktívny."
+    },
+    {
+     "title": "Podvrtnutie rebrového kĺbu",
+     "signs": "Ostrá jednostranná bolesť vedľa chrbtice, ktorá pichne pri nádychu, otáčaní alebo kašli."
+    },
+    {
+     "title": "Osteoporotická zlomenina",
+     "signs": "Náhla bolesť v strede chrbta po malej námahe, kašli alebo páde u človeka nad 60 rokov alebo s riedkymi kosťami, niekedy s úbytkom výšky."
+    },
+    {
+     "title": "Pásový opar",
+     "signs": "Pálivá alebo mravčivá bolesť v páse okolo jednej strany hrudníka a chrbta, po ktorej o niekoľko dní nasleduje pľuzgierovitá vyrážka. Navštívte lekára včas kvôli protivírusovej liečbe."
+    },
+    {
+     "title": "Zápal obličiek alebo obličkový kameň",
+     "signs": "Bolesť na spodku rebier na jednej strane chrbta s horúčkou, triaškou alebo ťažkosťami s močením alebo vlny silnej bolesti šíriace sa do slabiny."
+    },
+    {
+     "title": "Bolesť z tráviacej sústavy",
+     "signs": "Žlčníkové kamene, žalúdočný vred alebo zápal podžalúdkovej žľazy sa môžu prejaviť v strede chrbta, často po jedle a s bolesťou v hornej časti brucha."
+    },
+    {
+     "title": "Zápal pohrudnice alebo infekcia hrudníka",
+     "signs": "Ostrá bolesť na boku chrbta pri nádychu alebo kašli, s kašľom, horúčkou alebo dýchavičnosťou."
+    },
+    {
+     "title": "Zápalová bolesť chrbta",
+     "signs": "Stuhnutosť najhoršia ráno, trvajúca viac ako 30 minút, ktorá sa zlepší pohybom, so začiatkom pred 40. rokom. Niekedy s bolesťou v mieste, kde sa rebrá stretávajú s chrbticou."
+    }
+   ],
+   "redFlags": [
+    "Náhla, prudká trhavá bolesť v chrbte: volajte záchrannú službu (možná disekcia aorty)",
+    "Bolesť chrbta s bolesťou na hrudi, dýchavičnosťou alebo potením: volajte záchrannú službu",
+    "Bolesť chrbta s horúčkou, nevysvetliteľným chudnutím alebo rakovinou v minulosti",
+    "Nová necitlivosť alebo slabosť nôh alebo ťažkosti s mechúrom či stolicou",
+    "Bolesť chrbta po vážnom páde alebo nehode"
+   ]
+  },
+  "lower-back": {
+   "name": "Dolná časť chrbta",
+   "causes": [
+    {
+     "title": "Bolesť dolnej časti chrbta",
+     "signs": "Bolesť a stuhnutosť po dvíhaní, predklone alebo bez zjavnej príčiny. Zvyčajne odznie v priebehu týždňov a pomáha zostať aktívny."
+    },
+    {
+     "title": "Ischias",
+     "signs": "Bolesť vystreľujúca po zadnej strane nohy, často s mravčením."
+    },
+    {
+     "title": "Bolesť krížovo-bedrového kĺbu",
+     "signs": "Jednostranná bolesť dolnej časti chrbta a zadku, horšia na schodoch alebo pri otáčaní sa v posteli."
+    },
+    {
+     "title": "Obličkový kameň alebo zápal obličiek",
+     "signs": "Bolesť vyššie v boku alebo chrbte s horúčkou alebo ťažkosťami s močením."
+    },
+    {
+     "title": "Spinálna stenóza",
+     "signs": "Bolesť alebo ťažoba nôh pri chôdzi, ktorá ustúpi v sede alebo predklone."
+    },
+    {
+     "title": "Zápalová bolesť chrbta",
+     "signs": "Stuhnutosť najhoršia ráno, trvajúca viac ako 30 minút, ktorá sa zlepší pohybom, so začiatkom pred 40. rokom."
+    },
+    {
+     "title": "Osteoporotická zlomenina",
+     "signs": "Náhla bolesť v dolnej časti chrbta po malej námahe, kašli alebo páde u človeka nad 60 rokov alebo s riedkymi kosťami, niekedy s úbytkom výšky."
+    },
+    {
+     "title": "Menštruačná bolesť alebo endometrióza",
+     "signs": "Tupá bolesť v dolnej časti chrbta a podbrušku okolo menštruácie. Bolesť, ktorá je silná, zhoršuje sa alebo je prítomná aj medzi menštruáciami, si vyžaduje lekára."
+    },
+    {
+     "title": "Zápal prostaty (prostatitída)",
+     "signs": "Bolesť v dolnej časti chrbta, medzi nohami alebo v špičke penisu, s bolestivým alebo častým močením, niekedy s horúčkou."
+    },
+    {
+     "title": "Výduť brušnej aorty",
+     "signs": "Rozšírená aorta zvyčajne nespôsobuje ťažkosti, ale ak presakuje, spôsobí náhlu, silnú bolesť v dolnej časti chrbta alebo brucha, často s pocitom na odpadnutie. Najčastejšie u mužov nad 65 rokov a fajčiarov. Je to stav pre pohotovosť."
+    }
+   ],
+   "redFlags": [
+    "Necitlivosť okolo pohlavných orgánov alebo zadku, nové ťažkosti s mechúrom alebo stolicou či slabosť oboch nôh: pohotovosť (možný syndróm cauda equina)",
+    "Bolesť chrbta s horúčkou, nevysvetliteľným chudnutím, rakovinou v minulosti alebo po vážnom úraze",
+    "Silná bolesť, ktorá je horšia v noci a v pokoji neustupuje",
+    "Náhla, silná bolesť dolnej časti chrbta alebo brucha u staršieho dospelého, najmä s odpadnutím: volajte záchrannú službu (možná presakujúca výduť aorty)"
+   ]
+  },
+  "tailbone": {
+   "name": "Kostrč",
+   "causes": [
+    {
+     "title": "Bolesť kostrče (kokcygodýnia)",
+     "signs": "Bolesť na úplnom spodku chrbtice, horšia v sede alebo pri vstávaní zo stoličky, často po páde alebo pôrode."
+    },
+    {
+     "title": "Pomliaždená alebo zlomená kostrč",
+     "signs": "Bolesť po páde na zadok, horšia v sede alebo pri vstávaní. Zvyčajne ustúpi v priebehu niekoľkých týždňov a pomáha vankúš s výrezom vzadu."
+    },
+    {
+     "title": "Pilonidálny absces",
+     "signs": "Bolestivá, opuchnutá, niekedy vytekajúca hrčka v koži na vrchole medzisedacej ryhy."
+    },
+    {
+     "title": "Hemoroidy alebo trhlinka pri konečníku",
+     "signs": "Bolesť alebo svrbenie okolo konečníka pri vyprázdňovaní, niekedy s jasne červenou krvou na papieri. Krvácanie, ktoré sa opakuje, alebo krvácanie po 50. roku by mal vyšetriť lekár."
+    },
+    {
+     "title": "Bolesť z dolnej časti chrbta",
+     "signs": "Dolná časť chrbtice a krížovo-bedrové kĺby môžu spôsobiť bolesť, ktorá sa pociťuje dole pri kostrči."
+    }
+   ],
+   "redFlags": [
+    "Necitlivosť okolo pohlavných orgánov alebo zadku, nové ťažkosti s mechúrom alebo stolicou či slabosť oboch nôh: pohotovosť (možný syndróm cauda equina)",
+    "Horúca, opuchnutá, veľmi bolestivá hrčka pri kostrči alebo konečníku s horúčkou",
+    "Bolesť kostrče s horúčkou, nevysvetliteľným chudnutím alebo rakovinou v minulosti"
+   ]
+  },
+  "buttock": {
+   "name": "Zadok",
+   "causes": [
+    {
+     "title": "Ischias",
+     "signs": "Bolesť zo zadku vystreľujúca po zadnej strane nohy, často s mravčením alebo necitlivosťou. Zvyčajne pochádza z podráždeného nervového koreňa v dolnej časti chrbta."
+    },
+    {
+     "title": "Syndróm hruškovitého svalu",
+     "signs": "Hlboká bolesť v strede zadku, horšia v sede alebo na schodoch, niekedy s mravčením po zadnej strane stehna."
+    },
+    {
+     "title": "Bolesť krížovo-bedrového kĺbu",
+     "signs": "Jednostranná bolesť nad jamkou na vrchole zadku, horšia na schodoch, pri vstávaní alebo otáčaní sa v posteli."
+    },
+    {
+     "title": "Natiahnutie sedacieho svalu",
+     "signs": "Bolesť alebo napätie v zadku po behu, lezení alebo náhlom úsilí, ktoré ustupuje v priebehu dní až týždňov."
+    },
+    {
+     "title": "Bolesť sedacej kosti (tendinopatia zadných stehenných svalov)",
+     "signs": "Hlboká bolesť v dolnej časti zadku, horšia pri sedení na tvrdých stoličkách alebo behu do kopca."
+    },
+    {
+     "title": "Bolesť z bedrového kĺbu",
+     "signs": "Artróza bedrového kĺbu môže bolieť v zadku aj v slabine, so stuhnutosťou pri obúvaní topánok a ponožiek."
+    },
+    {
+     "title": "Ischiofemorálny impingement",
+     "signs": "Hlboká bolesť nízko v zadku, horšia pri dlhých krokoch alebo pri vytočení stehna dovnútra, keď sa štvorhranný stehenný sval privrie medzi sedaciu kosť a stehennú kosť."
+    },
+    {
+     "title": "Natrhnutie zadných stehenných svalov pri sedacej kosti",
+     "signs": "Náhla ostrá bolesť alebo lupnutie v dolnej časti zadku pri šprinte, vodnom lyžovaní alebo šnúre, po ktorom nasleduje modrina po zadnej strane stehna. Úplné natrhnutie môže vyžadovať operáciu do niekoľkých týždňov, preto rýchlo navštívte lekára."
+    }
+   ],
+   "redFlags": [
+    "Necitlivosť okolo pohlavných orgánov alebo zadku, nové ťažkosti s mechúrom alebo stolicou či slabosť oboch nôh: pohotovosť (možný syndróm cauda equina)",
+    "Noha, ktorá slabne, alebo bolesť zadku s horúčkou či pocitom veľkej choroby",
+    "Nemožnosť postaviť sa na nohu po páde",
+    "Silná bolesť bedra alebo zadku po páde s nohou, ktorá vyzerá kratšia alebo vytočená von: možná zlomenina bedra"
+   ]
+  }
+ }
+}

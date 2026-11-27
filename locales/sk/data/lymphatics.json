@@ -1,0 +1,201 @@
+{
+ "structures": {
+  "thoracic-duct": {
+   "name": "Hrudníkovod",
+   "aka": [
+    "hrudný mliečovod",
+    "ductus thoracicus"
+   ],
+   "summary": "Hlavná lymfatická cieva tela. Začína v cisterna chyli v hornej časti brucha, stúpa pred chrbticou medzi aortou a nepárovou žilou, v hornej časti hrudníka prechádza doľava a ústi do žíl na spodine ľavej strany krku. Vedie lymfu z oboch nôh, z brucha a z ľavej polovice hrudníka, hlavy a ruky: asi z troch štvrtín tela.",
+   "drainsNote": "v ľavom žilovom uhle, kde sa ľavá vnútorná krčná žila spája s podkľúčovou žilou",
+   "issues": [
+    {
+     "name": "Chylotorax",
+     "note": "Zriedkavo poranenie alebo operácia v hrudníku poškodí hrudníkovod a okolo pľúc sa hromadí mliečna lymfa, čo spôsobuje dýchavičnosť. Vyžaduje liečbu v nemocnici."
+    }
+   ]
+  },
+  "cisterna-chyli": {
+   "name": "Cisterna chyli",
+   "summary": "Malý vak pred prvým a druhým driekovým stavcom, kde sa stretávajú lymfatické kmene z nôh, panvy a čreva. Po tučnom jedle je jeho lymfa mliečna (chylus), lebo nesie tuk vstrebaný z čreva. Je začiatkom hrudníkovodu."
+  },
+  "right-lymphatic-duct": {
+   "name": "Pravý lymfatický kmeň",
+   "summary": "Krátky kanál, dlhý asi centimeter, na spodine pravej strany krku. Vracia lymfu z pravej polovice hlavy, krku a hrudníka a z pravej ruky: asi zo štvrtiny tela.",
+   "drainsNote": "v pravom žilovom uhle, kde sa pravá vnútorná krčná žila spája s podkľúčovou žilou"
+  },
+  "arm-lymphatics": {
+   "name": "Lymfatické cievy ruky",
+   "summary": "Tenké cievy, ktoré začínajú ako sieť v koži prstov a dlane a stúpajú po predlaktí a ramene, väčšinou pozdĺž povrchových žíl, k lymfatickým uzlinám v podpazuší.",
+   "issues": [
+    {
+     "name": "Lymfangitída",
+     "note": "Červené pruhy, ktoré stúpajú od infikovanej rany alebo uhryznutia, znamenajú, že sa infekcia šíri lymfatickými cievami. Ešte v ten deň navštívte lekára."
+    },
+    {
+     "name": "Lymfedém ruky",
+     "note": "Opuch ruky po odstránení alebo ožarovaní uzlín v podpazuší, najčastejšie pri rakovine prsníka. Pomáha kompresia, cvičenie a starostlivosť o kožu."
+    }
+   ]
+  },
+  "leg-lymphatics": {
+   "name": "Lymfatické cievy nohy",
+   "summary": "Tenké cievy z kože chodidla, ktoré stúpajú po vnútornej strane nohy spolu s veľkou skrytou žilou k slabinovým uzlinám. Lymfa z vonkajšej strany chodidla a zo zadnej strany lýtka ide najprv do podkolenných uzlín.",
+   "issues": [
+    {
+     "name": "Lymfedém nohy",
+     "note": "Pretrvávajúci opuch chodidla a nohy, buď vrodený, alebo po operácii, ožarovaní či infekcii v slabine. Dôležitá je starostlivosť o kožu, lebo na opuchnutých nohách ľahko vzniká flegmóna."
+    },
+    {
+     "name": "Lymfangitída",
+     "note": "Červené pruhy stúpajúce po nohe od infikovanej rany alebo uhryznutia si vyžadujú lekára ešte v ten deň."
+    }
+   ]
+  },
+  "cervical-lymph-nodes": {
+   "name": "Krčné lymfatické uzliny",
+   "aka": [
+    "krčné uzliny",
+    "uzliny na krku"
+   ],
+   "summary": "Reťaze uzlín pod sánkou a pozdĺž vnútornej krčnej žily, pod zvieračom hlavy. Filtrujú lymfu z vlasovej časti hlavy, tváre, úst, hrdla a štítnej žľazy. Uzliny tesne pod uhlom sánky sú tie „žľazy“, ktoré opuchnú pri bolesti hrdla.",
+   "issues": [
+    {
+     "name": "Zväčšené uzliny na krku",
+     "note": "Časté pri nádche, bolesti hrdla a zubných infekciách a s ústupom infekcie sa zmenšia. Navštívte lekára, ak sa uzlina stále zväčšuje, je tvrdá alebo nepohyblivá, alebo pretrváva viac ako tri týždne."
+    },
+    {
+     "name": "Infekčná mononukleóza",
+     "note": "Veľké, citlivé uzliny na krku so silnou bolesťou hrdla, horúčkou a únavou, najmä u dospievajúcich a mladých dospelých. Odznieva v priebehu týždňov. Vyhnite sa kontaktným športom, kým lekár nepotvrdí, že slezina je v poriadku."
+    }
+   ]
+  },
+  "axillary-lymph-nodes": {
+   "name": "Podpazušné lymfatické uzliny",
+   "aka": [
+    "uzliny v podpazuší",
+    "axilárne uzliny"
+   ],
+   "summary": "Asi 20 až 30 uzlín v tuku podpazušia, okolo podpazušnej žily. Filtrujú lymfu z ruky, hrudnej steny a väčšiny prsníka, preto sa vyšetrujú pri rakovine prsníka.",
+   "issues": [
+    {
+     "name": "Zväčšená uzlina v podpazuší",
+     "note": "Často pri infekcii na ruke, po nedávnom očkovaní alebo pri podráždení po holení. Navštívte lekára pri hrčke, ktorá pretrváva viac ako tri týždne, alebo pri akejkoľvek hrčke so zmenou na prsníku."
+    }
+   ]
+  },
+  "mediastinal-lymph-nodes": {
+   "name": "Mediastinálne lymfatické uzliny",
+   "aka": [
+    "hilové uzliny",
+    "tracheobronchiálne uzliny"
+   ],
+   "summary": "Uzliny v strede hrudníka, okolo priedušnice, jej rozdelenia na dve priedušky a okolo koreňov pľúc. Filtrujú lymfu z pľúc, srdca a pažeráka. Nedajú sa nahmatať, ale sú viditeľné na snímkach hrudníka.",
+   "issues": [
+    {
+     "name": "Zväčšené uzliny v hrudníku",
+     "note": "Nachádzajú sa na snímkach pri infekciách, ako je tuberkulóza, pri sarkoidóze a pri niektorých nádoroch. O vyšetreniach rozhoduje lekár podľa príčiny."
+    }
+   ],
+   "drainsNote": "cez bronchomediastinálne kmene"
+  },
+  "para-aortic-lymph-nodes": {
+   "name": "Paraaortálne lymfatické uzliny",
+   "aka": [
+    "driekové uzliny",
+    "retroperitoneálne uzliny"
+   ],
+   "summary": "Reťaz uzlín po oboch stranách brušnej aorty, na zadnej strane brucha. Zbierajú lymfu z obličiek, semenníkov alebo vaječníkov a cez bedrové uzliny aj z panvy a nôh a posielajú ju do cisterna chyli."
+  },
+  "mesenteric-lymph-nodes": {
+   "name": "Mezenterické lymfatické uzliny",
+   "summary": "Stovky malých uzlín v mezentériu, vejári tkaniva, ktoré drží črevá pri zadnej stene brucha. Filtrujú lymfu a vstrebaný tuk z čreva na ceste do cisterna chyli.",
+   "issues": [
+    {
+     "name": "Mezenterická lymfadenitída",
+     "note": "Zapálené uzliny v bruchu po vírusovej infekcii, najmä u detí. Bolesť môže pripomínať zápal slepého čreva a zvyčajne odznie za pár dní. Zhoršujúca sa bolesť vpravo dole v bruchu si vyžaduje lekára."
+    }
+   ]
+  },
+  "iliac-lymph-nodes": {
+   "name": "Bedrové lymfatické uzliny",
+   "aka": [
+    "panvové uzliny",
+    "iliakálne uzliny"
+   ],
+   "summary": "Uzliny pozdĺž bedrových tepien a žíl v panve. Filtrujú lymfu z močového mechúra, panvových orgánov a cez slabinové uzliny aj z nohy a posielajú ju hore do paraaortálnych uzlín."
+  },
+  "inguinal-lymph-nodes": {
+   "name": "Slabinové lymfatické uzliny",
+   "aka": [
+    "uzliny v slabine",
+    "inguinálne uzliny"
+   ],
+   "summary": "Uzliny v slabine: rad tesne pod slabinovou ryhou a zvislá skupina okolo horného konca veľkej skrytej žily. Filtrujú lymfu z nohy, zadku, dolnej brušnej steny a pohlavných orgánov a posielajú ju do bedrových uzlín.",
+   "issues": [
+    {
+     "name": "Zväčšená uzlina v slabine",
+     "note": "Zvyčajne pri infekcii chodidla, nohy alebo kože a sama ustúpi. Hrčka v slabine, ktorá sa objavuje a mizne pri kašli alebo státí, je skôr prietrž. Navštívte lekára pri hrčke, ktorá pretrváva viac ako tri týždne."
+    }
+   ]
+  },
+  "popliteal-lymph-nodes": {
+   "name": "Podkolenné lymfatické uzliny",
+   "summary": "Niekoľko malých uzlín hlboko v jamke za kolenom, vedľa podkolenných ciev. Filtrujú lymfu z vonkajšej strany chodidla a zo zadnej strany lýtka, pozdĺž malej skrytej žily, a posielajú ju do slabinových uzlín."
+  },
+  "thymus": {
+   "name": "Týmus",
+   "aka": [
+    "detská žľaza",
+    "brzlík"
+   ],
+   "summary": "Dvojlaločný orgán za hornou časťou hrudnej kosti, pred srdcom a veľkými cievami. Dozrievajú v ňom T-lymfocyty, biele krvinky, ktoré rozpoznávajú choroboplodné zárodky. Najväčší je v detstve a po puberte ho postupne nahrádza tuk."
+  },
+  "tonsils": {
+   "name": "Mandle",
+   "aka": [
+    "podnebné mandle",
+    "tonzily"
+   ],
+   "summary": "Dva hrčky lymfatického tkaniva vzadu v hrdle, jedna na každej strane. Spolu s nosohltanovou mandľou a tkanivom na koreni jazyka tvoria prstenec, ktorý sa stretáva so zárodkami vstupujúcimi ústami a nosom.",
+   "issues": [
+    {
+     "name": "Angína (tonzilitída)",
+     "note": "Bolesť hrdla, bolestivé prehĺtanie, horúčka a červené, opuchnuté mandle, zvyčajne vírusového pôvodu. Pomáha oddych, tekutiny a lieky proti bolesti. Navštívte lekára, ak trvá viac ako týždeň alebo sa opakuje."
+    },
+    {
+     "name": "Peritonzilárny absces",
+     "note": "Absces vedľa mandle: silná jednostranná bolesť hrdla, ťažkosti s otváraním úst a pridusený hlas. Vyžaduje naliehavú liečbu."
+    }
+   ]
+  }
+ },
+ "groups": {
+  "lymphatic-system": {
+   "name": "Lymfatická sústava",
+   "summary": "Druhá sieť ciev, ktorá zbiera tekutinu unikajúcu z krvi do tkanív (lymfu), filtruje ju cez lymfatické uzliny, kde ju imunitné bunky kontrolujú na zárodky a abnormálne bunky, a vracia ju do žíl na spodine krku. Prenáša aj tuk vstrebaný z čreva.",
+   "issues": [
+    {
+     "name": "Zväčšené lymfatické uzliny",
+     "note": "Citlivé, zväčšené uzliny pri infekcii (bolesť hrdla, infikovaná rana) sú prejavom práce imunitného systému a zvyčajne sa do dvoch až troch týždňov zmenšia. Navštívte lekára pri uzlinách, ktoré stále rastú, sú tvrdé alebo nepohyblivé, pretrvávajú viac ako tri týždne alebo sa objavia s nočným potením, horúčkou či chudnutím."
+    },
+    {
+     "name": "Lymfedém",
+     "note": "Pretrvávajúci opuch končatiny, keď lymfa nemôže odtekať, najčastejšie po odstránení alebo ožarovaní lymfatických uzlín pri rakovine. Pomáha včasná liečba (kompresia, starostlivosť o kožu, cvičenie). S novo opuchnutou končatinou navštívte lekára."
+    }
+   ]
+  },
+  "lymph-nodes": {
+   "name": "Skupiny lymfatických uzlín",
+   "summary": "Fazuľovité filtre, zvyčajne niekoľko milimetrov dlhé, nahromadené tam, kde sa zbiehajú lymfatické cievy z určitej oblasti: na krku, v podpazuší, v slabine, v hrudníku a v bruchu. V tele ich je asi 600."
+  },
+  "lymph-vessels": {
+   "name": "Lymfatické cievy a kmene",
+   "summary": "Tenkostenné cievy s jednosmernými chlopňami. Pohyb svalov a dýchanie posúvajú lymfu z tkanív cez uzliny k dvom kmeňom, ktoré ústia do žíl na krku."
+  },
+  "lymphoid-organs": {
+   "name": "Lymfatické orgány",
+   "summary": "Orgány, kde imunitné bunky dozrievajú alebo sa stretávajú so zárodkami: týmus, mandle a slezina."
+  }
+ }
+}

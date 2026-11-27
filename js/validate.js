@@ -3,6 +3,7 @@
 // own graph from forSex()); validate() is the browser wrapper that logs and shows a badge.
 import { Graph, parseKey } from './graph.js';
 import { forSex, sexTagProblems } from './sex.js';
+import { pluralForms, isPlural, textUnits, setAt, getAt, overlayOf, translated, unitId } from './i18n.js';
 
 // drawn: Map(view -> Set(structure key)), regionShapes: Map(view -> Set(region key)),
 // variants: [{ layer, view, style, keys: Set, base: Set }] a layer's drawing in another style and its default drawing's keys,
@@ -162,8 +163,11 @@ export async function skinFrom(manifest, read) {
   return { file, regions, listed: index?.skin || null };
 }
 
-export function validate({ raw, map, models = [], skin = null }) {
-  const { problems, summary } = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants(), models, skin });
+// langs: checkLang()'s results for the languages other than English
+export function validate({ raw, map, models = [], skin = null, langs = [] }) {
+  const all = checkAll({ raw, drawnTagged: map.drawnTagged(), regionShapes: map.regionsByView(), variants: map.variants(), models, skin });
+  const problems = [...all.problems, ...langs.flatMap((l) => l.problems)];
+  const summary = [all.summary.replace(/^\d+ issues?/, `${problems.length} issue${problems.length === 1 ? '' : 's'}`), ...langs.map((l) => l.summary)].join(' · ');
   console.group(`[Corpus] data check: ${summary}`);
   if (problems.length) console.table(problems.map((p) => ({ problem: p })));
   else console.info('All references resolve.');
@@ -174,3 +178,77 @@ export function validate({ raw, map, models = [], skin = null }) {
   document.body.appendChild(badge);
   return problems;
 }
+
+// ------------------------------------------------------------------ languages (js/i18n.js, docs/i18n.md)
+const placeholders = (s) => [...String(s).matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
+// One language against English. lang: loadLang()'s result; enUi: locales/en/ui.json; source: its source.json (the
+// English each translation was made from) or null. Problems: overlay ids or fields that English doesn't have, lists
+// of another length, placeholders that differ, plural strings without the forms the language needs, and stale
+// strings (English changed since). A draft may be incomplete; a finished language must translate every string.
+export function checkLang({ manifest, raw, lang, enUi, source = null }) {
+  const L = (manifest.languages || []).find((x) => x.id === lang.id) || {};
+  const tag = `[${lang.id}]`;
+  const problems = [];
+  // ui.json
+  const ui = lang.ui || {};
+  const forms = pluralForms(lang.id);
+  let uiDone = 0;
+  for (const [k, v] of Object.entries(ui)) {
+    if (!(k in enUi)) { problems.push(`${tag} ui.json: "${k}" is not a key of locales/en/ui.json`); continue; }
+    const en = enUi[k];
+    if (isPlural(en) !== isPlural(v)) { problems.push(`${tag} ui.json: "${k}" ${isPlural(en) ? 'needs plural forms' : 'is not a plural string'}`); continue; }
+    if (isPlural(v)) {
+      const miss = forms.filter((f) => !nonEmptyStr(v[f]));
+      if (miss.length) problems.push(`${tag} ui.json: "${k}" lacks the plural form${miss.length > 1 ? 's' : ''} ${miss.join(', ')}`);
+      for (const f of forms) if (nonEmptyStr(v[f]) && placeholders(v[f]) !== placeholders(en.other)) problems.push(`${tag} ui.json: "${k}" (${f}) has placeholders {${placeholders(v[f])}}, English {${placeholders(en.other)}}`);
+    } else if (nonEmptyStr(v) && placeholders(v) !== placeholders(en)) problems.push(`${tag} ui.json: "${k}" has placeholders {${placeholders(v)}}, English {${placeholders(en)}}`);
+    if (isPlural(v) ? forms.every((f) => nonEmptyStr(v[f])) : nonEmptyStr(v)) uiDone++;
+  }
+  const uiTotal = Object.keys(enUi).length;
+  // data overlays: every overlay value must sit where English has a string (or a list of the same length)
+  const units = textUnits(manifest, raw);
+  const enTree = {};
+  for (const u of units) setAt(enTree[u.file] ||= {}, u.path, u.en);
+  const files = ['manifest', ...raw.layers.map((x) => x.id), 'regions', 'links'];
+  const walk = (ov, en, path, file) => {
+    for (const [k, v] of Object.entries(ov)) {
+      const p = [...path, k];
+      const where = `${file} ${p.join('/')}`;
+      const e = en?.[k];
+      // aka is the language's own synonyms (search): allowed on any entry, even one with none in English
+      if (k === 'aka' && e === undefined && en && !Array.isArray(en) && path.length === 2) { if (!Array.isArray(v) || v.some((x) => !nonEmptyStr(x))) problems.push(`${tag} ${where}: aka must be a list of strings`); continue; }
+      if (e === undefined) { if (v != null && v !== '') problems.push(`${tag} ${file}: nothing to translate at ${p.join('/')} (unknown id or field)`); continue; }
+      if (k === 'aka' && Array.isArray(e)) { if (!Array.isArray(v) || v.some((x) => !nonEmptyStr(x))) problems.push(`${tag} ${where}: aka must be a list of strings`); continue; }
+      if (Array.isArray(e)) {
+        if (!Array.isArray(v)) problems.push(`${tag} ${where}: should be a list`);
+        else if (v.length !== e.length) problems.push(`${tag} ${where}: ${v.length} items, English has ${e.length}`);
+        else walk(Object.fromEntries(v.map((x, i) => [i, x])), Object.fromEntries(e.map((x, i) => [i, x])), path.concat(k), file);
+      } else if (e && typeof e === 'object') {
+        if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, e, p, file);
+        else if (v != null) problems.push(`${tag} ${where}: should be an object`);
+      } else if (v != null && typeof v !== 'string') problems.push(`${tag} ${where}: should be a string`);
+      else if (nonEmptyStr(v) && placeholders(v) !== placeholders(e)) problems.push(`${tag} ${where}: placeholders {${placeholders(v)}}, English {${placeholders(e)}}`);
+    }
+  };
+  for (const f of files) walk(overlayOf(lang, f), enTree[f], [], f);
+  let dataDone = 0, unsnapped = 0;
+  const missing = [];
+  for (const u of units) {
+    const v = getAt(overlayOf(lang, u.file), u.path);
+    if (!translated(v)) { missing.push(unitId(u)); continue; }
+    dataDone++;
+    const id = unitId(u);
+    if (!source || !(id in source)) unsnapped++;
+    else if (JSON.stringify(source[id]) !== JSON.stringify(u.en)) problems.push(`${tag} stale: ${id} (the English changed since it was translated)`);
+  }
+  const missingUi = Object.keys(enUi).filter((k) => !(isPlural(enUi[k]) ? isPlural(ui[k]) && forms.every((f) => nonEmptyStr(ui[k][f])) : nonEmptyStr(ui[k])));
+  if (!L.draft) {
+    if (missingUi.length) problems.push(`${tag} ${missingUi.length} interface string(s) not translated: ${missingUi.slice(0, 5).join(', ')}${missingUi.length > 5 ? '…' : ''}`);
+    if (missing.length) problems.push(`${tag} ${missing.length} data string(s) not translated: ${missing.slice(0, 5).join(', ')}${missing.length > 5 ? '…' : ''}`);
+    if (unsnapped) problems.push(`${tag} ${unsnapped} translated string(s) not in source.json (run node tools/i18n.mjs snapshot ${lang.id})`);
+  }
+  const pct = (a, b) => (b ? Math.floor((a / b) * 100) : 100);
+  const summary = `${lang.id}${L.draft ? ' (draft)' : ''}: ui ${uiDone}/${uiTotal} (${pct(uiDone, uiTotal)}%), data ${dataDone}/${units.length} (${pct(dataDone, units.length)}%)${unsnapped ? `, ${unsnapped} not snapshotted` : ''}`;
+  return { problems, summary };
+}
+const nonEmptyStr = (v) => typeof v === 'string' && v !== '';

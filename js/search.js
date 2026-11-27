@@ -1,7 +1,8 @@
 // Type-ahead search over names, Latin names, alternative names, group members and body areas.
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-export function createSearch({ input, list, graph, onChoose }) {
+// t: js/i18n.js's createT() for the current language (setGraph swaps both)
+export function createSearch({ input, list, graph, t, onChoose }) {
   let results = [];
   let active = -1;
 
@@ -27,7 +28,7 @@ export function createSearch({ input, list, graph, onChoose }) {
   function render() {
     if (!input.value.trim()) { open(false); return; }
     if (!results.length) {
-      list.innerHTML = `<li class="r-empty" role="option" aria-disabled="true">No matches for “${esc(input.value.trim())}”</li>`;
+      list.innerHTML = `<li class="r-empty" role="option" aria-disabled="true">${t.html('search.none', { q: input.value.trim() })}</li>`;
       open(true);
       return;
     }
@@ -69,7 +70,7 @@ export function createSearch({ input, list, graph, onChoose }) {
 
   return {
     focus: () => input.focus(),
-    // the biological sex changed: search the new graph from now on
-    setGraph(g) { graph = g; results = []; active = -1; open(false); },
+    // the biological sex or the language changed: search the new graph from now on
+    setGraph(g, tr = t) { graph = g; t = tr; results = []; active = -1; open(false); },
   };
 }

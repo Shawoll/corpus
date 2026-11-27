@@ -3,7 +3,8 @@
 // Builds the same graphs the app does (one per biological sex setting) and runs js/validate.js's checkAll() on them.
 // Exits 1 if anything is wrong.
 import { readFile } from 'node:fs/promises';
-import { checkAll, modelsFrom, skinFrom } from '../js/validate.js';
+import { checkAll, checkLang, modelsFrom, skinFrom } from '../js/validate.js';
+import { loadLang, sourceFile } from '../js/i18n.js';
 
 const root = new URL('../', import.meta.url);
 const json = async (p) => JSON.parse(await readFile(new URL(p, root), 'utf8'));
@@ -62,7 +63,16 @@ const read = async (p, as) => (as === 'json' ? json(p) : readFile(new URL(p, roo
 const models = await modelsFrom(manifest, read);
 const skin = await skinFrom(manifest, read);
 
-const { problems, summary } = checkAll({ raw, drawnTagged, regionShapes, variants, models, skin });
+const all = checkAll({ raw, drawnTagged, regionShapes, variants, models, skin });
+// languages (js/i18n.js): every one after the first (English, the source) against English
+const languages = manifest.languages || [];
+const enUi = languages[0]?.ui ? await json(languages[0].ui) : {};
+const langs = await Promise.all(languages.slice(1).map(async (L) => checkLang({
+  manifest, raw, enUi, lang: await loadLang(manifest, L.id, json),
+  source: await json(sourceFile(manifest, L.id)).catch(() => null),
+})));
+const problems = [...all.problems, ...langs.flatMap((l) => l.problems)];
+const summary = [all.summary.replace(/^\d+ issues?/, `${problems.length} issue${problems.length === 1 ? '' : 's'}`), ...langs.map((l) => l.summary)].join(' · ');
 console.log(`[Corpus] data check: ${summary}`);
 for (const p of problems) console.log(`  - ${p}`);
 process.exit(problems.length ? 1 : 0);

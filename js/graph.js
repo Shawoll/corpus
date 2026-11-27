@@ -13,11 +13,15 @@ export const normalize = (s) =>
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[’']/g, '')
+    .replace(/\u00a0/g, ' ') // non-breaking spaces (Slovak typography) match a typed space
     .toLowerCase();
 
 export class Graph {
-  constructor({ layers, links = [], linkTypes = {}, regions = { regions: [] } }) {
+  // t: js/i18n.js's createT() for the search results' labels (English when left out, as in the data check)
+  constructor({ layers, links = [], linkTypes = {}, regions = { regions: [] }, t = null }) {
     this.layers = layers;
+    this.t = t || ((key, v) => ({ 'search.joint': 'Joint', 'search.group': 'Group', 'search.region': 'Where does it hurt?' }[key]
+      || (key === 'search.in' ? `in ${v.name}` : key === 'search.pain' ? `Pain: ${v.name}` : key)));
     this.linkTypes = linkTypes;
     this.nodes = new Map();
     this.groups = new Map();
@@ -221,27 +225,31 @@ export class Graph {
 
   // ------------------------------------------------------------ search
   #buildSearch() {
+    const t = this.t;
     const idx = [];
+    // in another language the English names still find a structure, a little below the names on show
+    const en = (x) => [[x.nameEn, 0.9], ...(x.akaEn || []).map((a) => [a, 0.8])];
     for (const n of this.nodes.values()) {
       const layerName = this.layer(n.layer)?.name || n.layer;
-      const where = n.type === 'joint' ? 'Joint' : this.groups.get(n.group)?.name || layerName;
-      const terms = [[n.name, 1], [n.latin, 0.95], ...(n.aka || []).map((a) => [a, 0.85])];
+      const where = n.type === 'joint' ? t('search.joint') : this.groups.get(n.group)?.name || layerName;
+      const terms = [[n.name, 1], [n.latin, 0.95], ...(n.aka || []).map((a) => [a, 0.85]), ...en(n)];
       idx.push({ kind: 'node', id: n.id, label: n.name, meta: where, terms, weight: 3 });
       for (const m of n.members || []) {
-        idx.push({ kind: 'member', id: n.id, member: m.name, label: m.name, meta: `in ${n.name}`, terms: [[m.name, 1], [m.latin, 0.95]], weight: 2 });
+        // member: the English name, so ?m= links work in every language
+        idx.push({ kind: 'member', id: n.id, member: m.en ?? m.name, label: m.name, meta: t('search.in', { name: n.name }), terms: [[m.name, 1], [m.latin, 0.95], [m.en, 0.9]], weight: 2 });
       }
     }
-    for (const g of this.groups.values()) idx.push({ kind: 'group', id: g.id, label: g.name, meta: 'Group', terms: [[g.name, 1]], weight: 1 });
-    for (const r of this.regions.values()) idx.push({ kind: 'region', id: r.id, label: r.name, meta: 'Where does it hurt?', terms: [[r.name, 1]], weight: -8 });
+    for (const g of this.groups.values()) idx.push({ kind: 'group', id: g.id, label: g.name, meta: t('search.group'), terms: [[g.name, 1], ...en(g)], weight: 1 });
+    for (const r of this.regions.values()) idx.push({ kind: 'region', id: r.id, label: r.name, meta: t('search.region'), terms: [[r.name, 1], ...en(r)], weight: -8 });
     // conditions are searchable too: "tennis elbow" finds the forearm extensors, "appendicitis" the area and organ
     for (const n of this.nodes.values()) {
-      for (const i of n.issues || []) idx.push({ kind: 'issue', id: n.id, label: i.name, meta: `in ${n.name}`, terms: [[i.name, 0.9]], weight: -2 });
+      for (const i of n.issues || []) idx.push({ kind: 'issue', id: n.id, label: i.name, meta: t('search.in', { name: n.name }), terms: [[i.name, 0.9], [i.nameEn, 0.85]], weight: -2 });
     }
     for (const g of this.groups.values()) {
-      for (const i of g.issues || []) idx.push({ kind: 'group', id: g.id, label: i.name, meta: `in ${g.name}`, terms: [[i.name, 0.9]], weight: -3 });
+      for (const i of g.issues || []) idx.push({ kind: 'group', id: g.id, label: i.name, meta: t('search.in', { name: g.name }), terms: [[i.name, 0.9], [i.nameEn, 0.85]], weight: -3 });
     }
     for (const r of this.regions.values()) {
-      for (const c of r.causes || []) idx.push({ kind: 'region', id: r.id, label: c.title, meta: `Pain: ${r.name}`, terms: [[c.title, 0.9]], weight: -4 });
+      for (const c of r.causes || []) idx.push({ kind: 'region', id: r.id, label: c.title, meta: t('search.pain', { name: r.name }), terms: [[c.title, 0.9]], weight: -4 });
     }
     for (const e of idx) e.norm = e.terms.filter(([t]) => t).map(([t, f]) => [normalize(t), f]);
     return idx;

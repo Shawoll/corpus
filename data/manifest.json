@@ -49,6 +49,20 @@
       "short": "M"
     }
   ],
+  "languages": [
+    {
+      "id": "en",
+      "name": "English",
+      "ui": "locales/en/ui.json"
+    },
+    {
+      "id": "sk",
+      "name": "Slovenčina",
+      "short": "SK",
+      "ui": "locales/sk/ui.json",
+      "data": "locales/sk/data"
+    }
+  ],
   "viewBox": [
     0,
     0,

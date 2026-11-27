@@ -1,0 +1,301 @@
+{
+ "structures": {
+  "acl": {
+   "name": "Predný skrížený väz",
+   "aka": [
+    "PSV",
+    "ACL"
+   ],
+   "summary": "Vedie vnútri kolena od prednej časti hornej plochy píšťaly hore a dozadu k vnútornej strane vonkajšieho kondylu stehennej kosti. Bráni posunu predkolenia dopredu pod stehnom a kontroluje vytáčanie, preto zachytáva záťaž pri doskoku, prudkej zmene smeru a otočke.",
+   "issues": [
+    {
+     "name": "Natrhnutie predného skríženého väzu",
+     "note": "Lupnutie pri vytočení alebo nešikovnom doskoku, rýchly opuch v priebehu hodín a koleno, ktoré podkluzuje. Navštívte lekára alebo fyzioterapeuta. Mnohým stačí cielená rehabilitácia, niektorí potrebujú rekonštrukciu."
+    }
+   ]
+  },
+  "pcl": {
+   "name": "Zadný skrížený väz",
+   "aka": [
+    "ZSV",
+    "PCL"
+   ],
+   "summary": "Silnejší z dvoch skrížených väzov. Vedie od zadnej časti hornej plochy píšťaly hore a dopredu k vnútornému kondylu stehennej kosti, kríži sa za predným skríženým väzom a bráni zatlačeniu predkolenia dozadu.",
+   "issues": [
+    {
+     "name": "Poranenie zadného skríženého väzu",
+     "note": "Zvyčajne po údere do prednej strany predkolenia pri pokrčenom kolene, napríklad o palubnú dosku, alebo po páde na pokrčené koleno. Bolesť vzadu v kolene a mierny opuch. Väčšina sa zotaví rehabilitáciou."
+    }
+   ]
+  },
+  "mcl": {
+   "name": "Vnútorný postranný väz kolena",
+   "aka": [
+    "MCL",
+    "píšťalový postranný väz",
+    "mediálny kolaterálny väz"
+   ],
+   "summary": "Široký plochý pruh na vnútornej strane kolena, od vnútorného epikondylu stehennej kosti k píšťale hlboko pod kĺbom. Bráni vybočeniu kolena dovnútra a je spojený s vnútorným meniskom.",
+   "issues": [
+    {
+     "name": "Podvrtnutie vnútorného postranného väzu",
+     "note": "Bolesť a citlivosť na vnútornej strane kolena po údere zvonka do kolena alebo po vytočení. Dobre sa hojí bez operácie, často v ortéze, počas týždňov."
+    }
+   ]
+  },
+  "lcl": {
+   "name": "Vonkajší postranný väz kolena",
+   "aka": [
+    "LCL",
+    "ihlicový postranný väz",
+    "laterálny kolaterálny väz"
+   ],
+   "summary": "Povrázok na vonkajšej strane kolena, od vonkajšieho epikondylu stehennej kosti k hlavičke ihlice. Bráni vybočeniu kolena von.",
+   "issues": [
+    {
+     "name": "Podvrtnutie vonkajšieho postranného väzu",
+     "note": "Menej časté ako poranenie vnútorného väzu: bolesť na vonkajšej strane kolena po údere do jeho vnútornej strany. Ťažké poranenie môže natiahnuť blízky spoločný ihlicový nerv a spôsobiť slabú, padajúcu nohu, čo si vyžaduje rýchle vyšetrenie."
+    }
+   ]
+  },
+  "menisci": {
+   "name": "Menisky",
+   "aka": [
+    "meniskus",
+    "chrupka v kolene"
+   ],
+   "summary": "Dva klinovité útvary z väzivovej chrupky v tvare písmena C, ktoré ležia na hornej ploche píšťaly, jeden na vnútornej a jeden na vonkajšej strane. Prehlbujú plytkú plochu píšťaly pre zaoblené kondyly stehennej kosti, rozkladajú záťaž a tlmia nárazy.",
+   "members": [
+    {
+     "name": "Vnútorný meniskus",
+     "note": "Väčší, výraznejšie zahnutý do tvaru C, na vnútornej strane. Je spojený s vnútorným postranným väzom, preto sa trhá častejšie."
+    },
+    {
+     "name": "Vonkajší meniskus",
+     "note": "Okrúhlejší a pohyblivejší, na vonkajšej strane."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Poranenie menisku",
+     "note": "Bolesť v kĺbovej štrbine, opuch na druhý deň a zadrhávanie alebo zamykanie kolena. U mladších pri vytočení, u starších z opotrebovania. Väčšina sa upraví cvičením. Zamknuté koleno, ktoré sa nedá vystrieť, si vyžaduje rýchle vyšetrenie."
+    }
+   ]
+  },
+  "patellar-tendon": {
+   "name": "Väz jabĺčka",
+   "aka": [
+    "patelárna šľacha",
+    "šľacha jabĺčka"
+   ],
+   "summary": "Hrubý pruh od dolného okraja jabĺčka k hrbolčeku v hornej časti predkolenia (drsnatine píšťaly). Je posledným článkom štvorhlavého svalu, ktorý vystiera koleno. Poklepom naň sa vybavuje kolenový reflex.",
+   "issues": [
+    {
+     "name": "Tendinopatia väzu jabĺčka",
+     "note": "„Skokanské koleno“: bolesť tesne pod jabĺčkom pri skokoch, drepoch alebo na schodoch. Zlepšuje sa postupným záťažovým cvičením počas týždňov až mesiacov."
+    },
+    {
+     "name": "Osgoodova-Schlatterova choroba",
+     "note": "Citlivý hrbolček pod kolenom u aktívnych rastúcich detí, kde šľacha ťahá za píšťalu. Ustúpi po ukončení rastu. Aktivitu prispôsobte bolesti."
+    }
+   ]
+  },
+  "quadriceps-tendon": {
+   "name": "Šľacha štvorhlavého svalu",
+   "summary": "Miesto, kde sa štyri hlavy štvorhlavého svalu stehna spájajú nad kolenom do jednej šľachy, ktorá sa upína na horný okraj jabĺčka.",
+   "issues": [
+    {
+     "name": "Pretrhnutie šľachy štvorhlavého svalu",
+     "note": "Väčšinou po 40. roku: náhla bolesť nad jabĺčkom pri doskoku alebo zakopnutí a nohu nemožno vystrieť. Vyžaduje naliehavé vyšetrenie, lebo sa rieši operačne."
+    }
+   ]
+  },
+  "lateral-ankle-ligaments": {
+   "name": "Vonkajšie väzy členka",
+   "aka": [
+    "ATFL",
+    "predný členkovo-ihlicový väz",
+    "pätovo-ihlicový väz"
+   ],
+   "summary": "Tri pruhy, ktoré sa vejárovito rozbiehajú od hrotu ihlice (vonkajšieho členka) k členkovej a pätovej kosti. Predný z nich, predný členkovo-ihlicový väz, je najčastejšie poraneným väzom v tele.",
+   "membersLabel": "Väzy",
+   "members": [
+    {
+     "name": "Predný členkovo-ihlicový väz",
+     "note": "Na prednej strane vonkajšieho členka. Trhá sa prvý, keď sa noha vytočí dovnútra."
+    },
+    {
+     "name": "Pätovo-ihlicový väz",
+     "note": "Vedie z ihlice nadol k pätovej kosti."
+    },
+    {
+     "name": "Zadný členkovo-ihlicový väz",
+     "note": "Za kĺbom. Najsilnejší z troch."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Podvrtnutý členok",
+     "note": "Vytočenie chodidla dovnútra: bolesť, opuch a modrina na vonkajšom členku. Väčšina sa zlepší v priebehu týždňov s včasnou, postupnou chôdzou a cvikmi na rovnováhu. Navštívte lekára, ak neurobíte štyri kroky alebo bolí samotná kosť pri dotyku."
+    }
+   ]
+  },
+  "deltoid-ligament": {
+   "name": "Deltový väz",
+   "aka": [
+    "vnútorný väz členka",
+    "mediálny väz členka"
+   ],
+   "summary": "Silný trojuholníkový vejár od vnútorného členka (vnútorného členka píšťaly) k členkovej, pätovej a člnkovej kosti. Drží vnútornú stranu členka a pomáha podopierať klenbu.",
+   "issues": [
+    {
+     "name": "Podvrtnutie vnútornej strany členka",
+     "note": "Nie je časté, lebo väz je veľmi silný. Bolesť na vnútornom členku po vytočení chodidla von, ktorá môže sprevádzať zlomeninu ihlice. Navštívte lekára."
+    }
+   ]
+  },
+  "achilles-tendon": {
+   "name": "Achillova šľacha",
+   "aka": [
+    "pätová šľacha"
+   ],
+   "summary": "Najhrubšia a najsilnejšia šľacha v tele. Spája dvojhlavý sval lýtka a šikmý sval lýtka so zadnou stranou pätovej kosti a dvíha pätu pri chôdzi, behu a skákaní.",
+   "issues": [
+    {
+     "name": "Tendinopatia Achillovej šľachy",
+     "note": "Bolesť a stuhnutosť šľachy, najhoršia ráno po prebudení alebo na začiatku cvičenia. Hlavnou liečbou sú posilňovacie cviky lýtka počas mesiacov."
+    },
+    {
+     "name": "Pretrhnutie Achillovej šľachy",
+     "note": "Náhle prasknutie, akoby vás niekto kopol zozadu do päty, a nemôžete sa odraziť ani postaviť na špičky. Vyžaduje naliehavé vyšetrenie ešte v ten deň."
+    }
+   ]
+  },
+  "plantar-fascia": {
+   "name": "Plantárna fascia",
+   "aka": [
+    "plantárna aponeuróza",
+    "chodidlová povázka"
+   ],
+   "summary": "Hrubá blana na chodidle, ktorá sa od spodnej strany pätovej kosti vejárovito rozbieha k bázam prstov. Ako tetiva luku drží klenbu a napína sa, keď sa prsty pri odraze zohnú nahor.",
+   "issues": [
+    {
+     "name": "Plantárna fasciitída",
+     "note": "Ostrá bolesť pod pätou pri prvých krokoch ráno alebo po sedení, ktorá pri chôdzi ustupuje. Pomáha naťahovanie lýtka a chodidla, podporná obuv a obmedzenie nárazovej záťaže. Väčšina odznie v priebehu mesiacov."
+    }
+   ]
+  },
+  "iliotibial-band": {
+   "name": "Iliotibiálny trakt",
+   "aka": [
+    "IT trakt",
+    "ITB"
+   ],
+   "summary": "Dlhý hrubý pruh povázky po vonkajšej strane stehna, od bedrového hrebeňa, kde zaň ťahá napínač stehennej povázky a veľký sedací sval, po vonkajšiu prednú časť hornej plochy píšťaly. Stabilizuje bedrový kĺb a vonkajšiu stranu kolena.",
+   "issues": [
+    {
+     "name": "Syndróm iliotibiálneho traktu",
+     "note": "Bolesť na vonkajšej strane kolena pri behu alebo bicyklovaní, často po rovnakej vzdialenosti. Zlepší sa po znížení objemu tréningu a posilňovaní bedrových svalov."
+    }
+   ]
+  },
+  "inguinal-ligament": {
+   "name": "Slabinový väz",
+   "aka": [
+    "Poupartov väz",
+    "inguinálny väz"
+   ],
+   "summary": "Podvinutý dolný okraj vonkajšieho šikmého brušného svalu, natiahnutý pozdĺž slabinovej ryhy od predného výbežku bedrovej kosti (predného horného bedrového tŕňa) k lonovému hrbolčeku. Stehenné cievy a nerv pod ním prechádzajú do stehna a tesne nad ním vedie slabinový kanál.",
+   "issues": [
+    {
+     "name": "Slabinová prietrž",
+     "note": "Mäkké vydutie v slabine tesne nad väzom, väčšie pri státí alebo kašli. Navštívte lekára. Prietrž, ktorá stvrdne, veľmi bolí a nedá sa vtlačiť späť, si vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "rotator-cuff-tendons": {
+   "name": "Šľachy rotátorovej manžety",
+   "aka": [
+    "šľacha nadhrebeňového svalu",
+    "rotátorová manžeta"
+   ],
+   "summary": "Štyri svaly rotátorovej manžety končia šľachami, ktoré sa zlievajú do jednej kapucne nad hornou, prednou a zadnou stranou hlavice ramennej kosti. Držia hlavicu v strede plytkej jamky. Najviac sa opotrebúva a trhá šľacha nadhrebeňového svalu, ktorá vedie pod nadpleckom.",
+   "issues": [
+    {
+     "name": "Tendinopatia rotátorovej manžety",
+     "note": "Bolesť na vonkajšej strane ramena, horšia pri dvíhaní ruky do strany alebo nad hlavu a pri ležaní na nej v noci. Zvyčajne sa zlepší cvičením počas mesiacov."
+    },
+    {
+     "name": "Natrhnutie rotátorovej manžety",
+     "note": "Slabosť pri dvíhaní ruky po páde alebo z postupného opotrebovania. Navštívte lekára, a to skôr, ak po úraze zrazu nemôžete ruku zdvihnúť."
+    }
+   ]
+  },
+  "common-extensor-tendon": {
+   "name": "Spoločná šľacha vystieračov",
+   "summary": "Spoločná šľacha vystieračov zápästia a prstov, upnutá na vonkajší hrbolček lakťa (vonkajší epikondyl ramennej kosti).",
+   "issues": [
+    {
+     "name": "Tenisový lakeť",
+     "note": "Bolesť na vonkajšej strane lakťa pri úchope, dvíhaní alebo vytáčaní, z preťaženia tejto šľachy, len zriedka z tenisu. Zvyčajne odznie do roka. Pomáha obmedziť úchop, ktorý bolesť zhoršuje, a posilňovacie cviky."
+    }
+   ]
+  },
+  "common-flexor-tendon": {
+   "name": "Spoločná šľacha ohýbačov",
+   "summary": "Spoločná šľacha ohýbačov zápästia a prstov, upnutá na vnútorný hrbolček lakťa (vnútorný epikondyl ramennej kosti).",
+   "issues": [
+    {
+     "name": "Golfový lakeť",
+     "note": "Bolesť na vnútornej strane lakťa pri úchope alebo ohýbaní zápästia, z preťaženia tejto šľachy. Ustúpi pri oddychu od činnosti, ktorá ju zhoršuje, a postupnom posilňovaní."
+    }
+   ]
+  },
+  "flexor-retinaculum": {
+   "name": "Priečny väz zápästia",
+   "aka": [
+    "retinaculum flexorum",
+    "karpálny väz"
+   ],
+   "summary": "Silný pruh naprieč prednou stranou zápästia, ktorý premosťuje oblúk zápästných kostí. Tvorí strechu karpálneho tunela, ktorým do ruky prechádza stredový nerv a šľachy ohýbačov prstov.",
+   "issues": [
+    {
+     "name": "Syndróm karpálneho tunela",
+     "note": "Mravčenie a necitlivosť palca, ukazováka a prostredníka, často budiace v noci, z tlaku na stredový nerv pod týmto väzom. Pomáhajú nočné dlahy na zápästie. Pri trvalej necitlivosti alebo slabom palci navštívte lekára."
+    }
+   ]
+  }
+ },
+ "groups": {
+  "connective-tissue": {
+   "name": "Väzy a šľachy",
+   "summary": "Pevné, biele, vláknité popruhy tela. Väzy spájajú kosť s kosťou a držia kĺby pohromade, šľachy spájajú sval s kosťou a prenášajú jeho ťah a blany povázok obaľujú a spájajú svaly. Majú slabé prekrvenie, preto sa hoja pomaly.",
+   "issues": [
+    {
+     "name": "Podvrtnutie",
+     "note": "Natiahnutý alebo natrhnutý väz: bolesť, opuch a modrina okolo kĺbu po vytočení. Väčšina sa zahojí pri pokoji, chladení, kompresii, vyvýšenej polohe a potom postupnom zaťažovaní počas týždňov. Navštívte lekára, ak sa nemôžete postaviť na nohu alebo je kĺb nestabilný."
+    },
+    {
+     "name": "Tendinopatia",
+     "note": "Bolestivá, stuhnutá šľacha z väčšej záťaže, než na akú sa stihne prispôsobiť, často po zmene tréningu. Zlepšuje sa postupným posilňovaním počas týždňov až mesiacov, nie úplným pokojom."
+    }
+   ]
+  },
+  "knee-ligaments": {
+   "name": "Koleno",
+   "summary": "Koleno držia štyri hlavné väzy: dva skrížené sa krížia vnútri kĺbu a bránia posunu predkolenia dopredu či dozadu a dva postranné mu bránia vybočiť do strany. Dva menisky kĺb tlmia a šľacha štvorhlavého svalu s väzom jabĺčka ho cez jabĺčko vystierajú."
+  },
+  "ankle-foot-ligaments": {
+   "name": "Členok a chodidlo",
+   "summary": "Vejáre väzov po oboch stranách členka, Achillova šľacha za ním a plantárna fascia pod chodidlom."
+  },
+  "upper-limb-ligaments": {
+   "name": "Rameno, lakeť a zápästie",
+   "summary": "Šľachy rotátorovej manžety nad ramenným kĺbom, spoločné šľachy predlaktia pri lakti a väz, ktorý tvorí strechu karpálneho tunela."
+  },
+  "hip-thigh-ligaments": {
+   "name": "Bedro a stehno",
+   "summary": "Slabinový väz pozdĺž slabiny a iliotibiálny trakt po vonkajšej strane stehna."
+  }
+ }
+}

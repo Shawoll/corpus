@@ -18,6 +18,10 @@ The anatomy lives in `data/*.json`, one file per layer, plus `links.json`, `regi
 
 Not set, Female or Male is a setting, not a route. Anything in the data can carry `"sex": "female"` or `"male"`. A tagged *structure, joint, group, link or region* exists only for that sex, while a tagged *text item* (an issue, cause, red flag…) is hidden only for the other sex and is shown with a tag when the setting is Not set, so an urgent cause is never hidden. Shapes for a tagged structure carry `data-sex`. See [`data/CLAUDE.md`](../data/CLAUDE.md#sex-specific-content).
 
+## Languages
+
+The data is written in English. Other languages overlay its text from `locales/<lang>/data/`, keyed by id, and never change ids, links or `latin`. See [i18n.md](i18n.md).
+
 ## Shapes
 
 ```jsonc

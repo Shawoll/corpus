@@ -1,0 +1,1766 @@
+{
+ "structures": {
+  "frontal": {
+   "name": "Čelová kosť",
+   "summary": "Tvorí čelo, strop očníc a prednú časť klenby lebky. Tesne nad obočím sú čelové dutiny.",
+   "issues": [
+    {
+     "name": "Zápal čelových dutín",
+     "note": "Tlak alebo bolesť nad čelom a obočím, horšia pri predklone, často po nádche."
+    },
+    {
+     "name": "Zlomenina",
+     "note": "Zvyčajne po priamom údere. Preliačina, opuch alebo číra tekutina z nosa si vyžadujú naliehavú starostlivosť."
+    }
+   ]
+  },
+  "parietal": {
+   "name": "Temenná kosť",
+   "summary": "Dve temenné kosti tvoria strop a horné boky lebky a stretávajú sa v šípovom šve pozdĺž temena hlavy.",
+   "issues": [
+    {
+     "name": "Zlomenina lebky",
+     "note": "Časté miesto zlomeniny po úraze hlavy. Pod blízkou oblasťou spánku vedie stredná tepna tvrdej pleny, preto je zhoršujúca sa bolesť hlavy, zvracanie alebo ospalosť po údere stav pre pohotovosť."
+    }
+   ]
+  },
+  "temporal": {
+   "name": "Spánková kosť",
+   "summary": "Tvorí dolný bok lebky okolo ucha. Je v nej zvukovod, orgány sluchu a rovnováhy a vzdušné bunky hlávkového výbežku a tvorí jamku čeľustného kĺbu.",
+   "issues": [
+    {
+     "name": "Ťažkosti s uchom a rovnováhou",
+     "note": "Vnútorné ucho leží vnútri tejto kosti, preto tu často začína závrat, strata sluchu a tinnitus."
+    },
+    {
+     "name": "Mastoiditída",
+     "note": "Infekcia šíriaca sa zo stredného ucha: bolesť, začervenanie a opuch za uchom s horúčkou."
+    }
+   ]
+  },
+  "occipital": {
+   "name": "Záhlavová kosť",
+   "summary": "Tvorí zadnú časť a spodinu lebky. Jej veľkým otvorom (foramen magnum) prechádza miecha a jej hrbolčeky spočívajú na nosiči.",
+   "issues": [
+    {
+     "name": "Bolesť záhlavia",
+     "note": "Svaly a nervy okolo spodiny lebky často spôsobujú bolesť v zadnej časti hlavy, ktorá sa niekedy šíri po vlasovej časti."
+    }
+   ]
+  },
+  "sphenoid": {
+   "name": "Klinová kosť",
+   "summary": "Kosť v tvare motýľa v strede spodiny lebky, viditeľná v spánkoch a v zadnej časti očníc. V jamke nazývanej turecké sedlo uchováva hypofýzu.",
+   "issues": [
+    {
+     "name": "Zápal klinovej dutiny",
+     "note": "Hlboká bolesť hlavy za očami alebo na temene, ktorú je ťažké presne určiť."
+    },
+    {
+     "name": "Nádor hypofýzy",
+     "note": "Rastie v tureckom sedle a môže tlačiť na zrakové nervy, čím zužuje bočné videnie."
+    }
+   ]
+  },
+  "ethmoid": {
+   "name": "Čuchová kosť",
+   "aka": [
+    "sitková kosť"
+   ],
+   "summary": "Ľahká kosť s plástovou štruktúrou medzi očnicami. Tvorí hornú časť nosovej priehradky, vnútorné steny očníc a strop nosa, kde jej sitkovitá platnička prepúšťa čuchové nervy do mozgu.",
+   "issues": [
+    {
+     "name": "Zápal čuchových dutín",
+     "note": "Bolesť a tlak medzi očami a cez koreň nosa."
+    },
+    {
+     "name": "Strata čuchu po úraze hlavy",
+     "note": "Tenká sitkovitá platnička sa môže zlomiť a roztrhnúť čuchové nervy."
+    }
+   ]
+  },
+  "nasal": {
+   "name": "Nosová kosť",
+   "summary": "Dve malé podlhovasté kosti, ktoré tvoria kostený chrbát nosa. Dolná časť nosa je chrupka.",
+   "issues": [
+    {
+     "name": "Zlomený nos",
+     "note": "Najčastejšie zlomená kosť tváre: opuch, modrina, krivý chrbát nosa, krvácanie z nosa."
+    }
+   ]
+  },
+  "maxilla": {
+   "name": "Horná čeľusť",
+   "aka": [
+    "maxila",
+    "čeľusť"
+   ],
+   "summary": "Dve horné čeľuste tvoria hornú čeľusť a nesú horné zuby. Tvoria aj dno očníc, boky nosa a väčšinu tvrdého podnebia. V každej je veľká čeľustná dutina.",
+   "issues": [
+    {
+     "name": "Zápal čeľustnej dutiny",
+     "note": "Bolesť a tlak v líci, niekedy pociťované ako bolesť horného zuba."
+    },
+    {
+     "name": "Zubný absces",
+     "note": "Infekcia pri koreni zuba: pulzujúca bolesť a opuch líca. Šíriaci sa opuch alebo horúčka si vyžadujú rýchlu starostlivosť."
+    }
+   ]
+  },
+  "zygomatic": {
+   "name": "Jarmová kosť",
+   "aka": [
+    "lícna kosť"
+   ],
+   "summary": "Lícna kosť. Tvorí vyvýšenie líca a vonkajší okraj očnice a so spánkovou kosťou sa spája jarmovým oblúkom.",
+   "issues": [
+    {
+     "name": "Zlomenina lícnej kosti",
+     "note": "Po údere päsťou alebo páde: sploštené líce, necitlivosť líca alebo hornej pery, dvojité videnie."
+    }
+   ]
+  },
+  "lacrimal": {
+   "name": "Slzná kosť",
+   "summary": "Najmenšia kosť tváre, na vnútornej stene každej očnice. Nesie slzný vak a začína sa v nej slzovod, ktorý ústi do nosa.",
+   "issues": [
+    {
+     "name": "Upchatý slzovod",
+     "note": "Neustále slziace oko alebo lepkavý výtok, časté u bábätiek."
+    }
+   ]
+  },
+  "palatine": {
+   "name": "Podnebnicová kosť",
+   "summary": "Kosti v tvare písmena L v zadnej časti nosovej dutiny, ktoré tvoria zadnú časť tvrdého podnebia.",
+   "issues": [
+    {
+     "name": "Rázštep podnebia",
+     "note": "Ak sa podnebie pred narodením nezrastie, zostane v strope úst medzera."
+    }
+   ]
+  },
+  "inferior-concha": {
+   "name": "Dolná nosová mušľa",
+   "aka": [
+    "nosová mušľa",
+    "turbinát"
+   ],
+   "summary": "Zvinutá kosť na bočnej stene každej nosovej dutiny. Ohrieva, zvlhčuje a filtruje vdychovaný vzduch.",
+   "issues": [
+    {
+     "name": "Opuch nosových mušlí",
+     "note": "Sliznica nad týmito kosťami opuchne pri alergii alebo nádche a spôsobí upchatý nos."
+    }
+   ]
+  },
+  "vomer": {
+   "name": "Radlica",
+   "aka": [
+    "vomer"
+   ],
+   "summary": "Tenká kosť v tvare radlice pluhu, ktorá tvorí dolnú zadnú časť nosovej priehradky.",
+   "issues": [
+    {
+     "name": "Vybočená nosová priehradka",
+     "note": "Ohnutá priehradka zužuje jednu nosnú dierku a spôsobuje upchatie, chrápanie alebo krvácanie z nosa."
+    }
+   ]
+  },
+  "mandible": {
+   "name": "Sánka",
+   "aka": [
+    "dolná čeľusť",
+    "mandibula"
+   ],
+   "summary": "Dolná čeľusť: najväčšia a najsilnejšia kosť tváre a jediná pohyblivá kosť lebky. Nesie dolné zuby a otáča sa v dvoch čeľustných kĺboch.",
+   "issues": [
+    {
+     "name": "Zlomenina sánky",
+     "note": "Často sa zlomí na dvoch miestach: bolesť, posunutý zhryz, necitlivá dolná pera."
+    },
+    {
+     "name": "Bolesť čeľustného kĺbu",
+     "note": "Cvakanie, bolesť alebo zamykanie pri žuvaní. Pozrite čeľustný kĺb."
+    }
+   ]
+  },
+  "ossicles": {
+   "name": "Sluchové kostičky",
+   "aka": [
+    "kostičky ucha",
+    "kladivko",
+    "nákovka",
+    "strmienok"
+   ],
+   "summary": "Tri drobné kostičky v každom strednom uchu, ktoré prenášajú zvukové kmity z bubienka do vnútorného ucha a cestou ich zosilňujú.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Kladivko",
+     "note": "Pripojené k bubienku."
+    },
+    {
+     "name": "Nákovka",
+     "note": "Stredný článok reťaze."
+    },
+    {
+     "name": "Strmienok",
+     "note": "Najmenšia kosť v tele. Jeho platnička sedí v oválnom okienku vnútorného ucha."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Otoskleróza",
+     "note": "Abnormálny rast kosti znehybní strmienok a spôsobí pomaly sa zhoršujúcu stratu sluchu."
+    },
+    {
+     "name": "Zápal stredného ucha",
+     "note": "Tekutina okolo kostičiek tlmí sluch a spôsobuje bolesť ucha, najmä u detí."
+    }
+   ]
+  },
+  "hyoid": {
+   "name": "Jazylka",
+   "summary": "Kosť v tvare písmena U na prednej strane krku, tesne nad hrtanom. Ukotvuje jazyk a prehĺtacie svaly.",
+   "noJoints": "Jazylka je jediná kosť v tele, ktorá netvorí kĺb so žiadnou inou kosťou. Namiesto toho visí v slučke svalov zo sánky, lebky, hrudnej kosti a lopatky (uvedené nižšie), ktoré ju pri každom prehltnutí dvíhajú a spúšťajú.",
+   "issues": [
+    {
+     "name": "Zlomenina",
+     "note": "Zriedkavá. Môže nastať pri škrtení alebo ťažkom poranení krku a vždy je to stav pre pohotovosť."
+    }
+   ]
+  },
+  "c1": {
+   "name": "Nosič (C1)",
+   "aka": [
+    "atlas"
+   ],
+   "summary": "Prstencovitý prvý stavec bez tela. Na svojich dvoch bočných častiach nesie lebku a medzi nimi je kĺb pre prikyvovanie („áno“).",
+   "issues": [
+    {
+     "name": "Jeffersonova zlomenina",
+     "note": "Tríštivá zlomenina po silnom údere na temeno hlavy, napríklad pri skoku do plytkej vody. Je to stav pre pohotovosť."
+    }
+   ]
+  },
+  "c2": {
+   "name": "Čapovec (C2)",
+   "aka": [
+    "axis"
+   ],
+   "summary": "Druhý stavec. Zubovitý výbežok (dens) vyčnieva nahor do nosiča a slúži ako čap pri otáčaní hlavy („nie“).",
+   "issues": [
+    {
+     "name": "Zlomenina zuba čapovca",
+     "note": "Častá zlomenina krku u starších dospelých po páde. Bolesť krku po akomkoľvek páde u staršieho človeka treba vyšetriť."
+    }
+   ]
+  },
+  "c3": {
+   "name": "Stavec C3",
+   "summary": "Typický krčný stavec: malé telo a priečne výbežky s otvormi pre stavcové tepny."
+  },
+  "c4": {
+   "name": "Stavec C4",
+   "summary": "Typický krčný stavec. Nervové korene C3–C5 tvoria bránicový nerv, ktorý poháňa bránicu („C3, 4, 5 udržujú bránicu pri živote“)."
+  },
+  "c5": {
+   "name": "Stavec C5",
+   "summary": "Typický krčný stavec. C5–C6 je najčastejšia úroveň opotrebovania platničiek a stlačených nervov na krku."
+  },
+  "c6": {
+   "name": "Stavec C6",
+   "summary": "Jeho priečny výbežok má výrazný predný hrbolček (karotický hrbolček) vedľa krčnice. Približne v tejto výške prechádza hrtan do priedušnice."
+  },
+  "c7": {
+   "name": "Stavec C7 (vyčnievajúci stavec)",
+   "summary": "Má najdlhší tŕňový výbežok na krku: hrbolček, ktorý nahmatáte na spodine krku, keď predkloníte hlavu."
+  },
+  "t1": {
+   "name": "Stavec T1",
+   "summary": "Prvý hrudný stavec. Nesie prvý pár rebier."
+  },
+  "t2": {
+   "name": "Stavec T2",
+   "summary": "Hrudný stavec. Zárez na hornom okraji hrudnej kosti je vo výške T2."
+  },
+  "t3": {
+   "name": "Stavec T3",
+   "summary": "Hrudný stavec. Každé rebro sa pripája k boku tela stavca a k priečnemu výbežku, takže chrbtica a hrudný kôš sa pohybujú spolu."
+  },
+  "t4": {
+   "name": "Stavec T4",
+   "summary": "Uhol hrudnej kosti a rozdelenie priedušnice na dve hlavné priedušky ležia približne vo výške T4–T5."
+  },
+  "t5": {
+   "name": "Stavec T5",
+   "summary": "Hrudný stavec. Každé rebro sa pripája k boku tela stavca a k priečnemu výbežku, takže chrbtica a hrudný kôš sa pohybujú spolu."
+  },
+  "t6": {
+   "name": "Stavec T6",
+   "summary": "Typický hrudný stavec: telo v tvare srdca s plôškami pre rebrá a dlhý tŕňový výbežok strmo sklonený nadol."
+  },
+  "t7": {
+   "name": "Stavec T7",
+   "summary": "Hrudný stavec. Každé rebro sa pripája k boku tela stavca a k priečnemu výbežku, takže chrbtica a hrudný kôš sa pohybujú spolu."
+  },
+  "t8": {
+   "name": "Stavec T8",
+   "summary": "Hrudný stavec. Približne v tejto výške prechádza dolná dutá žila cez bránicu."
+  },
+  "t9": {
+   "name": "Stavec T9",
+   "summary": "Hrudný stavec. Každé rebro sa pripája k boku tela stavca a k priečnemu výbežku, takže chrbtica a hrudný kôš sa pohybujú spolu."
+  },
+  "t10": {
+   "name": "Stavec T10",
+   "summary": "Hrudný stavec. Približne v tejto výške prechádza pažerák cez bránicu."
+  },
+  "t11": {
+   "name": "Stavec T11",
+   "summary": "Nesie 11. rebrá, prvý z dvoch párov voľných rebier."
+  },
+  "t12": {
+   "name": "Stavec T12",
+   "summary": "Posledný stavec s rebrami. Prechod do driekovej chrbtice (T12–L1) je najčastejším miestom kompresívnych zlomenín chrbtice."
+  },
+  "l1": {
+   "name": "Stavec L1",
+   "summary": "Samotná miecha končí približne vo výške L1–L2. Pod ňou pokračujú nervové korene nadol ako cauda equina („konský chvost“)."
+  },
+  "l2": {
+   "name": "Stavec L2",
+   "summary": "Driekový stavec s veľkým telom v tvare obličky, stavaným na nesenie hmotnosti hornej časti tela."
+  },
+  "l3": {
+   "name": "Stavec L3",
+   "summary": "Zvyčajne najpohyblivejšia driekova úroveň s najdlhšími priečnymi výbežkami. Pupok leží približne vo výške L3–L4."
+  },
+  "l4": {
+   "name": "Stavec L4",
+   "summary": "Vrcholy bedrových hrebeňov sú vo výške L4, orientačného bodu, ktorý lekári používajú pri lumbálnej punkcii."
+  },
+  "l5": {
+   "name": "Stavec L5",
+   "summary": "Najväčší stavec, klinovitý v mieste, kde sedí na krížovej kosti. Platničky L4–L5 a L5–S1 nesú najväčšiu záťaž a sú najčastejšími miestami výhrezu platničky.",
+   "issues": [
+    {
+     "name": "Spondylolistéza",
+     "note": "L5 sa môže posunúť dopredu po krížovej kosti a spôsobiť bolesť dolnej časti chrbta a skrátené zadné stehenné svaly. Častá je u mladých gymnastov a nadhadzovačov."
+    }
+   ]
+  },
+  "sacrum": {
+   "name": "Krížová kosť",
+   "aka": [
+    "sakrum"
+   ],
+   "summary": "Päť stavcov zrastených do trojuholníkového klinu, ktorý zakotvuje chrbticu do panvy medzi dvoma bedrovými kosťami. Nervové korene vystupujú jej štyrmi pármi otvorov.",
+   "issues": [
+    {
+     "name": "Bolesť krížovo-bedrového kĺbu",
+     "note": "Bolesť dolnej časti chrbta alebo zadku, často na jednej strane. Pozrite krížovo-bedrový kĺb."
+    },
+    {
+     "name": "Únavová zlomenina krížovej kosti",
+     "note": "Hlboká bolesť dolnej časti chrbta alebo zadku pri zaťažení u bežcov a u ľudí s osteoporózou."
+    }
+   ],
+   "sexNotes": [
+    {
+     "text": "U žien je krížová kosť kratšia, širšia a menej zakrivená a naklonená dozadu, aby rozšírila východ panvy."
+    },
+    {
+     "text": "U mužov je krížová kosť dlhšia, užšia a viac zakrivená."
+    }
+   ]
+  },
+  "coccyx": {
+   "name": "Kostrč",
+   "aka": [
+    "chvostová kosť"
+   ],
+   "summary": "Chvostová kosť: 3–5 malých zrastených stavcov na spodku chrbtice, ktoré ukotvujú svaly a väzy panvového dna.",
+   "issues": [
+    {
+     "name": "Bolesť kostrče (kokcygodýnia)",
+     "note": "Bolesť pri sedení, často po páde na zadok alebo po pôrode."
+    }
+   ]
+  },
+  "sternum": {
+   "name": "Hrudná kosť",
+   "aka": [
+    "sternum"
+   ],
+   "summary": "Hrudná kosť. Pripájajú sa k nej kľúčne kosti a prvých sedem párov rebier a chráni srdce.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Rukoväť",
+     "note": "Horná časť. Pripájajú sa tu kľúčne kosti a prvé rebrá a nad ňou je jugulárny zárez."
+    },
+    {
+     "name": "Telo",
+     "note": "Dlhá stredná časť, ktorá nesie 2.–7. rebro. Jej spojenie s rukoväťou tvorí uhol hrudnej kosti."
+    },
+    {
+     "name": "Mečovitý výbežok",
+     "note": "Malý hrot na spodku, v mladosti chrupkový, ktorý postupne skostnatie."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Zlomenina hrudnej kosti",
+     "note": "Zvyčajne po náraze na bezpečnostný pás alebo volant. Pomliaždené môže byť aj srdce pod ňou."
+    },
+    {
+     "name": "Kostochondritída",
+     "note": "Citlivé miesta pozdĺž okrajov hrudnej kosti, kde sa pripájajú rebrové chrupky."
+    }
+   ]
+  },
+  "rib-1": {
+   "name": "1. rebro",
+   "summary": "Najkratšie, najširšie a najviac zakrivené rebro, zastrčené pod kľúčnou kosťou. Cez neho prechádza podkľúčová tepna a nervy pre ruku."
+  },
+  "rib-2": {
+   "name": "2. rebro",
+   "summary": "Pripája sa k hrudnej kosti pri uhle hrudnej kosti, hrbolčeku, od ktorého sa začínajú počítať rebrá."
+  },
+  "rib-3": {
+   "name": "3. rebro",
+   "summary": "Pravé rebro: jeho rebrová chrupka sa pripája priamo k hrudnej kosti."
+  },
+  "rib-4": {
+   "name": "4. rebro",
+   "summary": "Pravé rebro. Bradavka zvyčajne leží blízko medzirebria pod týmto rebrom."
+  },
+  "rib-5": {
+   "name": "5. rebro",
+   "summary": "Pravé rebro. Hrot srdca leží za medzirebrím tesne pod ním, vľavo."
+  },
+  "rib-6": {
+   "name": "6. rebro",
+   "summary": "Pravé rebro. Dolný okraj pľúc kríži toto rebro vpredu."
+  },
+  "rib-7": {
+   "name": "7. rebro",
+   "summary": "Posledné pravé rebro. Jeho dlhá chrupka dosahuje hrudnú kosť vedľa mečovitého výbežku."
+  },
+  "rib-8": {
+   "name": "8. rebro",
+   "summary": "Nepravé rebro: jeho chrupka sa namiesto k hrudnej kosti pripája k chrupke rebra nad ním a pomáha tvoriť rebrový oblúk."
+  },
+  "rib-9": {
+   "name": "9. rebro",
+   "summary": "Nepravé rebro, pripojené k chrupke 8. rebra. Jeho chrupka vpravo označuje obvyklú polohu dna žlčníka."
+  },
+  "rib-10": {
+   "name": "10. rebro",
+   "summary": "Posledné nepravé rebro, tvorí najnižší bod rebrového oblúka na boku."
+  },
+  "rib-11": {
+   "name": "11. rebro",
+   "summary": "Voľné rebro: končí voľne vo svaloch boku a vpredu nie je nikde pripojené."
+  },
+  "rib-12": {
+   "name": "12. rebro",
+   "summary": "Najkratšie rebro a voľné rebro. Za ním leží horný pól obličky."
+  },
+  "clavicle": {
+   "name": "Kľúčna kosť",
+   "aka": [
+    "kľúčnica",
+    "klavikula"
+   ],
+   "summary": "Kľúčna kosť: vzpera v tvare písmena S, ktorá drží rameno vzdialené od hrudníka. Je jediným kosteným spojením medzi rukou a trupom.",
+   "issues": [
+    {
+     "name": "Zlomenina kľúčnej kosti",
+     "note": "Jedna z najčastejších zlomenín, zvyčajne po páde na rameno alebo na vystretú ruku: hrbolček a bolesť nad kosťou."
+    }
+   ]
+  },
+  "scapula": {
+   "name": "Lopatka",
+   "aka": [
+    "skapula"
+   ],
+   "summary": "Lopatka: trojuholníková platňa, ktorá kĺže po zadnej strane hrudného koša. Jej plytká jamka drží hlavicu ramennej kosti a pripája sa na ňu 17 svalov.",
+   "issues": [
+    {
+     "name": "Ťažkosti s rotátorovou manžetou",
+     "note": "Svaly manžety začínajú na lopatke: bolesť ramena pri dvíhaní ruky a bolesť v noci."
+    },
+    {
+     "name": "Krídlovitá lopatka",
+     "note": "Lopatka pri tlačení odstáva, zvyčajne pre poruchu nervu predného pílovitého svalu."
+    }
+   ]
+  },
+  "humerus": {
+   "name": "Ramenná kosť",
+   "aka": [
+    "humerus"
+   ],
+   "summary": "Kosť ramena. Jej guľovitá hlavica zapadá do jamky ramenného kĺbu a pri lakti sa rozširuje na kladku a hlávku. Za jej vnútorným hrbolčekom, tzv. brňavkou, vedie lakťový nerv.",
+   "issues": [
+    {
+     "name": "Zlomenina horného konca ramennej kosti",
+     "note": "Častá u starších dospelých po páde: bolesť ramena a modrina, ktorá sa šíri nadol po ruke."
+    },
+    {
+     "name": "Suprakondylická zlomenina",
+     "note": "Tesne nad lakťom, typická u detí. Môže poraniť blízke cievy a nervy a je naliehavá."
+    },
+    {
+     "name": "Zlomenina tela ramennej kosti",
+     "note": "Môže poraniť vretenný nerv a spôsobiť padajúce zápästie."
+    }
+   ]
+  },
+  "radius": {
+   "name": "Vretenná kosť",
+   "aka": [
+    "radius"
+   ],
+   "summary": "Kosť predlaktia na palcovej strane. Otáča sa okolo lakťovej kosti, aby obrátila dlaň nahor a nadol, a nesie väčšinu záťaže v zápästí.",
+   "issues": [
+    {
+     "name": "Zlomenina distálneho rádia (Collesova)",
+     "note": "Najčastejšia zlomenina u dospelých, po páde na vystretú ruku: bolesť zápästia, opuch a zalomenie v tvare „vidličky“."
+    },
+    {
+     "name": "Vytknutý lakeť",
+     "note": "U batoliat môže náhle potiahnutie za ruku vysmeknúť hlavičku vretennej kosti z väzového prstenca."
+    }
+   ]
+  },
+  "ulna": {
+   "name": "Lakťová kosť",
+   "aka": [
+    "ulna"
+   ],
+   "summary": "Kosť predlaktia na malíčkovej strane. Jej zahnutý horný koniec (olekranon) tvorí hrot lakťa a obopína ramennú kosť ako kľúč.",
+   "issues": [
+    {
+     "name": "Zlomenina olekranonu",
+     "note": "Po páde priamo na hrot lakťa."
+    },
+    {
+     "name": "Zápal burzy olekranonu",
+     "note": "Mäkký opuch nad hrotom lakťa po tlaku alebo menšom údere. Červený, horúci opuch môže byť infikovaný."
+    }
+   ]
+  },
+  "carpals": {
+   "name": "Zápästné kosti",
+   "aka": [
+    "kosti zápästia",
+    "člnková kosť",
+    "mesiačikovitá kosť",
+    "trojhranná kosť",
+    "hráškovitá kosť",
+    "veľká mnohohranná kosť",
+    "malá mnohohranná kosť",
+    "hlávkovitá kosť",
+    "hákovitá kosť"
+   ],
+   "summary": "Osem malých kostí v dvoch radoch, ktoré tvoria pružné zápästie. Ich oblúk tvorí dno karpálneho tunela, ktorým prechádza stredový nerv a šľachy prstov.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Člnková kosť",
+     "note": "Člnkovitá, na palcovej strane, premosťuje oba rady. Najčastejšie zlomená zápästná kosť."
+    },
+    {
+     "name": "Mesiačikovitá kosť",
+     "note": "V tvare polmesiaca, v strede prvého radu. Najčastejšie vykĺbená zápästná kosť."
+    },
+    {
+     "name": "Trojhranná kosť",
+     "note": "Pyramídovitá, na malíčkovej strane."
+    },
+    {
+     "name": "Hráškovitá kosť",
+     "note": "Sezamská kosť veľkosti hrášku v šľache, sedí pred trojhrannou kosťou."
+    },
+    {
+     "name": "Veľká mnohohranná kosť",
+     "note": "Tvorí sedlový kĺb na báze palca."
+    },
+    {
+     "name": "Malá mnohohranná kosť",
+     "note": "Malý klin na báze ukazováka."
+    },
+    {
+     "name": "Hlávkovitá kosť",
+     "note": "Najväčšia zápästná kosť, v strede zápästia."
+    },
+    {
+     "name": "Hákovitá kosť",
+     "note": "Má háčik, ktorý pomáha tvoriť Guyonov kanál pre lakťový nerv."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Zlomenina člnkovej kosti",
+     "note": "Po páde na vystretú ruku: bolesť v jamke na báze palca („anatomickej tabatierke“). Na röntgene ľahko unikne a pomaly sa hojí, preto ju dajte vyšetriť."
+    },
+    {
+     "name": "Syndróm karpálneho tunela",
+     "note": "Tlak na stredový nerv: mravčenie a necitlivosť palca, ukazováka a prostredníka, často horšie v noci."
+    },
+    {
+     "name": "Natrhnutie skafolunátneho väzu",
+     "note": "Bolesť a cvakanie v zápästí po páde. Bez liečby môže viesť k artróze."
+    }
+   ]
+  },
+  "metacarpals": {
+   "name": "Záprstné kosti",
+   "aka": [
+    "kosti dlane",
+    "hánky",
+    "metakarpy"
+   ],
+   "summary": "Päť dlhých kostí, ktoré tvoria dlaň, očíslované I (palec) až V (malíček). Ich hlavičky sú hánky.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Prvá záprstná kosť",
+     "note": "Palec: krátka, hrubá a veľmi pohyblivá."
+    },
+    {
+     "name": "Druhá záprstná kosť",
+     "note": "Ukazovák, najdlhšia záprstná kosť."
+    },
+    {
+     "name": "Tretia záprstná kosť",
+     "note": "Prostredník, s malým ihlovitým výbežkom na báze."
+    },
+    {
+     "name": "Štvrtá záprstná kosť",
+     "note": "Prstenník."
+    },
+    {
+     "name": "Piata záprstná kosť",
+     "note": "Malíček. Jej krčok sa láme pri „boxerskej zlomenine“."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Boxerská zlomenina",
+     "note": "Zlomenina krčka piatej záprstnej kosti po údere do tvrdého predmetu."
+    },
+    {
+     "name": "Bennettova zlomenina",
+     "note": "Zlomenina bázy záprstnej kosti palca, ktorá zasahuje do kĺbu."
+    }
+   ]
+  },
+  "hand-phalanges": {
+   "name": "Články prstov ruky",
+   "aka": [
+    "kosti prstov",
+    "falangy"
+   ],
+   "summary": "Kosti prstov: tri v každom prste (základný, stredný a koncový článok) a dva v palci, 14 na jednej ruke.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Základné články (5)",
+     "note": "Najdlhšie, pri hánkach."
+    },
+    {
+     "name": "Stredné články (4)",
+     "note": "V palci chýbajú."
+    },
+    {
+     "name": "Koncové články (5)",
+     "note": "Končeky prstov, každý s drsným hrbolčekom pod nechtovým lôžkom."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Vyvrtnutý alebo zlomený prst",
+     "note": "Časté pri loptových športoch. Prst, ktorý vyzerá pretočený alebo krivý, treba vyšetriť."
+    },
+    {
+     "name": "Kladivkový prst",
+     "note": "Koniec prsta po údere do končeka ovisne a nedá sa vystrieť, lebo sa pretrhla šľacha vystierača."
+    }
+   ]
+  },
+  "hip-bone": {
+   "name": "Bedrová kosť",
+   "aka": [
+    "panvová kosť",
+    "bedrovka",
+    "sedacia kosť",
+    "lonová kosť"
+   ],
+   "summary": "Každá bedrová kosť vzniká z troch kostí (bedrovej, sedacej a lonovej) zrastených v jamke bedrového kĺbu, acetabule. Spolu s krížovou kosťou tvoria panvový prstenec, ktorý prenáša hmotnosť trupu na nohy.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Bedrová časť (ilium)",
+     "note": "Široká lopata. Jej hrebeň je „bok“, o ktorý si opierate ruky."
+    },
+    {
+     "name": "Sedacia časť (ischium)",
+     "note": "Dolná zadná časť. Sedíte na jej hrbole, „sedacej kosti“."
+    },
+    {
+     "name": "Lonová časť (pubis)",
+     "note": "Predná časť, spojená s protiľahlou v lonovej spone."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Zlomenina panvy",
+     "note": "Vysokoenergetické úrazy, napríklad pri dopravných nehodách, môžu silno krvácať a sú stavom pre pohotovosť. U starších ľudí spôsobí zlomenina lonového ramienka po menšom páde bolesť v slabine."
+    },
+    {
+     "name": "Pomliaždenie bedrového hrebeňa",
+     "note": "Modrina na bedrovom hrebeni po priamom údere pri športe."
+    },
+    {
+     "name": "Avulzná zlomenina",
+     "note": "U dospievajúcich športovcov môže silný ťah svalu odtrhnúť úlomok kosti na prednej strane panvy alebo na sedacej kosti."
+    }
+   ],
+   "sexNotes": [
+    {
+     "text": "Ženská panva je širšia a plytšia, s okrúhlym, priestranným vchodom, širším lonovým oblúkom (viac ako 90°) a jamkami bedrových kĺbov ďalej od seba, čo vytvára priestor pre pôrod."
+    },
+    {
+     "text": "Mužská panva je užšia a hlbšia, so vchodom v tvare srdca, úzkym lonovým oblúkom (asi 60°) a ťažšími kosťami s výraznejšími úponmi svalov."
+    }
+   ]
+  },
+  "femur": {
+   "name": "Stehenná kosť",
+   "aka": [
+    "femur"
+   ],
+   "summary": "Najdlhšia a najsilnejšia kosť v tele, asi štvrtina vašej výšky. Jej guľovitá hlavica sedí v jamke bedrového kĺbu a pri kolene končí dvoma zaoblenými kondylmi.",
+   "issues": [
+    {
+     "name": "Zlomenina krčka stehennej kosti",
+     "note": "Častý, vážny úraz starších ľudí po páde: bolesť bedra alebo slabiny, nemožnosť postaviť sa na nohu, noha skrátená a vytočená von. Vyžaduje pohotovosť."
+    },
+    {
+     "name": "Zlomenina tela stehennej kosti",
+     "note": "Vyžaduje veľkú silu a môže spôsobiť veľkú stratu krvi."
+    },
+    {
+     "name": "Avaskulárna nekróza",
+     "note": "Strata prekrvenia hlavice stehennej kosti (napríklad pri dlhodobých steroidoch alebo nadmernom pití alkoholu): hlboká bolesť v slabine."
+    }
+   ]
+  },
+  "patella": {
+   "name": "Jabĺčko",
+   "aka": [
+    "patela",
+    "kolenný kĺbik"
+   ],
+   "summary": "Jabĺčko: najväčšia sezamská kosť tela, zapustená v šľache štvorhlavého svalu. Zväčšuje páku svalov stehna a chráni prednú stranu kolena.",
+   "issues": [
+    {
+     "name": "Patelofemorálna bolesť",
+     "note": "Bolesť okolo jabĺčka alebo za ním na schodoch, pri drepe alebo po sedení. Častá u bežcov a dospievajúcich."
+    },
+    {
+     "name": "Vykĺbenie jabĺčka",
+     "note": "Jabĺčko sa pri vytočení vysmekne do strany. Zvyčajne samo zapadne späť, ale môže poškodiť chrupku."
+    },
+    {
+     "name": "Zlomenina jabĺčka",
+     "note": "Po páde priamo na koleno: nohu nemožno vystrieť."
+    }
+   ]
+  },
+  "tibia": {
+   "name": "Píšťala",
+   "aka": [
+    "holenná kosť",
+    "tibia"
+   ],
+   "summary": "Holenná kosť, ktorá nesie takmer celú hmotnosť tela od kolena po členok. Jej plochý vrch (tibiálne plató) tvorí koleno a jej dolný vnútorný koniec je hrbolček vnútorného členka.",
+   "issues": [
+    {
+     "name": "Shin splints (syndróm mediálneho tibiálneho stresu)",
+     "note": "Rozptýlená bolesť po vnútornej strane holene pri behu. Veľmi ohraničené, zhoršujúce sa bolestivé miesto môže byť únavová zlomenina."
+    },
+    {
+     "name": "Zlomenina píšťaly",
+     "note": "Najčastejšia zlomenina dlhej kosti. Ak kosť prerazí kožu, je to stav pre pohotovosť."
+    },
+    {
+     "name": "Osgoodova-Schlatterova choroba",
+     "note": "Bolestivý hrbolček pod jabĺčkom u aktívnych dospievajúcich."
+    }
+   ]
+  },
+  "fibula": {
+   "name": "Ihlica",
+   "aka": [
+    "fibula"
+   ],
+   "summary": "Tenká kosť na vonkajšej strane predkolenia. Nesie malú hmotnosť, ale ukotvuje svaly a tvorí hrbolček vonkajšieho členka, ktorý stabilizuje členok.",
+   "issues": [
+    {
+     "name": "Zlomenina vonkajšieho členka",
+     "note": "Často po vytočení členka: kostný hrbolček je citlivý a na nohu sa ťažko stúpa."
+    },
+    {
+     "name": "Poranenie ihlicového nervu",
+     "note": "Nerv sa ovíja okolo krčka ihlice a úder na toto miesto môže spôsobiť padajúcu nohu."
+    }
+   ]
+  },
+  "tarsals": {
+   "name": "Priehlavkové kosti",
+   "aka": [
+    "kosti členka",
+    "členková kosť",
+    "pätová kosť",
+    "člnková kosť nohy",
+    "kockovitá kosť",
+    "klinová kosť nohy"
+   ],
+   "summary": "Sedem kostí, ktoré tvoria členok a zadnú polovicu chodidla. Členková kosť spája predkolenie s chodidlom a pätová kosť tvorí pätu.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Členková kosť",
+     "note": "Sedí vo vidlici členka medzi píšťalou a ihlicou a prenáša hmotnosť tela na chodidlo. Nepripája sa na ňu žiadny sval."
+    },
+    {
+     "name": "Pätová kosť",
+     "note": "Kosť päty, najväčšia priehlavková kosť. Pripája sa na ňu Achillova šľacha."
+    },
+    {
+     "name": "Člnková kosť",
+     "note": "Člnkovitá, na vnútornej strane strednej časti chodidla."
+    },
+    {
+     "name": "Kockovitá kosť",
+     "note": "Na vonkajšej strane strednej časti chodidla."
+    },
+    {
+     "name": "Vnútorná klinová kosť",
+     "note": "Najväčšia klinová kosť, na báze palca."
+    },
+    {
+     "name": "Stredná klinová kosť",
+     "note": "Najmenšia klinová kosť."
+    },
+    {
+     "name": "Vonkajšia klinová kosť",
+     "note": "Tri klinové kosti spolu tvoria priečnu klenbu chodidla."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Plantárna fasciitída",
+     "note": "Bodavá bolesť päty pri prvých krokoch ráno, v mieste, kde sa plantárna fascia pripája k pätovej kosti."
+    },
+    {
+     "name": "Zlomenina pätovej kosti",
+     "note": "Po páde z výšky na päty. Treba skontrolovať aj chrbticu."
+    },
+    {
+     "name": "Poranenie klenby členkovej kosti",
+     "note": "Hlboká bolesť v členku, ktorá po podvrtnutí neustupuje."
+    }
+   ]
+  },
+  "metatarsals": {
+   "name": "Predpriehlavkové kosti",
+   "aka": [
+    "metatarzy"
+   ],
+   "summary": "Päť dlhých kostí prednej časti chodidla, očíslovaných od palca (I) po malíček (V). Ich hlavičky tvoria predné vankúšiky chodidla.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Prvá predpriehlavková kosť",
+     "note": "Krátka a hrubá, pri odraze nesie najväčšiu hmotnosť."
+    },
+    {
+     "name": "Druhá predpriehlavková kosť",
+     "note": "Najdlhšia a najčastejšie miesto únavových zlomenín."
+    },
+    {
+     "name": "Tretia predpriehlavková kosť"
+    },
+    {
+     "name": "Štvrtá predpriehlavková kosť"
+    },
+    {
+     "name": "Piata predpriehlavková kosť",
+     "note": "Na báze má hrbolček (drsnatinu), ktorý sa môže zlomiť pri vytočení členka."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Únavová zlomenina",
+     "note": "Postupná bolesť prednej časti chodidla pri chôdzi alebo behu viac ako obvykle, zvyčajne v druhej alebo tretej predpriehlavkovej kosti."
+    },
+    {
+     "name": "Zlomenina piatej predpriehlavkovej kosti",
+     "note": "Bolesť na vonkajšom okraji chodidla po vytočení členka."
+    },
+    {
+     "name": "Metatarzalgia / Mortonov neuróm",
+     "note": "Pálivá bolesť v predných vankúšikoch chodidla. Neuróm medzi tretím a štvrtým prstom môže spôsobiť necitlivosť."
+    }
+   ]
+  },
+  "foot-phalanges": {
+   "name": "Články prstov nohy",
+   "aka": [
+    "kosti prstov nohy"
+   ],
+   "summary": "Kosti prstov nohy: dve v palci a tri v každom z ostatných, 14 na jednej nohe.",
+   "membersLabel": "Kosti",
+   "members": [
+    {
+     "name": "Základné články (5)"
+    },
+    {
+     "name": "Stredné články (4)",
+     "note": "V palci chýbajú."
+    },
+    {
+     "name": "Koncové články (5)",
+     "note": "Končeky prstov."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Narazený alebo zlomený prst",
+     "note": "Veľmi časté. Väčšina sa zahojí po prilepení k susednému prstu, ale zdeformovaný palec treba vyšetriť."
+    },
+    {
+     "name": "Kladivkový prst",
+     "note": "Prst ohnutý v strednom kĺbe, často z tesnej obuvi."
+    }
+   ]
+  }
+ },
+ "joints": {
+  "cranial-sutures": {
+   "name": "Lebečné švy",
+   "subtype": "Šev",
+   "movements": [
+    "U dospelých žiadny"
+   ],
+   "summary": "Zubaté väzivové švy, ktoré spájajú kosti lebky: vencový (čelová–temenná), šípový (medzi temennými), lambdový (temenná–záhlavová) a šupinový (temenná–spánková). U bábätiek sú pružné a zanechávajú mäkké miesta (fontanely). V priebehu dospelosti postupne zrastajú.",
+   "issues": [
+    {
+     "name": "Kraniosynostóza",
+     "note": "Šev sa v dojčenskom veku uzavrie príliš skoro a hlava má nezvyčajný tvar."
+    },
+    {
+     "name": "Zmeny fontanely u bábätiek",
+     "note": "Vpadnutá fontanela môže signalizovať dehydratáciu. Napnutá, vyklenutá fontanela u chorého bábätka si vyžaduje naliehavú starostlivosť."
+    }
+   ]
+  },
+  "facial-sutures": {
+   "name": "Tvárové švy",
+   "subtype": "Šev",
+   "movements": [
+    "Žiadny"
+   ],
+   "summary": "Pevné väzivové spojenia, ktoré spájajú 14 kostí tváre navzájom a s lebkou. Príkladmi sú jarmový oblúk (jarmová a spánková kosť) a šev v stredovej čiare medzi dvoma hornými čeľusťami.",
+   "issues": [
+    {
+     "name": "Zlomeniny tváre",
+     "note": "Po vysokoenergetických úrazoch často vedú pozdĺž švov (typy Le Fort)."
+    }
+   ]
+  },
+  "tmj": {
+   "name": "Čeľustný kĺb",
+   "aka": [
+    "temporomandibulárny kĺb",
+    "TMK"
+   ],
+   "subtype": "Upravený kladkový kĺb s kĺzavým diskom",
+   "movements": [
+    "Otváranie a zatváranie",
+    "Bočné žuvanie",
+    "Vysunutie dopredu"
+   ],
+   "summary": "Miesto, kde sa hlavica sánky stretáva so spánkovou kosťou, tesne pred každým uchom. Chrupkový disk mu umožňuje otáčať sa aj kĺzať. Priložte prst pred ucho a otvorte ústa, aby ste pocítili jeho pohyb.",
+   "issues": [
+    {
+     "name": "Porucha čeľustného kĺbu",
+     "note": "Bolesť sánky, cvakanie, bolesti hlavy alebo obmedzené otváranie úst, súvisiace so zatínaním, škrípaním zubami a stresom."
+    },
+    {
+     "name": "Vykĺbená sánka",
+     "note": "Sánka zostane zaseknutá otvorená po veľkom zívnutí alebo údere a vyžaduje rýchle napravenie."
+    }
+   ]
+  },
+  "ossicular": {
+   "name": "Kĺby sluchových kostičiek",
+   "subtype": "Drobné synoviálne kĺby, s platničkou strmienka uloženou vo väzivovom prstenci",
+   "movements": [
+    "Kolísanie, ktoré prenáša zvuk pozdĺž reťaze"
+   ],
+   "summary": "Tri sluchové kostičky sú navzájom spojené drobnými synoviálnymi kĺbmi. Platnička strmienka je uložená v oválnom okienku spánkovej kosti a odovzdáva zvuk do vnútorného ucha.",
+   "issues": [
+    {
+     "name": "Otoskleróza",
+     "note": "Rast kosti znehybní platničku strmienka a spôsobí prevodovú stratu sluchu."
+    }
+   ]
+  },
+  "atlanto-occipital": {
+   "name": "Kĺb medzi záhlavím a nosičom",
+   "aka": [
+    "atlantookcipitálny kĺb"
+   ],
+   "subtype": "Elipsovitý kĺb",
+   "movements": [
+    "Prikyvovanie",
+    "Mierny úklon do strany"
+   ],
+   "summary": "Kĺb „áno“: hrbolčeky záhlavovej kosti sa kolíšu v miskovitých horných plochách nosiča.",
+   "issues": [
+    {
+     "name": "Poranenie hornej časti krku",
+     "note": "Ťažký úraz krku môže tento kĺb narušiť. Bolesť krku s akýmkoľvek mravčením, slabosťou alebo necitlivosťou po úraze je stav pre pohotovosť."
+    }
+   ]
+  },
+  "atlanto-axial": {
+   "name": "Kĺb medzi nosičom a čapovcom",
+   "aka": [
+    "atlantoaxiálny kĺb"
+   ],
+   "subtype": "Čapový kĺb",
+   "movements": [
+    "Otáčanie hlavy („nie“)"
+   ],
+   "summary": "Kĺb „nie“: nosič sa otáča okolo zuba čapovca. Asi polovica všetkého otáčania hlavy prebieha tu.",
+   "issues": [
+    {
+     "name": "Atlantoaxiálna nestabilita",
+     "note": "Uvoľnené väzy (napríklad pri reumatoidnej artritíde alebo Downovom syndróme) umožnia posun zuba čapovca a tlak na miechu."
+    }
+   ]
+  },
+  "intervertebral": {
+   "name": "Medzistavcové spojenia",
+   "aka": [
+    "platničky",
+    "medzistavcové platničky",
+    "facetové kĺby"
+   ],
+   "subtype": "Sponové spojenie (platničky) s párovými synoviálnymi facetovými kĺbmi",
+   "movements": [
+    "Malý pohyb v každej úrovni, ktorý sa sčíta na predklon, záklon, úklon a otáčanie"
+   ],
+   "summary": "Medzi každými dvoma stavcami od C2 po krížovú kosť je medzistavcová platnička: pevný väzivový prstenec okolo rôsolovitého jadra, ktoré tlmí nárazy. Za ňou sú dva malé facetové kĺby. 23 platničiek tvorí asi štvrtinu dĺžky chrbtice.",
+   "issues": [
+    {
+     "name": "Výhrez platničky",
+     "note": "Jadro sa vyduje cez prstenec a môže tlačiť na nervový koreň: bolesť ruky alebo nohy s mravčením alebo slabosťou."
+    },
+    {
+     "name": "Degeneratívne ochorenie platničiek",
+     "note": "Platničky s vekom strácajú vodu a výšku, čo spôsobuje stuhnutosť a bolesť chrbta."
+    },
+    {
+     "name": "Artróza facetových kĺbov",
+     "note": "Bolesť chrbta alebo krku, ktorá je horšia pri záklone."
+    }
+   ]
+  },
+  "sacrococcygeal": {
+   "name": "Krížovo-kostrčové spojenie",
+   "subtype": "Sponové spojenie (často čiastočne zrastené)",
+   "movements": [
+    "Mierne ohnutie dozadu, napríklad pri pôrode"
+   ],
+   "summary": "Malé chrupkové spojenie medzi krížovou kosťou a kostrčou.",
+   "issues": [
+    {
+     "name": "Poranenie kostrče",
+     "note": "Pád na zadok môže spojenie pomliaždiť, podvrtnúť alebo zlomiť."
+    }
+   ]
+  },
+  "sacroiliac": {
+   "name": "Krížovo-bedrový kĺb",
+   "aka": [
+    "SI kĺb",
+    "sakroiliakálny kĺb"
+   ],
+   "subtype": "Plochý, spevnený veľmi silnými väzmi",
+   "movements": [
+    "Niekoľko stupňov kývania a kĺzania"
+   ],
+   "summary": "Na každej strane spája chrbticu s panvou a prenáša hmotnosť hornej časti tela do nôh. Je stavaný na stabilitu, nie na pohyb.",
+   "issues": [
+    {
+     "name": "Bolesť krížovo-bedrového kĺbu",
+     "note": "Bolesť dolnej časti chrbta a zadku na jednej strane, horšia pri státí na jednej nohe, na schodoch alebo pri otáčaní sa v posteli. Častá v tehotenstve."
+    },
+    {
+     "name": "Sakroiliitída",
+     "note": "Zápal, napríklad pri Bechterevovej chorobe: stuhnutosť dolnej časti chrbta u mladých dospelých, najhoršia ráno, ktorá sa zlepší pohybom."
+    }
+   ]
+  },
+  "pubic-symphysis": {
+   "name": "Lonová spona",
+   "aka": [
+    "symfýza"
+   ],
+   "subtype": "Sponové spojenie",
+   "movements": [
+    "Veľmi malý, v tehotenstve sa uvoľňuje"
+   ],
+   "summary": "Disk z väzivovej chrupky, ktorý spája dve lonové kosti na prednej strane panvy. V tehotenstve sa uvoľňuje, aby uľahčil pôrod.",
+   "issues": [
+    {
+     "name": "Bolesť panvového pletenca v tehotenstve",
+     "note": "Bolesť na prednej strane panvy, horšia pri chôdzi, na schodoch alebo pri roztváraní nôh."
+    },
+    {
+     "name": "Osteitis pubis",
+     "note": "Bolesť v slabine u športovcov, ktorí veľa kopú a behajú, z preťaženia."
+    }
+   ]
+  },
+  "sternoclavicular": {
+   "name": "Hrudnokľúčny kĺb",
+   "aka": [
+    "sternoklavikulárny kĺb"
+   ],
+   "subtype": "Sedlový, s diskom",
+   "movements": [
+    "Dvíhanie a spúšťanie ramena",
+    "Pohyb dopredu a dozadu",
+    "Otáčanie kľúčnej kosti"
+   ],
+   "summary": "Jediný kĺb, ktorý spája ruku s trupom. Disk vnútri ho robí prekvapivo pohyblivým, ale veľmi stabilným.",
+   "issues": [
+    {
+     "name": "Vykĺbenie",
+     "note": "Zriedkavé. Vykĺbenie dozadu môže tlačiť na veľké cievy a priedušnicu a je stavom pre pohotovosť."
+    },
+    {
+     "name": "Artróza",
+     "note": "Opuchnutý, citlivý hrbolček na vnútornom konci kľúčnej kosti."
+    }
+   ]
+  },
+  "acromioclavicular": {
+   "name": "Nadpleckovo-kľúčny kĺb",
+   "aka": [
+    "AC kĺb",
+    "akromioklavikulárny kĺb"
+   ],
+   "subtype": "Plochý",
+   "movements": [
+    "Kĺzanie a otáčanie pri pohybe lopatky"
+   ],
+   "summary": "Malý kĺb na vrchole ramena, kde sa kľúčna kosť stretáva s nadpleckom lopatky.",
+   "issues": [
+    {
+     "name": "Rozstup AC kĺbu",
+     "note": "Po páde na hrot ramena: bolesť a schodík alebo hrbolček na vrchole ramena."
+    },
+    {
+     "name": "Artróza AC kĺbu",
+     "note": "Bolesť na vrchole ramena pri siahaní cez telo."
+    }
+   ]
+  },
+  "shoulder": {
+   "name": "Ramenný kĺb",
+   "aka": [
+    "glenohumerálny kĺb"
+   ],
+   "subtype": "Guľovitý kĺb",
+   "movements": [
+    "Predpaženie a zapaženie",
+    "Odtiahnutie a pritiahnutie",
+    "Rotácia",
+    "Krúženie"
+   ],
+   "summary": "Najpohyblivejší kĺb v tele: veľká hlavica ramennej kosti na plytkej jamke, držaná na mieste hlavne svalmi rotátorovej manžety. Jeho pohyblivosť je vykúpená stabilitou.",
+   "issues": [
+    {
+     "name": "Vykĺbenie",
+     "note": "Zvyčajne dopredu, po páde alebo náraze. Rameno vyzerá hranaté a vyžaduje rýchle napravenie."
+    },
+    {
+     "name": "Tendinopatia alebo natrhnutie rotátorovej manžety",
+     "note": "Bolesť pri dvíhaní ruky do strany alebo nad hlavu a bolesť v noci pri ležaní na danej strane."
+    },
+    {
+     "name": "Zamrznuté rameno",
+     "note": "Postupné bolestivé stuhnutie vo všetkých smeroch, najčastejšie medzi 40. a 60. rokom alebo pri cukrovke."
+    }
+   ]
+  },
+  "sternocostal": {
+   "name": "Hrudnorebrové kĺby",
+   "aka": [
+    "sternokostálne kĺby"
+   ],
+   "subtype": "Ploché (prvý je pevné chrupkové spojenie)",
+   "movements": [
+    "Malé kĺzavé pohyby, ktoré umožňujú rozpínanie hrudníka"
+   ],
+   "summary": "Miesta, kde sa rebrové chrupky 1. až 7. rebra stretávajú s hrudnou kosťou. Prvé je pevné, ostatné sú malé kĺzavé kĺby, ktoré sa hýbu pri každom nádychu.",
+   "issues": [
+    {
+     "name": "Kostochondritída",
+     "note": "Citlivá hrudná stena v mieste, kde sa rebrá stretávajú s hrudnou kosťou, horšia pri zatlačení alebo hlbokom nádychu. Bolesť na hrudi vždy dajte vyšetriť, aby sa vylúčili ťažkosti so srdcom."
+    },
+    {
+     "name": "Tietzeho syndróm",
+     "note": "Ako kostochondritída, ale s viditeľným opuchom, zvyčajne pri druhom alebo treťom rebre."
+    }
+   ]
+  },
+  "interchondral": {
+   "name": "Medzichrupkové kĺby",
+   "subtype": "Ploché",
+   "movements": [
+    "Mierne kĺzanie"
+   ],
+   "summary": "Spájajú rebrové chrupky nepravých rebier (8.–10.) s chrupkou nad nimi a tvoria zakrivený dolný okraj hrudného koša, rebrový oblúk.",
+   "issues": [
+    {
+     "name": "Syndróm kĺzavého rebra",
+     "note": "Uvoľnená chrupka dolného rebra cvaká a spôsobuje ostrú bolesť v hornej časti brucha alebo dolnej časti hrudníka."
+    }
+   ]
+  },
+  "costovertebral": {
+   "name": "Rebrovo-stavcové kĺby",
+   "aka": [
+    "kostovertebrálne kĺby"
+   ],
+   "subtype": "Ploché",
+   "movements": [
+    "Dýchacie pohyby ako ucho vedra a rúčka pumpy"
+   ],
+   "summary": "Vzadu sa každé rebro pripája k telám stavcov a pri 1.–10. rebre aj k priečnym výbežkom. Fungujú ako uchá vedra, takže hrudník sa pri nádychu rozšíri.",
+   "issues": [
+    {
+     "name": "Podvrtnutie rebrového kĺbu",
+     "note": "Ostrá bolesť vedľa chrbtice pri dýchaní alebo otáčaní, často po nešikovnom zdvíhaní."
+    },
+    {
+     "name": "Bechterevova choroba",
+     "note": "Zápal môže tieto kĺby stuhnúť a obmedziť, ako veľmi sa hrudník dokáže rozšíriť."
+    }
+   ]
+  },
+  "elbow": {
+   "name": "Lakťový kĺb",
+   "subtype": "Kladkový",
+   "movements": [
+    "Ohnutie",
+    "Vystretie"
+   ],
+   "summary": "Kladkový kĺb, ktorý tvorí ramenná kosť s lakťovou kosťou (pri kladke) a vretennou kosťou (pri hlávke). Má spoločné puzdro s horným vretenno-lakťovým kĺbom.",
+   "issues": [
+    {
+     "name": "Tenisový lakeť",
+     "note": "Bolesť na vonkajšej strane lakťa pri úchope a dvíhaní (laterálna epikondylitída)."
+    },
+    {
+     "name": "Golfový lakeť",
+     "note": "Bolesť na vnútornej strane lakťa pri úchope (mediálna epikondylitída)."
+    },
+    {
+     "name": "Vykĺbenie alebo zlomenina",
+     "note": "Po páde na vystretú ruku: deformita, lakťom nemožno pohnúť. Je to naliehavé."
+    }
+   ]
+  },
+  "proximal-radioulnar": {
+   "name": "Horný vretenno-lakťový kĺb",
+   "subtype": "Čapový",
+   "movements": [
+    "Otáčanie dlane nadol (pronácia)",
+    "Otáčanie dlane nahor (supinácia)"
+   ],
+   "summary": "Hlavička vretennej kosti sa otáča vo väzivovom prstenci na lakťovej kosti a umožňuje otáčať dlaň nahor a nadol.",
+   "issues": [
+    {
+     "name": "Vytknutý lakeť",
+     "note": "Batoľa po potiahnutí za ruku zrazu nechce rukou hýbať."
+    },
+    {
+     "name": "Zlomenina hlavičky vretennej kosti",
+     "note": "Bolesť na vonkajšej strane lakťa, horšia pri otáčaní predlaktia, po páde."
+    }
+   ]
+  },
+  "distal-radioulnar": {
+   "name": "Dolný vretenno-lakťový kĺb",
+   "aka": [
+    "DRUJ",
+    "TFCC"
+   ],
+   "subtype": "Čapový",
+   "movements": [
+    "Pronácia",
+    "Supinácia"
+   ],
+   "summary": "Pri zápästí sa vretenná kosť otáča okolo hlavičky lakťovej kosti. Stabilizuje ho chrupkový vankúšik, trojuholníkový fibrokartilaginózny komplex (TFCC).",
+   "issues": [
+    {
+     "name": "Poranenie TFCC",
+     "note": "Bolesť na malíčkovej strane zápästia a cvakanie pri otáčaní, napríklad pri otáčaní kľúčom."
+    }
+   ]
+  },
+  "wrist": {
+   "name": "Zápästný kĺb",
+   "aka": [
+    "radiokarpálny kĺb"
+   ],
+   "subtype": "Elipsovitý",
+   "movements": [
+    "Ohnutie a vystretie",
+    "Úklon do strán (radiálna a ulnárna dukcia)"
+   ],
+   "summary": "Koniec vretennej kosti obopína člnkovú a mesiačikovitú kosť. Lakťová kosť sa zápästných kostí priamo nedotýka: je medzi nimi chrupkový disk.",
+   "issues": [
+    {
+     "name": "Podvrtnutie zápästia",
+     "note": "Poranenie väzu po páde. „Podvrtnutie“, ktoré neustupuje, môže skrývať zlomeninu člnkovej kosti."
+    },
+    {
+     "name": "Ganglión",
+     "note": "Hladká, často nebolestivá hrčka na chrbte zápästia."
+    },
+    {
+     "name": "De Quervainova tendovaginitída",
+     "note": "Bolesť na palcovej strane zápästia pri úchope, častá u čerstvých rodičov."
+    }
+   ]
+  },
+  "intercarpal": {
+   "name": "Medzizápästné kĺby",
+   "subtype": "Ploché",
+   "movements": [
+    "Kĺzanie, ktoré zväčšuje rozsah pohybu zápästia"
+   ],
+   "summary": "Kĺzavé kĺby medzi ôsmimi zápästnými kosťami, držané pohromade hustou sieťou väzov.",
+   "issues": [
+    {
+     "name": "Nestabilita zápästia",
+     "note": "Natrhnuté väzy (napríklad skafolunátny) spôsobujú bolesť, cvakanie a slabosť."
+    }
+   ]
+  },
+  "carpometacarpal": {
+   "name": "Zápästno-záprstné kĺby",
+   "aka": [
+    "CMC kĺb",
+    "báza palca"
+   ],
+   "subtype": "Sedlový (palec), plochý (prsty)",
+   "movements": [
+    "Palec: opozícia, ohnutie, vystretie, odtiahnutie",
+    "Prsty: mierne kĺzanie"
+   ],
+   "summary": "Spájajú zápästné kosti so záprstnými. Sedlový kĺb palca (veľká mnohohranná kosť a prvá záprstná kosť) umožňuje opozíciu, dotyk palca s končekmi prstov, vďaka ktorej je možný presný úchop.",
+   "issues": [
+    {
+     "name": "Artróza bázy palca",
+     "note": "Bolesť na báze palca pri štipnutí, otváraní pohárov alebo otáčaní kľúčom. Veľmi častá po 50. roku."
+    }
+   ]
+  },
+  "metacarpophalangeal": {
+   "name": "Hánkové kĺby (MCP)",
+   "aka": [
+    "hánky"
+   ],
+   "subtype": "Elipsovité",
+   "movements": [
+    "Ohnutie a vystretie",
+    "Roztiahnutie a priblíženie prstov"
+   ],
+   "summary": "Hánky, kde sa hlavičky záprstných kostí stretávajú so základnými článkami prstov.",
+   "issues": [
+    {
+     "name": "Reumatoidná artritída",
+     "note": "Opuch a stuhnutosť hánok na oboch rukách, horšie ráno. Navštívte lekára včas."
+    },
+    {
+     "name": "Lupkajúci prst",
+     "note": "Prst sa pri ohýbaní zasekáva alebo zamyká pre zhrubnutú šľachovú pošvu na báze prsta."
+    },
+    {
+     "name": "Lyžiarsky palec",
+     "note": "Pretrhnutý väz na vnútornej strane hánky palca po páde na palec."
+    }
+   ]
+  },
+  "hand-interphalangeal": {
+   "name": "Medzičlánkové kĺby prstov ruky (IP)",
+   "subtype": "Kladkové",
+   "movements": [
+    "Ohnutie",
+    "Vystretie"
+   ],
+   "summary": "Kladkové kĺby medzi článkami prstov: dva v každom prste (PIP a DIP) a jeden v palci.",
+   "issues": [
+    {
+     "name": "Artróza",
+     "note": "Kostné zhrubnutia na koncových a stredných kĺboch prstov (Heberdenove a Bouchardove uzly)."
+    },
+    {
+     "name": "Vyvrtnutý prst",
+     "note": "Podvrtnutie stredného kĺbu prsta pri loptových športoch. Kĺb, ktorý zostáva opuchnutý alebo ohnutý, treba vyšetriť."
+    }
+   ]
+  },
+  "hip": {
+   "name": "Bedrový kĺb",
+   "subtype": "Guľovitý",
+   "movements": [
+    "Ohnutie a vystretie",
+    "Odtiahnutie a pritiahnutie",
+    "Rotácia"
+   ],
+   "summary": "Hlboký guľovitý kĺb: hlavica stehennej kosti sedí v jamke, prehĺbenej chrupkovým lemom (labrum). Stavaný na stabilitu a nesenie váhy.",
+   "issues": [
+    {
+     "name": "Artróza",
+     "note": "Bolesť a stuhnutosť v slabine alebo stehne, horšia pri chôdzi, ťažkosti pri obúvaní ponožiek."
+    },
+    {
+     "name": "Zlomenina bedra",
+     "note": "Po páde u staršieho človeka: nemožnosť postaviť sa na nohu. Je to stav pre pohotovosť."
+    },
+    {
+     "name": "Poranenie labra alebo impingement",
+     "note": "Hlboká bolesť v slabine a zasekávanie u aktívnych mladých dospelých."
+    },
+    {
+     "name": "Krívajúce dieťa",
+     "note": "Bolesť bedra alebo kolena či krívanie u dieťaťa treba vyšetriť, pri horúčke naliehavo."
+    }
+   ]
+  },
+  "knee": {
+   "name": "Kolenný kĺb",
+   "subtype": "Upravený kladkový",
+   "movements": [
+    "Ohnutie a vystretie",
+    "Mierna rotácia v pokrčení"
+   ],
+   "summary": "Najväčší kĺb v tele. Kondyly stehennej kosti sa kotúľajú a kĺžu po plató píšťaly, tlmené dvoma polmesiacovitými meniskami a držané štyrmi hlavnými väzmi (dva skrížené a dva postranné). Vpredu kĺže v žliabku jabĺčko.",
+   "issues": [
+    {
+     "name": "Natrhnutie predného skríženého väzu",
+     "note": "Lupnutie pri vytočení alebo doskoku, rýchly opuch a koleno, ktoré pôsobí nestabilne."
+    },
+    {
+     "name": "Poranenie menisku",
+     "note": "Bolesť v kĺbovej štrbine, zasekávanie alebo zamykanie a opuch na druhý deň."
+    },
+    {
+     "name": "Artróza",
+     "note": "Bolesť a stuhnutosť, horšie pri aktivite, a vŕzganie. Častá u starších dospelých."
+    },
+    {
+     "name": "Horúce, opuchnuté koleno",
+     "note": "Červený, horúci, opuchnutý kĺb s horúčkou môže byť infikovaný. Je to naliehavé."
+    }
+   ]
+  },
+  "proximal-tibiofibular": {
+   "name": "Horný píšťalovo-ihlicový kĺb",
+   "subtype": "Plochý",
+   "movements": [
+    "Mierne kĺzanie pri pohybe členka"
+   ],
+   "summary": "Malý kĺzavý kĺb tesne pod vonkajšou stranou kolena, medzi hlavičkou ihlice a píšťalou.",
+   "issues": [
+    {
+     "name": "Nestabilita",
+     "note": "Zriedkavá: bolesť a cvakanie na vonkajšej strane kolena po úraze s vytočením."
+    }
+   ]
+  },
+  "distal-tibiofibular": {
+   "name": "Dolné píšťalovo-ihlicové spojenie",
+   "aka": [
+    "syndesmóza"
+   ],
+   "subtype": "Syndesmóza",
+   "movements": [
+    "Mierne povolenie pri ohýbaní členka"
+   ],
+   "summary": "Silné väzy spájajú dolné konce píšťaly a ihlice do vidlice, ktorá obopína členkovú kosť.",
+   "issues": [
+    {
+     "name": "Vysoké podvrtnutie členka",
+     "note": "Bolesť nad členkom po vytočení chodidla von. Hojí sa pomalšie ako bežné podvrtnutie."
+    }
+   ]
+  },
+  "ankle": {
+   "name": "Členkový kĺb",
+   "aka": [
+    "horný členkový kĺb"
+   ],
+   "subtype": "Kladkový",
+   "movements": [
+    "Prsty nahor (dorzálna flexia)",
+    "Prsty nadol (plantárna flexia)"
+   ],
+   "summary": "Členková kosť sedí vo vidlici tvorenej píšťalou a ihlicou. Nakláňanie chodidla do strán prebieha tesne pod ním, v dolnom členkovom kĺbe.",
+   "issues": [
+    {
+     "name": "Podvrtnutý členok",
+     "note": "Vytočenie chodidla dovnútra natrhne vonkajšie väzy: opuch a modrina. Ak neurobíte štyri kroky alebo bolí kosť pri dotyku, môže ísť o zlomeninu."
+    },
+    {
+     "name": "Zlomenina členka",
+     "note": "Bolesť na členkových hrbolčekoch a nemožnosť postaviť sa na nohu."
+    },
+    {
+     "name": "Pretrhnutie Achillovej šľachy",
+     "note": "Pocit, akoby vás niekto kopol zozadu do päty, a nemôžete sa odraziť. Je to naliehavé."
+    }
+   ]
+  },
+  "subtalar-midfoot": {
+   "name": "Dolný členkový kĺb a kĺby stredonožia",
+   "subtype": "Ploché a upravené kĺby",
+   "movements": [
+    "Naklonenie chodidla dovnútra (inverzia)",
+    "Naklonenie von (everzia)"
+   ],
+   "summary": "Kĺby medzi priehlavkovými kosťami, hlavne dolný členkový kĺb pod členkovou kosťou, ktoré umožňujú chodidlu nakláňať sa a prispôsobiť sa nerovnému terénu.",
+   "issues": [
+    {
+     "name": "Ploché nohy",
+     "note": "Pokleslá klenba, zvyčajne nebolestivá. Novo sa splošťujúce, bolestivé chodidlo treba vyšetriť pre poruchu šľachy zadného píšťalového svalu."
+    },
+    {
+     "name": "Artróza stredonožia",
+     "note": "Bolesť na chrbte strednej časti chodidla pri chôdzi."
+    }
+   ]
+  },
+  "tarsometatarsal": {
+   "name": "Priehlavkovo-predpriehlavkové kĺby",
+   "aka": [
+    "Lisfrancov kĺb"
+   ],
+   "subtype": "Ploché",
+   "movements": [
+    "Mierne kĺzanie, ktoré spevňuje klenbu"
+   ],
+   "summary": "Miesta, kde sa priehlavkové kosti stretávajú s predpriehlavkovými naprieč stredonožím. Sú kľúčovým kameňom klenby chodidla.",
+   "issues": [
+    {
+     "name": "Lisfrancovo poranenie",
+     "note": "Bolesť stredonožia a modrina na chodidle po vytočení alebo zavalení. Ľahko prehliadnuteľné a vážne."
+    }
+   ]
+  },
+  "metatarsophalangeal": {
+   "name": "Kĺby prstov nohy (MTP)",
+   "aka": [
+    "predné vankúšiky chodidla",
+    "kĺb palca nohy"
+   ],
+   "subtype": "Elipsovité",
+   "movements": [
+    "Ohnutie a vystretie",
+    "Mierne roztiahnutie"
+   ],
+   "summary": "Kĺby v predných vankúšikoch chodidla. Kĺb palca sa ohýba pri každom kroku pri odraze.",
+   "issues": [
+    {
+     "name": "Dna",
+     "note": "Náhla, silná bolesť so začervenaním a opuchom kĺbu palca nohy, často v noci."
+    },
+    {
+     "name": "Vbočený palec (hallux valgus)",
+     "note": "Palec sa stáča k ostatným prstom, s kostným hrbolčekom na vnútornej strane."
+    },
+    {
+     "name": "Hallux rigidus",
+     "note": "Stuhnutý, bolestivý palec nohy z artrózy."
+    }
+   ]
+  },
+  "foot-interphalangeal": {
+   "name": "Medzičlánkové kĺby prstov nohy (IP)",
+   "subtype": "Kladkové",
+   "movements": [
+    "Ohnutie",
+    "Vystretie"
+   ],
+   "summary": "Malé kladkové kĺby medzi kosťami prstov: jeden v palci a dva v každom z ostatných prstov.",
+   "issues": [
+    {
+     "name": "Kladivkové a pazúrovité prsty",
+     "note": "Trvalé ohnutia v týchto kĺboch, ktoré sa odierajú o obuv a spôsobujú kurie oká."
+    }
+   ]
+  }
+ },
+ "groups": {
+  "axial": {
+   "name": "Osová kostra",
+   "summary": "Stredná os tela: lebka, chrbtica, rebrá a hrudná kosť. Chráni mozog, miechu a orgány hrudníka."
+  },
+  "skull": {
+   "name": "Lebka",
+   "summary": "22 kostí, ktoré chránia mozog a tvoria tvár, k tomu šesť drobných sluchových kostičiek a jazylka na krku."
+  },
+  "cranium": {
+   "name": "Kosti mozgovej časti lebky",
+   "summary": "Osem kostí, ktoré tvoria klenbu a spodinu lebky a uzatvárajú mozog."
+  },
+  "face": {
+   "name": "Kosti tváre",
+   "summary": "Štrnásť kostí, ktoré tvoria tvár, očnice, nos a čeľuste."
+  },
+  "spine": {
+   "name": "Chrbtica",
+   "summary": "26 kostí naskladaných od lebky po kostrč: 7 krčných, 12 hrudných a 5 driekových stavcov, krížová kosť a kostrč. Nesie hmotnosť tela a chráni miechu."
+  },
+  "cervical": {
+   "name": "Krčná chrbtica (C1–C7)",
+   "summary": "Sedem malých, pohyblivých stavcov krku. Otvormi v ich priečnych výbežkoch vedú stavcové tepny do mozgu.",
+   "issues": [
+    {
+     "name": "Natiahnutie krku / whiplash",
+     "note": "Bolesť a stuhnutosť po náhlom trhnutí alebo nevhodnom držaní tela, zvyčajne sa zlepší v priebehu niekoľkých týždňov."
+    },
+    {
+     "name": "Stlačený nerv (cervikálna radikulopatia)",
+     "note": "Bolesť krku vyžarujúca do ruky s mravčením, necitlivosťou alebo slabosťou, z platničky alebo kostného výrastku tlačiaceho na nervový koreň."
+    },
+    {
+     "name": "Cervikálna spondylóza",
+     "note": "Opotrebovanie platničiek a facetových kĺbov s vekom: stuhnutosť, škrípanie, niekedy bolesti zadnej časti hlavy."
+    }
+   ],
+   "rangeLabel": "{r}"
+  },
+  "thoracic": {
+   "name": "Hrudná chrbtica (T1–T12)",
+   "summary": "Dvanásť stavcov, ktoré nesú rebrá. Spojená s hrudným košom je to najtuhšia časť chrbtice.",
+   "issues": [
+    {
+     "name": "Bolesť chrbta z držania tela",
+     "note": "Bolesť medzi lopatkami z dlhého sedenia alebo hrbenia sa."
+    },
+    {
+     "name": "Osteoporotická kompresívna zlomenina",
+     "note": "Náhla bolesť v strede chrbta, niekedy už po malej námahe, u ľudí s riedkymi kosťami; môže nasledovať úbytok výšky a zhrbenie (kyfóza)."
+    },
+    {
+     "name": "Skolióza",
+     "note": "Bočné zakrivenie chrbtice, najčastejšie zbadané v dospievaní ako nerovnaké ramená alebo boky."
+    }
+   ],
+   "rangeLabel": "{r}"
+  },
+  "lumbar": {
+   "name": "Driekova chrbtica (L1–L5)",
+   "summary": "Päť najväčších stavcov v dolnej časti chrbta. Nesú hmotnosť hornej časti tela a umožňujú predklon a záklon.",
+   "issues": [
+    {
+     "name": "Bolesť dolnej časti chrbta",
+     "note": "Veľmi častá a zvyčajne zo svalov, väzov a kĺbov. Obvykle odznie v priebehu týždňov a pomáha zostať mierne aktívny."
+    },
+    {
+     "name": "Výhrez platničky / ischias",
+     "note": "Materiál platničky tlačí na nervový koreň a spôsobuje vystreľujúcu bolesť do nohy, niekedy s necitlivosťou alebo slabosťou."
+    },
+    {
+     "name": "Spinálna stenóza",
+     "note": "Zúženie miechového kanála u starších dospelých: bolesť alebo ťažoba nôh pri chôdzi, ktorá ustúpi v sede alebo predklone."
+    }
+   ],
+   "rangeLabel": "{r}"
+  },
+  "sacral": {
+   "name": "Krížová kosť a kostrč",
+   "summary": "Zrastené stavce na spodku chrbtice, ktoré ju zakotvujú do panvy."
+  },
+  "thorax": {
+   "name": "Hrudný kôš",
+   "summary": "Hrudná kosť, 12 párov rebier a hrudné stavce: pružný kôš, ktorý chráni srdce a pľúca a rozpína sa pri každom nádychu."
+  },
+  "ribs": {
+   "name": "Rebrá",
+   "rangeLabel": "Rebrá {r}",
+   "summary": "12 párov. Rebrá 1–7 sú „pravé“, každé sa pripája k hrudnej kosti vlastnou chrupkou. Rebrá 8–10 sú „nepravé“ a pripájajú sa k chrupke nad nimi. Rebrá 11–12 sú „voľné“ a končia voľne v boku.",
+   "issues": [
+    {
+     "name": "Zlomenina alebo pomliaždenie rebra",
+     "note": "Ostrá bolesť pri dýchaní, kašli alebo otáčaní po páde alebo údere. Dýchavičnosť alebo vykašliavanie krvi si vyžadujú naliehavú starostlivosť."
+    },
+    {
+     "name": "Kostochondritída",
+     "note": "Zápal v mieste, kde sa rebrá stretávajú so svojou chrupkou: hrudná stena je citlivá na tlak. Bolesť na hrudi vždy dajte vyšetriť, aby sa vylúčili príčiny zo srdca."
+    },
+    {
+     "name": "Natiahnutie medzirebrových svalov",
+     "note": "Bolesť medzi rebrami po záchvatoch kašľa, zdvíhaní alebo športoch s otáčaním."
+    }
+   ]
+  },
+  "appendicular": {
+   "name": "Kostra končatín",
+   "summary": "Končatiny a pletence, ktoré ich pripájajú k trupu: 126 kostí stavaných na pohyb."
+  },
+  "shoulder-girdle": {
+   "name": "Ramenný pletenec",
+   "summary": "Kľúčna kosť a lopatka na každej strane. Spolu zavesujú ruku na trup."
+  },
+  "upper-limb": {
+   "name": "Horná končatina",
+   "summary": "Rameno, predlaktie a ruka: 30 kostí na každej strane."
+  },
+  "hand": {
+   "name": "Zápästie a ruka",
+   "summary": "27 kostí na každej ruke: 8 zápästných, 5 záprstných a 14 článkov prstov."
+  },
+  "pelvic-girdle": {
+   "name": "Panvový pletenec",
+   "summary": "Dve bedrové kosti. Vzadu spojené s krížovou kosťou a vpredu navzájom tvoria panvový prstenec."
+  },
+  "lower-limb": {
+   "name": "Dolná končatina",
+   "summary": "Stehno, koleno, predkolenie a chodidlo: 30 kostí na každej strane."
+  },
+  "foot": {
+   "name": "Členok a chodidlo",
+   "summary": "26 kostí na každej nohe: 7 priehlavkových, 5 predpriehlavkových a 14 článkov prstov."
+  }
+ }
+}

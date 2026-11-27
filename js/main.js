@@ -7,6 +7,7 @@ import { createPanel } from './panel.js';
 import { createSearch } from './search.js';
 import { buildBrowse } from './browse.js';
 import { forSex } from './sex.js';
+import { createT, applyDom, loadLang, forLang, localizeManifest, pickLang, sourceFile } from './i18n.js';
 import * as Router from './router.js';
 import * as Offline from './offline.js';
 
@@ -27,7 +28,9 @@ const prefs = {
   get(k, d) { try { const v = localStorage.getItem('corpus:' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
   set(k, v) { try { localStorage.setItem('corpus:' + k, JSON.stringify(v)); } catch { /* private mode */ } },
 };
-const applyTheme = (t) => { if (t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme; };
+// the interface's strings; English until boot has loaded the chosen language (the boot error message uses it too)
+let t = createT();
+const applyTheme = (th) => { if (th) document.documentElement.dataset.theme = th; else delete document.documentElement.dataset.theme; };
 applyTheme(prefs.get('theme', null));
 
 async function load(url, as = 'json') {
@@ -49,7 +52,18 @@ async function boot() {
   // drawing styles: the first is the default drawing in a layer's "svg"; a layer's "styles" adds per-style drawings,
   // which are fetched only when first shown (ensureStyle below), so a first visit downloads the default drawings only
   const styles = manifest.styles?.length ? manifest.styles : [{ id: 'schematic', name: 'Schematic' }];
-  const [datas, svgs, linkFiles, regionsData, regionSvgs, modelIndex] = await Promise.all([
+  // languages (js/i18n.js): English is the source (locales/en/ui.json and data/); another language overlays both
+  const languages = manifest.languages?.length ? manifest.languages : [{ id: 'en', name: 'English' }];
+  const langById = new Map(languages.map((l) => [l.id, l]));
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  const startLang = pickLang(languages, { param: urlLang, saved: prefs.get('lang', null), browser: navigator.languages || [] });
+  if (urlLang && langById.has(urlLang)) prefs.set('lang', urlLang);
+  const langLoads = new Map(); // lang id -> Promise of loadLang()'s result
+  const getLang = (id) => {
+    if (!langLoads.has(id)) langLoads.set(id, loadLang(manifest, id, (u) => load(u)).catch((err) => { langLoads.delete(id); throw err; }));
+    return langLoads.get(id);
+  };
+  const [datas, svgs, linkFiles, regionsData, regionSvgs, modelIndex, enLang, firstLang] = await Promise.all([
     Promise.all(manifest.layers.map((l) => load(l.data))),
     Promise.all(manifest.layers.map((l) => loadSvgs(l.svg))),
     Promise.all((manifest.links || []).map((u) => load(u))),
@@ -57,7 +71,15 @@ async function boot() {
     manifest.regions ? loadSvgs(manifest.regions.svg) : {},
     // which keys the 3D model has (a few KB), so routes can pick a view without loading any model
     modelView && manifest.model3d ? load(manifest.model3d.keys).catch(() => null) : null,
+    getLang(languages[0].id).catch(() => null),
+    getLang(startLang).catch(() => null),
   ]);
+  const enUi = enLang?.ui || {};
+  // the language on show: its strings (t), the manifest's names in it (man) and the data in it (raw, below)
+  let lang = firstLang ? startLang : languages[0].id;
+  let man = localizeManifest(manifest, firstLang?.manifest);
+  t = createT(firstLang?.ui, enUi, lang);
+  applyDom(document, t);
   // layer id -> Set(key) in its .glb; only layers the manifest gives a "model" count
   const modelKeys = new Map(manifest.layers.filter((l) => l.model && modelIndex?.layers?.[l.id]).map((l) => [l.id, new Set(modelIndex.layers[l.id])]));
   const inModel = (k) => [...modelKeys.values()].some((s) => s.has(k));
@@ -70,9 +92,13 @@ async function boot() {
   // biological sex: one graph per setting, built on first use from the data filtered by js/sex.js (the first is neutral)
   const sexes = manifest.sexes?.length ? manifest.sexes : [{ id: 'none', name: 'Not set' }];
   const sexById = new Map(sexes.map((x) => [x.id, x]));
-  const raw = { layers, links: linkFiles.flatMap((f) => f.links || []), linkTypes: manifest.linkTypes, regions: regionsData };
-  const graphs = new Map();
-  const graphFor = (sx) => { if (!graphs.has(sx)) graphs.set(sx, new Graph(forSex(raw, sx))); return graphs.get(sx); };
+  const rawEn = { layers, links: linkFiles.flatMap((f) => f.links || []), linkTypes: manifest.linkTypes, regions: regionsData };
+  // the data in the language on show; the graphs are built from it (forLang first: overlays merge by index)
+  let raw = forLang(rawEn, firstLang);
+  const graphs = new Map(); // sex -> Graph, for the language on show
+  const graphFor = (sx) => { if (!graphs.has(sx)) graphs.set(sx, new Graph({ ...forSex(raw, sx), t })); return graphs.get(sx); };
+  // names from the manifest in the language on show (views, styles, sexes, layers)
+  const nameIn = (list, id) => man[list]?.find((x) => x.id === id)?.name || id;
   const savedSex = prefs.get('sex', sexes[0].id);
   const initialSex = sexById.has(savedSex) ? savedSex : sexes[0].id;
   let graph = graphFor(initialSex);
@@ -83,8 +109,7 @@ async function boot() {
   const panelEl = $('#panel');
   const panelBody = $('#panel-body');
   const hint = $('#map-hint');
-  const hintText = hint?.textContent;
-  let panel = createPanel(graph);
+  let panel = createPanel(graph, t);
   let search = null, browse = null; // created further down; useSex() rebuilds them
 
   const viewById = new Map(views.map((v) => [v.id, v]));
@@ -96,6 +121,7 @@ async function boot() {
     view: viewById.has(savedView) ? savedView : views[0].id, // front / back (not part of the route)
     style: styleById.has(savedStyle) ? savedStyle : styles[0].id, // schematic / realistic drawings (not part of the route)
     sex: initialSex, // biological sex: none / female / male (not part of the route)
+    lang, // the language on show (not part of the route)
     visible: new Set(manifest.layers.filter((l) => l.visible).map((l) => l.id)),
     active: [...manifest.layers].reverse().find((l) => l.visible)?.id,
     joints: prefs.get('joints', true),
@@ -136,14 +162,14 @@ async function boot() {
   const setStatus = (text) => { modelStatus.textContent = text || ''; modelStatus.hidden = !text; };
   function ensureModel() {
     if (!modelLoad) {
-      setStatus('Loading the 3D body…');
+      setStatus(t('model.loading'));
       modelLoad = import('./model3d.js').then(({ createModel3d }) => {
         model = createModel3d({
           canvas, bounds: modelIndex.bounds, info: (id) => infoById.get(id), onPick, onHover,
           onTurn: (front) => { modelFront = front; renderControls(store.get()); if (!settingsEl.hidden) renderSettings(store.get()); },
         });
         return model;
-      }).catch((err) => { modelLoad = null; setStatus('The 3D view couldn’t load.'); throw err; });
+      }).catch((err) => { modelLoad = null; setStatus(t('model.failed')); throw err; });
     }
     return modelLoad;
   }
@@ -154,16 +180,14 @@ async function boot() {
   function modelNote(st, h) {
     const n = st.route.view === 'node' ? graph.node(st.route.id) : null;
     const keys = [...h.sel];
-    if (n && keys.length && !keys.some(inModel)) return `${n.name} isn’t in the 3D model yet. Switch to 2D to see it.`;
-    if (n && keys.length && keys.every((k) => !inModel(k) || generatedKeys.has(k))) return `${n.name} is drawn as a simple shape here: the 3D source model doesn’t include it.`;
-    if (loadFailed) return 'Part of the 3D body couldn’t load.';
+    if (n && keys.length && !keys.some(inModel)) return t('model.notIn', { name: n.name });
+    if (n && keys.length && keys.every((k) => !inModel(k) || generatedKeys.has(k))) return t('model.standIn', { name: n.name });
+    if (loadFailed) return t('model.partFailed');
     const want = manifest.layers.filter((l) => l.model && modelKeys.has(l.id) && st.visible.has(l.id));
     const done = want.filter((l) => model?.hasLayer(l.id)).length;
     const skinWait = Router.isHurt(st.route) && skinUrl && !model?.hasSkin();
-    if (!model || skinWait) return 'Loading the 3D body…';
-    if (done < want.length) return Router.isHurt(st.route)
-      ? `Loading what lies under the skin: ${done} of ${want.length} layers…`
-      : `Loading the 3D body: ${done} of ${want.length} layers…`;
+    if (!model || skinWait) return t('model.loading');
+    if (done < want.length) return t(Router.isHurt(st.route) ? 'model.loadingUnder' : 'model.loadingLayers', { done, total: want.length });
     return '';
   }
   // Start loading what the 3D view needs and isn't loading yet: the .glb of every visible layer and, in "Where does it
@@ -275,9 +299,9 @@ async function boot() {
   // swap the graph and everything built from it; the caller puts { sex } in its store patch
   function useSex(sx) {
     graph = graphFor(sx);
-    panel = createPanel(graph);
-    search?.setGraph(graph);
-    if (browse) buildBrowse(browse, graph);
+    panel = createPanel(graph, t);
+    search?.setGraph(graph, t);
+    if (browse) buildBrowse(browse, graph, t);
     prefs.set('sex', sx);
   }
   function setSex(sx) {
@@ -289,6 +313,27 @@ async function boot() {
     // the page on show doesn't exist for this sex: go home (in the same render, so it never shows "not found")
     store.set({ sex: sx, route: Router.isHurt(st.route) ? { view: 'hurt' } : { view: 'home' }, probe: null, fromRegion: null });
     navigate(Router.isHurt(st.route) ? 'hurt' : '');
+  }
+  // ------------------------------------------------------------------ language
+  // load the language once, then rebuild everything built from text: the graphs (names, search), the panel, Browse,
+  // the layer chips, the cog and the static page text; the route, view and selection stay as they are
+  async function setLang(id) {
+    if (!langById.has(id) || id === store.get().lang) return;
+    let data;
+    try { data = await getLang(id); } catch (err) { console.warn(`[Corpus] language ${id} failed to load`, err); return; }
+    lang = id;
+    t = createT(data.ui, enUi, id);
+    man = localizeManifest(manifest, data.manifest);
+    raw = forLang(rawEn, data);
+    graphs.clear();
+    prefs.set('lang', id);
+    useSex(store.get().sex);
+    applyDom(document, t);
+    buildLayerList();
+    renderLayerbar();
+    buildSettings();
+    setPlaceholder();
+    store.set({ lang: id });
   }
   const cycleSex = () => { const i = sexes.findIndex((x) => x.id === store.get().sex); setSex(sexes[(i + 1) % sexes.length].id); };
 
@@ -399,19 +444,19 @@ async function boot() {
     } else if (st.route.view !== 'home') navigate('');
   }
 
-  function onHover(t, x, y) {
-    if (!t) { tooltip.hidden = true; return; }
+  function onHover(hit, x, y) {
+    if (!hit) { tooltip.hidden = true; return; }
     const hurt = Router.isHurt(store.get().route);
     let label = '', sub = '';
-    if (hurt && t.rkey) {
-      const { id, side } = parseKey(t.rkey);
+    if (hurt && hit.rkey) {
+      const { id, side } = parseKey(hit.rkey);
       label = graph.regions.get(id)?.name || id;
-      sub = side ? `${side} side` : '';
-    } else if (!hurt && t.key) {
-      const { id, side } = parseKey(t.key);
+      sub = side ? t(`tooltip.side.${side}`) : '';
+    } else if (!hurt && hit.key) {
+      const { id, side } = parseKey(hit.key);
       const n = graph.node(id);
       label = n?.name || id;
-      sub = [side, n?.type === 'joint' ? 'joint' : ''].filter(Boolean).join(' · ');
+      sub = [side ? t(`side.${side}`) : '', n?.type === 'joint' ? t('tooltip.joint') : ''].filter(Boolean).join(' · ');
     } else { tooltip.hidden = true; return; }
     const r = wrap.getBoundingClientRect();
     tooltip.innerHTML = `${escapeHtml(label)}${sub ? `<span class="tt-sub">${escapeHtml(sub)}</span>` : ''}`;
@@ -431,31 +476,32 @@ async function boot() {
     }
     const here = layersIn(st.view);
     const active = activeIn(st);
-    const vname = viewById.get(st.view)?.name || st.view;
+    const vname = nameIn('views', st.view);
     for (const b of document.querySelectorAll('.layer-chip[data-layer]')) {
       const id = b.dataset.layer;
-      const name = b.dataset.name;
+      const name = nameIn('layers', id);
       const drawnHere = here.includes(id);
       const state = !drawnHere ? 'na' : !st.visible.has(id) ? 'off' : active === id ? 'active' : 'context';
       b.dataset.state = state;
       b.disabled = !drawnHere;
       b.setAttribute('aria-pressed', String(state === 'active' || state === 'context'));
-      b.title = state === 'na' ? (is3d(st.view) ? `${name} aren’t in the 3D model yet` : `${name} aren’t drawn in the ${vname.toLowerCase()} view yet`) : state === 'off' ? `Show ${name}` : state === 'context' ? `Bring ${name} into focus` : `Hide ${name}`;
+      b.title = state === 'na' ? (is3d(st.view) ? t('layers.not3d', { name }) : t('layers.notDrawn', { name, view: vname.toLowerCase() }))
+        : t(state === 'off' ? 'layers.show' : state === 'context' ? 'layers.focus' : 'layers.hide', { name });
     }
-    svg.setAttribute('aria-label', `${vname} view of the human body. Use search or Browse to reach every structure by keyboard.`);
-    canvas.setAttribute('aria-label', '3D model of the human body: drag or use the arrow keys to turn it. Use search or Browse to reach every structure by keyboard.');
+    svg.setAttribute('aria-label', t('map.aria', { view: vname }));
+    canvas.setAttribute('aria-label', t('map.aria3d'));
     const jb = $('.layer-chip[data-toggle="joints"]');
     jb.dataset.state = st.joints ? 'active' : 'off';
     jb.setAttribute('aria-pressed', String(st.joints));
     // in 3D the sides follow the camera: seen from behind, the body's right is on the viewer's right
     const flip = is3d(st.view) ? !modelFront : flipOf(st);
-    const lab = (s) => `<b>${s === 'right' ? 'R' : 'L'}</b><small>body’s ${s}</small>`;
+    const lab = (s) => `<b>${escapeHtml(t(`map.sideShort.${s}`))}</b><small>${escapeHtml(t(`map.sideLong.${s}`))}</small>`;
     $('#side-left').innerHTML = lab(flip ? 'left' : 'right');
     $('#side-right').innerHTML = lab(flip ? 'right' : 'left');
     $('#hurt-banner').hidden = st.route.view !== 'hurt';
-    if (hint) hint.textContent = is3d(st.view) ? 'Tap a bone · drag to turn · scroll or pinch to zoom' : hintText;
-    const t = panel.title(st);
-    document.title = t ? `${t} · Corpus` : 'Corpus: a connected map of the human body';
+    if (hint) hint.textContent = t(is3d(st.view) ? 'map.hint3d' : 'map.hint');
+    const title = panel.title(st);
+    document.title = title ? t('app.pageTitle', { title }) : t('app.title');
   }
   let lastFlip = null;
   function renderMap(st) {
@@ -464,7 +510,7 @@ async function boot() {
     canvas.hidden = !three;
     $('.model-credit').hidden = !three;
     if (three) {
-      if (!model) { setStatus('Loading the 3D body…'); ensureModelLayers(st); return; }
+      if (!model) { setStatus(t('model.loading')); ensureModelLayers(st); return; }
       const hurt = Router.isHurt(st.route);
       // something visible that isn't loaded and isn't on its way yet
       if (manifest.layers.some((l) => modelKeys.has(l.id) && st.visible.has(l.id) && !model.hasLayer(l.id) && !modelLayerLoads.has(l.id))
@@ -505,7 +551,7 @@ async function boot() {
   }
   store.subscribe((st, prev) => {
     if (st.style !== prev.style || st.view !== prev.view) ensureShown(st);
-    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible || st.view !== prev.view || st.sex !== prev.sex) renderPanel(st, st.route !== prev.route);
+    if (st.route !== prev.route || st.probe !== prev.probe || st.mirror !== prev.mirror || st.fromRegion !== prev.fromRegion || st.visible !== prev.visible || st.view !== prev.view || st.sex !== prev.sex || st.lang !== prev.lang) renderPanel(st, st.route !== prev.route);
     renderMap(st);
     renderControls(st);
   });
@@ -518,9 +564,12 @@ async function boot() {
   const layerList = $('#layer-list');
   const layerToggle = $('#layer-toggle');
   const chipIcon = (id) => `<span class="sw" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16">${LAYER_ICONS[id] || LAYER_ICONS.default}</svg></span>`;
-  layerList.innerHTML = [...manifest.layers].reverse()
-    .map((l) => `<button class="layer-chip" data-layer="${l.id}" data-name="${escapeHtml(l.name)}">${chipIcon(l.id)}<span class="name">${escapeHtml(l.name)}</span></button>`)
-    .join('') + `<button class="layer-chip" data-toggle="joints" title="Show or hide the joints">${chipIcon('joints')}<span class="name">Joints</span></button>`;
+  const buildLayerList = () => {
+    layerList.innerHTML = [...man.layers].reverse()
+      .map((l) => `<button class="layer-chip" data-layer="${l.id}">${chipIcon(l.id)}<span class="name">${escapeHtml(l.name)}</span></button>`)
+      .join('') + `<button class="layer-chip" data-toggle="joints" title="${escapeHtml(t('layers.jointsTitle'))}">${chipIcon('joints')}<span class="name">${escapeHtml(t('layers.joints'))}</span></button>`;
+  };
+  buildLayerList();
   const narrow = matchMedia('(max-width: 760px)'); // the phone layout (css/app.css)
   let layersOpen = false; // the phone menu
   function renderLayerbar() {
@@ -529,7 +578,7 @@ async function boot() {
     layerbar.dataset.open = String(layersOpen);
     const expanded = narrow.matches ? layersOpen : !collapsed;
     layerToggle.setAttribute('aria-expanded', String(expanded));
-    layerToggle.title = narrow.matches ? (layersOpen ? 'Close the layers' : 'Layers') : collapsed ? 'Show the layer names' : 'Show icons only';
+    layerToggle.title = t(narrow.matches ? (layersOpen ? 'layers.close' : 'layers.title') : collapsed ? 'layers.showNames' : 'layers.iconsOnly');
   }
   const setLayersOpen = (open, { refocus = false } = {}) => {
     layersOpen = open;
@@ -606,22 +655,24 @@ async function boot() {
   // Each row is a segmented switch, marked up as a radio group: one Tab stop per row (the checked option), arrow
   // keys move and choose, as with native radios. value(st) gives the checked option, set(v) applies it, off(v, st)
   // disables one, why says why (shown as its tooltip), keys names the row's shortcut.
-  const settingRows = [
-    { id: 'theme', label: 'Theme', opts: [['auto', 'Auto'], ['light', 'Light'], ['dark', 'Dark']],
+  // built again when the language changes (buildSettings)
+  let settingRows = [];
+  const makeRows = () => [
+    { id: 'theme', label: t('settings.theme'), opts: ['auto', 'light', 'dark'].map((v) => [v, t(`settings.theme.${v}`)]),
       value: () => prefs.get('theme', null) || 'auto',
-      set: (v) => { const t = v === 'auto' ? null : v; applyTheme(t); prefs.set('theme', t); } },
-    { id: 'display', label: 'Display', keys: 'M', opts: [['2d', '2D'], ['3d', '3D']], hide: !modelView,
+      set: (v) => { const th = v === 'auto' ? null : v; applyTheme(th); prefs.set('theme', th); } },
+    { id: 'display', label: t('settings.display'), keys: 'M', opts: [['2d', t('settings.display.2d')], ['3d', t('settings.display.3d')]], hide: !modelView,
       value: (st) => (is3d(st.view) ? '3d' : '2d'), set: (v) => setDisplay(v),
-      off: (v, st) => v === '3d' && Router.isHurt(st.route) && !skinUrl, why: '“Where does it hurt?” is 2D only for now' },
-    { id: 'view', label: 'View', keys: 'B', opts: svgViews.map((v) => [v.id, v.name]), hide: svgViews.length < 2,
+      off: (v, st) => v === '3d' && Router.isHurt(st.route) && !skinUrl, why: t('settings.display.hurt2d') },
+    { id: 'view', label: t('settings.view'), keys: 'B', opts: svgViews.map((v) => [v.id, nameIn('views', v.id)]), hide: svgViews.length < 2,
       value: (st) => facing(st), set: (v) => setFacing(v) },
-    { id: 'style', label: 'Drawings', keys: 'D', opts: styles.map((s) => [s.id, s.name]), hide: styles.length < 2,
+    { id: 'style', label: t('settings.style'), keys: 'D', opts: styles.map((s) => [s.id, nameIn('styles', s.id)]), hide: styles.length < 2,
       value: (st) => (styleIn(st.style, st.view) ? st.style : styles[0].id), set: (v) => setStyle(v),
-      off: (v, st) => !styleIn(v, st.view), why: (st) => (is3d(st.view) ? 'The 3D view has one style' : 'Not drawn in this view yet') },
-    { id: 'sex', label: 'Biological sex', keys: 'S', opts: sexes.map((x) => [x.id, x.name]), hide: sexes.length < 2,
+      off: (v, st) => !styleIn(v, st.view), why: (st) => t(is3d(st.view) ? 'settings.style.one3d' : 'settings.style.notHere') },
+    { id: 'sex', label: t('settings.sex'), keys: 'S', opts: sexes.map((x) => [x.id, nameIn('sexes', x.id)]), hide: sexes.length < 2,
       value: (st) => st.sex, set: (v) => setSex(v) },
     // Anatomy draws the joints of the realistic skeleton as capsules and joint spaces; the schematic one only has dots
-    { id: 'joints', label: 'Joints', opts: [['dots', 'Dots'], ['anatomy', 'Anatomy'], ['off', 'Off']],
+    { id: 'joints', label: t('settings.joints'), opts: ['dots', 'anatomy', 'off'].map((v) => [v, t(`settings.joints.${v}`)]),
       value: (st) => (!st.joints ? 'off' : anatomyIn(st) ? st.jointStyle : 'dots'),
       set: (v) => {
         const on = v !== 'off';
@@ -629,23 +680,31 @@ async function boot() {
         if (on) prefs.set('jointStyle', v);
         store.set(on ? { joints: true, jointStyle: v } : { joints: false });
       },
-      off: (v, st) => v === 'anatomy' && !anatomyIn(st), why: 'Only with realistic drawings' },
-    { id: 'mirror', label: 'Mirror', opts: [['off', 'Off'], ['on', 'On']],
+      off: (v, st) => v === 'anatomy' && !anatomyIn(st), why: t('settings.joints.realisticOnly') },
+    { id: 'mirror', label: t('settings.mirror'), opts: [['off', t('settings.mirror.off')], ['on', t('settings.mirror.on')]],
       value: (st) => (st.mirror && !viewById.get(st.view)?.flip && !is3d(st.view) ? 'on' : 'off'),
       set: (v) => { prefs.set('mirror', v === 'on'); store.set({ mirror: v === 'on' }); },
       off: (v, st) => !!viewById.get(st.view)?.flip || is3d(st.view),
-      why: (st) => (is3d(st.view) ? 'Turn the 3D body to see it from behind' : 'The back view is already shown from behind') },
+      why: (st) => t(is3d(st.view) ? 'settings.mirror.why3d' : 'settings.mirror.whyBack') },
+    // each language named in itself (from the manifest, never translated)
+    { id: 'lang', label: t('settings.language'), opts: languages.map((l) => [l.id, l.name]), hide: languages.length < 2,
+      value: (st) => st.lang, set: (v) => setLang(v) },
   ].filter((r) => !r.hide);
   const settingsEl = $('#settings');
   const settingsBtn = $('#settings-toggle');
   const settingsWrap = settingsEl.closest('.settings-wrap');
-  settingsEl.innerHTML = '<h2 id="settings-title">Settings</h2>' + settingRows.map((r) => `<div class="setting"><span class="setting-label" id="set-${r.id}">${escapeHtml(r.label)}</span>`
-    + `<div class="seg" role="radiogroup" aria-labelledby="set-${r.id}"${r.keys ? ` aria-keyshortcuts="${r.keys}"` : ''}>`
-    + r.opts.map(([v, name]) => `<button type="button" role="radio" data-setting="${r.id}" data-value="${escapeHtml(v)}" aria-checked="false" tabindex="-1">${escapeHtml(name)}</button>`).join('')
-    + '</div></div>').join('')
-    + (Offline.supported ? '<div class="setting offline"><span class="setting-label" id="set-offline">Offline</span>'
-      + '<p class="offline-note" id="offline-note" role="status" tabindex="-1"></p>'
-      + '<button type="button" class="offline-save" id="offline-save" aria-describedby="offline-note">Save for offline</button></div>' : '');
+  function buildSettings() {
+    settingRows = makeRows();
+    settingsEl.innerHTML = `<h2 id="settings-title">${escapeHtml(t('settings.title'))}</h2>` + settingRows.map((r) => `<div class="setting"><span class="setting-label" id="set-${r.id}">${escapeHtml(r.label)}</span>`
+      + `<div class="seg" role="radiogroup" aria-labelledby="set-${r.id}"${r.keys ? ` aria-keyshortcuts="${r.keys}"` : ''}>`
+      + r.opts.map(([v, name]) => `<button type="button" role="radio" data-setting="${r.id}" data-value="${escapeHtml(v)}" aria-checked="false" tabindex="-1"${r.id === 'lang' ? ` lang="${escapeHtml(v)}"` : ''}>${escapeHtml(name)}</button>`).join('')
+      + '</div></div>').join('')
+      + (Offline.supported ? `<div class="setting offline"><span class="setting-label" id="set-offline">${escapeHtml(t('settings.offline'))}</span>`
+        + '<p class="offline-note" id="offline-note" role="status" tabindex="-1"></p>'
+        + `<button type="button" class="offline-save" id="offline-save" aria-describedby="offline-note">${escapeHtml(t('settings.offline.save'))}</button></div>` : '');
+    $('#offline-save')?.addEventListener('click', saveOffline);
+    if (!settingsEl.hidden) { renderSettings(store.get()); renderOffline(); }
+  }
   settingsEl.setAttribute('aria-labelledby', 'settings-title');
   settingsEl.removeAttribute('aria-label');
   const rowOf = (b) => settingRows.find((x) => x.id === b.dataset.setting);
@@ -672,23 +731,23 @@ async function boot() {
     const note = $('#offline-note'), btn = $('#offline-save');
     if (!note || offlineSaving) return;
     const all = await Offline.savedAll(manifest);
-    note.textContent = all ? 'Everything is saved on this device, so Corpus works without a connection.'
-      : 'What you have opened works without a connection. Save the rest to use the 3D view and both drawing styles offline.';
+    note.textContent = t(all ? 'settings.offline.all' : 'settings.offline.some');
     btn.hidden = all;
-    btn.textContent = `Save for offline (about ${OFFLINE_MB} MB)`;
+    btn.textContent = t('settings.offline.saveSize', { mb: OFFLINE_MB });
   }
-  $('#offline-save')?.addEventListener('click', async () => {
+  async function saveOffline() {
     const note = $('#offline-note'), btn = $('#offline-save');
     const hadFocus = settingsEl.contains(document.activeElement);
     offlineSaving = true;
     btn.disabled = true;
-    const failed = await Offline.saveAll(manifest, (done, total) => { btn.textContent = `Saving… ${done} of ${total}`; });
+    const failed = await Offline.saveAll(manifest, (done, total) => { btn.textContent = t('settings.offline.saving', { done, total }); });
     offlineSaving = false;
     btn.disabled = false;
     await renderOffline();
-    if (failed) note.textContent = `${failed} file${failed === 1 ? '' : 's'} couldn’t be saved. Try again when you’re online.`;
+    if (failed) note.textContent = t('settings.offline.failed', { n: failed });
     if (btn.hidden && hadFocus) note.focus(); // the button is gone: keep the focus in the cog
-  });
+  }
+  buildSettings();
 
   const setSettings = (open, { refocus = false } = {}) => {
     settingsEl.hidden = !open;
@@ -732,15 +791,14 @@ async function boot() {
 
   // phones: a short placeholder, since the search shares its row with the other controls
   const phone = matchMedia('(max-width: 760px)');
-  const fullPlaceholder = $('#search').placeholder;
-  const setPlaceholder = () => { $('#search').placeholder = phone.matches ? 'Search' : fullPlaceholder; };
+  function setPlaceholder() { $('#search').placeholder = t(phone.matches ? 'app.searchShort' : 'app.searchPlaceholder'); }
   setPlaceholder();
   phone.addEventListener('change', setPlaceholder);
-  search = createSearch({ input: $('#search'), list: $('#search-results'), graph, onChoose: (nav) => navigate(nav, { zoom: true }) });
+  search = createSearch({ input: $('#search'), list: $('#search-results'), graph, t, onChoose: (nav) => navigate(nav, { zoom: true }) });
 
   browse = $('#browse');
   const browseBtn = $('#browse-toggle');
-  buildBrowse(browse, graph);
+  buildBrowse(browse, graph, t);
   const setBrowse = (open) => { browse.hidden = !open; browseBtn.setAttribute('aria-expanded', String(open)); if (open) browse.querySelector('summary')?.focus(); };
   browseBtn.addEventListener('click', () => setBrowse(browse.hidden));
   browse.addEventListener('click', (e) => {
@@ -781,10 +839,10 @@ async function boot() {
     if (nav) { navigate(nav.dataset.nav, { zoom: true }); return; }
     if (sheet === 'peek' && isMobile()) setSheet('half');
   });
-  const hoverFrom = (t) => {
-    const keys = t?.dataset.keys ? t.dataset.keys.split(' ') : [];
-    map.setHover(keys, t?.dataset.rkeys ? t.dataset.rkeys.split(' ') : []);
-    model?.setHover(keys, t?.dataset.rkeys ? t.dataset.rkeys.split(' ') : []);
+  const hoverFrom = (el) => {
+    const keys = el?.dataset.keys ? el.dataset.keys.split(' ') : [];
+    map.setHover(keys, el?.dataset.rkeys ? el.dataset.rkeys.split(' ') : []);
+    model?.setHover(keys, el?.dataset.rkeys ? el.dataset.rkeys.split(' ') : []);
   };
   panelEl.addEventListener('pointerover', (e) => hoverFrom(e.target.closest('[data-keys],[data-rkeys]')));
   panelEl.addEventListener('pointerleave', () => { map.setHover(); model?.setHover(); });
@@ -863,11 +921,16 @@ async function boot() {
       .then(() => import('./validate.js'))
       .then(async (m) => {
         const read = async (u, as) => { const r = await fetch(u, { cache: 'no-cache' }); return as === 'json' ? r.json() : r.arrayBuffer(); };
-        return m.validate({ raw, map, models: await m.modelsFrom(manifest, read), skin: await m.skinFrom(manifest, read) });
+        // every other language against English (locales/<lang>/source.json may not exist yet)
+        const langs = await Promise.all(languages.slice(1).map(async (L) => m.checkLang({
+          manifest, raw: rawEn, lang: await getLang(L.id), enUi,
+          source: await read(sourceFile(manifest, L.id), 'json').catch(() => null),
+        })));
+        return m.validate({ raw: rawEn, map, models: await m.modelsFrom(manifest, read), skin: await m.skinFrom(manifest, read), langs });
       });
   }
   // handy for poking around in the console; graph is the current sex's graph
-  window.corpus = { get graph() { return graph; }, get model() { return model; }, graphFor, map, store, zoom };
+  window.corpus = { get graph() { return graph; }, get model() { return model; }, get t() { return t; }, graphFor, setLang, map, store, zoom };
 }
 
 function escapeHtml(s) {
@@ -878,8 +941,8 @@ boot().catch((err) => {
   console.error(err);
   const body = document.querySelector('#panel-body');
   if (body) {
-    body.innerHTML = `<div class="panel-inner"><p class="eyebrow">Couldn’t start</p><h2 class="title">The map didn’t load</h2>
+    body.innerHTML = `<div class="panel-inner"><p class="eyebrow">${t.html('app.bootFailedEyebrow')}</p><h2 class="title">${t.html('app.bootFailedTitle')}</h2>
       <p class="summary">${escapeHtml(err.message)}</p>
-      <p class="summary" style="margin-top:12px">If you opened <code>index.html</code> straight from disk, serve the folder instead, for example with <code>python3 -m http.server</code>, then open <code>http://localhost:8000</code>.</p></div>`;
+      <p class="summary" style="margin-top:12px">${t.html('app.bootFailedHelpHtml')}</p></div>`;
   }
 });

@@ -1,0 +1,805 @@
+{
+ "structures": {
+  "spinal-cord": {
+   "name": "Miecha",
+   "aka": [
+    "chrbtová miecha",
+    "medulla spinalis"
+   ],
+   "carries": "Správy medzi mozgom a telom",
+   "summary": "Asi prst hrubý kábel nervového tkaniva, ktorý vedie kanálom vnútri chrbtice od spodiny lebky približne po prvý driekový stavec. Pod ním pokračujú jej nervové korene kanálom nadol ako cauda equina. V prednom pohľade je nakreslená slabo, lebo leží za telami stavcov.",
+   "membersLabel": "Časti",
+   "members": [
+    {
+     "name": "Krčné zhrubnutie",
+     "note": "Hrubšie v oblasti krku, kde odstupujú nervy pre ruky."
+    },
+    {
+     "name": "Driekové zhrubnutie",
+     "note": "Znova hrubšie nízko v chrbte, kde odstupujú nervy pre nohy."
+    },
+    {
+     "name": "Conus medullaris",
+     "note": "Zúžený koniec, približne vo výške L1–L2."
+    },
+    {
+     "name": "Cauda equina",
+     "note": "„Konský chvost“: zväzok dolných nervových koreňov, ktorý pokračuje kanálom nadol ku krížovej kosti."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Poranenie miechy",
+     "note": "Poškodenie pri páde, nehode alebo skoku do vody môže spôsobiť slabosť alebo stratu citlivosti pod úrovňou poranenia. S človekom s podozrením na poranenie krku alebo chrbta nehýbte. Volajte záchrannú službu."
+    },
+    {
+     "name": "Syndróm cauda equina",
+     "note": "Stlačené nervové korene na spodku chrbtice spôsobujú necitlivosť okolo zadku alebo pohlavných orgánov, nové ťažkosti s močením alebo udržaním stolice či slabosť oboch nôh. Vyžaduje pohotovosť."
+    },
+    {
+     "name": "Spinálna stenóza",
+     "note": "Zúženie kanála, zvyčajne s vekom, môže spôsobovať bolesť, necitlivosť alebo ťažobu nôh pri chôdzi, ktorá ustúpi pri sedení alebo predklone."
+    }
+   ]
+  },
+  "spinal-nerves": {
+   "name": "Miechové nervy",
+   "aka": [
+    "nervové korene",
+    "spinálne nervy"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Tridsaťjeden párov nervov, z ktorých jeden pár vystupuje z chrbtice v každej úrovni cez otvor medzi dvoma stavcami. Každý sa čoskoro rozdelí na zadnú vetvu pre svaly a kožu chrbta a prednú vetvu, ktorá sa pripája k spleti alebo obieha telovú stenu.",
+   "innervatesNote": "Cez svoje zadné (dorzálne) vetvy. Ich predné vetvy tvoria spleti a medzirebrové nervy.",
+   "membersLabel": "Úrovne",
+   "members": [
+    {
+     "name": "Krčné nervy",
+     "note": "8 párov, C1–C8: krk, ramená a ruky."
+    },
+    {
+     "name": "Hrudné nervy",
+     "note": "12 párov, T1–T12: stena hrudníka a brucha."
+    },
+    {
+     "name": "Driekové nervy",
+     "note": "5 párov, L1–L5: dolná brušná stena a nohy."
+    },
+    {
+     "name": "Krížové nervy",
+     "note": "5 párov, S1–S5: sedacia oblasť, nohy, panvové dno, močový mechúr a črevo."
+    },
+    {
+     "name": "Kostrčový nerv",
+     "note": "1 pár: koža okolo kostrče."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Stlačený nerv (radikulopatia)",
+     "note": "Vyklenutá platnička alebo kostné zúženie tlačí na nerv pri jeho výstupe z chrbtice a spôsobuje bolesť, mravčenie alebo slabosť pozdĺž jeho priebehu. Väčšina prípadov odznie v priebehu týždňov."
+    },
+    {
+     "name": "Pásový opar",
+     "note": "Vírus ovčích kiahní sa prebudí v jednom nervovom koreni a spôsobí bolestivú pľuzgierovitú vyrážku v páse na jednej strane tela. Navštívte lekára včas, liečba najlepšie zaberá v prvých troch dňoch."
+    }
+   ]
+  },
+  "olfactory-nerve": {
+   "name": "Čuchový nerv",
+   "aka": [
+    "prvý hlavový nerv",
+    "hlavový nerv I"
+   ],
+   "carries": "Čuch",
+   "summary": "Asi dvadsať zväzočkov veľmi jemných vlákien, ktoré stúpajú zo stropu nosa cez sitkovitú platničku čuchovej kosti k čuchovému bulbu pod prednou časťou mozgu. Vedú čuch, ktorý tvorí aj väčšinu toho, čo nazývame chuťou jedla.",
+   "issues": [
+    {
+     "name": "Strata čuchu",
+     "note": "Najčastejšie po prechladnutí, chrípke alebo COVID-19 či pri nosových polypoch a často sa vráti v priebehu týždňov až mesiacov. Môže pomôcť čuchový tréning. Navštívte lekára, ak pretrváva alebo ju sprevádzajú iné nové príznaky."
+    }
+   ],
+   "innervatesNote": "Čuch zo stropu nosovej dutiny."
+  },
+  "optic-nerve": {
+   "name": "Zrakový nerv",
+   "aka": [
+    "druhý hlavový nerv",
+    "hlavový nerv II"
+   ],
+   "carries": "Zrak",
+   "summary": "Vedie všetko, čo oko vidí, zo sietnice dozadu cez očnicu k zrakovému skríženiu pod mozgom, kde sa vlákna z vnútornej polovice každej sietnice krížia na druhú stranu. V skutočnosti je to výbežok mozgu, obalený rovnakými obalmi.",
+   "issues": [
+    {
+     "name": "Zápal zrakového nervu",
+     "note": "Zápal nervu: rozmazané alebo stlmené videnie na jedno oko počas niekoľkých dní s bolesťou pri pohybe oka. Naliehavo navštívte lekára. Akákoľvek náhla strata zraku je stav pre pohotovosť."
+    }
+   ],
+   "innervatesNote": "Vedie zrak zo sietnice do mozgu."
+  },
+  "oculomotor-nerve": {
+   "name": "Okohybný nerv",
+   "aka": [
+    "tretí hlavový nerv",
+    "hlavový nerv III"
+   ],
+   "carries": "Pohyb oka, dvíhanie viečka, veľkosť zrenice a zaostrovanie",
+   "summary": "Pohybuje okom hore, dolu a dovnútra cez štyri zo šiestich okohybných svalov, dvíha horné viečko a svojimi parasympatikovými vláknami zužuje zrenicu a zaostruje šošovku na blízko.",
+   "issues": [
+    {
+     "name": "Obrna okohybného nervu",
+     "note": "Pokleslé viečko s okom stočeným dolu a von, dvojité videnie a niekedy rozšírená zrenica. Náhla obrna s rozšírenou zrenicou alebo silnou bolesťou hlavy je stav pre pohotovosť, lebo ju môže spôsobiť výduť tepny tlačiaca na nerv."
+    }
+   ],
+   "innervatesNote": "Štyri zo šiestich okohybných svalov a dvíhač viečka, ako aj svaly, ktoré zužujú zrenicu a zaostrujú šošovku."
+  },
+  "trochlear-nerve": {
+   "name": "Kladkový nerv",
+   "aka": [
+    "štvrtý hlavový nerv",
+    "hlavový nerv IV"
+   ],
+   "carries": "Pohyb oka",
+   "summary": "Najtenší hlavový nerv a jediný, ktorý vystupuje zo zadnej strany mozgového kmeňa. Zásobuje jediný okohybný sval, horný šikmý sval, ktorý stáča oko dolu a dovnútra, čo je pohyb potrebný pri pohľade dolu na schody alebo pri čítaní.",
+   "issues": [
+    {
+     "name": "Obrna kladkového nervu",
+     "note": "Zvislé dvojité videnie, horšie pri pohľade dolu, často s hlavou naklonenou na vyrovnanie. Zvyčajne po úraze hlavy. S akýmkoľvek novým dvojitým videním navštívte lekára."
+    }
+   ],
+   "innervatesNote": "Horný šikmý sval, ktorý stáča oko dolu a dovnútra."
+  },
+  "abducens-nerve": {
+   "name": "Odťahovací nerv",
+   "aka": [
+    "šiesty hlavový nerv",
+    "hlavový nerv VI"
+   ],
+   "carries": "Pohyb oka",
+   "summary": "Zásobuje vonkajší priamy sval, ktorý stáča oko von. Pre jeho dlhú dráhu po spodine lebky ho ľahko ovplyvní zvýšený tlak vnútri hlavy.",
+   "issues": [
+    {
+     "name": "Obrna odťahovacieho nervu",
+     "note": "Vodorovné dvojité videnie, horšie pri pohľade na postihnutú stranu, lebo oko sa nevie stočiť von. Nové dvojité videnie si vyžaduje rýchlu návštevu lekára, a s bolesťou hlavy naliehavo."
+    }
+   ],
+   "innervatesNote": "Vonkajší priamy sval, ktorý stáča oko von."
+  },
+  "trigeminal-nerve": {
+   "name": "Trojklanný nerv",
+   "aka": [
+    "piaty hlavový nerv",
+    "hlavový nerv V"
+   ],
+   "carries": "Citlivosť tváre a žuvanie",
+   "summary": "Hlavný citlivý nerv tváre, vlasovej časti hlavy, očí, zubov a vnútra úst. Jeho tri vetvy vystupujú malými otvormi nad okom, pod okom a na brade a tretia vetva ovláda aj žuvacie svaly.",
+   "innervatesNote": "Cez sánkovú vetvu (V3): žuvacie svaly a čeľustno-jazylkový sval s prednou časťou dvojbruškového svalu nad jazylkou.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Očný nerv (V1)",
+     "note": "Čelo, vlasová časť hlavy, horné viečko, oko a nos."
+    },
+    {
+     "name": "Čeľustný nerv (V2)",
+     "note": "Líce, dolné viečko, horná pera, horné zuby a ďasná."
+    },
+    {
+     "name": "Sánkový nerv (V3)",
+     "note": "Dolná pera, brada, dolné zuby, sánka a žuvacie svaly."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Neuralgia trojklanného nervu",
+     "note": "Náhle, prudké bolesti v tvári ako elektrický šok, vyvolané dotykom, žuvaním alebo čistením zubov. Lekár ju môže potvrdiť a liečba zvyčajne pomáha."
+    },
+    {
+     "name": "Pásový opar na tvári",
+     "note": "Bolestivá vyrážka na čele alebo pri oku si vyžaduje lekára ešte v ten deň, lebo môže postihnúť oko."
+    }
+   ]
+  },
+  "facial-nerve": {
+   "name": "Tvárový nerv",
+   "aka": [
+    "siedmy hlavový nerv",
+    "hlavový nerv VII"
+   ],
+   "carries": "Mimika a chuť",
+   "summary": "Ovláda mimické svaly. Z lebky vystupuje tesne pod uchom, prechádza príušnou žľazou a vejárovito sa rozdelí na päť vetiev cez tvár. Vedie aj chuť z prednej časti jazyka a riadi slzné a slinné žľazy.",
+   "innervatesNote": "Všetky mimické svaly (nakreslené sú záhlavovo-čelový sval, kruhové svaly okolo očí a úst, trubačský sval a podkožný sval krku) a zadná časť dvojbruškového svalu a ihlovito-jazylkový sval nad jazylkou.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Spánková vetva",
+     "note": "Čelo a obočie."
+    },
+    {
+     "name": "Jarmová vetva",
+     "note": "Zatváranie oka."
+    },
+    {
+     "name": "Lícna vetva",
+     "note": "Líce a horná pera."
+    },
+    {
+     "name": "Okrajová sánková vetva",
+     "note": "Dolná pera a brada."
+    },
+    {
+     "name": "Krčná vetva",
+     "note": "Tenký podkožný sval krku."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Bellova obrna",
+     "note": "Slabosť celej jednej polovice tváre vrátane čela, ktorá nastúpi v priebehu dňa či dvoch. Dajte sa vyšetriť ešte v ten deň: náhla slabosť tváre môže byť aj mozgová porážka."
+    },
+    {
+     "name": "Ramsayov-Huntov syndróm",
+     "note": "Pásový opar tvárového nervu: slabosť tváre s bolestivou vyrážkou v uchu alebo okolo neho. Rýchlo navštívte lekára."
+    }
+   ]
+  },
+  "vestibulocochlear-nerve": {
+   "name": "Sluchovo-rovnovážny nerv",
+   "aka": [
+    "ôsmy hlavový nerv",
+    "hlavový nerv VIII",
+    "statoakustický nerv"
+   ],
+   "carries": "Sluch a rovnováha",
+   "summary": "Vedie na krátku vzdialenosť z vnútorného ucha cez vnútorný zvukovod v spánkovej kosti do mozgového kmeňa. Jeho slimáková časť vedie sluch a predsieňová časť vnímanie polohy a pohybu hlavy.",
+   "issues": [
+    {
+     "name": "Zápal vestibulárneho nervu",
+     "note": "Náhly silný točivý závrat trvajúci dni, s nevoľnosťou, ale bez straty sluchu, zvyčajne po viróze. Odznie v priebehu týždňov. Závrat so zastretou rečou, slabosťou, pokleslou tvárou alebo ťažkosťami s chôdzou je stav pre pohotovosť."
+    },
+    {
+     "name": "Náhla strata sluchu",
+     "note": "Strata sluchu na jedno ucho v priebehu hodín alebo niekoľkých dní si vyžaduje vyšetrenie do dňa či dvoch, lebo včasná liečba zlepšuje zotavenie."
+    }
+   ],
+   "innervatesNote": "Sluch zo slimáka a rovnováha z predsiene a polkruhovitých kanálikov."
+  },
+  "glossopharyngeal-nerve": {
+   "name": "Jazykovo-hltanový nerv",
+   "aka": [
+    "deviaty hlavový nerv",
+    "hlavový nerv IX"
+   ],
+   "carries": "Chuť a citlivosť zadnej časti jazyka a hrdla, prehĺtanie",
+   "summary": "Vystupuje z lebky spolu s blúdivým nervom a vedie nadol k zadnej časti jazyka a hrdla. Vedie chuť a dotyk zo zadnej tretiny jazyka a z hrdla (dávivý reflex), zásobuje jeden prehĺtací sval a príušnú slinnú žľazu a hlási krvný tlak z karotického sínusu.",
+   "innervatesNote": "Chuť a citlivosť zo zadnej časti jazyka a hrdla, jeden prehĺtací sval (ihlovito-hltanový sval) a príušná žľaza."
+  },
+  "vagus-nerve": {
+   "name": "Blúdivý nerv",
+   "aka": [
+    "desiaty hlavový nerv",
+    "hlavový nerv X",
+    "nervus vagus"
+   ],
+   "carries": "Riadenie orgánov (parasympatikus), prehĺtanie a hlas",
+   "summary": "Najdlhší hlavový nerv. Vedie nadol krkom vedľa krčnice a ďalej do hrudníka a brucha. Spomaľuje srdce, zužuje dýchacie cesty a poháňa trávenie a jeho vetvy ovládajú hrdlo a hrtan.",
+   "innervatesNote": "Parasympatikové zásobenie („odpočinok a trávenie“) orgánov hrudníka a väčšiny tráviacej trubice až po stred hrubého čreva.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Vratný hrtanový nerv",
+     "note": "Vľavo sa zahne pod oblúkom aorty, vpravo pod podkľúčovou tepnou a potom stúpa späť popri priedušnici k hrtanu."
+    },
+    {
+     "name": "Hltanové vetvy",
+     "note": "Prehĺtacie svaly hrdla."
+    },
+    {
+     "name": "Srdcové vetvy",
+     "note": "Spomaľujú tep srdca."
+    },
+    {
+     "name": "Kmene blúdivého nervu",
+     "note": "Prechádzajú bránicou spolu s pažerákom k žalúdku a črevu."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Odpadnutie (vazovagálna synkopa)",
+     "note": "Náhla aktivita blúdivého nervu, vyvolaná bolesťou, dlhým státím alebo pohľadom na krv, spomalí srdce a zníži krvný tlak. Ľahnite si s vyloženými nohami. Navštívte lekára, ak k tomu dôjde pri námahe alebo bez varovania."
+    },
+    {
+     "name": "Chrapľavý hlas",
+     "note": "Poškodenie vratnej hrtanovej vetvy, napríklad po operácii štítnej žľazy, môže oslabiť hlas. Chrapot trvajúci viac ako tri týždne treba vyšetriť."
+    }
+   ]
+  },
+  "accessory-nerve": {
+   "name": "Prídavný nerv",
+   "aka": [
+    "jedenásty hlavový nerv",
+    "hlavový nerv XI"
+   ],
+   "carries": "Pohyb",
+   "summary": "Začína v hornej časti miechy, stúpa do lebky a opäť z nej vystupuje vedľa blúdivého nervu. Prechádza zvieračom hlavy a cez bočnú stranu krku, tesne pod kožou, k trapézovému svalu.",
+   "issues": [
+    {
+     "name": "Poranenie na krku",
+     "note": "Keďže leží tak blízko povrchu, môže ho poškodiť operácia alebo rana na bočnej strane krku. Následkom je pokleslé rameno a ťažkosti s dvíhaním ruky nad úroveň ramena."
+    }
+   ]
+  },
+  "hypoglossal-nerve": {
+   "name": "Podjazykový nerv",
+   "aka": [
+    "dvanásty hlavový nerv",
+    "hlavový nerv XII"
+   ],
+   "carries": "Pohyb jazyka",
+   "summary": "Vystupuje z lebky tesne nad horným koncom chrbtice, oblúkom sa stáča dopredu pod sánkou popri krčniciach a vstupuje do jazyka zdola. Zásobuje všetky svaly jazyka okrem jedného, na rozprávanie, žuvanie a prehĺtanie.",
+   "issues": [
+    {
+     "name": "Obrna podjazykového nervu",
+     "note": "Vyplazený jazyk sa stáča k slabšej strane a reč je zastretá. Nová obrna si vyžaduje lekára a náhle ťažkosti s rečou alebo prehĺtaním sú stav pre pohotovosť."
+    }
+   ],
+   "innervatesNote": "Svaly jazyka."
+  },
+  "cervical-plexus": {
+   "name": "Krčná spleť",
+   "aka": [
+    "plexus cervicalis"
+   ],
+   "carries": "Citlivosť krku a pohyb",
+   "summary": "Sieť tvorená štyrmi hornými krčnými nervami, hlboko pod zvieračom hlavy. Jej kožné vetvy sa rozbiehajú zo stredu zadného okraja tohto svalu k uchu, krku a kľúčnej kosti. Medzi jej svalové vetvy patrí slučka pre podjazylkové svaly (ansa cervicalis) a bránicový nerv.",
+   "innervatesNote": "Podjazylkové svaly cez ansa cervicalis, bradovo-jazylkový sval nad jazylkou cez vlákna C1 a priame vetvy k dvíhaču lopatky a schodovým svalom.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Malý záhlavový nerv",
+     "note": "Koža za uchom."
+    },
+    {
+     "name": "Veľký ušný nerv",
+     "note": "Koža nad uchom a nad uhlom sánky."
+    },
+    {
+     "name": "Priečny krčný nerv",
+     "note": "Koža na prednej strane krku."
+    },
+    {
+     "name": "Nadkľúčové nervy",
+     "note": "Koža nad kľúčnou kosťou a na vrchu ramena."
+    },
+    {
+     "name": "Ansa cervicalis",
+     "note": "Slučka pred krčnicou, ktorá zásobuje podjazylkové svaly."
+    }
+   ]
+  },
+  "phrenic-nerve": {
+   "name": "Bránicový nerv",
+   "carries": "Pohyb a citlivosť",
+   "summary": "Nerv bránice z krčných nervov C3 až C5 („C3, 4 a 5 udržujú bránicu pri živote“). Vedie nadol po prednej strane krčných svalov do hrudníka, popri bokoch srdca, k bránici, hlavnému dýchaciemu svalu.",
+   "innervatesNote": "Jeho jediný sval. Vedie aj citlivosť z obalov srdca a zo stredu bránice.",
+   "issues": [
+    {
+     "name": "Bolesť v špičke ramena",
+     "note": "Podráždenie pod bránicou zo žlčníka, pečene alebo krvi v bruchu sa pociťuje v špičke ramena, lebo bránicový nerv a koža ramena majú rovnaké miechové úrovne. Bolesť v špičke ramena spolu s bolesťou brucha si vyžaduje lekára."
+    },
+    {
+     "name": "Slabosť bránice",
+     "note": "Poškodenie jedného bránicového nervu operáciou, nádorom alebo poranením krku oslabí jednu stranu bránice. Môže spôsobiť dýchavičnosť, najmä v ľahu na chrbte."
+    }
+   ]
+  },
+  "intercostal-nerves": {
+   "name": "Medzirebrové nervy",
+   "aka": [
+    "podrebrový nerv",
+    "interkostálne nervy"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Predné vetvy dvanástich hrudných nervov. Každý obieha telo v ryhe pod svojím rebrom a zásobuje svaly medzi rebrami, brušnú stenu a pás kože. Dvanásty, pod posledným rebrom, sa nazýva podrebrový nerv.",
+   "innervatesNote": "Horných šesť zostáva v hrudnej stene, dolných šesť pokračuje do svalov brušnej steny. Podrebrový nerv siaha aj k štvorhrannému driekovému svalu.",
+   "members": [
+    {
+     "name": "Medzirebrové nervy T1–T11",
+     "note": "Jeden pod každým rebrom."
+    },
+    {
+     "name": "Podrebrový nerv (T12)",
+     "note": "Pod dvanástym rebrom."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Pásový opar",
+     "note": "Bolestivá pľuzgierovitá vyrážka v páse okolo jednej strany hrudníka alebo brucha, pozdĺž jedného medzirebrového nervu. Navštívte lekára včas, liečba najlepšie zaberá v prvých troch dňoch."
+    },
+    {
+     "name": "Medzirebrová neuralgia",
+     "note": "Pálivá alebo bodavá bolesť v páse okolo hrudníka, napríklad po pásovom opare alebo operácii hrudníka. Bolesť na hrudi s dýchavičnosťou alebo potením či bolesť šíriaca sa do ruky alebo sánky si naopak vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "brachial-plexus": {
+   "name": "Ramenná spleť",
+   "aka": [
+    "plexus brachialis",
+    "brachiálny plexus"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Sieť, ktorá zásobuje celú ruku. Jej päť koreňov vystupuje z krku medzi schodovými svalmi, za kľúčnou kosťou sa spájajú a znova delia a v podpazuší sa preskupia na päť nervov ruky. Cestou vysiela vetvy k svalom hrudníka a lopatky.",
+   "innervatesNote": "Cez krátke vetvy, ktoré odstupujú pred koncom spleti: prsné nervy, dlhý hrudný, hrudno-chrbtový, nadlopatkový, podlopatkové a chrbtový lopatkový nerv.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Dlhý hrudný nerv",
+     "note": "Vedie nadol po boku hrudníka k prednému pílovitému svalu. Jeho poškodenie spôsobí „krídlovitú“ lopatku."
+    },
+    {
+     "name": "Prsné nervy",
+     "note": "Veľký a malý prsný sval."
+    },
+    {
+     "name": "Hrudno-chrbtový nerv",
+     "note": "Najširší sval chrbta."
+    },
+    {
+     "name": "Nadlopatkový nerv",
+     "note": "Nadhrebeňový a podhrebeňový sval rotátorovej manžety."
+    },
+    {
+     "name": "Podlopatkové nervy",
+     "note": "Podlopatkový sval a veľký oblý sval."
+    },
+    {
+     "name": "Chrbtový lopatkový nerv",
+     "note": "Rombické svaly."
+    }
+   ],
+   "issues": [
+    {
+     "name": "„Stinger“ (pálenie v ruke)",
+     "note": "Tvrdý náraz do hlavy a ramena pri kontaktnom športe natiahne spleť: pálivá bolesť a mravčenie po jednej ruke na sekundy až minúty. Opakované epizódy alebo pretrvávajúca slabosť si vyžadujú vyšetrenie."
+    },
+    {
+     "name": "Syndróm horného hrudného otvoru",
+     "note": "Tlak na spleť medzi kľúčnou kosťou a prvým rebrom spôsobuje bolesť, mravčenie alebo slabosť ruky, často horšiu pri zdvihnutej ruke."
+    },
+    {
+     "name": "Trakčné poranenie",
+     "note": "Prudké potiahnutie ruky alebo krku, napríklad pri páde z motorky, môže vytrhnúť korene a ruka zostane slabá a necitlivá. Vyžaduje vyšetrenie u špecialistu."
+    }
+   ]
+  },
+  "axillary-nerve": {
+   "name": "Podpazušný nerv",
+   "aka": [
+    "axilárny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vystupuje zo zadnej časti podpazušia a ovíja sa okolo krčka ramennej kosti k deltovému svalu a malému oblému svalu. Dáva aj citlivosť plôške kože na vonkajšej strane ramena.",
+   "innervatesNote": "Deltový sval a malý oblý sval rotátorovej manžety.",
+   "issues": [
+    {
+     "name": "Poranenie pri vykĺbení ramena",
+     "note": "Vykĺbené rameno alebo zlomenina horného konca ramennej kosti ho môže natiahnuť a zostane necitlivá plôška na vonkajšej strane ramena a slabý deltový sval. Lekári to pri liečbe týchto úrazov kontrolujú."
+    }
+   ]
+  },
+  "musculocutaneous-nerve": {
+   "name": "Svalovo-kožný nerv",
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vedie nadol po prednej strane ramena medzi dvojhlavým svalom ramena a ramenným svalom a zásobuje oba. Pod lakťom sa mení na kožný nerv vonkajšej strany predlaktia.",
+   "innervatesNote": "Cestou nadol ramenom prechádza zobákovo-ramenným svalom."
+  },
+  "median-nerve": {
+   "name": "Stredový nerv",
+   "aka": [
+    "nervus medianus",
+    "mediánny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vedie nadol ramenom vedľa ramennej tepny, stredom predlaktia a pod pruhom naprieč zápästím (karpálnym tunelom) do dlane. Ovláda väčšinu ohýbačov predlaktia a palcové vyvýšenie a dáva citlivosť palcu, ukazováku, prostredníku a polovici prstenníka.",
+   "innervatesNote": "Všetky ohýbače predlaktia okrem lakťového ohýbača zápästia a polovice hlbokého ohýbača prstov, väčšinu svalov palcového vyvýšenia a prvé dva červovité svaly.",
+   "issues": [
+    {
+     "name": "Syndróm karpálneho tunela",
+     "note": "Tlak v karpálnom tuneli spôsobuje mravčenie, necitlivosť a bolesť palca a prvých prstov, často v noci. Pomáhajú dlahy na zápästie a vyhýbanie sa dlhému ohnutiu zápästia. Trvalá necitlivosť alebo slabý palec si vyžadujú lekára."
+    }
+   ]
+  },
+  "ulnar-nerve": {
+   "name": "Lakťový nerv",
+   "aka": [
+    "brňavka",
+    "ulnárny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vedie nadol po vnútornej strane ramena a prechádza za kostným hrbolčekom na vnútornej strane lakťa, tzv. brňavkou, tesne pod kožou. Pokračuje po vnútornej strane predlaktia k malíčkovej strane ruky, kde ovláda väčšinu drobných svalov ruky.",
+   "innervatesNote": "Na predlaktí lakťový ohýbač zápästia a polovicu hlbokého ohýbača prstov. Na ruke svaly malíčkového vyvýšenia, medzikostné svaly, tretí a štvrtý červovitý sval a priťahovač palca.",
+   "issues": [
+    {
+     "name": "Úder do brňavky",
+     "note": "Úder do vnútornej strany lakťa pritlačí nerv na kosť: krátke elektrické mravčenie do malíčka a prstenníka."
+    },
+    {
+     "name": "Syndróm kubitálneho tunela",
+     "note": "Tlak v lakti, často pri opieraní sa oň alebo pri spánku s ohnutým lakťom, znecitliví malíček a prstenník a neskôr môže oslabiť úchop. Ak pretrváva, navštívte lekára."
+    }
+   ]
+  },
+  "radial-nerve": {
+   "name": "Vretenný nerv",
+   "aka": [
+    "radiálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Najväčšia vetva ramennej spleti. Špirálovito sa ovíja okolo zadnej strany ramennej kosti v ryhe (v prednom pohľade nakreslený slabo), pri vonkajšej strane lakťa sa dostane dopredu a rozdelí sa: hlboká vetva ide k svalom na zadnej strane predlaktia a kožná vetva na chrbát ruky na palcovej strane. Vystiera lakeť, zápästie a prsty.",
+   "issues": [
+    {
+     "name": "Padajúce zápästie",
+     "note": "Tlak v špirálovej ryhe pri zlomenine ramennej kosti alebo pri spánku s rukou prevesenou cez operadlo stoličky („sobotňajšia obrna“) spôsobí, že zápästie a prsty sa nedajú zdvihnúť. Dajte to vyšetriť. Väčšina obŕn z tlaku sa upraví v priebehu týždňov."
+    }
+   ]
+  },
+  "lumbar-plexus": {
+   "name": "Driekova spleť",
+   "aka": [
+    "plexus lumbalis",
+    "lumbálny plexus"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Sieť, ktorá vzniká vnútri veľkého driekového svalu z horných driekových nervov. Jej malé vetvy obiehajú brušnú stenu k slabine a nadol po vonkajšej strane stehna. Jej dve veľké vetvy, stehenný a zapchávací nerv, idú na prednú a vnútornú stranu stehna.",
+   "innervatesNote": "Priamo k veľkému driekovému svalu a štvorhrannému driekovému svalu a k najnižším svalom brušnej steny cez bedrovo-podbruškový a bedrovo-slabinový nerv.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Bedrovo-podbruškový nerv",
+     "note": "L1: najnižšia časť brušnej steny a koža nad lonovou kosťou."
+    },
+    {
+     "name": "Bedrovo-slabinový nerv",
+     "note": "L1: slabina a koža pohlavných orgánov. Po operácii prietrže môže byť podráždený."
+    },
+    {
+     "name": "Pohlavno-stehenný nerv",
+     "note": "L1–L2: slabina a sval dvíhač semenníka."
+    },
+    {
+     "name": "Vonkajší kožný nerv stehna",
+     "note": "L2–L3: koža vonkajšej strany stehna. Prechádza tesne vnútri od kostného výbežku na prednej strane bedra."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Meralgia paresthetica",
+     "note": "Vonkajší kožný nerv stehna je stlačený tam, kde prechádza pod slabinovým väzom, čo spôsobuje pálenie, mravčenie alebo necitlivosť na vonkajšej strane stehna. Častými príčinami sú tesné opasky, priberanie a tehotenstvo. Nie je nebezpečná a zvyčajne odznie."
+    }
+   ]
+  },
+  "femoral-nerve": {
+   "name": "Stehenný nerv",
+   "aka": [
+    "femorálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Najväčšia vetva driekovej spleti. Vedie nadol v ryhe medzi veľkým driekovým a bedrovým svalom, prechádza pod slabinovým väzom na vonkajšej strane stehennej tepny a delí sa na vetvy pre prednú stranu stehna. Jeho najdlhšia vetva, skrytý nerv, dáva citlivosť po vnútornej strane nohy až k chodidlu.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Svalové vetvy",
+     "note": "K štvorhlavému svalu stehna, krajčírskemu svalu a bedrovému svalu."
+    },
+    {
+     "name": "Predné kožné vetvy",
+     "note": "Koža na prednej strane stehna."
+    },
+    {
+     "name": "Skrytý nerv",
+     "note": "Koža vnútornej strany kolena, predkolenia a chodidla, popri veľkej skrytej žile."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Poranenie stehenného nervu",
+     "note": "Krvácanie do slabiny alebo panvy či operácia bedrového kĺbu môže oslabiť vystieranie kolena, takže koleno sa podlamuje, s necitlivosťou na prednej strane stehna. Navštívte lekára."
+    }
+   ]
+  },
+  "obturator-nerve": {
+   "name": "Zapchávací nerv",
+   "aka": [
+    "obturátorový nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vedie nadol po bočnej stene panvy a cez zapchaný otvor, veľký otvor v bedrovej kosti, na vnútornú stranu stehna. Zásobuje priťahovače, ktoré pritláčajú nohy k sebe, a plôšku kože na vnútornej strane stehna."
+  },
+  "sacral-plexus": {
+   "name": "Krížová spleť",
+   "aka": [
+    "plexus sacralis",
+    "sakrálny plexus"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Sieť na zadnej stene panvy, pred krížovou kosťou, z posledných dvoch driekových a prvých štyroch krížových nervov. Zásobuje sedaciu oblasť a panvové dno a pokračuje ako sedací nerv.",
+   "innervatesNote": "Cez horný a dolný sedací nerv (v prednom pohľade nakreslené slabo, za bedrovou kosťou), krátke priame vetvy (hruškovitý sval a hlboké rotátory bedra) a ohanbový nerv, ktorý má vlastnú stránku.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Horný sedací nerv",
+     "note": "Stredný a malý sedací sval a napínač stehennej povázky."
+    },
+    {
+     "name": "Dolný sedací nerv",
+     "note": "Veľký sedací sval."
+    },
+    {
+     "name": "Zadný kožný nerv stehna",
+     "note": "Koža zadnej strany stehna."
+    }
+   ]
+  },
+  "pudendal-nerve": {
+   "name": "Ohanbový nerv",
+   "aka": [
+    "pudendálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vystupuje z panvy pod hruškovitým svalom, zahne sa okolo sedacieho tŕňa a vedie dopredu v kanáli po bočnej stene panvového východu k hrádzi. Ovláda panvové dno a zvierače, ktoré udržia moč a stolicu, a dáva citlivosť pohlavným orgánom a koži okolo konečníka. Nakreslený v zadnom pohľade.",
+   "innervatesNote": "Vonkajší zvierač konečníka a močovej rúry, panvové dno a koža a topoľovité teliesko pohlavných orgánov.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Dolný konečníkový nerv",
+     "note": "Vonkajší zvierač konečníka a koža okolo konečníka."
+    },
+    {
+     "name": "Hrádzový nerv",
+     "note": "Svaly hrádze, zvierač močovej rúry a koža mieška alebo pyskov ohanbia."
+    },
+    {
+     "name": "Chrbtový nerv penisu alebo klitorisu",
+     "note": "Citlivosť penisu alebo klitorisu."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Pudendálna neuralgia",
+     "note": "Pálivá alebo bodavá bolesť v pohlavných orgánoch, na hrádzi alebo okolo konečníka, horšia v sede a ľahšia v stoji alebo v ľahu. Môže ju vyvolať dlhá jazda na bicykli alebo pôrod. Navštívte lekára."
+    },
+    {
+     "name": "Necitlivosť v oblasti sedla",
+     "note": "Nová necitlivosť okolo pohlavných orgánov alebo zadku s ťažkosťami s mechúrom či stolicou môže znamenať syndróm cauda equina. Vyhľadajte pohotovosť."
+    }
+   ]
+  },
+  "sciatic-nerve": {
+   "name": "Sedací nerv",
+   "aka": [
+    "ischiadický nerv",
+    "nervus ischiadicus"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Najhrubší a najdlhší nerv v tele, približne taký široký ako palec. Vystupuje z panvy pod hruškovitým svalom, vedie nadol po zadnej strane stehna a nad kolenom sa delí na píšťalový a spoločný ihlicový nerv. V prednom pohľade nakreslený slabo, lebo leží za stehennou kosťou.",
+   "innervatesNote": "Zadné stehenné svaly a zadnú časť veľkého priťahovača. Cez svoje dve vetvy ovláda aj všetky svaly pod kolenom.",
+   "issues": [
+    {
+     "name": "Ischias",
+     "note": "Bolesť šíriaca sa z dolnej časti chrbta alebo zadku po zadnej strane nohy, často s mravčením, zvyčajne z platničky tlačiacej na nervový koreň. Väčšina prípadov odznie do šiestich týždňov, ak zostanete aktívni a užívate bežné lieky proti bolesti."
+    },
+    {
+     "name": "Varovné príznaky pri ischiase",
+     "note": "Necitlivosť okolo zadku alebo pohlavných orgánov, nové ťažkosti s mechúrom alebo stolicou či slabosť oboch nôh môžu znamenať syndróm cauda equina. Vyhľadajte pohotovosť."
+    }
+   ]
+  },
+  "tibial-nerve": {
+   "name": "Píšťalový nerv",
+   "aka": [
+    "tibiálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Väčšia vetva sedacieho nervu. Vedie nadol stredom zadnej strany kolena a hlboko v lýtku, potom sa stáča za vnútorným členkom do chodidla, kde sa delí na vnútorný a vonkajší chodidlový nerv. V prednom pohľade nakreslený slabo, lebo leží za kosťami.",
+   "innervatesNote": "Všetky svaly zadnej strany lýtka a cez chodidlové nervy drobné svaly chodidla.",
+   "membersLabel": "Vetvy",
+   "members": [
+    {
+     "name": "Vnútorný chodidlový nerv",
+     "note": "Vnútorná strana chodidla a strana palca."
+    },
+    {
+     "name": "Vonkajší chodidlový nerv",
+     "note": "Vonkajšia strana chodidla a väčšina drobných svalov nohy."
+    },
+    {
+     "name": "Lýtkový nerv",
+     "note": "Koža vonkajšieho členka a chodidla, spojený s vetvou spoločného ihlicového nervu."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Syndróm tarzálneho tunela",
+     "note": "Tlak za vnútorným členkom spôsobuje pálenie, mravčenie alebo necitlivosť chodidla. Ak pretrváva, navštívte lekára."
+    },
+    {
+     "name": "Mortonov neuróm",
+     "note": "Zhrubnutý nerv medzi prstami, zvyčajne medzi tretím a štvrtým, ktorý spôsobuje pálivú bolesť v predných vankúšikoch chodidla, akoby ste stáli na kamienku. Pomáha širšia obuv."
+    }
+   ]
+  },
+  "common-fibular-nerve": {
+   "name": "Spoločný ihlicový nerv",
+   "aka": [
+    "spoločný peroneálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Menšia vetva sedacieho nervu. Za kolenom sleduje šľachu vonkajšieho zadného stehenného svalu (v prednom pohľade nakreslený slabo), ovíja sa okolo krčka ihlice tesne pod kožou pod vonkajšou stranou kolena a delí sa na hlboký a povrchový ihlicový nerv.",
+   "innervatesNote": "Nad kolenom len krátku hlavu dvojhlavého svalu stehna. Všetko pod ním zásobuje cez svoje dve vetvy.",
+   "issues": [
+    {
+     "name": "Padajúca noha",
+     "note": "Tlak tam, kde prechádza cez ihlicu, pri dlhom sedení s prekríženými nohami, tesnej sadre alebo poranení kolena sťaží dvíhanie chodidla a prstov, takže prsty pri chôdzi zakopávajú. Rýchlo navštívte lekára."
+    }
+   ]
+  },
+  "deep-fibular-nerve": {
+   "name": "Hlboký ihlicový nerv",
+   "aka": [
+    "hlboký peroneálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vedie nadol po prednej strane predkolenia vedľa prednej píšťalovej tepny na chrbát chodidla. Dvíha chodidlo a prsty a dáva citlivosť malej blane kože medzi palcom a druhým prstom."
+  },
+  "superficial-fibular-nerve": {
+   "name": "Povrchový ihlicový nerv",
+   "aka": [
+    "povrchový peroneálny nerv"
+   ],
+   "carries": "Pohyb a citlivosť",
+   "summary": "Vedie nadol po vonkajšej strane predkolenia medzi ihlicovými svalmi, nad členkom vystúpi na povrch a rozvetví sa po chrbte chodidla. Vytáča chodidlo von a dáva citlivosť väčšine chrbta chodidla."
+  }
+ },
+ "groups": {
+  "spinal": {
+   "name": "Miecha a miechové nervy",
+   "summary": "Miecha vnútri chrbtice a 31 párov nervov, ktoré z nej vystupujú, jeden pár v každej úrovni."
+  },
+  "cranial-nerves": {
+   "name": "Hlavové nervy",
+   "summary": "Dvanásť párov nervov, ktoré vystupujú priamo z mozgu a mozgového kmeňa otvormi v lebke, očíslované I až XII spredu dozadu. Vedú čuch, zrak, pohyb očí, citlivosť a pohyb tváre, sluch a rovnováhu, chuť, prehĺtanie a reč a blúdivý nerv siaha až do hrudníka a čreva. Väčšina vedie vnútri hlavy, preto sú nakreslené slabo."
+  },
+  "trunk-nerves": {
+   "name": "Krk a trup",
+   "summary": "Nervy krku, bránice a steny hrudníka a brucha.",
+   "issues": [
+    {
+     "name": "Pásový opar",
+     "note": "Vírus ovčích kiahní sa prebudí v jednom nervovom koreni a spôsobí bolestivú pľuzgierovitú vyrážku v páse na jednej strane tela. Navštívte lekára včas, liečba najlepšie zaberá v prvých troch dňoch."
+    }
+   ]
+  },
+  "arm-nerves": {
+   "name": "Rameno a ruka",
+   "summary": "Ramenná spleť a päť nervov, v ktoré vyúsťuje a ktoré ovládajú celú ruku.",
+   "issues": [
+    {
+     "name": "Pritlačený nerv",
+     "note": "Tlak na nerv spôsobuje mravčenie, necitlivosť alebo slabosť v oblasti, ktorú zásobuje. Väčšina prípadov odznie, keď tlak povolí. Slabosť, ktorá pretrváva alebo sa zhoršuje, si vyžaduje lekára."
+    }
+   ]
+  },
+  "leg-nerves": {
+   "name": "Dolná časť chrbta a noha",
+   "summary": "Driekova a krížová spleť a nervy, ktoré vysielajú do nohy, vrátane sedacieho nervu, najväčšieho v tele.",
+   "issues": [
+    {
+     "name": "Pritlačený nerv",
+     "note": "Tlak na nerv spôsobuje mravčenie, necitlivosť alebo slabosť v oblasti, ktorú zásobuje. Väčšina prípadov odznie, keď tlak povolí. Slabosť, ktorá pretrváva alebo sa zhoršuje, si vyžaduje lekára."
+    }
+   ]
+  }
+ }
+}

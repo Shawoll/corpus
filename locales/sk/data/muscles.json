@@ -1,0 +1,2190 @@
+{
+ "structures": {
+  "temporalis": {
+   "name": "Spánkový sval",
+   "aka": [
+    "musculus temporalis"
+   ],
+   "originNote": "Spánková jamka na boku lebky",
+   "insertionNote": "Svalový výbežok sánky",
+   "nerve": "Sánkový nerv (trojklanný, V3)",
+   "actions": [
+    "Zatvára ústa",
+    "Sťahuje sánku dozadu"
+   ],
+   "summary": "Vejárovitý žuvací sval, ktorý vypĺňa spánok. Pocítite, ako sa napne, keď zatnete zuby.",
+   "issues": [
+    {
+     "name": "Tenzná bolesť hlavy",
+     "note": "Napäté, citlivé spánky zo zatínania zubov alebo stresu."
+    },
+    {
+     "name": "Škrípanie zubami (bruxizmus)",
+     "note": "Nočné škrípanie ho preťažuje a spôsobuje rannú bolesť sánky a hlavy."
+    }
+   ]
+  },
+  "masseter": {
+   "name": "Žuvací sval",
+   "aka": [
+    "masseter"
+   ],
+   "originNote": "Jarmový oblúk",
+   "insertionNote": "Vonkajšia plocha ramena a uhla sánky",
+   "nerve": "Sánkový nerv (trojklanný, V3)",
+   "actions": [
+    "Silno zatvára ústa",
+    "Vysúva sánku dopredu"
+   ],
+   "summary": "Hlavný žuvací sval, od lícnej kosti k uhlu sánky. Na svoju veľkosť patrí k najsilnejším svalom v tele.",
+   "issues": [
+    {
+     "name": "Bolesť žuvacích svalov",
+     "note": "Bolesť líc a sánky zo zatínania, škrípania alebo žuvačky, často súčasť poruchy čeľustného kĺbu."
+    }
+   ]
+  },
+  "pterygoids": {
+   "name": "Krídlové svaly",
+   "aka": [
+    "pterygoidné svaly"
+   ],
+   "listOnly": "Na mape nie sú nakreslené: ležia vnútri sánky, za jej ramenom, takže ich zakrývajú oba pohľady.",
+   "originNote": "Krídlové platničky klinovej kosti za nosom a (vnútorný krídlový sval) zadná časť hornej čeľuste",
+   "insertionNote": "Vonkajší: krčok hlavice sánky a disk čeľustného kĺbu. Vnútorný: vnútorná plocha uhla sánky",
+   "nerve": "Sánková vetva trojklanného nervu",
+   "actions": [
+    "Vysúvajú sánku dopredu a otvárajú ústa (vonkajší krídlový sval)",
+    "Zatvárajú ústa spolu so žuvacím svalom (vnútorný krídlový sval)",
+    "Pri žuvaní posúvajú sánku zo strany na stranu, vždy jedna strana"
+   ],
+   "summary": "Dva žuvacie svaly vnútri sánky. Vonkajší krídlový sval pri otváraní úst ťahá hlavicu sánky a disk dopredu, vnútorný zrkadlí žuvací sval na vnútornej strane sánky a tvorí slučku okolo jej uhla.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Vonkajší krídlový sval",
+     "note": "Vedie takmer vodorovne dozadu k hlavici a disku čeľustného kĺbu. Jediný žuvací sval, ktorý otvára ústa."
+    },
+    {
+     "name": "Vnútorný krídlový sval",
+     "note": "Vedie nadol a dozadu na vnútornú stranu uhla sánky. Zatvára ústa."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Porucha čeľustného kĺbu",
+     "note": "Napäté alebo preťažené krídlové svaly, často zo zatínania alebo škrípania, spôsobujú bolesť pred uchom, cvakanie a vybočenie sánky pri otváraní."
+    },
+    {
+     "name": "Trizmus",
+     "note": "Kŕč, ktorý nedovolí úplne otvoriť ústa, napríklad po vytrhnutí zuba múdrosti alebo zubnej injekcii. Šíriaci sa opuch s horúčkou si vyžaduje naliehavú starostlivosť."
+    }
+   ]
+  },
+  "buccinator": {
+   "name": "Trubačský sval",
+   "aka": [
+    "lícny sval",
+    "buccinator"
+   ],
+   "originNote": "Vonkajšie plochy čeľustí pri stoličkách a krídlovo-sánkový šev za nimi",
+   "insertionNote": "Pri kútiku úst sa zlieva s kruhovým svalom úst",
+   "nerve": "Lícne vetvy tvárového nervu",
+   "actions": [
+    "Pritláča líce k zubom a pri žuvaní udržiava potravu medzi nimi",
+    "Vyfukuje vzduch cez zovreté pery (je to sval trubačov)"
+   ],
+   "summary": "Sval líca, tenká blana pod žuvacím svalom, ktorá tvorí bočnú stenu úst. Hoci pomáha pri žuvaní, je to mimický sval, zásobovaný tvárovým nervom.",
+   "issues": [
+    {
+     "name": "Hryzenie do líca",
+     "note": "Pri obrne tváre je líce ochabnuté, potrava sa v ňom hromadí a líce sa prehryzne. Náhla jednostranná slabosť tváre si vyžaduje pohotovosť, môže ísť o mozgovú porážku."
+    }
+   ]
+  },
+  "extraocular-muscles": {
+   "name": "Okohybné svaly",
+   "aka": [
+    "extraokulárne svaly",
+    "vonkajšie svaly oka"
+   ],
+   "listOnly": "Na mape nie sú nakreslené: ležia vnútri očnice, za očnou guľou a okolo nej.",
+   "originNote": "Spoločný šľachový prstenec vzadu v očnici okolo zrakového kanála (štyri priame svaly a horný šikmý sval); dolný šikmý sval z dna očnice vpredu",
+   "insertionNote": "Bielko oka (skléra); dvíhač viečka do horného viečka",
+   "nerve": "Okohybný nerv (väčšina), kladkový nerv (horný šikmý sval) a odťahovací nerv (vonkajší priamy sval)",
+   "actions": [
+    "Otáčajú okom hore, dolu, dnu a von a stáčajú ho",
+    "Udržiavajú obe oči namierené na rovnaký bod, takže vidíte jeden obraz",
+    "Dvíhajú horné viečko (dvíhač horného viečka)"
+   ],
+   "summary": "Šesť malých svalov, ktoré mieria každým okom, a sval, ktorý dvíha horné viečko. Robia najrýchlejšie pohyby v tele a udržiavajú obe oči presne zladené.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Horný priamy sval",
+     "note": "Stáča oko nahor (okohybný nerv)."
+    },
+    {
+     "name": "Dolný priamy sval",
+     "note": "Stáča oko nadol (okohybný nerv)."
+    },
+    {
+     "name": "Vnútorný priamy sval",
+     "note": "Stáča oko dovnútra, k nosu (okohybný nerv)."
+    },
+    {
+     "name": "Vonkajší priamy sval",
+     "note": "Stáča oko von (odťahovací nerv)."
+    },
+    {
+     "name": "Horný šikmý sval",
+     "note": "Jeho šľacha prechádza kladkou (trochleou); stáča oko dolu a dnu (kladkový nerv)."
+    },
+    {
+     "name": "Dolný šikmý sval",
+     "note": "Z dna očnice; stáča oko hore a von (okohybný nerv)."
+    },
+    {
+     "name": "Dvíhač horného viečka",
+     "note": "Dvíha horné viečko (okohybný nerv)."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Dvojité videnie",
+     "note": "Náhle dvojité videnie, najmä s pokleslým viečkom, bolesťou hlavy alebo slabosťou, si vyžaduje pohotovosť. Môže ho spôsobiť mozgová porážka, výduť tlačiaca na nerv alebo obrna nervu."
+    },
+    {
+     "name": "Škúlenie (strabizmus)",
+     "note": "Oči mieria rôznymi smermi. U detí si vyžaduje včasné vyšetrenie, aby sa ochránil zrak slabšieho oka."
+    },
+    {
+     "name": "Endokrinná orbitopatia",
+     "note": "Opuchnuté okohybné svaly pri zvýšenej činnosti štítnej žľazy vytláčajú oči dopredu a obmedzujú ich pohyb."
+    }
+   ]
+  },
+  "occipitofrontalis": {
+   "name": "Záhlavovo-čelový sval",
+   "aka": [
+    "occipitofrontalis"
+   ],
+   "originNote": "Zadná strana lebky nad šijovou čiarou (záhlavové bruško)",
+   "insertionNote": "Koža obočia (čelové bruško). Obe bruška spája šľachová blana cez temeno hlavy (galea aponeurotica)",
+   "nerve": "Tvárový nerv",
+   "actions": [
+    "Dvíha obočie a vrásni čelo",
+    "Pohybuje vlasovou časťou hlavy"
+   ],
+   "summary": "Tenký sval s dvoma bruškami nad čelom a na zadnej strane hlavy, spojenými šľachovou blanou cez vlasovú časť hlavy.",
+   "issues": [
+    {
+     "name": "Tenzná bolesť hlavy",
+     "note": "Napäté svaly vlasovej časti hlavy a čela môžu prispievať k pásovej bolesti hlavy."
+    }
+   ]
+  },
+  "orbicularis-oculi": {
+   "name": "Kruhový sval oka",
+   "aka": [
+    "orbicularis oculi"
+   ],
+   "originNote": "Kosť na vnútornej strane očnice",
+   "insertionNote": "Obtáča oko slučkou do kože viečok",
+   "nerve": "Tvárový nerv",
+   "actions": [
+    "Zatvára viečka: jemne pri žmurkaní, pevne pri žmurknutí naplno",
+    "Pomáha odvádzať slzy k nosu"
+   ],
+   "summary": "Plochý svalový prstenec okolo každého oka, vo viečkach.",
+   "issues": [
+    {
+     "name": "Šklbanie viečka",
+     "note": "Neškodné zášklby, často pri únave, strese alebo kofeíne."
+    },
+    {
+     "name": "Slabé zatváranie oka",
+     "note": "Neschopnosť úplne zavrieť jedno oko s poklesnutou tvárou na tej strane môže byť Bellova obrna alebo mozgová porážka. Náhla slabosť tváre si vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "orbicularis-oris": {
+   "name": "Kruhový sval úst",
+   "aka": [
+    "orbicularis oris"
+   ],
+   "originNote": "Pri stredovej čiare hornej a dolnej čeľuste a ostatné svaly okolo úst",
+   "insertionNote": "Koža a sliznica pier",
+   "nerve": "Tvárový nerv",
+   "actions": [
+    "Zatvára a špúli pery",
+    "Formuje reč, pískanie a bozk"
+   ],
+   "summary": "Svalový prstenec vnútri pier.",
+   "issues": [
+    {
+     "name": "Poklesnutý kútik úst",
+     "note": "Náhle jednostranné poklesnutie si vyžaduje pohotovosť, môže ísť o mozgovú porážku (pamätajte na FAST). Oslabuje ho aj Bellova obrna."
+    }
+   ]
+  },
+  "sternocleidomastoid": {
+   "name": "Zvierač hlavy",
+   "aka": [
+    "kývač hlavy",
+    "sternokleidomastoideus",
+    "SCM"
+   ],
+   "originNote": "Horný okraj hrudnej kosti (hrudníková hlava) a vnútorná časť kľúčnej kosti (kľúčna hlava)",
+   "insertionNote": "Hlávkový výbežok za uchom a spodina lebky",
+   "nerve": "Prídavný nerv (XI)",
+   "actions": [
+    "Otáča hlavu na opačnú stranu",
+    "Uklání hlavu k rovnakému ramenu",
+    "Predkláňa krk (obe strany spolu)",
+    "Pri ťažkom dýchaní pomáha dvíhať hrudný kôš"
+   ],
+   "summary": "Výrazný šikmý pruh na boku krku, od miesta za uchom po horný okraj hrudnej kosti. Delí krk na predný a zadný trojuholník.",
+   "issues": [
+    {
+     "name": "Stŕpnutá šija (tortikolis)",
+     "note": "Kŕč stiahne hlavu na jednu stranu. U bábätiek môže byť prítomný od narodenia."
+    },
+    {
+     "name": "Natiahnutie krku",
+     "note": "Bolesť a stuhnutosť po trhnutí alebo spaní v nevhodnej polohe."
+    }
+   ]
+  },
+  "platysma": {
+   "name": "Podkožný sval krku",
+   "aka": [
+    "platysma"
+   ],
+   "originNote": "Koža a povázka nad hornou časťou hrudníka a prednou stranou ramena",
+   "insertionNote": "Dolný okraj sánky a koža a svaly v kútiku úst",
+   "nerve": "Krčná vetva tvárového nervu",
+   "actions": [
+    "Napína kožu krku do rebier",
+    "Sťahuje kútiky úst nadol, ako pri grimase alebo zľaknutí",
+    "Pomáha otvárať ústa proti odporu"
+   ],
+   "summary": "Široká, papierovo tenká blana tesne pod kožou prednej strany krku, od hornej časti hrudníka nad sánku. Je to mimický sval, preto ho zásobuje tvárový nerv.",
+   "issues": [
+    {
+     "name": "Pruhy na krku s vekom",
+     "note": "Predné okraje oboch blán sa môžu ukázať ako zvislé povrázky pod bradou. Je to neškodné."
+    },
+    {
+     "name": "Obrna tváre",
+     "note": "Pri Bellovej obrne alebo mozgovej porážke prestane podkožný sval krku na jednej strane fungovať spolu s ostatnými mimickými svalmi. Náhle poklesnutie tváre si vyžaduje pohotovosť."
+    }
+   ]
+  },
+  "suprahyoid": {
+   "name": "Nadjazylkové svaly",
+   "aka": [
+    "suprahyoidné svaly"
+   ],
+   "originNote": "Vnútorná strana sánky, brada a hlávkový a ihlovitý výbežok spánkovej kosti",
+   "nerve": "Trojklanný (V3), tvárový (VII) a vlákna C1",
+   "actions": [
+    "Pri prehĺtaní dvíhajú jazylku a hrtan",
+    "Pomáhajú otvárať ústa"
+   ],
+   "summary": "Štyri malé svaly, ktoré tvoria dno úst a vyťahujú jazylku nahor k sánke a lebke.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dvojbruškový sval",
+     "note": "Dve bruška spojené šľachou, ktorá prechádza slučkou na jazylke."
+    },
+    {
+     "name": "Čeľustno-jazylkový sval",
+     "note": "Tenká blana, ktorá tvorí dno úst."
+    },
+    {
+     "name": "Bradovo-jazylkový sval",
+     "note": "Z vnútornej strany brady k jazylke."
+    },
+    {
+     "name": "Ihlovito-jazylkový sval",
+     "note": "Z ihlovitého výbežku spánkovej kosti."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Ťažkosti s prehĺtaním",
+     "note": "Slabosť po mozgovej porážke alebo pri ochoreniach nervov môže urobiť prehĺtanie nebezpečným. Kašeľ alebo dusenie sa pri jedle treba vyšetriť."
+    }
+   ]
+  },
+  "infrahyoid": {
+   "name": "Podjazylkové svaly",
+   "aka": [
+    "infrahyoidné svaly",
+    "pásikové svaly"
+   ],
+   "originNote": "Zadná strana rukoväti hrudnej kosti a horný okraj lopatky (lopatkovo-jazylkový sval)",
+   "insertionNote": "Jazylka a štítna chrupka hrtana (hrudno-štítny, štítno-jazylkový sval)",
+   "nerve": "Ansa cervicalis (C1–C3)",
+   "actions": [
+    "Po prehltnutí sťahujú jazylku a hrtan späť nadol",
+    "Stabilizujú jazylku, aby mohli pracovať jazyk a sánka"
+   ],
+   "summary": "Tenké pásikové svaly vedúce nadol po prednej strane krku od jazylky k hrudnej kosti a lopatke, ktoré prekrývajú štítnu žľazu a priedušnicu.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Hrudno-jazylkový sval",
+     "note": "Z hrudnej kosti k jazylke."
+    },
+    {
+     "name": "Hrudno-štítny sval",
+     "note": "Z hrudnej kosti k štítnej chrupke."
+    },
+    {
+     "name": "Štítno-jazylkový sval",
+     "note": "Zo štítnej chrupky k jazylke."
+    },
+    {
+     "name": "Lopatkovo-jazylkový sval",
+     "note": "Dve bruška; prechádza pod zvieračom hlavy k hornému okraju lopatky."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Napätie po operácii krku",
+     "note": "Pri operácii štítnej žľazy sa rozostupujú a počas hojenia môžu pôsobiť napäto."
+    }
+   ]
+  },
+  "scalenes": {
+   "name": "Schodové svaly",
+   "aka": [
+    "skalény"
+   ],
+   "originNote": "Priečne výbežky C2–C7",
+   "insertionNote": "Prvé rebro (predný a stredný schodový sval) a druhé rebro (zadný schodový sval)",
+   "nerve": "Predné (ventrálne) vetvy krčných nervov, C3–C8",
+   "actions": [
+    "Uklánajú krk do strany",
+    "Pri hlbokom alebo ťažkom dýchaní dvíhajú dve horné rebrá"
+   ],
+   "summary": "Tri svaly na boku krku, od krčných stavcov k horným rebrám. Medzi predným a stredným schodovým svalom vystupuje ramenná spleť a podkľúčová tepna.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Predný schodový sval",
+     "note": "C3–C6 k prvému rebru, pred podkľúčovou tepnou."
+    },
+    {
+     "name": "Stredný schodový sval",
+     "note": "C2–C7 k prvému rebru, za ramennou spleťou."
+    },
+    {
+     "name": "Zadný schodový sval",
+     "note": "C4–C6 k druhému rebru."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Syndróm horného hrudného otvoru",
+     "note": "Mravčenie, bolesť alebo slabosť ruky alebo dlane, horšie pri zdvihnutých rukách, z tlaku na nervy alebo cievy pri prvom rebre."
+    },
+    {
+     "name": "Natiahnutie krku",
+     "note": "Bolesť na boku krku, niekedy šíriaca sa do ramena alebo hornej časti hrudníka."
+    }
+   ]
+  },
+  "levator-scapulae": {
+   "name": "Dvíhač lopatky",
+   "aka": [
+    "levator scapulae"
+   ],
+   "originNote": "Priečne výbežky C1–C4",
+   "insertionNote": "Horný vnútorný roh (horný uhol) lopatky",
+   "nerve": "Chrbtový lopatkový nerv (C5) a krčné nervy C3–C4",
+   "actions": [
+    "Dvíha lopatku",
+    "Ukláňa a otáča krk na rovnakú stranu"
+   ],
+   "summary": "Pásikovitý sval na boku a zadnej strane krku, pod trapézovým svalom, ktorý dvíha lopatku.",
+   "issues": [
+    {
+     "name": "Stuhnutý krk",
+     "note": "Bolesť ako uzol v mieste, kde sa krk stretáva s lopatkou, horšia pri otáčaní hlavy, často po spaní v nevhodnej polohe alebo dlhej práci za stolom."
+    }
+   ]
+  },
+  "splenius": {
+   "name": "Remenný sval",
+   "aka": [
+    "splenius"
+   ],
+   "originNote": "Šijový väz a tŕňové výbežky C7–T6",
+   "insertionNote": "Hlávkový výbežok a lebka tesne za ním (hlavová časť) a priečne výbežky C1–C3 (krčná časť)",
+   "nerve": "Zadné (dorzálne) vetvy krčných nervov",
+   "actions": [
+    "Zakláňa hlavu (obe strany spolu)",
+    "Otáča hlavu na rovnakú stranu"
+   ],
+   "summary": "Široký sval ako obväz na zadnej strane krku pod trapézovým svalom, ktorý vedie nahor a von od chrbtice k lebke.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Remenný sval hlavy",
+     "note": "C7–T3 k hlávkovému výbežku a lebke."
+    },
+    {
+     "name": "Remenný sval krku",
+     "note": "T3–T6 k priečnym výbežkom C1–C3."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie krku a whiplash",
+     "note": "Bolesť a stuhnutosť zadnej strany krku po náhlom trhnutí alebo po dlhom pozeraní nadol."
+    },
+    {
+     "name": "Tenzná bolesť hlavy",
+     "note": "Napäté svaly krku môžu posielať bolesť do zadnej časti hlavy."
+    }
+   ]
+  },
+  "trapezius": {
+   "name": "Trapézový sval",
+   "aka": [
+    "kápovec",
+    "trapéz"
+   ],
+   "originNote": "Spodina lebky, šijový väz a tŕňové výbežky C7–T12",
+   "insertionNote": "Vonkajšia tretina kľúčnej kosti, nadplecko a hrebeň lopatky",
+   "nerve": "Prídavný nerv (XI)",
+   "actions": [
+    "Dvíha ramená (pokrčenie ramenami)",
+    "Otáča lopatku, aby ruka dosiahla nad hlavu",
+    "Sťahuje lopatky k sebe",
+    "Stabilizuje hlavu"
+   ],
+   "summary": "Veľký kosoštvorcový sval hornej časti chrbta a krku. Spredu vidno len jeho horné vlákna, ktoré tvoria svah od krku k ramenu.",
+   "issues": [
+    {
+     "name": "Napätie krku a ramien",
+     "note": "Napäté, citlivé uzly medzi krkom a ramenom, často z práce za stolom a stresu."
+    },
+    {
+     "name": "Tenzná bolesť hlavy",
+     "note": "Napätý trapézový sval a krk môžu prenášať bolesť do zadnej časti hlavy."
+    }
+   ]
+  },
+  "deltoid": {
+   "name": "Deltový sval",
+   "aka": [
+    "deltoid"
+   ],
+   "originNote": "Vonkajšia tretina kľúčnej kosti, nadplecko a hrebeň lopatky",
+   "insertionNote": "Deltová drsnatina v polovici vonkajšej strany ramennej kosti",
+   "nerve": "Podpazušný nerv (C5–C6)",
+   "actions": [
+    "Dvíha ruku do strany",
+    "Predné vlákna dvíhajú ruku dopredu",
+    "Zadné vlákna ju ťahajú dozadu"
+   ],
+   "summary": "Zaoblená čiapka ramena v tvare gréckeho písmena delta (Δ). Časté miesto očkovania.",
+   "issues": [
+    {
+     "name": "Natiahnutie deltového svalu",
+     "note": "Bolesť pri dvíhaní po ťažkej alebo opakovanej práci nad hlavou."
+    },
+    {
+     "name": "Poranenie podpazušného nervu",
+     "note": "Po vykĺbení ramena: necitlivá plôška na vonkajšej strane ramena a slabosť pri dvíhaní ruky."
+    }
+   ]
+  },
+  "rotator-cuff": {
+   "name": "Rotátorová manžeta",
+   "originNote": "Predná a zadná plocha lopatky",
+   "insertionNote": "Veľký a malý hrbolček na hornom konci ramennej kosti",
+   "nerve": "Nadlopatkový, podpazušný a podlopatkové nervy",
+   "actions": [
+    "Držia hlavicu ramennej kosti v plytkej jamke",
+    "Otáčajú ruku a pomáhajú ju dvíhať"
+   ],
+   "summary": "Štyri svaly z lopatky, ktorých šľachy sa zlievajú do manžety okolo hlavice ramennej kosti. Väčšina leží na zadnej strane lopatky.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Nadhrebeňový sval",
+     "note": "Začína dvíhať ruku do strany. Najčastejšie sa trhá."
+    },
+    {
+     "name": "Podhrebeňový sval",
+     "note": "Vytáča ruku von."
+    },
+    {
+     "name": "Malý oblý sval",
+     "note": "Vytáča ruku von."
+    },
+    {
+     "name": "Podlopatkový sval",
+     "note": "Na prednej strane lopatky, pri rebrách. Vytáča ruku dovnútra."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Tendinopatia rotátorovej manžety",
+     "note": "Bolesť na vonkajšej strane ramena pri dvíhaní ruky, horšia v noci."
+    },
+    {
+     "name": "Natrhnutie rotátorovej manžety",
+     "note": "Slabosť pri dvíhaní ruky po páde alebo postupne s vekom. Môže si vyžadovať zobrazovacie vyšetrenie."
+    },
+    {
+     "name": "Impingement",
+     "note": "Bolestivý oblúk pri dvíhaní ruky, približne medzi výškou ramena a polohou nad hlavou."
+    }
+   ]
+  },
+  "rhomboids": {
+   "name": "Rombické svaly",
+   "aka": [
+    "romboidné svaly"
+   ],
+   "originNote": "Tŕňové výbežky C7–T5",
+   "insertionNote": "Vnútorný (mediálny) okraj lopatky",
+   "nerve": "Chrbtový lopatkový nerv (C5)",
+   "actions": [
+    "Sťahujú lopatky k sebe",
+    "Stáčajú ich nadol"
+   ],
+   "summary": "Dva ploché svaly medzi chrbticou a lopatkou, pod trapézovým svalom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Veľký rombický sval",
+     "note": "Z T2–T5."
+    },
+    {
+     "name": "Malý rombický sval",
+     "note": "Z C7–T1."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Bolesť medzi lopatkami",
+     "note": "Bolesť z držania tela alebo náhleho natiahnutia. Bolesť tu môže pochádzať aj z krku, srdca alebo žlčníka."
+    }
+   ]
+  },
+  "teres-major": {
+   "name": "Veľký oblý sval",
+   "aka": [
+    "teres major"
+   ],
+   "originNote": "Zadná strana dolného rohu (dolného uhla) lopatky",
+   "insertionNote": "Vnútorný okraj žliabku na prednej strane hornej časti ramennej kosti, vedľa šľachy najširšieho svalu chrbta",
+   "nerve": "Dolný podlopatkový nerv (C5–C6)",
+   "actions": [
+    "Sťahuje zdvihnutú ruku nadol a dozadu",
+    "Vytáča ruku dovnútra",
+    "Spolupracuje s najširším svalom chrbta pri zhyboch a veslovaní"
+   ],
+   "summary": "Hrubý, zaoblený sval od dolného rohu lopatky k hornej časti ramennej kosti. S najširším svalom chrbta tvorí zadnú riasu podpazušia. Napriek názvu nie je súčasťou rotátorovej manžety.",
+   "issues": [
+    {
+     "name": "Natiahnutie veľkého oblého svalu",
+     "note": "Bolesť v zadnej časti podpazušia alebo pozdĺž vonkajšieho okraja lopatky po hádzaní, veslovaní alebo lezení. Zvyčajne ustúpi pri oddychu."
+    }
+   ]
+  },
+  "latissimus-dorsi": {
+   "name": "Najširší sval chrbta",
+   "aka": [
+    "latissimus dorsi",
+    "laty"
+   ],
+   "originNote": "Dolná hrudná chrbtica, hrudno-driekova povázka, bedrový hrebeň a najnižšie rebrá",
+   "insertionNote": "Dno žliabku na prednej strane hornej časti ramennej kosti",
+   "nerve": "Hrudno-chrbtový nerv (C6–C8)",
+   "actions": [
+    "Sťahuje ruku nadol a dozadu",
+    "Vytáča ruku dovnútra",
+    "Poháňa zhyby, veslovanie a plávanie"
+   ],
+   "summary": "Najširší sval chrbta, ktorý sa zdvíha od dolnej časti chrbtice a panvy nahor do podpazušia. Spredu je vidieť len jeho okraj pozdĺž boku hrudníka.",
+   "issues": [
+    {
+     "name": "Natiahnutie najširšieho svalu chrbta",
+     "note": "Bolesť pozdĺž boku chrbta alebo v podpazuší po ťahaní alebo hádzaní."
+    }
+   ]
+  },
+  "pectoralis-major": {
+   "name": "Veľký prsný sval",
+   "aka": [
+    "prsný sval",
+    "pectoralis major"
+   ],
+   "originNote": "Vnútorná časť kľúčnej kosti, hrudná kosť a horných šesť rebrových chrupiek",
+   "insertionNote": "Vonkajší okraj žliabku na prednej strane hornej časti ramennej kosti",
+   "nerve": "Vnútorný a vonkajší prsný nerv",
+   "actions": [
+    "Priťahuje ruku cez hrudník",
+    "Vytáča ruku dovnútra",
+    "Tlačí, ako pri klikoch"
+   ],
+   "summary": "Veľký vejárovitý sval hrudníka, ktorý sa zbieha k hornej časti ramennej kosti. Jeho dolný okraj tvorí prednú riasu podpazušia.",
+   "issues": [
+    {
+     "name": "Natiahnutie alebo natrhnutie prsného svalu",
+     "note": "Náhla bolesť a modrina na prednej strane podpazušia pri ťažkom tlaku."
+    },
+    {
+     "name": "Bolesť hrudnej steny",
+     "note": "Boľavý prsný sval po námahe, citlivý na zatlačenie. Ak si nie ste istí, bolesť na hrudi dajte vyšetriť."
+    }
+   ]
+  },
+  "pectoralis-minor": {
+   "name": "Malý prsný sval",
+   "aka": [
+    "pectoralis minor"
+   ],
+   "insertionNote": "Zobákovitý výbežok lopatky",
+   "nerve": "Vnútorný prsný nerv",
+   "actions": [
+    "Ťahá lopatku dopredu a nadol",
+    "Pri hlbokom dýchaní pomáha dvíhať rebrá"
+   ],
+   "summary": "Tenký trojuholníkový sval skrytý pod veľkým prsným svalom.",
+   "issues": [
+    {
+     "name": "Skrátený malý prsný sval",
+     "note": "Zhrbené ramená. Môže stláčať nervy a cievy idúce do ruky (horný hrudný otvor)."
+    }
+   ]
+  },
+  "subclavius": {
+   "name": "Podkľúčový sval",
+   "aka": [
+    "subclavius"
+   ],
+   "originNote": "Spojenie prvého rebra s jeho chrupkou",
+   "insertionNote": "Žliabok na spodnej strane stredu kľúčnej kosti",
+   "nerve": "Nerv podkľúčového svalu (C5–C6) z ramennej spleti",
+   "actions": [
+    "Sťahuje kľúčnu kosť nadol a dovnútra a stabilizuje ju voči hrudnej kosti",
+    "Pri zlomenej kľúčnej kosti chráni cievy a nervy pod ňou"
+   ],
+   "summary": "Malý zaoblený sval pod kľúčnou kosťou, pod veľkým prsným svalom. Leží tesne nad podkľúčovými cievami a ramennou spleťou, ktoré prechádzajú pod kľúčnou kosťou do ruky.",
+   "issues": [
+    {
+     "name": "Syndróm horného hrudného otvoru",
+     "note": "Napätý podkľúčový sval môže zúžiť priestor medzi kľúčnou kosťou a prvým rebrom a tlačiť na nervy alebo žilu ruky: mravčenie alebo ťažká, opuchnutá ruka, horšie pri zdvihnutých rukách."
+    }
+   ]
+  },
+  "serratus-anterior": {
+   "name": "Predný pílovitý sval",
+   "aka": [
+    "boxerský sval",
+    "serratus anterior"
+   ],
+   "originNote": "Vonkajšie plochy 1.–8. rebra, v pílovitých zubcoch",
+   "insertionNote": "Vnútorný okraj lopatky (predná plocha)",
+   "nerve": "Dlhý hrudný nerv (C5–C7)",
+   "actions": [
+    "Ťahá lopatku dopredu okolo rebier, ako pri údere",
+    "Drží lopatku priloženú k hrudnej stene",
+    "Stáča ju nahor pri siahaní nad hlavu"
+   ],
+   "summary": "Pílovité zubce na boku hrudníka, ktoré sa ovíjajú k lopatke.",
+   "issues": [
+    {
+     "name": "Krídlovitá lopatka",
+     "note": "Ak je jeho nerv poranený, lopatka pri tlačení do steny odstáva."
+    }
+   ]
+  },
+  "intercostals": {
+   "name": "Medzirebrové svaly",
+   "aka": [
+    "interkostálne svaly"
+   ],
+   "originNote": "Každé rebro, k rebru pod ním",
+   "nerve": "Medzirebrové nervy (T1–T11)",
+   "actions": [
+    "Pri dýchaní dvíhajú a spúšťajú rebrá",
+    "Spevňujú hrudnú stenu"
+   ],
+   "summary": "Tri tenké vrstvy svalov, ktoré vypĺňajú každý priestor medzi rebrami.",
+   "membersLabel": "Vrstvy",
+   "members": [
+    {
+     "name": "Vonkajšie medzirebrové svaly",
+     "note": "Pri nádychu dvíhajú rebrá."
+    },
+    {
+     "name": "Vnútorné medzirebrové svaly",
+     "note": "Pri silnom výdychu sťahujú rebrá nadol."
+    },
+    {
+     "name": "Najvnútornejšie medzirebrové svaly",
+     "note": "Najhlbšia vrstva, medzi ňou a ďalšou vedú nervy a cievy."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie medzirebrových svalov",
+     "note": "Ostrá bolesť medzi rebrami po záchvatoch kašľa, otáčaní alebo zdvíhaní."
+    },
+    {
+     "name": "Medzirebrová bolesť nervu alebo pásový opar",
+     "note": "Pálivá bolesť pozdĺž jedného medzirebria. Pľuzgierovitá vyrážka naznačuje pásový opar."
+    }
+   ]
+  },
+  "diaphragm": {
+   "name": "Bránica",
+   "aka": [
+    "diafragma"
+   ],
+   "originNote": "Mečovitý výbežok, vnútorné plochy dolných šiestich rebier a driekové stavce (bránicové piliere)",
+   "insertionNote": "Jej vlastná stredová šľacha na vrchole klenby",
+   "nerve": "Bránicový nerv (C3–C5)",
+   "actions": [
+    "Hlavný dýchací sval: stiahnutím sa klenba sploští a nasaje vzduch",
+    "Pomáha zvyšovať tlak v bruchu pri kašli, dvíhaní a pôrode"
+   ],
+   "summary": "Klenutá blana, ktorá oddeľuje hrudník od brucha. Prechádza ňou pažerák, aorta a dolná dutá žila.",
+   "issues": [
+    {
+     "name": "Hiátová hernia",
+     "note": "Časť žalúdka sa vysunie nahor cez bránicu a spôsobuje reflux."
+    },
+    {
+     "name": "Štikútka",
+     "note": "Mimovoľné kŕče. Štikútku trvajúcu viac ako dva dni treba vyšetriť."
+    },
+    {
+     "name": "Bolesť v špičke ramena",
+     "note": "Podráždenie pod bránicou (krv, infekcia, žlčník) sa často pociťuje v špičke ramena."
+    }
+   ]
+  },
+  "rectus-abdominis": {
+   "name": "Priamy brušný sval",
+   "aka": [
+    "brušáky",
+    "six-pack",
+    "rectus abdominis"
+   ],
+   "originNote": "Lonový hrebeň a lonová spona",
+   "insertionNote": "Mečovitý výbežok a chrupky 5.–7. rebra",
+   "nerve": "Dolné medzirebrové nervy (T7–T12)",
+   "actions": [
+    "Predkláňa trup, ako pri sed-ľahoch",
+    "Nakláňa panvu",
+    "Zvyšuje tlak v bruchu"
+   ],
+   "summary": "Párový „six-pack“ vedúci nadol po prednej strane brucha, prekrížený šľachovými pruhmi a v stredovej čiare spojený bielou čiarou.",
+   "issues": [
+    {
+     "name": "Diastáza priamych brušných svalov",
+     "note": "Obe polovice sa rozostúpia pozdĺž stredovej čiary, časté po tehotenstve: pri posadení sa objaví hrebeň alebo vydutie."
+    },
+    {
+     "name": "Natiahnutie brušného svalu",
+     "note": "Bolesť pri kašli, smiechu alebo posadení sa po náhlom vytočení alebo pretrénovaní."
+    }
+   ]
+  },
+  "external-oblique": {
+   "name": "Vonkajší šikmý brušný sval",
+   "aka": [
+    "obliquus externus"
+   ],
+   "originNote": "Vonkajšie plochy 5.–12. rebra",
+   "insertionNote": "Bedrový hrebeň a lonový hrbolček a cez svoju širokú šľachovú blanu biela čiara",
+   "nerve": "Dolné medzirebrové a podrebrový nerv (T7–T12)",
+   "actions": [
+    "Otáča trup na opačnú stranu",
+    "Ukláňa ho do strany",
+    "Stláča brucho"
+   ],
+   "summary": "Najvonkajší plochý sval na boku brucha. Jeho vlákna vedú nadol a dovnútra ako ruky vo vreckách a jeho šľachová blana tvorí slabinový väz.",
+   "issues": [
+    {
+     "name": "Natiahnutie boku",
+     "note": "Bolesť na boku pásu po športoch s otáčaním."
+    },
+    {
+     "name": "Slabinová prietrž",
+     "note": "Slabé miesto v stene slabiny, ktorú tvorí jeho šľachová blana, môže prepustiť vydutie."
+    }
+   ]
+  },
+  "deep-abdominals": {
+   "name": "Vnútorný šikmý a priečny brušný sval",
+   "aka": [
+    "stred tela",
+    "core",
+    "priečny brušný sval",
+    "vnútorný šikmý brušný sval"
+   ],
+   "originNote": "Bedrový hrebeň, slabinový väz a hrudno-driekova povázka",
+   "insertionNote": "Najnižšie rebrá a biela čiara",
+   "nerve": "Dolné medzirebrové, bedrovo-podbruškový a bedrovo-slabinový nerv",
+   "actions": [
+    "Spevňujú trup a chrbticu",
+    "Stláčajú brucho",
+    "Otáčajú trup (vnútorný šikmý sval)"
+   ],
+   "summary": "Dve hlbšie vrstvy brušnej steny, skryté pod vonkajším šikmým svalom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Vnútorný šikmý brušný sval",
+     "note": "Vlákna vedú nahor a dovnútra, kolmo na vonkajší šikmý sval."
+    },
+    {
+     "name": "Priečny brušný sval",
+     "note": "Vodorovné vlákna, ktoré obopínajú brucho ako korzet."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Slabý stred tela",
+     "note": "Súvisí s bolesťou dolnej časti chrbta. Mnohým pomáha cielené posilňovanie."
+    }
+   ]
+  },
+  "pelvic-floor": {
+   "name": "Svaly panvového dna",
+   "originNote": "Vnútorná strana lonovej kosti, bočné steny panvy a sedacie tŕne",
+   "insertionNote": "Kostrč a tkanivo okolo konečníka a močovej rúry",
+   "nerve": "Krížové nervy (S3–S4) a ohanbový nerv",
+   "actions": [
+    "Podopierajú močový mechúr a črevo",
+    "Podopierajú maternicu a pošvu",
+    "Podopierajú prostatu",
+    "Pomáhajú udržať moč a stolicu",
+    "Uvoľnia sa, aby ste sa mohli vymočiť a vyprázdniť"
+   ],
+   "summary": "Svalová hojdacia sieť naprieč spodkom panvy.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dvíhač konečníka",
+     "note": "Hlavná slučka: lonovo-konečníkový, lonovo-kostrčový a bedrovo-kostrčový sval."
+    },
+    {
+     "name": "Kostrčový sval",
+     "note": "Malý sval vzadu, ku kostrči."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Stresová inkontinencia",
+     "note": "Únik moču pri kašli, kýchnutí alebo skákaní. Pomáhajú cviky panvového dna."
+    },
+    {
+     "name": "Pokles panvových orgánov",
+     "note": "Pocit ťažoby a ťahania alebo vydutie v pošve."
+    },
+    {
+     "name": "Napätie panvového dna",
+     "note": "Bolesť v panve, bolestivý pohlavný styk alebo ťažkosti s vyprázdňovaním, keď sa svaly nevedia uvoľniť."
+    },
+    {
+     "name": "Slabé panvové dno po operácii prostaty",
+     "note": "Únik moču po operácii prostaty je spočiatku častý. Väčšine mužov pomôžu cviky panvového dna znova získať kontrolu."
+    }
+   ]
+  },
+  "erector-spinae": {
+   "name": "Vzpriamovač trupu",
+   "aka": [
+    "vystierače chrbta",
+    "paraspinálne svaly",
+    "erector spinae"
+   ],
+   "originNote": "Krížová kosť, zadná časť bedrového hrebeňa a driekové tŕňové výbežky",
+   "insertionNote": "Rebrá, hrudné a krčné stavce a hlávkový výbežok",
+   "nerve": "Zadné (dorzálne) vetvy miechových nervov",
+   "actions": [
+    "Vystiera a zakláňa chrbát",
+    "Ukláňa chrbticu do strany",
+    "Drží vás vzpriamených proti gravitácii"
+   ],
+   "summary": "Tri stĺpce svalov po oboch stranách chrbtice od panvy po lebku.",
+   "membersLabel": "Stĺpce",
+   "members": [
+    {
+     "name": "Bedrovo-rebrový sval",
+     "note": "Vonkajší stĺpec, k rebrám."
+    },
+    {
+     "name": "Najdlhší sval",
+     "note": "Stredný a najdlhší stĺpec, siaha až k lebke."
+    },
+    {
+     "name": "Tŕňový sval",
+     "note": "Vnútorný stĺpec, pri tŕňových výbežkoch."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie dolnej časti chrbta",
+     "note": "Kŕč a bolesť pri predklone alebo zdvíhaní. Zvyčajne odznie v priebehu týždňov a pomáha zostať mierne aktívny."
+    },
+    {
+     "name": "Bolesť chrbta z držania tela",
+     "note": "Bolesť z dlhého sedenia alebo státia."
+    }
+   ]
+  },
+  "quadratus-lumborum": {
+   "name": "Štvorhranný driekový sval",
+   "aka": [
+    "quadratus lumborum",
+    "QL"
+   ],
+   "originNote": "Zadná časť bedrového hrebeňa",
+   "insertionNote": "12. rebro a driekové priečne výbežky",
+   "nerve": "Podrebrový nerv a L1–L4",
+   "actions": [
+    "Ukláňa trup do strany",
+    "Dvíha bok",
+    "Pri dýchaní stabilizuje 12. rebro"
+   ],
+   "summary": "Hlboký štvorcový sval dolnej časti chrbta medzi panvou, najnižším rebrom a driekovou chrbticou.",
+   "issues": [
+    {
+     "name": "Jednostranná bolesť dolnej časti chrbta",
+     "note": "Hlboká bolesť na jednej strane, horšia pri otáčaní sa v posteli alebo vstávaní zo sedu."
+    }
+   ]
+  },
+  "biceps": {
+   "name": "Dvojhlavý sval ramena",
+   "aka": [
+    "biceps"
+   ],
+   "originNote": "Zobákovitý výbežok (krátka hlava) a hrbolček nad jamkou ramenného kĺbu (dlhá hlava)",
+   "insertionNote": "Drsnatina vretennej kosti a šľachová blana na predlaktie",
+   "nerve": "Svalovo-kožný nerv (C5–C6)",
+   "actions": [
+    "Otáča dlaň nahor, jeho najsilnejší pohyb",
+    "Ohýba lakeť",
+    "Pomáha dvíhať ruku dopredu"
+   ],
+   "summary": "Dvojhlavý sval na prednej strane ramena. Prechádza cez ramenný aj lakťový kĺb.",
+   "issues": [
+    {
+     "name": "Tendinopatia bicepsu",
+     "note": "Bolesť na prednej strane ramena, horšia pri dvíhaní alebo siahaní."
+    },
+    {
+     "name": "Pretrhnutie dolnej šľachy bicepsu",
+     "note": "Lupnutie v lakti pri dvíhaní, potom modrina a slabé vytáčanie (ako so skrutkovačom). Navštívte lekára do niekoľkých dní, lebo oprava je najúspešnejšia včas."
+    },
+    {
+     "name": "Pretrhnutie dlhej hlavy",
+     "note": "Vydutie „Pepka námorníka“ na ramene, často u starších dospelých. Zvyčajne s malou stratou funkcie."
+    }
+   ]
+  },
+  "brachialis": {
+   "name": "Ramenný sval",
+   "aka": [
+    "brachialis"
+   ],
+   "originNote": "Dolná polovica prednej strany ramennej kosti",
+   "insertionNote": "Svalový výbežok a drsnatina lakťovej kosti",
+   "nerve": "Svalovo-kožný nerv",
+   "actions": [
+    "Hlavný ohýbač lakťa, nech je dlaň otočená akokoľvek"
+   ],
+   "summary": "Leží pod dvojhlavým svalom a vykonáva väčšinu práce pri ohýbaní lakťa.",
+   "issues": [
+    {
+     "name": "Natiahnutie ramenného svalu",
+     "note": "Hlboká bolesť na prednej strane lakťa po ťažkom dvíhaní alebo lezení."
+    }
+   ]
+  },
+  "triceps": {
+   "name": "Trojhlavý sval ramena",
+   "aka": [
+    "triceps"
+   ],
+   "originNote": "Tesne pod jamkou ramenného kĺbu (dlhá hlava) a zadná strana ramennej kosti (vonkajšia a vnútorná hlava)",
+   "insertionNote": "Olekranon, hrot lakťa",
+   "nerve": "Vretenný nerv (C6–C8)",
+   "actions": [
+    "Vystiera lakeť",
+    "Pomáha ťahať ruku dozadu (dlhá hlava)"
+   ],
+   "summary": "Trojhlavý sval na zadnej strane ramena. Spredu je vidieť len jeho vnútorný okraj.",
+   "issues": [
+    {
+     "name": "Tendinopatia tricepsu",
+     "note": "Bolesť na zadnej strane lakťa pri tlakových cvikoch."
+    }
+   ]
+  },
+  "coracobrachialis": {
+   "name": "Zobákovo-ramenný sval",
+   "aka": [
+    "coracobrachialis"
+   ],
+   "originNote": "Hrot zobákovitého výbežku, spoločne s krátkou hlavou bicepsu",
+   "insertionNote": "Vnútorná strana ramennej kosti, v polovici tela kosti",
+   "nerve": "Svalovo-kožný nerv (C5–C7), ktorý ním prechádza",
+   "actions": [
+    "Ťahá ruku dopredu a k telu",
+    "Pomáha držať hlavicu ramennej kosti v jamke ramenného kĺbu"
+   ],
+   "summary": "Štíhly sval vysoko na vnútornej strane ramena, od zobákovitého výbežku lopatky do stredu ramennej kosti, vedľa krátkej hlavy bicepsu.",
+   "issues": [
+    {
+     "name": "Natiahnutie zobákovo-ramenného svalu",
+     "note": "Bolesť na prednej strane ramena a vnútornej strane ramena po hádzaní, benčpresoch alebo klikoch. Zvyčajne ustúpi pri oddychu."
+    },
+    {
+     "name": "Útlak svalovo-kožného nervu",
+     "note": "Zriedkavo: slabosť pri ohýbaní lakťa a necitlivosť pozdĺž vonkajšej strany predlaktia, keď je nerv stlačený pri prechode svalom, niekedy po ťažkom posilňovaní."
+    }
+   ]
+  },
+  "brachioradialis": {
+   "name": "Ramenno-vretenný sval",
+   "aka": [
+    "brachioradialis"
+   ],
+   "originNote": "Vonkajší hrebeň ramennej kosti tesne nad lakťom",
+   "insertionNote": "Ihlovitý výbežok vretennej kosti pri zápästí",
+   "nerve": "Vretenný nerv",
+   "actions": [
+    "Ohýba lakeť, najmä s palcom smerom nahor (kladivový úchop)"
+   ],
+   "summary": "Sval, ktorý tvorí vonkajší okraj predlaktia, od miesta tesne nad lakťom po zápästie.",
+   "issues": [
+    {
+     "name": "Natiahnutie predlaktia",
+     "note": "Bolesť pozdĺž vonkajšej strany predlaktia po opakovanom dvíhaní kladivovým úchopom."
+    }
+   ]
+  },
+  "forearm-flexors": {
+   "name": "Ohýbače predlaktia",
+   "aka": [
+    "ohýbače zápästia",
+    "ohýbače prstov",
+    "flexory"
+   ],
+   "originNote": "Vnútorná strana lakťa (vnútorný epikondyl) a predná strana vretennej a lakťovej kosti",
+   "insertionNote": "Kosti zápästia, dlane a prstov; oblý pronátor do stredu vretennej kosti",
+   "nerve": "Stredový a lakťový nerv",
+   "actions": [
+    "Ohýbajú zápästie a prsty",
+    "Úchop",
+    "Otáčajú dlaň nadol (oblý pronátor)"
+   ],
+   "summary": "Svaly na dlaňovej strane predlaktia, väčšinou so začiatkom na vnútornej strane lakťa. Ich šľachy prechádzajú karpálnym tunelom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Oblý pronátor",
+     "note": "Otáča dlaň nadol; vedie do stredu vretennej kosti."
+    },
+    {
+     "name": "Vretenný ohýbač zápästia",
+     "note": "Ohýba zápästie k palcovej strane."
+    },
+    {
+     "name": "Dlhý dlaňový sval",
+     "note": "Tenká šľacha v strede zápästia; chýba asi u 1 zo 7 ľudí."
+    },
+    {
+     "name": "Lakťový ohýbač zápästia",
+     "note": "Ohýba zápästie k malíčkovej strane."
+    },
+    {
+     "name": "Povrchový ohýbač prstov",
+     "note": "Ohýba stredné kĺby prstov."
+    },
+    {
+     "name": "Hlboký ohýbač prstov",
+     "note": "Ohýba končeky prstov."
+    },
+    {
+     "name": "Dlhý ohýbač palca",
+     "note": "Ohýba koniec palca."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Golfový lakeť",
+     "note": "Bolesť na vnútornej strane lakťa pri úchope a dvíhaní."
+    },
+    {
+     "name": "Lupkajúci prst",
+     "note": "Šľacha ohýbača sa zasekáva vo svojej pošve, takže sa prst zamyká."
+    },
+    {
+     "name": "Syndróm karpálneho tunela",
+     "note": "Opuchnuté pošvy šliach ohýbačov môžu stláčať stredový nerv v zápästí."
+    }
+   ]
+  },
+  "forearm-extensors": {
+   "name": "Vystierače predlaktia",
+   "aka": [
+    "vystierače zápästia",
+    "vystierače prstov",
+    "extenzory"
+   ],
+   "originNote": "Vonkajšia strana lakťa (vonkajší epikondyl) a zadná strana vretennej a lakťovej kosti",
+   "insertionNote": "Chrbát kostí ruky a prstov",
+   "nerve": "Vretenný nerv (zadná medzikostná vetva)",
+   "actions": [
+    "Vystierajú a zakláňajú zápästie a prsty",
+    "Stabilizujú zápästie, aby ste mohli uchopiť",
+    "Otáčajú dlaň nahor (supinátor)",
+    "Odťahujú palec"
+   ],
+   "summary": "Svaly na zadnej strane predlaktia, väčšinou so začiatkom na vonkajšej strane lakťa. V prednom pohľade je vidieť len ich vonkajší okraj.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dlhý a krátky vretenný vystierač zápästia",
+     "note": "Zakláňajú zápästie. Krátky je obvyklým zdrojom tenisového lakťa."
+    },
+    {
+     "name": "Vystierač prstov",
+     "note": "Vystiera prsty."
+    },
+    {
+     "name": "Vystierač malíčka",
+     "note": "Vystiera malíček."
+    },
+    {
+     "name": "Lakťový vystierač zápästia",
+     "note": "Zakláňa zápästie k malíčkovej strane."
+    },
+    {
+     "name": "Supinátor",
+     "note": "Otáča dlaň nahor."
+    },
+    {
+     "name": "Svaly palca",
+     "note": "Dlhý odťahovač palca a dlhý a krátky vystierač palca odťahujú palec von a dozadu."
+    },
+    {
+     "name": "Vystierač ukazováka",
+     "note": "Vystiera ukazovák pri ukazovaní."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Tenisový lakeť",
+     "note": "Bolesť na vonkajšej strane lakťa pri úchope, dvíhaní kanvice alebo otáčaní kľučkou."
+    },
+    {
+     "name": "De Quervainova tendovaginitída",
+     "note": "Bolesť na palcovej strane zápästia z dvoch šliach palca v tejto skupine."
+    }
+   ]
+  },
+  "thenar": {
+   "name": "Svaly palcového vyvýšenia",
+   "aka": [
+    "tenar",
+    "bruško palca"
+   ],
+   "originNote": "Člnková kosť, veľká mnohohranná kosť a väz, ktorý tvorí strechu karpálneho tunela",
+   "insertionNote": "Prvá záprstná kosť a báza palca",
+   "nerve": "Stredový nerv (priťahovač palca: lakťový nerv)",
+   "actions": [
+    "Privádzajú palec cez dlaň k končekom prstov (opozícia)",
+    "Ohýbajú a odťahujú palec"
+   ],
+   "summary": "Mäsitý val na báze palca.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Krátky odťahovač palca",
+     "note": "Odťahuje palec od dlane."
+    },
+    {
+     "name": "Krátky ohýbač palca",
+     "note": "Ohýba palec."
+    },
+    {
+     "name": "Protiväč palca",
+     "note": "Pretáča palec, aby sa stretol s prstami."
+    },
+    {
+     "name": "Priťahovač palca",
+     "note": "Hlboký; priťahuje palec, ako pri štipcovom úchope."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Atrofia palcového vyvýšenia",
+     "note": "Sploštený val palca s nešikovným štipcovým úchopom môže byť príznakom pokročilého syndrómu karpálneho tunela."
+    }
+   ]
+  },
+  "hypothenar": {
+   "name": "Svaly malíčkového vyvýšenia",
+   "aka": [
+    "hypotenar"
+   ],
+   "originNote": "Hráškovitá a hákovitá kosť",
+   "insertionNote": "Piata záprstná kosť a báza malíčka",
+   "nerve": "Lakťový nerv",
+   "actions": [
+    "Pohybujú malíčkom a vyhlbujú dlaň"
+   ],
+   "summary": "Val na malíčkovej strane dlane.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Odťahovač malíčka",
+     "note": "Odťahuje malíček."
+    },
+    {
+     "name": "Krátky ohýbač malíčka",
+     "note": "Ohýba malíček."
+    },
+    {
+     "name": "Protiväč malíčka",
+     "note": "Vyhlbuje dlaň."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Útlak lakťového nervu",
+     "note": "Necitlivosť malíčka a prstenníka so slabými svalmi ruky, z tlaku v lakti alebo zápästí (napríklad u cyklistov)."
+    }
+   ]
+  },
+  "hand-lumbricals": {
+   "name": "Červovité svaly ruky",
+   "aka": [
+    "lumbrikály"
+   ],
+   "originNote": "Šľachy hlbokého ohýbača prstov v dlani",
+   "insertionNote": "Palcový okraj dorzálnych aponeuróz na chrbte štyroch prstov",
+   "nerve": "Stredový nerv (prvý a druhý), lakťový nerv (tretí a štvrtý)",
+   "actions": [
+    "Ohýbajú hánky a zároveň vystierajú kĺby prstov, ako pri držaní karty alebo pera",
+    "Dolaďujú pohyby prstov"
+   ],
+   "summary": "Štyri malé červovité svaly v dlani. Začínajú na dlhých šľachách ohýbačov prstov a pripájajú sa k šľachám na chrbte prstov, čím spájajú ohýbanie a vystieranie pre presné pohyby.",
+   "issues": [
+    {
+     "name": "Natiahnutie červovitého svalu",
+     "note": "Bolesť v dlani, keď je jeden prst vystretý a ostatné ohnuté, typicky u lezcov. Zvyčajne sa zahojí pri oddychu."
+    }
+   ]
+  },
+  "hand-interossei": {
+   "name": "Medzikostné svaly ruky",
+   "aka": [
+    "interosseálne svaly ruky"
+   ],
+   "originNote": "Boky záprstných kostí, vypĺňajú priestory medzi nimi",
+   "insertionNote": "Bázy základných článkov prstov a dorzálne aponeurózy",
+   "nerve": "Lakťový nerv, hlboká vetva (C8–T1)",
+   "actions": [
+    "Roztiahnu prsty (chrbtové) a priblížia ich k sebe (dlaňové)",
+    "S červovitými svalmi ohýbajú hánky a zároveň vystierajú prsty"
+   ],
+   "summary": "Malé svaly medzi záprstnými kosťami. Štyri chrbtové vypĺňajú priestory na chrbte ruky, najväčší tvorí mäsitú blanu medzi palcom a ukazovákom. Tri dlaňové ležia hlbšie, na dlaňovej strane.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Chrbtové medzikostné svaly (4)",
+     "note": "Odťahujú prsty od prostredníka."
+    },
+    {
+     "name": "Dlaňové medzikostné svaly (3)",
+     "note": "Priťahujú prsty k prostredníku."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Atrofia medzi kosťami",
+     "note": "Prehĺbeniny medzi záprstnými kosťami na chrbte ruky so slabým roztiahnutím prstov a nešikovným úchopom môžu byť príznakom útlaku lakťového nervu v lakti alebo zápästí."
+    }
+   ]
+  },
+  "iliopsoas": {
+   "name": "Bedrovo-driekový sval",
+   "aka": [
+    "ohýbač bedra",
+    "psoas",
+    "iliopsoas",
+    "bedrový sval"
+   ],
+   "originNote": "Driekové stavce (veľký driekový sval) a vnútorná strana lopaty bedrovej kosti (bedrový sval)",
+   "insertionNote": "Malý chochol stehennej kosti",
+   "nerve": "Driekova spleť (L1–L3) a stehenný nerv",
+   "actions": [
+    "Najsilnejší ohýbač bedra: dvíha stehno",
+    "Pri pevných nohách predkláňa trup, ako pri posadení sa"
+   ],
+   "summary": "Hlboký sval, ktorý vedie od chrbtice a vnútornej strany panvy cez prednú stranu bedrového kĺbu k stehennej kosti. Je hlavným svalovým spojením medzi chrbticou a nohami.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Veľký driekový sval",
+     "note": "Z driekovej chrbtice."
+    },
+    {
+     "name": "Bedrový sval",
+     "note": "Z vnútornej strany lopaty bedrovej kosti."
+    },
+    {
+     "name": "Malý driekový sval",
+     "note": "Malý, chýba asi u polovice ľudí."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie ohýbača bedra",
+     "note": "Hlboká bolesť v slabine pri dvíhaní kolena, po šprinte alebo kopaní."
+    },
+    {
+     "name": "Lupajúce bedro",
+     "note": "Lupnutie na prednej strane bedra, keď šľacha preskočí cez panvu."
+    },
+    {
+     "name": "Absces psoasu",
+     "note": "Zriedkavo: infekcia tu spôsobuje horúčku, bolesť chrbta alebo slabiny a krívanie. Vyžaduje naliehavú starostlivosť."
+    }
+   ]
+  },
+  "gluteus-maximus": {
+   "name": "Veľký sedací sval",
+   "aka": [
+    "gluteus maximus",
+    "zadok"
+   ],
+   "originNote": "Zadná strana bedrovej kosti, krížová kosť a kostrč",
+   "insertionNote": "Sedacia drsnatina stehennej kosti a cez iliotibiálny trakt píšťala",
+   "nerve": "Dolný sedací nerv (L5–S2)",
+   "actions": [
+    "Vystiera bedro: vstávanie, chôdza do kopca, beh",
+    "Vytáča stehno von"
+   ],
+   "summary": "Najväčší sval v tele, ktorý tvorí zadok.",
+   "issues": [
+    {
+     "name": "Bolesť zadku",
+     "note": "Často prenesená z dolnej časti chrbta alebo krížovo-bedrového kĺbu; skutočné natiahnutie svalu je menej časté."
+    }
+   ]
+  },
+  "gluteus-medius": {
+   "name": "Stredný sedací sval",
+   "aka": [
+    "gluteus medius"
+   ],
+   "originNote": "Vonkajšia plocha bedrovej kosti",
+   "insertionNote": "Veľký chochol",
+   "nerve": "Horný sedací nerv (L4–S1)",
+   "actions": [
+    "Dvíha nohu do strany",
+    "Pri státí na jednej nohe udržiava panvu vodorovne"
+   ],
+   "summary": "Vejárovitý sval bedra, väčšinou skrytý za veľkým sedacím svalom, nevyhnutný na chôdzu bez krívania.",
+   "issues": [
+    {
+     "name": "Gluteálna tendinopatia",
+     "note": "Bolesť na vonkajšej strane bedra, horšia pri ležaní na tej strane, na schodoch alebo pri státí na jednej nohe. Častá u žien po 40. roku."
+    },
+    {
+     "name": "Poklesávanie panvy pri chôdzi",
+     "note": "Ak je slabý, panva pri každom kroku poklesne na opačnej strane (Trendelenburgova chôdza)."
+    }
+   ]
+  },
+  "gluteus-minimus": {
+   "name": "Malý sedací sval",
+   "aka": [
+    "gluteus minimus"
+   ],
+   "originNote": "Vonkajšia plocha bedrovej kosti, pod stredným sedacím svalom",
+   "insertionNote": "Predná strana veľkého chochola",
+   "nerve": "Horný sedací nerv (L4–S1)",
+   "actions": [
+    "Spolu so stredným sedacím svalom dvíha nohu do strany",
+    "Pri státí na jednej nohe udržiava panvu vodorovne",
+    "Jeho predné vlákna vytáčajú stehno dovnútra"
+   ],
+   "summary": "Najmenší a najhlbší z troch sedacích svalov, vejár pod stredným sedacím svalom. Oba pracujú v páre a ich šľachy sa delia o vonkajšiu stranu bedra.",
+   "issues": [
+    {
+     "name": "Gluteálna tendinopatia",
+     "note": "Bolesť na vonkajšej strane bedra, horšia pri ležaní na tej strane alebo chôdzi do schodov. Zvyčajne sú postihnuté šľachy malého aj stredného sedacieho svalu spolu."
+    }
+   ]
+  },
+  "piriformis": {
+   "name": "Hruškovitý sval",
+   "aka": [
+    "piriformis"
+   ],
+   "originNote": "Predná strana krížovej kosti",
+   "insertionNote": "Vrchol veľkého chochola",
+   "nerve": "Nerv hruškovitého svalu (S1–S2) z krížovej spleti",
+   "actions": [
+    "Vytáča stehno von",
+    "Stabilizuje hlavicu stehennej kosti v jamke"
+   ],
+   "summary": "Hruškovitý sval hlboko v zadku pod veľkým sedacím svalom. Sedací nerv zvyčajne vystupuje tesne pod ním.",
+   "issues": [
+    {
+     "name": "Syndróm hruškovitého svalu",
+     "note": "Hlboká bolesť zadku, horšia pri sedení alebo chôdzi do schodov, niekedy s bolesťou podobnou ischiasu po zadnej strane nohy."
+    }
+   ]
+  },
+  "gemelli": {
+   "name": "Blížencové svaly",
+   "aka": [
+    "gemelli",
+    "dvojčatá"
+   ],
+   "originNote": "Sedací tŕň (horný blížencový sval) a horná časť sedacieho hrbola (dolný blížencový sval)",
+   "insertionNote": "So šľachou vnútorného zapchávača na vnútornej strane veľkého chochola",
+   "nerve": "Nerv vnútorného zapchávača (horný) a nerv štvorhranného stehenného svalu (dolný) z krížovej spleti",
+   "actions": [
+    "Vytáčajú stehno von",
+    "Držia hlavicu stehennej kosti v jamke"
+   ],
+   "summary": "Dva malé „dvojčatá“ hlboko v zadku, jeden nad a jeden pod šľachou vnútorného zapchávača, ku ktorej sa pripájajú. Spolu s hruškovitým a štvorhranným stehenným svalom tvoria hlboké rotátory bedra pod veľkým sedacím svalom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Horný blížencový sval",
+     "note": "Zo sedacieho tŕňa, pozdĺž hornej strany šľachy vnútorného zapchávača."
+    },
+    {
+     "name": "Dolný blížencový sval",
+     "note": "Zo sedacieho hrbola, pozdĺž dolnej strany šľachy vnútorného zapchávača."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Syndróm hlbokej sedacej oblasti",
+     "note": "Hlboká bolesť zadku, horšia v sede, niekedy s bolesťou podobnou ischiasu, keď je sedací nerv podráždený medzi hlbokými rotátormi."
+    }
+   ]
+  },
+  "obturator-internus": {
+   "name": "Vnútorný zapchávač",
+   "aka": [
+    "obturator internus"
+   ],
+   "originNote": "Vnútorná plocha panvy okolo zapchaného otvoru a blana, ktorá ho uzatvára",
+   "insertionNote": "Vnútorná strana veľkého chochola, nad chocholovou jamkou",
+   "nerve": "Nerv vnútorného zapchávača (L5–S2) z krížovej spleti",
+   "actions": [
+    "Vytáča stehno von",
+    "Odťahuje ohnuté stehno do strany",
+    "Stabilizuje hlavicu stehennej kosti v jamke"
+   ],
+   "summary": "Vejár svalu, ktorý vystiela bočnú stenu panvy. Jeho šľacha sa v pravom uhle stáča okolo malého sedacieho zárezu von do sedacej oblasti medzi blížencovými svalmi. Zozadu je vidieť len túto šľachu a blížencové svaly, bruško leží vnútri panvy.",
+   "issues": [
+    {
+     "name": "Bolesť vnútorného zapchávača",
+     "note": "Hlboká bolesť v zadku, panve alebo panvovom dne, horšia v sede. Často súvisí s napätím panvového dna."
+    }
+   ]
+  },
+  "quadratus-femoris": {
+   "name": "Štvorhranný stehenný sval",
+   "aka": [
+    "quadratus femoris"
+   ],
+   "originNote": "Vonkajší okraj sedacieho hrbola",
+   "insertionNote": "Štvorhranný hrbolček na zadnej strane stehennej kosti, medzi chocholmi",
+   "nerve": "Nerv štvorhranného stehenného svalu (L4–S1) z krížovej spleti",
+   "actions": [
+    "Vytáča stehno von (najsilnejší z hlbokých rotátorov)",
+    "Drží hlavicu stehennej kosti v jamke"
+   ],
+   "summary": "Plochý štvorcový sval na spodku hlbokých rotátorov bedra, medzi sedacou kosťou a zadnou stranou stehennej kosti, tesne pod dolným blížencovým svalom.",
+   "issues": [
+    {
+     "name": "Ischiofemorálny impingement",
+     "note": "Sval sa privrie medzi sedaciu kosť a stehennú kosť a spôsobuje hlbokú bolesť zadku alebo slabiny pri dlhých krokoch alebo pri vytočení stehna dovnútra."
+    }
+   ]
+  },
+  "obturator-externus": {
+   "name": "Vonkajší zapchávač",
+   "aka": [
+    "obturator externus"
+   ],
+   "originNote": "Vonkajšia plocha kosti okolo zapchaného otvoru a jeho blana",
+   "insertionNote": "Chocholová jamka pod krčkom stehennej kosti",
+   "nerve": "Zapchávací nerv (L3–L4)",
+   "actions": [
+    "Vytáča stehno von",
+    "Stabilizuje hlavicu stehennej kosti v jamke"
+   ],
+   "summary": "Plochý trojuholníkový sval nad prednou stranou zapchaného otvoru, hlboko pod hrebeňovým svalom a priťahovačmi. Jeho šľacha vedie dozadu pod krčkom stehennej kosti do chocholovej jamky.",
+   "issues": [
+    {
+     "name": "Natiahnutie vonkajšieho zapchávača",
+     "note": "Hlboká bolesť v slabine pri športoch s kopaním a otáčaním, ľahko zameniteľná s natiahnutím priťahovačov alebo problémom bedra."
+    }
+   ]
+  },
+  "tensor-fasciae-latae": {
+   "name": "Napínač stehennej povázky",
+   "aka": [
+    "TFL",
+    "IT trakt",
+    "iliotibiálny trakt"
+   ],
+   "originNote": "Predný horný bedrový tŕň, predný výbežok bedrovej kosti",
+   "insertionNote": "Cez iliotibiálny trakt na vonkajšiu stranu píšťaly",
+   "nerve": "Horný sedací nerv",
+   "actions": [
+    "Pomáha ohýbať bedro a odťahovať ho",
+    "Napína iliotibiálny trakt a stabilizuje koleno"
+   ],
+   "summary": "Krátky sval bedra, ktorý napína iliotibiálny trakt, pevný pruh vedúci po vonkajšej strane stehna ku kolenu.",
+   "issues": [
+    {
+     "name": "Syndróm iliotibiálneho traktu",
+     "note": "Ostrá bolesť na vonkajšej strane kolena u bežcov a cyklistov, horšia pri behu z kopca."
+    }
+   ]
+  },
+  "sartorius": {
+   "name": "Krajčírsky sval",
+   "aka": [
+    "sartorius"
+   ],
+   "originNote": "Predný horný bedrový tŕň",
+   "insertionNote": "Horná vnútorná časť píšťaly (husia nôžka)",
+   "nerve": "Stehenný nerv",
+   "actions": [
+    "Ohýba bedro, vytáča ho von a ohýba koleno: krajčírsky sed so skríženými nohami"
+   ],
+   "summary": "Najdlhší sval v tele: pás, ktorý šikmo kríži stehno od bedra k vnútornej strane kolena.",
+   "issues": [
+    {
+     "name": "Burzitída husej nôžky",
+     "note": "Bolesť na vnútornej strane kolena tesne pod kĺbom, častá pri artróze kolena a u bežcov."
+    }
+   ]
+  },
+  "adductors": {
+   "name": "Priťahovače stehna",
+   "aka": [
+    "svaly slabiny",
+    "vnútorná strana stehna",
+    "adduktory"
+   ],
+   "originNote": "Lonová a sedacia kosť",
+   "insertionNote": "Zadná strana stehennej kosti a pri štíhlom svale horná vnútorná časť píšťaly",
+   "nerve": "Väčšinou zapchávací nerv",
+   "actions": [
+    "Priťahujú nohy k sebe",
+    "Pri chôdzi stabilizujú panvu",
+    "Pomáhajú ohýbať a otáčať bedro"
+   ],
+   "summary": "Svaly vnútornej strany stehna, ktoré sa vejárovito rozbiehajú od lonovej kosti k stehennej kosti.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Hrebeňový sval",
+     "note": "Najvyššie, vedľa ohýbačov bedra."
+    },
+    {
+     "name": "Dlhý priťahovač",
+     "note": "Ten, ktorý sa najčastejšie natiahne."
+    },
+    {
+     "name": "Krátky priťahovač",
+     "note": "Leží pod dlhým priťahovačom."
+    },
+    {
+     "name": "Veľký priťahovač",
+     "note": "Najväčší, siaha až ku kolenu."
+    },
+    {
+     "name": "Štíhly sval",
+     "note": "Dlhý pás až k vnútornej strane kolena."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie slabiny",
+     "note": "Náhla bolesť na vnútornej strane stehna pri kopaní, šprinte alebo zmene smeru."
+    },
+    {
+     "name": "Dlhodobá bolesť slabiny",
+     "note": "Pretrvávajúca bolesť v mieste, kde sa priťahovače upínajú na lonovú kosť, častá pri futbale a hokeji."
+    }
+   ]
+  },
+  "rectus-femoris": {
+   "name": "Priamy sval stehna",
+   "aka": [
+    "rectus femoris"
+   ],
+   "originNote": "Predný dolný bedrový tŕň a miesto tesne nad jamkou bedrového kĺbu",
+   "insertionNote": "Jabĺčko cez šľachu štvorhlavého svalu, potom drsnatina píšťaly cez väz jabĺčka",
+   "nerve": "Stehenný nerv (L2–L4)",
+   "actions": [
+    "Vystiera koleno",
+    "Ohýba bedro (jediná hlava štvorhlavého svalu, ktorá cez neho prechádza)"
+   ],
+   "summary": "Stredná hlava štvorhlavého svalu, ktorá vedie priamo nadol po prednej strane stehna.",
+   "issues": [
+    {
+     "name": "Natiahnutie štvorhlavého svalu",
+     "note": "Náhla bolesť na prednej strane stehna pri šprinte alebo kopaní."
+    },
+    {
+     "name": "Skokanské koleno",
+     "note": "Bolesť tesne pod jabĺčkom pri skákaní a drepoch (tendinopatia väzu jabĺčka)."
+    }
+   ]
+  },
+  "vastus-lateralis": {
+   "name": "Vonkajší hlavový sval stehna",
+   "aka": [
+    "vastus lateralis"
+   ],
+   "originNote": "Veľký chochol a vonkajší zadný hrebeň stehennej kosti",
+   "nerve": "Stehenný nerv",
+   "actions": [
+    "Vystiera koleno"
+   ],
+   "summary": "Najväčšia hlava štvorhlavého svalu, ktorá tvorí vonkajšiu stranu stehna.",
+   "issues": [
+    {
+     "name": "Pomliaždenie stehna („mŕtva noha“)",
+     "note": "Silný úder spôsobí bolestivú modrinu v stehne. Výrazný, zhoršujúci sa opuch treba vyšetriť."
+    }
+   ]
+  },
+  "vastus-medialis": {
+   "name": "Vnútorný hlavový sval stehna",
+   "aka": [
+    "vastus medialis",
+    "VMO"
+   ],
+   "originNote": "Vnútorný zadný hrebeň stehennej kosti",
+   "nerve": "Stehenný nerv",
+   "actions": [
+    "Vystiera koleno",
+    "Jeho najnižšie vlákna pomáhajú jabĺčku kĺzať rovno"
+   ],
+   "summary": "Hlava štvorhlavého svalu v tvare slzy tesne nad vnútornou stranou kolena.",
+   "issues": [
+    {
+     "name": "Bolesť z nesprávneho kĺzania jabĺčka",
+     "note": "Slabosť tohto svalu súvisí s bolesťou okolo jabĺčka."
+    }
+   ]
+  },
+  "vastus-intermedius": {
+   "name": "Prostredný hlavový sval stehna",
+   "aka": [
+    "vastus intermedius"
+   ],
+   "originNote": "Predná a vonkajšia plocha tela stehennej kosti",
+   "nerve": "Stehenný nerv",
+   "actions": [
+    "Vystiera koleno"
+   ],
+   "summary": "Hlboká hlava štvorhlavého svalu, ktorá leží na stehennej kosti pod priamym svalom stehna."
+  },
+  "hamstrings": {
+   "name": "Zadné stehenné svaly",
+   "aka": [
+    "hamstringy",
+    "dvojhlavý sval stehna",
+    "pološľachovitý sval",
+    "polobláníkovitý sval"
+   ],
+   "originNote": "Sedací hrbol (sedacia kosť); krátka hlava dvojhlavého svalu zo stehennej kosti",
+   "insertionNote": "Hlavička ihlice a horná vnútorná časť píšťaly",
+   "nerve": "Sedací nerv",
+   "actions": [
+    "Ohýbajú koleno",
+    "Vystierajú bedro a švihajú nohou dozadu"
+   ],
+   "summary": "Tri svaly na zadnej strane stehna, od sedacej kosti po miesto tesne pod kolenom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dvojhlavý sval stehna",
+     "note": "Vonkajší zadný stehenný sval s dlhou a krátkou hlavou."
+    },
+    {
+     "name": "Pološľachovitý sval",
+     "note": "Vnútorný, s dlhou šnúrovitou šľachou."
+    },
+    {
+     "name": "Polobláníkovitý sval",
+     "note": "Najhlbší vnútorný zadný stehenný sval."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie zadných stehenných svalov",
+     "note": "Náhla bolesť na zadnej strane stehna pri šprinte; môže nasledovať modrina."
+    },
+    {
+     "name": "Tendinopatia zadných stehenných svalov",
+     "note": "Hlboká bolesť pri sedacej kosti, horšia v sede alebo pri behu do kopca."
+    }
+   ]
+  },
+  "tibialis-anterior": {
+   "name": "Predný píšťalový sval",
+   "aka": [
+    "tibialis anterior"
+   ],
+   "originNote": "Vonkajšia plocha horných dvoch tretín píšťaly",
+   "insertionNote": "Vnútorná klinová kosť a báza prvej predpriehlavkovej kosti",
+   "nerve": "Hlboký ihlicový nerv (L4–L5)",
+   "actions": [
+    "Dvíha chodidlo (dorzálna flexia)",
+    "Vytáča chodidlo dovnútra",
+    "Podopiera klenbu"
+   ],
+   "summary": "Sval tesne vedľa holennej kosti. Jeho šľachu nahmatáte na prednej strane členka, keď zdvihnete prsty.",
+   "issues": [
+    {
+     "name": "Shin splints (vpredu)",
+     "note": "Bolesť pozdĺž prednej vonkajšej strany holene, horšia na začiatku behu."
+    },
+    {
+     "name": "Padajúca noha",
+     "note": "Ak je jeho nerv poškodený, chodidlo pri chôdzi pleskne alebo prsty zakopávajú."
+    },
+    {
+     "name": "Kompartmentový syndróm",
+     "note": "Silná, narastajúca bolesť a napätie na prednej strane holene po úraze alebo ťažkom cvičení. Je to naliehavé."
+    }
+   ]
+  },
+  "toe-extensors": {
+   "name": "Dlhé vystierače prstov nohy",
+   "aka": [
+    "dlhý vystierač prstov",
+    "dlhý vystierač palca",
+    "EDL",
+    "EHL"
+   ],
+   "originNote": "Vonkajší kondyl píšťaly a predná strana ihlice",
+   "insertionNote": "Chrbát článkov prstov",
+   "nerve": "Hlboký ihlicový nerv",
+   "actions": [
+    "Dvíhajú prsty",
+    "Pomáhajú dvíhať chodidlo"
+   ],
+   "summary": "Dlhé svaly na prednej strane predkolenia, ktorých šľachy sa vejárovito rozbiehajú cez chrbát chodidla k prstom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dlhý vystierač prstov",
+     "note": "Dvíha štyri malé prsty."
+    },
+    {
+     "name": "Dlhý vystierač palca",
+     "note": "Dvíha palec."
+    },
+    {
+     "name": "Tretí ihlicový sval",
+     "note": "Malý pruh, ktorý dvíha vonkajšiu stranu chodidla."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Tendinopatia vystieračov",
+     "note": "Bolesť na chrbte chodidla, často z tesných šnúrok alebo náhleho zvýšenia behu."
+    }
+   ]
+  },
+  "fibularis": {
+   "name": "Ihlicové svaly",
+   "aka": [
+    "peroneálne svaly",
+    "dlhý ihlicový sval",
+    "krátky ihlicový sval"
+   ],
+   "originNote": "Vonkajšia plocha ihlice",
+   "insertionNote": "Bázy prvej a piatej predpriehlavkovej kosti a vnútorná klinová kosť",
+   "nerve": "Povrchový ihlicový nerv",
+   "actions": [
+    "Vytáčajú chodidlo von (everzia)",
+    "Chránia členok pred vytočením",
+    "Podopierajú klenby"
+   ],
+   "summary": "Svaly pozdĺž vonkajšej strany predkolenia, ktorých šľachy vedú za vonkajším členkom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dlhý ihlicový sval",
+     "note": "Jeho šľacha prechádza popod chodidlo k prvej predpriehlavkovej kosti."
+    },
+    {
+     "name": "Krátky ihlicový sval",
+     "note": "Upína sa na piatu predpriehlavkovú kosť."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Tendinopatia ihlicových svalov",
+     "note": "Bolesť a opuch za vonkajším členkom, často po podvrtnutiach."
+    },
+    {
+     "name": "Avulzia piatej predpriehlavkovej kosti",
+     "note": "Pri vytočení členka môže krátky ihlicový sval odtrhnúť úlomok kosti."
+    }
+   ]
+  },
+  "gastrocnemius": {
+   "name": "Dvojhlavý sval lýtka",
+   "aka": [
+    "lýtkový sval",
+    "gastrocnemius",
+    "Achillova šľacha"
+   ],
+   "originNote": "Oba kondyly stehennej kosti, tesne nad kolenom",
+   "insertionNote": "Pätová kosť cez Achillovu šľachu",
+   "nerve": "Píšťalový nerv (S1–S2)",
+   "actions": [
+    "Prepína chodidlo: postavenie sa na špičky a odraz",
+    "Pomáha ohýbať koleno"
+   ],
+   "summary": "Dvojhlavý sval, ktorý tvorí hlavnú časť lýtka. Spredu je vidieť len jeho vnútorný okraj.",
+   "issues": [
+    {
+     "name": "Natiahnutie lýtka („tenisová noha“)",
+     "note": "Náhla bolesť v hornej časti lýtka, akoby vás niekto kopol, pri odraze."
+    },
+    {
+     "name": "Tendinopatia Achillovej šľachy",
+     "note": "Bolesť a stuhnutosť nad pätou, najhoršia ráno."
+    }
+   ]
+  },
+  "soleus": {
+   "name": "Šikmý sval lýtka",
+   "aka": [
+    "soleus",
+    "plosný sval"
+   ],
+   "originNote": "Zadná strana hornej časti píšťaly a ihlice",
+   "insertionNote": "Pätová kosť cez Achillovu šľachu",
+   "nerve": "Píšťalový nerv",
+   "actions": [
+    "Prepína chodidlo, najmä pri pokrčenom kolene",
+    "Pri chôdzi pumpuje krv z nôh nahor"
+   ],
+   "summary": "Široký plochý sval lýtka pod dvojhlavým svalom lýtka. Spolu tvoria trojhlavý sval lýtka.",
+   "issues": [
+    {
+     "name": "Natiahnutie šikmého svalu lýtka",
+     "note": "Postupne sa sťahujúca bolesť v dolnej časti lýtka u bežcov."
+    },
+    {
+     "name": "Shin splints (vnútri)",
+     "note": "Bolesť pozdĺž vnútorného okraja holene, kde sa upína šikmý sval lýtka a hlboké svaly lýtka."
+    }
+   ]
+  },
+  "popliteus": {
+   "name": "Podkolenný sval",
+   "aka": [
+    "popliteus"
+   ],
+   "originNote": "Vonkajšia strana vonkajšieho kondylu stehennej kosti a vonkajší meniskus",
+   "insertionNote": "Zadná strana píšťaly, nad čiarou šikmého svalu",
+   "nerve": "Píšťalový nerv",
+   "actions": [
+    "Odomyká vystreté koleno vytočením píšťaly dovnútra",
+    "Pri ohýbaní kolena sťahuje vonkajší meniskus dozadu"
+   ],
+   "summary": "Malý plochý trojuholníkový sval cez zadnú stranu kolena, hlboko pod dvojhlavým svalom lýtka.",
+   "issues": [
+    {
+     "name": "Tendinopatia podkolenného svalu",
+     "note": "Bolesť na zadnej a vonkajšej strane kolena, horšia pri behu z kopca."
+    }
+   ]
+  },
+  "tibialis-posterior": {
+   "name": "Zadný píšťalový sval",
+   "aka": [
+    "tibialis posterior"
+   ],
+   "originNote": "Zadná strana píšťaly, ihlice a blany medzi nimi",
+   "insertionNote": "Hlavne člnková kosť, s pruhmi k ostatným priehlavkovým kostiam a 2.–4. predpriehlavkovej kosti",
+   "nerve": "Píšťalový nerv",
+   "actions": [
+    "Prepína chodidlo a vytáča ho dovnútra",
+    "Drží klenbu chodidla"
+   ],
+   "summary": "Najhlbší sval lýtka. Jeho šľacha vedie za vnútorným členkom a podopiera klenbu.",
+   "issues": [
+    {
+     "name": "Porucha šľachy zadného píšťalového svalu",
+     "note": "Bolesť a opuch za vnútorným členkom a klenba, ktorá sa postupne splošťuje."
+    },
+    {
+     "name": "Shin splints (vnútri)",
+     "note": "Bolesť pozdĺž vnútorného okraja holene."
+    }
+   ]
+  },
+  "toe-flexors": {
+   "name": "Dlhé ohýbače prstov nohy",
+   "aka": [
+    "dlhý ohýbač prstov",
+    "dlhý ohýbač palca",
+    "FDL",
+    "FHL"
+   ],
+   "originNote": "Zadná strana píšťaly (dlhý ohýbač prstov) a dolná zadná časť ihlice (dlhý ohýbač palca)",
+   "insertionNote": "Spodná strana koncových článkov prstov",
+   "nerve": "Píšťalový nerv",
+   "actions": [
+    "Ohýbajú prsty a zachytávajú sa zeme",
+    "Pomáhajú prepínať chodidlo a podopierajú klenbu",
+    "Dávajú posledný odraz z palca pri chôdzi a behu"
+   ],
+   "summary": "Dva hlboké svaly lýtka po oboch stranách zadného píšťalového svalu. Ich šľachy prechádzajú za vnútorným členkom a vedú popod chodidlo k prstom.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Dlhý ohýbač prstov",
+     "note": "Ohýba štyri malé prsty."
+    },
+    {
+     "name": "Dlhý ohýbač palca",
+     "note": "Ohýba palec, najsilnejší odraz prstov."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Tendinopatia dlhého ohýbača palca (tanečnícka tendinitída)",
+     "note": "Bolesť za vnútorným členkom alebo pod palcom, horšia na špičkách. Častá u baletných tanečníkov a bežcov."
+    },
+    {
+     "name": "Shin splints (vnútri)",
+     "note": "Dlhý ohýbač prstov ťahá za vnútorný okraj holene spolu so zadným píšťalovým a šikmým svalom lýtka."
+    }
+   ]
+  },
+  "extensor-digitorum-brevis": {
+   "name": "Krátky vystierač prstov",
+   "aka": [
+    "EDB",
+    "extensor digitorum brevis"
+   ],
+   "originNote": "Horná vonkajšia plocha pätovej kosti",
+   "insertionNote": "Báza palca a dlhé šľachy vystierača druhého až štvrtého prsta",
+   "nerve": "Hlboký ihlicový nerv",
+   "actions": [
+    "Dvíha prvé štyri prsty",
+    "Pomáha dlhým vystieračom prstov"
+   ],
+   "summary": "Jediný sval na chrbte chodidla: mäkký, mäsitý vankúšik pred vonkajším členkom so štyrmi štíhlymi šľachami k prstom. Jeho vydutie je normálne a niekedy sa mylne považuje za opuch.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Krátky vystierač prstov",
+     "note": "Dvíha druhý až štvrtý prst."
+    },
+    {
+     "name": "Krátky vystierač palca",
+     "note": "Jeho najvnútornejší pruh; dvíha palec."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Bolesť chrbta chodidla",
+     "note": "Bolesť na chrbte chodidla z tesných šnúrok alebo náhleho zvýšenia behu, často spolu so šľachami dlhých vystieračov."
+    }
+   ]
+  },
+  "foot-interossei": {
+   "name": "Medzikostné svaly nohy",
+   "aka": [
+    "interosseálne svaly nohy"
+   ],
+   "originNote": "Boky predpriehlavkových kostí",
+   "insertionNote": "Bázy základných článkov druhého až piateho prsta",
+   "nerve": "Vonkajší chodidlový nerv z píšťalového nervu",
+   "actions": [
+    "Roztiahnu prsty (chrbtové) a priblížia ich k sebe (chodidlové)",
+    "Pri odraze stabilizujú prsty a prednú časť chodidla"
+   ],
+   "summary": "Malé svaly v priestoroch medzi predpriehlavkovými kosťami. Štyri chrbtové nahmatáte medzi kosťami na chrbte chodidla, tri chodidlové ležia pod nimi, na strane chodidla.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Chrbtové medzikostné svaly (4)",
+     "note": "Odťahujú prsty od druhého prsta."
+    },
+    {
+     "name": "Chodidlové medzikostné svaly (3)",
+     "note": "Priťahujú tretí až piaty prst k druhému."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Bolesť prednej časti chodidla",
+     "note": "Bolesť medzi predpriehlavkovými kosťami po zvýšení chôdze alebo behu. Jedno veľmi citlivé miesto na kosti môže byť únavová zlomenina, ktorú treba vyšetriť."
+    }
+   ]
+  },
+  "sole-muscles": {
+   "name": "Svaly chodidla",
+   "aka": [
+    "plantárne svaly",
+    "vlastné svaly nohy"
+   ],
+   "listOnly": "Na mape nie sú nakreslené: ležia pod chodidlom, ktoré v prednom aj zadnom pohľade smeruje k zemi.",
+   "originNote": "Pätová kosť, ostatné priehlavkové kosti, bázy predpriehlavkových kostí a plantárna fascia",
+   "insertionNote": "Články prstov a šľachy dlhých ohýbačov prstov",
+   "nerve": "Vnútorný a vonkajší chodidlový nerv z píšťalového nervu",
+   "actions": [
+    "Ohýbajú, roztiahnu a stabilizujú prsty",
+    "Pri státí a odraze držia klenby chodidla"
+   ],
+   "summary": "Štyri vrstvy malých svalov pod chodidlom, medzi plantárnou fasciou a kosťami. Spolu spevňujú klenby a udržiavajú prsty pritlačené k zemi.",
+   "membersLabel": "Svaly",
+   "members": [
+    {
+     "name": "Odťahovač palca",
+     "note": "Pozdĺž vnútorného okraja chodidla; odťahuje palec od ostatných prstov a podopiera vnútornú klenbu."
+    },
+    {
+     "name": "Krátky ohýbač prstov",
+     "note": "V strede chodidla, na plantárnej fascii; ohýba štyri malé prsty."
+    },
+    {
+     "name": "Odťahovač malíčka",
+     "note": "Pozdĺž vonkajšieho okraja; pohybuje malíčkom."
+    },
+    {
+     "name": "Štvorhranný sval chodidla",
+     "note": "Ťahá za šľachy dlhých ohýbačov prstov a narovnáva smer ich ťahu."
+    },
+    {
+     "name": "Červovité svaly (4)",
+     "note": "Ohýbajú prsty na báze a zároveň vystierajú kĺby prstov."
+    },
+    {
+     "name": "Krátky ohýbač palca",
+     "note": "Ohýba palec; jeho šľachy obsahujú dve malé sezamské kosti pod kĺbom palca."
+    },
+    {
+     "name": "Priťahovač palca",
+     "note": "Priťahuje palec k ostatným prstom a spevňuje klenbu naprieč prednou časťou chodidla."
+    },
+    {
+     "name": "Krátky ohýbač malíčka",
+     "note": "Ohýba malíček."
+    }
+   ],
+   "issues": [
+    {
+     "name": "Natiahnutie klenby",
+     "note": "Bolesť pod klenbou po dlhom státí, novom športe alebo zmene obuvi. Zvyčajne ustúpi pri oddychu a v podpornej obuvi."
+    },
+    {
+     "name": "Sezamoiditída",
+     "note": "Bolesť pod prednými vankúšikmi chodidla za palcom, častá u tanečníkov a bežcov."
+    }
+   ]
+  }
+ },
+ "groups": {
+  "head-muscles": {
+   "name": "Hlava a tvár",
+   "summary": "Žuvacie svaly, ktoré zatvárajú a posúvajú sánku, a mimické svaly okolo očí, úst a čela."
+  },
+  "neck-muscles": {
+   "name": "Krk",
+   "summary": "Svaly, ktoré otáčajú a stabilizujú hlavu a pri prehĺtaní pohybujú jazylkou a hrtanom."
+  },
+  "shoulder-muscles": {
+   "name": "Rameno a horná časť chrbta",
+   "summary": "Svaly, ktoré pohybujú lopatkou a rukou v ramennom kĺbe."
+  },
+  "chest-muscles": {
+   "name": "Hrudná stena a dýchanie",
+   "summary": "Svaly na rebrách a medzi nimi a bránica, hlavný dýchací sval."
+  },
+  "abdomen-muscles": {
+   "name": "Brucho a stred tela",
+   "summary": "Vrstvená brušná stena a panvové dno, ktoré spevňujú trup a podopierajú orgány."
+  },
+  "back-muscles": {
+   "name": "Chrbát",
+   "summary": "Hlboké svaly, ktoré držia chrbticu vzpriamenú. Ležia za chrbticou, preto sú nakreslené v zadnom pohľade."
+  },
+  "arm-muscles": {
+   "name": "Nadlaktie",
+   "summary": "Svaly, ktoré ohýbajú a vystierajú lakeť, a zobákovo-ramenný sval, ktorý ťahá ruku v ramennom kĺbe dopredu."
+  },
+  "forearm-muscles": {
+   "name": "Predlaktie a ruka",
+   "summary": "Svaly, ktoré pohybujú zápästím, prstami a palcom."
+  },
+  "hip-muscles": {
+   "name": "Bedro a sedacia oblasť",
+   "summary": "Svaly, ktoré ohýbajú, vystierajú a stabilizujú bedrový kĺb."
+  },
+  "thigh-muscles": {
+   "name": "Stehno",
+   "summary": "Štvorhlavý sval vpredu, priťahovače na vnútornej strane a zadné stehenné svaly vzadu."
+  },
+  "quadriceps": {
+   "name": "Štvorhlavý sval stehna",
+   "summary": "Štyri svaly na prednej strane stehna, ktoré sa nad jabĺčkom spájajú do jednej šľachy. Sú to jediné svaly, ktoré vystierajú koleno.",
+   "issues": [
+    {
+     "name": "Natiahnutie štvorhlavého svalu",
+     "note": "Náhla bolesť na prednej strane stehna pri šprinte alebo kopaní."
+    },
+    {
+     "name": "Pretrhnutie šľachy štvorhlavého svalu",
+     "note": "Zvyčajne starší dospelý, ktorý spadne s pokrčeným kolenom a potom nemôže vystrieť nohu. Je to naliehavé."
+    }
+   ]
+  },
+  "leg-muscles": {
+   "name": "Predkolenie",
+   "summary": "Svaly, ktoré dvíhajú, prepínajú a nakláňajú chodidlo a pohybujú prstami."
+  },
+  "foot-muscles": {
+   "name": "Chodidlo",
+   "summary": "Malé svaly vnútri chodidla, ktoré pohybujú prstami a držia klenby. Väčšina leží vo vrstvách pod chodidlom."
+  }
+ }
+}

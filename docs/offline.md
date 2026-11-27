@@ -13,7 +13,7 @@ Corpus works without a connection after the first visit, and it can be added to 
 
 By default, what someone has opened: the first visit saves the app, the data and the default drawings; the realistic drawings and each 3D model are saved the first time they are shown.
 
-**Settings → Offline → Save for offline** fetches the rest ahead: every drawing in every style, three.js, every 3D model and the skin, about 6 MB. The size in the button comes from `OFFLINE_MB` in `js/main.js`: update it if the models or drawings grow a lot. The section tells you when everything is saved. It doesn't appear where service workers aren't available (a `file://` page, or plain `http` other than `localhost`).
+**Settings → Offline → Save for offline** fetches the rest ahead: every drawing in every style, three.js, every 3D model and the skin, and every language's files, about 6 MB. The size in the button comes from `OFFLINE_MB` in `js/main.js`: update it if the models or drawings grow a lot. The section tells you when everything is saved. It doesn't appear where service workers aren't available (a `file://` page, or plain `http` other than `localhost`).
 
 ## Working on the site
 

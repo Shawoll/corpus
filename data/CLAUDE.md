@@ -8,6 +8,10 @@ The structures and links behind the map. The JSON shapes are in `docs/data.md` (
 - `"paired": true` means the structure exists as `id:right` and `id:left`. The data has one entry, and the SVG draws both sides with `data-side`. Use `"id:right"` in a reference only to point at one side. Otherwise the side rules in `graph.js` (`resolvePair`) choose sides.
 - A structure that isn't drawn in any view (front or back) needs `"listOnly": true`, or the check reports it as not drawn. Remove the flag once it is drawn: the check also reports a drawn structure that is still `listOnly`. `listOnly` can also be a sentence saying why it isn't drawn (the skin), which the panel shows instead of the default "lies deep inside" note.
 
+## Translations
+
+This English text is the source for every language (`locales/<lang>/`, see `docs/i18n.md`). Changing a string makes the check report its translations as stale: update them, then run `node tools/i18n.mjs snapshot <lang>`. Adding, removing or reordering items in a text list (`issues`, `causes`, `members`, `actions`, `redFlags`…) shifts the translations, which merge by index. Ids are the overlays' keys, so renaming an id means renaming it in every overlay too. A new kind of text field must be added to `TEXT_FIELDS` / `TEXT_LISTS` / `ITEM_LISTS` in `js/i18n.js`, or it can't be translated.
+
 ## Sex-specific content
 
 The biological sex setting (Not set / Female / Male, `manifest.sexes`) filters the data through `js/sex.js` before a graph is built, once per setting.

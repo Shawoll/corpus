@@ -25,6 +25,8 @@ The page is served through a service worker that fetches from the network first 
 - **Add a structure**: give it an entry in its layer's JSON *and* a shape in the drawings (or mark it `listOnly`), then run the check. See [data.md](data.md#adding-a-structure-or-a-layer).
 - **Change a drawing**: edit the schematic SVG, then regenerate the realistic one with `tools/realistic/build.py`. See [drawings.md](drawings.md).
 - **Change the 3D model**: edit `tools/model3d/map.json` or `generated.py` and rebuild. See [3d-model.md](3d-model.md).
+- **Change English text**: the check then reports its translations as stale. Update them in `locales/<lang>/`, then run `node tools/i18n.mjs snapshot <lang>`. A new text field must also be added to `TEXT_FIELDS` in `js/i18n.js`. See [i18n.md](i18n.md).
+- **A new interface string**: add the key to `locales/en/ui.json` and use `t('key')` (or `t.html` for markup), then translate it in every other `ui.json`.
 - **A new "Where does it hurt?" area**: add it to `data/regions.json`, draw it in `assets/svg/regions-*.svg`, add it to `REGION_GROUPS` in `js/panel.js` (or it won't be listed), and rebuild the 3D skin (`build.py skin`).
 
 ## Style of the code

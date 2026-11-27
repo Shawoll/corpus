@@ -1,0 +1,126 @@
+{
+ "title": "Corpus",
+ "views": {
+  "anterior": {
+   "name": "Spredu"
+  },
+  "posterior": {
+   "name": "Zozadu"
+  },
+  "3d": {
+   "name": "3D"
+  }
+ },
+ "styles": {
+  "schematic": {
+   "name": "Schematické",
+   "short": "Jednoduché"
+  },
+  "realistic": {
+   "name": "Realistické",
+   "short": "Reálne"
+  }
+ },
+ "sexes": {
+  "none": {
+   "name": "Nenastavené"
+  },
+  "female": {
+   "name": "Žena",
+   "short": "Ž"
+  },
+  "male": {
+   "name": "Muž",
+   "short": "M"
+  }
+ },
+ "layers": {
+  "organs": {
+   "name": "Orgány"
+  },
+  "skeleton": {
+   "name": "Kostra"
+  },
+  "ligaments": {
+   "name": "Väzy"
+  },
+  "muscles": {
+   "name": "Svaly"
+  },
+  "vessels": {
+   "name": "Cievy"
+  },
+  "lymphatics": {
+   "name": "Lymfatika"
+  },
+  "nerves": {
+   "name": "Nervy"
+  }
+ },
+ "linkTypes": {
+  "articulates": {
+   "forward": "Kĺbovo sa spája s",
+   "reverse": "Kĺbovo sa spája s"
+  },
+  "protects": {
+   "forward": "Chráni",
+   "reverse": "Chránia ho"
+  },
+  "continues": {
+   "forward": "Pokračuje ako",
+   "reverse": "Pokračuje z"
+  },
+  "branches": {
+   "forward": "Vydáva vetvy",
+   "reverse": "Odstupuje z"
+  },
+  "pumps": {
+   "forward": "Pumpuje krv do",
+   "reverse": "Prijíma krv z"
+  },
+  "regulates": {
+   "forward": "Riadi",
+   "reverse": "Riadia ho"
+  },
+  "drains": {
+   "forward": "Ústi do",
+   "reverse": "Prijíma z"
+  },
+  "attached": {
+   "forward": "Upínajú sa naň",
+   "reverse": "Upína sa na"
+  },
+  "contains": {
+   "forward": "Obsahuje",
+   "reverse": "Nachádza sa v"
+  },
+  "origin": {
+   "forward": "Začiatok",
+   "reverse": "Svaly, ktoré tu začínajú"
+  },
+  "insertion": {
+   "forward": "Úpon",
+   "reverse": "Svaly, ktoré sa tu upínajú"
+  },
+  "innervates": {
+   "forward": "Inervuje",
+   "reverse": "Inervácia"
+  },
+  "supplies": {
+   "forward": "Zásobuje krvou",
+   "reverse": "Krvné zásobenie"
+  },
+  "collects": {
+   "forward": "Zbiera lymfu z",
+   "reverse": "Lymfa odteká do"
+  },
+  "stabilises": {
+   "forward": "Stabilizuje",
+   "reverse": "Stabilizujú ho"
+  },
+  "attaches": {
+   "forward": "Upína sa na",
+   "reverse": "Pripojené väzy a šľachy"
+  }
+ }
+}

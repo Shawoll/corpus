@@ -8,6 +8,7 @@
 | [Drawings](drawings.md) | The SVG conventions, the front and back views, and the realistic drawing generator |
 | [3D model](3d-model.md) | Where the models come from, how they are built, stand-ins and the skin |
 | [Offline](offline.md) | The service worker, "Save for offline" and installing the app |
+| [Languages](i18n.md) | Translations: the locale files, how they overlay the data, the check and the tools |
 
 Elsewhere in the repository:
 
